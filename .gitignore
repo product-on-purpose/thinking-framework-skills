@@ -1,0 +1,10 @@
+# Local working material and scratch (raw research, transcripts, throwaway notes)
+_LOCAL/
+
+# memsearch plugin local state
+.memsearch/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
