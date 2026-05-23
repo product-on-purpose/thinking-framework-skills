@@ -1,6 +1,9 @@
 # Local working material and scratch (raw research, transcripts, throwaway notes)
 _LOCAL/
 
+# Agent session context and logs (local for now)
+_agent-context/
+
 # memsearch plugin local state
 .memsearch/
 
