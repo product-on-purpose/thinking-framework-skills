@@ -1,0 +1,18 @@
+{
+  "name": "thinking-framework-skills",
+  "version": "0.1.0",
+  "description": "An evidence-graded library of agent-executable thinking-method skills (premortem, problem restatement, and more). Each skill is reduced to its working mechanism, graded honestly on how strong its evidence actually is, and produces a concrete artifact rather than prose. Use to reframe a problem, challenge assumptions, generate options, stress-test a decision, or audit reasoning.",
+  "standard": "0.8",
+  "tier": "universal",
+  "agent-targets": ["claude"],
+  "author": { "name": "product-on-purpose" },
+  "license": "Apache-2.0",
+  "keywords": ["thinking-tools", "skills", "claude-code", "decision-making", "premortem", "reasoning", "evidence-graded"],
+  "components": {
+    "skills": [
+      { "name": "premortem", "path": "skills/premortem/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
+    ]
+  },
+  "repository": "https://github.com/product-on-purpose/thinking-framework-skills",
+  "homepage": "https://github.com/product-on-purpose/thinking-framework-skills"
+}
