@@ -1,6 +1,6 @@
-# thinking-tools (working name) - agent guide
+# thinking-framework-skills - agent guide
 
-An evidence-graded library of agent-executable thinking-method skills, for AI agents and the humans who work with them. Sibling to `pm-skills`, no technical coupling: `thinking-tools` helps decide *what* to work on and *why* it is sound; `pm-skills` helps execute *how*.
+An evidence-graded library of agent-executable thinking-method skills, for AI agents and the humans who work with them. The plugin installs as `thinking-framework-skills`; `thinking-tools` is the short library brand used in skill IDs (`thinking-tools.<slug>`). Sibling to `pm-skills`, no technical coupling: `thinking-tools` helps decide *what* to work on and *why* it is sound; `pm-skills` helps execute *how*.
 
 ## What makes a skill here different
 
