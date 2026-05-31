@@ -6,7 +6,7 @@
 
 | | |
 |---|---|
-| **Skill** | `thinking-tools.premortem` |
+| **Skill** | `thinking-framework-skills.premortem` (installable name `tfs-premortem`) |
 | **Family** | risk-and-resilience |
 | **Evidence tier** | **S/M** (contested - see "What the evidence shows" below) |
 | **Confidence** | Moderate-high that the mechanism helps; low that the published effect sizes mean what they are usually quoted to mean |

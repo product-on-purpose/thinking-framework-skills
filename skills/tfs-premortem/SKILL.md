@@ -1,9 +1,9 @@
 ---
-name: premortem
+name: tfs-premortem
 description: Generates a ranked risk register that stress-tests a planned decision by imagining it has already failed, surfacing the likely causes and pairing each with a mitigation, tripwire, and kill criterion. Use when about to commit to a launch, hire, investment, migration, or any risky, hard-to-reverse decision, or when you need risks surfaced before committing.
 license: Apache-2.0
 metadata:
-  id: thinking-tools.premortem
+  id: thinking-framework-skills.premortem
   family: risk-and-resilience
   evidence-tier: "S/M"
   version: 0.1.0
