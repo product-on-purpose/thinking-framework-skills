@@ -1,6 +1,6 @@
 # thinking-framework-skills - agent guide
 
-An evidence-graded library of agent-executable thinking-method skills, for AI agents and the humans who work with them. The plugin installs as `thinking-framework-skills`; `thinking-tools` is the short library brand used in skill IDs (`thinking-tools.<slug>`). Sibling to `pm-skills`, no technical coupling: `thinking-tools` helps decide *what* to work on and *why* it is sound; `pm-skills` helps execute *how*.
+An evidence-graded library of agent-executable thinking-method skills, for AI agents and the humans who work with them. The plugin installs as `thinking-framework-skills`. Skill IDs are namespaced `thinking-framework-skills.<method>`, and installable skill names carry a `tfs-` prefix (for example `tfs-premortem`) to avoid cross-plugin collisions. Sibling to `pm-skills`, no technical coupling: `thinking-tools` helps decide *what* to work on and *why* it is sound; `pm-skills` helps execute *how*.
 
 ## What makes a skill here different
 
@@ -15,7 +15,7 @@ Each skill is built around four commitments, not just a prompt:
 
 | Skill | Family | Evidence | What it produces |
 |---|---|---|---|
-| [`premortem`](skills/premortem/SKILL.md) | risk-and-resilience | S/M (contested) | A risk register: ranked failure causes with tripwires, mitigations, owners, and kill criteria |
+| [`tfs-premortem`](skills/tfs-premortem/SKILL.md) | risk-and-resilience | S/M (contested) | A risk register: ranked failure causes with tripwires, mitigations, owners, and kill criteria |
 
 More skills are in progress; see the release plan and the audit in `_local/`.
 
@@ -34,7 +34,7 @@ skills/<name>/
 
 ## Conventions
 
-- IDs are namespace-dot: `thinking-tools.<slug>`.
+- Skill IDs are namespace-dot: `thinking-framework-skills.<method>`. Installable skill names carry the `tfs-` prefix (`tfs-<method>`), declared as `prefix` in `library.json`.
 - Skills target the open Agent Skills (`agentskills.io`) `SKILL.md` format, so they are portable across agents.
 - Plugin and skill standards align to `agent-skills-toolkit` (Bronze/Universal tier today).
 - No em-dashes or en-dashes anywhere in this repo's prose.

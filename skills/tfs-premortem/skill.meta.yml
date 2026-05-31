@@ -1,11 +1,16 @@
-# Rich sidecar for the premortem skill.
+# Rich sidecar for the tfs-premortem skill.
 # DRAFT: shape is provisional and will be reconciled with agent-skills-toolkit
 # conventions once 2-3 skills exist. Evidence fields are a hand-authored summary
 # of evidence/dossier.md (the source of truth), not generated from it.
+#
+# Naming: id = <namespace>.<method> = thinking-framework-skills.premortem;
+# slug = bare method = premortem; installable name = prefix + slug = tfs-premortem
+# (the tfs- prefix avoids cross-plugin name collisions; see library.json "prefix").
 
 identity:
-  id: thinking-tools.premortem
+  id: thinking-framework-skills.premortem
   slug: premortem
+  name: tfs-premortem        # installable name (matches the skill directory)
   display_name: Premortem
   version: 0.1.0
   status: draft        # draft | experimental | active | deprecated | archived
@@ -40,13 +45,13 @@ execution:
   subagent_suitable: false
   recipe_suitable: true
   likely_companions:
-    - thinking-tools.decision-option-review
-    - thinking-tools.what-would-have-to-be-true
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.what-would-have-to-be-true
 
 relationships:
-  often_follows: [thinking-tools.decision-option-review]
+  often_follows: [thinking-framework-skills.decision-option-review]
   often_precedes: []
-  complements: [thinking-tools.what-would-have-to-be-true]
+  complements: [thinking-framework-skills.what-would-have-to-be-true]
   overlaps_with: []
   variants: []
 
@@ -69,7 +74,7 @@ evidence:
   trademark: none
 
 implementation:
-  skill_path: skills/premortem/SKILL.md
-  references_path: skills/premortem/references/
-  evidence_path: skills/premortem/evidence/dossier.md
-  evals_path: skills/premortem/eval/   # to be created in week 2
+  skill_path: skills/tfs-premortem/SKILL.md
+  references_path: skills/tfs-premortem/references/
+  evidence_path: skills/tfs-premortem/evidence/dossier.md
+  evals_path: skills/tfs-premortem/eval/   # to be created in week 2
