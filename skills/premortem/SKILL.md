@@ -1,6 +1,6 @@
 ---
 name: premortem
-description: Stress-test a planned decision by imagining it has already failed, surface the likely causes, and turn them into mitigations, tripwires, and kill criteria. Use before a launch, hire, investment, migration, vendor choice, or any risky, hard-to-reverse commitment, while you can still change course.
+description: Generates a ranked risk register that stress-tests a planned decision by imagining it has already failed, surfacing the likely causes and pairing each with a mitigation, tripwire, and kill criterion. Use when about to commit to a launch, hire, investment, migration, or any risky, hard-to-reverse decision, or when you need risks surfaced before committing.
 license: Apache-2.0
 metadata:
   id: thinking-tools.premortem
