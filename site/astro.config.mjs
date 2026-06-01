@@ -45,6 +45,10 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Learn',
+          items: [{ autogenerate: { directory: 'learn' } }],
+        },
+        {
           label: 'Frameworks (by name)',
           items: [{ autogenerate: { directory: 'frameworks' } }],
         },
@@ -60,7 +64,12 @@ export default defineConfig({
           label: 'Evidence',
           items: [{ autogenerate: { directory: 'evidence' } }],
         },
+        {
+          label: 'About',
+          items: [{ autogenerate: { directory: 'about' } }],
+        },
       ],
+
     }),
   ],
 });
