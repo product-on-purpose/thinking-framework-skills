@@ -41,6 +41,6 @@ Statuses: `done` | `now` | `next` | `later`. The two `wk3` rows are the strong-e
 
 ## Parallel / later (not gates on the Now skill)
 
-- Relocate the discovery corpus into committed `docs/internal/research/` (secret-scan first); rename `_LOCAL` -> `_local`.
+- DONE: renamed `_LOCAL` -> `_local` (folder + `.gitignore`). Corpus relocation reconsidered and NOT done: kept private (gitignored `_local/` + the `backup/discovery-corpus-2026-05-31` branch) rather than committed, because the repo is heading public and committing it would expose ~106k words of strategy research in public history. See `docs/internal/research/README.md`.
 - DONE: `eval/cases.md` authored for every skill (triggers, anti-triggers, output checks, value-vs-unaided baseline). Not yet executed by a harness; the runner is a Silver-climb item.
 - Confirm license (Apache-2.0); decide the Silver climb; the go-public flip at the showcase.
