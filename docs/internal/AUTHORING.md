@@ -57,7 +57,7 @@ skills/tfs-<method>/
 ## Guardrails (do not reproduce the stall)
 
 - A working session is not "done" unless it changed a file under `skills/` or committed product. Design-only sessions end by naming the single next build action, not a new decision.
-- Reject any proposal to add a meta-skill pipeline, schema enforcement, catalog generators, CI, or more governance until a concrete pain from a shipped skill demands it. The template + this loop + the evaluator are the whole system for now.
+- Reject any proposal to add a meta-skill pipeline, schema enforcement, catalog generators, CI, or more governance until a concrete pain from a shipped skill demands it. The template + this loop + the evaluator are the whole system for now. (Realized exception, 2026-06-01: `tfs-framework-advisor` is a router whose one unforgivable failure is naming a skill that does not exist, so it ships with `scripts/gen-recommendable.mjs` - a tiny, single-purpose generator that derives the valid-name set from `library.json` + frontmatter. That is the "concrete pain demanded it" bar being met, not a general license to add generators.)
 - Open questions (license confirmation, MVP weighting, the Silver climb, going public) are parallel/later, never gates on the next skill.
 
 ---

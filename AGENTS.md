@@ -45,8 +45,9 @@ Each skill is built around four commitments, not just a prompt:
 | [`tfs-backcasting`](skills/tfs-backcasting/SKILL.md) | risk-and-resilience | P | backcast path |
 | [`tfs-stocks-and-flows-reasoning`](skills/tfs-stocks-and-flows-reasoning/SKILL.md) | systems-and-consequences | **S** | stock-flow map |
 | [`tfs-linear-model-aggregation`](skills/tfs-linear-model-aggregation/SKILL.md) | decision-and-option-evaluation | **S** | scoring model |
+| [`tfs-framework-advisor`](skills/tfs-framework-advisor/SKILL.md) | meta (router) | M/C | Thinking Plan |
 
-30 skills, 11 at **S**/S-M tier - the named empirical core is now fully shipped. "(flag)" marks skills with a documented evidence or trademark caveat in their dossier. See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
+31 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`tfs-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). "(flag)" marks skills with a documented evidence or trademark caveat. See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
 
 ## Recipes
 
