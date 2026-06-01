@@ -1,0 +1,75 @@
+# Rich sidecar for the tfs-scamper skill.
+# DRAFT shape. A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.scamper
+  slug: scamper
+  name: tfs-scamper
+  display_name: SCAMPER
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: divergent-ideation
+  secondary_families: []
+  thinking_modes: [divergent, lateral, creative]
+  problem_contexts: [high-ambiguity]
+  use_cases:
+    - expand an existing idea, product, or process past the obvious options
+    - loosen a stuck or merely incremental option set in later-stage ideation
+  poor_fit_cases:
+    - blank-page ideation with no seed to transform
+    - problems that need reframing rather than more options
+    - converging on or choosing among options (use a decision skill)
+    - generating volume without selecting a shortlist
+
+interface:
+  required_inputs:
+    - a seed idea, product, or process to transform
+  optional_inputs:
+    - constraints or the goal the options should serve
+  primary_artifact_type: scamper-expansion-sheet
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.problem-restatement
+    - thinking-framework-skills.decision-option-review
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.problem-restatement
+  often_precedes:
+    - thinking-framework-skills.decision-option-review
+  complements: []
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - generating volume without selecting a shortlist
+    - superficial tweaks that do not really transform the seed
+    - mechanically applying all seven lenses when only two or three fit
+    - using it on a blank page with no seed
+
+evidence:
+  evidence_tier: "P"
+  confidence: moderate that structured prompts break fixedness; low that SCAMPER specifically outperforms other generators
+  transferred_evidence: true
+  lineage:
+    derived_from: [Osborn idea-spurring checklists, Eberle SCAMPER mnemonic]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/tfs-scamper/SKILL.md
+  references_path: skills/tfs-scamper/references/
+  evidence_path: skills/tfs-scamper/evidence/dossier.md
+  evals_path: skills/tfs-scamper/eval/
