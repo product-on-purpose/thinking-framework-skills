@@ -568,4 +568,12 @@ const chooserData = skills.map((s) => ({
 }));
 writeFileSync(join(GENERATED, 'frameworks.json'), JSON.stringify(chooserData, null, 2), 'utf8');
 
+// site-meta: version + counts, consumed by the footer component
+writeFileSync(join(GENERATED, 'site-meta.json'), JSON.stringify({
+  version: lib.version || '0.0.0',
+  skillCount: skills.length,
+  familyCount: Object.keys(byFamily).length,
+  recipeCount: recipes.length,
+}, null, 2), 'utf8');
+
 console.log(`Generated ${count} framework pages, ${Object.keys(byFamily).length} domains, ${recipes.length} recipes, 4 lenses + map + chooser data, + indexes & bibliography -> ${DOCS}`);
