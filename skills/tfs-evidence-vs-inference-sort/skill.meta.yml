@@ -1,0 +1,77 @@
+# Rich sidecar for the tfs-evidence-vs-inference-sort skill.
+# DRAFT shape. A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.evidence-vs-inference-sort
+  slug: evidence-vs-inference-sort
+  name: tfs-evidence-vs-inference-sort
+  display_name: Evidence vs Inference Sort
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: reasoning-clarity
+  secondary_families: [assumption-and-belief-challenge]
+  thinking_modes: [critical, analytical]
+  problem_contexts: [high-stakes, high-complexity]
+  use_cases:
+    - check that a recommendation is trustworthy before acting on it
+    - audit the reasoning behind a conclusion (including the agent's own)
+    - separate verified facts from deductions and unstated assumptions
+  poor_fit_cases:
+    - using it as a fact-checker (it labels claim type, not truth)
+    - creative or exploratory work where rigor is not the point
+    - trivial claims where sorting is only noise
+    - claims that are already well-sourced with explicit leaps
+
+interface:
+  required_inputs:
+    - a body of claims: a prompt, document, or proposed conclusion
+  optional_inputs:
+    - known sources or evidence already gathered
+  primary_artifact_type: evidence-inference-ledger
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.ladder-of-inference-check
+    - thinking-framework-skills.parallel-perspectives-review
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.problem-restatement
+  often_precedes:
+    - thinking-framework-skills.ladder-of-inference-check
+  complements:
+    - thinking-framework-skills.what-would-have-to-be-true
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - mislabeling confident inference as evidence
+    - treating plausibility as verification
+    - over-flagging trivial claims
+    - implying the sort verified truth when it only classified claim type
+
+evidence:
+  evidence_tier: "P"
+  confidence: high that the distinction matters; the specific sort is practitioner-grade
+  transferred_evidence: true
+  lineage:
+    derived_from: [Facione critical-thinking consensus, structured analytic techniques]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/tfs-evidence-vs-inference-sort/SKILL.md
+  references_path: skills/tfs-evidence-vs-inference-sort/references/
+  evidence_path: skills/tfs-evidence-vs-inference-sort/evidence/dossier.md
+  evals_path: skills/tfs-evidence-vs-inference-sort/eval/

@@ -4,7 +4,7 @@ The single source of "what to build next." WIP = 1: build the **Now** skill end 
 
 ## Now
 
-> **`tfs-evidence-vs-inference-sort`** - separate verified facts from inference/assumption. Build this next.
+> **`tfs-ladder-of-inference-check`** - trace the jump from data to conclusion to catch silent leaps. Build this next. (Showcase slice 1-5 is complete; this begins the full-MVP tranche.)
 
 ## Build order
 
@@ -14,10 +14,10 @@ Statuses: `done` | `now` | `next` | `later`. The two `wk3` rows are the strong-e
 |---|---|---|---|---|---|
 | 1 | `tfs-premortem` | risk-and-resilience | S/M | showcase | **done (v0.1.0)** |
 | 2 | `tfs-problem-restatement` | problem-framing | M/P | showcase | **done (v0.1.0)** |
-| 3 | `tfs-evidence-vs-inference-sort` | assumptions | P | showcase | **now** |
-| 4 | `tfs-what-would-have-to-be-true` | decision | P | showcase | next |
-| 5 | `tfs-scamper` | ideation | P | showcase | next |
-| 6 | `tfs-ladder-of-inference-check` | assumptions | P | mvp | later |
+| 3 | `tfs-evidence-vs-inference-sort` | reasoning-clarity | P | showcase | **done (v0.1.0)** |
+| 4 | `tfs-what-would-have-to-be-true` | decision | P | showcase | **done (v0.1.0)** |
+| 5 | `tfs-scamper` | divergent-ideation | P | showcase | **done (v0.1.0)** |
+| 6 | `tfs-ladder-of-inference-check` | assumptions | P | mvp | **now** |
 | 7 | `tfs-parallel-perspectives-review` | perspective | P | mvp | later |
 | 8 | `tfs-question-burst` | ideation | P | mvp | later |
 | 9 | `tfs-futures-wheel` (sub: second-order-effects) | systems | P | mvp | later |
