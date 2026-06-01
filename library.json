@@ -8,7 +8,7 @@
   "agent-targets": ["claude"],
   "author": { "name": "product-on-purpose" },
   "license": "Apache-2.0",
-  "keywords": ["thinking-tools", "skills", "claude-code", "decision-making", "premortem", "reasoning", "evidence-graded"],
+  "keywords": ["thinking-frameworks", "skills", "claude-code", "decision-making", "premortem", "reasoning", "evidence-graded"],
   "components": {
     "skills": [
       { "name": "tfs-premortem", "path": "skills/tfs-premortem/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }

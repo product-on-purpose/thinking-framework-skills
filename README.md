@@ -2,7 +2,7 @@
 
 **A curated, evidence-graded library of thinking tools for AI agents and the humans who work with them.**
 
-> Most "thinking framework" collections are catalogs of named rituals. This one is built the other way around: every method is reduced to its working mechanism, graded by how strong its evidence actually is, and shipped as an agent-executable skill that produces a concrete artifact. Working concept name: `thinking-tools`.
+> Most "thinking framework" collections are catalogs of named rituals. This one is built the other way around: every method is reduced to its working mechanism, graded by how strong its evidence actually is, and shipped as an agent-executable skill that produces a concrete artifact. Library and plugin name: `thinking-framework-skills`; skills install with a `tfs-` prefix (for example `tfs-premortem`).
 
 > Status: early and aspirational. This README documents the vision, the candidate library, and the proposed conventions. Almost nothing here is locked yet, and the catalog below is a candidate universe ("will, or could, be included"), not a shipped product.
 
@@ -41,7 +41,7 @@ That honesty is the product. A method graded "weak evidence, useful anyway, here
 | Composable into multi-step workflows | A pile of unrelated one-offs |
 | Designed for solo-plus-AI first, teams second | A facilitator-only workshop kit |
 
-**Relationship to `pm-skills`:** sibling library, no technical coupling. A useful one-line split: `thinking-tools` helps decide *what* to work on and *why* it is sound; `pm-skills` helps execute *how*. They are designed to compose, not to depend on each other.
+**Relationship to `pm-skills`:** sibling library, no technical coupling. A useful one-line split: `thinking-framework-skills` helps decide *what* to work on and *why* it is sound; `pm-skills` helps execute *how*. They are designed to compose, not to depend on each other.
 
 <details>
 <summary><strong>Honesty commitments we intend to keep (expand)</strong></summary>
@@ -335,16 +335,19 @@ A layered metadata model is proposed so that each concern has one clean home: a 
 
 ```yaml
 ---
-name: premortem
+name: tfs-premortem
 description: >
-  Stress-test a planned decision by imagining it has already failed, surfacing
-  the likely causes, and proposing mitigations. Use before a launch, hire,
-  investment, or any risky commitment.
+  Generates a ranked risk register that stress-tests a planned decision by imagining
+  it has already failed, surfacing the likely causes and pairing each with a
+  mitigation, tripwire, and kill criterion. Use when about to commit to a launch,
+  hire, investment, migration, or any risky, hard-to-reverse decision.
 license: Apache-2.0
 metadata:
-  thinking-tools.id: thinking-tools.premortem
-  thinking-tools.family: risk-and-resilience
-  thinking-tools.evidence-tier: S
+  id: thinking-framework-skills.premortem
+  family: risk-and-resilience
+  evidence-tier: "S/M"
+  version: 0.1.0
+  standard: "0.8"
 ---
 ```
 
@@ -362,7 +365,7 @@ metadata:
 <details>
 <summary><strong>Taxonomy building blocks (expand)</strong></summary>
 
-- **IDs:** human-readable namespace-dot syntax (`thinking-tools.premortem`), not opaque UUIDs, so relationship references stay legible.
+- **IDs:** human-readable namespace-dot syntax (`thinking-framework-skills.premortem`), not opaque UUIDs, so relationship references stay legible. The installable skill name additionally carries the `tfs-` prefix (`tfs-premortem`).
 - **Families:** the eleven cognitive-operation buckets above are the candidate `family` values; a method may carry one primary and several secondary families.
 - **Evidence tiers:** the seven-tier model (S strong, M moderate, P practitioner, V vendor, A anecdotal, C conceptually plausible, X poor or contradictory). The V-versus-P and A-versus-C distinctions are deliberate: they separate "has a book and case studies but no independent validation" from "long-standing practice," and "popular but unrigorous" from "sound but under-tested."
 - **Risk flags:** binary overrides for trademark exposure, cargo-cult risk, and "popular but evidence-X," surfaced in metadata and honored by the quality gate.

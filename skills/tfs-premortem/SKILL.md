@@ -9,7 +9,7 @@ metadata:
   version: 0.1.0
   standard: "0.8"
 ---
-<!-- thinking-tools | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
+<!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Premortem
 
 A premortem stress-tests a plan by assuming it has *already failed* and reasoning backward to explain why, then converting each cause into a mitigation, a tripwire, and a kill criterion. The shift from "what might go wrong?" to "it went wrong, why?" is what does the work: it licenses dissent, surfaces more and more specific causes than ordinary risk review, and turns vague worry into pre-committed action while you can still change course. The output is a **risk register**, not a discussion.
