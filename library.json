@@ -15,7 +15,9 @@
       { "name": "tfs-problem-restatement", "path": "skills/tfs-problem-restatement/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-evidence-vs-inference-sort", "path": "skills/tfs-evidence-vs-inference-sort/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-what-would-have-to-be-true", "path": "skills/tfs-what-would-have-to-be-true/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
-      { "name": "tfs-scamper", "path": "skills/tfs-scamper/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
+      { "name": "tfs-scamper", "path": "skills/tfs-scamper/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-ladder-of-inference-check", "path": "skills/tfs-ladder-of-inference-check/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-parallel-perspectives-review", "path": "skills/tfs-parallel-perspectives-review/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
     ]
   },
   "repository": "https://github.com/product-on-purpose/thinking-framework-skills",
