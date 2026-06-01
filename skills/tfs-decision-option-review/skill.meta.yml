@@ -1,0 +1,79 @@
+# Rich sidecar for the tfs-decision-option-review skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.decision-option-review
+  slug: decision-option-review
+  name: tfs-decision-option-review
+  display_name: Decision Option Review
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: []
+  thinking_modes: [convergent, critical, analytical]
+  problem_contexts: [high-stakes, high-complexity]
+  use_cases:
+    - choose among several real, distinct options
+    - make implicit tradeoffs explicit and defensible
+    - support (not replace) judgment on a conflicting-objectives decision
+  poor_fit_cases:
+    - trivial or obvious choices, or one-way doors needing deeper analysis
+    - generating options (use an ideation skill)
+    - letting a single weighted total settle a close call (false precision)
+    - ignoring factors that resist quantification
+
+interface:
+  required_inputs:
+    - two or more real options to compare
+  optional_inputs:
+    - the criteria that matter, constraints, the goal
+  primary_artifact_type: option-matrix
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.what-would-have-to-be-true
+    - thinking-framework-skills.premortem
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.scamper
+    - thinking-framework-skills.assumption-reversal
+  often_precedes:
+    - thinking-framework-skills.what-would-have-to-be-true
+    - thinking-framework-skills.premortem
+  complements:
+    - thinking-framework-skills.parallel-perspectives-review
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - false precision (a single weighted total treated as the answer)
+    - criteria or weights chosen to justify a pre-picked option
+    - dropping factors that resist quantification
+
+evidence:
+  evidence_tier: "P"
+  confidence: high that explicit criteria beat gut comparison; the numbers mislead if over-trusted
+  transferred_evidence: true
+  lineage:
+    derived_from: [multi-criteria decision analysis, UK Government MCDA guidance]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+  risk_flags: [false-precision]
+
+implementation:
+  skill_path: skills/tfs-decision-option-review/SKILL.md
+  references_path: skills/tfs-decision-option-review/references/
+  evidence_path: skills/tfs-decision-option-review/evidence/dossier.md
+  evals_path: skills/tfs-decision-option-review/eval/

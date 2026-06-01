@@ -1,0 +1,78 @@
+# Rich sidecar for the tfs-red-team-light skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.red-team-light
+  slug: red-team-light
+  name: tfs-red-team-light
+  display_name: Red Team Light
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: assumption-and-belief-challenge
+  secondary_families: [risk-and-resilience]
+  thinking_modes: [critical, adversarial]
+  problem_contexts: [high-stakes, high-conflict]
+  use_cases:
+    - pressure-test a plan that has reached too-easy consensus
+    - steelman the opposition before committing to a thesis
+    - challenge the agent's own confident recommendation
+  poor_fit_cases:
+    - when the team needs alignment and buy-in more than critique
+    - when you need failure causes over time (premortem) or a rounded view (parallel perspectives)
+    - performative contrarianism without judging which objections land
+    - treating constructed critique as equivalent to genuine dissent
+
+interface:
+  required_inputs:
+    - a proposal or thesis to attack
+  optional_inputs:
+    - the stakes and reversibility of the decision
+  primary_artifact_type: adversarial-critique
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.premortem
+    - thinking-framework-skills.what-would-have-to-be-true
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.decision-option-review
+  often_precedes:
+    - thinking-framework-skills.premortem
+  complements:
+    - thinking-framework-skills.parallel-perspectives-review
+  overlaps_with: []
+  variants:
+    - "related: devil's advocacy (weaker, role-played)"
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - strawman instead of the strongest objections
+    - performative contrarianism without verdicts
+    - treating constructed critique as genuine dissent
+
+evidence:
+  evidence_tier: "P"
+  confidence: high that surfacing the strongest counter-case helps; constructed dissent is weaker than authentic dissent
+  transferred_evidence: true
+  lineage:
+    derived_from: [red teaming practice, devil's advocacy]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+  risk_flags: [constructed-vs-authentic-dissent]
+
+implementation:
+  skill_path: skills/tfs-red-team-light/SKILL.md
+  references_path: skills/tfs-red-team-light/references/
+  evidence_path: skills/tfs-red-team-light/evidence/dossier.md
+  evals_path: skills/tfs-red-team-light/eval/

@@ -1,0 +1,73 @@
+# Rich sidecar for the tfs-question-burst skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.question-burst
+  slug: question-burst
+  name: tfs-question-burst
+  display_name: Question Burst
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: divergent-ideation
+  secondary_families: [problem-framing]
+  thinking_modes: [divergent, lateral]
+  problem_contexts: [high-ambiguity]
+  use_cases:
+    - break attachment to a single framing when stuck
+    - surface a better question before answering, early in an ambiguous problem
+  poor_fit_cases:
+    - dumping a bulk list of questions with no ranking or selection
+    - issues that need answers and convergence, not more questions
+    - when the catalytic question is already known
+
+interface:
+  required_inputs:
+    - a problem or topic to question
+  optional_inputs:
+    - what has already been tried or assumed
+  primary_artifact_type: ranked-question-set
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.problem-restatement
+    - thinking-framework-skills.evidence-vs-inference-sort
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.problem-restatement
+  complements:
+    - thinking-framework-skills.problem-restatement
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - generating volume without ranking or selecting (the AI failure mode)
+    - answering instead of questioning during the burst
+    - vague questions that would not change the approach
+
+evidence:
+  evidence_tier: "P"
+  confidence: moderate; for AI the value is curation, not generation
+  transferred_evidence: true
+  lineage:
+    derived_from: [Gregersen question burst, MIT Sloan]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/tfs-question-burst/SKILL.md
+  references_path: skills/tfs-question-burst/references/
+  evidence_path: skills/tfs-question-burst/evidence/dossier.md
+  evals_path: skills/tfs-question-burst/eval/

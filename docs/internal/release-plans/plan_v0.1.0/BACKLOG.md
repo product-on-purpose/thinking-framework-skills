@@ -4,7 +4,7 @@ The single source of "what to build next." WIP = 1: build the **Now** skill end 
 
 ## Now
 
-> **`tfs-ladder-of-inference-check`** - trace the jump from data to conclusion to catch silent leaps. Build this next. (Showcase slice 1-5 is complete; this begins the full-MVP tranche.)
+> **All 14 MVP skills are complete and validated (Tier universal, 0/0).** Next build action: the 4 recipes (thin `/think:*` command files), then per-skill `eval/` cases. Going live is gated on your go (make the repo public, re-pin and merge the held `agent-plugins` listing).
 
 ## Build order
 
@@ -17,15 +17,15 @@ Statuses: `done` | `now` | `next` | `later`. The two `wk3` rows are the strong-e
 | 3 | `tfs-evidence-vs-inference-sort` | reasoning-clarity | P | showcase | **done (v0.1.0)** |
 | 4 | `tfs-what-would-have-to-be-true` | decision | P | showcase | **done (v0.1.0)** |
 | 5 | `tfs-scamper` | divergent-ideation | P | showcase | **done (v0.1.0)** |
-| 6 | `tfs-ladder-of-inference-check` | assumptions | P | mvp | **now** |
-| 7 | `tfs-parallel-perspectives-review` | perspective | P | mvp | later |
-| 8 | `tfs-question-burst` | ideation | P | mvp | later |
-| 9 | `tfs-futures-wheel` (sub: second-order-effects) | systems | P | mvp | later |
-| 10 | `tfs-decision-option-review` | decision | P | mvp | later |
-| 11 | `tfs-assumption-reversal` | assumptions | P | mvp | later |
-| 12 | `tfs-red-team-light` | assumptions | P | mvp | later |
-| 13 | `tfs-brainwriting` (6-3-5 / NGT) | ideation | **S** | mvp (wk3) | later |
-| 14 | `tfs-reference-class-forecasting` | risk-and-resilience | **S** | mvp (wk3) | later |
+| 6 | `tfs-ladder-of-inference-check` | assumption-and-belief-challenge | P | mvp | **done** |
+| 7 | `tfs-parallel-perspectives-review` | perspective-and-multi-lens | P (flag) | mvp | **done** |
+| 8 | `tfs-question-burst` | divergent-ideation | P | mvp | **done** |
+| 9 | `tfs-futures-wheel` (sub: second-order-effects) | systems-and-consequences | P | mvp | **done** |
+| 10 | `tfs-decision-option-review` | decision-and-option-evaluation | P (flag) | mvp | **done** |
+| 11 | `tfs-assumption-reversal` | divergent-ideation | P | mvp | **done** |
+| 12 | `tfs-red-team-light` | assumption-and-belief-challenge | P (flag) | mvp | **done** |
+| 13 | `tfs-brainwriting` (6-3-5 / NGT) | divergent-ideation | **S** | mvp | **done** |
+| 14 | `tfs-reference-class-forecasting` | risk-and-resilience | **S** | mvp | **done** |
 
 ## Milestones
 
