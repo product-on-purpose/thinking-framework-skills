@@ -7,6 +7,9 @@ _agent-context/
 # memsearch plugin local state
 .memsearch/
 
+# Playwright MCP scratch (screenshots, snapshots, console logs from local testing)
+.playwright-mcp/
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db

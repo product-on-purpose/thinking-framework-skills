@@ -1,0 +1,117 @@
+---
+// Interactive framework chooser. Data is generated at build time by
+// scripts/gen-site.mjs into src/generated/frameworks.json (gitignored).
+// Progressive enhancement: with no JS, every framework card is shown; the
+// client script below filters by the selected context / evidence / domain.
+import frameworks from '../generated/frameworks.json';
+
+const ctxCount = {};
+for (const f of frameworks) for (const c of f.contexts || []) ctxCount[c] = (ctxCount[c] || 0) + 1;
+const contexts = Object.keys(ctxCount).sort((a, b) => ctxCount[b] - ctxCount[a] || a.localeCompare(b));
+const tiers = [['S', 'Strong'], ['M', 'Moderate'], ['P', 'Practitioner']];
+const families = [...new Map(frameworks.map((f) => [f.family, f.familyLabel])).entries()].sort((a, b) => a[1].localeCompare(b[1]));
+const human = (s) => s.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<div class="chooser">
+  <div class="chooser-filters">
+    <fieldset>
+      <legend>Your situation</legend>
+      {contexts.map((c) => (
+        <label class="chip"><input type="checkbox" data-filter="context" value={c} /> {human(c)}</label>
+      ))}
+    </fieldset>
+    <fieldset>
+      <legend>Evidence</legend>
+      {tiers.map(([t, n]) => (
+        <label class="chip"><input type="checkbox" data-filter="tier" value={t} /> {n}</label>
+      ))}
+    </fieldset>
+    <fieldset>
+      <legend>Domain</legend>
+      <select id="chooser-family">
+        <option value="">Any domain</option>
+        {families.map(([slug, lbl]) => (<option value={slug}>{lbl}</option>))}
+      </select>
+    </fieldset>
+    <button id="chooser-reset" type="button">Reset</button>
+  </div>
+
+  <p class="chooser-count" id="chooser-count">All {frameworks.length} frameworks</p>
+
+  <div class="chooser-grid" id="chooser-grid">
+    {frameworks.map((f) => (
+      <a
+        class="chooser-card"
+        href={`${base}/frameworks/${f.slug}/`}
+        data-tier={f.tierLead}
+        data-family={f.family}
+        data-contexts={(f.contexts || []).join(' ')}
+      >
+        <span class={`tier tier-${f.tierLead}`}>{f.tier}</span>
+        <strong>{f.title}</strong>
+        <span class="chooser-job">{f.job}</span>
+        {f.useWhen && <span class="chooser-when">Use when {f.useWhen}.</span>}
+      </a>
+    ))}
+  </div>
+
+  <p class="chooser-empty" id="chooser-empty" hidden>
+    No framework matches all of those. Try fewer filters, or describe your situation to the
+    <a href={`${base}/frameworks/think-framework-advisor/`}>Framework Advisor</a>.
+  </p>
+</div>
+
+<script>
+  const grid = document.getElementById('chooser-grid');
+  if (grid) {
+    const cards = Array.from(grid.querySelectorAll('.chooser-card'));
+    const countEl = document.getElementById('chooser-count');
+    const emptyEl = document.getElementById('chooser-empty');
+    const boxes = Array.from(document.querySelectorAll('.chooser-filters input[type=checkbox]'));
+    const famSel = document.getElementById('chooser-family');
+    const picked = (filter) => boxes.filter((b) => b.dataset.filter === filter && b.checked).map((b) => b.value);
+    const apply = () => {
+      const ctx = picked('context');
+      const tier = picked('tier');
+      const fam = famSel && famSel.value ? famSel.value : '';
+      let n = 0;
+      for (const card of cards) {
+        const cardCtx = (card.dataset.contexts || '').split(' ');
+        const okCtx = ctx.length === 0 || ctx.some((x) => cardCtx.includes(x));
+        const okTier = tier.length === 0 || tier.includes(card.dataset.tier);
+        const okFam = !fam || card.dataset.family === fam;
+        const show = okCtx && okTier && okFam;
+        card.hidden = !show;
+        if (show) n++;
+      }
+      if (countEl) countEl.textContent = n === cards.length ? `All ${n} frameworks` : `${n} of ${cards.length} frameworks`;
+      if (emptyEl) emptyEl.hidden = n > 0;
+    };
+    boxes.forEach((b) => b.addEventListener('change', apply));
+    if (famSel) famSel.addEventListener('change', apply);
+    const reset = document.getElementById('chooser-reset');
+    if (reset) reset.addEventListener('click', () => {
+      boxes.forEach((b) => (b.checked = false));
+      if (famSel) famSel.value = '';
+      apply();
+    });
+    apply();
+  }
+</script>
+
+<style>
+  .chooser-filters { display: flex; flex-wrap: wrap; gap: 1rem; margin-block: 1rem; align-items: flex-start; }
+  .chooser-filters fieldset { border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem; padding: 0.4rem 0.75rem 0.6rem; }
+  .chooser-filters legend { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--sl-color-gray-3); }
+  .chip { display: inline-flex; align-items: center; gap: 0.3rem; margin: 0.15rem 0.4rem 0.15rem 0; font-size: 0.85rem; cursor: pointer; }
+  #chooser-family { font: inherit; padding: 0.2rem; }
+  #chooser-reset { align-self: center; font: inherit; padding: 0.3rem 0.7rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.4rem; background: var(--sl-color-gray-6); cursor: pointer; }
+  .chooser-count { font-weight: 600; margin-top: 0.5rem; }
+  .chooser-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; margin-top: 0.5rem; }
+  .chooser-card { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.7rem 0.8rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.6rem; text-decoration: none; color: inherit; }
+  .chooser-card:hover { border-color: var(--sl-color-accent); background: var(--sl-color-gray-7); }
+  .chooser-job { font-size: 0.78rem; color: var(--sl-color-accent); }
+  .chooser-when { font-size: 0.8rem; color: var(--sl-color-gray-3); }
+</style>
