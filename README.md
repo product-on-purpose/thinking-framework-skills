@@ -140,23 +140,23 @@ This one does the opposite, and that honesty is the product:
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1','fontFamily':'system-ui, sans-serif'}}}%%
-flowchart LR
+flowchart TB
     classDef frame fill:#e0e7ff,stroke:#6366f1,color:#1e1b4b,font-weight:bold
     classDef gen fill:#dcfce7,stroke:#16a34a,color:#14532d,font-weight:bold
     classDef analyze fill:#fef9c3,stroke:#ca8a04,color:#713f12,font-weight:bold
     classDef decide fill:#ffedd5,stroke:#ea580c,color:#7c2d12,font-weight:bold
     classDef reflect fill:#f3e8ff,stroke:#9333ea,color:#581c87,font-weight:bold
 
-    PF["Problem Framing<br/>2 skills"]:::frame
-    DI["Divergent Ideation<br/>5 skills"]:::gen
-    PM["Perspective &<br/>Multi-Lens · 1"]:::gen
-    SC["Systems &<br/>Consequences · 3"]:::analyze
-    AB["Assumption &<br/>Belief Challenge · 3"]:::analyze
-    RC["Reasoning<br/>Clarity · 4"]:::analyze
-    DO["Decision &<br/>Option Eval · 4"]:::decide
-    RR["Risk &<br/>Resilience · 4"]:::decide
-    SY["Synthesis<br/>2 skills"]:::reflect
-    MR["Meta-Thinking &<br/>Reflection · 3"]:::reflect
+    PF["1. Problem Framing (2) - frame the real problem"]:::frame
+    DI["2. Divergent Ideation (5) - generate options"]:::gen
+    PM["3. Perspective & Multi-Lens (1) - see it from other angles"]:::gen
+    SC["4. Systems & Consequences (3) - trace consequences"]:::analyze
+    AB["5. Assumption & Belief Challenge (3) - challenge assumptions"]:::analyze
+    RC["6. Reasoning Clarity (4) - clarify the reasoning"]:::analyze
+    DO["7. Decision & Option Evaluation (4) - decide between options"]:::decide
+    RR["8. Risk & Resilience (4) - anticipate what could go wrong"]:::decide
+    SY["9. Synthesis (2) - turn inputs into a message"]:::reflect
+    MR["10. Meta-Thinking & Reflection (3) - learn and route"]:::reflect
 
     PF --> DI --> PM --> SC --> AB --> RC --> DO --> RR --> SY --> MR
 ```

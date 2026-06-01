@@ -485,9 +485,12 @@ ${byContext}
 
 // map.md - the all-frameworks map + the lifecycle flow, each with a text fallback
 const mapSubgraphs = famEntries.map(({ fam, members }) =>
-  `  subgraph fam${mmId(fam)}["${mmLabel(labelOf(fam))}"]\n` +
-  members.map((s) => `    ${mmId(s.name)}["${mmLabel(s.title)}"]:::tier${tierLead(s.tier) || 'P'}`).join('\n') +
+  `  subgraph fam${mmId(fam)}["${mmLabel(labelOf(fam))} (${members.length})"]\n` +
+  `    direction LR\n    ` +
+  members.map((s) => `${mmId(s.name)}["${mmLabel(s.title)}"]:::tier${tierLead(s.tier) || 'P'}`).join(' ~~~ ') +
   `\n  end`).join('\n');
+// invisible links stack the family bands top-to-bottom instead of packing them side by side (which made the map illegible)
+const mapChain = famEntries.map(({ fam }) => `fam${mmId(fam)}`).join(' ~~~ ');
 const lifecycleFlow = famEntries.map(({ fam }) => `${mmId(fam)}["${mmLabel(labelOf(fam))}"]`).join(' --> ');
 const mapTextFallback = famEntries.map(({ fam, members }) =>
   `- **[${labelOf(fam)}](../../families/${fam}/)** (${JOB_OF[fam]}): ${members.map((s) => s.title).join(', ')}`).join('\n');
@@ -508,6 +511,7 @@ Color shows evidence tier: green = strong, blue = moderate, amber = practitioner
 \`\`\`mermaid
 graph TD
 ${mapSubgraphs}
+  ${mapChain}
   classDef tierS fill:#e6f4ea,stroke:#137333,color:#0b3d20;
   classDef tierM fill:#e8f0fe,stroke:#1967d2,color:#10316b;
   classDef tierP fill:#fef7e0,stroke:#b06000,color:#5c3a00;
@@ -522,7 +526,7 @@ ${mapTextFallback}
 Domains in the order they tend to fire on a piece of work, from framing to reflection. You rarely run all ten; the [Framework Advisor](../../frameworks/think-framework-advisor/) picks the few that fit.
 
 \`\`\`mermaid
-graph LR
+graph TD
   ${lifecycleFlow}
 \`\`\`
 
