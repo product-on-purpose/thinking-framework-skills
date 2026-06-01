@@ -21,12 +21,12 @@ The honest core (from the meta-analyses): the field is a small **empirical core*
 
 The skill build-out for v0.x is essentially complete (28 skills). If the catalog grows further, this is the recommended order:
 
-1. **Strong-evidence / consensus unbuilt `[next]`:** `stocks-and-flows-reasoning` (S, Sterman), `concept-mapping` (cross-LLM consensus first-class), `first-principles` (scope tightly), `causal-loop-diagrams` (M), `key-assumptions-check`, `fermi-estimation` (expansion), `double-crux` (expansion).
+1. **Strong-evidence / consensus unbuilt `[next]`:** `concept-mapping` (cross-LLM consensus first-class), `first-principles` (scope tightly), `causal-loop-diagrams` (M), `key-assumptions-check`, `fermi-estimation` (expansion), `double-crux` (expansion). (The two S-tier empirical-core stragglers - stocks-and-flows and mechanical/linear-model aggregation - are now shipped.)
 2. **Solo-plus-AI reflection `[next]`:** `belief-update-routine`, `idea-quality-audit` (uniquely fit the primary user mode).
 3. **P-tier coverage `[cand]`:** the remaining `[cand]` rows below, as demand warrants.
 4. **Never (this repo):** the `[fold]`, `[flag]`, `[pm]`, and `[excl]` rows - documented here so the exclusion is deliberate, not accidental.
 
-The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference-class-forecasting, argument-mapping, WOOP/MCII, authentic-dissent, after-action-review, natural-frequency-bayesian, far-analogy-ideation, plus stocks-and-flows-reasoning and mechanical/linear-model aggregation (the last two unbuilt). **9 of 11 are shipped.**
+The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference-class-forecasting, argument-mapping, WOOP/MCII, authentic-dissent, after-action-review, natural-frequency-bayesian, far-analogy-ideation, stocks-and-flows-reasoning, and mechanical/linear-model aggregation. **All 11 are now shipped - the empirical core is complete.**
 
 ---
 
@@ -106,7 +106,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 |---|---|---|---|
 | Futures Wheel | map first/second/third-order consequences outward | P | `[shipped]` |
 | Iceberg Model | events -> patterns -> structures -> mental models | P | `[shipped]` |
-| Stocks and Flows reasoning | reason about accumulations and rates | **S** | `[next]` (Sterman; people systematically misjudge these) |
+| Stocks and Flows reasoning | reason about accumulations and rates | **S** | `[shipped]` (Sterman) |
 | Causal Loop Diagrams | diagram reinforcing/balancing feedback loops | M/C | `[next]` (visual; markdown approximates) |
 | Second-Order Effects | lightweight "and then what?" prompt | P | `[fold]` -> mode of futures-wheel |
 | Systems map / Leverage points | sketch elements/relationships; find intervention points | P/C | `[cand]` |
@@ -209,9 +209,9 @@ Added here as genuinely additive (not folds of existing skills). Provisional tie
 | PEST(LE) | strategy | scan macro forces (political/economic/social/technological/legal/environmental) | P | macro complement; partly `[pm]` |
 | Kepner-Tregoe | decision | structured situation/problem/decision/potential-problem analysis | P | comprehensive but heavy |
 | PDCA / A3 | reflection | structured improvement loop / one-page problem-solving | P | overlaps AAR; consider as AAR variants |
-| Mechanical / linear-model aggregation | decision | combine cues with a simple fixed formula instead of holistic judgment | **S** | named empirical core (Meehl lineage); strong evidence, unbuilt - promote to `[next]` |
+| Mechanical / linear-model aggregation | decision | combine cues with a simple fixed formula instead of holistic judgment | **S** | `[shipped]` as `tfs-linear-model-aggregation` (Meehl/Dawes) |
 
-> Note: **mechanical/linear-model aggregation** is from the meta-analyses' named empirical core (it was in the landscape's core list), but no skill exists yet. Given its S-tier evidence (clinical-vs-actuarial judgment literature), it belongs in the `[next]` strong-evidence tier alongside stocks-and-flows.
+> Note: **mechanical/linear-model aggregation** and **stocks-and-flows reasoning** were the last two unbuilt members of the named empirical core; both are now shipped (`tfs-linear-model-aggregation`, `tfs-stocks-and-flows-reasoning`). **The empirical core is complete (11/11).**
 
 ---
 
