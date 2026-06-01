@@ -1,14 +1,14 @@
-# Rich sidecar for the tfs-REPLACE-method skill.
+# Rich sidecar for the think-REPLACE-method skill.
 # DRAFT shape; reconciles with agent-skills-toolkit conventions later.
 # A hand-authored summary of evidence/dossier.md (the source of truth).
 #
 # Naming: id = thinking-framework-skills.<method>; slug = bare method;
-# installable name = tfs-<method> (matches the skill directory).
+# installable name = think-<method> (matches the skill directory).
 
 identity:
   id: thinking-framework-skills.REPLACE-method
   slug: REPLACE-method
-  name: tfs-REPLACE-method
+  name: think-REPLACE-method
   display_name: REPLACE
   version: 0.1.0
   status: draft        # draft | experimental | active | deprecated | archived
@@ -61,7 +61,7 @@ evidence:
   trademark: none
 
 implementation:
-  skill_path: skills/tfs-REPLACE-method/SKILL.md
-  references_path: skills/tfs-REPLACE-method/references/
-  evidence_path: skills/tfs-REPLACE-method/evidence/dossier.md
-  evals_path: skills/tfs-REPLACE-method/eval/
+  skill_path: skills/think-REPLACE-method/SKILL.md
+  references_path: skills/think-REPLACE-method/references/
+  evidence_path: skills/think-REPLACE-method/evidence/dossier.md
+  evals_path: skills/think-REPLACE-method/eval/

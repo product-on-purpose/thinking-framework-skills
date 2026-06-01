@@ -6,7 +6,7 @@
 
 | | |
 |---|---|
-| **Skill** | `thinking-framework-skills.REPLACE-method` (installable name `tfs-REPLACE-method`) |
+| **Skill** | `thinking-framework-skills.REPLACE-method` (installable name `think-REPLACE-method`) |
 | **Family** | REPLACE-family |
 | **Evidence tier** | **REPLACE** (S/M/P/V/A/C/X; be honest, note if contested) |
 | **Confidence** | REPLACE |

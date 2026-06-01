@@ -1,0 +1,80 @@
+# Rich sidecar for the think-premortem skill.
+# DRAFT: shape is provisional and will be reconciled with agent-skills-toolkit
+# conventions once 2-3 skills exist. Evidence fields are a hand-authored summary
+# of evidence/dossier.md (the source of truth), not generated from it.
+#
+# Naming: id = <namespace>.<method> = thinking-framework-skills.premortem;
+# slug = bare method = premortem; installable name = prefix + slug = think-premortem
+# (the think- prefix avoids cross-plugin name collisions; see library.json "prefix").
+
+identity:
+  id: thinking-framework-skills.premortem
+  slug: premortem
+  name: think-premortem        # installable name (matches the skill directory)
+  display_name: Premortem
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: risk-and-resilience
+  secondary_families: [decision-and-option-evaluation]
+  thinking_modes: [critical, counterfactual, consequential]
+  problem_contexts: [high-stakes, high-complexity]
+  use_cases:
+    - stress-test a consequential, hard-to-reverse decision before committing
+    - surface unspoken risks that optimistic planning suppresses
+    - produce a pre-committed risk register with tripwires and kill criteria
+  poor_fit_cases:
+    - running it after the outcome is known (that is a postmortem)
+    - trivial or fully reversible (two-way-door) decisions
+    - generating options or choosing among them (wrong tool)
+    - blessing a decision already made with no intent to act on mitigations
+
+interface:
+  required_inputs:
+    - a specific, not-yet-committed decision or plan
+  optional_inputs:
+    - a time horizon for the imagined failure
+    - known constraints or prior risk lists
+  primary_artifact_type: risk-register
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.what-would-have-to-be-true
+
+relationships:
+  often_follows: [thinking-framework-skills.decision-option-review]
+  often_precedes: []
+  complements: [thinking-framework-skills.what-would-have-to-be-true]
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run     # see eval/ (deferred to week 2)
+  output_eval_status: not-run
+  known_failure_modes:
+    - ritual execution without converting causes to tripwires/kill criteria
+    - listing only obvious technical causes, missing people/process/second-order
+    - overclaiming a better outcome rather than better-handled risk
+
+evidence:
+  evidence_tier: "S/M"             # contested; see dossier section 3
+  confidence: moderate-high on mechanism; low on the decision-quality claim
+  transferred_evidence: true       # human-subject studies only; not AI-validated
+  lineage:
+    derived_from: [prospective-hindsight, premortem workshop practice]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-premortem/SKILL.md
+  references_path: skills/think-premortem/references/
+  evidence_path: skills/think-premortem/evidence/dossier.md
+  evals_path: skills/think-premortem/eval/   # to be created in week 2

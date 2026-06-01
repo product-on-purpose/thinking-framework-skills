@@ -1,0 +1,77 @@
+# Rich sidecar for the think-woop skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.woop
+  slug: woop
+  name: think-woop
+  display_name: WOOP (Mental Contrasting + Implementation Intentions)
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: risk-and-resilience
+  secondary_families: [meta-thinking-and-reflection]
+  thinking_modes: [reflective, counterfactual]
+  problem_contexts: [high-friction]
+  use_cases:
+    - close the intention-action gap on an already-chosen goal
+    - turn a personal or single-owner commitment into something that survives friction
+    - pre-bind an if-then response to the main internal obstacle
+  poor_fit_cases:
+    - deciding what to pursue (use a decision skill)
+    - multi-person project planning
+    - obstacles that are external blockers outside one's control
+    - outcome-only positive fantasy (it backfires)
+
+interface:
+  required_inputs:
+    - an already-chosen, feasible goal/wish
+  optional_inputs:
+    - the known obstacle, the deadline
+  primary_artifact_type: woop-card
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.premortem
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.premortem
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.premortem
+  overlaps_with: []
+  variants:
+    - "named protocol: WOOP (Wish-Outcome-Obstacle-Plan)"
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - skipping the obstacle (outcome-only positive fantasy, which backfires)
+    - naming an external blocker instead of the internal obstacle
+    - a vague plan that is not a concrete if-then
+
+evidence:
+  evidence_tier: "S"
+  confidence: high; among the best-evidenced behavior-change methods (25+ RCTs)
+  transferred_evidence: true
+  lineage:
+    derived_from: [Oettingen mental contrasting, Gollwitzer implementation intentions]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-woop/SKILL.md
+  references_path: skills/think-woop/references/
+  evidence_path: skills/think-woop/evidence/dossier.md
+  evals_path: skills/think-woop/eval/

@@ -6,14 +6,14 @@
 
 ## Chain
 
-1. **`tfs-problem-restatement`** (`skills/tfs-problem-restatement/SKILL.md`)
+1. **`think-problem-restatement`** (`skills/think-problem-restatement/SKILL.md`)
    - Make sure you are expanding options for the right problem.
    - Carry forward: the **chosen working frame**.
-2. **`tfs-scamper`** (`skills/tfs-scamper/SKILL.md`)
+2. **`think-scamper`** (`skills/think-scamper/SKILL.md`)
    - Transform the seed idea(s) through the seven lenses; shortlist.
    - Carry forward: the **SCAMPER shortlist**.
-   - Swap-in: for blank-page breadth (no seed yet), use **`tfs-brainwriting`** instead, which has stronger evidence for generation.
-3. **`tfs-assumption-reversal`** (`skills/tfs-assumption-reversal/SKILL.md`)
+   - Swap-in: for blank-page breadth (no seed yet), use **`think-brainwriting`** instead, which has stronger evidence for generation.
+3. **`think-assumption-reversal`** (`skills/think-assumption-reversal/SKILL.md`)
    - Surface and reverse the foundational assumptions the options share; generate non-obvious candidates.
    - Carry forward: the **combined shortlist** of candidates (SCAMPER + reversal), flagged as candidates not decisions.
 
@@ -23,4 +23,4 @@ A de-duplicated shortlist of candidate options spanning incremental variations a
 
 ## Token discipline
 
-Carry only the shortlists between steps. Hand the final combined shortlist to `tfs-decision-option-review` to converge.
+Carry only the shortlists between steps. Hand the final combined shortlist to `think-decision-option-review` to converge.

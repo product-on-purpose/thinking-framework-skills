@@ -1,0 +1,73 @@
+# Rich sidecar for the think-stocks-and-flows-reasoning skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.stocks-and-flows-reasoning
+  slug: stocks-and-flows-reasoning
+  name: think-stocks-and-flows-reasoning
+  display_name: Stocks and Flows Reasoning
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: systems-and-consequences
+  secondary_families: [reasoning-clarity]
+  thinking_modes: [systems, analytical, critical]
+  problem_contexts: [high-complexity]
+  use_cases:
+    - judge whether an accumulating quantity is actually rising or falling
+    - separate a stock from the inflows and outflows that change it
+    - correct a "the flow is falling so the stock is falling" intuition
+  poor_fit_cases:
+    - quantities that do not accumulate (one-off events, ratios without a stock)
+    - simple direct relationships with no accumulation
+    - forward consequences (futures-wheel) or systemic causes (iceberg-model)
+
+interface:
+  required_inputs:
+    - an accumulating quantity and a question about its trajectory
+  optional_inputs:
+    - the inflow and outflow rates/trends
+  primary_artifact_type: stock-flow-map
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.iceberg-model
+    - thinking-framework-skills.reference-class-forecasting
+
+relationships:
+  often_follows: []
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.iceberg-model
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - confusing the stock with a flow
+    - assuming a falling inflow means a falling stock; ignoring the outflow
+    - treating a flattening flow as a falling stock
+
+evidence:
+  evidence_tier: "S"
+  confidence: high that the accumulation error is real and widespread; the correction is mechanical
+  transferred_evidence: true
+  lineage:
+    derived_from: [system dynamics, Sterman accumulation experiments, Meadows Thinking in Systems]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-stocks-and-flows-reasoning/SKILL.md
+  references_path: skills/think-stocks-and-flows-reasoning/references/
+  evidence_path: skills/think-stocks-and-flows-reasoning/evidence/dossier.md
+  evals_path: skills/think-stocks-and-flows-reasoning/eval/

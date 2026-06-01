@@ -1,0 +1,75 @@
+# Rich sidecar for the think-natural-frequency-bayesian skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.natural-frequency-bayesian
+  slug: natural-frequency-bayesian
+  name: think-natural-frequency-bayesian
+  display_name: Natural-Frequency Bayesian Framing
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: reasoning-clarity
+  secondary_families: [decision-and-option-evaluation]
+  thinking_modes: [analytical, critical]
+  problem_contexts: [high-stakes, high-complexity]
+  use_cases:
+    - interpret a test or screening result correctly (medical, fraud, lead-scoring, A/B)
+    - compute "given a positive signal, what is the real probability"
+    - communicate risk so a positive is not over-read
+  poor_fit_cases:
+    - no real input rates available (do not invent them)
+    - no conditional-probability structure to the question
+    - general project forecasting (use reference-class forecasting)
+    - a single point estimate where base rates are irrelevant
+
+interface:
+  required_inputs:
+    - a conditional-probability question with a base rate and hit/false-positive rates
+  optional_inputs:
+    - the population size to frame over
+  primary_artifact_type: natural-frequency-breakdown
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.evidence-vs-inference-sort
+    - thinking-framework-skills.reference-class-forecasting
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.decision-option-review
+  complements:
+    - thinking-framework-skills.reference-class-forecasting
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - inventing the base rate or hit rates when they are unknown
+    - base-rate neglect (the error the method fixes)
+    - confusing P(positive | condition) with P(condition | positive)
+
+evidence:
+  evidence_tier: "S"
+  confidence: high; the natural-frequency format effect is one of the most robust findings in judgment research
+  transferred_evidence: true
+  lineage:
+    derived_from: [Gigerenzer and Hoffrage natural frequencies]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-natural-frequency-bayesian/SKILL.md
+  references_path: skills/think-natural-frequency-bayesian/references/
+  evidence_path: skills/think-natural-frequency-bayesian/evidence/dossier.md
+  evals_path: skills/think-natural-frequency-bayesian/eval/

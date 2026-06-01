@@ -1,6 +1,6 @@
 # REPLACE Artifact - Worked Example
 
-A completed run of the `tfs-REPLACE-method` skill on a real decision. This is the quality bar a generated output should meet.
+A completed run of the `think-REPLACE-method` skill on a real decision. This is the quality bar a generated output should meet.
 
 > Use the shared recurring scenario (Northwind, a B2B SaaS weighing a self-serve free-tier launch) so examples across skills read as one coherent product. See `docs/internal/AUTHORING.md`.
 

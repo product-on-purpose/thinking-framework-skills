@@ -1,31 +1,31 @@
 # MVP backlog and build order
 
-The single source of "what to build next." WIP = 1: build the **Now** skill end to end (per [AUTHORING.md](../../AUTHORING.md)), ship it, then move the pointer. Roster is from the audit (Appendix B canonical roster); names use the `tfs-` prefix and `thinking-framework-skills.<method>` ids.
+The single source of "what to build next." WIP = 1: build the **Now** skill end to end (per [AUTHORING.md](../../AUTHORING.md)), ship it, then move the pointer. Roster is from the audit (Appendix B canonical roster); names use the `think-` prefix and `thinking-framework-skills.<method>` ids.
 
 ## Now
 
-> **31 skills + 4 recipes (as workflow components) + per-skill eval cases; the plugin validates at CONVERGENT (Silver), 0 errors / 0 warnings.** Empirical core complete (11 S/S-M tier). The 31st is **`tfs-framework-advisor`**, the front-door meta-router: describe a situation, get a prioritized evidence-graded Thinking Plan of which frameworks to use and why (built from its spec; evidence verified + adversarially reviewed; graded M/C - honest that the routing itself is unvalidated). Silver climb done: agent-targets claude+codex, prefix, components-match, chain contract, workflows (S5), per-target generated manifests (S6). Remaining: the **go-public flip** (make repo public, re-pin + merge the held `agent-plugins` listing); deferred follow-ups: recipe slash-commands (until the toolkit wires `ctx.workflows` so command `maps-to` a workflow resolves), a behavioral eval runner (Gold-era per the toolkit), and the docs site (`documentation-and-site-plan.md`). Known go-public item: the generated `.claude-plugin/plugin.json` omits `license` (gen-manifest's nativeSpine drops it) - carry it via the registry entry/LICENSE, or add `license` to the toolkit's nativeSpine. See `framework-catalog.md` (universe). `tfs-framework-advisor` is **shipped** (spec at `docs/internal/specs/meta-skill-framework-advisor.md`; the spec's pre-verification "P" estimate was downgraded to M/C at build time - see its build-decision note). Remaining gated work: the go-public flip and the Astro Starlight docs site.
+> **31 skills + 4 recipes (as workflow components) + per-skill eval cases; the plugin validates at CONVERGENT (Silver), 0 errors / 0 warnings.** Empirical core complete (11 S/S-M tier). The 31st is **`think-framework-advisor`**, the front-door meta-router: describe a situation, get a prioritized evidence-graded Thinking Plan of which frameworks to use and why (built from its spec; evidence verified + adversarially reviewed; graded M/C - honest that the routing itself is unvalidated). Silver climb done: agent-targets claude+codex, prefix, components-match, chain contract, workflows (S5), per-target generated manifests (S6). Remaining: the **go-public flip** (make repo public, re-pin + merge the held `agent-plugins` listing); deferred follow-ups: recipe slash-commands (until the toolkit wires `ctx.workflows` so command `maps-to` a workflow resolves), a behavioral eval runner (Gold-era per the toolkit), and the docs site (`documentation-and-site-plan.md`). Known go-public item: the generated `.claude-plugin/plugin.json` omits `license` (gen-manifest's nativeSpine drops it) - carry it via the registry entry/LICENSE, or add `license` to the toolkit's nativeSpine. See `framework-catalog.md` (universe). `think-framework-advisor` is **shipped** (spec at `docs/internal/specs/meta-skill-framework-advisor.md`; the spec's pre-verification "P" estimate was downgraded to M/C at build time - see its build-decision note). Remaining gated work: the go-public flip and the Astro Starlight docs site.
 
 ## Build order
 
 Statuses: `done` | `now` | `next` | `later`. The two `wk3` rows are the strong-evidence additions that keep the "evidence-graded" brand honest (the consensus roster skews to practitioner-tier methods).
 
-| # | Skill (`tfs-<method>`) | Family | Evidence (provisional) | Wave | Status |
+| # | Skill (`think-<method>`) | Family | Evidence (provisional) | Wave | Status |
 |---|---|---|---|---|---|
-| 1 | `tfs-premortem` | risk-and-resilience | S/M | showcase | **done (v0.1.0)** |
-| 2 | `tfs-problem-restatement` | problem-framing | M/P | showcase | **done (v0.1.0)** |
-| 3 | `tfs-evidence-vs-inference-sort` | reasoning-clarity | P | showcase | **done (v0.1.0)** |
-| 4 | `tfs-what-would-have-to-be-true` | decision | P | showcase | **done (v0.1.0)** |
-| 5 | `tfs-scamper` | divergent-ideation | P | showcase | **done (v0.1.0)** |
-| 6 | `tfs-ladder-of-inference-check` | assumption-and-belief-challenge | P | mvp | **done** |
-| 7 | `tfs-parallel-perspectives-review` | perspective-and-multi-lens | P (flag) | mvp | **done** |
-| 8 | `tfs-question-burst` | divergent-ideation | P | mvp | **done** |
-| 9 | `tfs-futures-wheel` (sub: second-order-effects) | systems-and-consequences | P | mvp | **done** |
-| 10 | `tfs-decision-option-review` | decision-and-option-evaluation | P (flag) | mvp | **done** |
-| 11 | `tfs-assumption-reversal` | divergent-ideation | P | mvp | **done** |
-| 12 | `tfs-red-team-light` | assumption-and-belief-challenge | P (flag) | mvp | **done** |
-| 13 | `tfs-brainwriting` (6-3-5 / NGT) | divergent-ideation | **S** | mvp | **done** |
-| 14 | `tfs-reference-class-forecasting` | risk-and-resilience | **S** | mvp | **done** |
+| 1 | `think-premortem` | risk-and-resilience | S/M | showcase | **done (v0.1.0)** |
+| 2 | `think-problem-restatement` | problem-framing | M/P | showcase | **done (v0.1.0)** |
+| 3 | `think-evidence-vs-inference-sort` | reasoning-clarity | P | showcase | **done (v0.1.0)** |
+| 4 | `think-what-would-have-to-be-true` | decision | P | showcase | **done (v0.1.0)** |
+| 5 | `think-scamper` | divergent-ideation | P | showcase | **done (v0.1.0)** |
+| 6 | `think-ladder-of-inference-check` | assumption-and-belief-challenge | P | mvp | **done** |
+| 7 | `think-parallel-perspectives-review` | perspective-and-multi-lens | P (flag) | mvp | **done** |
+| 8 | `think-question-burst` | divergent-ideation | P | mvp | **done** |
+| 9 | `think-futures-wheel` (sub: second-order-effects) | systems-and-consequences | P | mvp | **done** |
+| 10 | `think-decision-option-review` | decision-and-option-evaluation | P (flag) | mvp | **done** |
+| 11 | `think-assumption-reversal` | divergent-ideation | P | mvp | **done** |
+| 12 | `think-red-team-light` | assumption-and-belief-challenge | P (flag) | mvp | **done** |
+| 13 | `think-brainwriting` (6-3-5 / NGT) | divergent-ideation | **S** | mvp | **done** |
+| 14 | `think-reference-class-forecasting` | risk-and-resilience | **S** | mvp | **done** |
 
 ## Milestones
 
@@ -51,13 +51,13 @@ The highest-value move was to finish the empirical core: the strongest-evidenced
 
 | Skill | Family | Evidence | Status |
 |---|---|---|---|
-| `tfs-argument-mapping` | reasoning-clarity | **S** (van Gelder) | **done** |
-| `tfs-woop` | risk-and-resilience | **S** (Oettingen, 25+ RCTs) | **done** |
-| `tfs-authentic-dissent` | assumption-and-belief-challenge | **S** (Nemeth) | **done** |
-| `tfs-after-action-review` | meta-thinking-and-reflection | S/M (Tannenbaum & Cerasoli) | **done** (opened the reflection family) |
-| `tfs-far-analogy-ideation` | divergent-ideation | **S** (Gentner & Smith) | **done** |
-| `tfs-natural-frequency-bayesian` | reasoning-clarity | **S** (Gigerenzer) | **done** |
+| `think-argument-mapping` | reasoning-clarity | **S** (van Gelder) | **done** |
+| `think-woop` | risk-and-resilience | **S** (Oettingen, 25+ RCTs) | **done** |
+| `think-authentic-dissent` | assumption-and-belief-challenge | **S** (Nemeth) | **done** |
+| `think-after-action-review` | meta-thinking-and-reflection | S/M (Tannenbaum & Cerasoli) | **done** (opened the reflection family) |
+| `think-far-analogy-ideation` | divergent-ideation | **S** (Gentner & Smith) | **done** |
+| `think-natural-frequency-bayesian` | reasoning-clarity | **S** (Gigerenzer) | **done** |
 
-Later tranche (v0.4, fill still-empty families; mostly P, high composability): synthesis (`tfs-mece-decomposition` / `tfs-issue-trees`, `tfs-affinity-mapping`, `tfs-pyramid-principle`); problem-framing (`tfs-abstraction-laddering`); decision (`tfs-one-way-vs-two-way-door`, `tfs-decision-journal`); perspective (`tfs-stakeholder-lens-review`, `tfs-steelmanning`); systems (`tfs-iceberg-model`, `tfs-leverage-points`); strategy (`tfs-opportunity-solution-tree`); foresight (`tfs-backcasting`).
+Later tranche (v0.4, fill still-empty families; mostly P, high composability): synthesis (`think-mece-decomposition` / `think-issue-trees`, `think-affinity-mapping`, `think-pyramid-principle`); problem-framing (`think-abstraction-laddering`); decision (`think-one-way-vs-two-way-door`, `think-decision-journal`); perspective (`think-stakeholder-lens-review`, `think-steelmanning`); systems (`think-iceberg-model`, `think-leverage-points`); strategy (`think-opportunity-solution-tree`); foresight (`think-backcasting`).
 
 Selection bar unchanged: each must clear the four commitments (mechanism over ritual, honest evidence grade, artifact-not-prose, when-not-to-use) and stay under a ~20% overlap ceiling vs existing skills.

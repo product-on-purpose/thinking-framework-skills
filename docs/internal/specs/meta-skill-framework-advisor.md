@@ -1,4 +1,4 @@
-# Spec: `tfs-framework-advisor` (the meta-skill recommender)
+# Spec: `think-framework-advisor` (the meta-skill recommender)
 
 > **Type:** build spec (a contract for a future skill, not a built skill).
 > **Status:** proposed, ready to author. Decisions inside are settled-but-revisable; open questions are listed in section 14.
@@ -9,7 +9,7 @@
 
 ## 1. Purpose and positioning
 
-`tfs-framework-advisor` is the **front door** to the library. A user describes a real situation in their own words - a decision they are stuck on, a problem that keeps recurring, a plan they are nervous about, a pile of notes they cannot make sense of - and the skill returns a **Thinking Plan**: a short, prioritized sequence of the *specific frameworks in this library* to apply, in order, each with the reason it fits, its evidence tier, the artifact it will produce, and a filled-in copy/paste invocation. It also says, explicitly, what **not** to use and why.
+`think-framework-advisor` is the **front door** to the library. A user describes a real situation in their own words - a decision they are stuck on, a problem that keeps recurring, a plan they are nervous about, a pile of notes they cannot make sense of - and the skill returns a **Thinking Plan**: a short, prioritized sequence of the *specific frameworks in this library* to apply, in order, each with the reason it fits, its evidence tier, the artifact it will produce, and a filled-in copy/paste invocation. It also says, explicitly, what **not** to use and why.
 
 The library today is 30 method-skills plus 4 recipes. Method-skills are **executors**: each applies one framework to one problem. The advisor is a **router**: it reads a messy context and selects, sequences, and hands off to the right executors. Without it, a 30-skill library asks the user to already know which thinking move they need - the exact knowledge a non-expert lacks. The advisor turns "here are 30 tools" into "for *your* situation, do these three, in this order, here's why."
 
@@ -21,14 +21,14 @@ This skill is the operational core of the "guidance / help" and "exploration" go
 
 The PM skill `foundation-prioritized-action-plan` solves the same shape of problem for PM delivery work: take messy input, diagnose the situation, find the one thing that matters most, produce a ranked plan, and hand off to downstream skills with filled prompts. We deliberately reuse its proven structure so the two libraries feel consistent. The table is the full translation; the rest of this spec elaborates.
 
-| pm-skill element | What it does there | `tfs-framework-advisor` analog |
+| pm-skill element | What it does there | `think-framework-advisor` analog |
 |---|---|---|
 | Source ledger (exact quotes first) | Cite-or-don't-claim grounding | **Same, kept verbatim.** Build a ledger of exact quotes before diagnosing. |
 | Input mirror | Reflect input back before it carries weight | **Same.** |
 | Cynefin classifier | Caps plan confidence by how knowable the situation is | **Stakes x reversibility calibrator** (section 6.2). Caps how *heavy* a plan to prescribe; reuses the one-way/two-way-door logic already shipped. |
 | Theory of Constraints | Finds the one binding constraint -> P1 | **Cognitive-job diagnosis** (section 6.1). Finds the dominant thinking job, then the minimal corrective sequence; the job that unblocks the most is step 1. |
 | Ranked action plan (P1-P5) | The deliverable | **The Thinking Plan** (section 9): a sequence of framework recommendations. |
-| Recommend downstream pm-skills, filled prompts, name-safety | Route to executors without inventing names | **Same**, routing into the 30 `tfs-` skills + 4 recipes, with build-time name-safety (section 8). |
+| Recommend downstream pm-skills, filled prompts, name-safety | Route to executors without inventing names | **Same**, routing into the 30 `think-` skills + 4 recipes, with build-time name-safety (section 8). |
 | Cynefin caps confidence; refuse High in Complex/Chaotic | Honesty governor | **Stakes calibrator caps plan heft + evidence tier caps per-framework confidence** (section 6.3). |
 | Evidence map (Section 8) | Audit of inline sources | **Same.** |
 
@@ -36,19 +36,19 @@ The PM skill `foundation-prioritized-action-plan` solves the same shape of probl
 
 ## 3. Name and artifact
 
-- **Skill name (installable):** `tfs-framework-advisor` (carries the library `tfs-` prefix; satisfies S2).
+- **Skill name (installable):** `think-framework-advisor` (carries the library `think-` prefix; satisfies S2).
 - **Skill ID:** `thinking-framework-skills.framework-advisor`.
 - **Artifact it produces:** a **Thinking Plan** - one saveable markdown document.
 - **Classification:** meta / router. It is the only skill in the library that recommends *other skills*; every other skill executes a method.
 
-Naming rationale: "advisor" names the function (it advises which frameworks); "Thinking Plan" names the artifact (parallel to the PM skill's "action plan"). Alternative names considered and why not: `tfs-method-finder` (too search-like; it sequences, not just finds), `tfs-thinking-coach` (implies ongoing coaching/state, which a single-turn skill does not do), `tfs-recommend-frameworks` (verb-y but loses the artifact framing). See open question 14.1 if the user prefers a different label.
+Naming rationale: "advisor" names the function (it advises which frameworks); "Thinking Plan" names the artifact (parallel to the PM skill's "action plan"). Alternative names considered and why not: `think-method-finder` (too search-like; it sequences, not just finds), `think-thinking-coach` (implies ongoing coaching/state, which a single-turn skill does not do), `think-recommend-frameworks` (verb-y but loses the artifact framing). See open question 14.1 if the user prefers a different label.
 
 ## 4. Identity
 
 - Meta/router skill; produces a reusable working-document the user saves and reuses.
 - Single-turn; one Thinking Plan per invocation.
 - Read-only tools (Read, Grep); produces markdown output. It **recommends and hands off**; it never invokes another skill inline.
-- Recommends only from the library's own components (the 30 `tfs-` skills and the 4 recipes), by exact name, from a build-time-generated recommendable set (section 8).
+- Recommends only from the library's own components (the 30 `think-` skills and the 4 recipes), by exact name, from a build-time-generated recommendable set (section 8).
 
 ## 5. Core principle
 
@@ -69,15 +69,15 @@ The routing table (the catalog families, as jobs, with the strongest shipped ski
 
 | Cognitive job (catalog family) | Telltale signals in the user's input | Primary shipped skills | Tier |
 |---|---|---|---|
-| **Reframe the problem** (fam 3) | "the real problem is...", solving the wrong thing, fuzzy or solution-shaped problem statement | `tfs-problem-restatement`, `tfs-abstraction-laddering` | M/P, P |
-| **Expand options / diverge** (fam 2) | "only two choices", stuck, premature convergence, need fresh ideas | `tfs-brainwriting` (**S**), `tfs-far-analogy-ideation` (**S**), `tfs-scamper`, `tfs-assumption-reversal`, `tfs-question-burst` | S-P |
-| **Shift perspective** (fam 1) | one-sided view, "are we missing something", stakeholder blind spots | `tfs-parallel-perspectives-review`, `tfs-red-team-light` (flag) | P |
-| **Challenge assumptions / beliefs** (fam 4) | over-confident claim, "everyone agrees", reasoning that may not hold, probability confusion | `tfs-argument-mapping` (**S**), `tfs-authentic-dissent` (**S**), `tfs-natural-frequency-bayesian` (**S**), `tfs-evidence-vs-inference-sort`, `tfs-ladder-of-inference-check`, `tfs-what-would-have-to-be-true` | S-P |
-| **Stress-test for risk / failure** (fam 5) | "what could go wrong", nervous about a plan, optimistic estimate, history of overruns | `tfs-premortem` (S/M), `tfs-reference-class-forecasting` (**S**), `tfs-woop` (**S**), `tfs-backcasting` | S-P |
-| **Reason about the system** (fam 6) | recurring problem, fixes that backfire, "why does this keep happening", accumulation/delay dynamics | `tfs-stocks-and-flows-reasoning` (**S**), `tfs-futures-wheel`, `tfs-iceberg-model` | S, P |
-| **Evaluate options / decide** (fam 7) | multiple defined options to choose among, "which should we pick", reversibility unclear | `tfs-decision-option-review`, `tfs-one-way-vs-two-way-door`, `tfs-linear-model-aggregation` (**S**), `tfs-decision-journal` | P, S |
-| **Synthesize / clarify reasoning** (fam 9) | "I can't make sense of all this", scattered notes, unstructured argument, need an answer-first memo | `tfs-issue-tree`, `tfs-affinity-mapping`, `tfs-pyramid-principle` | P |
-| **Reflect / learn** (fam 11) | after the fact, "what did we learn", recurring mistakes, want to calibrate | `tfs-after-action-review` (S/M), `tfs-decision-journal` | S/M, P |
+| **Reframe the problem** (fam 3) | "the real problem is...", solving the wrong thing, fuzzy or solution-shaped problem statement | `think-problem-restatement`, `think-abstraction-laddering` | M/P, P |
+| **Expand options / diverge** (fam 2) | "only two choices", stuck, premature convergence, need fresh ideas | `think-brainwriting` (**S**), `think-far-analogy-ideation` (**S**), `think-scamper`, `think-assumption-reversal`, `think-question-burst` | S-P |
+| **Shift perspective** (fam 1) | one-sided view, "are we missing something", stakeholder blind spots | `think-parallel-perspectives-review`, `think-red-team-light` (flag) | P |
+| **Challenge assumptions / beliefs** (fam 4) | over-confident claim, "everyone agrees", reasoning that may not hold, probability confusion | `think-argument-mapping` (**S**), `think-authentic-dissent` (**S**), `think-natural-frequency-bayesian` (**S**), `think-evidence-vs-inference-sort`, `think-ladder-of-inference-check`, `think-what-would-have-to-be-true` | S-P |
+| **Stress-test for risk / failure** (fam 5) | "what could go wrong", nervous about a plan, optimistic estimate, history of overruns | `think-premortem` (S/M), `think-reference-class-forecasting` (**S**), `think-woop` (**S**), `think-backcasting` | S-P |
+| **Reason about the system** (fam 6) | recurring problem, fixes that backfire, "why does this keep happening", accumulation/delay dynamics | `think-stocks-and-flows-reasoning` (**S**), `think-futures-wheel`, `think-iceberg-model` | S, P |
+| **Evaluate options / decide** (fam 7) | multiple defined options to choose among, "which should we pick", reversibility unclear | `think-decision-option-review`, `think-one-way-vs-two-way-door`, `think-linear-model-aggregation` (**S**), `think-decision-journal` | P, S |
+| **Synthesize / clarify reasoning** (fam 9) | "I can't make sense of all this", scattered notes, unstructured argument, need an answer-first memo | `think-issue-tree`, `think-affinity-mapping`, `think-pyramid-principle` | P |
+| **Reflect / learn** (fam 11) | after the fact, "what did we learn", recurring mistakes, want to calibrate | `think-after-action-review` (S/M), `think-decision-journal` | S/M, P |
 
 (Families 8 strategy, 10 facilitation are intentionally thin in this library - 8 mostly defers to `pm-skills`, 10 is human-social. The advisor says so when a situation lands there, rather than forcing a poor-fit recommendation. See refusal protocol 11.6.)
 
@@ -88,7 +88,7 @@ The routing table (the catalog families, as jobs, with the strongest shipped ski
 
 ### 6.2 Engine 2 - Stakes x reversibility calibrator (the heft governor)
 
-This replaces Cynefin as the confidence/rigor cap. It answers: *how much thinking apparatus is this situation worth?* It directly reuses the logic of the shipped `tfs-one-way-vs-two-way-door` skill.
+This replaces Cynefin as the confidence/rigor cap. It answers: *how much thinking apparatus is this situation worth?* It directly reuses the logic of the shipped `think-one-way-vs-two-way-door` skill.
 
 | Reversibility | Stakes | Recommended plan heft | Confidence ceiling on the plan |
 |---|---|---|---|
@@ -103,7 +103,7 @@ This replaces Cynefin as the confidence/rigor cap. It answers: *how much thinkin
 
 - **Engine 1** sets *which* frameworks and *in what order*.
 - **Engine 2** sets *how many* and *how rigorous*.
-- **The catalog evidence tier** sets the *per-framework* confidence label, carried straight from the catalog. The advisor never recommends a framework above its tier, and prefers higher-tier frameworks when two would do the same job (e.g., for "diverge," lead with `tfs-brainwriting` (S) before `tfs-scamper` (P), unless the input specifically calls for transformation prompts).
+- **The catalog evidence tier** sets the *per-framework* confidence label, carried straight from the catalog. The advisor never recommends a framework above its tier, and prefers higher-tier frameworks when two would do the same job (e.g., for "diverge," lead with `think-brainwriting` (S) before `think-scamper` (P), unless the input specifically calls for transformation prompts).
 - **Overall plan confidence** is capped by Engine 2 and demoted one notch if the dominant-job diagnosis rests on `Inferred` (unquoted) signal.
 
 ## 7. Recipe- and workflow-level recommendations
@@ -126,7 +126,7 @@ The advisor may name a skill or recipe **only if its exact name exists in the li
 - A build step generates `references/recommendable.json` (and a human-readable `references/recommendable.md`) from `library.json` `components` (the source of truth for what is installed) joined with each skill's `framework-catalog.md` row (family + evidence tier + one-line mechanism + use-when). This file is the *only* source the skill may name from.
 - The generator is a small script (`scripts/gen-recommendable.mjs`) run at author time and re-run whenever skills are added/removed, so names never drift. It is the advisor's analog of the PM skill's "build-time catalog generator emits Tier 1/2."
 - If the generated set is unavailable at runtime for any reason, the skill falls back to an embedded exact-name list of the 30 skills + 4 recipes (committed in the skill), and where no listed component maps cleanly, it gives the next step in **plain language** rather than guessing a name.
-- **Never recommended:** the advisor itself (no self-reference), and any `[flag]` skill is recommended only with its caveat surfaced (e.g., `tfs-red-team-light`'s "engineered not authentic dissent" note).
+- **Never recommended:** the advisor itself (no self-reference), and any `[flag]` skill is recommended only with its caveat surfaced (e.g., `think-red-team-light`'s "engineered not authentic dissent" note).
 
 ## 9. Output structure - the Thinking Plan
 
@@ -172,12 +172,12 @@ The dossier's honest conclusion is likely: *the act of routing is practitioner-t
 3. **Cite or do not claim.** Every diagnosis and recommendation references a ledger ID or is tagged `Inferred (Low confidence)`; an Inferred claim may not be the sole basis for the dominant-job call or the step-1 recommendation.
 4. **No tier inflation.** Never present a framework above its catalog tier. If the only fitting framework is P-tier, say P-tier.
 5. **No framework-overload.** Respect the stakes calibrator. If tempted to recommend more than the calibrator warrants, cut to the calibrated number and move the rest to "what NOT to use (yet)."
-6. **Honest about thin families.** If the situation lands in a family this library serves poorly (most of strategy fam 8 -> `pm-skills`; facilitation fam 10 -> human-social), say so and point outward rather than forcing a poor-fit `tfs-` recommendation.
+6. **Honest about thin families.** If the situation lands in a family this library serves poorly (most of strategy fam 8 -> `pm-skills`; facilitation fam 10 -> human-social), say so and point outward rather than forcing a poor-fit `think-` recommendation.
 7. **Name safety.** Name only components confirmed in the recommendable set; otherwise describe the step in plain language. Never invent a name.
 
 ## 12. Packaging and tier implications
 
-- Adds one skill directory `skills/tfs-framework-advisor/` with the standard 6-file unit (`SKILL.md`, `evidence/dossier.md`, `references/TEMPLATE.md`, `references/EXAMPLE.md`, `eval/cases.md`, and the generated `references/recommendable.{json,md}`), authored via `docs/internal/AUTHORING.md`.
+- Adds one skill directory `skills/think-framework-advisor/` with the standard 6-file unit (`SKILL.md`, `evidence/dossier.md`, `references/TEMPLATE.md`, `references/EXAMPLE.md`, `eval/cases.md`, and the generated `references/recommendable.{json,md}`), authored via `docs/internal/AUTHORING.md`.
 - Adds `scripts/gen-recommendable.mjs` (author-time generator) and a note in `AGENTS.md`.
 - Registered in `library.json` `components.skills`; re-run `gen-manifest.mjs` so the native manifests pick it up. The plugin stays at convergent (Silver), claude + codex; this skill introduces no new tier requirement.
 - The advisor itself ships **no** chain in frontmatter and invokes nothing inline, so `agents/_chain-permitted.yaml` stays `{}` and S4 stays clean.
@@ -196,8 +196,8 @@ The dossier's honest conclusion is likely: *the act of routing is practitioner-t
 
 ## 14. Open decisions (for the user)
 
-1. **Skill name.** `tfs-framework-advisor` (recommended) vs `tfs-thinking-plan` (artifact-named) vs another. Cosmetic; the prefix and ID convention hold either way.
-2. **Front-door prominence.** Should the advisor also be surfaced as a slash-command once the toolkit wires command->skill resolution, so users can type `/tfs-framework-advisor`? (Skills are invocable directly today; this is about a friendlier entry point and is deferrable.)
+1. **Skill name.** `think-framework-advisor` (recommended) vs `think-thinking-plan` (artifact-named) vs another. Cosmetic; the prefix and ID convention hold either way.
+2. **Front-door prominence.** Should the advisor also be surfaced as a slash-command once the toolkit wires command->skill resolution, so users can type `/think-framework-advisor`? (Skills are invocable directly today; this is about a friendlier entry point and is deferrable.)
 3. **Docs-site coupling.** How tightly should section 6 of the Thinking Plan link into the docs site - deep links per framework page (needs the site live) vs a generic "see the catalog" pointer until then.
 
 ## 15. Build plan (how to author it)

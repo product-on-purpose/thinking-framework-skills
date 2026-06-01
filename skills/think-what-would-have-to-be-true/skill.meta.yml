@@ -1,0 +1,76 @@
+# Rich sidecar for the think-what-would-have-to-be-true skill.
+# DRAFT shape. A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.what-would-have-to-be-true
+  slug: what-would-have-to-be-true
+  name: think-what-would-have-to-be-true
+  display_name: What Would Have to Be True
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: [assumption-and-belief-challenge, strategy-and-opportunity]
+  thinking_modes: [strategic, critical, counterfactual]
+  problem_contexts: [high-stakes, high-conflict]
+  use_cases:
+    - evaluate a consequential strategic bet or option
+    - resolve a disagreement that has become a clash of opinions
+    - surface the load-bearing assumptions a choice silently rests on
+  poor_fit_cases:
+    - trivial or fully reversible decisions
+    - generating options (use ideation) or choosing among several (use a decision-comparison skill)
+    - substituting condition-listing for actually testing the conditions
+
+interface:
+  required_inputs:
+    - a specific option, strategy, or contested claim to examine
+  optional_inputs:
+    - known constraints, data, or stakeholder positions
+  primary_artifact_type: assumption-ledger
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.premortem
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.problem-restatement
+    - thinking-framework-skills.decision-option-review
+  often_precedes:
+    - thinking-framework-skills.premortem
+  complements:
+    - thinking-framework-skills.evidence-vs-inference-sort
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - listing conditions but never prioritizing or testing them
+    - generating agreeable, easy-to-meet conditions instead of the risky load-bearing ones
+    - confusing "would have to be true" with "is true"
+
+evidence:
+  evidence_tier: "P"
+  confidence: high that it improves the strategy conversation; no controlled outcome evidence
+  transferred_evidence: true
+  lineage:
+    derived_from: [Lafley and Martin, Playing to Win]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-what-would-have-to-be-true/SKILL.md
+  references_path: skills/think-what-would-have-to-be-true/references/
+  evidence_path: skills/think-what-would-have-to-be-true/evidence/dossier.md
+  evals_path: skills/think-what-would-have-to-be-true/eval/

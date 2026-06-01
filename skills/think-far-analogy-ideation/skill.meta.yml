@@ -1,0 +1,76 @@
+# Rich sidecar for the think-far-analogy-ideation skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.far-analogy-ideation
+  slug: far-analogy-ideation
+  name: think-far-analogy-ideation
+  display_name: Far-Analogy Ideation
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: divergent-ideation
+  secondary_families: []
+  thinking_modes: [divergent, lateral, creative]
+  problem_contexts: [high-ambiguity]
+  use_cases:
+    - generate genuinely original solutions when near options are exhausted
+    - transfer a working mechanism from a distant domain to the problem
+  poor_fit_cases:
+    - an obvious near solution already exists and works
+    - converging or deciding among options
+    - only a surface-level analogy is available (worse than none)
+    - execution tasks with no ideation need
+
+interface:
+  required_inputs:
+    - a problem that can be abstracted to a relational structure
+  optional_inputs:
+    - near solutions already tried
+  primary_artifact_type: far-analogy-transfer-sheet
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.problem-restatement
+    - thinking-framework-skills.decision-option-review
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.problem-restatement
+  often_precedes:
+    - thinking-framework-skills.decision-option-review
+  complements:
+    - thinking-framework-skills.scamper
+    - thinking-framework-skills.brainwriting
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - surface-feature mapping instead of structural
+    - forcing a cute analogy that does not transfer
+    - treating the analogy as the answer rather than a candidate mechanism
+
+evidence:
+  evidence_tier: "S"
+  confidence: high that distant analogies yield more originality; surface mapping carries none of it
+  transferred_evidence: true
+  lineage:
+    derived_from: [Gentner structure-mapping, Gick and Holyoak analogical transfer]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-far-analogy-ideation/SKILL.md
+  references_path: skills/think-far-analogy-ideation/references/
+  evidence_path: skills/think-far-analogy-ideation/evidence/dossier.md
+  evals_path: skills/think-far-analogy-ideation/eval/

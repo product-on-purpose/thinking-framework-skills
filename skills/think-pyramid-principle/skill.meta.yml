@@ -1,0 +1,91 @@
+# Rich sidecar for the think-pyramid-principle skill.
+# DRAFT: shape is provisional and will be reconciled with agent-skills-toolkit
+# conventions once 2-3 skills exist. Evidence fields are a hand-authored summary
+# of evidence/dossier.md (the source of truth), not generated from it.
+#
+# Naming: id = <namespace>.<method> = thinking-framework-skills.pyramid-principle;
+# slug = bare method = pyramid-principle; installable name = prefix + slug =
+# think-pyramid-principle (the think- prefix avoids cross-plugin name collisions;
+# see library.json "prefix").
+
+identity:
+  id: thinking-framework-skills.pyramid-principle
+  slug: pyramid-principle
+  name: think-pyramid-principle      # installable name (matches the skill directory)
+  display_name: Pyramid Principle
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: synthesis
+  secondary_families: [reasoning-clarity]
+  thinking_modes: [convergent, structured-communication]
+  problem_contexts: [communication, decision-write-up]
+  use_cases:
+    - structure an existing recommendation answer-first for a busy or senior reader
+    - order findings into a tight top-down MECE case instead of a chronological narrative
+    - restructure a draft that buries its point under context
+    - build the spine of a decision memo or executive summary with an optional SCQA intro
+  poor_fit_cases:
+    - early exploratory thinking before a conclusion exists (forces a premature headline)
+    - testing whether an argument is sound (use argument-mapping)
+    - decomposing a question into sub-questions for analysis (use issue-tree)
+    - dressing a thin case in confident structure to make it look authoritative
+
+interface:
+  required_inputs:
+    - an existing conclusion or recommendation to communicate
+    - the supporting reasons and evidence behind it
+  optional_inputs:
+    - the intended reader (the busier the reader, the more the discipline matters)
+    - context for an SCQA intro framing
+  primary_artifact_type: pyramid     # governing thought + ordered key lines + support
+  output_formats: [markdown-outline, markdown-table]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.issue-tree
+    - thinking-framework-skills.argument-mapping
+    - thinking-framework-skills.decision-option-review
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.decision-option-review   # decide, then communicate the recommendation
+    - thinking-framework-skills.issue-tree               # analyze via the tree, then present the answer
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.argument-mapping         # compose the case here; check its soundness there
+  overlaps_with:
+    - thinking-framework-skills.issue-tree               # both are MECE trees; issue-tree structures the QUESTION, pyramid structures the ANSWER
+    - thinking-framework-skills.argument-mapping         # both touch claim+reasons; argument-mapping ANALYZES soundness, pyramid COMPOSES communication
+  variants: []
+
+quality:
+  trigger_eval_status: not-run     # see eval/cases.md (runner deferred to the Silver climb)
+  output_eval_status: not-run
+  known_failure_modes:
+    - ritual headline slapped on unchanged, ungrouped prose
+    - key arguments that overlap (not ME) or leave gaps (not CE)
+    - key lines that do not actually sum to the governing thought
+    - dumping arguments in discovery order instead of a deliberate one
+    - implying a tidy pyramid certifies the recommendation is correct
+
+evidence:
+  evidence_tier: "P"               # practitioner; no controlled studies of the named method (dossier section 3)
+  confidence: high on the communication benefit; low that the named method has been measured
+  transferred_evidence: true       # human practice + adjacent comprehension research; not AI-validated
+  lineage:
+    derived_from: [minto-pyramid-principle, mece-grouping, scqa-framing]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-pyramid-principle/SKILL.md
+  references_path: skills/think-pyramid-principle/references/
+  evidence_path: skills/think-pyramid-principle/evidence/dossier.md
+  evals_path: skills/think-pyramid-principle/eval/

@@ -1,0 +1,77 @@
+# Rich sidecar for the think-brainwriting skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.brainwriting
+  slug: brainwriting
+  name: think-brainwriting
+  display_name: Brainwriting (6-3-5 / NGT)
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: divergent-ideation
+  secondary_families: []
+  thinking_modes: [divergent, creative]
+  problem_contexts: [high-ambiguity]
+  use_cases:
+    - generate breadth of options while avoiding anchoring and conformity
+    - early divergent generation before any selection
+    - replace a single anchored brainstorm with parallel independent streams
+  poor_fit_cases:
+    - converging, ranking, or deciding (use a decision skill)
+    - when deep single-expert reasoning beats breadth
+    - volume with no build-on and no selection
+    - collapsing into a single stream (loses the mechanism)
+
+interface:
+  required_inputs:
+    - an ideation prompt or challenge
+  optional_inputs:
+    - distinct angles, personas, or constraints to seed the streams
+  primary_artifact_type: idea-pool
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: true   # parallel streams map naturally to parallel sub-agents
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.scamper
+    - thinking-framework-skills.decision-option-review
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.problem-restatement
+  often_precedes:
+    - thinking-framework-skills.decision-option-review
+  complements:
+    - thinking-framework-skills.scamper
+  overlaps_with: []
+  variants:
+    - "protocols: 6-3-5, Nominal Group Technique"
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - collapsing into a single idea stream
+    - volume without build-on or selection
+    - treating it as a convergence or decision method
+
+evidence:
+  evidence_tier: "S"
+  confidence: high for the human group evidence; AI adaptation transfers the mechanism, not a measured effect
+  transferred_evidence: true
+  lineage:
+    derived_from: [Rohrbach 6-3-5, Nominal Group Technique, Diehl and Stroebe production blocking]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-brainwriting/SKILL.md
+  references_path: skills/think-brainwriting/references/
+  evidence_path: skills/think-brainwriting/evidence/dossier.md
+  evals_path: skills/think-brainwriting/eval/

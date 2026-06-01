@@ -1,0 +1,77 @@
+# Rich sidecar for the think-reference-class-forecasting skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.reference-class-forecasting
+  slug: reference-class-forecasting
+  name: think-reference-class-forecasting
+  display_name: Reference Class Forecasting
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: risk-and-resilience
+  secondary_families: [decision-and-option-evaluation]
+  thinking_modes: [critical, analytical, counterfactual]
+  problem_contexts: [high-stakes, high-complexity]
+  use_cases:
+    - forecast cost, time, or odds of success against the planning fallacy
+    - replace an optimistic inside-view estimate with an outside-view range
+    - sanity-check a high-stakes commitment with base rates
+  poor_fit_cases:
+    - genuinely novel undertakings with no comparable reference class
+    - when no real base-rate data exists (do not invent a distribution)
+    - when the specifics genuinely dominate and no class is comparable
+    - when a point certainty is expected (this produces a distribution)
+
+interface:
+  required_inputs:
+    - what is being forecast (cost, time, or success), ideally with the inside estimate
+  optional_inputs:
+    - candidate reference cases or known base-rate data
+  primary_artifact_type: reference-class-estimate
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.premortem
+    - thinking-framework-skills.what-would-have-to-be-true
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.decision-option-review
+  often_precedes:
+    - thinking-framework-skills.premortem
+  complements:
+    - thinking-framework-skills.premortem
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - inventing base-rate data when none exists
+    - choosing a reference class too narrow or too flattering
+    - over-adjusting back toward the optimistic inside view
+    - presenting the estimate as a point certainty rather than a distribution
+
+evidence:
+  evidence_tier: "S"
+  confidence: high; among the best-evidenced debiasing methods, with institutional adoption
+  transferred_evidence: true
+  lineage:
+    derived_from: [Kahneman and Lovallo outside view, Flyvbjerg reference class forecasting]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-reference-class-forecasting/SKILL.md
+  references_path: skills/think-reference-class-forecasting/references/
+  evidence_path: skills/think-reference-class-forecasting/evidence/dossier.md
+  evals_path: skills/think-reference-class-forecasting/eval/

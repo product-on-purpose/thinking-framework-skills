@@ -2,7 +2,7 @@
 
 **A curated, evidence-graded library of thinking tools for AI agents and the humans who work with them.**
 
-> Most "thinking framework" collections are catalogs of named rituals. This one is built the other way around: every method is reduced to its working mechanism, graded by how strong its evidence actually is, and shipped as an agent-executable skill that produces a concrete artifact. Library and plugin name: `thinking-framework-skills`; skills install with a `tfs-` prefix (for example `tfs-premortem`).
+> Most "thinking framework" collections are catalogs of named rituals. This one is built the other way around: every method is reduced to its working mechanism, graded by how strong its evidence actually is, and shipped as an agent-executable skill that produces a concrete artifact. Library and plugin name: `thinking-framework-skills`; skills install with a `think-` prefix (for example `think-premortem`).
 
 > Status: early and aspirational. This README documents the vision, the candidate library, and the proposed conventions. Almost nothing here is locked yet, and the catalog below is a candidate universe ("will, or could, be included"), not a shipped product.
 
@@ -335,7 +335,7 @@ A layered metadata model is proposed so that each concern has one clean home: a 
 
 ```yaml
 ---
-name: tfs-premortem
+name: think-premortem
 description: >
   Generates a ranked risk register that stress-tests a planned decision by imagining
   it has already failed, surfacing the likely causes and pairing each with a
@@ -365,7 +365,7 @@ metadata:
 <details>
 <summary><strong>Taxonomy building blocks (expand)</strong></summary>
 
-- **IDs:** human-readable namespace-dot syntax (`thinking-framework-skills.premortem`), not opaque UUIDs, so relationship references stay legible. The installable skill name additionally carries the `tfs-` prefix (`tfs-premortem`).
+- **IDs:** human-readable namespace-dot syntax (`thinking-framework-skills.premortem`), not opaque UUIDs, so relationship references stay legible. The installable skill name additionally carries the `think-` prefix (`think-premortem`).
 - **Families:** the eleven cognitive-operation buckets above are the candidate `family` values; a method may carry one primary and several secondary families.
 - **Evidence tiers:** the seven-tier model (S strong, M moderate, P practitioner, V vendor, A anecdotal, C conceptually plausible, X poor or contradictory). The V-versus-P and A-versus-C distinctions are deliberate: they separate "has a book and case studies but no independent validation" from "long-standing practice," and "popular but unrigorous" from "sound but under-tested."
 - **Risk flags:** binary overrides for trademark exposure, cargo-cult risk, and "popular but evidence-X," surfaced in metadata and honored by the quality gate.

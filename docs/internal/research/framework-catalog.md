@@ -209,9 +209,9 @@ Added here as genuinely additive (not folds of existing skills). Provisional tie
 | PEST(LE) | strategy | scan macro forces (political/economic/social/technological/legal/environmental) | P | macro complement; partly `[pm]` |
 | Kepner-Tregoe | decision | structured situation/problem/decision/potential-problem analysis | P | comprehensive but heavy |
 | PDCA / A3 | reflection | structured improvement loop / one-page problem-solving | P | overlaps AAR; consider as AAR variants |
-| Mechanical / linear-model aggregation | decision | combine cues with a simple fixed formula instead of holistic judgment | **S** | `[shipped]` as `tfs-linear-model-aggregation` (Meehl/Dawes) |
+| Mechanical / linear-model aggregation | decision | combine cues with a simple fixed formula instead of holistic judgment | **S** | `[shipped]` as `think-linear-model-aggregation` (Meehl/Dawes) |
 
-> Note: **mechanical/linear-model aggregation** and **stocks-and-flows reasoning** were the last two unbuilt members of the named empirical core; both are now shipped (`tfs-linear-model-aggregation`, `tfs-stocks-and-flows-reasoning`). **The empirical core is complete (11/11).**
+> Note: **mechanical/linear-model aggregation** and **stocks-and-flows reasoning** were the last two unbuilt members of the named empirical core; both are now shipped (`think-linear-model-aggregation`, `think-stocks-and-flows-reasoning`). **The empirical core is complete (11/11).**
 
 ---
 

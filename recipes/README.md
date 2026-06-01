@@ -15,4 +15,4 @@ These are **documented chains**, runnable by an agent that reads the recipe and 
 | [stress-test-decision](stress-test-decision.md) (marquee) | Pressure-test a decision before committing | decision-option-review -> what-would-have-to-be-true -> premortem -> reference-class-forecasting |
 | [audit-reasoning](audit-reasoning.md) | Check whether a conclusion is sound | evidence-vs-inference-sort -> ladder-of-inference-check -> parallel-perspectives-review |
 
-Each chain references skills by their installable name (`tfs-<method>`) and `skills/tfs-<method>/SKILL.md`.
+Each chain references skills by their installable name (`think-<method>`) and `skills/think-<method>/SKILL.md`.

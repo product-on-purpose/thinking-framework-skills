@@ -6,13 +6,13 @@
 
 ## Chain
 
-1. **`tfs-problem-restatement`** (`skills/tfs-problem-restatement/SKILL.md`)
+1. **`think-problem-restatement`** (`skills/think-problem-restatement/SKILL.md`)
    - Produces a problem frame set ending in one chosen working frame.
    - Carry forward: the **chosen working frame** and its 1-line rationale (not the whole set).
-2. **`tfs-evidence-vs-inference-sort`** (`skills/tfs-evidence-vs-inference-sort/SKILL.md`)
+2. **`think-evidence-vs-inference-sort`** (`skills/think-evidence-vs-inference-sort/SKILL.md`)
    - Run it on the chosen frame and the claims behind it: separate what is known from what is inferred or assumed.
    - Carry forward: the **load-bearing unknowns** (the assumptions the frame rests on).
-3. **`tfs-parallel-perspectives-review`** (`skills/tfs-parallel-perspectives-review/SKILL.md`)
+3. **`think-parallel-perspectives-review`** (`skills/think-parallel-perspectives-review/SKILL.md`)
    - Review the reframed problem through the separated lenses to catch a blind spot the reframing missed.
    - Carry forward: the **synthesis** (the rounded read + the central tension).
 

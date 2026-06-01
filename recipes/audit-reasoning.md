@@ -6,13 +6,13 @@
 
 ## Chain
 
-1. **`tfs-evidence-vs-inference-sort`** (`skills/tfs-evidence-vs-inference-sort/SKILL.md`)
+1. **`think-evidence-vs-inference-sort`** (`skills/think-evidence-vs-inference-sort/SKILL.md`)
    - Sort the claims behind the conclusion into evidence, inference, and assumption; flag the uncited.
    - Carry forward: the **load-bearing unknowns** (unsupported claims doing the heavy lifting).
-2. **`tfs-ladder-of-inference-check`** (`skills/tfs-ladder-of-inference-check/SKILL.md`)
+2. **`think-ladder-of-inference-check`** (`skills/think-ladder-of-inference-check/SKILL.md`)
    - Reconstruct how the conclusion was reached; flag the riskiest leap; test an alternative interpretation.
    - Carry forward: the **riskiest rung** and the alternative interpretation.
-3. **`tfs-parallel-perspectives-review`** (`skills/tfs-parallel-perspectives-review/SKILL.md`)
+3. **`think-parallel-perspectives-review`** (`skills/think-parallel-perspectives-review/SKILL.md`)
    - Review the conclusion through separated lenses to surface what a single viewpoint missed.
    - Carry forward: the **synthesis** and the central tension.
 

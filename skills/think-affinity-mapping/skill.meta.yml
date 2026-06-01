@@ -1,0 +1,81 @@
+# Rich sidecar for the think-affinity-mapping skill.
+# DRAFT: shape is provisional and will be reconciled with agent-skills-toolkit
+# conventions once 2-3 skills exist. Evidence fields are a hand-authored summary
+# of evidence/dossier.md (the source of truth), not generated from it.
+#
+# Naming: id = <namespace>.<method> = thinking-framework-skills.affinity-mapping;
+# slug = bare method = affinity-mapping; installable name = prefix + slug = think-affinity-mapping
+# (the think- prefix avoids cross-plugin name collisions; see library.json "prefix").
+
+identity:
+  id: thinking-framework-skills.affinity-mapping
+  slug: affinity-mapping
+  name: think-affinity-mapping        # installable name (matches the skill directory)
+  display_name: Affinity Mapping
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: synthesis
+  secondary_families: []
+  thinking_modes: [synthetic, inductive, divergent-to-convergent]
+  problem_contexts: [high-volume, high-ambiguity, qualitative]
+  use_cases:
+    - synthesize many research notes, quotes, or tickets into a few emergent themes
+    - find structure in a scattered pile when the categories are not known in advance
+    - compress a large qualitative pile into named themes that stay traceable to the items
+  poor_fit_cases:
+    - only a handful of items (reason about them directly instead)
+    - needing a top-down logical structure from a question (use an issue-tree skill)
+    - needing to generate ideas or options (use an ideation skill such as brainwriting)
+    - sorting into fixed, authoritative categories (that is coding, not discovery)
+
+interface:
+  required_inputs:
+    - a pile of many discrete, existing items to synthesize (notes, quotes, tickets, data points)
+  optional_inputs:
+    - the question the synthesis is for
+    - any known constraints or a prior partial grouping
+  primary_artifact_type: clustered-theme-map
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: true
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.brainwriting
+    - thinking-framework-skills.issue-tree
+
+relationships:
+  often_follows: [thinking-framework-skills.brainwriting]
+  often_precedes: [thinking-framework-skills.issue-tree]
+  complements: []
+  overlaps_with: []          # see dossier section 5: distinct from issue-tree (top-down) and brainwriting (generative)
+  variants: []
+
+quality:
+  trigger_eval_status: not-run     # see eval/ (harness deferred to the Silver climb)
+  output_eval_status: not-run
+  known_failure_modes:
+    - naming themes before clustering, so predefined buckets get confirmed instead of discovered
+    - confident labels laundering thin or incoherent clusters as findings
+    - dropping outliers or losing the trail from theme back to source items
+    - using it to generate ideas or to impose a top-down structure (wrong tool)
+
+evidence:
+  evidence_tier: "P"               # practitioner; limited controlled evidence; see dossier section 3
+  confidence: moderate on the mechanism; low on any specific quality or speed gain
+  transferred_evidence: true       # human practice + human cognition research; not AI-validated
+  lineage:
+    derived_from: [kj-method, affinity-diagram, ux-research-synthesis]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none   # "KJ Method" associated with Jiro Kawakita; skill named descriptively
+
+implementation:
+  skill_path: skills/think-affinity-mapping/SKILL.md
+  references_path: skills/think-affinity-mapping/references/
+  evidence_path: skills/think-affinity-mapping/evidence/dossier.md
+  evals_path: skills/think-affinity-mapping/eval/

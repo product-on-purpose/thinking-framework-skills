@@ -1,0 +1,82 @@
+# Rich sidecar for the think-backcasting skill.
+# DRAFT: shape is provisional and will be reconciled with agent-skills-toolkit
+# conventions once 2-3 skills exist. Evidence fields are a hand-authored summary
+# of evidence/dossier.md (the source of truth), not generated from it.
+#
+# Naming: id = <namespace>.<method> = thinking-framework-skills.backcasting;
+# slug = bare method = backcasting; installable name = prefix + slug = think-backcasting
+# (the think- prefix avoids cross-plugin name collisions; see library.json "prefix").
+
+identity:
+  id: thinking-framework-skills.backcasting
+  slug: backcasting
+  name: think-backcasting        # installable name (matches the skill directory)
+  display_name: Backcasting
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: risk-and-resilience
+  secondary_families: [systems-and-consequences]
+  thinking_modes: [normative, counterfactual, systems]
+  problem_contexts: [high-ambiguity, high-complexity, long-horizon]
+  use_cases:
+    - map a route backward from a transformative or long-horizon desired future to the next step now
+    - decouple a goal from present constraints that forward planning would anchor on
+    - surface the milestones, preconditions, and dependencies between today and a chosen future
+  poor_fit_cases:
+    - near-term simple plans where forward planning is sufficient
+    - the goal is unsettled or unvalidated (choose/test it first; backcasting assumes the endpoint)
+    - imagining how the plan could fail (that is a premortem)
+    - tracing forward consequences of a decision (that is a futures wheel)
+    - personal follow-through on an already-chosen goal (that is WOOP)
+
+interface:
+  required_inputs:
+    - a chosen, describable desired future state (the goal/endpoint)
+  optional_inputs:
+    - a time horizon for the future state
+    - known constraints, resources, or current capabilities
+  primary_artifact_type: backcast-path
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.premortem
+
+relationships:
+  often_follows: [thinking-framework-skills.decision-option-review]
+  often_precedes: [thinking-framework-skills.premortem]
+  complements: [thinking-framework-skills.futures-wheel]
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run     # see eval/ (harness deferred to the Silver climb)
+  output_eval_status: not-run
+  known_failure_modes:
+    - relabeling a forward to-do list as a backcast (no backward direction, no preconditions named)
+    - building a clean path to an unvalidated or wrong goal
+    - treating the backward chain as a forecast or guarantee rather than a structured hypothesis
+    - stopping at strategy without landing on a concrete next step available now
+
+evidence:
+  evidence_tier: "P"               # practitioner method; limited controlled evidence; see dossier section 3
+  confidence: moderate on the procedural mechanism; low that any outcome improvement has been measured
+  transferred_evidence: true       # human practitioner studies/cases only; not AI-validated
+  lineage:
+    derived_from: [backcasting (Robinson 1982/1990), soft-energy-path analysis (Lovins 1976), The Natural Step]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-backcasting/SKILL.md
+  references_path: skills/think-backcasting/references/
+  evidence_path: skills/think-backcasting/evidence/dossier.md
+  evals_path: skills/think-backcasting/eval/   # harness deferred to the Silver climb

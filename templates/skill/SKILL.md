@@ -1,5 +1,5 @@
 ---
-name: tfs-REPLACE-method
+name: think-REPLACE-method
 description: REPLACE with one sentence. Lead with an action verb (Generates / Produces / Evaluates / Audits / Checks), name the artifact it produces, and include a "Use when ..." clause with concrete trigger words. Third person. Do NOT use first person ("you can", "you should", "we "). Keep under 1024 characters. This text is the activation trigger and is scored by the toolkit (U5).
 license: Apache-2.0
 metadata:

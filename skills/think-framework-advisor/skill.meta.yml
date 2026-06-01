@@ -1,0 +1,80 @@
+# Rich sidecar for the think-framework-advisor skill.
+# DRAFT shape (see skills/think-premortem/skill.meta.yml). Evidence fields are a
+# hand-authored summary of evidence/dossier.md (the source of truth), not generated.
+#
+# This is the library's meta/router skill: the only skill that recommends OTHER skills.
+# id = thinking-framework-skills.framework-advisor; slug = framework-advisor;
+# installable name = think-framework-advisor.
+
+identity:
+  id: thinking-framework-skills.framework-advisor
+  slug: framework-advisor
+  name: think-framework-advisor        # installable name (matches the skill directory)
+  display_name: Framework Advisor
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: meta-thinking-and-reflection
+  secondary_families: []     # routes across ALL families; not a member of one
+  role: meta-router          # distinct from the executor skills
+  thinking_modes: [diagnostic, meta-cognitive, prioritizing]
+  problem_contexts: [unframed, overwhelmed, tool-selection]
+  use_cases:
+    - diagnose which thinking framework a situation needs and in what order
+    - produce a prioritized, evidence-graded Thinking Plan with filled hand-off prompts
+    - prevent framework-overload by calibrating plan heft to stakes and reversibility
+  poor_fit_cases:
+    - the user already knows the move (route directly to that skill)
+    - the user wants the framework executed, not selected
+    - a finished artifact awaiting critique (review, not routing)
+    - not a thinking task (factual lookup, coding, content drafting)
+
+interface:
+  required_inputs:
+    - a described situation, decision, problem, or set of notes
+  optional_inputs:
+    - stated stakes, deadline, reversibility, prior framings or plans
+  primary_artifact_type: thinking-plan
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: false       # it is the entry point TO recipes, not a step in one
+  recommends_from: references/recommendable.json   # name-safety set, generated
+  likely_companions: []        # it hands off to all skills; none in particular
+
+relationships:
+  often_follows: []            # usually first
+  often_precedes: [any recommended skill or recipe]
+  complements: []
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: authored   # see eval/cases.md
+  output_eval_status: authored
+  known_failure_modes:
+    - over-stacking (recommending too many frameworks "to be thorough")
+    - inventing a skill name not in recommendable.json
+    - inflating a framework's tier, or claiming the routing itself is validated
+    - classifying by topic instead of by the thinking-move needed
+
+evidence:
+  evidence_tier: "M/C"             # split; see dossier section 3
+  confidence: moderate that structured-method-fit helps; low that routing accuracy is validated
+  transferred_evidence: true       # human-subject studies; routing accuracy itself untested
+  lineage:
+    derived_from: [contingency decision making, naturalistic decision making, decision-process research, law-of-the-instrument]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none                  # borrows the Cynefin contingency idea, not the model
+
+implementation:
+  skill_path: skills/think-framework-advisor/SKILL.md
+  references_path: skills/think-framework-advisor/references/
+  evidence_path: skills/think-framework-advisor/evidence/dossier.md
+  evals_path: skills/think-framework-advisor/eval/
+  generator: scripts/gen-recommendable.mjs   # regenerates references/recommendable.{json,md}

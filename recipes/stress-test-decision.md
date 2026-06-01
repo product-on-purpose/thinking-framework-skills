@@ -6,20 +6,20 @@
 
 ## Chain
 
-1. **`tfs-decision-option-review`** (`skills/tfs-decision-option-review/SKILL.md`)
+1. **`think-decision-option-review`** (`skills/think-decision-option-review/SKILL.md`)
    - Compare the options against weighted criteria; recommend one.
    - Carry forward: the **recommended option** and what would flip it.
-2. **`tfs-what-would-have-to-be-true`** (`skills/tfs-what-would-have-to-be-true/SKILL.md`)
+2. **`think-what-would-have-to-be-true`** (`skills/think-what-would-have-to-be-true/SKILL.md`)
    - Convert the recommended option into the conditions that must hold; name the killer conditions.
    - Carry forward: the **killer conditions** (load-bearing + uncertain).
-3. **`tfs-premortem`** (`skills/tfs-premortem/SKILL.md`)
+3. **`think-premortem`** (`skills/think-premortem/SKILL.md`)
    - Assume the chosen plan has failed; surface causes, mitigations, tripwires, kill criteria.
    - Carry forward: the **top risks with tripwires and kill criteria**.
-4. **`tfs-reference-class-forecasting`** (`skills/tfs-reference-class-forecasting/SKILL.md`)
+4. **`think-reference-class-forecasting`** (`skills/think-reference-class-forecasting/SKILL.md`)
    - Sanity-check the cost/time/success estimate against the base rates of comparable past cases.
    - Carry forward: the **outside-view estimate range**.
 
-**Optional adds** (when stakes justify the tokens): insert **`tfs-red-team-light`** after step 2 to steelman the opposition, and/or **`tfs-futures-wheel`** after step 3 to map second- and third-order effects.
+**Optional adds** (when stakes justify the tokens): insert **`think-red-team-light`** after step 2 to steelman the opposition, and/or **`think-futures-wheel`** after step 3 to map second- and third-order effects.
 
 ## Composite artifact
 

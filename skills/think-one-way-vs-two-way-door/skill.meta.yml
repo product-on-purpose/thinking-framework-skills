@@ -1,0 +1,82 @@
+# Rich sidecar for the think-one-way-vs-two-way-door skill.
+# DRAFT: shape is provisional and will be reconciled with agent-skills-toolkit
+# conventions once 2-3 skills exist. Evidence fields are a hand-authored summary
+# of evidence/dossier.md (the source of truth), not generated from it.
+#
+# Naming: id = <namespace>.<method> = thinking-framework-skills.one-way-vs-two-way-door;
+# slug = bare method = one-way-vs-two-way-door; installable name = prefix + slug =
+# think-one-way-vs-two-way-door (the think- prefix avoids cross-plugin name collisions;
+# see library.json "prefix").
+
+identity:
+  id: thinking-framework-skills.one-way-vs-two-way-door
+  slug: one-way-vs-two-way-door
+  name: think-one-way-vs-two-way-door   # installable name (matches the skill directory)
+  display_name: One-Way vs Two-Way Door
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: []
+  thinking_modes: [critical, consequential]
+  problem_contexts: [high-stakes, high-ambiguity]
+  use_cases:
+    - triage how much deliberation and sign-off a decision deserves before any analysis
+    - license fast decisions on reversible (two-way-door) calls
+    - force real rigor and senior sign-off on hard-to-reverse (one-way-door) calls
+    - give a chronically slow org a defensible reason to move fast or slow down
+  poor_fit_cases:
+    - the decision is already known high-stakes and under analysis (triage is done)
+    - actually comparing options against criteria (use decision-option-review)
+    - using a reversibility label as a license for speed while waving away one-way consequences
+    - a routine, obviously reversible call with no meaningful reversibility question
+
+interface:
+  required_inputs:
+    - a specific decision whose required level of process is unclear
+  optional_inputs:
+    - known constraints (cost, timeline, contractual or reputational exposure)
+  primary_artifact_type: reversibility-classification
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.premortem
+
+relationships:
+  often_follows: []
+  often_precedes: [thinking-framework-skills.decision-option-review, thinking-framework-skills.premortem]
+  complements: [thinking-framework-skills.decision-option-review]
+  overlaps_with: [thinking-framework-skills.decision-option-review]
+  variants: []
+
+quality:
+  trigger_eval_status: not-run     # see eval/ (harness deferred to the Silver climb)
+  output_eval_status: not-run
+  known_failure_modes:
+    - misjudging reversibility by accepting the convenient label (under-classifying one-way doors)
+    - treating reversibility as a license for speed alone, ignoring trust/legal/path-dependence
+    - confusing the triage with the analysis (recommending an option instead of a level of process)
+    - over-processing a routine reversible call by classifying it at all
+
+evidence:
+  evidence_tier: "P"               # practitioner; thin controlled evidence; see dossier section 3
+  confidence: moderate on the calibration/forcing-function value; low on any outcome-quality claim
+  transferred_evidence: true       # human organizational practice only; not AI-validated
+  lineage:
+    derived_from: [bezos type-1/type-2 decisions, one-way-door/two-way-door management practice]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-one-way-vs-two-way-door/SKILL.md
+  references_path: skills/think-one-way-vs-two-way-door/references/
+  evidence_path: skills/think-one-way-vs-two-way-door/evidence/dossier.md
+  evals_path: skills/think-one-way-vs-two-way-door/eval/
