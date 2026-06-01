@@ -1,0 +1,68 @@
+---
+title: Getting started
+description: What thinking-framework-skills is, who it is for, and how to run your first framework in a few minutes.
+---
+
+import { Card, CardGrid, LinkCard, Steps, Aside, Badge } from '@astrojs/starlight/components';
+
+This is a library of **thinking frameworks rebuilt as skills** an AI agent can run, and that humans can follow by hand. Each one takes a messy situation and produces a concrete artifact, not a wall of prose: a ranked risk register, a weighted option matrix, an argument map, an honest base-rate estimate.
+
+## Who it is for
+
+<CardGrid>
+  <Card title="Deciding or stuck" icon="puzzle">
+    Anyone facing a real decision or a recurring problem who wants a structured move, not vibes.
+  </Card>
+  <Card title="Solo operator + AI" icon="rocket">
+    Working alongside an agent and want to get unstuck or decide well, right now.
+  </Card>
+  <Card title="Skeptics" icon="approve-check">
+    Want to check whether these methods are actually supported by evidence. Spoiler: it is mixed, and we say so.
+  </Card>
+  <Card title="Builders" icon="setting">
+    Agent and plugin builders who want to call these skills programmatically.
+  </Card>
+</CardGrid>
+
+## The fastest path: let the advisor choose
+
+<LinkCard
+  title="Start with the Framework Advisor →"
+  description="Describe your situation in plain language and get a Thinking Plan: the one or two frameworks worth running, in order, why each fits, and what to skip. It is the front door to everything else."
+  href="../../frameworks/think-framework-advisor/"
+/>
+
+## Your first framework: a premortem
+
+A [premortem](../../frameworks/think-premortem/) <Badge text="Evidence: S/M" variant="success" /> stress-tests a plan by imagining it has *already failed* and working backward to why, then turning each cause into a tripwire and a pre-decided response.
+
+<Steps>
+
+1. **Pick a real decision** you are about to commit to: a launch, a hire, a migration.
+
+2. **Run the skill** in Claude Code (or follow its numbered steps by hand with a pen):
+
+   ```bash
+   /think-premortem "we're about to launch a free tier to drive signups"
+   ```
+
+3. **Get a ranked risk register.** For each top risk: a leading signal, a mitigation, an owner, and a kill criterion.
+
+</Steps>
+
+<Aside type="tip" title="That artifact is the point">
+The deliverable is the register of what could go wrong and what you will do about each, not a vague feeling of caution. Every skill in the library ends in a concrete artifact like this.
+</Aside>
+
+## How to read a framework page
+
+Every framework page is layered so you can stop at any depth: a 20-second quick-facts card, the mechanism and procedure, a worked example, then the full evidence dossier with graded sources.
+
+<CardGrid>
+  <LinkCard title="How to read a page" description="The four layers, and how to pick your depth." href="./how-to-read-a-page/" />
+  <LinkCard title="The evidence model" description="What the S/M/P/V/A/C/X tiers mean, and why honest grading is the product." href="./evidence-model/" />
+</CardGrid>
+
+<Aside type="note" title="You do not need an agent">
+Each framework is a procedure you can run by hand with the template on its page. The agent just makes the mechanism cheap to run and enforces the structure.
+</Aside>
