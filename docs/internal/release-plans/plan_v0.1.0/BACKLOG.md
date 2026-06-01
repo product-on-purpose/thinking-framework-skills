@@ -4,7 +4,7 @@ The single source of "what to build next." WIP = 1: build the **Now** skill end 
 
 ## Now
 
-> **MVP complete: 14 skills + 4 recipes + eval cases for every skill, all validated (Tier universal, 0/0).** Next build action: the Silver climb (package the recipes as workflow + command components; add per-target Codex emission), and/or the go-public flip (gated on your go: make the repo public, re-pin and merge the held `agent-plugins` listing).
+> **20 skills shipped (MVP 14 + empirical core 6) + 4 recipes + eval cases for every skill, all validated (Tier universal, 0/0).** The empirical core is now complete: 9 of the 20 are S/S-M tier. Next build action: the **v0.4 coverage tranche** (fill the still-empty families - see below), and/or the Silver climb and the go-public flip (both gated on your go).
 
 ## Build order
 
@@ -45,20 +45,18 @@ Statuses: `done` | `now` | `next` | `later`. The two `wk3` rows are the strong-e
 - DONE: `eval/cases.md` authored for every skill (triggers, anti-triggers, output checks, value-vs-unaided baseline). Not yet executed by a harness; the runner is a Silver-climb item.
 - Confirm license (Apache-2.0); decide the Silver climb; the go-public flip at the showcase.
 
-## Post-MVP candidates (recommended next tranche, v0.3) - not yet committed
+## v0.3 - empirical core (DONE)
 
-The highest-value next move is to **finish the empirical core**: the strongest-evidenced methods the MVP did not include. Evidence-grading is the moat (see the audit), and only 3 of the named empirical-core methods shipped (premortem, brainwriting, reference-class-forecasting). Shipping the rest takes the catalog from 3 S-tier anchors to ~9 and makes "evidence-graded" undeniable.
+The highest-value move was to finish the empirical core: the strongest-evidenced methods the MVP did not include. All six shipped and validated (Tier universal, 0/0), taking the catalog to 9 S/S-M-tier skills of 20.
 
-Recommended v0.3 tranche (S-tier first; each also opens or deepens a family):
-
-| Skill | Family | Evidence | Why next |
+| Skill | Family | Evidence | Status |
 |---|---|---|---|
-| `tfs-argument-mapping` | reasoning-clarity | **S** (ES ~0.7-0.85, van Gelder) | strongest-evidenced reasoning method; deepens reasoning-clarity |
-| `tfs-woop` | risk-and-resilience | **S** (25+ RCTs, Oettingen) | strongest-evidenced commitment method; new use case (goal -> action) |
-| `tfs-authentic-dissent` | assumption-and-belief-challenge | **S** (Nemeth) | the real-dissent method red-team-light's dossier already points to |
-| `tfs-after-action-review` | meta-thinking-and-reflection | S/M | opens the reflection family (currently empty) |
-| `tfs-far-analogy-ideation` | divergent-ideation | **S** (Gentner & Smith) | first S-tier ideation method (current ones are P) |
-| `tfs-natural-frequency-bayesian` | reasoning-clarity | **S** (Gigerenzer) | makes conditional-probability reasoning tractable; pairs with reference-class-forecasting |
+| `tfs-argument-mapping` | reasoning-clarity | **S** (van Gelder) | **done** |
+| `tfs-woop` | risk-and-resilience | **S** (Oettingen, 25+ RCTs) | **done** |
+| `tfs-authentic-dissent` | assumption-and-belief-challenge | **S** (Nemeth) | **done** |
+| `tfs-after-action-review` | meta-thinking-and-reflection | S/M (Tannenbaum & Cerasoli) | **done** (opened the reflection family) |
+| `tfs-far-analogy-ideation` | divergent-ideation | **S** (Gentner & Smith) | **done** |
+| `tfs-natural-frequency-bayesian` | reasoning-clarity | **S** (Gigerenzer) | **done** |
 
 Later tranche (v0.4, fill still-empty families; mostly P, high composability): synthesis (`tfs-mece-decomposition` / `tfs-issue-trees`, `tfs-affinity-mapping`, `tfs-pyramid-principle`); problem-framing (`tfs-abstraction-laddering`); decision (`tfs-one-way-vs-two-way-door`, `tfs-decision-journal`); perspective (`tfs-stakeholder-lens-review`, `tfs-steelmanning`); systems (`tfs-iceberg-model`, `tfs-leverage-points`); strategy (`tfs-opportunity-solution-tree`); foresight (`tfs-backcasting`).
 

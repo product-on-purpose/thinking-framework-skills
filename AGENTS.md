@@ -29,8 +29,14 @@ Each skill is built around four commitments, not just a prompt:
 | [`tfs-brainwriting`](skills/tfs-brainwriting/SKILL.md) | divergent-ideation | **S** | idea pool |
 | [`tfs-futures-wheel`](skills/tfs-futures-wheel/SKILL.md) | systems-and-consequences | P | consequence map |
 | [`tfs-reference-class-forecasting`](skills/tfs-reference-class-forecasting/SKILL.md) | risk-and-resilience | **S** | reference-class estimate |
+| [`tfs-argument-mapping`](skills/tfs-argument-mapping/SKILL.md) | reasoning-clarity | **S** | argument map |
+| [`tfs-woop`](skills/tfs-woop/SKILL.md) | risk-and-resilience | **S** | WOOP commitment card |
+| [`tfs-authentic-dissent`](skills/tfs-authentic-dissent/SKILL.md) | assumption-and-belief-challenge | **S** | dissent audit and plan |
+| [`tfs-after-action-review`](skills/tfs-after-action-review/SKILL.md) | meta-thinking-and-reflection | S/M | after-action review |
+| [`tfs-far-analogy-ideation`](skills/tfs-far-analogy-ideation/SKILL.md) | divergent-ideation | **S** | far-analogy transfer sheet |
+| [`tfs-natural-frequency-bayesian`](skills/tfs-natural-frequency-bayesian/SKILL.md) | reasoning-clarity | **S** | natural-frequency breakdown |
 
-The two **S** skills (brainwriting, reference-class-forecasting) are the strong-evidence anchors. "(flag)" marks skills with a documented evidence or trademark caveat in their dossier.
+20 skills, 9 at **S**/S-M tier (the strong-evidence anchors). "(flag)" marks skills with a documented evidence or trademark caveat in their dossier.
 
 ## Recipes
 
