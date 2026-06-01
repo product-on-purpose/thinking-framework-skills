@@ -24,7 +24,9 @@
       { "name": "tfs-assumption-reversal", "path": "skills/tfs-assumption-reversal/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-red-team-light", "path": "skills/tfs-red-team-light/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-brainwriting", "path": "skills/tfs-brainwriting/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
-      { "name": "tfs-reference-class-forecasting", "path": "skills/tfs-reference-class-forecasting/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
+      { "name": "tfs-reference-class-forecasting", "path": "skills/tfs-reference-class-forecasting/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-argument-mapping", "path": "skills/tfs-argument-mapping/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-woop", "path": "skills/tfs-woop/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
     ]
   },
   "repository": "https://github.com/product-on-purpose/thinking-framework-skills",
