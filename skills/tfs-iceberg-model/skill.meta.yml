@@ -1,0 +1,83 @@
+# Rich sidecar for the tfs-iceberg-model skill.
+# DRAFT: shape is provisional and will be reconciled with agent-skills-toolkit
+# conventions once 2-3 skills exist. Evidence fields are a hand-authored summary
+# of evidence/dossier.md (the source of truth), not generated from it.
+#
+# Naming: id = <namespace>.<method> = thinking-framework-skills.iceberg-model;
+# slug = bare method = iceberg-model; installable name = prefix + slug = tfs-iceberg-model
+# (the tfs- prefix avoids cross-plugin name collisions; see library.json "prefix").
+
+identity:
+  id: thinking-framework-skills.iceberg-model
+  slug: iceberg-model
+  name: tfs-iceberg-model        # installable name (matches the skill directory)
+  display_name: Iceberg Model
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: systems-and-consequences
+  secondary_families: [problem-framing]
+  thinking_modes: [systems, causal, critical]
+  problem_contexts: [high-complexity, recurring-problem]
+  use_cases:
+    - move a recurring problem from the visible event down to its systemic causes
+    - find structure- and mindset-level interventions higher-leverage than reacting to the event
+    - reframe a symptom treated as a one-off as the latest instance of a pattern
+  poor_fit_cases:
+    - a simple, linear, single-cause problem with an obvious fix
+    - mapping forward consequences of a decision (that is futures-wheel)
+    - auditing one person's data-to-conclusion reasoning (that is ladder-of-inference-check)
+    - ritual box-filling with no honest descent and no intervention paired to each level
+
+interface:
+  required_inputs:
+    - a problem or symptom, ideally one that recurs
+  optional_inputs:
+    - history or trend data for the pattern level
+    - known policies, incentives, or org structure for the structures level
+  primary_artifact_type: iceberg
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.futures-wheel
+    - thinking-framework-skills.premortem
+
+relationships:
+  often_follows: []
+  often_precedes: [thinking-framework-skills.futures-wheel]
+  complements: [thinking-framework-skills.premortem]
+  overlaps_with: []            # distinct from futures-wheel (forward/outward to effects)
+                               # and ladder-of-inference-check (one person's inference, not systemic levels)
+  variants: []
+
+quality:
+  trigger_eval_status: not-run     # see eval/ (deferred to the Silver climb)
+  output_eval_status: not-run
+  known_failure_modes:
+    - stopping at the event or pattern level, never reaching structures
+    - restating structures as "mental models" instead of surfacing real beliefs
+    - filling four boxes with no intervention paired to each level (ritual, no leverage)
+    - forcing four levels onto a genuine single-cause problem (false depth)
+    - presenting the leverage judgment as a measured or proven effect
+
+evidence:
+  evidence_tier: "P"               # practitioner; limited controlled evidence; see dossier section 3
+  confidence: moderate on the lens; low that it yields measurably better outcomes
+  transferred_evidence: true       # human systems-thinking practice only; not AI-validated
+  lineage:
+    derived_from: [systems-thinking iceberg model, Senge levels of perspective, Meadows leverage points]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/tfs-iceberg-model/SKILL.md
+  references_path: skills/tfs-iceberg-model/references/
+  evidence_path: skills/tfs-iceberg-model/evidence/dossier.md
+  evals_path: skills/tfs-iceberg-model/eval/   # deferred to the Silver climb

@@ -35,8 +35,16 @@ Each skill is built around four commitments, not just a prompt:
 | [`tfs-after-action-review`](skills/tfs-after-action-review/SKILL.md) | meta-thinking-and-reflection | S/M | after-action review |
 | [`tfs-far-analogy-ideation`](skills/tfs-far-analogy-ideation/SKILL.md) | divergent-ideation | **S** | far-analogy transfer sheet |
 | [`tfs-natural-frequency-bayesian`](skills/tfs-natural-frequency-bayesian/SKILL.md) | reasoning-clarity | **S** | natural-frequency breakdown |
+| [`tfs-issue-tree`](skills/tfs-issue-tree/SKILL.md) | reasoning-clarity | P | issue tree (MECE) |
+| [`tfs-affinity-mapping`](skills/tfs-affinity-mapping/SKILL.md) | synthesis | P | clustered theme map |
+| [`tfs-pyramid-principle`](skills/tfs-pyramid-principle/SKILL.md) | synthesis | P | answer-first pyramid |
+| [`tfs-abstraction-laddering`](skills/tfs-abstraction-laddering/SKILL.md) | problem-framing | P | abstraction ladder |
+| [`tfs-one-way-vs-two-way-door`](skills/tfs-one-way-vs-two-way-door/SKILL.md) | decision-and-option-evaluation | P | reversibility classification |
+| [`tfs-decision-journal`](skills/tfs-decision-journal/SKILL.md) | meta-thinking-and-reflection | P | decision journal entry |
+| [`tfs-iceberg-model`](skills/tfs-iceberg-model/SKILL.md) | systems-and-consequences | P | iceberg (4 levels) |
+| [`tfs-backcasting`](skills/tfs-backcasting/SKILL.md) | risk-and-resilience | P | backcast path |
 
-20 skills, 9 at **S**/S-M tier (the strong-evidence anchors). "(flag)" marks skills with a documented evidence or trademark caveat in their dossier.
+28 skills, 9 at **S**/S-M tier (the strong-evidence anchors). "(flag)" marks skills with a documented evidence or trademark caveat in their dossier. See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
 
 ## Recipes
 

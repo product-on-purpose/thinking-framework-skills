@@ -30,7 +30,15 @@
       { "name": "tfs-authentic-dissent", "path": "skills/tfs-authentic-dissent/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-after-action-review", "path": "skills/tfs-after-action-review/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-far-analogy-ideation", "path": "skills/tfs-far-analogy-ideation/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
-      { "name": "tfs-natural-frequency-bayesian", "path": "skills/tfs-natural-frequency-bayesian/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
+      { "name": "tfs-natural-frequency-bayesian", "path": "skills/tfs-natural-frequency-bayesian/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-issue-tree", "path": "skills/tfs-issue-tree/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-affinity-mapping", "path": "skills/tfs-affinity-mapping/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-pyramid-principle", "path": "skills/tfs-pyramid-principle/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-abstraction-laddering", "path": "skills/tfs-abstraction-laddering/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-one-way-vs-two-way-door", "path": "skills/tfs-one-way-vs-two-way-door/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-decision-journal", "path": "skills/tfs-decision-journal/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-iceberg-model", "path": "skills/tfs-iceberg-model/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-backcasting", "path": "skills/tfs-backcasting/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
     ]
   },
   "repository": "https://github.com/product-on-purpose/thinking-framework-skills",

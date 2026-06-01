@@ -1,0 +1,81 @@
+# Rich sidecar for the tfs-issue-tree skill.
+# DRAFT: shape is provisional and will be reconciled with agent-skills-toolkit
+# conventions once 2-3 skills exist. Evidence fields are a hand-authored summary
+# of evidence/dossier.md (the source of truth), not generated from it.
+#
+# Naming: id = <namespace>.<method> = thinking-framework-skills.issue-tree;
+# slug = bare method = issue-tree; installable name = prefix + slug = tfs-issue-tree
+# (the tfs- prefix avoids cross-plugin name collisions; see library.json "prefix").
+
+identity:
+  id: thinking-framework-skills.issue-tree
+  slug: issue-tree
+  name: tfs-issue-tree        # installable name (matches the skill directory)
+  display_name: Issue Tree
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: reasoning-clarity
+  secondary_families: [problem-framing]
+  thinking_modes: [analytical, systems, convergent]
+  problem_contexts: [high-ambiguity, high-complexity]
+  use_cases:
+    - decompose a big, ambiguous, multi-cause question into answerable sub-questions
+    - impose MECE structure so analysis can be split across non-overlapping branches
+    - guarantee coverage when missing a whole category of cause or option would be costly
+  poor_fit_cases:
+    - a simple question that already has an obvious one-step structure (false rigor)
+    - evaluating whether a given argument is sound (use argument-mapping)
+    - clustering existing notes or findings bottom-up into themes (use affinity-mapping)
+    - decomposing along an irrelevant axis, or stopping at the tree as if it were the answer
+
+interface:
+  required_inputs:
+    - a single big or ambiguous question to decompose
+  optional_inputs:
+    - a candidate split axis or known constraints
+    - existing data sources that could answer leaves
+  primary_artifact_type: issue-tree
+  output_formats: [markdown-tree, markdown-table]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.problem-restatement
+    - thinking-framework-skills.argument-mapping
+
+relationships:
+  often_follows: [thinking-framework-skills.problem-restatement]
+  often_precedes: [thinking-framework-skills.argument-mapping]
+  complements: [thinking-framework-skills.affinity-mapping]
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run     # see eval/cases.md (harness deferred to Silver)
+  output_eval_status: not-run
+  known_failure_modes:
+    - MECE-clean tree decomposed along an irrelevant axis (tidy but useless)
+    - leaves left too coarse to answer, or with no named data/owner/judgment
+    - branches that overlap (double-count) or silently miss a category (no remainder)
+    - treating the finished tree as the answer rather than as a restructured question
+
+evidence:
+  evidence_tier: "P"               # practitioner; limited controlled evidence (dossier section 3)
+  confidence: moderate on tractability/coverage; low that any number proves better answers
+  transferred_evidence: true       # human practitioner use only; not AI-validated
+  lineage:
+    derived_from: [MECE / Minto Pyramid Principle, McKinsey issue/logic trees]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/tfs-issue-tree/SKILL.md
+  references_path: skills/tfs-issue-tree/references/
+  evidence_path: skills/tfs-issue-tree/evidence/dossier.md
+  evals_path: skills/tfs-issue-tree/eval/

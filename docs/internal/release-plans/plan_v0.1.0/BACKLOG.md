@@ -4,7 +4,7 @@ The single source of "what to build next." WIP = 1: build the **Now** skill end 
 
 ## Now
 
-> **20 skills shipped (MVP 14 + empirical core 6) + 4 recipes + eval cases for every skill, all validated (Tier universal, 0/0).** The empirical core is now complete: 9 of the 20 are S/S-M tier. Next build action: the **v0.4 coverage tranche** (fill the still-empty families - see below), and/or the Silver climb and the go-public flip (both gated on your go).
+> **28 skills shipped (MVP 14 + empirical core 6 + coverage 8) + 4 recipes + eval cases for every skill, all validated (Tier universal, 0/0).** 9 are S/S-M tier; the empty families (synthesis, reflection) are now filled. The skill build-out is essentially complete for v0.x. Next: the Silver climb and the go-public flip (both gated on your go). See `docs/internal/research/framework-catalog.md` for the full framework universe and what remains as future candidates.
 
 ## Build order
 
