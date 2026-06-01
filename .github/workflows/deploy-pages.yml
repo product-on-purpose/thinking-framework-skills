@@ -1,0 +1,59 @@
+name: Deploy docs site to GitHub Pages
+
+# The Astro Starlight docs site lives in site/ and is a GENERATED VIEW of the
+# skills (npm run build runs scripts/gen-site.mjs, then astro build).
+#
+# GATED: this is currently workflow_dispatch (manual) ONLY. The repo is private
+# and GitHub Pages is not yet enabled, so an automatic push trigger would fail.
+# At the go-public flip: (1) enable Pages with source "GitHub Actions",
+# (2) add `push: branches: [main]` to the triggers below, (3) verify the
+# site base path (/thinking-framework-skills) against the live Pages URL.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node 22.12+
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22.12'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site (gen-site.mjs + astro build)
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

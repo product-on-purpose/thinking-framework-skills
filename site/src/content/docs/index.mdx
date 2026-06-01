@@ -1,0 +1,56 @@
+---
+title: Thinking Framework Skills
+description: An evidence-graded library of agent-executable thinking-method skills. Each skill is reduced to its working mechanism, graded honestly on how strong its evidence is, and produces a concrete artifact.
+template: splash
+hero:
+  tagline: Evidence-graded thinking methods for agents and the humans who work with them. Each one is a mechanism, not a brand, graded honestly, and produces a concrete artifact.
+  actions:
+    - text: Start here
+      link: start/getting-started/
+      icon: right-arrow
+      variant: primary
+    - text: Browse the frameworks
+      link: frameworks/
+      icon: open-book
+    - text: See the evidence
+      link: evidence/bibliography/
+      icon: approve-check
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## What this is
+
+A library of thinking frameworks (premortem, reference-class forecasting, argument mapping, and more) rebuilt for agents. Three things make it different from a list of mental models:
+
+<CardGrid>
+  <Card title="Mechanism over ritual" icon="setting">
+    Each skill implements the durable cognitive move, named for what it does, not a trademarked brand.
+  </Card>
+  <Card title="Honest evidence grading" icon="approve-check">
+    Every skill carries a tier (S/M/P/V/A/C/X) and a dossier stating what the research does and does not show. Including when the answer is "the evidence is weaker than people think."
+  </Card>
+  <Card title="Artifact, not prose" icon="document">
+    Every skill produces a concrete, reusable deliverable: a risk register, an option matrix, an argument map, a Thinking Plan.
+  </Card>
+  <Card title="Explicit 'when not to use'" icon="warning">
+    Each skill says where it misleads, to guard against cargo-cult execution.
+  </Card>
+</CardGrid>
+
+## Find your way in
+
+<CardGrid>
+  <Card title="I'm not sure where to start" icon="puzzle">
+    Read [the Framework Advisor](frameworks/think-framework-advisor/): describe your situation and get a prioritized plan of which frameworks to use and why.
+  </Card>
+  <Card title="Teach me by domain" icon="open-book">
+    Browse [the domains](families/): the families of cognitive operations, from reframing to stress-testing to reflection.
+  </Card>
+  <Card title="Show me the evidence" icon="approve-check">
+    The [bibliography](evidence/bibliography/) is the honest-grading promise made browsable: every claim traces to a graded source.
+  </Card>
+  <Card title="Solve a recurring job" icon="rocket">
+    The [recipes](recipes/) chain skills end to end: reframe a problem, expand options, stress-test a decision, audit reasoning.
+  </Card>
+</CardGrid>

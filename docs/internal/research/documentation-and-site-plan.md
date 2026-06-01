@@ -135,6 +135,8 @@ This standard is the credibility moat made browsable. A reviewer should be able 
 
 ## 9. Astro Starlight launch plan
 
+> **Status (2026-06-01): S0 + S1 shipped.** The site exists in `site/` (Astro + Starlight + astro-mermaid), builds clean (55 pages, Pagefind search), and is a generated view: `scripts/gen-site.mjs` emits per-framework pages (4-layer progressive disclosure: quick-facts card + skill body + collapsible worked example + collapsible evidence dossier), per-domain index pages, recipe pages, and the aggregated bibliography. The `start/` learning layer (getting-started, evidence model, how-to-read-a-page) and the splash landing are hand-authored. Deploy is wired (`.github/workflows/deploy-pages.yml`, manual until go-public). Remaining: **S2** the rest of the learning layer (domain intros, FAQ, philosophy, learning tracks), **S3** the multi-lens exploration (by job / by tier / the chooser) + mermaid visualizations, **S4** launch polish.
+
 Reuse the proven pm-skills stack (the toolkit's release plan copies it near-verbatim): Astro + Starlight, deployed to GitHub Pages, with an **in-place markdown mount** so the site is a generated view of the repo, not a second store; a separate `deploy-pages.yml` workflow; the conformance `ci.yml` stays the gate; `mermaid-valid` enforced.
 
 **Phasing (gated; the site is a go-public-era deliverable, not a Bronze blocker):**
