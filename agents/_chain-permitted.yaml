@@ -1,0 +1,11 @@
+# Chain contract (Standard sec 3.6).
+#
+# This file declares permitted component-to-component (frontmatter `chain:`) invocations
+# as a map of caller-name -> [allowed callee-names].
+#
+# This library uses NO frontmatter `chain:` invocations and ships no subagents, so there
+# are no permitted chains to declare. The `_workflows/` recipes compose skills via their
+# `steps:` lists, which are validated by S5 (workflow-skills), not by this contract. The
+# map is therefore intentionally empty. Add entries here only if a component or subagent
+# later declares a `chain:` invocation.
+{}

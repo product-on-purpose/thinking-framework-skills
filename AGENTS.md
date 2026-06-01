@@ -50,7 +50,7 @@ Each skill is built around four commitments, not just a prompt:
 
 ## Recipes
 
-Composable chains that solve a recurring job end to end (documented chains today; they graduate to invokable commands at the Silver climb). See [`recipes/`](recipes/README.md).
+Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **convergent (Silver)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`).
 
 | Recipe | Chain |
 |---|---|

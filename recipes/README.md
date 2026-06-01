@@ -2,7 +2,7 @@
 
 Recipes are composable workflows: short, ordered chains of skills that solve a recurring job end to end. Each recipe names the skills to run, in order, what to carry forward (compressed) between steps, and the composite artifact produced.
 
-These are **documented chains**, runnable by an agent that reads the recipe and invokes each skill in turn. They are intentionally not yet packaged as invokable slash-commands: in the `agent-skills-toolkit` Standard a multi-skill chain is a *workflow* component with a command that maps to it, which is Silver-tier machinery. That packaging is deferred to the Silver climb so the library stays cleanly at Bronze (Universal) for now. The chains themselves are usable today.
+These are **documented chains**, runnable by an agent that reads the recipe and invokes each skill in turn. As of the Silver climb each recipe also ships as a **workflow component** in [`_workflows/`](../_workflows/) (a `steps:` list of skills, validated by the Standard's S5 check); these docs are the human-readable prose for those workflows. A thin slash-**command** per recipe is still deferred: the toolkit's command contract resolves a command's `maps-to` against skills only (workflow resolution "arrives in a later phase"), so a command pointing at a workflow would not yet validate. The chains and workflows are usable today.
 
 **Token discipline:** between steps, carry forward only the compressed artifact (the chosen frame, the shortlist, the ledger), not the full working text of the prior step. The audit flagged unbounded recipe context as the main operational risk; compress at each handoff.
 
