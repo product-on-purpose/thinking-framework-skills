@@ -17,7 +17,10 @@
       { "name": "tfs-what-would-have-to-be-true", "path": "skills/tfs-what-would-have-to-be-true/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-scamper", "path": "skills/tfs-scamper/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-ladder-of-inference-check", "path": "skills/tfs-ladder-of-inference-check/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
-      { "name": "tfs-parallel-perspectives-review", "path": "skills/tfs-parallel-perspectives-review/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
+      { "name": "tfs-parallel-perspectives-review", "path": "skills/tfs-parallel-perspectives-review/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-question-burst", "path": "skills/tfs-question-burst/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-futures-wheel", "path": "skills/tfs-futures-wheel/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-decision-option-review", "path": "skills/tfs-decision-option-review/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
     ]
   },
   "repository": "https://github.com/product-on-purpose/thinking-framework-skills",
