@@ -1,0 +1,77 @@
+# Rich sidecar for the tfs-after-action-review skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.after-action-review
+  slug: after-action-review
+  name: tfs-after-action-review
+  display_name: After Action Review
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: meta-thinking-and-reflection
+  secondary_families: []
+  thinking_modes: [reflective, critical, analytical]
+  problem_contexts: [high-complexity]
+  use_cases:
+    - turn a finished project, launch, sprint, or incident into structured learning
+    - compare expected vs actual and convert gaps into owned changes
+    - capture what to sustain, not only what failed
+  poor_fit_cases:
+    - before the event (use premortem)
+    - status updates or summaries of what shipped
+    - settings where it becomes blame
+    - when there is genuinely no expectation to compare against
+
+interface:
+  required_inputs:
+    - a finished event and its outcome
+  optional_inputs:
+    - the expectation/plan going in (recorded or reconstructable)
+  primary_artifact_type: after-action-review
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.premortem
+    - thinking-framework-skills.reference-class-forecasting
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.premortem
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.premortem
+  overlaps_with: []
+  variants:
+    - "named protocol: AAR (US Army TC 25-20); team debrief"
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - skipping the recorded expectation (hindsight narrative, not learning)
+    - blame instead of learning
+    - vague unowned lessons that change no behavior
+    - capturing only failures, not what to sustain
+
+evidence:
+  evidence_tier: "S"
+  confidence: high for structured debriefs (meta-analytic); unstructured retros do not carry it
+  transferred_evidence: true
+  lineage:
+    derived_from: [US Army AAR (TC 25-20), team debrief research]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/tfs-after-action-review/SKILL.md
+  references_path: skills/tfs-after-action-review/references/
+  evidence_path: skills/tfs-after-action-review/evidence/dossier.md
+  evals_path: skills/tfs-after-action-review/eval/

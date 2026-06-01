@@ -1,0 +1,77 @@
+# Rich sidecar for the tfs-authentic-dissent skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.authentic-dissent
+  slug: authentic-dissent
+  name: tfs-authentic-dissent
+  display_name: Authentic Dissent
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: assumption-and-belief-challenge
+  secondary_families: [facilitation-and-group-structures]
+  thinking_modes: [critical, reflective]
+  problem_contexts: [high-conflict, high-stakes]
+  use_cases:
+    - audit whether a smooth consensus hides suppressed genuine dissent
+    - plan how to elicit and protect real minority views before a decision
+    - distinguish authentic dissent from constructed/role-played dissent
+  poor_fit_cases:
+    - using the model's own contrarian view as if it were authentic dissent
+    - purely solo settings with no access to other people
+    - when genuine dissent already exists and is heard
+    - assigning a devil's advocate and assuming that delivers the benefit
+
+interface:
+  required_inputs:
+    - a decision and its current state of agreement/consensus
+  optional_inputs:
+    - who is in the room, the hierarchy, how challenge is gathered
+  primary_artifact_type: dissent-audit
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.red-team-light
+    - thinking-framework-skills.premortem
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.premortem
+  complements:
+    - thinking-framework-skills.red-team-light
+  overlaps_with: []
+  variants:
+    - "contrast: devil's advocacy (role-played, weaker per Nemeth)"
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - treating role-played or AI-generated dissent as authentic
+    - assigning a devil's advocate and assuming it delivers the benefit
+    - sidelining or punishing the real dissenter
+
+evidence:
+  evidence_tier: "S"
+  confidence: high; the authentic-vs-role-played result is well-established and bounds the AI use
+  transferred_evidence: true
+  lineage:
+    derived_from: [Nemeth minority dissent research]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+  risk_flags: [ai-cannot-supply-authentic-dissent]
+
+implementation:
+  skill_path: skills/tfs-authentic-dissent/SKILL.md
+  references_path: skills/tfs-authentic-dissent/references/
+  evidence_path: skills/tfs-authentic-dissent/evidence/dossier.md
+  evals_path: skills/tfs-authentic-dissent/eval/
