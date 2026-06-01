@@ -13,11 +13,35 @@ Each skill is built around four commitments, not just a prompt:
 
 ## Skills
 
-| Skill | Family | Evidence | What it produces |
+| Skill | Family | Evidence | Artifact |
 |---|---|---|---|
-| [`tfs-premortem`](skills/tfs-premortem/SKILL.md) | risk-and-resilience | S/M (contested) | A risk register: ranked failure causes with tripwires, mitigations, owners, and kill criteria |
+| [`tfs-premortem`](skills/tfs-premortem/SKILL.md) | risk-and-resilience | S/M | risk register |
+| [`tfs-problem-restatement`](skills/tfs-problem-restatement/SKILL.md) | problem-framing | M/P | problem frame set |
+| [`tfs-evidence-vs-inference-sort`](skills/tfs-evidence-vs-inference-sort/SKILL.md) | reasoning-clarity | P | evidence/inference ledger |
+| [`tfs-ladder-of-inference-check`](skills/tfs-ladder-of-inference-check/SKILL.md) | assumption-and-belief-challenge | P | reasoning trace |
+| [`tfs-what-would-have-to-be-true`](skills/tfs-what-would-have-to-be-true/SKILL.md) | decision-and-option-evaluation | P | assumption ledger |
+| [`tfs-decision-option-review`](skills/tfs-decision-option-review/SKILL.md) | decision-and-option-evaluation | P (flag) | option matrix |
+| [`tfs-parallel-perspectives-review`](skills/tfs-parallel-perspectives-review/SKILL.md) | perspective-and-multi-lens | P (flag) | multi-lens review |
+| [`tfs-red-team-light`](skills/tfs-red-team-light/SKILL.md) | assumption-and-belief-challenge | P (flag) | adversarial critique |
+| [`tfs-scamper`](skills/tfs-scamper/SKILL.md) | divergent-ideation | P | expansion sheet |
+| [`tfs-question-burst`](skills/tfs-question-burst/SKILL.md) | divergent-ideation | P | ranked question set |
+| [`tfs-assumption-reversal`](skills/tfs-assumption-reversal/SKILL.md) | divergent-ideation | P | assumptions-and-reversals sheet |
+| [`tfs-brainwriting`](skills/tfs-brainwriting/SKILL.md) | divergent-ideation | **S** | idea pool |
+| [`tfs-futures-wheel`](skills/tfs-futures-wheel/SKILL.md) | systems-and-consequences | P | consequence map |
+| [`tfs-reference-class-forecasting`](skills/tfs-reference-class-forecasting/SKILL.md) | risk-and-resilience | **S** | reference-class estimate |
 
-More skills are in progress; see the release plan and the audit in `_local/`.
+The two **S** skills (brainwriting, reference-class-forecasting) are the strong-evidence anchors. "(flag)" marks skills with a documented evidence or trademark caveat in their dossier.
+
+## Recipes
+
+Composable chains that solve a recurring job end to end (documented chains today; they graduate to invokable commands at the Silver climb). See [`recipes/`](recipes/README.md).
+
+| Recipe | Chain |
+|---|---|
+| [reframe-problem](recipes/reframe-problem.md) | restate -> evidence-sort -> perspectives |
+| [expand-options](recipes/expand-options.md) | restate -> scamper -> assumption-reversal |
+| [stress-test-decision](recipes/stress-test-decision.md) | option-review -> WWHTBT -> premortem -> reference-class |
+| [audit-reasoning](recipes/audit-reasoning.md) | evidence-sort -> ladder -> perspectives |
 
 ## Skill anatomy
 
