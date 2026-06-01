@@ -1,0 +1,12 @@
+# Astro / Node build artifacts
+node_modules/
+dist/
+.astro/
+# package-lock.json IS committed (CI uses `npm ci` for reproducible builds).
+
+# Generated content pages are written by ../scripts/gen-site.mjs at build time.
+# They are NOT committed (the skills are the source of truth; the site is a view).
+src/content/docs/frameworks/
+src/content/docs/families/
+src/content/docs/recipes/
+src/content/docs/evidence/

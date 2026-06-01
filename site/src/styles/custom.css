@@ -1,0 +1,39 @@
+/* Minimal brand layer. Evidence-tier badges are the one bespoke element: the
+   honest-grading promise is the product, so tiers get a consistent visual. */
+
+:root {
+  --sl-color-accent-low: #1f2937;
+  --sl-color-accent: #5c7cfa;
+  --sl-color-accent-high: #c7d2fe;
+}
+
+/* Evidence-tier badge (used in generated "Quick facts" cards and indexes).
+   Wrap a tier letter in <span class="tier tier-S">S</span>. */
+.tier {
+  display: inline-block;
+  padding: 0.05em 0.5em;
+  border-radius: 0.4em;
+  font-weight: 700;
+  font-size: 0.85em;
+  line-height: 1.4;
+  border: 1px solid var(--sl-color-gray-5);
+}
+.tier-S { background: #16653433; border-color: #16a34a; }
+.tier-M { background: #1d4ed833; border-color: #3b82f6; }
+.tier-P { background: #92400e33; border-color: #d97706; }
+.tier-V { background: #6b21a833; border-color: #a855f7; }
+.tier-A { background: #44403c33; border-color: #78716c; }
+.tier-C { background: #99999933; border-color: #9ca3af; }
+.tier-X { background: #99182033; border-color: #ef4444; }
+
+/* Collapsible deep-dive / grounding sections read as quiet, not loud. */
+details {
+  border: 1px solid var(--sl-color-gray-6);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+}
+details > summary {
+  cursor: pointer;
+  font-weight: 600;
+}
