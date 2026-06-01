@@ -163,6 +163,8 @@ Per the library's first commitment, the built skill needs `evidence/dossier.md` 
 
 The dossier's honest conclusion is likely: *the act of routing is practitioner-tier (P) - defensible, useful, not a hard science - while the individual frameworks it routes to carry their own (often stronger) evidence.* The skill must not claim more for itself than that.
 
+> **Build-decision note (2026-06-01, added when the skill shipped):** a primary-source verification pass *downgraded* the routing claim below this spec's anticipated P. The shipped skill grades itself **M/C (split)**: applying a *fitting structured method* is M (with an S core for mechanical/linear combination on repeated predictive judgments - Grove 2000, Dawes 1979, Meehl 1954), but whether *this router picks the right method* is **C** - its accuracy has never been measured, in humans or AI. The "P for routing" line above is the pre-verification estimate; the authoritative grade is the shipped `evidence/dossier.md` (section 3). This divergence is deliberate (the build is more honest than the spec guessed), not an oversight.
+
 ## 11. Refusal and honesty protocols
 
 1. **Not a thinking task.** If the input is a factual lookup, a coding request, or otherwise not a reasoning/decision situation, redirect in one line: "This skill recommends thinking frameworks for a decision or problem. For other tasks, use a general assistant."
