@@ -20,7 +20,11 @@
       { "name": "tfs-parallel-perspectives-review", "path": "skills/tfs-parallel-perspectives-review/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-question-burst", "path": "skills/tfs-question-burst/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-futures-wheel", "path": "skills/tfs-futures-wheel/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
-      { "name": "tfs-decision-option-review", "path": "skills/tfs-decision-option-review/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
+      { "name": "tfs-decision-option-review", "path": "skills/tfs-decision-option-review/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-assumption-reversal", "path": "skills/tfs-assumption-reversal/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-red-team-light", "path": "skills/tfs-red-team-light/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-brainwriting", "path": "skills/tfs-brainwriting/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-reference-class-forecasting", "path": "skills/tfs-reference-class-forecasting/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
     ]
   },
   "repository": "https://github.com/product-on-purpose/thinking-framework-skills",

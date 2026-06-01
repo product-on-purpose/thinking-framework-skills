@@ -1,0 +1,77 @@
+# Rich sidecar for the tfs-assumption-reversal skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.assumption-reversal
+  slug: assumption-reversal
+  name: tfs-assumption-reversal
+  display_name: Assumption Reversal
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: divergent-ideation
+  secondary_families: [problem-framing, assumption-and-belief-challenge]
+  thinking_modes: [divergent, lateral, counterfactual]
+  problem_contexts: [high-ambiguity]
+  use_cases:
+    - break an option space out of its default constraints
+    - expose foundational premises that are taken for granted
+    - generate non-obvious options early in divergent exploration
+  poor_fit_cases:
+    - binding constraints that are genuinely fixed and cannot be reversed
+    - converging on or choosing among options (use a decision skill)
+    - treating reversed assumptions as recommendations
+    - reversing trivial, cosmetic assumptions
+
+interface:
+  required_inputs:
+    - a problem or solution whose assumptions to challenge
+  optional_inputs:
+    - the goal, known constraints
+  primary_artifact_type: assumptions-and-reversals-sheet
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.problem-restatement
+    - thinking-framework-skills.scamper
+    - thinking-framework-skills.decision-option-review
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.problem-restatement
+  often_precedes:
+    - thinking-framework-skills.decision-option-review
+  complements:
+    - thinking-framework-skills.scamper
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - reversing trivial assumptions rather than the load-bearing ones
+    - ideas not genuinely tied to the reversal
+    - treating a reversed assumption or its ideas as a recommendation
+
+evidence:
+  evidence_tier: "P"
+  confidence: moderate that perturbing assumptions yields novelty; the gain is breadth not correctness
+  transferred_evidence: true
+  lineage:
+    derived_from: [lateral-thinking assumption-busting]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/tfs-assumption-reversal/SKILL.md
+  references_path: skills/tfs-assumption-reversal/references/
+  evidence_path: skills/tfs-assumption-reversal/evidence/dossier.md
+  evals_path: skills/tfs-assumption-reversal/eval/
