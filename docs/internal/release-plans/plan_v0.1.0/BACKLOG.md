@@ -4,7 +4,7 @@ The single source of "what to build next." WIP = 1: build the **Now** skill end 
 
 ## Now
 
-> **`tfs-problem-restatement`** - the "gateway" reframing skill. Build this next.
+> **`tfs-evidence-vs-inference-sort`** - separate verified facts from inference/assumption. Build this next.
 
 ## Build order
 
@@ -13,8 +13,8 @@ Statuses: `done` | `now` | `next` | `later`. The two `wk3` rows are the strong-e
 | # | Skill (`tfs-<method>`) | Family | Evidence (provisional) | Wave | Status |
 |---|---|---|---|---|---|
 | 1 | `tfs-premortem` | risk-and-resilience | S/M | showcase | **done (v0.1.0)** |
-| 2 | `tfs-problem-restatement` | problem-framing | M/P | showcase | **now** |
-| 3 | `tfs-evidence-vs-inference-sort` | assumptions | P | showcase | next |
+| 2 | `tfs-problem-restatement` | problem-framing | M/P | showcase | **done (v0.1.0)** |
+| 3 | `tfs-evidence-vs-inference-sort` | assumptions | P | showcase | **now** |
 | 4 | `tfs-what-would-have-to-be-true` | decision | P | showcase | next |
 | 5 | `tfs-scamper` | ideation | P | showcase | next |
 | 6 | `tfs-ladder-of-inference-check` | assumptions | P | mvp | later |
