@@ -4,7 +4,7 @@ The single source of "what to build next." WIP = 1: build the **Now** skill end 
 
 ## Now
 
-> **All 14 MVP skills are complete and validated (Tier universal, 0/0).** Next build action: the 4 recipes (thin `/think:*` command files), then per-skill `eval/` cases. Going live is gated on your go (make the repo public, re-pin and merge the held `agent-plugins` listing).
+> **MVP complete: 14 skills + 4 recipes + eval cases for every skill, all validated (Tier universal, 0/0).** Next build action: the Silver climb (package the recipes as workflow + command components; add per-target Codex emission), and/or the go-public flip (gated on your go: make the repo public, re-pin and merge the held `agent-plugins` listing).
 
 ## Build order
 
@@ -42,5 +42,5 @@ Statuses: `done` | `now` | `next` | `later`. The two `wk3` rows are the strong-e
 ## Parallel / later (not gates on the Now skill)
 
 - Relocate the discovery corpus into committed `docs/internal/research/` (secret-scan first); rename `_LOCAL` -> `_local`.
-- Add `eval/` cases per skill (incl. a run vs a frontier model doing the method unaided).
+- DONE: `eval/cases.md` authored for every skill (triggers, anti-triggers, output checks, value-vs-unaided baseline). Not yet executed by a harness; the runner is a Silver-climb item.
 - Confirm license (Apache-2.0); decide the Silver climb; the go-public flip at the showcase.
