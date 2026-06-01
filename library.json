@@ -11,7 +11,8 @@
   "keywords": ["thinking-frameworks", "skills", "claude-code", "decision-making", "premortem", "reasoning", "evidence-graded"],
   "components": {
     "skills": [
-      { "name": "tfs-premortem", "path": "skills/tfs-premortem/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
+      { "name": "tfs-premortem", "path": "skills/tfs-premortem/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-problem-restatement", "path": "skills/tfs-problem-restatement/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
     ]
   },
   "repository": "https://github.com/product-on-purpose/thinking-framework-skills",
