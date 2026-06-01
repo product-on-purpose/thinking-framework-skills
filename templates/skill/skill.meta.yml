@@ -1,0 +1,67 @@
+# Rich sidecar for the tfs-REPLACE-method skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.<method>; slug = bare method;
+# installable name = tfs-<method> (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.REPLACE-method
+  slug: REPLACE-method
+  name: tfs-REPLACE-method
+  display_name: REPLACE
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: REPLACE-family
+  secondary_families: []
+  thinking_modes: []          # e.g. critical, divergent, systems, counterfactual
+  problem_contexts: []        # e.g. high-stakes, high-ambiguity, high-complexity
+  use_cases:
+    - REPLACE
+  poor_fit_cases:
+    - REPLACE (from dossier section 5)
+
+interface:
+  required_inputs:
+    - REPLACE
+  optional_inputs: []
+  primary_artifact_type: REPLACE      # e.g. risk-register, option-matrix, perspective-review
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions: []               # thinking-framework-skills.<method>
+
+relationships:
+  often_follows: []
+  often_precedes: []
+  complements: []
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - REPLACE (from dossier section 5)
+
+evidence:
+  evidence_tier: "REPLACE"
+  confidence: REPLACE
+  transferred_evidence: true
+  lineage:
+    derived_from: [REPLACE]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/tfs-REPLACE-method/SKILL.md
+  references_path: skills/tfs-REPLACE-method/references/
+  evidence_path: skills/tfs-REPLACE-method/evidence/dossier.md
+  evals_path: skills/tfs-REPLACE-method/eval/
