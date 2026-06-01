@@ -1,0 +1,86 @@
+# Rich sidecar for the tfs-decision-journal skill.
+# DRAFT: shape is provisional and will be reconciled with agent-skills-toolkit
+# conventions once 2-3 skills exist. Evidence fields are a hand-authored summary
+# of evidence/dossier.md (the source of truth), not generated from it.
+#
+# Naming: id = <namespace>.<method> = thinking-framework-skills.decision-journal;
+# slug = bare method = decision-journal; installable name = prefix + slug =
+# tfs-decision-journal (the tfs- prefix avoids cross-plugin name collisions;
+# see library.json "prefix").
+
+identity:
+  id: thinking-framework-skills.decision-journal
+  slug: decision-journal
+  name: tfs-decision-journal   # installable name (matches the skill directory)
+  display_name: Decision Journal
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: meta-thinking-and-reflection
+  secondary_families: [risk-and-resilience]
+  thinking_modes: [reflective, metacognitive, probabilistic]
+  problem_contexts: [high-stakes, high-ambiguity]
+  use_cases:
+    - record a consequential decision at the moment it is made, before the outcome is known
+    - lock in a predicted outcome, confidence, and assumptions to defeat hindsight bias
+    - build calibration over many decisions by recording the prediction half of the loop
+    - pair a record-now step with a later after-action review
+  poor_fit_cases:
+    - reviewing a decision after the outcome is known (use after-action-review)
+    - trivial or fully reversible (two-way-door) decisions
+    - when no honest expectation, confidence, or assumption can be stated
+    - surfacing only the conditions that must hold (use what-would-have-to-be-true)
+    - keeping entries with no intention of ever reviewing them
+
+interface:
+  required_inputs:
+    - a specific, not-yet-resolved decision being committed to
+  optional_inputs:
+    - a target date for the predicted outcome
+    - known constraints, options considered, or prior reasoning
+  primary_artifact_type: decision-journal-entry
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.after-action-review
+    - thinking-framework-skills.premortem
+    - thinking-framework-skills.one-way-vs-two-way-door
+
+relationships:
+  often_follows: [thinking-framework-skills.decision-option-review, thinking-framework-skills.premortem]
+  often_precedes: [thinking-framework-skills.after-action-review]
+  complements: [thinking-framework-skills.after-action-review]
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run     # see eval/ (harness deferred to the Silver climb)
+  output_eval_status: not-run
+  known_failure_modes:
+    - back-fitting an entry after the outcome is known (reintroduces hindsight bias)
+    - omitting an explicit confidence, so the prediction cannot be calibrated
+    - leaving assumptions implicit rather than naming them for later checking
+    - setting no review date, so the entry is never reopened and delivers no calibration
+    - overclaiming that journaling improves the decision outcome itself
+
+evidence:
+  evidence_tier: "P"               # practitioner; useful method, limited controlled evidence; see dossier section 3
+  confidence: moderate on the hindsight/calibration mechanism; low on outcome improvement
+  transferred_evidence: true       # human-subject studies and practitioner experience only; not AI-validated
+  lineage:
+    derived_from: [hindsight-bias research, calibration/forecasting practice, decision-journaling practitioner method]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/tfs-decision-journal/SKILL.md
+  references_path: skills/tfs-decision-journal/references/
+  evidence_path: skills/tfs-decision-journal/evidence/dossier.md
+  evals_path: skills/tfs-decision-journal/eval/
