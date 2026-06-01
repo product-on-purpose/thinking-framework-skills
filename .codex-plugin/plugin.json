@@ -16,5 +16,10 @@
     "premortem",
     "reasoning",
     "evidence-graded"
-  ]
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Thinking Framework Skills",
+    "category": "Reasoning"
+  }
 }

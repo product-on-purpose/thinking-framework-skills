@@ -1,0 +1,159 @@
+{
+  "name": "thinking-framework-skills",
+  "version": "0.1.0",
+  "tier": "convergent",
+  "standard": "0.8",
+  "skills": [
+    {
+      "name": "tfs-abstraction-laddering",
+      "path": "skills/tfs-abstraction-laddering/SKILL.md",
+      "description": "Builds an abstraction ladder that moves a problem up (\"why / to what end?\") and down (\"how / what specifically?\") to locate the right altitude to work at, then marks one rung as the working level. Use when a problem is stated as a bare solution with an unstated purpose, as a vague aspiration with no concrete handle, when people are arguing past each other at different levels, or before committing effort at an altitude nobody chose on purpose."
+    },
+    {
+      "name": "tfs-affinity-mapping",
+      "path": "skills/tfs-affinity-mapping/SKILL.md",
+      "description": "Produces a clustered theme map that groups many raw notes, observations, quotes, or data points bottom-up into a small set of named, traceable themes (the KJ method). Use when a scattered pile of dozens to hundreds of existing items needs to become a few emergent themes, such as synthesizing user-research notes, support tickets, survey free-text, or retro stickies, and the right structure should emerge from the data rather than be imposed."
+    },
+    {
+      "name": "tfs-after-action-review",
+      "path": "skills/tfs-after-action-review/SKILL.md",
+      "description": "Produces a structured after-action review by comparing what was expected against what actually happened, diagnosing why the gaps occurred, and converting them into specific owned sustain-and-change actions. Use when a project, launch, sprint, or incident has finished and you want to turn the outcome into learning, not a status update."
+    },
+    {
+      "name": "tfs-argument-mapping",
+      "path": "skills/tfs-argument-mapping/SKILL.md",
+      "description": "Produces an argument map by laying out a claim's supporting reasons, the co-premises each silently depends on, and the objections against it as an explicit structure, then flags the weakest links and unsupported premises. Use when an argument or recommendation must be evaluated for soundness, or when a fluent case may be hiding a broken inference."
+    },
+    {
+      "name": "tfs-assumption-reversal",
+      "path": "skills/tfs-assumption-reversal/SKILL.md",
+      "description": "Generates non-obvious ideas by surfacing the foundational assumptions a problem or solution rests on, negating each, and reframing from the reversed assumptions, then shortlisting, producing an assumptions-and-reversals sheet. Use when an option space feels stuck inside default constraints, or when you need to expose premises that are taken for granted."
+    },
+    {
+      "name": "tfs-authentic-dissent",
+      "path": "skills/tfs-authentic-dissent/SKILL.md",
+      "description": "Checks whether a decision has genuine minority dissent or only smooth surface consensus, identifies who actually holds a contrary view, and plans how to elicit and protect real dissent, flagging clearly where a view is constructed rather than authentically held. Use when consensus feels too easy, or to set up genuine challenge before a high-stakes call."
+    },
+    {
+      "name": "tfs-backcasting",
+      "path": "skills/tfs-backcasting/SKILL.md",
+      "description": "Produces a backcast path by fixing a vivid desired future state and reasoning backward through the milestones and preconditions required to reach it, ending at the next concrete step available now. Use when planning toward a transformative or long-horizon goal that forward planning anchors too low, when a chosen future needs a route mapped back to today, or when milestones and dependencies between now and the goal must be made explicit."
+    },
+    {
+      "name": "tfs-brainwriting",
+      "path": "skills/tfs-brainwriting/SKILL.md",
+      "description": "Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first voice, then consolidates them into a shortlisted idea pool. Use when you need breadth of options and want to avoid the anchoring and conformity that make ordinary brainstorming underperform."
+    },
+    {
+      "name": "tfs-decision-journal",
+      "path": "skills/tfs-decision-journal/SKILL.md",
+      "description": "Produces a decision journal entry that records a consequential decision at the moment it is made - the decision, the rationale, the predicted outcome, an explicit confidence level, and the assumptions it rests on - so it can be honestly reviewed later against what actually happened. Use when committing to a consequential, uncertain decision (a launch, hire, investment, bet, or strategic choice) and you want to lock in the prediction now to defeat hindsight bias and build calibration, or when pairing a record-now step with a later review."
+    },
+    {
+      "name": "tfs-decision-option-review",
+      "path": "skills/tfs-decision-option-review/SKILL.md",
+      "description": "Produces a criteria-weighted option matrix by comparing a set of options against weighted criteria, scoring each, surfacing the explicit tradeoffs, and recommending one while flagging where the scoring is soft. Use when choosing among several real options, or when a decision needs its tradeoffs made explicit rather than left to intuition."
+    },
+    {
+      "name": "tfs-evidence-vs-inference-sort",
+      "path": "skills/tfs-evidence-vs-inference-sort/SKILL.md",
+      "description": "Produces an evidence/inference ledger by sorting the claims in a prompt, document, or proposed conclusion into evidence, inference, and assumption, attaching a confidence level to each inference and flagging anything uncited. Use when a recommendation must be trusted, or when you need to audit the reasoning behind a conclusion in a high-stakes context."
+    },
+    {
+      "name": "tfs-far-analogy-ideation",
+      "path": "skills/tfs-far-analogy-ideation/SKILL.md",
+      "description": "Generates novel solution candidates by stating a problem's deep relational structure, mapping it to distant source domains (nature, other industries, games), and transferring the mechanism rather than surface features, then adapting. Use when near, obvious solutions are exhausted and you need genuinely original approaches."
+    },
+    {
+      "name": "tfs-futures-wheel",
+      "path": "skills/tfs-futures-wheel/SKILL.md",
+      "description": "Produces a consequence map by tracing the first, second, and third order effects of a change or decision radiating outward from the center, surfacing ripples beyond the obvious and flagging the high-impact branches. Use when a decision has knock-on effects over time, or when first-order thinking is missing downstream risks and opportunities."
+    },
+    {
+      "name": "tfs-iceberg-model",
+      "path": "skills/tfs-iceberg-model/SKILL.md",
+      "description": "Produces an iceberg that moves a problem down four levels of causation - from the visible event, to the pattern over time, to the underlying structures, to the mental models that hold them in place - pairing each level with the intervention it implies to find systemic causes and higher-leverage fixes. Use when a problem keeps recurring despite event-level fixes, when a symptom is being treated as a one-off, or when the question is why this keeps happening and where to actually intervene."
+    },
+    {
+      "name": "tfs-issue-tree",
+      "path": "skills/tfs-issue-tree/SKILL.md",
+      "description": "Produces an issue tree that decomposes one big, ambiguous question top-down into a mutually-exclusive, collectively-exhaustive (MECE) set of smaller sub-questions, branch by branch, until the leaves are small enough to answer with data or judgment. Use when a question is too broad or multi-cause to answer as posed (for example \"why is churn rising?\", \"where is margin leaking?\", \"should we launch a free tier?\"), when analysis work must be split into non-overlapping parts, or when coverage matters and missing a whole category would be costly. Not for evaluating a given argument's soundness (use argument-mapping) or clustering existing notes (use affinity-mapping)."
+    },
+    {
+      "name": "tfs-ladder-of-inference-check",
+      "path": "skills/tfs-ladder-of-inference-check/SKILL.md",
+      "description": "Produces an annotated reasoning trace that reconstructs how a conclusion was reached, from the observable data, to the data actually selected, to the meaning and assumptions added, then flags the riskiest leap and tests an alternative interpretation. Use when a conclusion feels certain but rests on interpretation, or to audit a contested inference."
+    },
+    {
+      "name": "tfs-linear-model-aggregation",
+      "path": "skills/tfs-linear-model-aggregation/SKILL.md",
+      "description": "Builds a simple mechanical scoring model - a few weighted predictive cues combined by a fixed formula and applied consistently - for a repeated predictive judgment, because consistent simple rules reliably match or beat holistic expert intuition. Use when the same kind of evaluative judgment recurs (screening candidates, scoring leads, triaging) and gut calls are inconsistent or overconfident."
+    },
+    {
+      "name": "tfs-natural-frequency-bayesian",
+      "path": "skills/tfs-natural-frequency-bayesian/SKILL.md",
+      "description": "Converts a conditional-probability or base-rate question into natural frequencies over a concrete population (for example 9 of 1000) to compute the correct posterior and expose base-rate neglect, and refuses to proceed without real input rates. Use when interpreting a test result, screening signal, or any \"given a positive, what is the real probability\" question."
+    },
+    {
+      "name": "tfs-one-way-vs-two-way-door",
+      "path": "skills/tfs-one-way-vs-two-way-door/SKILL.md",
+      "description": "Produces a reversibility classification that triages a decision before any analysis - labeling it a reversible two-way door or a hard-to-reverse one-way door - and matches the deliberation and sign-off level to that verdict, so reversible calls are made fast and irreversible ones get real rigor. Use when it is unclear how much process a decision deserves, when a team is about to rubber-stamp something irreversible or convene a committee over something trivially reversible, or when a chronically slow org needs a defensible reason to move fast or slow down."
+    },
+    {
+      "name": "tfs-parallel-perspectives-review",
+      "path": "skills/tfs-parallel-perspectives-review/SKILL.md",
+      "description": "Evaluates a decision or idea through several deliberately separated lenses in turn (facts, upside, risks, intuition, alternatives, process) so that no single mode dominates, then synthesizes them into a balanced read, producing a multi-lens review. Use when a choice needs a rounded look, or when risk-aversion or optimism is drowning out the other perspectives."
+    },
+    {
+      "name": "tfs-premortem",
+      "path": "skills/tfs-premortem/SKILL.md",
+      "description": "Generates a ranked risk register that stress-tests a planned decision by imagining it has already failed, surfacing the likely causes and pairing each with a mitigation, tripwire, and kill criterion. Use when about to commit to a launch, hire, investment, migration, or any risky, hard-to-reverse decision, or when you need risks surfaced before committing."
+    },
+    {
+      "name": "tfs-problem-restatement",
+      "path": "skills/tfs-problem-restatement/SKILL.md",
+      "description": "Generates several genuinely different framings of an ambiguous problem by varying altitude, stakeholder, and goal-versus-implementation, then selects the most useful one to solve and produces a reframed problem statement with How Might We angles. Use when a problem is vague, arrived as a symptom or a pre-baked solution, or before committing significant work to solving the wrong thing."
+    },
+    {
+      "name": "tfs-pyramid-principle",
+      "path": "skills/tfs-pyramid-principle/SKILL.md",
+      "description": "Produces a pyramid that structures a recommendation answer-first - a single governing thought on top, a small set of MECE, deliberately ordered key arguments beneath it, and supporting evidence under each (Minto), with an optional SCQA intro framing. Use when a conclusion or recommendation already exists and must be communicated clearly to a busy or senior reader, when findings need to be ordered into a tight top-down case, or when a write-up buries its point under context."
+    },
+    {
+      "name": "tfs-question-burst",
+      "path": "skills/tfs-question-burst/SKILL.md",
+      "description": "Generates a rapid burst of questions about a problem (questions only, no answers), then ranks them for which would most change the approach and selects the single most catalytic one to pursue, producing a ranked question set. Use when you are stuck, too attached to one framing, or need a better question before answering."
+    },
+    {
+      "name": "tfs-red-team-light",
+      "path": "skills/tfs-red-team-light/SKILL.md",
+      "description": "Produces an adversarial critique by constructing the strongest case against a proposal or thesis (the best objections an intelligent adversary would raise), then judging which objections actually land and what would rebut them. Use when a plan has too-easy consensus and needs pressure-testing, or to steelman the opposition before committing."
+    },
+    {
+      "name": "tfs-reference-class-forecasting",
+      "path": "skills/tfs-reference-class-forecasting/SKILL.md",
+      "description": "Produces a reference-class estimate by defining a class of similar past cases, taking their base-rate distribution of outcomes, and anchoring the forecast on that outside view rather than the optimistic inside view, with a conservative adjustment for specifics. Use when forecasting cost, time, or odds of success for a project prone to optimism or the planning fallacy."
+    },
+    {
+      "name": "tfs-scamper",
+      "path": "skills/tfs-scamper/SKILL.md",
+      "description": "Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adapt, modify, put to other use, eliminate, reverse), then shortlists the most promising, producing an expansion sheet. Use when you have a seed idea and need to break past the obvious options; not for blank-page ideation."
+    },
+    {
+      "name": "tfs-stocks-and-flows-reasoning",
+      "path": "skills/tfs-stocks-and-flows-reasoning/SKILL.md",
+      "description": "Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory from the net flow rather than the direction of any single flow. Use when a problem involves an accumulation (cash, debt, backlog, headcount, customer base, technical debt, emissions) and intuition about whether it is rising or falling may be wrong."
+    },
+    {
+      "name": "tfs-what-would-have-to-be-true",
+      "path": "skills/tfs-what-would-have-to-be-true/SKILL.md",
+      "description": "Converts a strategy, option, or contested claim into the specific conditions that would have to be true for it to be the best choice, rates each condition's confidence, and identifies which load-bearing assumptions to test first, producing an assumption ledger. Use when evaluating a strategic bet, or when a disagreement has become a clash of opinions rather than evidence."
+    },
+    {
+      "name": "tfs-woop",
+      "path": "skills/tfs-woop/SKILL.md",
+      "description": "Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and binding an if-then response to it. Use when a goal is already chosen but follow-through keeps failing, or to close the gap between intention and action."
+    }
+  ],
+  "commands": []
+}

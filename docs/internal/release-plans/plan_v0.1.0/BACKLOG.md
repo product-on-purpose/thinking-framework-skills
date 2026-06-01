@@ -4,7 +4,7 @@ The single source of "what to build next." WIP = 1: build the **Now** skill end 
 
 ## Now
 
-> **30 skills shipped + 4 recipes + eval cases for every skill, all validated (Tier universal, 0/0).** 11 are S/S-M tier and **the named empirical core is now complete** (stocks-and-flows-reasoning + linear-model-aggregation added). Next: the **Silver climb** (recipes -> workflow+command components, Codex emission, eval runner, declare convergent), then the go-public flip. See `docs/internal/research/framework-catalog.md` (universe) and `documentation-and-site-plan.md` (docs/site).
+> **30 skills + 4 recipes (as workflow components) + per-skill eval cases; the plugin now validates at CONVERGENT (Silver), 0 errors / 0 warnings.** Empirical core complete (11 S/S-M tier). Silver climb done: agent-targets claude+codex, prefix, components-match, chain contract, workflows (S5), per-target generated manifests (S6). Remaining: the **go-public flip** (make repo public, re-pin + merge the held `agent-plugins` listing); deferred follow-ups: recipe slash-commands (until the toolkit wires `ctx.workflows` so command `maps-to` a workflow resolves), a behavioral eval runner (Gold-era per the toolkit), and the docs site (`documentation-and-site-plan.md`). Known go-public item: the generated `.claude-plugin/plugin.json` omits `license` (gen-manifest's nativeSpine drops it) - carry it via the registry entry/LICENSE, or add `license` to the toolkit's nativeSpine. See `framework-catalog.md` (universe).
 
 ## Build order
 
