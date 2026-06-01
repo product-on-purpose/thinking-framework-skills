@@ -1,0 +1,76 @@
+# Rich sidecar for the tfs-linear-model-aggregation skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.linear-model-aggregation
+  slug: linear-model-aggregation
+  name: tfs-linear-model-aggregation
+  display_name: Linear-Model Aggregation
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: [reasoning-clarity]
+  thinking_modes: [analytical, critical]
+  problem_contexts: [high-stakes, high-complexity]
+  use_cases:
+    - replace inconsistent gut calls on a repeated judgment with a simple consistent rule
+    - score candidates, leads, or tickets predictively and auditably
+    - reduce noise/inconsistency in recurring evaluations
+  poor_fit_cases:
+    - one-off decisions among a few options (use decision-option-review)
+    - no real predictive cues/data (do not invent them)
+    - over-engineering weights (equal weights are usually fine)
+    - high-stakes individual judgments with unaddressed fairness/legal issues
+
+interface:
+  required_inputs:
+    - a recurring predictive/evaluative judgment with a measurable outcome
+  optional_inputs:
+    - candidate cues, historical outcome data
+  primary_artifact_type: scoring-model
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.natural-frequency-bayesian
+
+relationships:
+  often_follows: []
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.decision-option-review
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - using it for a genuine one-off decision
+    - inventing cues/weights with no predictive validity (false precision)
+    - applying the model inconsistently or overriding it on a hunch
+    - ignoring fairness/legal issues for judgments about individuals
+
+evidence:
+  evidence_tier: "S"
+  confidence: high; one of the most replicated findings in judgment research
+  transferred_evidence: true
+  lineage:
+    derived_from: [Meehl clinical vs statistical prediction, Dawes improper linear models, Kahneman Noise]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+  risk_flags: [fairness-when-scoring-individuals]
+
+implementation:
+  skill_path: skills/tfs-linear-model-aggregation/SKILL.md
+  references_path: skills/tfs-linear-model-aggregation/references/
+  evidence_path: skills/tfs-linear-model-aggregation/evidence/dossier.md
+  evals_path: skills/tfs-linear-model-aggregation/eval/

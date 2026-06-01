@@ -38,7 +38,9 @@
       { "name": "tfs-one-way-vs-two-way-door", "path": "skills/tfs-one-way-vs-two-way-door/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-decision-journal", "path": "skills/tfs-decision-journal/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "tfs-iceberg-model", "path": "skills/tfs-iceberg-model/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
-      { "name": "tfs-backcasting", "path": "skills/tfs-backcasting/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
+      { "name": "tfs-backcasting", "path": "skills/tfs-backcasting/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-stocks-and-flows-reasoning", "path": "skills/tfs-stocks-and-flows-reasoning/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "tfs-linear-model-aggregation", "path": "skills/tfs-linear-model-aggregation/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
     ]
   },
   "repository": "https://github.com/product-on-purpose/thinking-framework-skills",
