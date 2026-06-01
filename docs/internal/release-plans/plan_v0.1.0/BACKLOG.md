@@ -44,3 +44,22 @@ Statuses: `done` | `now` | `next` | `later`. The two `wk3` rows are the strong-e
 - DONE: renamed `_LOCAL` -> `_local` (folder + `.gitignore`). Corpus relocation reconsidered and NOT done: kept private (gitignored `_local/` + the `backup/discovery-corpus-2026-05-31` branch) rather than committed, because the repo is heading public and committing it would expose ~106k words of strategy research in public history. See `docs/internal/research/README.md`.
 - DONE: `eval/cases.md` authored for every skill (triggers, anti-triggers, output checks, value-vs-unaided baseline). Not yet executed by a harness; the runner is a Silver-climb item.
 - Confirm license (Apache-2.0); decide the Silver climb; the go-public flip at the showcase.
+
+## Post-MVP candidates (recommended next tranche, v0.3) - not yet committed
+
+The highest-value next move is to **finish the empirical core**: the strongest-evidenced methods the MVP did not include. Evidence-grading is the moat (see the audit), and only 3 of the named empirical-core methods shipped (premortem, brainwriting, reference-class-forecasting). Shipping the rest takes the catalog from 3 S-tier anchors to ~9 and makes "evidence-graded" undeniable.
+
+Recommended v0.3 tranche (S-tier first; each also opens or deepens a family):
+
+| Skill | Family | Evidence | Why next |
+|---|---|---|---|
+| `tfs-argument-mapping` | reasoning-clarity | **S** (ES ~0.7-0.85, van Gelder) | strongest-evidenced reasoning method; deepens reasoning-clarity |
+| `tfs-woop` | risk-and-resilience | **S** (25+ RCTs, Oettingen) | strongest-evidenced commitment method; new use case (goal -> action) |
+| `tfs-authentic-dissent` | assumption-and-belief-challenge | **S** (Nemeth) | the real-dissent method red-team-light's dossier already points to |
+| `tfs-after-action-review` | meta-thinking-and-reflection | S/M | opens the reflection family (currently empty) |
+| `tfs-far-analogy-ideation` | divergent-ideation | **S** (Gentner & Smith) | first S-tier ideation method (current ones are P) |
+| `tfs-natural-frequency-bayesian` | reasoning-clarity | **S** (Gigerenzer) | makes conditional-probability reasoning tractable; pairs with reference-class-forecasting |
+
+Later tranche (v0.4, fill still-empty families; mostly P, high composability): synthesis (`tfs-mece-decomposition` / `tfs-issue-trees`, `tfs-affinity-mapping`, `tfs-pyramid-principle`); problem-framing (`tfs-abstraction-laddering`); decision (`tfs-one-way-vs-two-way-door`, `tfs-decision-journal`); perspective (`tfs-stakeholder-lens-review`, `tfs-steelmanning`); systems (`tfs-iceberg-model`, `tfs-leverage-points`); strategy (`tfs-opportunity-solution-tree`); foresight (`tfs-backcasting`).
+
+Selection bar unchanged: each must clear the four commitments (mechanism over ritual, honest evidence grade, artifact-not-prose, when-not-to-use) and stay under a ~20% overlap ceiling vs existing skills.
