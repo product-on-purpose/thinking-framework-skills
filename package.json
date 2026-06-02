@@ -1,0 +1,15 @@
+{
+  "name": "thinking-framework-skills",
+  "version": "0.2.0",
+  "description": "An evidence-graded library of agent-executable thinking-method skills.",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "homepage": "https://product-on-purpose.github.io/thinking-framework-skills/",
+  "repository": "https://github.com/product-on-purpose/thinking-framework-skills",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "gen": "node scripts/gen-site.mjs",
+    "gen:recommendable": "node scripts/gen-recommendable.mjs"
+  }
+}

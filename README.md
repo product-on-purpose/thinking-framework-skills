@@ -26,8 +26,8 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
   <img src="https://img.shields.io/badge/status-active-success?style=flat-square" alt="Status: Active">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square" alt="License: Apache-2.0"></a>
   <img src="https://img.shields.io/badge/version-0.1.0-blue?style=flat-square" alt="Version 0.1.0">
-  <a href="#-the-catalog"><img src="https://img.shields.io/badge/skills-31-brightgreen?style=flat-square" alt="Skills: 31"></a>
-  <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-4-brightgreen?style=flat-square" alt="Recipes: 4"></a>
+  <a href="#-the-catalog"><img src="https://img.shields.io/badge/skills-34-brightgreen?style=flat-square" alt="Skills: 34"></a>
+  <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-5-brightgreen?style=flat-square" alt="Recipes: 5"></a>
   <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/spec-agentskills.io-orange?style=flat-square" alt="Agent Skills Spec"></a>
   <img src="https://img.shields.io/badge/evidence-graded-purple?style=flat-square" alt="Evidence-graded">
 </p>
@@ -89,7 +89,7 @@ Three things make it different from a list of mental models:
 /plugin install thinking-framework-skills@product-on-purpose
 ```
 
-All 31 skills become available immediately, invocable by name (for example `/think-premortem`).
+All 34 skills become available immediately, invocable by name (for example `/think-premortem`).
 
 **Cross-agent (Cursor, Copilot, Cline, and others via the open [skills CLI](https://github.com/vercel-labs/skills)):**
 
@@ -136,7 +136,7 @@ This one does the opposite, and that honesty is the product:
 
 ## 🗺️ The library at a glance
 
-31 skills across 10 cognitive-operation families, arranged as a thinking lifecycle. You rarely run all ten; the Framework Advisor picks the few that fit your situation.
+34 skills across 10 cognitive-operation families, arranged as a thinking lifecycle. You rarely run all ten; the Framework Advisor picks the few that fit your situation.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1','fontFamily':'system-ui, sans-serif'}}}%%
@@ -150,12 +150,12 @@ flowchart TB
     PF["1. Problem Framing (2) - frame the real problem"]:::frame
     DI["2. Divergent Ideation (5) - generate options"]:::gen
     PM["3. Perspective & Multi-Lens (1) - see it from other angles"]:::gen
-    SC["4. Systems & Consequences (3) - trace consequences"]:::analyze
+    SC["4. Systems & Consequences (4) - trace consequences"]:::analyze
     AB["5. Assumption & Belief Challenge (3) - challenge assumptions"]:::analyze
     RC["6. Reasoning Clarity (4) - clarify the reasoning"]:::analyze
-    DO["7. Decision & Option Evaluation (4) - decide between options"]:::decide
+    DO["7. Decision & Option Evaluation (5) - decide between options"]:::decide
     RR["8. Risk & Resilience (4) - anticipate what could go wrong"]:::decide
-    SY["9. Synthesis (2) - turn inputs into a message"]:::reflect
+    SY["9. Synthesis (3) - turn inputs into a message"]:::reflect
     MR["10. Meta-Thinking & Reflection (3) - learn and route"]:::reflect
 
     PF --> DI --> PM --> SC --> AB --> RC --> DO --> RR --> SY --> MR
@@ -169,7 +169,7 @@ flowchart TB
 
 ## 📚 The catalog
 
-All 31 skills, by family. The tier is the evidence grade (see [the evidence model](#-the-evidence-model)). Each links to its full page (mechanism, procedure, worked example, graded sources) on the live site.
+All 34 skills, by family. The tier is the evidence grade (see [the evidence model](#-the-evidence-model)). Each links to its full page (mechanism, procedure, worked example, graded sources) on the live site.
 
 ### Problem Framing - frame the real problem (2)
 
@@ -194,11 +194,12 @@ All 31 skills, by family. The tier is the evidence grade (see [the evidence mode
 |---|---|---|
 | **Parallel Perspectives Review** | `P` | Examine a decision through several separated lenses in turn, then synthesize a balanced read |
 
-### Systems & Consequences - trace consequences (3)
+### Systems & Consequences - trace consequences (4)
 
 | Skill | Tier | What it does |
 |---|---|---|
 | **Stocks and Flows Reasoning** | `S` | Reason explicitly about accumulations and rates, which people systematically misjudge |
+| **Causal Loop Diagrams** | `M/P` | Close and sign the feedback loops (reinforcing or balancing) to read why a system spirals, settles, or oscillates |
 | **Futures Wheel** | `P` | Map first-, second-, and third-order consequences radiating from a change |
 | **Iceberg Model** | `P` | Move from events down to the patterns, structures, and mental models that produce them |
 
@@ -219,11 +220,12 @@ All 31 skills, by family. The tier is the evidence grade (see [the evidence mode
 | **Evidence vs Inference Sort** | `P` | Separate what is actually known from what is being inferred, and label each |
 | **Issue Tree** | `P` | Decompose a question into a logical tree of sub-questions to make analysis tractable |
 
-### Decision & Option Evaluation - decide between options (4)
+### Decision & Option Evaluation - decide between options (5)
 
 | Skill | Tier | What it does |
 |---|---|---|
 | **Linear-Model Aggregation** | `S` | Score options on a simple weighted model that tends to beat holistic judgment |
+| **Fermi Estimation** | `M/P` | Estimate an unknown by decomposing it into order-of-magnitude factors, then multiplying back to a number with a low/high band |
 | **What Would Have to Be True** | `P` | Turn a claim into the specific conditions that must hold, then test them |
 | **Decision Option Review** | `P` | Compare options against weighted criteria with explicit tradeoffs |
 | **One-Way vs Two-Way Door** | `P` | Classify a decision by reversibility and match the deliberation cost to it |
@@ -237,10 +239,11 @@ All 31 skills, by family. The tier is the evidence grade (see [the evidence mode
 | **WOOP** | `S` | Wish, Outcome, Obstacle, Plan: mental contrasting plus implementation intentions |
 | **Backcasting** | `P` | Start from a desired future state and work backward to the steps to reach it |
 
-### Synthesis - turn inputs into a message (2)
+### Synthesis - turn inputs into a message (3)
 
 | Skill | Tier | What it does |
 |---|---|---|
+| **Concept Mapping** | `M/P` | Build a labeled-relationship concept network so each link reads as an explicit proposition, surfacing gaps and missing links |
 | **Affinity Mapping** | `P` | Cluster many raw notes into emergent themes from the bottom up |
 | **Pyramid Principle** | `P` | Structure communication as a governing claim over grouped, ordered support |
 
@@ -304,7 +307,7 @@ When you run `/think-premortem "..."`, the agent loads the skill, follows its nu
 
 ## 🧩 Recipes
 
-Recipes chain several skills into one end-to-end job, passing a compressed artifact at each handoff. Four ship today:
+Recipes chain several skills into one end-to-end job, passing a compressed artifact at each handoff. Five ship today:
 
 | Recipe | What it does |
 |---|---|
@@ -312,6 +315,7 @@ Recipes chain several skills into one end-to-end job, passing a compressed artif
 | **Expand options** | Reframe, then generate genuinely new options before judging any |
 | **Stress-test a decision** | Surface what must be true, weigh options, calibrate reversibility, and premortem the plan |
 | **Audit reasoning** | Separate evidence from inference, map the argument, and pressure-test it |
+| **First principles** | Decompose a problem to its fundamentals, then strip the inherited assumptions to rebuild from what is necessary |
 
 Browse them on the [live site](https://product-on-purpose.github.io/thinking-framework-skills/recipes/) or in [`_workflows/`](_workflows/).
 
@@ -347,7 +351,7 @@ Browse them on the [live site](https://product-on-purpose.github.io/thinking-fra
 
 ## 📊 Project status
 
-`v0.1.0` - first public release. 31 skills + 4 recipes, validating at the toolkit's **convergent (Silver)** tier with zero errors or warnings. The docs site builds clean and is published to GitHub Pages. The library is shipped and usable; it will grow additively, and the evidence grades are refreshed as the research does.
+`v0.2.0` - public and growing. 34 skills + 5 recipes, validating at the toolkit's **advanced (Gold)** tier with zero errors or warnings, with a self-hosting conformance gate in CI. The docs site builds clean and is published to GitHub Pages. The library grows additively, and the evidence grades are refreshed as the research does. See [`RELEASE-NOTES.md`](RELEASE-NOTES.md) and [`CHANGELOG.md`](CHANGELOG.md).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
