@@ -110,11 +110,16 @@ const json = JSON.stringify(data, null, 2) + '\n';
 const md = renderMd(skills, recipes);
 
 if (process.argv.includes('--check')) {
-  const cur = existsSync(join(OUT_DIR, 'recommendable.json'))
-    ? readFileSync(join(OUT_DIR, 'recommendable.json'), 'utf8')
-    : '';
-  if (cur !== json) {
-    console.error('recommendable.json is stale - run: node scripts/gen-recommendable.mjs');
+  // Guard BOTH committed generated artifacts (recommendable.json AND recommendable.md).
+  // A drift in either must fail CI: checking only the .json would let the human-readable
+  // table silently diverge (e.g. after a renderMd change) and give false confidence.
+  const readOr = (file) =>
+    existsSync(join(OUT_DIR, file)) ? readFileSync(join(OUT_DIR, file), 'utf8') : '';
+  const stale = [];
+  if (readOr('recommendable.json') !== json) stale.push('recommendable.json');
+  if (readOr('recommendable.md') !== md) stale.push('recommendable.md');
+  if (stale.length) {
+    console.error(`stale: ${stale.join(', ')} - run: node scripts/gen-recommendable.mjs`);
     process.exit(1);
   }
   console.log('recommendable set is up to date.');

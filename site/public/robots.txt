@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://product-on-purpose.github.io/thinking-framework-skills/sitemap-index.xml
