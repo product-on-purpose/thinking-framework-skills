@@ -1,0 +1,79 @@
+# Rich sidecar for the think-fermi-estimation skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.fermi-estimation
+  slug: fermi-estimation
+  name: think-fermi-estimation
+  display_name: Fermi Estimation
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: [risk-and-resilience]
+  thinking_modes: [analytical, quantitative, critical]
+  problem_contexts: [high-uncertainty, high-complexity]
+  use_cases:
+    - estimate a magnitude with no lookup-able data by building it from factors
+    - size a market, a load, a cost, or a conversion you cannot look up
+    - produce an order-of-magnitude number with an honest low/high band
+  poor_fit_cases:
+    - a genuine reference class with real base-rate data exists (use reference-class-forecasting)
+    - the task needs a question decomposed for coverage with no number (use issue-tree)
+    - the quantity is ordinary and familiar (decomposition adds noise there)
+    - the factors share a driver (correlated); multiplicative cancellation fails
+
+interface:
+  required_inputs:
+    - an unknown numeric quantity to estimate, with its unit, and no data to look it up
+  optional_inputs:
+    - candidate factors, known anchoring data, or a target precision
+  primary_artifact_type: fermi-decomposition-worksheet
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.reference-class-forecasting
+    - thinking-framework-skills.issue-tree
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.issue-tree
+  often_precedes:
+    - thinking-framework-skills.decision-option-review
+  complements:
+    - thinking-framework-skills.reference-class-forecasting
+  overlaps_with:
+    - thinking-framework-skills.reference-class-forecasting
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - emitting a point estimate with no low/high band
+    - multiplying correlated factors as if independent (cancellation fails)
+    - applying it to an ordinary/familiar quantity where decomposition adds noise
+    - using it when a real reference class with base-rate data exists
+    - citing unverified effect-size figures the sources do not support
+
+evidence:
+  evidence_tier: "M/P"
+  confidence: moderate that multiplicative decomposition helps for extreme/uncertain quantities; low for ordinary ones
+  transferred_evidence: true
+  lineage:
+    derived_from: [Fermi problem tradition, MacGregor and Armstrong judgmental decomposition, log-normal cross-factor error cancellation]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-fermi-estimation/SKILL.md
+  references_path: skills/think-fermi-estimation/references/
+  evidence_path: skills/think-fermi-estimation/evidence/dossier.md
+  evals_path: skills/think-fermi-estimation/eval/

@@ -1,0 +1,88 @@
+# Rich sidecar for the think-concept-mapping skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.concept-mapping
+  slug: concept-mapping
+  name: think-concept-mapping
+  display_name: Concept Mapping
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: synthesis
+  secondary_families: [reasoning-clarity]
+  thinking_modes: [analytical, systems, integrative]
+  problem_contexts: [high-complexity]
+  use_cases:
+    - externalize and inspect how the concepts in a domain interrelate
+    - force every relationship between concepts to be explicitly named
+    - surface gaps, missing links, and misconceptions as checkable propositions
+  poor_fit_cases:
+    - evaluating whether one argument or recommendation is sound (argument-mapping)
+    - top-down MECE decomposition of one question (issue-tree)
+    - bottom-up clustering of raw notes with no named relationships (affinity-mapping)
+    - fixed event/pattern/structure/mental-model causal levels (iceberg-model)
+    - free-association mind-mapping with unlabeled branches (excluded Buzan method, X-tier)
+
+interface:
+  required_inputs:
+    - a domain with many interrelated concepts to be mapped
+  optional_inputs:
+    - a focus question to bound which concepts and relationships matter
+  primary_artifact_type: concept-map
+  output_formats: [markdown-list, proposition-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.affinity-mapping
+    - thinking-framework-skills.argument-mapping
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.affinity-mapping
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.iceberg-model
+  overlaps_with:
+    - thinking-framework-skills.argument-mapping
+    - thinking-framework-skills.affinity-mapping
+    - thinking-framework-skills.issue-tree
+    - thinking-framework-skills.iceberg-model
+  variants:
+    - excluded: free-association mind-mapping (Buzan), X-tier, no labeled relationships
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - leaving links unlabeled (collapses into excluded mind-mapping)
+    - labels that are not real propositions (vague "relates to")
+    - no cross-links, so clusters never integrate
+    - confusing it with argument-mapping (judging soundness it cannot judge)
+
+evidence:
+  evidence_tier: "M/P"
+  confidence: high that the construction move works and a large human base exists; the catch is that the largest base measures human retention, which does not transfer to an AI agent
+  transferred_evidence: true
+  transfer_note: >
+    partial-by-design transfer; the large retention meta-analyses (Nesbit & Adesope 2006;
+    Schroeder et al. 2018) measure human knowledge retention and do NOT transfer to an agent.
+    Only the construction-discipline / gap-surfacing aspect (Novak & Canas 2008; Davies 2011)
+    is claimed. M/P not S because tier follows whether the measured outcome transfers, not
+    sample size.
+  lineage:
+    derived_from: [Novak & Canas concept-map theory, Davies technique-distinction, concept-map meta-analyses]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-concept-mapping/SKILL.md
+  references_path: skills/think-concept-mapping/references/
+  evidence_path: skills/think-concept-mapping/evidence/dossier.md
+  evals_path: skills/think-concept-mapping/eval/
