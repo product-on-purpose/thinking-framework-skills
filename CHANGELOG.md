@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). User-facing highlights are in [`RELEASE-NOTES.md`](RELEASE-NOTES.md).
 
+## [Unreleased]
+
+### Added
+- `site/public/robots.txt` pointing at the generated sitemap.
+
+### Changed
+- Docs-site CI/deploy converged to the family site standard: the GitHub Pages deploy now uses `actions/upload-pages-artifact@v5` + `actions/deploy-pages@v5`; Node is pinned to `24` via `.nvmrc` / `node-version-file`; and a non-deploying `site-build` job verifies the site on PRs.
+- The advisor name-safety set is drift-guarded in CI: `scripts/gen-recommendable.mjs --check` runs on PR and push and fails if `recommendable.json` / `recommendable.md` are stale.
+
+### Removed
+- Per-file `.md` config sidecars under `site/` (rationale folded into the config files' own comments and a new `site/README.md`).
+
 ## [0.2.0] - 2026-06-01
 
 ### Added
@@ -24,5 +36,6 @@ All notable changes to this project are documented here. The format is based on 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.2.0...HEAD
 [0.2.0]: https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0
 [0.1.0]: https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.1.0
