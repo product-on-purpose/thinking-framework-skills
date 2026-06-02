@@ -44,3 +44,46 @@ jobs:
         env:
           AGENT_SKILLS_TOOLKIT: ${{ github.workspace }}/.agent-skills-toolkit
         run: node scripts/check.mjs
+
+  # Drift guard for the ONE committed generated artifact: the advisor's name-safety
+  # set (skills/think-framework-advisor/references/recommendable.{json,md}), produced
+  # by scripts/gen-recommendable.mjs from library.json + SKILL.md frontmatter +
+  # _workflows/*.md. The generator is zero-dependency, so this needs no install. If a
+  # skill or recipe is added/renamed/removed without regenerating, --check exits 1 and
+  # the build fails here instead of shipping an advisor that names a nonexistent skill.
+  recommendable-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout plugin
+        uses: actions/checkout@v5
+
+      - name: Setup Node (pinned via .nvmrc)
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Check advisor recommendable set is in sync
+        run: node scripts/gen-recommendable.mjs --check
+
+  # PR-time, NON-deploying site build: runs the generator (gen-site.mjs) + astro build
+  # so generator/build breakage is caught before merge. Deployment stays solely in
+  # deploy-pages.yml (push to main / workflow_dispatch); this job uploads nothing.
+  site-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - name: Checkout plugin
+        uses: actions/checkout@v5
+
+      - name: Setup Node (pinned via .nvmrc)
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site (gen-site.mjs + astro build)
+        run: npm run build

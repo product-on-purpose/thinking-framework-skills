@@ -19,6 +19,12 @@ npm run preview  # serve the built dist/
 
 `npm run gen` regenerates the content pages without building.
 
+## Dependencies and build wiring
+
+- **gen-before-build.** `dev` and `build` run `../scripts/gen-site.mjs` first, then the Astro CLI. Running the generator before Astro is what keeps the published site in sync with the skills (the skills are the source of truth; the site is a view).
+- **Pinned overrides.** `package.json` overrides `mermaid` (`^11.15.0`) and `devalue` (`^5.8.1`) to known-good transitive versions so an incompatible release cannot float in. Exact, reproducible installs are the lockfile's job (`npm ci`).
+- **Node.** `engines.node` is `>=22.12.0` (Astro 6's floor). The repo-root `.nvmrc` pins Node `24` (Active LTS) for local dev and CI.
+
 ## What is hand-authored vs generated
 
 - **Hand-authored** (committed under `src/content/docs/`): the landing page (`index.mdx`) and the `start/` learning layer (getting-started, the evidence model, how-to-read-a-page).
