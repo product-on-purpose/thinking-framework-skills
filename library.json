@@ -42,6 +42,9 @@
       { "name": "think-iceberg-model", "path": "skills/think-iceberg-model/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "think-backcasting", "path": "skills/think-backcasting/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "think-stocks-and-flows-reasoning", "path": "skills/think-stocks-and-flows-reasoning/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "think-causal-loop-diagrams", "path": "skills/think-causal-loop-diagrams/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "think-concept-mapping", "path": "skills/think-concept-mapping/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "think-fermi-estimation", "path": "skills/think-fermi-estimation/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "think-linear-model-aggregation", "path": "skills/think-linear-model-aggregation/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "think-framework-advisor", "path": "skills/think-framework-advisor/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
     ]

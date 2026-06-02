@@ -1,0 +1,76 @@
+# Rich sidecar for the think-causal-loop-diagrams skill. DRAFT shape.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.causal-loop-diagrams
+  slug: causal-loop-diagrams
+  name: think-causal-loop-diagrams
+  display_name: Causal Loop Diagrams
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: systems-and-consequences
+  secondary_families: [reasoning-clarity]
+  thinking_modes: [systems, analytical, critical]
+  problem_contexts: [high-complexity]
+  use_cases:
+    - close the feedback loops in a situation and sign their link polarities
+    - label each loop reinforcing (R) or balancing (B)
+    - read likely dynamics (spiral, goal-seeking, oscillation) off the dominant loop
+  poor_fit_cases:
+    - a single accumulation with no loop (stocks-and-flows)
+    - only naming that feedback exists as one structural layer (iceberg-model)
+    - one-directional forward consequences with no loop-back (futures-wheel)
+    - genuinely open-loop / linear structure (forcing a loop manufactures false feedback)
+
+interface:
+  required_inputs:
+    - a situation with candidate variables that may feed back on each other
+  optional_inputs:
+    - known link directions, rates, or delays
+  primary_artifact_type: signed-causal-loop-diagram
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.stocks-and-flows-reasoning
+    - thinking-framework-skills.iceberg-model
+
+relationships:
+  often_follows: []
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.stocks-and-flows-reasoning
+    - thinking-framework-skills.iceberg-model
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - manufacturing a loop where the structure is actually open / linear
+    - leaving links unsigned, so the R/B label is not derivable from polarity
+    - missing delays, then misreading oscillation as steady goal-seeking
+    - treating the behavior read-out as a prediction rather than an argument
+
+evidence:
+  evidence_tier: "M/P"
+  confidence: high that feedback misperception is real; moderate-and-conditional that CLDs fix it; the externalization-and-signing move is mechanically sound
+  transferred_evidence: true
+  lineage:
+    derived_from: [system dynamics, Sterman Business Dynamics, Meadows Thinking in Systems]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-causal-loop-diagrams/SKILL.md
+  references_path: skills/think-causal-loop-diagrams/references/
+  evidence_path: skills/think-causal-loop-diagrams/evidence/dossier.md
+  evals_path: skills/think-causal-loop-diagrams/eval/
