@@ -1,38 +1,23 @@
 <a id="readme-top"></a>
 
-<div align="center">
-
 # Thinking Framework Skills
 
 **An evidence-graded library of agent-executable thinking-method skills.**
 
 Every method is reduced to its working mechanism, graded honestly on how strong its evidence actually is, and shipped as a skill that produces a concrete artifact, not prose.
 
-<p>
-  <a href="#-what-this-is"><strong>What it is</strong></a>
-  &nbsp;·&nbsp;
-  <a href="#-quick-start"><strong>Install</strong></a>
-  &nbsp;·&nbsp;
-  <a href="#-the-catalog"><strong>Frameworks</strong></a>
-  &nbsp;·&nbsp;
-  <a href="#-the-evidence-model"><strong>Evidence</strong></a>
-  &nbsp;·&nbsp;
-  <a href="#-recipes"><strong>Recipes</strong></a>
-  &nbsp;·&nbsp;
-  <a href="https://product-on-purpose.github.io/thinking-framework-skills/"><strong>Live site</strong></a>
-</p>
+[**What it is**](#-what-this-is) &nbsp;·&nbsp; [**Install**](#-quick-start) &nbsp;·&nbsp; [**Frameworks**](#-the-catalog) &nbsp;·&nbsp; [**Evidence**](#-the-evidence-model) &nbsp;·&nbsp; [**Recipes**](#-recipes) &nbsp;·&nbsp; [**Live site**](https://product-on-purpose.github.io/thinking-framework-skills/)
 
 <p>
   <img src="https://img.shields.io/badge/status-active-success?style=flat-square" alt="Status: Active">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square" alt="License: Apache-2.0"></a>
-  <img src="https://img.shields.io/badge/version-0.1.0-blue?style=flat-square" alt="Version 0.1.0">
+  <img src="https://img.shields.io/badge/version-0.2.0-blue?style=flat-square" alt="Version 0.2.0">
+  <a href="#-conformance-what-advanced-gold-tier-means"><img src="https://img.shields.io/badge/tier-advanced%20(Gold)-B8860B?style=flat-square" alt="Conformance tier: advanced (Gold)"></a>
   <a href="#-the-catalog"><img src="https://img.shields.io/badge/skills-34-brightgreen?style=flat-square" alt="Skills: 34"></a>
   <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-5-brightgreen?style=flat-square" alt="Recipes: 5"></a>
   <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/spec-agentskills.io-orange?style=flat-square" alt="Agent Skills Spec"></a>
   <img src="https://img.shields.io/badge/evidence-graded-purple?style=flat-square" alt="Evidence-graded">
 </p>
-
-</div>
 
 ---
 
@@ -43,16 +28,18 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
 - [Quick start](#-quick-start)
 - [What makes it different](#-what-makes-it-different)
 - [The library at a glance](#-the-library-at-a-glance)
-- [The catalog](#-the-catalog)
 - [The evidence model](#-the-evidence-model)
+- [The catalog](#-the-catalog)
 - [How a skill works](#-how-a-skill-works)
 - [Recipes](#-recipes)
 - [Find your way in](#-find-your-way-in)
 - [Documentation](#-documentation)
+- [Conformance: what advanced (Gold) tier means](#-conformance-what-advanced-gold-tier-means)
 - [Project status](#-project-status)
+  - [At a glance](#at-a-glance) · [Repo structure](#repo-structure) · [Changelog](#changelog)
 - [Contributing](#-contributing)
-- [License and attribution](#-license-and-attribution)
-- [Maintainer](#-maintainer)
+- [License](#-license)
+- [About the maintainer](#-about-the-maintainer)
 
 </details>
 
@@ -167,103 +154,9 @@ flowchart TB
 
 ---
 
-## 📚 The catalog
-
-All 34 skills, by family. The tier is the evidence grade (see [the evidence model](#-the-evidence-model)). Each links to its full page (mechanism, procedure, worked example, graded sources) on the live site.
-
-### Problem Framing - frame the real problem (2)
-
-| Skill | Tier | What it does |
-|---|---|---|
-| **Problem Restatement** | `M/P` | Rewrite the problem several ways to expose hidden framing, then pick a more useful one |
-| **Abstraction Laddering** | `P` | Move up ("why") and down ("how") the ladder to find the altitude where the problem is workable |
-
-### Divergent Ideation - generate options (5)
-
-| Skill | Tier | What it does |
-|---|---|---|
-| **Brainwriting** | `S` | Silent, parallel, written idea generation that reliably outperforms verbal brainstorming |
-| **Far-Analogy Ideation** | `S` | Transfer solutions from distant domains, which produce more original ideas than near ones |
-| **SCAMPER** | `P` | Run an idea through seven transformation prompts to force structured variation |
-| **Question Burst** | `P` | Generate a rapid burst of questions, rank them, and pursue the most catalytic one |
-| **Assumption Reversal** | `P` | Surface the assumptions baked into a problem, negate them, and generate non-obvious reframes |
-
-### Perspective & Multi-Lens - see it from other angles (1)
-
-| Skill | Tier | What it does |
-|---|---|---|
-| **Parallel Perspectives Review** | `P` | Examine a decision through several separated lenses in turn, then synthesize a balanced read |
-
-### Systems & Consequences - trace consequences (4)
-
-| Skill | Tier | What it does |
-|---|---|---|
-| **Stocks and Flows Reasoning** | `S` | Reason explicitly about accumulations and rates, which people systematically misjudge |
-| **Causal Loop Diagrams** | `M/P` | Close and sign the feedback loops (reinforcing or balancing) to read why a system spirals, settles, or oscillates |
-| **Futures Wheel** | `P` | Map first-, second-, and third-order consequences radiating from a change |
-| **Iceberg Model** | `P` | Move from events down to the patterns, structures, and mental models that produce them |
-
-### Assumption & Belief Challenge - challenge assumptions (3)
-
-| Skill | Tier | What it does |
-|---|---|---|
-| **Authentic Dissent** | `S` | Cultivate genuine minority disagreement, which improves reasoning where role-played dissent does not |
-| **Ladder of Inference Check** | `P` | Trace how you climbed from raw data to conclusion to catch where interpretation crept in |
-| **Red Team Light** | `P` | A lightweight adversarial pass that attacks a plan to surface its weak points |
-
-### Reasoning Clarity - clarify the reasoning (4)
-
-| Skill | Tier | What it does |
-|---|---|---|
-| **Argument Mapping** | `S` | Diagram the structure of claims, reasons, and objections to expose where it is weak |
-| **Natural-Frequency Bayesian Framing** | `S` | Express probabilities as natural frequencies (3 in 1,000) to make conditional reasoning tractable |
-| **Evidence vs Inference Sort** | `P` | Separate what is actually known from what is being inferred, and label each |
-| **Issue Tree** | `P` | Decompose a question into a logical tree of sub-questions to make analysis tractable |
-
-### Decision & Option Evaluation - decide between options (5)
-
-| Skill | Tier | What it does |
-|---|---|---|
-| **Linear-Model Aggregation** | `S` | Score options on a simple weighted model that tends to beat holistic judgment |
-| **Fermi Estimation** | `M/P` | Estimate an unknown by decomposing it into order-of-magnitude factors, then multiplying back to a number with a low/high band |
-| **What Would Have to Be True** | `P` | Turn a claim into the specific conditions that must hold, then test them |
-| **Decision Option Review** | `P` | Compare options against weighted criteria with explicit tradeoffs |
-| **One-Way vs Two-Way Door** | `P` | Classify a decision by reversibility and match the deliberation cost to it |
-
-### Risk & Resilience - anticipate what could go wrong (4)
-
-| Skill | Tier | What it does |
-|---|---|---|
-| **Premortem** | `S/M` | Imagine the plan has already failed and work backward to causes, tripwires, and kill criteria |
-| **Reference Class Forecasting** | `S` | Estimate from the track record of similar past projects, not inside-view optimism |
-| **WOOP** | `S` | Wish, Outcome, Obstacle, Plan: mental contrasting plus implementation intentions |
-| **Backcasting** | `P` | Start from a desired future state and work backward to the steps to reach it |
-
-### Synthesis - turn inputs into a message (3)
-
-| Skill | Tier | What it does |
-|---|---|---|
-| **Concept Mapping** | `M/P` | Build a labeled-relationship concept network so each link reads as an explicit proposition, surfacing gaps and missing links |
-| **Affinity Mapping** | `P` | Cluster many raw notes into emergent themes from the bottom up |
-| **Pyramid Principle** | `P` | Structure communication as a governing claim over grouped, ordered support |
-
-### Meta-Thinking & Reflection - learn and route (3)
-
-| Skill | Tier | What it does |
-|---|---|---|
-| **After Action Review** | `S` | Structured review of expected vs actual, and what to change, to improve the next loop |
-| **Decision Journal** | `P` | Record the decision, rationale, and prediction now to calibrate your judgment later |
-| **Framework Advisor** | `M/C` | The front door: describe a situation, get a prioritized Thinking Plan of which skills to run |
-
-> Browse them five other ways - by job, by evidence, by artifact, by situation, or on the map - in the site's [Explore](https://product-on-purpose.github.io/thinking-framework-skills/explore/) section. The skills themselves live in [`skills/`](skills/).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
-
 ## 🔬 The evidence model
 
-Honest grading is the differentiator. Every skill and every claim is labeled with one of seven tiers:
+Honest grading is the differentiator, so the key comes **before** the catalog: every skill and every claim is labeled with one of seven tiers, from strongest to weakest.
 
 | Tier | Meaning |
 |---|---|
@@ -275,7 +168,103 @@ Honest grading is the differentiator. Every skill and every claim is labeled wit
 | `C` | **Conceptual** - reasonable, not yet demonstrated |
 | `X` | **Poor/contradictory** - the evidence cuts against it (excluded, documented) |
 
-A strong-evidence core anchors the library; the rest is honestly labeled around it. The [bibliography](https://product-on-purpose.github.io/thinking-framework-skills/evidence/bibliography/) aggregates the graded sources so a skeptic can trace any claim to its grounding. See [`docs/concepts.md`](docs/concepts.md) for the short version.
+A few skills carry a **split grade** (for example `M/P` or `S/M`): the mechanism rests on one tier while a specific claim about it rests on another. Where a grade leans on **human-subject** research that has not been tested on an AI agent, the skill's dossier flags that transfer explicitly rather than overclaiming.
+
+A strong-evidence core anchors the library; everything else is honestly labeled around it. The [bibliography](https://product-on-purpose.github.io/thinking-framework-skills/evidence/bibliography/) aggregates the graded sources so a skeptic can trace any claim to its grounding. See [`docs/concepts.md`](docs/concepts.md) for the short version.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## 📚 The catalog
+
+All 34 skills, by family. The `Tier` column is the [evidence grade](#-the-evidence-model) defined just above. **Each skill name links to its full page** - mechanism, numbered procedure, worked example, and graded sources - on the live site.
+
+### Problem Framing - frame the real problem (2)
+
+| Skill | Tier | What it does |
+|---|---|---|
+| [**Problem Restatement**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-problem-restatement/) | `M/P` | Rewrite the problem several ways to expose hidden framing, then pick a more useful one |
+| [**Abstraction Laddering**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-abstraction-laddering/) | `P` | Move up ("why") and down ("how") the ladder to find the altitude where the problem is workable |
+
+### Divergent Ideation - generate options (5)
+
+| Skill | Tier | What it does |
+|---|---|---|
+| [**Brainwriting**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-brainwriting/) | `S` | Silent, parallel, written idea generation that reliably outperforms verbal brainstorming |
+| [**Far-Analogy Ideation**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-far-analogy-ideation/) | `S` | Transfer solutions from distant domains, which produce more original ideas than near ones |
+| [**SCAMPER**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-scamper/) | `P` | Run an idea through seven transformation prompts to force structured variation |
+| [**Question Burst**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-question-burst/) | `P` | Generate a rapid burst of questions, rank them, and pursue the most catalytic one |
+| [**Assumption Reversal**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-assumption-reversal/) | `P` | Surface the assumptions baked into a problem, negate them, and generate non-obvious reframes |
+
+### Perspective & Multi-Lens - see it from other angles (1)
+
+| Skill | Tier | What it does |
+|---|---|---|
+| [**Parallel Perspectives Review**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-parallel-perspectives-review/) | `P` | Examine a decision through several separated lenses in turn, then synthesize a balanced read |
+
+### Systems & Consequences - trace consequences (4)
+
+| Skill | Tier | What it does |
+|---|---|---|
+| [**Stocks and Flows Reasoning**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-stocks-and-flows-reasoning/) | `S` | Reason explicitly about accumulations and rates, which people systematically misjudge |
+| [**Causal Loop Diagrams**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-causal-loop-diagrams/) | `M/P` | Close and sign the feedback loops (reinforcing or balancing) to read why a system spirals, settles, or oscillates |
+| [**Futures Wheel**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-futures-wheel/) | `P` | Map first-, second-, and third-order consequences radiating from a change |
+| [**Iceberg Model**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-iceberg-model/) | `P` | Move from events down to the patterns, structures, and mental models that produce them |
+
+### Assumption & Belief Challenge - challenge assumptions (3)
+
+| Skill | Tier | What it does |
+|---|---|---|
+| [**Authentic Dissent**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-authentic-dissent/) | `S` | Cultivate genuine minority disagreement, which improves reasoning where role-played dissent does not |
+| [**Ladder of Inference Check**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-ladder-of-inference-check/) | `P` | Trace how you climbed from raw data to conclusion to catch where interpretation crept in |
+| [**Red Team Light**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-red-team-light/) | `P` | A lightweight adversarial pass that attacks a plan to surface its weak points |
+
+### Reasoning Clarity - clarify the reasoning (4)
+
+| Skill | Tier | What it does |
+|---|---|---|
+| [**Argument Mapping**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-argument-mapping/) | `S` | Diagram the structure of claims, reasons, and objections to expose where it is weak |
+| [**Natural-Frequency Bayesian Framing**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-natural-frequency-bayesian/) | `S` | Express probabilities as natural frequencies (3 in 1,000) to make conditional reasoning tractable |
+| [**Evidence vs Inference Sort**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-evidence-vs-inference-sort/) | `P` | Separate what is actually known from what is being inferred, and label each |
+| [**Issue Tree**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-issue-tree/) | `P` | Decompose a question into a logical tree of sub-questions to make analysis tractable |
+
+### Decision & Option Evaluation - decide between options (5)
+
+| Skill | Tier | What it does |
+|---|---|---|
+| [**Linear-Model Aggregation**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-linear-model-aggregation/) | `S` | Score options on a simple weighted model that tends to beat holistic judgment |
+| [**Fermi Estimation**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-fermi-estimation/) | `M/P` | Estimate an unknown by decomposing it into order-of-magnitude factors, then multiplying back to a number with a low/high band |
+| [**What Would Have to Be True**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-what-would-have-to-be-true/) | `P` | Turn a claim into the specific conditions that must hold, then test them |
+| [**Decision Option Review**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-decision-option-review/) | `P` | Compare options against weighted criteria with explicit tradeoffs |
+| [**One-Way vs Two-Way Door**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-one-way-vs-two-way-door/) | `P` | Classify a decision by reversibility and match the deliberation cost to it |
+
+### Risk & Resilience - anticipate what could go wrong (4)
+
+| Skill | Tier | What it does |
+|---|---|---|
+| [**Premortem**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-premortem/) | `S/M` | Imagine the plan has already failed and work backward to causes, tripwires, and kill criteria |
+| [**Reference Class Forecasting**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-reference-class-forecasting/) | `S` | Estimate from the track record of similar past projects, not inside-view optimism |
+| [**WOOP**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-woop/) | `S` | Wish, Outcome, Obstacle, Plan: mental contrasting plus implementation intentions |
+| [**Backcasting**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-backcasting/) | `P` | Start from a desired future state and work backward to the steps to reach it |
+
+### Synthesis - turn inputs into a message (3)
+
+| Skill | Tier | What it does |
+|---|---|---|
+| [**Concept Mapping**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-concept-mapping/) | `M/P` | Build a labeled-relationship concept network so each link reads as an explicit proposition, surfacing gaps and missing links |
+| [**Affinity Mapping**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-affinity-mapping/) | `P` | Cluster many raw notes into emergent themes from the bottom up |
+| [**Pyramid Principle**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-pyramid-principle/) | `P` | Structure communication as a governing claim over grouped, ordered support |
+
+### Meta-Thinking & Reflection - learn and route (3)
+
+| Skill | Tier | What it does |
+|---|---|---|
+| [**After Action Review**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-after-action-review/) | `S` | Structured review of expected vs actual, and what to change, to improve the next loop |
+| [**Decision Journal**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-decision-journal/) | `P` | Record the decision, rationale, and prediction now to calibrate your judgment later |
+| [**Framework Advisor**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-framework-advisor/) | `M/C` | The front door: describe a situation, get a prioritized Thinking Plan of which skills to run |
+
+> Browse them five other ways - by job, by evidence, by artifact, by situation, or on the map - in the site's [Explore](https://product-on-purpose.github.io/thinking-framework-skills/explore/) section. The skills themselves live in [`skills/`](skills/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -342,8 +331,33 @@ Browse them on the [live site](https://product-on-purpose.github.io/thinking-fra
 ## 📖 Documentation
 
 - **[Live site](https://product-on-purpose.github.io/thinking-framework-skills/)** - the full, searchable, interactive experience (per-framework pages, learning tracks, explorers, the bibliography). This is the home for *using* the library.
-- **[`docs/`](docs/)** - the repo-browser and contributor layer: [getting started](docs/getting-started.md), [architecture](docs/architecture.md), [contributing](docs/contributing.md), [concepts](docs/concepts.md). Plus a `<file>.md` sidecar next to each code/config file.
+- **[`docs/`](docs/)** - the repo-browser and contributor layer: [getting started](docs/getting-started.md), [architecture](docs/architecture.md), [concepts](docs/concepts.md), [contributing](docs/contributing.md), [conformance](docs/conformance.md). Plus a `<file>.md` sidecar next to each code/config file.
 - **[`skills/`](skills/)** - the frameworks themselves (the source of truth the site renders).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## 🥇 Conformance: what advanced (Gold) tier means
+
+This plugin is built to the [agent-skills-toolkit](https://github.com/product-on-purpose/agent-skills-toolkit) **Advanced Skill Library Standard**, which grades a skill library on three tiers. Each tier includes everything below it:
+
+| Tier | Name | What it certifies |
+|---|---|---|
+| 🥉 | **Universal (Bronze)** | The skills are portable - valid frontmatter, an `AGENTS.md`, a manifest, references one level deep - so the identical files run on any agentskills.io-compatible agent. |
+| 🥈 | **Convergent (Silver)** | The plugin declares its agent targets and emits each higher-order component (commands, workflows, chain contracts) correctly for both Claude Code and Codex, with a manifest that matches what is on disk. |
+| 🥇 | **Advanced (Gold)** | The plugin proves itself - it ships CI that runs the Standard's own validators against it and passes (self-hosting), generates its `INDEX.md` and native manifests from a single authored source, and maintains release notes and a deprecation policy. |
+
+`thinking-framework-skills` validates at **advanced (Gold) with 0 errors and 0 warnings** against the pinned toolkit. Concretely, it earns Gold through:
+
+- **G2 - self-hosting CI that passes.** Every pull request runs [`scripts/check.mjs`](scripts/check.mjs) (the Standard's validators) via [`.github/workflows/ci.yml`](.github/workflows/ci.yml), and `check` is a required status check on `main`. The same one command reproduces the result locally.
+- **G4 - generated INDEX + manifests.** [`INDEX.md`](INDEX.md), `.claude-plugin/plugin.json`, the Codex manifest, and `manifest.generated.json` are all generated from the authored [`library.json`](library.json) and drift-checked; a hand-edit is a CI error.
+- **G5 - release notes.** Curated [`RELEASE-NOTES.md`](RELEASE-NOTES.md), distinct from the technical [`CHANGELOG.md`](CHANGELOG.md).
+- **G6 - deprecation policy** and **G7 - all Bronze + Silver requirements**, by inclusion.
+
+Two Gold checks are **not applicable** here, and the library says so rather than papering over it: **G1 (hook documentation)** and **G3 (eval coverage for chains and hooks)** apply only to plugins that ship hooks or chained components. This library ships neither - its recipes are workflow chains of independent skills, not runtime chain contracts - so those checks pass vacuously. Every skill still carries its own `eval/cases.md`.
+
+> Full breakdown, check by check: [`docs/conformance.md`](docs/conformance.md). The Standard itself: [agent-skills-toolkit / STANDARD.md](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -351,7 +365,63 @@ Browse them on the [live site](https://product-on-purpose.github.io/thinking-fra
 
 ## 📊 Project status
 
-`v0.2.0` - public and growing. 34 skills + 5 recipes, validating at the toolkit's **advanced (Gold)** tier with zero errors or warnings, with a self-hosting conformance gate in CI. The docs site builds clean and is published to GitHub Pages. The library grows additively, and the evidence grades are refreshed as the research does. See [`RELEASE-NOTES.md`](RELEASE-NOTES.md) and [`CHANGELOG.md`](CHANGELOG.md).
+`v0.2.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
+
+### At a glance
+
+|  |  |
+|---|---|
+| **Current version** | [v0.2.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0) |
+| **Skills** | 34, across 10 cognitive-operation families |
+| **Recipes** | 5 (skill chains shipped as workflow components) |
+| **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) - 0 errors / 0 warnings, self-hosting CI |
+| **Evidence** | 11 skills at `S` / `S-M` tier; every skill graded and sourced |
+| **Spec** | [agentskills.io](https://agentskills.io/specification) |
+| **License** | [Apache-2.0](LICENSE) |
+| **Docs site** | [product-on-purpose.github.io/thinking-framework-skills](https://product-on-purpose.github.io/thinking-framework-skills/) |
+| **Install** | `/plugin install thinking-framework-skills@product-on-purpose` |
+
+### Repo structure
+
+```
+thinking-framework-skills/
+├── skills/                  # 34 thinking-method skills (the source of truth)
+│   └── think-<method>/      #   SKILL.md, evidence/dossier.md, references/, eval/cases.md, skill.meta.yml
+├── _workflows/              # Recipe definitions (multi-skill chains) as workflow components
+├── recipes/                 # Human-readable recipe write-ups
+├── scripts/                 # gen-site, gen-manifest, gen-recommendable, and the check.mjs gate
+├── site/                    # Astro Starlight docs site (a generated view of skills/)
+├── docs/                    # Contributor and build docs
+│   └── internal/            #   AUTHORING.md, specs/, release-plans/, research/
+├── .github/workflows/       # CI: the self-hosting conformance gate + Pages deploy
+├── library.json             # Authored manifest (the canonical component index)
+├── INDEX.md                 # Generated catalog index (drift-checked)
+├── CHANGELOG.md             # Technical version history
+├── RELEASE-NOTES.md         # Curated, user-facing release highlights
+└── AGENTS.md                # Universal agent-discovery file
+```
+
+| Path | What's in it |
+|---|---|
+| [`skills/`](skills/) | All 34 skills, each a self-contained 5-file unit (the site renders from these) |
+| [`_workflows/`](_workflows/) | The 5 recipes as workflow components - ordered skill chains with handoffs |
+| [`scripts/`](scripts/) | Generators (site, manifests, name-safety set) and [`check.mjs`](scripts/check.mjs), the conformance gate |
+| [`docs/`](docs/) | [Getting started](docs/getting-started.md), [architecture](docs/architecture.md), [concepts](docs/concepts.md), [contributing](docs/contributing.md), [conformance](docs/conformance.md) |
+| [`docs/internal/`](docs/internal/) | The [authoring loop](docs/internal/AUTHORING.md), specs, [release plans](docs/internal/release-plans/), and research |
+
+### Changelog
+
+Full detail in [`CHANGELOG.md`](CHANGELOG.md); curated highlights in [`RELEASE-NOTES.md`](RELEASE-NOTES.md).
+
+<details>
+<summary><strong>Release history</strong></summary>
+
+| Version | Highlights |
+|---|---|
+| [**0.2.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0) | Catalog grows 31 to 34 (Concept Mapping, Causal Loop Diagrams, Fermi Estimation, each vetted against the catalog before authoring) plus a first-principles recipe (4 to 5). A more visual docs site: legible diagrams and beginner concept diagrams on six pages. Gold-tier hardening - a self-hosting conformance gate in CI, a generated `INDEX.md`, and `RELEASE-NOTES.md`. Tier declared `advanced`. |
+| [**0.1.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.1.0) | First public release: 31 evidence-graded, agent-executable skills + 4 composable recipes, validating at convergent (Silver). The `think-framework-advisor` front-door router. A full Astro Starlight docs site (per-framework pages, learning tracks, exploration lenses, interactive chooser, graded bibliography). Listed in the Product on Purpose marketplace. |
+
+</details>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -359,22 +429,49 @@ Browse them on the [live site](https://product-on-purpose.github.io/thinking-fra
 
 ## 🤝 Contributing
 
-A new framework has to clear the selection bar: it must add a **distinct, durable cognitive move** (not duplicate one already shipped), carry an **honest evidence grade** with a dossier of graded sources, produce a **concrete artifact**, and state **when not to use it**. The full authoring loop and the bar are in [`docs/contributing.md`](docs/contributing.md) and [`docs/internal/AUTHORING.md`](docs/internal/AUTHORING.md). Diagrams follow the pm-skills `utility-mermaid-diagrams` house style.
+Contributions, ideas, and framework proposals are welcome. The bar is deliberately high - it is what keeps the library trustworthy.
 
-Issues, ideas, and framework proposals are welcome in the repo's GitHub issues.
+**A new framework must clear the selection bar.** It has to:
+
+1. Add a **distinct, durable cognitive move** - not duplicate one already shipped. The overlap ceiling is real: candidates that reduce to an existing skill are rejected or become recipes.
+2. Carry an **honest evidence grade** with a dossier of graded sources, including what the research does *not* show.
+3. Produce a **concrete artifact**, not prose.
+4. State **when *not* to use it.**
+
+**To propose or build one:**
+
+1. Open an issue describing the move and its evidence - the fastest way to get feedback before you build.
+2. Read [`docs/contributing.md`](docs/contributing.md) and the per-skill authoring loop in [`docs/internal/AUTHORING.md`](docs/internal/AUTHORING.md).
+3. Mirror an existing skill's 5-file structure (`SKILL.md`, `evidence/dossier.md`, `references/`, `eval/cases.md`, `skill.meta.yml`).
+4. Run the conformance gate locally (`node scripts/check.mjs`) before opening a PR; CI runs the same gate.
+
+Diagrams follow the pm-skills `utility-mermaid-diagrams` house style. Commit with [Conventional Commits](https://www.conventionalcommits.org/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
-## 📄 License and attribution
+## 📄 License
 
-**[Apache-2.0](LICENSE).** Method names that are trademarks or carry specific licenses remain the property of their owners; this library implements the underlying cognitive mechanisms, names them descriptively, and notes lineage and attribution in each skill's references rather than claiming the brands.
+Distributed under the **[Apache License 2.0](LICENSE)**. In short: you may use this library commercially, modify and redistribute it, use it privately, and include it in proprietary software. The only requirements are attribution and including the license notice.
+
+**On method names and trademarks.** Names that are trademarks or carry specific licenses remain the property of their owners. This library implements the underlying cognitive *mechanisms*, names them descriptively, and notes lineage and attribution in each skill's references rather than claiming the brands.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
-## Maintainer
+## 👋 About the maintainer
 
-**Jeremy Prisant** ([@jprisant](https://github.com/jprisant)) · Part of the [Product on Purpose](https://github.com/product-on-purpose) portfolio.
+<a href="https://github.com/jprisant"><img src="https://img.shields.io/badge/Maintained_by-Jonathan_Prisant-blue?style=for-the-badge&logo=github" alt="Maintained by Jonathan Prisant"></a>
+
+Built and maintained by **Jonathan Prisant** ([@jprisant](https://github.com/jprisant)), a product leader who thinks in systems and gets unreasonably excited about understanding and solving problems. `thinking-framework-skills` is the reasoning sibling to [`pm-skills`](https://github.com/product-on-purpose/pm-skills): one helps you decide *what* to work on and *why* it is sound, the other helps you execute *how*.
+
+*If this library has sharpened a decision, or saved you from a bad one, consider starring the repo and sharing it with your team.*
+
+<p align="center">
+  <strong>Built with purpose by <a href="https://github.com/product-on-purpose">Product on Purpose</a></strong><br>
+  <sub>Evidence-graded thinking, packaged as skills your agent can actually run</sub>
+</p>
 
 <div align="right"><a href="#readme-top">Back to top ↑</a></div>

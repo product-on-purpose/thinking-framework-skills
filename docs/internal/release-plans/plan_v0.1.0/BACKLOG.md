@@ -1,4 +1,6 @@
-# MVP backlog and build order
+# MVP backlog and build order (v0.1.0)
+
+> **STATUS: SHIPPED.** `v0.1.0` was released on 2026-06-01 (public repo + live docs site + marketplace listing). This file is the **historical build record** for the v0.1.0 MVP - the roster and order are preserved as authored. The "Now" snapshot below was true mid-build and is **intentionally not edited**; it describes the plan, not current state. For what actually shipped, see [`CHANGELOG.md`](../../../../CHANGELOG.md) and [`RELEASE-NOTES.md`](../../../../RELEASE-NOTES.md); for the next release, see [`../plan_v0.2.0/`](../plan_v0.2.0/); for the folder's purpose, see [`../README.md`](../README.md).
 
 The single source of "what to build next." WIP = 1: build the **Now** skill end to end (per [AUTHORING.md](../../AUTHORING.md)), ship it, then move the pointer. Roster is from the audit (Appendix B canonical roster); names use the `think-` prefix and `thinking-framework-skills.<method>` ids.
 
