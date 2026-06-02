@@ -45,13 +45,16 @@ Each skill is built around four commitments, not just a prompt:
 | [`think-backcasting`](skills/think-backcasting/SKILL.md) | risk-and-resilience | P | backcast path |
 | [`think-stocks-and-flows-reasoning`](skills/think-stocks-and-flows-reasoning/SKILL.md) | systems-and-consequences | **S** | stock-flow map |
 | [`think-linear-model-aggregation`](skills/think-linear-model-aggregation/SKILL.md) | decision-and-option-evaluation | **S** | scoring model |
+| [`think-causal-loop-diagrams`](skills/think-causal-loop-diagrams/SKILL.md) | systems-and-consequences | M/P | signed causal loop diagram |
+| [`think-concept-mapping`](skills/think-concept-mapping/SKILL.md) | synthesis | M/P | concept map |
+| [`think-fermi-estimation`](skills/think-fermi-estimation/SKILL.md) | decision-and-option-evaluation | M/P | Fermi decomposition worksheet |
 | [`think-framework-advisor`](skills/think-framework-advisor/SKILL.md) | meta (router) | M/C | Thinking Plan |
 
-31 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). "(flag)" marks skills with a documented evidence or trademark caveat. See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
+34 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). "(flag)" marks skills with a documented evidence or trademark caveat. See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
 
 ## Recipes
 
-Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **convergent (Silver)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`).
+Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **advanced (Gold)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`).
 
 | Recipe | Chain |
 |---|---|
