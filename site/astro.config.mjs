@@ -45,8 +45,13 @@ export default defineConfig({
       description:
         'An evidence-graded library of agent-executable thinking-method skills. Each skill is reduced to its working mechanism, graded honestly on how strong its evidence is, and produces a concrete artifact.',
       editLink: {
+        // Content lives at site/src/content/docs/. Starlight builds the edit URL as
+        // baseUrl + the file path relative to the Astro project root (site/), so the
+        // baseUrl carries the /site/ segment to reach the real repo path. Hand-authored
+        // pages resolve to a real source file; generated pages (gitignored, rebuilt)
+        // point at their on-disk path - edit the skill/recipe/intro and regenerate.
         baseUrl:
-          'https://github.com/product-on-purpose/thinking-framework-skills/edit/main/',
+          'https://github.com/product-on-purpose/thinking-framework-skills/edit/main/site/',
       },
       customCss: ['./src/styles/custom.css'],
       head: gaHead,

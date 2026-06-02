@@ -10,9 +10,14 @@ All notable changes to this project are documented here. The format is based on 
 ### Changed
 - Docs-site CI/deploy converged to the family site standard: the GitHub Pages deploy now uses `actions/upload-pages-artifact@v5` + `actions/deploy-pages@v5`; Node is pinned to `24` via `.nvmrc` / `node-version-file`; and a non-deploying `site-build` job verifies the site on PRs.
 - The advisor name-safety set is drift-guarded in CI: `scripts/gen-recommendable.mjs --check` runs on PR and push and fails if `recommendable.json` / `recommendable.md` are stale.
+- Every CI job now resolves Node from `.nvmrc` (= 24): the `check` (conformance gate) job moved off its hardcoded `node-version: '22'` to `node-version-file: .nvmrc`, matching the site and deploy jobs (family Astro site standard 14.8).
 
 ### Removed
 - Per-file `.md` config sidecars under `site/` (rationale folded into the config files' own comments and a new `site/README.md`).
+- The seven remaining repo-level `.md` config/data sidecars (`library.json.md`, `manifest.generated.json.md`, both `plugin.json.md`, both generator `.mjs.md`, and the advisor's `recommendable.json.md`); rationale consolidated into `docs/internal/AUTHORING.md` and the generators' own header comments (family Astro site standard 14.10).
+
+### Fixed
+- Docs-site Edit links on hand-authored pages: `editLink.baseUrl` now carries the `/site/` segment (`.../edit/main/site/`) so they resolve to the real repo path instead of 404ing (the Astro project root is `site/`).
 
 ## [0.2.0] - 2026-06-01
 

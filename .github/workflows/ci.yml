@@ -31,10 +31,10 @@ jobs:
           ref: 2f480d159fc0b36734538fda2215bfeac1d553a0
           path: .agent-skills-toolkit
 
-      - name: Setup Node 22
+      - name: Setup Node (pinned via .nvmrc)
         uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version-file: '.nvmrc'
 
       - name: Install toolkit dependencies
         run: npm ci
