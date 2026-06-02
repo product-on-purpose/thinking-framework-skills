@@ -1,0 +1,46 @@
+name: Conformance gate
+
+# G2 (self-hosting CI): runs the agent-skills-toolkit conformance gate against this
+# plugin on every PR and push to main. Per Standard sec 4.4, this workflow contains
+# NO validation logic of its own; it only invokes the portable gate `node scripts/check.mjs`,
+# which a contributor reproduces locally by cloning the toolkit next to this repo.
+#
+# The validators live in the public agent-skills-toolkit (the source of truth for the
+# checks). We pin a ref for reproducibility; bump it deliberately to adopt toolkit changes.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout plugin
+        uses: actions/checkout@v5
+
+      - name: Checkout the toolkit validators (pinned)
+        uses: actions/checkout@v5
+        with:
+          repository: product-on-purpose/agent-skills-toolkit
+          ref: 2f480d159fc0b36734538fda2215bfeac1d553a0
+          path: .agent-skills-toolkit
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install toolkit dependencies
+        run: npm ci
+        working-directory: .agent-skills-toolkit
+
+      - name: Run conformance gate
+        env:
+          AGENT_SKILLS_TOOLKIT: ${{ github.workspace }}/.agent-skills-toolkit
+        run: node scripts/check.mjs

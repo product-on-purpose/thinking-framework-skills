@@ -1,7 +1,7 @@
 {
   "name": "thinking-framework-skills",
-  "version": "0.1.0",
-  "tier": "convergent",
+  "version": "0.2.0",
+  "tier": "advanced",
   "standard": "0.8",
   "skills": [
     {
@@ -45,6 +45,16 @@
       "description": "Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first voice, then consolidates them into a shortlisted idea pool. Use when you need breadth of options and want to avoid the anchoring and conformity that make ordinary brainstorming underperform."
     },
     {
+      "name": "think-causal-loop-diagrams",
+      "path": "skills/think-causal-loop-diagrams/SKILL.md",
+      "description": "Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities, and reading likely dynamics (spiral, goal-seeking, or oscillation) off which loop dominates. Use when a situation feeds back on itself - growth that funds more growth, a fix that recreates its own problem, capacity that relieves then re-attracts demand - and you need to see why it keeps accelerating, stalling, or overshooting. Not for a single accumulation, a one-directional consequence tree, or a genuinely linear chain."
+    },
+    {
+      "name": "think-concept-mapping",
+      "path": "skills/think-concept-mapping/SKILL.md",
+      "description": "Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit proposition, with cross-links across clusters - then surfaces gaps, missing links, and questionable propositions. Use when a domain has many interrelated concepts and the goal is to externalize and inspect how they relate, forcing every relationship to be named rather than left as a vague association."
+    },
+    {
       "name": "think-decision-journal",
       "path": "skills/think-decision-journal/SKILL.md",
       "description": "Produces a decision journal entry that records a consequential decision at the moment it is made - the decision, the rationale, the predicted outcome, an explicit confidence level, and the assumptions it rests on - so it can be honestly reviewed later against what actually happened. Use when committing to a consequential, uncertain decision (a launch, hire, investment, bet, or strategic choice) and you want to lock in the prediction now to defeat hindsight bias and build calibration, or when pairing a record-now step with a later review."
@@ -63,6 +73,11 @@
       "name": "think-far-analogy-ideation",
       "path": "skills/think-far-analogy-ideation/SKILL.md",
       "description": "Generates novel solution candidates by stating a problem's deep relational structure, mapping it to distant source domains (nature, other industries, games), and transferring the mechanism rather than surface features, then adapting. Use when near, obvious solutions are exhausted and you need genuinely original approaches."
+    },
+    {
+      "name": "think-fermi-estimation",
+      "path": "skills/think-fermi-estimation/SKILL.md",
+      "description": "Produces a Fermi decomposition worksheet that estimates an unknown numeric quantity by factoring it into a chain of order-of-magnitude sub-estimates, guessing each to within a band, then multiplying back to a point estimate plus a compounded low/high range, with an independence check and a dominant-uncertainty flag. Use when you need a number and no lookup-able data or genuine reference class exists, so the magnitude has to be built from factors (for example sizing a market, a load, a cost, or a conversion you cannot look up). Not for forecasting from real base rates (use reference-class-forecasting) or decomposing a question for coverage with no number (use issue-tree)."
     },
     {
       "name": "think-framework-advisor",

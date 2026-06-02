@@ -1,0 +1,28 @@
+# Changelog
+
+All notable changes to this project are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). User-facing highlights are in [`RELEASE-NOTES.md`](RELEASE-NOTES.md).
+
+## [0.2.0] - 2026-06-01
+
+### Added
+- Three skills, evidence-vetted against the catalog before authoring: `think-concept-mapping`, `think-causal-loop-diagrams`, `think-fermi-estimation` (all `M/P`, transferred-evidence flagged, with "When NOT to use" hard-walls against their overlapping shipped skills). Catalog 31 -> 34.
+- `first-principles` recipe (`_workflows/think-first-principles.md` + `recipes/first-principles.md`), chaining `think-abstraction-laddering` + `think-assumption-reversal`. Recipes 4 -> 5.
+- Beginner concept diagrams on six framework pages via an optional `references/CONCEPT.md` per skill, rendered after the quick-facts card (natural-frequency-bayesian, reference-class-forecasting, causal-loop-diagrams, stocks-and-flows-reasoning, iceberg-model, futures-wheel).
+- Gold-tier hardening: a self-hosting conformance gate (`scripts/check.mjs` + `.github/workflows/ci.yml`) that runs the agent-skills-toolkit validators on every PR; a generated `INDEX.md`; this `CHANGELOG.md` and `RELEASE-NOTES.md`.
+
+### Changed
+- Plugin tier declared `advanced` (Gold) in `library.json`; version `0.1.0` -> `0.2.0`.
+- README rewritten to the shipped library with house-style mermaid; the README lifecycle diagram and the site all-frameworks map changed from horizontal to vertical layouts so they are legible in a narrow column.
+- `getting-started` and `how-to-read-a-page` converted to interactive `.mdx` (cards, steppers, callouts).
+- The native plugin manifests now carry `license` (fixed in the toolkit's `gen-manifest`).
+
+## [0.1.0] - 2026-06-01
+
+### Added
+- First public release: 31 evidence-graded, agent-executable thinking-method skills + 4 composable recipes, validating at the toolkit's convergent (Silver) tier.
+- The `think-framework-advisor` meta-skill (the front-door router) with a generated name-safety set.
+- An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
+- Listed in the Product on Purpose marketplace. Apache-2.0.
+
+[0.2.0]: https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0
+[0.1.0]: https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.1.0

@@ -10,6 +10,10 @@ _agent-context/
 # Playwright MCP scratch (screenshots, snapshots, console logs from local testing)
 .playwright-mcp/
 
+# The conformance gate clones the toolkit validators here (CI) or expects a sibling.
+.agent-skills-toolkit/
+node_modules/
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db
