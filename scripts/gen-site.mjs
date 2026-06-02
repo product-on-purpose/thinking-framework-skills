@@ -142,6 +142,7 @@ for (const c of lib.components.skills) {
     dossier,
     example,
     artifact,
+    concept: stripProvenance(read('references/CONCEPT.md')).trim(),
     contexts: inlineArr(sidecar, 'problem_contexts'),
     modes: inlineArr(sidecar, 'thinking_modes'),
   });
@@ -195,7 +196,7 @@ skill_name: ${yaml(s.name)}
 <!-- GENERATED from skills/${s.name} by scripts/gen-site.mjs - do not hand-edit. -->
 
 ${card}
-
+${s.concept ? `\n${s.concept}\n` : ''}
 ${s.body.trim()}
 
 ${deepDive}
