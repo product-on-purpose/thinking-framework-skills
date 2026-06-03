@@ -76,11 +76,11 @@ forecasting literature's robustness for a move it does not test.
   later resolve and get scored*, the move has real support.
 
 **What is NOT shown (the caveat that keeps the skill honest):**
-- **The routine itself is barely tested directly, and the most direct test was near-null.** O'Leary &
-  Fletcher (2024, n=155) tested prompted reflection on counter-evidence leading to belief update and
-  found a **near-null effect (p approximately .055)**. The leap from "under-updating is real and
-  incremental updating helps forecasters" to "a periodic belief-review routine improves your beliefs"
-  is **plausible but not established by controlled study of the routine.**
+- **The routine itself is barely tested directly.** The direct experimental tests of reflection-prompted
+  belief revision are sparse and weak (small samples, mixed and often non-significant results); there is
+  no robust controlled evidence that a periodic belief-review routine improves beliefs. The leap from
+  "under-updating is real and incremental updating helps forecasters" to "a periodic belief-review routine
+  improves your beliefs" is **plausible but not established by controlled study of the routine.**
 - **The forecasting evidence is regime-bound.** Atanasov et al. and the calibration results live in
   **scored, resolving** forecasting (a probability, a deadline, a Brier score). The routine's typical
   use - fuzzy, slow-moving, non-resolving beliefs (a strategy thesis, a standing assumption) with no
@@ -91,7 +91,7 @@ forecasting literature's robustness for a move it does not test.
 
 **Net grade: P (practitioner).** A genuinely useful discipline with a sound mechanistic rationale
 (conservatism is real; incremental evidence-weighted updating helps where beliefs are scored) but
-**limited and partly near-null direct evidence that the routine improves beliefs**, and a typical use
+**limited and weak direct evidence that the routine improves beliefs**, and a typical use
 that sits outside the regime where the supporting evidence was gathered. The skill should claim the
 under-updating-guard and the honest-record/calibration-enabling benefits, and must **not** advertise an
 effect size or a guaranteed accuracy gain.
@@ -99,7 +99,7 @@ effect size or a guaranteed accuracy gain.
 ## 4. Transferred-evidence flag (required honesty for this library)
 
 All of the evidence above comes from **human subjects** - lab studies of conservatism, forecasting
-tournaments, and a human reflection RCT. There is **no direct study** of a belief-update routine run by,
+tournaments, and human reflection studies. There is **no direct study** of a belief-update routine run by,
 or with, an AI agent, nor of whether an agent-produced belief ledger improves a human's later
 calibration. The evidence is therefore **transferred from human contexts, not validated for AI-augmented
 use.** This skill must say so. Treat the AI value as: the agent makes the recurring re-score cheap and
@@ -151,19 +151,15 @@ evolved" essay is not. It is designed to be reopened on the next cadence and re-
 2. Atanasov, P., Witkowski, J., Ungar, L., Mellers, B., & Tetlock, P. (2020), "Small steps to accuracy:
    Incremental belief updaters are better forecasters," *Organizational Behavior and Human Decision
    Processes* 160:19-35 - incremental evidence-weighted updating tracks forecasting accuracy.
-3. O'Leary, A., & Fletcher, G. (2024), reflection-on-counter-evidence belief-update RCT (n=155),
-   near-null effect (p approximately .055) - the most direct test of the move; cited as the honest
-   limit, not as support.
-4. Tappin, B. M., Pennycook, G., & Rand, D. G. (2020), work relating analytic / actively open-minded
+3. Tappin, B. M., Pennycook, G., & Rand, D. G. (2020), work relating analytic / actively open-minded
    thinking to more normative belief updating - a dispositional cousin.
-5. Tetlock, P., & Gardner, D. (2015), *Superforecasting* - recorded probabilistic predictions plus
+4. Tetlock, P., & Gardner, D. (2015), *Superforecasting* - recorded probabilistic predictions plus
    scoring and frequent small updates as the basis for calibration (scored-regime evidence).
 
-> **Verification status:** citations 1, 2, and 5 are standard and well-attested in the judgment-and-
-> decision-making and forecasting literature. Citation 4 (Tappin/Pennycook/Rand) is a dispositional
-> correlate, cited as lineage, not as a test of the routine. Citation 3 (O'Leary & Fletcher 2024) was
-> surfaced during the 2026-06-03 vetting as the most direct test, reported near-null; the exact
-> reference and statistic should be re-verified before any public-facing claim, and in the meantime the
-> skill takes the conservative reading (the routine's direct evidence is weak), which only strengthens
-> the honest "do not advertise an effect size" stance. The "outside the scored-forecasting regime, the
-> evidence does not transfer" point is the load-bearing caveat and does not depend on citation 3.
+> **Verification status:** citations 1, 2, and 4 are standard and well-attested in the judgment-and-
+> decision-making and forecasting literature. Citation 3 (Tappin/Pennycook/Rand) is a dispositional
+> correlate, cited as lineage, not as a test of the routine. The direct experimental evidence for the
+> routine *itself* is sparse and weak (small, mixed studies, no robust controlled effect), so the skill
+> takes the conservative reading and advertises **no effect size**. The load-bearing caveat - that the
+> typical non-resolving use sits outside the scored-forecasting regime where the supporting evidence was
+> gathered - does not depend on any single direct study.

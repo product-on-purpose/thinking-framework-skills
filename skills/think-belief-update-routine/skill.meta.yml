@@ -72,7 +72,7 @@ quality:
     - overclaiming a measured accuracy gain the evidence does not support
 
 evidence:
-  evidence_tier: "P"               # practitioner; sound mechanism, limited and partly near-null direct evidence; see dossier section 3
+  evidence_tier: "P"               # practitioner; sound mechanism, sparse and weak direct evidence for the routine; see dossier section 3
   confidence: moderate on the under-updating mechanism; low on outcome improvement outside scored-forecasting regimes
   transferred_evidence: true       # human-subject studies and forecasting practice only; not AI-validated
   lineage:

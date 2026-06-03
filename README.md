@@ -13,8 +13,8 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square" alt="License: Apache-2.0"></a>
   <img src="https://img.shields.io/badge/version-0.2.0-blue?style=flat-square" alt="Version 0.2.0">
   <a href="#-conformance-what-advanced-gold-tier-means"><img src="https://img.shields.io/badge/tier-advanced%20(Gold)-B8860B?style=flat-square" alt="Conformance tier: advanced (Gold)"></a>
-  <a href="#-the-catalog"><img src="https://img.shields.io/badge/skills-34-brightgreen?style=flat-square" alt="Skills: 34"></a>
-  <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-5-brightgreen?style=flat-square" alt="Recipes: 5"></a>
+  <a href="#-the-catalog"><img src="https://img.shields.io/badge/skills-35-brightgreen?style=flat-square" alt="Skills: 35"></a>
+  <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-6-brightgreen?style=flat-square" alt="Recipes: 6"></a>
   <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/spec-agentskills.io-orange?style=flat-square" alt="Agent Skills Spec"></a>
   <img src="https://img.shields.io/badge/evidence-graded-purple?style=flat-square" alt="Evidence-graded">
 </p>
@@ -76,7 +76,7 @@ Three things make it different from a list of mental models:
 /plugin install thinking-framework-skills@product-on-purpose
 ```
 
-All 34 skills become available immediately, invocable by name (for example `/think-premortem`).
+All 35 skills become available immediately, invocable by name (for example `/think-premortem`).
 
 **Cross-agent (Cursor, Copilot, Cline, and others via the open [skills CLI](https://github.com/vercel-labs/skills)):**
 
@@ -123,7 +123,7 @@ This one does the opposite, and that honesty is the product:
 
 ## 🗺️ The library at a glance
 
-34 skills across 10 cognitive-operation families, arranged as a thinking lifecycle. You rarely run all ten; the Framework Advisor picks the few that fit your situation.
+35 skills across 10 cognitive-operation families, arranged as a thinking lifecycle. You rarely run all ten; the Framework Advisor picks the few that fit your situation.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1','fontFamily':'system-ui, sans-serif'}}}%%
@@ -143,7 +143,7 @@ flowchart TB
     DO["7. Decision & Option Evaluation (5) - decide between options"]:::decide
     RR["8. Risk & Resilience (4) - anticipate what could go wrong"]:::decide
     SY["9. Synthesis (3) - turn inputs into a message"]:::reflect
-    MR["10. Meta-Thinking & Reflection (3) - learn and route"]:::reflect
+    MR["10. Meta-Thinking & Reflection (4) - learn and route"]:::reflect
 
     PF --> DI --> PM --> SC --> AB --> RC --> DO --> RR --> SY --> MR
 ```
@@ -178,7 +178,7 @@ A strong-evidence core anchors the library; everything else is honestly labeled 
 
 ## 📚 The catalog
 
-All 34 skills, by family. The `Tier` column is the [evidence grade](#-the-evidence-model) defined just above. **Each skill name links to its full page** - mechanism, numbered procedure, worked example, and graded sources - on the live site.
+All 35 skills, by family. The `Tier` column is the [evidence grade](#-the-evidence-model) defined just above. **Each skill name links to its full page** - mechanism, numbered procedure, worked example, and graded sources - on the live site.
 
 ### Problem Framing - frame the real problem (2)
 
@@ -256,12 +256,13 @@ All 34 skills, by family. The `Tier` column is the [evidence grade](#-the-eviden
 | [**Affinity Mapping**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-affinity-mapping/) | `P` | Cluster many raw notes into emergent themes from the bottom up |
 | [**Pyramid Principle**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-pyramid-principle/) | `P` | Structure communication as a governing claim over grouped, ordered support |
 
-### Meta-Thinking & Reflection - learn and route (3)
+### Meta-Thinking & Reflection - learn and route (4)
 
 | Skill | Tier | What it does |
 |---|---|---|
 | [**After Action Review**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-after-action-review/) | `S` | Structured review of expected vs actual, and what to change, to improve the next loop |
 | [**Decision Journal**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-decision-journal/) | `P` | Record the decision, rationale, and prediction now to calibrate your judgment later |
+| [**Belief-Update Routine**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-belief-update-routine/) | `P` | Re-score a standing inventory of open beliefs against new evidence on a cadence, with an explicit confidence delta and an under-updating guard |
 | [**Framework Advisor**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-framework-advisor/) | `M/C` | The front door: describe a situation, get a prioritized Thinking Plan of which skills to run |
 
 > Browse them five other ways - by job, by evidence, by artifact, by situation, or on the map - in the site's [Explore](https://product-on-purpose.github.io/thinking-framework-skills/explore/) section. The skills themselves live in [`skills/`](skills/).
@@ -296,7 +297,7 @@ When you run `/think-premortem "..."`, the agent loads the skill, follows its nu
 
 ## 🧩 Recipes
 
-Recipes chain several skills into one end-to-end job, passing a compressed artifact at each handoff. Five ship today:
+Recipes chain several skills into one end-to-end job, passing a compressed artifact at each handoff. Six ship today:
 
 | Recipe | What it does |
 |---|---|
@@ -305,6 +306,7 @@ Recipes chain several skills into one end-to-end job, passing a compressed artif
 | **Stress-test a decision** | Surface what must be true, weigh options, calibrate reversibility, and premortem the plan |
 | **Audit reasoning** | Separate evidence from inference, map the argument, and pressure-test it |
 | **First principles** | Decompose a problem to its fundamentals, then strip the inherited assumptions to rebuild from what is necessary |
+| **Idea-quality audit** | Score a batch of ideas on explicit quality dimensions, then pressure-test the strongest few before committing |
 
 Browse them on the [live site](https://product-on-purpose.github.io/thinking-framework-skills/recipes/) or in [`_workflows/`](_workflows/).
 
@@ -372,8 +374,8 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 |  |  |
 |---|---|
 | **Current version** | [v0.2.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0) |
-| **Skills** | 34, across 10 cognitive-operation families |
-| **Recipes** | 5 (skill chains shipped as workflow components) |
+| **Skills** | 35, across 10 cognitive-operation families |
+| **Recipes** | 6 (skill chains shipped as workflow components) |
 | **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) - 0 errors / 0 warnings, self-hosting CI |
 | **Evidence** | 11 skills at `S` / `S-M` tier; every skill graded and sourced |
 | **Spec** | [agentskills.io](https://agentskills.io/specification) |
@@ -385,7 +387,7 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ```
 thinking-framework-skills/
-├── skills/                  # 34 thinking-method skills (the source of truth)
+├── skills/                  # 35 thinking-method skills (the source of truth)
 │   └── think-<method>/      #   SKILL.md, evidence/dossier.md, references/, eval/cases.md, skill.meta.yml
 ├── _workflows/              # Recipe definitions (multi-skill chains) as workflow components
 ├── recipes/                 # Human-readable recipe write-ups
@@ -403,8 +405,8 @@ thinking-framework-skills/
 
 | Path | What's in it |
 |---|---|
-| [`skills/`](skills/) | All 34 skills, each a self-contained 5-file unit (the site renders from these) |
-| [`_workflows/`](_workflows/) | The 5 recipes as workflow components - ordered skill chains with handoffs |
+| [`skills/`](skills/) | All 35 skills, each a self-contained 5-file unit (the site renders from these) |
+| [`_workflows/`](_workflows/) | The 6 recipes as workflow components - ordered skill chains with handoffs |
 | [`scripts/`](scripts/) | Generators (site, manifests, name-safety set) and [`check.mjs`](scripts/check.mjs), the conformance gate |
 | [`docs/`](docs/) | [Getting started](docs/getting-started.md), [architecture](docs/architecture.md), [concepts](docs/concepts.md), [contributing](docs/contributing.md), [conformance](docs/conformance.md) |
 | [`docs/internal/`](docs/internal/) | The [authoring loop](docs/internal/AUTHORING.md), specs, [release plans](docs/internal/release-plans/), and research |
