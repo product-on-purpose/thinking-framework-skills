@@ -76,7 +76,7 @@ Per the locked policy: trademark/license is no longer an automatic veto. SP9 (a)
 
 ## Open decisions (resolve at the relevant spec review)
 
-- **SP1 - CI posture for the behavioral (LLM-judged) eval layer.** The static layer is free and runs every PR. The behavioral layer costs tokens and needs an `ANTHROPIC_API_KEY`. Recommendation: opt-in `npm run eval` locally + a secret-gated, non-blocking CI workflow that records a routing scorecard; do not block PRs on a paid check. Detailed in the SP1 spec.
+- **SP1 - behavioral eval execution.** The behavioral eval is agent-executed by default (judged by the invoking model, no API key, on demand) and is not a blocking gate; the free static layer is the every-PR gate. Optional: an unattended scheduled workflow, the only mode that needs a credential, since headless CI has no ambient model to borrow. Recommendation: agent-executed only for v0.3.0. Detailed in the SP1 spec.
 - **SP3 - registry format.** YAML (decided). Confirm whether `framework-catalog.md` becomes fully generated (recommended) or stays hand-authored with a generated appendix.
 - **SP4 - dossier authorship loop.** How much of each dossier `research-framework` drafts vs. a human finalizes, and the review gate before publish.
 - **SP5 - subagent vs skill** (recommended subagent; confirm at SP5 spec).
