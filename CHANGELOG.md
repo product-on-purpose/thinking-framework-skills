@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+- `think-belief-update-routine` (tier P) - a meta-thinking-and-reflection skill that re-scores a standing inventory of open beliefs against newly arrived evidence on a cadence, emitting a belief-update ledger (each belief carrying a prior confidence, the evidence accrued, a revised confidence with an explicit delta and direction, a reason for the size of the move that guards against under-updating, and a next-review trigger). It completes the reflection family's over-time-belief corner alongside `think-decision-journal` (record-now) and `think-after-action-review` (review-finished). Vetted Build in the 2026-06-03 catalog round; graded P with the evidence caveat load-bearing (no advertised effect size; the most direct RCT was near-null). Catalog 34 -> 35 skills.
+- `idea-quality-audit` recipe (`_workflows/think-idea-quality-audit.md` + `recipes/idea-quality-audit.md`) - score a batch of candidate ideas with `think-decision-option-review`, then pressure-test the strongest few with `think-red-team-light`. Ships as a recipe (no separable mechanism of its own) per the same vetting round. Recipes 5 -> 6.
+
 ## [0.2.1] - 2026-06-03
 
 ### Added

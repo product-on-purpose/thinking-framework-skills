@@ -5,7 +5,7 @@
 > component is not listed here, the advisor must describe the step in plain language
 > rather than name a skill. Regenerate when components change.
 
-## Skills (33)
+## Skills (34)
 
 | Skill (`name`) | Family | Tier | What it does |
 |---|---|---|---|
@@ -16,6 +16,7 @@
 | `think-assumption-reversal` | divergent-ideation | P | Generates non-obvious ideas by surfacing the foundational assumptions a problem or solution rests on, negating each, and reframing from the reversed assumption... |
 | `think-authentic-dissent` | assumption-and-belief-challenge | S | Checks whether a decision has genuine minority dissent or only smooth surface consensus, identifies who actually holds a contrary view, and plans how to elicit... |
 | `think-backcasting` | risk-and-resilience | P | Produces a backcast path by fixing a vivid desired future state and reasoning backward through the milestones and preconditions required to reach it, ending at... |
+| `think-belief-update-routine` | meta-thinking-and-reflection | P | Produces a belief-update ledger that re-scores a standing inventory of open beliefs against newly arrived evidence on a cadence - each belief carrying a prior... |
 | `think-brainwriting` | divergent-ideation | S | Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first v... |
 | `think-causal-loop-diagrams` | systems-and-consequences | M/P | Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities,... |
 | `think-concept-mapping` | synthesis | M/P | Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit prop... |
@@ -43,7 +44,7 @@
 | `think-what-would-have-to-be-true` | decision-and-option-evaluation | P | Converts a strategy, option, or contested claim into the specific conditions that would have to be true for it to be the best choice, rates each condition's co... |
 | `think-woop` | risk-and-resilience | S | Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and b... |
 
-## Recipes (5)
+## Recipes (6)
 
 Multi-step chains. Recommend the recipe (by name) when the job needs the whole sequence; the steps are the skills it runs in order.
 
@@ -52,5 +53,6 @@ Multi-step chains. Recommend the recipe (by name) when the job needs the whole s
 | `think-audit-reasoning` | `recipes/audit-reasoning.md` | `think-evidence-vs-inference-sort` -> `think-ladder-of-inference-check` -> `think-parallel-perspectives-review` |
 | `think-expand-options` | `recipes/expand-options.md` | `think-problem-restatement` -> `think-scamper` -> `think-assumption-reversal` |
 | `think-first-principles` | `recipes/first-principles.md` | `think-abstraction-laddering` -> `think-assumption-reversal` |
+| `think-idea-quality-audit` | `recipes/idea-quality-audit.md` | `think-decision-option-review` -> `think-red-team-light` |
 | `think-reframe-problem` | `recipes/reframe-problem.md` | `think-problem-restatement` -> `think-evidence-vs-inference-sort` -> `think-parallel-perspectives-review` |
 | `think-stress-test-decision` | `recipes/stress-test-decision.md` | `think-decision-option-review` -> `think-what-would-have-to-be-true` -> `think-premortem` -> `think-reference-class-forecasting` |
