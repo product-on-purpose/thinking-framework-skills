@@ -4,6 +4,8 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-06-03
+
 ### Added
 - `site/public/robots.txt` pointing at the generated sitemap.
 - Build-aware link and route integrity guards (family Astro site standard 14.11): `scripts/check-rendered-links.mjs` (browser-broken internal links + `#anchor` resolution, enforced with `STRICT_ANCHORS=1` in CI) and `scripts/check-route-parity.mjs` (guards against silently dropping a published route, against the committed `scripts/route-manifest.txt`). Both run after the build in the PR `site-build` job and the deploy build, gated on the build outcome. A `node --test` suite (`tests/check-rendered-links.test.mjs`, 10 cases) proves the rendered-link guard's robustness.
@@ -45,6 +47,7 @@ All notable changes to this project are documented here. The format is based on 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.2.0...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.1
 [0.2.0]: https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0
 [0.1.0]: https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.1.0

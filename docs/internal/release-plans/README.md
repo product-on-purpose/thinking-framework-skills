@@ -14,6 +14,7 @@ The canonical, user-facing records live at the repo root:
 |---|---|---|---|
 | [`plan_v0.1.0/`](./plan_v0.1.0/) | [v0.1.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.1.0) | **Shipped** 2026-06-01 | The MVP build-out: the 14-skill canonical roster that grew into 31 skills + 4 recipes, the framework advisor, the docs site, and the go-public flip. `plan_v0.1.0/BACKLOG.md` is the historical build order. |
 | [`plan_v0.2.0/`](./plan_v0.2.0/) | [v0.2.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0) | **Shipped** 2026-06-01 | Catalog growth (+3 skills, +1 recipe, vetted before building), docs visual polish, and the advanced (Gold) tier hardening, then published and re-pinned in the marketplace. See [`plan_v0.2.0/PLAN.md`](./plan_v0.2.0/PLAN.md). |
+| [`plan_v0.2.1/`](./plan_v0.2.1/) | [v0.2.1](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.1) | **Cutting** 2026-06-03 | Maintenance: tags the docs-site conformance arc merged after v0.2.0 (the family Astro site standard convergence + the local 14.11 link/route guards + 43 pre-existing broken-link fixes). No catalog changes. See [`plan_v0.2.1/PLAN.md`](./plan_v0.2.1/PLAN.md). |
 
 ## Convention
 
