@@ -1,0 +1,20 @@
+# Enforce LF line endings repo-wide, overriding core.autocrlf on Windows checkouts.
+#
+# Several artifacts are byte-exact drift-checked by scripts/*.mjs --check
+# (recommendable.{json,md}, manifest.generated.json, INDEX.md, both plugin.json,
+# the site route-manifest, and the SP3 generated catalog + why-not). If a Windows
+# checkout smudged any of them to CRLF, the local --check would fail while the
+# Linux CI --check passed - a confusing, platform-only break. Pinning LF everywhere
+# keeps the local and CI byte comparisons identical.
+* text=auto eol=lf
+
+# Binary files: never normalize line endings.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.pdf  binary
+*.woff  binary
+*.woff2 binary
