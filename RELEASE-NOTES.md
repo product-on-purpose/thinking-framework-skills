@@ -2,6 +2,15 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://product-on-purpose.github.io/thinking-framework-skills/).
 
+## v0.3.0
+
+**The advisor gets more trustworthy, plus a new reflection skill and recipe.**
+
+- **The Framework Advisor now knows what NOT to recommend.** Each framework in the advisor's set now carries its own anti-triggers, when-not-to-use notes, and nearest-neighbor overlaps, so the advisor's "what to avoid, and use instead" guidance rests on real per-skill signal instead of improvisation. It is derived automatically from each skill's own pages, so it stays in sync.
+- **The behavioral test cases are now enforced.** Every skill ships trigger / anti-trigger / output-check cases; a new validator runs in CI to guarantee each is well-formed and never names a framework that does not exist. The conformance gate also now runs cleanly from a git worktree.
+- **+1 framework (now 35):** [Belief-Update Routine](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-belief-update-routine/) - re-score your standing beliefs against new evidence on a cadence, with an explicit update size and a next-review trigger. Graded P, with its thin evidence stated plainly.
+- **+1 recipe (now 6):** an idea-quality audit that scores a batch of ideas, then pressure-tests the strongest few.
+
 ## v0.2.1
 
 **Docs-site link and route integrity, and the family site-standard convergence.** A maintenance release: no catalog changes, but the live site is now guarded and a batch of pre-existing broken links is fixed.

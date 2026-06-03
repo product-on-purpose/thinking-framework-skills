@@ -3,26 +3,46 @@
 // contributor or CI runs to validate the plugin against the agent-skills-toolkit
 // Standard: `node scripts/check.mjs` (or `npm run check`).
 //
-// The validators are the toolkit's portable scripts (the toolkit is the source of
-// truth for the checks; vendoring them here would drift). This wrapper LOCATES a
-// toolkit checkout and invokes its evaluator against this repo. To reproduce a CI
-// failure locally, clone the public toolkit next to this repo and run the command:
+// It runs two layers:
+//   1. the toolkit's portable STRUCTURAL validators (the toolkit is the source of truth;
+//      vendoring them here would drift), and
+//   2. the repo-local static eval-case validator (scripts/eval-cases.mjs, SP1): every
+//      skills/*/eval/cases.md must be well-formed and name-safe.
 //
+// To reproduce a CI failure locally, clone the public toolkit next to this repo:
 //   git clone https://github.com/product-on-purpose/agent-skills-toolkit.git ../agent-skills-toolkit
 //   node scripts/check.mjs
 //
 // CI clones it to ./.agent-skills-toolkit and sets AGENT_SKILLS_TOOLKIT (see
-// .github/workflows/ci.yml), so the same command runs unchanged.
+// .github/workflows/ci.yml), so the same command runs unchanged. Toolkit resolution is
+// worktree-portable: when run from a linked worktree (cwd under .claude/worktrees/), it also
+// probes the MAIN repo root, so a toolkit next to the main checkout is still found.
 
-import { spawnSync } from 'node:child_process';
+import { spawnSync, execSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const REPO = 'https://github.com/product-on-purpose/agent-skills-toolkit';
+const HERE = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(HERE, '..'); // this checkout's root (main or worktree), cwd-independent
+
+// Resolve the MAIN repo root too, so running from a linked worktree still finds a toolkit
+// checked out next to (or inside) the main checkout rather than under .claude/worktrees/.
+let mainRoot = ROOT;
+try {
+  const commonDir = execSync('git rev-parse --git-common-dir', { cwd: ROOT, encoding: 'utf8' }).trim();
+  if (commonDir) mainRoot = resolve(ROOT, commonDir, '..'); // commonDir is <main>/.git -> parent is <main>
+} catch {
+  /* not a git checkout, or git unavailable: fall back to ROOT */
+}
+
 const candidates = [
   process.env.AGENT_SKILLS_TOOLKIT,
-  resolve(process.cwd(), '.agent-skills-toolkit'),
-  resolve(process.cwd(), '..', 'agent-skills-toolkit'),
+  resolve(ROOT, '.agent-skills-toolkit'),
+  resolve(ROOT, '..', 'agent-skills-toolkit'),
+  resolve(mainRoot, '.agent-skills-toolkit'),
+  resolve(mainRoot, '..', 'agent-skills-toolkit'),
 ].filter(Boolean);
 
 const toolkit = candidates.find((p) => p && existsSync(resolve(p, 'scripts', 'evaluate.mjs')));
@@ -38,5 +58,10 @@ if (!toolkit) {
 
 const evaluator = resolve(toolkit, 'scripts', 'evaluate.mjs');
 console.log(`Running conformance gate via ${evaluator}\n`);
-const r = spawnSync('node', [evaluator, '.'], { stdio: 'inherit' });
-process.exit(r.status ?? 1);
+const structural = spawnSync('node', [evaluator, '.'], { cwd: ROOT, stdio: 'inherit' });
+
+console.log('\nRunning static eval-case validator (scripts/eval-cases.mjs)\n');
+const evalCases = spawnSync('node', [resolve(ROOT, 'scripts', 'eval-cases.mjs'), ROOT], { stdio: 'inherit' });
+
+// Fail if either layer failed; both always run so contributors see all problems at once.
+process.exit((structural.status ?? 1) || (evalCases.status ?? 1));
