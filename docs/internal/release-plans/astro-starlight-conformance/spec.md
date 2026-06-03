@@ -33,17 +33,39 @@ this is conformance hardening, not a rebuild.
 | 14.8 Versions + Node | PARTIAL (P2) | **Fixed:** align the `check` job to `.nvmrc` |
 | 14.9 Search + SEO | PASS | - |
 | 14.10 No config sidecars | **FAIL (P1)** | **Fixed:** delete the 7 repo-level sidecars |
-| 14.11 Link/route integrity | **FAIL (P1)** | **Deferred** to ROADMAP Phase 1.3 (see decision below) |
+| 14.11 Link/route integrity | **FAIL (P1)** | **Implemented locally** (rendered-link + route-parity; 2 of 4 per the ADR 0026 rationale) - see the reversal below |
 | 14.11 detail (editLink) | P2 | **Fixed:** add the `/site/` segment to `editLink.baseUrl` |
+| 14.11 detail (generated Edit links) | follow-up | **Fixed:** generated pages set `editUrl` to source (per-framework -> its `SKILL.md`) or `false`, so no Edit link 404s |
 
-## Decision: 14.11 is deferred to the shared-workflow pilot (2026-06-02)
+## Decision: 14.11 implemented locally (2026-06-02 follow-up - reverses the initial deferral)
 
-The four build-aware link/route validators (14.11) are **deferred to Astro standard
-ROADMAP Phase 1.3** (the shared `workflow_call` pilot). thinking-framework-skills is the
-**designated pilot** and gains all four guards via the shared workflow / preset, so it
-ships **no throwaway local scripts**.
+**Reversal (2026-06-02 follow-up).** The two load-bearing build-aware guards (rendered-link
++ route-parity) are now **implemented locally**, reversing the deferral recorded below. The
+post-rollout family learning flipped the default: the other three family repos implemented
+14.11 locally and each caught real shipped breakage (a family-wide favicon 404; sixteen live
+404s in writing-style-catalog), and the shared workflow is still unbuilt, so deferring left a
+MUST unmet for an unbounded time. tfs already shipped a favicon (no favicon 404), but its pages
+had no rendered-link guard - and on its first run the guard surfaced **43 pre-existing live
+broken links** (a generator depth bug in the bibliography, an over-deep `explore/` link, a
+`by-context` sibling link, two `.mdx` start-page links, and the three base-less 404 hero links),
+now all fixed. Two of the four validators are ported (rendered-link + route-parity) from the
+hardened agent-skills-toolkit versions; `verify-edit-links` and `remark-resolve-links` are
+skipped with cause, per the ADR 0026 two-of-four rationale (the edit-link floor is meaningless
+at this scale, and there are no relative `.md` links to repair). The one defect `verify-edit-links`
+would have caught, the generated-page Edit-link 404, is fixed at the generator instead
+(`gen-site.mjs` sets each generated page's `editUrl` to its true source or `false`). The guards
+run on both the PR build and the deploy build; the base is single-sourced in `scripts/site-base.mjs`.
+Migration to the shared workflow remains a swap when it ships.
 
-Rationale:
+### Superseded: the initial deferral decision (2026-06-02)
+
+The four build-aware link/route validators (14.11) were initially **deferred to Astro standard
+ROADMAP Phase 1.3** (the shared `workflow_call` pilot), reasoning that thinking-framework-skills
+is the **designated pilot** and would gain all four guards via the shared workflow / preset,
+shipping **no throwaway local scripts**. That reasoning is superseded by the reversal above
+(the local guards are the standard's own sanctioned bridge, not throwaway: they migrate to the
+shared workflow as a swap, and leaving a MUST unmet until the unbuilt infra lands was the worse
+trade). Original rationale, retained for the record:
 
 - The standard's own sequencing puts the four validators in a shared reusable workflow
   (`ci-standard.md` Step 0; ROADMAP Phase 1), with this repo named as the Phase 1.3 pilot
@@ -78,9 +100,25 @@ Two guardrails on the deferral, both handled in this effort:
 7. The 14.11 deferral is recorded in this spec and in `release-plan.md`, dated.
 8. CHANGELOG `[Unreleased]` records the changes. PR(s) prepared, not merged without maintainer confirmation.
 
+## Follow-up acceptance (14.11 local guards, 2026-06-02)
+
+9. `check-rendered-links` (STRICT_ANCHORS=1) and `check-route-parity` both pass against a fresh
+   `site/dist`: 0 broken links, 0 broken anchors, route-parity equal.
+10. `scripts/route-manifest.txt` is committed and tracked; both guards run in the PR build
+    (`ci.yml` `site-build`) AND the deploy build (`deploy-pages.yml` `build`), gated on the build
+    step's outcome.
+11. The base literal is a consumed value only in `scripts/site-base.mjs` (consumed by
+    `astro.config.mjs` and the rendered-link guard); the test value-pin, the `robots.txt` sitemap
+    URL, and the 404 hero links are the sanctioned exceptions.
+12. Generated-page Edit links resolve (`editUrl` set to source or `false`); no `editUrl` 404s.
+13. The guard unit test (`npm test`) is green; no tracked build output; conformance gate green.
+
 ## Out of scope (by clause and by instruction)
 
-- The four 14.11 validators and a `route-manifest.txt` baseline (deferred, above).
+- `verify-edit-links` and `remark-resolve-links` (the other two of the four 14.11 validators):
+  skipped with cause per the ADR 0026 two-of-four rationale. The rendered-link + route-parity
+  guards and the committed `route-manifest.txt` baseline are now IN scope and implemented (see
+  the reversal above); the one `verify-edit-links` defect is fixed at the generator.
 - Anything outside Astro site conformance (the packet's scope rule). The root
   `package.json` Node floor is a Standard Section 4.1 / core concern, not a 14.x site clause,
   and the conformance gate already passes - left untouched.
