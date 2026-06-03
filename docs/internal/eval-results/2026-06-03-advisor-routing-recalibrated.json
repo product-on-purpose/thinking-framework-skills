@@ -1,0 +1,37 @@
+{
+  "$note": "Second advisor-routing eval (SP1 C2), after recalibrating the engage cases. Compare against 2026-06-03-advisor-routing.json (the baseline). Still a model-dependent, small-N MEASUREMENT, not a gate or a validation.",
+  "eval": "advisor-routing",
+  "run": "recalibrated",
+  "date": "2026-06-03",
+  "model": "claude-opus-4-8",
+  "baseline": "2026-06-03-advisor-routing.json",
+  "cases": 12,
+  "case_mix": "5 rich engage + 1 insufficient-signal gate + 6 decline",
+  "routing_accuracy": { "correct": 9, "total": 12, "pct": 0.75 },
+  "name_safety": { "safe": 12, "total": 12, "pct": 1.0 },
+  "engage": { "correct": 4, "total": 5 },
+  "gate": { "correct": 1, "total": 1 },
+  "decline": { "correct": 4, "total": 6 },
+  "avg_output_quality": 0.78,
+  "engage_output_quality": 0.78,
+  "delta_vs_baseline": {
+    "routing_accuracy": "7/12 (0.58) -> 9/12 (0.75)",
+    "engage_output_quality": "0.28 -> 0.78",
+    "name_safety": "12/12 -> 12/12 (stable floor)",
+    "note": "The 4 rewritten engage cases (e1,e3,e4,e5) went from gating to engaging at 0.92-0.97. New failures (e6, d2, d3) are the insufficient-signal gate over-firing/wavering run-to-run, not a regression of the recalibration."
+  },
+  "per_case": [
+    { "id": "e1", "expect": "engage", "behavior": "thinking-plan", "trigger_correct": true, "name_safe": true, "output_quality": 0.92, "note": "Rewritten (DB migration). Engaged; premortem->authentic-dissent->reference-class sequence; correct what-NOT-to-use; minor: structured field listed deferrals among names." },
+    { "id": "e3", "expect": "engage", "behavior": "thinking-plan", "trigger_correct": true, "name_safe": true, "output_quality": 0.95, "note": "Rewritten (retention interviews). Reframe->diverge; correct deferrals; anti-inflation." },
+    { "id": "e4", "expect": "engage", "behavior": "thinking-plan", "trigger_correct": true, "name_safe": true, "output_quality": 0.97, "note": "Rewritten (Q3 two bets). Reversibility-triage->option-review->premortem; gold-standard." },
+    { "id": "e5", "expect": "engage", "behavior": "thinking-plan", "trigger_correct": true, "name_safe": true, "output_quality": 0.97, "note": "Rewritten (roadmap mess). Synthesize->decide; correct deferrals; honest tiers." },
+    { "id": "e6", "expect": "engage", "behavior": "clarify", "trigger_correct": false, "name_safe": true, "output_quality": 0.1, "note": "FLIPPED from baseline (engaged 0.95 -> clarify). Gate over-fired: e6 has citable signal (fear of premature convergence) but the advisor withheld the plan pending stakes/reversibility. Run-to-run variance in the gate." },
+    { "id": "g1", "expect": "gate", "behavior": "clarify", "trigger_correct": true, "name_safe": true, "output_quality": 1.0, "note": "Moved-thin prompt. Correctly asked exactly one scoped clarifying question (problem + stakes + reversibility); no plan, no refusal. Gate works as intended here." },
+    { "id": "d1", "expect": "decline", "behavior": "direct-handoff", "trigger_correct": true, "name_safe": true, "output_quality": 1.0, "note": "Direct handoff to think-premortem." },
+    { "id": "d2", "expect": "decline", "behavior": "clarify", "trigger_correct": false, "name_safe": true, "output_quality": 0.2, "note": "Gate over-fired: options-in-hand + weighted criteria is a near-verbatim think-decision-option-review handoff, but the advisor asked a clarifying question instead of routing. Flagged the right answer then declined it." },
+    { "id": "d3", "expect": "decline", "behavior": "clarify", "trigger_correct": false, "name_safe": true, "output_quality": 0.25, "note": "Gate over-fired: a finished-PRD critique is a clear review/out-of-scope decline (cited its own When-NOT-to-Use rule) but it asked a question instead of declining." },
+    { "id": "d4", "expect": "decline", "behavior": "redirect", "trigger_correct": true, "name_safe": true, "output_quality": 1.0, "note": "Clean redirect (group facilitation, human-social)." },
+    { "id": "d5", "expect": "decline", "behavior": "refuse", "trigger_correct": true, "name_safe": true, "output_quality": 1.0, "note": "Canonical one-line refusal (factual lookup)." },
+    { "id": "d6", "expect": "decline", "behavior": "refuse", "trigger_correct": true, "name_safe": true, "output_quality": 1.0, "note": "Canonical one-line refusal (coding)." }
+  ]
+}

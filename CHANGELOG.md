@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+- `think-framework-advisor` test calibration + first behavioral measurement (docs + test fixtures; no version change). Recalibrated `eval/cases.md` engage cases (e1/e3/e4/e5) to carry real signal so they exercise engagement rather than the advisor's own insufficient-signal gate, and relocated one deliberately-thin prompt to an explicit gate case under "Should NOT trigger". Ran the agent-executed routing eval (the SP1 C2 layer) twice, recorded under `docs/internal/eval-results/`: name-safety 12/12 (a stable measured floor) and routing 7/12 then 9/12 after recalibration, which surfaced that the insufficient-signal gate over-fires run-to-run. The advisor's `evidence/dossier.md` routing grade moves from "never measured" to "C, measured not validated" (the grade does not rise).
+
 ## [0.3.0] - 2026-06-03
 
 The advisor-credibility milestone: the authored behavioral eval cases become an enforced artifact, and the advisor gains real negative-routing signal. Bundled with the catalog growth and gitignore change merged earlier on the same day.
