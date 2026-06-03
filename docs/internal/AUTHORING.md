@@ -54,6 +54,34 @@ skills/think-<method>/
 
 ---
 
+## The files: source of truth and generated artifacts
+
+`library.json` (repo root) is the **hand-authored source of truth** for the library: the
+plugin identity (name, version, description, license, keywords), the build/distribution
+settings (the `standard` version, `tier`, the `think-` install `prefix`, the `agent-targets`),
+and the roster - `components.skills`, each entry wiring a `name` to its `SKILL.md` `path`.
+Edit it directly when you add, rename, retire, or re-grade a skill (the per-skill loop above,
+step 8). A stale or wrong entry here silently drops a skill from the docs site and the
+generated manifests even though its files still exist on disk, so keep it in lockstep with
+`skills/`.
+
+Everything below is **generated from `library.json`** (plus the skills' own files). Do not
+hand-edit any of it: edit the source and regenerate, or the next generation overwrites the
+change and drifts from the source of truth.
+
+| Generated artifact | Produced by | What it is |
+|---|---|---|
+| `manifest.generated.json` | agent-skills-toolkit `gen-manifest` | The resolved, denormalized roster (each skill's name, path, full description) a tool can read in one shot. It omits a `license` field; the root `LICENSE` (Apache-2.0) is authoritative. |
+| `.claude-plugin/plugin.json` | agent-skills-toolkit `gen-manifest` | The Claude Code plugin manifest (identity only; skills are auto-discovered). The marketplace install entry point. |
+| `.codex-plugin/plugin.json` | agent-skills-toolkit `gen-manifest` | The Codex CLI manifest; adds `skills: "./skills/"` and an `interface` block. |
+| `skills/think-framework-advisor/references/recommendable.{json,md}` | `scripts/gen-recommendable.mjs` | The advisor's name-safety set - the closed set of names it may recommend. CI runs `--check`, so a forgotten regenerate fails the build instead of shipping an advisor that names a nonexistent skill. |
+| `site/src/content/docs/{frameworks,families,recipes,evidence,explore}/` | `scripts/gen-site.mjs` | The Starlight docs pages - a generated *view* of the skills. Gitignored and rebuilt each build. |
+
+The two generator scripts (`scripts/gen-site.mjs`, `scripts/gen-recommendable.mjs`) document
+their own what / why / usage in their file headers; read those rather than a per-file sidecar.
+
+---
+
 ## Guardrails (do not reproduce the stall)
 
 - A working session is not "done" unless it changed a file under `skills/` or committed product. Design-only sessions end by naming the single next build action, not a new decision.
