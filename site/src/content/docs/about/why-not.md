@@ -15,7 +15,7 @@ We implement the durable cognitive move, named descriptively, not the brand wrap
 
 ## The overlap ceiling
 
-A candidate that mostly duplicates a shipped skill does not earn a second slot. **FMEA-lite**, **Inversion**, and **Crazy 8s** each overlap an existing skill enough to fold in rather than stand alone. Folding keeps the catalog small enough to choose from, which is the point: more cards is not more capability.
+A candidate that mostly duplicates a shipped skill does not earn a second slot. **FMEA-lite**, **Inversion**, and **Crazy 8s** each overlap an existing skill enough to fold in rather than stand alone. **Leverage Points** (Meadows' intervention ladder) folds into [Iceberg Model](../../frameworks/think-iceberg-model/), which already calls out the highest-leverage intervention and draws on the same source; **MECE decomposition** is the load-bearing discipline inside [Issue Tree](../../frameworks/think-issue-tree/), not a separate skill. Folding keeps the catalog small enough to choose from, which is the point: more cards is not more capability.
 
 ## X-tier: poor or contradictory evidence
 
