@@ -55,7 +55,7 @@ Add to each skill entry, **derived from existing authored content** (no hand-mai
 - `anti_triggers`: the cleaned bullets from that skill's `eval/cases.md` "Should NOT trigger" list.
 - `not_use`: the "When NOT to use" section of `SKILL.md` (the prose + the named nearest-neighbor skill it defers to).
 
-These are registry-shaped (SP3's `registry.yaml` will own the same fields), so SP1 does not get rebuilt - it forward-fits the schema. The `--check` drift guard extends to the new fields (both `recommendable.json` and `.md`). The site's interactive **browser chooser** is pointed at the same enriched `recommendable.json`, so advisor and chooser share one signal source (unification).
+These are registry-shaped (SP3's `registry.yaml` will own the same fields), so SP1 does not get rebuilt - it forward-fits the schema. The new fields land in `recommendable.json` (the `.md` stays the name-safety table); the `--check` drift guard covers both committed files. The advisor consumes the enriched corpus directly. Unifying the site's interactive **browser chooser** onto the same source is deferred: the chooser does not read `recommendable.json` today, and that unification lands naturally with the registry / Framework-Library work (SP3/SP4).
 
 ### C4. Gate wiring + worktree portability
 
@@ -66,14 +66,16 @@ These are registry-shaped (SP3's `registry.yaml` will own the same fields), so S
 ## Acceptance criteria
 
 - **AC1** `node scripts/eval-cases.mjs --check` exits 0 on the current tree; exits 1 on a malformed-case fixture and on a non-existent-framework-name fixture.
-- **AC2** `gen-recommendable.mjs` emits non-empty `anti_triggers` + `not_use` for all 33 recommendable skills; `--check` fails on drift of either new field.
-- **AC3** advisor and browser chooser both read the single enriched `recommendable.json`.
+- **AC2** `gen-recommendable.mjs` emits non-empty `anti_triggers` + `not_use` for all 34 recommendable skills; `--check` fails on drift of either new field.
+- **AC3** the advisor consumes the enriched `recommendable.json` (anti_triggers / not_use / overlaps). Unifying the site browser chooser onto the same source is deferred to SP3/SP4 (the chooser does not read `recommendable.json` today).
 - **AC4** the agent-executed eval produces `scorecard.json` (routing accuracy + advisor output-check pass rate) using the invoking model, **no API key**; the optional headless mode yields the same scorecard shape when given a credential.
 - **AC5** the static layer (C1) runs inside the required `check` on every PR; the behavioral eval runs on demand (agent) or via the optional non-blocking scheduled workflow, never as a blocking PR gate.
 - **AC6** `npm run check` is green (Tier advanced, 0/0) from a `.claude/worktrees/` worktree.
-- **AC7** `npm test` green; advisor dossier updated to a measured grade; version 0.2.1 -> 0.3.0 with CHANGELOG + RELEASE-NOTES entries.
+- **AC7** `npm test` green; version 0.2.1 -> 0.3.0 with CHANGELOG + RELEASE-NOTES entries. (The advisor dossier's routing grade moves off "C" only with the C2 behavioral run, which is deferred - see the scope note.)
 
 ## Out of scope (later sub-projects)
+
+**v0.3.0 cut scope:** this release ships C1 (the static eval-case validator, enforced in the gate), C3 (corpus enrichment), and C4 (gate wiring + worktree portability). The C2 behavioral measurement run (and the resulting advisor-dossier grade update off "C") and the browser-chooser unification are deferred follow-ups, not blockers for the cut.
 
 `registry.yaml` and its full CI (SP3); per-framework dossiers + the Framework Library (SP4); `research-framework` (SP5); new skills (SP2/SP7/SP8). SP1 uses registry-shaped fields in `recommendable.json` but does not build the registry.
 

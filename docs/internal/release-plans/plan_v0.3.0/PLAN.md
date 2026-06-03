@@ -48,6 +48,12 @@ Decisions locked with the maintainer (2026-06-03):
 
 Each sub-project gets its own spec -> implementation plan -> build -> conformance-green -> PR. SP1 is specced in this folder (`spec-sp1-advisor-credibility.md`) and built first.
 
+**Status (2026-06-03):**
+- **SP1** - building this release (v0.3.0): C1 (static eval-case validator) + C3 (corpus enrichment) + C4 (gate wiring + worktree portability) shipped; the C2 behavioral measurement run is a deferred follow-up.
+- **SP2** - `think-belief-update-routine` BUILT (PR #34); only the single Fishbone-led vetting slot remains open.
+- **SP3 / SP4 / SP5 / SP9** - specs WRITTEN and merged (`spec-sp3-registry.md`, `spec-sp4-framework-library.md`, `spec-sp5-research-framework.md`, `spec-sp9-ip-policy.md`, via PR #33); those specs are the detailed authority and this PLAN the umbrella. The 2026-06-03 catalog/why-not truth-up was the SP9 down-payment. Build pending.
+- **SP6 / SP7 / SP8** - not started.
+
 ## Sequence and rationale
 
 1. **SP1 - advisor credibility (v0.3.0).** Build now. Independent of the platform. Turns the dormant `eval/cases.md` into an enforced gate and gives the advisor real negative routing signal. This is the credibility foundation everything else leans on.
