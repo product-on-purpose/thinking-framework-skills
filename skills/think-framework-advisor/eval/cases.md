@@ -4,14 +4,15 @@
 
 ## Should trigger
 
-- "I've got a big, consequential decision coming up and I honestly don't know how to even approach it - where do I start?"
-- "We're stuck on this problem. Which of your thinking tools would actually help, and in what order?"
-- "Here are my notes from three customer calls and a vague goal - I'm not sure whether I need to brainstorm, decide, or stress-test. What should I do?"
-- "Recommend a plan of frameworks to work through this and tell me why each one fits."
-- "I'm overwhelmed by where to begin with our roadmap mess. What thinking approach fits?"
+> Each carries real signal (a concrete decision or problem, stated stakes, a reversibility cue) so it exercises engagement, not the insufficient-signal gate. A deliberately thin routing request lives under "Should NOT trigger / gate" below.
+
+- "We're deciding whether to migrate our main product database from Postgres to a managed cloud service next quarter. It is effectively a one-way move once data is cut over, the team is split on it, and a bad call sets us back months. I honestly don't know how to even approach the decision - where do I start?"
+- "Here are my notes from three customer interviews and a vague goal to 'improve retention.' Some users want faster onboarding, others want deeper features, and a couple churned over price. I'm not sure whether I should be brainstorming new ideas, deciding between these directions, or stress-testing the riskiest one. What should I work through, and in what order?"
+- "We've narrowed our Q3 roadmap to two big bets - a self-serve onboarding overhaul or an enterprise SSO push - and leadership wants a recommendation next week. They carry very different risks and we keep going in circles. Recommend a plan of frameworks to work through this, and tell me why each one fits."
+- "Our roadmap is a mess: forty-odd requests from sales, support, and three exec pet projects, no clear priority, and we ship next month. I'm overwhelmed about where to even begin untangling it - whether to cluster the inputs, force a prioritization, or reframe the goal first. What thinking approach fits, and in what sequence?"
 - "Should we launch a free tier? I'm nervous we're committing because it's the obvious move, not because we thought it through." (the advisor diagnoses the job behind the question; note the user has *not* asked to stress-test a chosen option, so this is routing, not a premortem)
 
-## Should NOT trigger (wrong tool / near-miss)
+## Should NOT trigger (wrong tool / near-miss / insufficient signal)
 
 - "Run a premortem on our launch." (the user already knows the move - route directly to `think-premortem`, not the advisor)
 - "Compare these three vendors against our weighted criteria." (a defined decide task with options in hand - go straight to `think-decision-option-review`)
@@ -19,6 +20,7 @@
 - "Facilitate our team offsite agenda." (group facilitation / human-social - a thin family; redirect, do not force a `think-` pick)
 - "What's the capital of France?" (factual lookup - refuse)
 - "Write me a Python script to parse this CSV." (coding - refuse)
+- "We're stuck on this problem. Which of your thinking tools would actually help, and in what order?" (**insufficient-signal gate**: a routing request with no problem, stakes, or reversibility stated - under the advisor's own ~40-word / no-signal threshold, so the correct move is exactly ONE clarifying question, not a full Thinking Plan and not a refusal)
 
 ## Output checks (a good Thinking Plan must)
 
