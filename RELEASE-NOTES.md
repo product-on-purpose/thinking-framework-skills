@@ -2,6 +2,15 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://product-on-purpose.github.io/thinking-framework-skills/).
 
+## v0.2.1
+
+**Docs-site link and route integrity, and the family site-standard convergence.** A maintenance release: no catalog changes, but the live site is now guarded and a batch of pre-existing broken links is fixed.
+
+- **43 broken links fixed.** A new build-aware link checker found 43 internal links that were silently 404ing on the live site (most from a single generator bug on the bibliography page) - all fixed, and now guarded so they cannot come back.
+- **The docs site is link- and route-guarded in CI.** Every pull request and every deploy runs a rendered-link check (including `#anchors`) and a route-parity check against a committed route manifest, so a browser-broken internal link or a silently dropped page fails the build (family Astro site standard, clause 14.11).
+- **"Edit" links on generated pages resolve.** Each generated page now points its Edit link at its true source (a framework page to its skill's `SKILL.md`) instead of a gitignored build path that 404s.
+- **Site-standard convergence.** The docs site CI/deploy aligned to the Product on Purpose family Astro standard: the GitHub Pages artifact flow, `.nvmrc`-pinned Node across every job, a single-sourced base path, and no per-file config sidecars.
+
 ## v0.2.0
 
 **Three new skills and a recipe, a more visual docs site, and a self-validating repo.**
