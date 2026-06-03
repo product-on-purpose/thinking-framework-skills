@@ -1,0 +1,28 @@
+{
+  "$note": "Behavioral routing eval of think-framework-advisor (SP1 C2, agent-executed). A periodic MEASUREMENT, not a gate: judged by an LLM, so the number is model-dependent and small-N. The enforced every-PR gate is the static eval-cases validator (scripts/eval-cases.mjs).",
+  "eval": "advisor-routing",
+  "date": "2026-06-03",
+  "model": "claude-opus-4-8",
+  "method": "Each of the advisor's 12 authored eval/cases.md cases was applied by one agent (acting as the advisor, reading its SKILL.md + recommendable.md) and independently scored by a second agent against the case expectation, name-safety, and the output-checks.",
+  "cases": 12,
+  "routing_accuracy": { "correct": 7, "total": 12, "pct": 0.583 },
+  "name_safety": { "safe": 12, "total": 12, "pct": 1.0 },
+  "decline_handling": { "correct": 6, "total": 6 },
+  "engage_handling": { "correct": 1, "total": 6 },
+  "avg_output_quality": 0.64,
+  "engage_output_quality": 0.28,
+  "per_case": [
+    { "id": "e1", "expect": "engage", "behavior": "redirect", "trigger_correct": false, "name_safe": true, "output_quality": 0.1, "note": "~23-word prompt, no decision content; advisor gated (protocol-2 insufficient-signal). Engage label vs gate threshold conflict." },
+    { "id": "e2", "expect": "engage", "behavior": "redirect", "trigger_correct": false, "name_safe": true, "output_quality": 0.15, "note": "<40 words, no problem stated; clean single clarifying question per protocol 2." },
+    { "id": "e3", "expect": "engage", "behavior": "refuse", "trigger_correct": false, "name_safe": true, "output_quality": 0.1, "note": "notes referenced but not pasted; nothing to quote for the source ledger; held for input." },
+    { "id": "e4", "expect": "engage", "behavior": "refuse", "trigger_correct": false, "name_safe": true, "output_quality": 0.2, "note": "'this' has no antecedent; no situation supplied; protocol-2 hold." },
+    { "id": "e5", "expect": "engage", "behavior": "redirect", "trigger_correct": false, "name_safe": true, "output_quality": 0.2, "note": "~17 words; 'overwhelmed by roadmap mess'. Description lists this as an engage trigger but the 40-word gate fired first." },
+    { "id": "e6", "expect": "engage", "behavior": "thinking-plan", "trigger_correct": true, "name_safe": true, "output_quality": 0.95, "note": "Rich prompt with real decision + stakes. Excellent plan: WWHTBT -> conditional premortem, valid names, proper what-NOT-to-use, no tier inflation." },
+    { "id": "d1", "expect": "decline", "behavior": "direct-handoff", "trigger_correct": true, "name_safe": true, "output_quality": 1.0, "note": "User named the move; routed straight to think-premortem with a filled invocation." },
+    { "id": "d2", "expect": "decline", "behavior": "direct-handoff", "trigger_correct": true, "name_safe": true, "output_quality": 1.0, "note": "Options in hand; routed to think-decision-option-review." },
+    { "id": "d3", "expect": "decline", "behavior": "redirect", "trigger_correct": true, "name_safe": true, "output_quality": 1.0, "note": "Review of a finished artifact, not routing; redirected, named no skill." },
+    { "id": "d4", "expect": "decline", "behavior": "redirect", "trigger_correct": true, "name_safe": true, "output_quality": 0.95, "note": "Group facilitation; pointed outward, offered to route only if a thinking job is buried in it." },
+    { "id": "d5", "expect": "decline", "behavior": "refuse", "trigger_correct": true, "name_safe": true, "output_quality": 1.0, "note": "Factual lookup; canonical one-line refusal." },
+    { "id": "d6", "expect": "decline", "behavior": "refuse", "trigger_correct": true, "name_safe": true, "output_quality": 1.0, "note": "Coding; canonical one-line refusal." }
+  ]
+}
