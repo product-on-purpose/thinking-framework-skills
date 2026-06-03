@@ -5,8 +5,9 @@ A single, simplified, complete, and prioritized list of every thinking framework
 - **Taxonomy:** the 11 cognitive-operation families (Claude Opus's landscape, the recommended foundation).
 - **Evidence tiers (7-tier model):** **S** strong research · **M** moderate · **P** practitioner · **V** vendor/commercial · **A** anecdotal · **C** conceptually plausible, under-tested · **X** poor/contradictory.
 - **Status legend:**
-  - `[shipped]` - built and validated (28 skills, Tier universal 0/0).
+  - `[shipped]` - built and validated (34 skills, Tier advanced 0/0).
   - `[next]` - strongest unbuilt candidates (build these first; S/M evidence or cross-LLM consensus, and distinct).
+  - `[recipe]` - ships as a workflow chaining existing skills, not a standalone skill (no separable mechanism).
   - `[cand]` - candidate (clears the bar but lower priority / P-tier coverage).
   - `[fold]` - subsumed: ship as a mode/sub-skill of an existing skill, not standalone.
   - `[flag]` - include only with explicit "when not to use" / trademark / false-precision caveats.
@@ -19,12 +20,15 @@ The honest core (from the meta-analyses): the field is a small **empirical core*
 
 ## Priority summary (what to build next, in order)
 
-The skill build-out for v0.x is essentially complete (28 skills). If the catalog grows further, this is the recommended order:
+The skill build-out is at 34 skills + 5 recipes. **2026-06-03 truth-up** (multi-agent vetting + v0.2.0 reconciliation) resolved the old `[next]` list:
 
-1. **Strong-evidence / consensus unbuilt `[next]`:** `concept-mapping` (cross-LLM consensus first-class), `first-principles` (scope tightly), `causal-loop-diagrams` (M), `key-assumptions-check`, `fermi-estimation` (expansion), `double-crux` (expansion). (The two S-tier empirical-core stragglers - stocks-and-flows and mechanical/linear-model aggregation - are now shipped.)
-2. **Solo-plus-AI reflection `[next]`:** `belief-update-routine`, `idea-quality-audit` (uniquely fit the primary user mode).
-3. **P-tier coverage `[cand]`:** the remaining `[cand]` rows below, as demand warrants.
-4. **Never (this repo):** the `[fold]`, `[flag]`, `[pm]`, and `[excl]` rows - documented here so the exclusion is deliberate, not accidental.
+1. **Shipped since (v0.2.0):** `concept-mapping`, `causal-loop-diagrams`, `fermi-estimation` are built; `first-principles` shipped as a **recipe**. The two S-tier empirical-core stragglers (stocks-and-flows, linear-model-aggregation) are shipped - the empirical core is complete (11/11).
+2. **Vetted-closed:** `key-assumptions-check` and `double-crux` were **rejected** (both reduce to `what-would-have-to-be-true`); `idea-quality-audit` is a **`[recipe]`** (decision-option-review + red-team-light over a shortlist); `leverage-points` re-vetted `[cand]` -> **`[fold]`** (owned by `iceberg-model`, which already cites its Meadows source).
+3. **Building now:** `belief-update-routine` cleared the bar (**Build**, P) - the one new skill from the round; it completes the meta-thinking-and-reflection family's over-time-belief corner.
+4. **P-tier coverage `[cand]`:** the remaining `[cand]` rows below, as demand warrants.
+5. **Never (this repo):** the `[fold]`, `[flag]`, `[pm]`, and `[excl]` rows - documented so each exclusion is deliberate.
+
+> This catalog becomes a generated view of `frameworks/registry.yaml` (SP3); the above is the interim hand truth-up. Row tags below updated to match.
 
 The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference-class-forecasting, argument-mapping, WOOP/MCII, authentic-dissent, after-action-review, natural-frequency-bayesian, far-analogy-ideation, stocks-and-flows-reasoning, and mechanical/linear-model aggregation. **All 11 are now shipped - the empirical core is complete.**
 
@@ -65,7 +69,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 |---|---|---|---|
 | Problem Restatement | rewrite the problem several ways, pick a better frame | M/P | `[shipped]` |
 | Abstraction Laddering | move up (why) and down (how) to the right altitude | P | `[shipped]` |
-| First Principles Thinking | decompose to fundamental truths, reason up | P/C | `[next]` (scope tightly to avoid "think harder") |
+| First Principles Thinking | decompose to fundamental truths, reason up | P/C | `[shipped]` as the `first-principles` recipe (v0.2.0; abstraction-laddering + assumption-reversal) |
 | How Might We | turn an insight into an opportunity question | P | `[fold]` -> output of problem-restatement |
 | Is / Is Not analysis | sharpen scope by what the problem is and is not | P | `[fold]` -> a problem-restatement move |
 | Frame storming | brainstorm the framing, not the solution | P | `[fold]` -> problem-restatement |
@@ -81,7 +85,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Evidence vs Inference Sort | label claims evidence / inference / assumption | P | `[shipped]` |
 | Ladder of Inference Check | reconstruct the climb from data to conclusion | P | `[shipped]` |
 | What Would Have to Be True | turn a claim into testable conditions | P | `[shipped]` (also family 5/7) |
-| Key Assumptions Check / Assumption Mapping | inventory and rank a plan's assumptions | P | `[next]` (intelligence-analysis staple; watch overlap with WWHTBT) |
+| Key Assumptions Check / Assumption Mapping | inventory and rank a plan's assumptions | P | `[excl]` rejected 2026-06-03: same assumption-ledger as what-would-have-to-be-true |
 | Cognitive bias checklist | run a decision against relevant biases | P | `[cand]` |
 | Inversion | ask how to guarantee failure, then avoid it | P | `[cand]` (overlaps assumption-reversal + premortem) |
 | Counterfactual reasoning | examine "what if X had been different" | P | `[cand]` |
@@ -107,9 +111,9 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Futures Wheel | map first/second/third-order consequences outward | P | `[shipped]` |
 | Iceberg Model | events -> patterns -> structures -> mental models | P | `[shipped]` |
 | Stocks and Flows reasoning | reason about accumulations and rates | **S** | `[shipped]` (Sterman) |
-| Causal Loop Diagrams | diagram reinforcing/balancing feedback loops | M/C | `[next]` (visual; markdown approximates) |
+| Causal Loop Diagrams | diagram reinforcing/balancing feedback loops | M/C | `[shipped]` (v0.2.0) |
 | Second-Order Effects | lightweight "and then what?" prompt | P | `[fold]` -> mode of futures-wheel |
-| Systems map / Leverage points | sketch elements/relationships; find intervention points | P/C | `[cand]` |
+| Systems map / Leverage points | sketch elements/relationships; find intervention points | P/C | `[fold]` -> iceberg-model (Meadows leverage-ladder mode; re-vetted 2026-06-03) |
 | Three Horizons | present / transition / emerging future | C | `[cand]` (foresight) |
 | Causal Layered Analysis | litany / system / worldview / myth layers | C | `[cand]` (foresight) |
 | Theory of Constraints | find and exploit the system bottleneck | P | `[cand]` (expansion) |
@@ -127,7 +131,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Pairwise comparison | compare two at a time to rank fuzzy criteria | P | `[cand]` |
 | Expected-value / decision-tree | weigh outcomes by probability x magnitude | M | `[cand]` (expansion: formal EV/decision trees) |
 | Minimax regret | minimize worst-case regret | P | `[cand]` |
-| Fermi estimation | structured order-of-magnitude estimate from decomposition | P/M | `[next]` (expansion; high utility, no current coverage) |
+| Fermi estimation | structured order-of-magnitude estimate from decomposition | P/M | `[shipped]` (v0.2.0) |
 | Eisenhower / MoSCoW / Pareto | urgent-important triage; vital-few focus | P | `[cand]` (expansion; prioritization) |
 | Kepner-Tregoe | structured problem + decision analysis | P | `[cand]` (expansion) |
 | Cynefin | sort clear/complicated/complex/chaotic | C | `[flag]` cargo-cult risk; trademark |
@@ -160,7 +164,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Affinity Mapping | cluster many notes into emergent themes (bottom-up) | P | `[shipped]` |
 | Pyramid Principle | answer-first governing thought + grouped support | P | `[shipped]` |
 | MECE decomposition | mutually-exclusive, collectively-exhaustive split | P | `[fold]` -> principle inside issue-tree |
-| Concept Mapping | diagram concepts and labeled relationships | M/P | `[next]` (cross-LLM consensus first-class) |
+| Concept Mapping | diagram concepts and labeled relationships | M/P | `[shipped]` (v0.2.0) |
 | Dialectical synthesis | hold thesis/antithesis to a stronger synthesis | C | `[cand]` |
 | Contradiction / tension mapping | surface central tensions rather than smoothing | C | `[cand]` |
 | Insight statement generation | turn observations into sharp transferable insights | P | `[cand]` |
@@ -183,8 +187,8 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 |---|---|---|---|
 | After Action Review | expected vs actual -> why -> sustain/change | S/M | `[shipped]` |
 | Decision Journal | record now for honest later calibration | P | `[shipped]` |
-| Belief-update routine | periodically revisit and update key beliefs vs new evidence | P | `[next]` (solo-plus-AI fit) |
-| Idea-quality audit | score and pressure-test a batch of ideas (solo + AI) | P | `[next]` (solo-plus-AI fit) |
+| Belief-update routine | periodically revisit and update key beliefs vs new evidence | P | `[next]` Build approved (2026-06-03 vetting); authoring as `think-belief-update-routine` |
+| Idea-quality audit | score and pressure-test a batch of ideas (solo + AI) | P | `[recipe]` decision-option-review + red-team-light over a shortlist (vetted 2026-06-03; no separable mechanism) |
 | What / So What / Now What | observation -> meaning -> action | P | `[cand]` |
 | PDCA / A3 | plan-do-check-act improvement loop | P | `[cand]` (expansion; overlaps AAR) |
 | Socratic self-questioning | disciplined self-interrogation of a belief | P | `[cand]` (expansion) |
@@ -198,8 +202,8 @@ Added here as genuinely additive (not folds of existing skills). Provisional tie
 
 | Framework | Family | Mechanism | Tier | Note |
 |---|---|---|---|---|
-| Fermi estimation | decision | decompose an unknown into estimable factors for an order-of-magnitude answer | P/M | high utility for AI; no current coverage; `[next]` |
-| Double-crux | assumption-challenge | find the single belief whose change would flip each side of a disagreement | C/P | modern (CFAR); resolves disagreements; distinct from red-team/dissent |
+| Fermi estimation | decision | decompose an unknown into estimable factors for an order-of-magnitude answer | P/M | `[shipped]` as `think-fermi-estimation` (v0.2.0) |
+| Double-crux | assumption-challenge | find the single belief whose change would flip each side of a disagreement | C/P | `[excl]` rejected 2026-06-03: solo-reduces to what-would-have-to-be-true's killer conditions |
 | Theory of Constraints | systems | find the binding bottleneck and exploit/elevate it | P | distinct systems-intervention lens |
 | Fishbone / Ishikawa | systems | structured multi-cause diagram (the meta-analysis's recommended Five-Whys upgrade) | P | fills the multi-cause gap Five-Whys leaves |
 | Scenario planning | strategy/foresight | construct 2-4 plausible distinct futures and stress strategy across them | C/M | distinct from futures-wheel (consequences) and backcasting (path); evidence thin |

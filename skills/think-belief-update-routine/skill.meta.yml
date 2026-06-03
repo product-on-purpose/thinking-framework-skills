@@ -1,0 +1,88 @@
+# Rich sidecar for the think-belief-update-routine skill.
+# DRAFT: shape mirrors the other shipped skills' sidecars (e.g. think-decision-journal).
+# Evidence fields are a hand-authored summary of evidence/dossier.md (the source of
+# truth), not generated from it.
+#
+# Naming: id = <namespace>.<method> = thinking-framework-skills.belief-update-routine;
+# slug = bare method = belief-update-routine; installable name = prefix + slug =
+# think-belief-update-routine (the think- prefix avoids cross-plugin name collisions;
+# see library.json "prefix").
+
+identity:
+  id: thinking-framework-skills.belief-update-routine
+  slug: belief-update-routine
+  name: think-belief-update-routine   # installable name (matches the skill directory)
+  display_name: Belief-Update Routine
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: meta-thinking-and-reflection
+  secondary_families: [risk-and-resilience]
+  thinking_modes: [reflective, metacognitive, probabilistic]
+  problem_contexts: [high-stakes, high-ambiguity]
+  use_cases:
+    - re-score a standing inventory of open beliefs against newly arrived evidence on a cadence
+    - make under-updating visible by forcing an explicit confidence delta and a reason for its size
+    - keep open forecasts, strategic theses, and standing assumptions honest against new evidence over time
+    - build calibration on standing beliefs across many review cycles
+  poor_fit_cases:
+    - recording a single decision at the moment it is made (use decision-journal; it forbids editing the locked prediction)
+    - reviewing a finished episode against what was expected (use after-action-review; it needs a resolved outcome)
+    - surfacing the conditions under which one claim would be the best choice (use what-would-have-to-be-true)
+    - re-scoring on a schedule when no genuinely new evidence has arrived (reflection theater)
+    - tracking trivial beliefs that never resolve and carry no stakes
+
+interface:
+  required_inputs:
+    - a set of open, consequential beliefs/forecasts/assumptions to track (or a prior ledger to re-score)
+  optional_inputs:
+    - a review cadence or forcing signal
+    - the evidence accrued since the last review
+    - prior confidence levels, if not already recorded
+  primary_artifact_type: belief-update-ledger
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.decision-journal
+    - thinking-framework-skills.after-action-review
+    - thinking-framework-skills.reference-class-forecasting
+
+relationships:
+  often_follows: [thinking-framework-skills.decision-journal]
+  often_precedes: [thinking-framework-skills.after-action-review]
+  complements: [thinking-framework-skills.decision-journal, thinking-framework-skills.after-action-review]
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run     # see eval/ (harness deferred; SP1 wires the static layer)
+  output_eval_status: not-run
+  known_failure_modes:
+    - collapsing into a decision-journal (capturing one decision at commit time) or violating the journal's do-not-edit rule
+    - collapsing into an after-action-review (reviewing a resolved outcome and emitting process actions) on still-open beliefs
+    - re-scoring with no stated delta/direction, so it is unclear whether the belief moved
+    - under-updating: revising too little for the evidence, clinging to the prior
+    - reflection theater: manufacturing a delta when no material new evidence arrived
+    - overclaiming a measured accuracy gain the evidence does not support
+
+evidence:
+  evidence_tier: "P"               # practitioner; sound mechanism, sparse and weak direct evidence for the routine; see dossier section 3
+  confidence: moderate on the under-updating mechanism; low on outcome improvement outside scored-forecasting regimes
+  transferred_evidence: true       # human-subject studies and forecasting practice only; not AI-validated
+  lineage:
+    derived_from: [Bayesian belief updating, conservatism research (Edwards 1968), forecasting calibration (Atanasov/Tetlock), actively open-minded thinking]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-belief-update-routine/SKILL.md
+  references_path: skills/think-belief-update-routine/references/
+  evidence_path: skills/think-belief-update-routine/evidence/dossier.md
+  evals_path: skills/think-belief-update-routine/eval/
