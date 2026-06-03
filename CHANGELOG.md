@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+- Git-ignore the local `.claude/` agent-state directory (Claude Code worktrees and local settings) so it can never be accidentally committed.
+
 ## [0.2.1] - 2026-06-03
 
 ### Added
