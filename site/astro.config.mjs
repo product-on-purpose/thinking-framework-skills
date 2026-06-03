@@ -1,6 +1,10 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mermaid from 'astro-mermaid';
+// Base path single source (clause 14.7): the literal lives only in scripts/site-base.mjs,
+// consumed here and by scripts/check-rendered-links.mjs so the build and the link guard
+// can never disagree (a wrong base passes the check while the live site 404s).
+import { BASE } from '../scripts/site-base.mjs';
 
 // Stack mirrors the proven pm-skills site (Astro + Starlight + astro-mermaid,
 // deployed to GitHub Pages). The site is a GENERATED VIEW of the skills library:
@@ -24,7 +28,7 @@ const gaHead = GA_ID
 
 export default defineConfig({
   site: 'https://product-on-purpose.github.io',
-  base: '/thinking-framework-skills',
+  base: BASE,
   integrations: [
     // astro-mermaid MUST come before starlight (integration-order rule).
     // Client-side render; only loads the mermaid bundle on pages with diagrams.

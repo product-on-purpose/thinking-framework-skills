@@ -86,4 +86,37 @@ jobs:
         run: npm ci
 
       - name: Build site (gen-site.mjs + astro build)
+        id: build
         run: npm run build
+
+      # Link/route integrity guards (clause 14.11), run against the freshly built dist from the
+      # site working dir. STRICT_ANCHORS=1 enforces #anchors on this partly hand-authored site.
+      # Gated on the build step's own outcome (not `if: always()`): a build failure then surfaces
+      # the real Astro error instead of a secondary "dist not found", and both guards still report
+      # independently of each other (a rendered-link failure does not skip the route-parity check).
+      - name: Check rendered links in dist (clause 14.11a)
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: node ../scripts/check-rendered-links.mjs dist
+        env:
+          STRICT_ANCHORS: '1'
+
+      - name: Check route parity against the committed manifest (clause 14.11b)
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: node ../scripts/check-route-parity.mjs dist
+
+  # Robustness proof for the rendered-link guard (clause 14.11, "guard robustness is itself
+  # normative"): a node --test suite over synthetic dist fixtures (clean, broken link, empty dist,
+  # bare-relative, both quote styles, defensive decode). Node built-ins only, so no install or build.
+  guard-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout plugin
+        uses: actions/checkout@v5
+
+      - name: Setup Node (pinned via .nvmrc)
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Run link-guard unit tests
+        run: npm test

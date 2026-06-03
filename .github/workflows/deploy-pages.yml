@@ -41,7 +41,21 @@ jobs:
         run: npm ci
 
       - name: Build site (gen-site.mjs + astro build)
+        id: build
         run: npm run build
+
+      # Link/route integrity guards (clause 14.11) on the DEPLOY build, so the artifact that ships
+      # is guarded, not only the PR build. Gated on the build step's outcome; a guard failure stops
+      # the upload and deploy. Same two guards as the PR `site-build` job in ci.yml.
+      - name: Check rendered links in dist (clause 14.11a)
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: node ../scripts/check-rendered-links.mjs dist
+        env:
+          STRICT_ANCHORS: '1'
+
+      - name: Check route parity against the committed manifest (clause 14.11b)
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: node ../scripts/check-route-parity.mjs dist
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5

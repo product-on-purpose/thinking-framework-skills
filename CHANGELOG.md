@@ -6,11 +6,13 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Added
 - `site/public/robots.txt` pointing at the generated sitemap.
+- Build-aware link and route integrity guards (family Astro site standard 14.11): `scripts/check-rendered-links.mjs` (browser-broken internal links + `#anchor` resolution, enforced with `STRICT_ANCHORS=1` in CI) and `scripts/check-route-parity.mjs` (guards against silently dropping a published route, against the committed `scripts/route-manifest.txt`). Both run after the build in the PR `site-build` job and the deploy build, gated on the build outcome. A `node --test` suite (`tests/check-rendered-links.test.mjs`, 10 cases) proves the rendered-link guard's robustness.
 
 ### Changed
 - Docs-site CI/deploy converged to the family site standard: the GitHub Pages deploy now uses `actions/upload-pages-artifact@v5` + `actions/deploy-pages@v5`; Node is pinned to `24` via `.nvmrc` / `node-version-file`; and a non-deploying `site-build` job verifies the site on PRs.
 - The advisor name-safety set is drift-guarded in CI: `scripts/gen-recommendable.mjs --check` runs on PR and push and fails if `recommendable.json` / `recommendable.md` are stale.
 - Every CI job now resolves Node from `.nvmrc` (= 24): the `check` (conformance gate) job moved off its hardcoded `node-version: '22'` to `node-version-file: .nvmrc`, matching the site and deploy jobs (family Astro site standard 14.8).
+- The site base path is single-sourced in `scripts/site-base.mjs` (family Astro site standard 14.7), consumed by both `site/astro.config.mjs` and the rendered-link guard, so the build and the validator can never disagree on the base.
 
 ### Removed
 - Per-file `.md` config sidecars under `site/` (rationale folded into the config files' own comments and a new `site/README.md`).
@@ -18,6 +20,8 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Fixed
 - Docs-site Edit links on hand-authored pages: `editLink.baseUrl` now carries the `/site/` segment (`.../edit/main/site/`) so they resolve to the real repo path instead of 404ing (the Astro project root is `site/`).
+- 43 pre-existing browser-broken internal links the new rendered-link guard surfaced on its first run: a bibliography link-depth bug, an over-deep `explore/` index link, and a `by-context` sibling link (`scripts/gen-site.mjs`); two `.mdx` start-page sibling links; and the three base-less 404 hero links (now base-absolute).
+- Generated-page "Edit" links no longer 404: `scripts/gen-site.mjs` sets each generated page's `editUrl` to its true source (a per-framework page to its skill's `SKILL.md`) or to `false` for aggregation pages, instead of letting Starlight auto-derive a link to the gitignored build path (family Astro site standard, "Generated-page Edit links").
 
 ## [0.2.0] - 2026-06-01
 
