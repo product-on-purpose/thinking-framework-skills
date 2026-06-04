@@ -1,6 +1,6 @@
 # SP9 spec: IP policy application (open the IP gate, keep the evidence gate)
 
-> **STATUS: SPEC, pending maintainer review.** Part of [`PLAN.md`](./PLAN.md). A small policy pass that
+> **STATUS: IMPLEMENTED (2026-06-03) alongside SP3; spec retained as the contract.** See `CHANGELOG.md` [Unreleased]: all 8 branded entries carry attribution + trademark (CI-enforced), and `why-not.md` is a generated registry view. Part of [`PLAN.md`](./PLAN.md). A small policy pass that
 > rides on [`spec-sp3-registry.md`](./spec-sp3-registry.md)'s `attribution`/`trademark`/`branded` fields.
 > The 2026-06-03 catalog + why-not truth-up (this session) is the **down-payment**; SP9 is the full pass.
 

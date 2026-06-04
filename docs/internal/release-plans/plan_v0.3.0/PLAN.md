@@ -51,7 +51,8 @@ Each sub-project gets its own spec -> implementation plan -> build -> conformanc
 **Status (2026-06-03):**
 - **SP1** - building this release (v0.3.0): C1 (static eval-case validator) + C3 (corpus enrichment) + C4 (gate wiring + worktree portability) shipped; the C2 behavioral measurement run is a deferred follow-up.
 - **SP2** - `think-belief-update-routine` BUILT (PR #34); only the single Fishbone-led vetting slot remains open.
-- **SP3 / SP4 / SP5 / SP9** - specs WRITTEN and merged (`spec-sp3-registry.md`, `spec-sp4-framework-library.md`, `spec-sp5-research-framework.md`, `spec-sp9-ip-policy.md`, via PR #33); those specs are the detailed authority and this PLAN the umbrella. The 2026-06-03 catalog/why-not truth-up was the SP9 down-payment. Build pending.
+- **SP3 + SP9** - BUILT (paired): `frameworks/registry.mjs` (the 102-method single source of truth) + `frameworks/registry.schema.json` + `scripts/gen-registry.mjs` (generates the `framework-catalog.md` tables and the site `why-not.md` index) + `scripts/check-registry.mjs` (schema / drift / referential / completeness / IP / eval-coupling / recommendable, wired as the third layer of the required `check` gate). The IP gate is open with attribution + trademark on all 8 branded entries; `why-not.md` is a generated index. Format note: the registry is a zero-dependency `.mjs` data module rather than the spec's literal YAML (the repo's scripts are zero-dep and Node has no YAML parser), preserving the same single-source-of-truth + strong-CI + comment/multiline intent. The site Framework Library index stays deferred to SP4 (per the SP3 out-of-scope).
+- **SP4 / SP5** - specs WRITTEN and merged (`spec-sp4-framework-library.md`, `spec-sp5-research-framework.md`, via PR #33); build pending. SP5 (the `research-framework` engine) is next; SP4 (dossiers) and the registry-driven site Framework Library index ride on it.
 - **SP6 / SP7 / SP8** - not started.
 
 ## Sequence and rationale
@@ -83,6 +84,6 @@ Per the locked policy: trademark/license is no longer an automatic veto. SP9 (a)
 ## Open decisions (resolve at the relevant spec review)
 
 - **SP1 - behavioral eval execution.** The behavioral eval is agent-executed by default (judged by the invoking model, no API key, on demand) and is not a blocking gate; the free static layer is the every-PR gate. Optional: an unattended scheduled workflow, the only mode that needs a credential, since headless CI has no ambient model to borrow. Recommendation: agent-executed only for v0.3.0. Detailed in the SP1 spec.
-- **SP3 - registry format.** YAML (decided). Confirm whether `framework-catalog.md` becomes fully generated (recommended) or stays hand-authored with a generated appendix.
+- **SP3 - registry format.** RESOLVED at build: a zero-dependency `.mjs` data module (not YAML - the repo's scripts are zero-dep and Node has no YAML parser); `framework-catalog.md` is a generated table region spliced between markers, with the taxonomy/legend/priority preamble and the exclusions/sources postamble kept hand-authored. `anti_triggers`/`not_use` stay derived from each shipped skill (the registry references the skill; recommendable.{json,md} is unchanged), avoiding a second copy.
 - **SP4 - dossier authorship loop.** How much of each dossier `research-framework` drafts vs. a human finalizes, and the review gate before publish.
 - **SP5 - subagent vs skill** (recommended subagent; confirm at SP5 spec).

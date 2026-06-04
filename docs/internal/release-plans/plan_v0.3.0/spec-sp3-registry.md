@@ -1,6 +1,6 @@
 # SP3 spec: the framework registry (`registry.yaml`) + strong CI
 
-> **STATUS: SPEC, pending maintainer review.** Part of [`PLAN.md`](./PLAN.md). The data foundation
+> **STATUS: IMPLEMENTED (2026-06-03); spec retained as the contract.** See `CHANGELOG.md` [Unreleased]. The registry shipped as a zero-dependency `.mjs` data module (not YAML) to keep the repo's scripts dependency-free; same single-source-of-truth + strong-CI intent. Part of [`PLAN.md`](./PLAN.md). The data foundation
 > for the Framework Library. Pairs with [`spec-sp9-ip-policy.md`](./spec-sp9-ip-policy.md) (attribution
 > fields) and feeds [`spec-sp4-framework-library.md`](./spec-sp4-framework-library.md) (dossiers) and
 > [`spec-sp5-research-framework.md`](./spec-sp5-research-framework.md) (the engine that proposes entries).
