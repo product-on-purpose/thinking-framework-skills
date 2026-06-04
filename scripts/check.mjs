@@ -3,11 +3,14 @@
 // contributor or CI runs to validate the plugin against the agent-skills-toolkit
 // Standard: `node scripts/check.mjs` (or `npm run check`).
 //
-// It runs two layers:
+// It runs three layers:
 //   1. the toolkit's portable STRUCTURAL validators (the toolkit is the source of truth;
-//      vendoring them here would drift), and
+//      vendoring them here would drift),
 //   2. the repo-local static eval-case validator (scripts/eval-cases.mjs, SP1): every
-//      skills/*/eval/cases.md must be well-formed and name-safe.
+//      skills/*/eval/cases.md must be well-formed and name-safe, and
+//   3. the registry conformance check (scripts/check-registry.mjs, SP3): frameworks/
+//      registry.mjs validates against its schema, its generated views are not stale, and
+//      its referential / IP / eval-coupling invariants hold.
 //
 // To reproduce a CI failure locally, clone the public toolkit next to this repo:
 //   git clone https://github.com/product-on-purpose/agent-skills-toolkit.git ../agent-skills-toolkit
@@ -63,5 +66,8 @@ const structural = spawnSync('node', [evaluator, '.'], { cwd: ROOT, stdio: 'inhe
 console.log('\nRunning static eval-case validator (scripts/eval-cases.mjs)\n');
 const evalCases = spawnSync('node', [resolve(ROOT, 'scripts', 'eval-cases.mjs'), ROOT], { stdio: 'inherit' });
 
-// Fail if either layer failed; both always run so contributors see all problems at once.
-process.exit((structural.status ?? 1) || (evalCases.status ?? 1));
+console.log('\nRunning registry conformance check (scripts/check-registry.mjs)\n');
+const registry = spawnSync('node', [resolve(ROOT, 'scripts', 'check-registry.mjs'), ROOT], { stdio: 'inherit' });
+
+// Fail if any layer failed; all run so contributors see all problems at once.
+process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1));
