@@ -52,10 +52,24 @@ if (registry.version !== schema.properties.version.const) {
 if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(registry.seededDate ?? '')) {
   fail(`schema: top-level seededDate must be an ISO date (got ${JSON.stringify(registry.seededDate)}).`);
 }
-const familySlugs = new Set((registry.families ?? []).map((f) => f.slug));
-if (familySlugs.size < (schema.properties.families.minItems ?? 0)) {
-  fail(`schema: families must list at least ${schema.properties.families.minItems} entries (got ${familySlugs.size}).`);
+// families: array shape, item shape ({slug kebab, name}), and slug uniqueness
+const familyList = registry.families ?? [];
+if (!Array.isArray(familyList) || familyList.length < (schema.properties.families.minItems ?? 0)) {
+  fail(`schema: families must be an array of at least ${schema.properties.families.minItems} entries.`);
 }
+const familySlugs = new Set();
+for (const f of familyList) {
+  if (typeof f !== 'object' || f === null) { fail('schema: a families entry is not an object.'); continue; }
+  for (const k of Object.keys(f)) if (k !== 'slug' && k !== 'name') fail(`schema: families entry has unknown field "${k}".`);
+  if (typeof f.slug !== 'string' || !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(f.slug)) fail(`schema: families entry slug ${JSON.stringify(f.slug)} is missing or not kebab-case.`);
+  if (typeof f.name !== 'string' || !f.name) fail(`schema: families entry ${JSON.stringify(f.slug)} is missing a name.`);
+  if (typeof f.slug === 'string') {
+    if (familySlugs.has(f.slug)) fail(`schema: duplicate family slug "${f.slug}".`);
+    familySlugs.add(f.slug);
+  }
+}
+
+if (!Array.isArray(fw) || fw.length < 1) fail('schema: frameworks must be a non-empty array.');
 
 const seenSlugs = new Set();
 for (const e of fw) {
@@ -73,6 +87,17 @@ for (const e of fw) {
     const allowed = enumOf(k);
     if (allowed && e[k] !== undefined && !allowed.includes(e[k])) {
       fail(`schema: ${at} field "${k}" = ${JSON.stringify(e[k])} is not one of ${allowed.join('/')}.`);
+    }
+  }
+  // types (schema-driven: string / boolean / array) + non-empty for minLength strings
+  for (const k of Object.keys(e)) {
+    const t = entryProps[k]?.type;
+    if (!t) continue; // unknown key already flagged above
+    if (t === 'string' && typeof e[k] !== 'string') fail(`schema: ${at} field "${k}" must be a string.`);
+    else if (t === 'boolean' && typeof e[k] !== 'boolean') fail(`schema: ${at} field "${k}" must be a boolean.`);
+    else if (t === 'array' && !Array.isArray(e[k])) fail(`schema: ${at} field "${k}" must be an array.`);
+    if (t === 'string' && typeof e[k] === 'string' && entryProps[k].minLength && e[k].length < entryProps[k].minLength) {
+      fail(`schema: ${at} field "${k}" must be non-empty.`);
     }
   }
   // slug shape + uniqueness
@@ -107,8 +132,13 @@ for (const e of fw) {
   if (e.status === 'shipped' && !existsSync(resolve(ROOT, 'skills', `think-${e.slug}`))) {
     fail(`ref: shipped ${e.slug} has no skills/think-${e.slug}/ directory.`);
   }
+  // recipe -> workflow doc (forward only: not every _workflows/*.md is a catalog
+  // framework row, so there is deliberately no reverse "orphan workflow" check).
   if (e.status === 'recipe' && !existsSync(resolve(ROOT, '_workflows', `think-${e.slug}.md`))) {
     fail(`ref: recipe ${e.slug} has no _workflows/think-${e.slug}.md.`);
+  }
+  if (e.status === 'shipped' && e.evalCases && e.evalCases !== `skills/think-${e.slug}/eval/cases.md`) {
+    fail(`ref: shipped ${e.slug} evalCases "${e.evalCases}" does not match skills/think-${e.slug}/eval/cases.md.`);
   }
   if (e.foldInto && !shipped.has(e.foldInto)) {
     fail(`ref: ${e.slug} foldInto "${e.foldInto}" does not resolve to a shipped entry.`);
@@ -117,6 +147,9 @@ for (const e of fw) {
     fail(`ref: ${e.slug} dossierPath "${e.dossierPath}" does not resolve to a file.`);
   }
   for (const s of e.sources ?? []) {
+    if (typeof s !== 'object' || s === null) { fail(`ref: ${e.slug} has a non-object source.`); continue; }
+    for (const k of Object.keys(s)) if (!['title', 'url', 'kind'].includes(k)) fail(`ref: ${e.slug} source has unknown field "${k}".`);
+    if (typeof s.title !== 'string' || !s.title) fail(`ref: ${e.slug} source is missing a title.`);
     if (!/^https?:\/\/\S+$/.test(s.url || '')) fail(`ref: ${e.slug} has a malformed source url ${JSON.stringify(s.url)}.`);
   }
 }
@@ -145,7 +178,10 @@ for (const d of readdirSync(resolve(ROOT, 'skills'))) {
   if (existsSync(resolve(ROOT, 'skills', d, 'SKILL.md'))) known.add(d);
 }
 for (const f of readdirSync(resolve(ROOT, '_workflows'))) {
-  if (f.endsWith('.md')) known.add(f.replace(/\.md$/, ''));
+  if (!f.endsWith('.md')) continue;
+  known.add(f.replace(/\.md$/, '')); // filename
+  const m = readFileSync(resolve(ROOT, '_workflows', f), 'utf8').match(/^name:\s*(.+)$/m);
+  if (m) known.add(m[1].trim().replace(/^["']|["']$/g, '')); // frontmatter name (parity with eval-cases.mjs)
 }
 for (const e of fw) {
   if (e.status !== 'shipped') continue;

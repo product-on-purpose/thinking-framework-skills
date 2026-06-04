@@ -28,7 +28,7 @@ The durable cognitive move already ships inside another skill, named descriptive
 
 ## Documented, not shipped
 
-Included only with explicit caveats - a trademark, a narrow valid range, or a false-precision warning. The IP gate is open (each is documented with proper attribution); the evidence and distinctness gates are not, so these stay out of the shippable set.
+Included only with explicit caveats - a trademark, a narrow valid range, or a false-precision warning. The IP gate is open (branded methods are documented with attribution); the evidence and distinctness gates are not, so these stay out of the shippable set.
 
 - **Six Thinking Hats** - branded parallel-thinking ritual. (Branded: Six Thinking Hats (de Bono method; "Six Thinking Hats" is a trademark of the de Bono estate / IP holders).)
 - **Five Whys** - iterative why to trace a cause.
@@ -60,3 +60,5 @@ Sound PM and business-domain methods whose home is pm-skills, not a cross-domain
 - **Value proposition contrast** - sharpen vs the next-best alternative.
 
 Candidates that clear the bar but are not yet built, and methods that ship as a recipe rather than a standalone skill, are catalogued in the Framework Library. The full selection bar, and how to propose a method that clears it, lives in [contributing](../contributing/).
+
+<!-- END GENERATED (scripts/gen-registry.mjs) -->

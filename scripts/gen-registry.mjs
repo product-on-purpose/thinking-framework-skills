@@ -30,6 +30,7 @@ const WHYNOT = resolve(ROOT, 'site', 'src', 'content', 'docs', 'about', 'why-not
 const CAT_BEGIN = '<!-- BEGIN GENERATED FRAMEWORK TABLES (scripts/gen-registry.mjs) - do not hand-edit below this line -->';
 const CAT_END = '<!-- END GENERATED FRAMEWORK TABLES -->';
 const WHYNOT_BEGIN = '<!-- BEGIN GENERATED (scripts/gen-registry.mjs from frameworks/registry.mjs) - do not hand-edit below this line -->';
+const WHYNOT_END = '<!-- END GENERATED (scripts/gen-registry.mjs) -->';
 
 const read = (p) => readFileSync(p, 'utf8');
 
@@ -41,7 +42,7 @@ const escapePipes = (s) => String(s).replace(/\|/g, '\\|');
 // --- view 1: framework-catalog.md family tables -----------------------------
 function statusCell(e) {
   const tag = `\`[${e.status}]\``;
-  if (e.status === 'fold' && e.foldInto) return `${tag} -> ${displayName(e.foldInto)}`;
+  if (e.status === 'fold' && e.foldInto) return `${tag} -> ${escapePipes(displayName(e.foldInto))}`;
   if (e.status === 'recipe') return `${tag} (ships as a workflow)`;
   if (e.branded) return `${tag} (branded)`;
   return tag;
@@ -75,7 +76,7 @@ const WHYNOT_GROUPS = [
   {
     status: 'flag',
     heading: 'Documented, not shipped',
-    desc: 'Included only with explicit caveats - a trademark, a narrow valid range, or a false-precision warning. The IP gate is open (each is documented with proper attribution); the evidence and distinctness gates are not, so these stay out of the shippable set.',
+    desc: 'Included only with explicit caveats - a trademark, a narrow valid range, or a false-precision warning. The IP gate is open (branded methods are documented with attribution); the evidence and distinctness gates are not, so these stay out of the shippable set.',
   },
   {
     status: 'excl',
@@ -91,6 +92,9 @@ const WHYNOT_GROUPS = [
 
 function whyNotEntryLine(e) {
   let line = `- **${e.name}** - ${e.oneLine}.`;
+  // The fold link is valid only because foldInto resolves to a shipped skill (a real
+  // think-<slug>/ site route). That invariant is enforced by scripts/check-registry.mjs
+  // (foldInto -> shipped) in the required gate, not here.
   if (e.status === 'fold' && e.foldInto) {
     line += ` Folds into [${displayName(e.foldInto)}](../../frameworks/think-${e.foldInto}/).`;
   }
@@ -116,25 +120,24 @@ function renderWhyNotRegion() {
   return L.join('\n');
 }
 
-// --- splice helpers ---------------------------------------------------------
+// --- splice helper ----------------------------------------------------------
+// Replace the region between a unique BEGIN/END marker pair. Both views use this
+// (symmetric), so hand-authored content above BEGIN and below END is always preserved.
 function spliceBetween(text, begin, end, region, file) {
   const i = text.indexOf(begin);
   const j = text.indexOf(end);
   if (i < 0 || j < 0 || j < i) {
     throw new Error(`gen-registry: BEGIN/END markers not found (or out of order) in ${file}.`);
   }
+  if (text.indexOf(begin) !== text.lastIndexOf(begin) || text.indexOf(end) !== text.lastIndexOf(end)) {
+    throw new Error(`gen-registry: a generation marker appears more than once in ${file}; refusing to splice (would corrupt the file).`);
+  }
   return text.slice(0, i + begin.length) + '\n\n' + region + '\n\n' + text.slice(j);
-}
-
-function spliceBelow(text, begin, region, file) {
-  const i = text.indexOf(begin);
-  if (i < 0) throw new Error(`gen-registry: marker not found in ${file}.`);
-  return text.slice(0, i + begin.length) + '\n\n' + region + '\n';
 }
 
 // --- run --------------------------------------------------------------------
 const catalogOut = spliceBetween(read(CATALOG), CAT_BEGIN, CAT_END, renderCatalogRegion(), 'framework-catalog.md');
-const whyNotOut = spliceBelow(read(WHYNOT), WHYNOT_BEGIN, renderWhyNotRegion(), 'why-not.md');
+const whyNotOut = spliceBetween(read(WHYNOT), WHYNOT_BEGIN, WHYNOT_END, renderWhyNotRegion(), 'why-not.md');
 
 const targets = [
   { path: CATALOG, label: 'docs/internal/research/framework-catalog.md', out: catalogOut },
