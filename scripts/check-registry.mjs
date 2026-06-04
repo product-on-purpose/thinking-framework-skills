@@ -16,7 +16,10 @@
 //   5. IP lint   - branded -> non-empty attribution + trademark (SP9 enforcement).
 //   6. Eval coupling - every shipped entry's evalCases file exists, is a well-formed
 //                  cases doc (SP1 validateCasesDoc), and names no unknown think-* skills.
-//   7. Recommendable - the shipped registry slugs match the advisor's recommendable set.
+//   7. Tier consistency - each shipped entry's governing tier is one of the grades in its
+//                  SKILL.md evidence-tier, so the catalog grade cannot silently diverge from
+//                  the grade the skill (and the advisor + site) publish.
+//   8. Recommendable - the shipped registry slugs match the advisor's recommendable set.
 //
 // Zero-dependency; reuses scripts/lib/cases-lib.mjs (the SP1 source) for eval coupling.
 // =============================================================================
@@ -196,7 +199,26 @@ for (const e of fw) {
   if (unknown.length) fail(`eval: ${e.evalCases} names unknown think-* skills: ${unknown.join(', ')}.`);
 }
 
-// --- 7. Recommendable cross-check ------------------------------------------
+// --- 7. Tier consistency (shipped) -----------------------------------------
+// The registry records a single GOVERNING evidence tier; a shipped skill's SKILL.md
+// frontmatter may carry a compound grade (e.g. "M/P"). The registry tier must be one of
+// those grades. This closes the source-of-truth loop on the evidence grade itself (not
+// just the shipped slug set): the catalog grade cannot drift from the grade the skill,
+// the advisor's recommendable feed, and the site framework pages publish.
+for (const e of fw) {
+  if (e.status !== 'shipped') continue;
+  const skillMd = resolve(ROOT, 'skills', `think-${e.slug}`, 'SKILL.md');
+  if (!existsSync(skillMd)) continue; // missing dir already flagged by the referential check
+  const m = readFileSync(skillMd, 'utf8').match(/^\s*evidence-tier:\s*["']?([^"'\n]+)["']?\s*$/m);
+  if (!m) { fail(`tier: shipped ${e.slug} SKILL.md has no evidence-tier frontmatter.`); continue; }
+  const grade = m[1].trim();
+  const tokens = grade.split('/').map((s) => s.trim());
+  if (!tokens.includes(e.tier)) {
+    fail(`tier: ${e.slug} registry tier "${e.tier}" is not a grade in SKILL.md evidence-tier "${grade}".`);
+  }
+}
+
+// --- 8. Recommendable cross-check ------------------------------------------
 // The advisor's recommendable set must be exactly the registry's shipped frameworks.
 try {
   const reco = JSON.parse(readFileSync(resolve(ROOT, 'skills', ADVISOR_DIR, 'references', 'recommendable.json'), 'utf8'));
@@ -214,5 +236,5 @@ if (problems.length) {
   console.error('\nFix frameworks/registry.mjs (or regenerate views) and re-run.');
   process.exit(1);
 }
-console.log(`Registry conformance: OK (${fw.length} frameworks, ${shipped.size} shipped, schema + drift + referential + IP + eval + recommendable).`);
+console.log(`Registry conformance: OK (${fw.length} frameworks, ${shipped.size} shipped, schema + drift + referential + IP + eval + tier + recommendable).`);
 process.exit(0);
