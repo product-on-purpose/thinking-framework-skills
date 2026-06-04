@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/product-on-purpose/thinking-framework-skills/frameworks/registry.schema.json",
+  "title": "Framework registry",
+  "description": "The single source of truth for every evaluated thinking method (shipped or not). The catalog (docs/internal/research/framework-catalog.md), the advisor's recommendable set, and the public Framework Library are generated and drift-checked from this registry. Authored as frameworks/registry.mjs (a zero-dependency ES data module); this JSON Schema is the contract that scripts/check-registry.mjs enforces.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "seededDate", "families", "frameworks"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1,
+      "description": "Registry schema version. Bump on a breaking shape change."
+    },
+    "seededDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "ISO date the registry was seeded from the truthed-up catalog. The default evalDate for any entry that does not carry an explicit one."
+    },
+    "families": {
+      "type": "array",
+      "description": "The ordered catalog families (the 11-family universe taxonomy). Note: this is the catalog taxonomy, which differs by design from the live skill metadata.family slugs (those are a separate, coarser grouping the shipped skills + Astro site use).",
+      "minItems": 11,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slug", "name"],
+        "properties": {
+          "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "name": { "type": "string", "minLength": 1, "description": "Display (prose) family name used in the generated catalog headers." }
+        }
+      }
+    },
+    "frameworks": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/entry" }
+    }
+  },
+  "definitions": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slug", "name", "family", "tier", "status", "verdict", "oneLine", "reasoning"],
+      "properties": {
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Kebab method name, no think- prefix. Unique. For status: shipped, skills/think-<slug>/ must exist; for status: recipe, _workflows/think-<slug>.md must exist."
+        },
+        "name": { "type": "string", "minLength": 1, "description": "Display name." },
+        "family": {
+          "type": "string",
+          "enum": [
+            "perspective-shifting-and-multi-lens",
+            "divergent-ideation-and-idea-expansion",
+            "problem-framing-and-reframing",
+            "assumption-and-belief-challenge",
+            "risk-failure-and-resilience",
+            "systems-and-consequences",
+            "decision-and-option-evaluation",
+            "strategy-and-opportunity",
+            "synthesis-and-reasoning-clarity",
+            "facilitation-and-group-structures",
+            "meta-thinking-and-reflection"
+          ],
+          "description": "One of the 11 catalog family slugs; must also appear in the top-level families list (referential)."
+        },
+        "tier": {
+          "type": "string",
+          "enum": ["S", "M", "P", "V", "A", "C", "X"],
+          "description": "Honest evidence grade (governing grade, single value): S strong / M moderate / P practitioner / V vendor / A anecdotal / C conceptually-plausible-under-tested / X poor-or-contradictory (never ships)."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["shipped", "next", "recipe", "cand", "fold", "flag", "pm", "excl"],
+          "description": "shipped (a built skill) / next (strongest unbuilt) / recipe (ships as a _workflows chain, not a standalone skill) / cand (clears the bar, lower priority) / fold (subsumed by a shipped skill) / flag (include only with caveats) / pm (defer to pm-skills) / excl (excluded on the merits)."
+        },
+        "verdict": {
+          "type": "string",
+          "enum": ["build", "fold", "recipe", "reject", "shipped"],
+          "description": "The coarse vetting decision."
+        },
+        "evalDate": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+          "description": "ISO date the verdict was set or last confirmed. Optional: defaults to the registry's seededDate. Set explicitly only when an entry is re-vetted on a different date."
+        },
+        "oneLine": { "type": "string", "minLength": 1, "description": "One-line mechanism (the catalog Mechanism column)." },
+        "reasoning": { "type": "string", "minLength": 1, "description": "Why this status/verdict (the decisive rationale)." },
+        "foldInto": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Required when status or verdict is fold. A slug that must resolve to a status: shipped entry."
+        },
+        "evalCases": {
+          "type": "string",
+          "description": "skills/think-<slug>/eval/cases.md. Required when status: shipped (couples to the SP1 eval-case validator)."
+        },
+        "dossierPath": {
+          "type": "string",
+          "description": "frameworks/<slug>/dossier.md, or the literal 'pending'. Optional until SP4 (the Framework Library) lands. Any non-pending value must resolve to a real file."
+        },
+        "attribution": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Author/origin (e.g. 'Edward de Bono, 1985'). Required when branded is true."
+        },
+        "trademark": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Trademark / owner / license string. Required when branded is true (the SP9 IP lint)."
+        },
+        "branded": {
+          "type": "boolean",
+          "description": "True for IP / trademarked / proprietary frameworks. Opening the IP gate (SP9) does not lower the evidence gate."
+        },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Other names so search and dedupe catch synonyms."
+        },
+        "sources": {
+          "type": "array",
+          "description": "Bibliography seed for the dossier.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title", "url"],
+            "properties": {
+              "title": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "minLength": 1 },
+              "kind": { "type": "string" }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "fold" } } },
+          "then": { "required": ["foldInto"] }
+        },
+        {
+          "if": { "properties": { "verdict": { "const": "fold" } } },
+          "then": { "required": ["foldInto"] }
+        },
+        {
+          "if": { "properties": { "status": { "const": "shipped" } } },
+          "then": { "required": ["evalCases"] }
+        },
+        {
+          "if": { "properties": { "branded": { "const": true } } },
+          "then": { "required": ["attribution", "trademark"] }
+        }
+      ]
+    }
+  }
+}
