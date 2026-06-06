@@ -48,7 +48,9 @@
       { "name": "think-linear-model-aggregation", "path": "skills/think-linear-model-aggregation/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "think-belief-update-routine", "path": "skills/think-belief-update-routine/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
       { "name": "think-framework-advisor", "path": "skills/think-framework-advisor/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
-      { "name": "think-research-framework", "path": "skills/think-research-framework/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
+      { "name": "think-research-framework", "path": "skills/think-research-framework/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "think-top3", "path": "skills/think-top3/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" },
+      { "name": "think-random-frameworks", "path": "skills/think-random-frameworks/SKILL.md", "version": "0.1.0", "tier": "universal", "status": "active" }
     ],
     "subagents": [
       { "name": "think-research-framework", "path": "agents/think-research-framework.md", "version": "0.1.0", "tier": "convergent", "status": "active" }

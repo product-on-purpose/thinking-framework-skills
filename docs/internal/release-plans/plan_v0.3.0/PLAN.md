@@ -4,7 +4,7 @@
 
 ## Where this came from
 
-After v0.2.1 shipped (the docs-site conformance arc), the maintainer delivered a single large batch of feedback: keep a master list of every framework evaluated; give each framework a long-form learning dossier (even the rejected ones, with reasoning); add a `research-framework` engine to produce those; expand the catalog; add two "apply frameworks to my topic" skills (`think-top3`, `think-random-perspectives`); and open the door to branded/IP frameworks with proper attribution. Plus an explicit build order: ship the eval runner + corpus enrichment as a paired "advisor credibility" milestone (v0.3.0), then grow the catalog, and write specs/plans for the rest.
+After v0.2.1 shipped (the docs-site conformance arc), the maintainer delivered a single large batch of feedback: keep a master list of every framework evaluated; give each framework a long-form learning dossier (even the rejected ones, with reasoning); add a `research-framework` engine to produce those; expand the catalog; add two "apply frameworks to my topic" skills (`think-top3`, `think-random-frameworks`); and open the door to branded/IP frameworks with proper attribution. Plus an explicit build order: ship the eval runner + corpus enrichment as a paired "advisor credibility" milestone (v0.3.0), then grow the catalog, and write specs/plans for the rest.
 
 A prior multi-agent analysis of the catalog (recorded in session history) established the priority: **do not add a 35th skill first** - the highest-leverage move is making the `think-framework-advisor`'s central, self-graded-unvalidated routing claim real. This plan executes that, then builds the platform the maintainer's feedback describes.
 
@@ -19,7 +19,7 @@ DOCS        frameworks/<slug>/dossier.md       long-form learning, published + i
               (status header generated from the registry; body hand/agent-written)
 ENGINE      research-framework subagent + command   researches, writes dossier, proposes entry  [SP5]
 SKILLS      think-framework-advisor (reads enriched corpus; role unchanged)
-              applicator engine -> think-top3 (rank+apply) + think-random-perspectives (random+apply)  [SP7/8]
+              applicator engine -> think-top3 (rank+apply) + think-random-frameworks (random+apply)  [SP7/8]
               think-belief-update-routine + Fishbone vetting slot  [SP2]
 POLICY      IP: document all + TM-annotate; ship as a skill only if evidence + distinctness clear  [SP9]
 CREDIBILITY (build first) behavioral eval runner + corpus signal enrichment -> v0.3.0  [SP1]
@@ -29,7 +29,7 @@ Decisions locked with the maintainer (2026-06-03):
 - **Data model:** registry-as-source-of-truth (YAML), with strong CI around it. Generated views, never hand-maintained copies.
 - **Docs home:** a published Framework Library on the Astro site, also accessible in-repo as markdown, including honest rejected-with-reasoning entries.
 - **IP policy:** open the IP gate, keep the evidence gate. Document every framework (TM-annotated); ship as a skill only if it independently clears evidence + distinctness.
-- **Apply-skills:** one shared applicator engine over the recommendable corpus; two thin user-facing skills (`think-top3`, `think-random-perspectives`).
+- **Apply-skills:** one shared applicator engine over the recommendable corpus; two thin user-facing skills (`think-top3`, `think-random-frameworks`).
 - **research-framework:** a subagent fronted by a thin command (recommended; confirm at its spec).
 
 ## Workstream decomposition
@@ -43,7 +43,7 @@ Decisions locked with the maintainer (2026-06-03):
 | SP4 | Published Framework Library dossiers (per-framework) | docs | L | SP3, SP5 |
 | SP6 | Catalog expansion (discover + evaluate new candidates) | research | M | SP5 |
 | SP7 | `think-top3` (rank + apply 3 most relevant) | skill | M | SP1 |
-| SP8 | `think-random-perspectives` (random + apply 3) | skill | S | SP7 |
+| SP8 | `think-random-frameworks` (random + apply 3) | skill | S | SP7 |
 | SP2 | `think-belief-update-routine` + Fishbone-led vetting slot | catalog | M | (registry helps) |
 
 Each sub-project gets its own spec -> implementation plan -> build -> conformance-green -> PR. SP1 is specced in this folder (`spec-sp1-advisor-credibility.md`) and built first.

@@ -38,7 +38,7 @@ const ADVISOR_DIR = 'think-framework-advisor'; // the meta-router skill: a skill
 // Meta-skills are skill dirs that are NOT framework methods, so they carry no registry entry and
 // are exempt from the "every think-* skill dir has a shipped entry" referential check. The advisor
 // (the router) and think-research-framework (the SP5 research engine) are both meta-skills.
-const META_SKILLS = new Set([ADVISOR_DIR, 'think-research-framework']);
+const META_SKILLS = new Set([ADVISOR_DIR, 'think-research-framework', 'think-top3', 'think-random-frameworks']);
 
 const problems = [];
 const fail = (msg) => problems.push(msg);

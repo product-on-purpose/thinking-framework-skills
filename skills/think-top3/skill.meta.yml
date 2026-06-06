@@ -1,0 +1,75 @@
+# Rich sidecar for the think-top3 skill.
+# DRAFT shape (see skills/think-premortem/skill.meta.yml). This is a meta/applicator skill over
+# the recommendable corpus, not a framework method, so it carries no registry entry (it is exempt
+# in scripts/check-registry.mjs and excluded from the recommendable set, like the advisor).
+# The select-apply-synthesize logic lives in the shared references/engine.md (mode: RANK).
+
+identity:
+  id: thinking-framework-skills.top3
+  slug: top3
+  name: think-top3        # installable name (matches the skill directory)
+  display_name: Top 3
+  version: 0.1.0
+  status: experimental    # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: meta-thinking-and-reflection
+  secondary_families: []     # selects across all families; not a member of one
+  role: applicator           # applies frameworks from the corpus; distinct from executor + router
+  thinking_modes: [diagnostic, integrative, multi-lens]
+  problem_contexts: [multi-lens-decision, worked-output-now]
+  use_cases:
+    - rank the most relevant frameworks for a topic and apply the top three
+    - emit each framework's real artifact, not a recommendation to run it
+    - reconcile the three into one cross-framework synthesis
+  poor_fit_cases:
+    - the problem needs one move or none (route to think-framework-advisor)
+    - the user already knows the single method they want (run it directly)
+    - a curated, sequence-checked recipe fits the job
+    - the user wants unexpected, off-fit lenses (route to think-random-frameworks)
+
+interface:
+  required_inputs:
+    - a described decision, problem, or stuck point
+  optional_inputs:
+    - stated stakes, constraints, or prior framings
+  primary_artifact_type: applied-framework-set
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: false
+  engine: references/engine.md   # shared applicator engine, RANK mode
+  reads_corpus: skills/think-framework-advisor/references/recommendable.json
+  likely_companions: [think-framework-advisor]
+
+relationships:
+  often_follows: [think-framework-advisor]
+  often_precedes: []
+  complements: [think-framework-advisor]
+  overlaps_with: [think-random-frameworks]   # walled on the selection axis (fit vs anti-fit)
+  variants: [think-random-frameworks]
+
+quality:
+  trigger_eval_status: authored   # see eval/cases.md
+  output_eval_status: authored
+  known_failure_modes:
+    - manufacturing three frameworks on a problem that needs one or none
+    - stopping at recommendation instead of applying each framework
+    - treating three agreeing frameworks as three independent confirmations (tier inflation)
+    - collapsing into "advisor plus auto-run" with no real cross-synthesis
+
+evidence:
+  evidence_tier: "C"               # the ranking + fixed-three-then-synthesize contract is untested
+  transferred_evidence: true       # value rides on the applied frameworks' own (carried) tiers
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-top3/SKILL.md
+  engine_path: skills/think-top3/references/engine.md
+  references_path: skills/think-top3/references/
+  evidence_path: skills/think-top3/evidence/dossier.md
+  evals_path: skills/think-top3/eval/
