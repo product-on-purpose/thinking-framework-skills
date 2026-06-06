@@ -69,5 +69,8 @@ const evalCases = spawnSync('node', [resolve(ROOT, 'scripts', 'eval-cases.mjs'),
 console.log('\nRunning registry conformance check (scripts/check-registry.mjs)\n');
 const registry = spawnSync('node', [resolve(ROOT, 'scripts', 'check-registry.mjs'), ROOT], { stdio: 'inherit' });
 
+console.log('\nRunning engine-copy drift check (scripts/gen-engine.mjs --check)\n');
+const engine = spawnSync('node', [resolve(ROOT, 'scripts', 'gen-engine.mjs'), '--check'], { stdio: 'inherit' });
+
 // Fail if any layer failed; all run so contributors see all problems at once.
-process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1));
+process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1));

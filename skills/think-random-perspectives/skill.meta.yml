@@ -1,0 +1,76 @@
+# Rich sidecar for the think-random-perspectives skill.
+# DRAFT shape (see skills/think-premortem/skill.meta.yml). This is a meta/applicator skill over
+# the recommendable corpus, not a framework method, so it carries no registry entry (it is exempt
+# in scripts/check-registry.mjs and excluded from the recommendable set, like the advisor).
+# The select-apply-harvest logic lives in the shared references/engine.md (mode: RANDOM), a
+# byte-identical generated copy of skills/think-top3/references/engine.md (scripts/gen-engine.mjs).
+
+identity:
+  id: thinking-framework-skills.random-perspectives
+  slug: random-perspectives
+  name: think-random-perspectives        # installable name (matches the skill directory)
+  display_name: Random Perspectives
+  version: 0.1.0
+  status: experimental    # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: meta-thinking-and-reflection
+  secondary_families: []     # draws across all families; not a member of one
+  role: applicator           # applies frameworks from the corpus; distinct from executor + router
+  thinking_modes: [divergent, fixation-breaking, exploratory]
+  problem_contexts: [frozen-framing, fixation, early-exploration]
+  use_cases:
+    - draw three frameworks at random and apply each regardless of fit
+    - force off-pattern lenses to dislodge a stuck framing
+    - harvest the non-obvious angles a fitted analysis would miss
+  poor_fit_cases:
+    - a real, stakes-bearing, irreversible decision (use a fit-first path)
+    - the user is not actually stuck or fixated
+    - a single random-stimulus move would do (think-far-analogy-ideation)
+    - a fixed-lens rotation inside one method is wanted (think-parallel-perspectives-review)
+
+interface:
+  required_inputs:
+    - a described topic or frozen framing
+  optional_inputs:
+    - a seed word or number for a reproducible draw
+  primary_artifact_type: applied-framework-set
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: false
+  engine: references/engine.md   # shared applicator engine, RANDOM mode (generated copy)
+  reads_corpus: skills/think-framework-advisor/references/recommendable.json
+  likely_companions: [think-top3, think-framework-advisor]
+
+relationships:
+  often_follows: []
+  often_precedes: [think-framework-advisor, think-top3]   # reframe first, then route or rank
+  complements: [think-far-analogy-ideation, think-assumption-reversal]
+  overlaps_with: [think-top3]                 # walled on the selection axis (anti-fit vs fit)
+  variants: [think-top3]
+
+quality:
+  trigger_eval_status: authored   # see eval/cases.md
+  output_eval_status: authored
+  known_failure_modes:
+    - quietly fitting the draw to the topic instead of staying random
+    - swapping out a poor-fit framework instead of applying it as a fixation-breaker
+    - presenting the random set as a fitted recommendation to act on
+    - colliding with think-parallel-perspectives-review (fixed lenses in one method)
+
+evidence:
+  evidence_tier: "C"               # whole-framework random rotation is novel and unmeasured
+  transferred_evidence: true       # rides on random-stimulus creativity practice + carried tiers
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-random-perspectives/SKILL.md
+  engine_path: skills/think-random-perspectives/references/engine.md
+  references_path: skills/think-random-perspectives/references/
+  evidence_path: skills/think-random-perspectives/evidence/dossier.md
+  evals_path: skills/think-random-perspectives/eval/
