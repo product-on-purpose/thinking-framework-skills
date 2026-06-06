@@ -160,6 +160,11 @@
       "description": "Produces a reference-class estimate by defining a class of similar past cases, taking their base-rate distribution of outcomes, and anchoring the forecast on that outside view rather than the optimistic inside view, with a conservative adjustment for specifics. Use when forecasting cost, time, or odds of success for a project prone to optimism or the planning fallacy."
     },
     {
+      "name": "think-research-framework",
+      "path": "skills/think-research-framework/SKILL.md",
+      "description": "Researches a thinking framework end to end and produces a schema-valid proposed registry entry plus a learning dossier, grading the evidence on the seven-tier model and assessing overlap against the shipped catalog. Use when you need an honest evidence grade and a build-or-fold verdict for a candidate method before turning it into a skill, when reproducing the evidence-and-overlap vetting on a method the catalog already judged, or when you need a ranked shortlist of new candidate methods in a family."
+    },
+    {
       "name": "think-scamper",
       "path": "skills/think-scamper/SKILL.md",
       "description": "Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adapt, modify, put to other use, eliminate, reverse), then shortlists the most promising, producing an expansion sheet. Use when you have a seed idea and need to break past the obvious options; not for blank-page ideation."
@@ -180,5 +185,12 @@
       "description": "Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and binding an if-then response to it. Use when a goal is already chosen but follow-through keeps failing, or to close the gap between intention and action."
     }
   ],
-  "commands": []
+  "commands": [
+    {
+      "name": "think-research-framework",
+      "path": "commands/think-research-framework.md",
+      "description": "Research a thinking framework and produce its evidence-graded dossier plus a schema-valid proposed registry entry, or discover candidate methods in a family. Use to vet a method before building it into a skill, reproduce the evidence-and-overlap vetting, or shortlist new candidates.",
+      "mapsTo": "think-research-framework"
+    }
+  ]
 }

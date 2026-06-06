@@ -1,9 +1,18 @@
 # SP5 spec: the `research-framework` engine (subagent + command) + its prompts
 
-> **STATUS: SPEC, pending maintainer review.** Part of [`PLAN.md`](./PLAN.md). The engine that
+> **STATUS: IMPLEMENTED (PR pending).** Part of [`PLAN.md`](./PLAN.md). The engine that
 > populates [`spec-sp4-framework-library.md`](./spec-sp4-framework-library.md) (dossiers) and proposes
 > entries for [`spec-sp3-registry.md`](./spec-sp3-registry.md) (the registry). Codifies the 2026-06-03
 > multi-agent vetting workflow (evidence + overlap + judge) into a reusable, repeatable engine.
+>
+> **As-built note (canonical names).** The embedded prompt blocks below were drafted before SP3 landed
+> and still say `registry.yaml` and the unprefixed `research-framework`. The shipped artifacts use
+> `frameworks/registry.mjs` (a zero-dependency `.mjs` module, not YAML) and carry the toolkit-required
+> `think-` prefix on all three components: `agents/think-research-framework.md`,
+> `commands/think-research-framework.md`, and the backing meta-skill `skills/think-research-framework/`.
+> A command must map to a skill (toolkit check S7), so the engine is command -> backing skill ->
+> subagent. The dossier for a not-yet-shipped method is staged under `frameworks/_proposed/<slug>/`
+> (exempt from the registry completeness check) until a human admits its entry.
 
 ## Why
 

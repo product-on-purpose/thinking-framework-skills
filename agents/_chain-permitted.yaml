@@ -3,9 +3,9 @@
 # This file declares permitted component-to-component (frontmatter `chain:`) invocations
 # as a map of caller-name -> [allowed callee-names].
 #
-# This library uses NO frontmatter `chain:` invocations and ships no subagents, so there
-# are no permitted chains to declare. The `_workflows/` recipes compose skills via their
-# `steps:` lists, which are validated by S5 (workflow-skills), not by this contract. The
-# map is therefore intentionally empty. Add entries here only if a component or subagent
-# later declares a `chain:` invocation.
+# This library ships one subagent (think-research-framework). The think-research-framework skill
+# invokes it at runtime via the Task tool (a runtime dispatch, not a declared frontmatter `chain:`),
+# so there is no declared chain edge to permit and the map is intentionally empty. The `_workflows/`
+# recipes compose skills via their `steps:` lists, validated by S5 (workflow-skills), not by this
+# contract. Add an entry here only if a component or subagent later declares a frontmatter `chain:`.
 {}
