@@ -66,9 +66,13 @@ function stripQuotes(s) {
 const lib = JSON.parse(readFileSync(join(ROOT, 'library.json'), 'utf8'));
 // The name universe for overlap detection: every registered skill name.
 const allSkillNames = new Set(lib.components.skills.map((c) => c.name));
+// Meta-skills are not framework methods and must never enter the recommendable corpus (else the
+// advisor could recommend a tool as a framework, and the registry cross-check would see a
+// recommendable slug with no shipped entry). The advisor and the research engine are meta-skills.
+const META_SKILLS = new Set(['think-framework-advisor', 'think-research-framework']);
 const skills = [];
 for (const c of lib.components.skills) {
-  if (c.name === 'think-framework-advisor') continue; // the advisor never recommends itself
+  if (META_SKILLS.has(c.name)) continue; // meta-skills never enter the recommendable corpus
   const skillText = readFileSync(join(ROOT, c.path), 'utf8');
   const fm = readFrontmatter(skillText);
   const meta = fm.metadata || {};

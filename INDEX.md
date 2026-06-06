@@ -8,7 +8,7 @@
 
 ## Components
 
-### Skills (35)
+### Skills (36)
 
 - [`think-abstraction-laddering`](skills/think-abstraction-laddering/) - Builds an abstraction ladder that moves a problem up ("why / to what end?") and down ("how / what specifically?") to locate the right altitude to work at, then marks one rung as the working level. Use when a problem is stated as a bare solution with an unstated purpose, as a vague aspiration with no concrete handle, when people are arguing past each other at different levels, or before committing effort at an altitude nobody chose on purpose.
 - [`think-affinity-mapping`](skills/think-affinity-mapping/) - Produces a clustered theme map that groups many raw notes, observations, quotes, or data points bottom-up into a small set of named, traceable themes (the KJ method). Use when a scattered pile of dozens to hundreds of existing items needs to become a few emergent themes, such as synthesizing user-research notes, support tickets, survey free-text, or retro stickies, and the right structure should emerge from the data rather than be imposed.
@@ -41,18 +41,19 @@
 - [`think-question-burst`](skills/think-question-burst/) - Generates a rapid burst of questions about a problem (questions only, no answers), then ranks them for which would most change the approach and selects the single most catalytic one to pursue, producing a ranked question set. Use when you are stuck, too attached to one framing, or need a better question before answering.
 - [`think-red-team-light`](skills/think-red-team-light/) - Produces an adversarial critique by constructing the strongest case against a proposal or thesis (the best objections an intelligent adversary would raise), then judging which objections actually land and what would rebut them. Use when a plan has too-easy consensus and needs pressure-testing, or to steelman the opposition before committing.
 - [`think-reference-class-forecasting`](skills/think-reference-class-forecasting/) - Produces a reference-class estimate by defining a class of similar past cases, taking their base-rate distribution of outcomes, and anchoring the forecast on that outside view rather than the optimistic inside view, with a conservative adjustment for specifics. Use when forecasting cost, time, or odds of success for a project prone to optimism or the planning fallacy.
+- [`think-research-framework`](skills/think-research-framework/) - Researches a thinking framework end to end and produces a schema-valid proposed registry entry plus a learning dossier, grading the evidence on the seven-tier model and assessing overlap against the shipped catalog. Use when you need an honest evidence grade and a build-or-fold verdict for a candidate method before turning it into a skill, when reproducing the evidence-and-overlap vetting on a method the catalog already judged, or when you need a ranked shortlist of new candidate methods in a family.
 - [`think-scamper`](skills/think-scamper/) - Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adapt, modify, put to other use, eliminate, reverse), then shortlists the most promising, producing an expansion sheet. Use when you have a seed idea and need to break past the obvious options; not for blank-page ideation.
 - [`think-stocks-and-flows-reasoning`](skills/think-stocks-and-flows-reasoning/) - Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory from the net flow rather than the direction of any single flow. Use when a problem involves an accumulation (cash, debt, backlog, headcount, customer base, technical debt, emissions) and intuition about whether it is rising or falling may be wrong.
 - [`think-what-would-have-to-be-true`](skills/think-what-would-have-to-be-true/) - Converts a strategy, option, or contested claim into the specific conditions that would have to be true for it to be the best choice, rates each condition's confidence, and identifies which load-bearing assumptions to test first, producing an assumption ledger. Use when evaluating a strategic bet, or when a disagreement has become a clash of opinions rather than evidence.
 - [`think-woop`](skills/think-woop/) - Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and binding an if-then response to it. Use when a goal is already chosen but follow-through keeps failing, or to close the gap between intention and action.
 
-### Subagents (0, Claude-only)
+### Subagents (1, Claude-only)
 
-- none
+- [`think-research-framework`](agents/think-research-framework.md) - Researches a named thinking method, grades its evidence honestly on the seven-tier model, assesses overlap against the shipped catalog, drafts its learning dossier, and emits a schema-valid proposed registry entry for human review. Use for bounded framework research or a "discover N candidates in family X" brief. Triggers on "research framework", "grade this method", "evidence dossier", "discover candidates".
 
-### Commands (0)
+### Commands (1)
 
-- none
+- [`/think-research-framework`](commands/think-research-framework.md) - Research a thinking framework and produce its evidence-graded dossier plus a schema-valid proposed registry entry, or discover candidate methods in a family. Use to vet a method before building it into a skill, reproduce the evidence-and-overlap vetting, or shortlist new candidates.
 
 ## Manifests
 

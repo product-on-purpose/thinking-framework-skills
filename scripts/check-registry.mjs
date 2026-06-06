@@ -30,10 +30,15 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import registry from '../frameworks/registry.mjs';
 import { validateCasesDoc, findUnknownThinkNames } from './lib/cases-lib.mjs';
+import { validateEntry } from './lib/registry-entry-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..'); // cwd-independent; the script and registry share a checkout
-const ADVISOR_DIR = 'think-framework-advisor'; // the meta-skill: a skill dir but not a framework entry
+const ADVISOR_DIR = 'think-framework-advisor'; // the meta-router skill: a skill dir but not a framework entry
+// Meta-skills are skill dirs that are NOT framework methods, so they carry no registry entry and
+// are exempt from the "every think-* skill dir has a shipped entry" referential check. The advisor
+// (the router) and think-research-framework (the SP5 research engine) are both meta-skills.
+const META_SKILLS = new Set([ADVISOR_DIR, 'think-research-framework']);
 
 const problems = [];
 const fail = (msg) => problems.push(msg);
@@ -42,12 +47,9 @@ const schema = JSON.parse(readFileSync(resolve(ROOT, 'frameworks', 'registry.sch
 const fw = registry.frameworks ?? [];
 
 // --- 1. Schema validation ---------------------------------------------------
-// Enums + required come from the schema (single source of truth); the few
-// conditionals below mirror the schema's allOf if/then blocks.
-const entrySchema = schema.definitions.entry;
-const entryProps = entrySchema.properties;
-const allowedKeys = new Set(Object.keys(entryProps));
-const enumOf = (k) => entryProps[k]?.enum ?? null;
+// Per-entry schema conformance is delegated to the shared, zero-dep
+// scripts/lib/registry-entry-lib.mjs (the same logic the SP5 proposed-entry validator uses,
+// so there is exactly one copy of the rules). Cross-entry slug uniqueness stays here.
 
 if (registry.version !== schema.properties.version.const) {
   fail(`schema: top-level version must be ${schema.properties.version.const} (got ${registry.version}).`);
@@ -76,48 +78,11 @@ if (!Array.isArray(fw) || fw.length < 1) fail('schema: frameworks must be a non-
 
 const seenSlugs = new Set();
 for (const e of fw) {
-  const at = e.slug ? `entry "${e.slug}"` : `entry ${JSON.stringify(e.name ?? e)}`;
-  // required
-  for (const req of entrySchema.required) {
-    if (e[req] === undefined || e[req] === null || e[req] === '') fail(`schema: ${at} missing required field "${req}".`);
-  }
-  // unknown keys (additionalProperties: false)
-  for (const k of Object.keys(e)) {
-    if (!allowedKeys.has(k)) fail(`schema: ${at} has unknown field "${k}".`);
-  }
-  // enums
-  for (const k of ['family', 'tier', 'status', 'verdict']) {
-    const allowed = enumOf(k);
-    if (allowed && e[k] !== undefined && !allowed.includes(e[k])) {
-      fail(`schema: ${at} field "${k}" = ${JSON.stringify(e[k])} is not one of ${allowed.join('/')}.`);
-    }
-  }
-  // types (schema-driven: string / boolean / array) + non-empty for minLength strings
-  for (const k of Object.keys(e)) {
-    const t = entryProps[k]?.type;
-    if (!t) continue; // unknown key already flagged above
-    if (t === 'string' && typeof e[k] !== 'string') fail(`schema: ${at} field "${k}" must be a string.`);
-    else if (t === 'boolean' && typeof e[k] !== 'boolean') fail(`schema: ${at} field "${k}" must be a boolean.`);
-    else if (t === 'array' && !Array.isArray(e[k])) fail(`schema: ${at} field "${k}" must be an array.`);
-    if (t === 'string' && typeof e[k] === 'string' && entryProps[k].minLength && e[k].length < entryProps[k].minLength) {
-      fail(`schema: ${at} field "${k}" must be non-empty.`);
-    }
-  }
-  // slug shape + uniqueness
-  if (e.slug && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(e.slug)) fail(`schema: ${at} slug is not kebab-case.`);
+  for (const p of validateEntry(e, schema)) fail(p);
+  // cross-entry: slug uniqueness (not in the single-entry lib)
   if (e.slug) {
     if (seenSlugs.has(e.slug)) fail(`schema: duplicate slug "${e.slug}".`);
     seenSlugs.add(e.slug);
-  }
-  if (e.evalDate !== undefined && !/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(e.evalDate)) {
-    fail(`schema: ${at} evalDate must be an ISO date (got ${JSON.stringify(e.evalDate)}).`);
-  }
-  // conditionals (mirror registry.schema.json allOf)
-  if ((e.status === 'fold' || e.verdict === 'fold') && !e.foldInto) fail(`schema: ${at} is a fold but has no foldInto.`);
-  if (e.status === 'shipped' && !e.evalCases) fail(`schema: ${at} is shipped but has no evalCases.`);
-  if (e.branded === true) {
-    if (!e.attribution) fail(`schema/IP: ${at} is branded but has no attribution.`);
-    if (!e.trademark) fail(`schema/IP: ${at} is branded but has no trademark.`);
   }
 }
 
@@ -159,7 +124,7 @@ for (const e of fw) {
 
 // no skill dir without a shipped entry (advisor exempt)
 for (const dir of readdirSync(resolve(ROOT, 'skills'))) {
-  if (!dir.startsWith('think-') || dir === ADVISOR_DIR) continue;
+  if (!dir.startsWith('think-') || META_SKILLS.has(dir)) continue;
   const slug = dir.replace(/^think-/, '');
   if (!shipped.has(slug)) fail(`ref: skills/${dir}/ has no matching shipped registry entry (slug "${slug}").`);
 }
