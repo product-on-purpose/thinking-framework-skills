@@ -11,8 +11,8 @@ A compressed worked run. The real artifacts would be fully filled from each fram
 | # | Framework | Why it ranked | Tier |
 |---|---|---|---|
 | 1 | think-one-way-vs-two-way-door | The topic flags irreversibility ("hard to reverse once migrated"); the dominant job is calibrating how much rigor the decision deserves | P |
-| 2 | think-premortem | A stakes-bearing, contested call with a real downside; surfacing failure modes before committing is a direct fit | M/P |
-| 3 | think-decision-option-review | The team is split across options (sunset, keep, restructure); a structured option comparison does a distinct job from the other two | M |
+| 2 | think-premortem | A stakes-bearing, contested call with a real downside; surfacing failure modes before committing is a direct fit | S/M |
+| 3 | think-decision-option-review | The team is split across options (sunset, keep, restructure); a structured option comparison does a distinct job from the other two | P |
 
 > Recipe note: the stress-test-decision recipe also fits a chosen option; here no option is chosen yet, so the three individual frameworks are used instead.
 
@@ -33,4 +33,4 @@ Options scored against weighted criteria (revenue lift, churn risk, reversibilit
 - **Load-bearing conclusion:** the decision hinges on one untested belief - that free users convert rather than churn - and there is a reversible way to test it before the one-way move.
 - **Next move:** run a time-boxed trial-tier pilot for new signups, instrument conversion vs churn, and revisit the full sunset with real data.
 
-> Tiers carried honestly: P, M/P, M. The ranking and the fixed-three contract are tier C; the per-framework conclusions carry the frameworks' own tiers.
+> Tiers carried honestly: P, S/M, P. The ranking and the fixed-three contract are tier C; the per-framework conclusions carry the frameworks' own tiers.

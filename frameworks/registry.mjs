@@ -261,7 +261,7 @@ export default {
       verdict: 'fold',
       foldInto: 'far-analogy-ideation',
       oneLine: 'pair the problem with an unrelated stimulus',
-      reasoning: 'Subsumed: a mode of far-analogy ideation.',
+      reasoning: 'Subsumed as a thinking method: a single unrelated stimulus is a mode of far-analogy ideation. This fold is about the single-stimulus METHOD; it is distinct from the think-random-frameworks meta-skill (an applicator that draws whole frameworks at random and applies each), which imports complete analytical apparatuses rather than injecting one provocation.',
       aliases: ['Random stimulus', 'Random entry'],
     },
     {

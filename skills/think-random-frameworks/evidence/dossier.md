@@ -1,5 +1,5 @@
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
-# Evidence dossier: think-random-perspectives
+# Evidence dossier: think-random-frameworks
 
 ## What it is
 A meta-skill that draws three frameworks at random from the shipped corpus, applies each to the topic regardless of fit, and harvests the non-obvious angles the off-pattern lenses expose. It is an applicator over the corpus, not a thinking method, and it is the deliberate inverse of relevance ranking.
@@ -19,3 +19,6 @@ Honest tier: **C** (conceptually plausible, under-tested). The output is explici
 
 ## Lineage and who to read
 The lineage is the random-stimulus and forced-connection family of lateral-thinking and creativity practice (deliberately introducing unrelated input to break a fixed pattern). The library already ships single-stimulus moves (far-analogy ideation, assumption reversal); this skill is the meta-level rotation of whole frameworks, walled against those single-move siblings and against the fixed-lens rotation of parallel-perspectives-review.
+
+## Relation to the catalog fold
+The framework catalog folds the single-stimulus forced-connection method into far-analogy-ideation (registry slug `forced-connections`, status fold). This skill deliberately does NOT re-introduce that folded method, and the distinction is the reason it can ship without overturning the fold. The folded method injects ONE unrelated stimulus and is a mode of far-analogy ideation. This skill rotates THREE whole frameworks at random and applies each, where each framework is a complete analytical apparatus that emits its own artifact. Importing a full structured procedure is distinct in kind from a single provocation, so this ships as an applicator meta-skill (no framework registry entry of its own), not as a re-add of the folded single-stimulus method. The registry entry for `forced-connections` records the same distinction.

@@ -27,7 +27,7 @@ classification:
     - the problem needs one move or none (route to think-framework-advisor)
     - the user already knows the single method they want (run it directly)
     - a curated, sequence-checked recipe fits the job
-    - the user wants unexpected, off-fit lenses (route to think-random-perspectives)
+    - the user wants unexpected, off-fit lenses (route to think-random-frameworks)
 
 interface:
   required_inputs:
@@ -49,8 +49,8 @@ relationships:
   often_follows: [think-framework-advisor]
   often_precedes: []
   complements: [think-framework-advisor]
-  overlaps_with: [think-random-perspectives]   # walled on the selection axis (fit vs anti-fit)
-  variants: [think-random-perspectives]
+  overlaps_with: [think-random-frameworks]   # walled on the selection axis (fit vs anti-fit)
+  variants: [think-random-frameworks]
 
 quality:
   trigger_eval_status: authored   # see eval/cases.md

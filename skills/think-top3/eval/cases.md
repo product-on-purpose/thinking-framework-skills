@@ -12,7 +12,7 @@
 ## Should NOT trigger (wrong tool / near-miss)
 
 - "Which thinking method should I even use here? Just tell me what to do next." (near-miss: routing and recommendation only, which is `think-framework-advisor`; it subtracts and hands off, it does not apply)
-- "I am stuck in the same framing. Hit me with three unexpected lenses to break out of it." (near-miss: anti-fit fixation-breaking, which is `think-random-perspectives`)
+- "I am stuck in the same framing. Hit me with three unexpected lenses to break out of it." (near-miss: anti-fit fixation-breaking, which is `think-random-frameworks`)
 - "I already know I want a premortem on this." (single known method, run `think-premortem` directly)
 - "I have a decision already chosen among compared options and want to pressure-test it before committing." (a curated chain fits, use the stress-test-decision recipe, not an ad-hoc set)
 - "Summarize what the team shipped this sprint." (not a thinking task)

@@ -53,7 +53,7 @@
 /frameworks/think-problem-restatement/index.html
 /frameworks/think-pyramid-principle/index.html
 /frameworks/think-question-burst/index.html
-/frameworks/think-random-perspectives/index.html
+/frameworks/think-random-frameworks/index.html
 /frameworks/think-red-team-light/index.html
 /frameworks/think-reference-class-forecasting/index.html
 /frameworks/think-research-framework/index.html

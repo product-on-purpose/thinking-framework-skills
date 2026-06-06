@@ -1,4 +1,4 @@
-# Rich sidecar for the think-random-perspectives skill.
+# Rich sidecar for the think-random-frameworks skill.
 # DRAFT shape (see skills/think-premortem/skill.meta.yml). This is a meta/applicator skill over
 # the recommendable corpus, not a framework method, so it carries no registry entry (it is exempt
 # in scripts/check-registry.mjs and excluded from the recommendable set, like the advisor).
@@ -6,10 +6,10 @@
 # byte-identical generated copy of skills/think-top3/references/engine.md (scripts/gen-engine.mjs).
 
 identity:
-  id: thinking-framework-skills.random-perspectives
-  slug: random-perspectives
-  name: think-random-perspectives        # installable name (matches the skill directory)
-  display_name: Random Perspectives
+  id: thinking-framework-skills.random-frameworks
+  slug: random-frameworks
+  name: think-random-frameworks        # installable name (matches the skill directory)
+  display_name: Random Frameworks
   version: 0.1.0
   status: experimental    # draft | experimental | active | deprecated | archived
   maturity: alpha
@@ -69,8 +69,8 @@ evidence:
   trademark: none
 
 implementation:
-  skill_path: skills/think-random-perspectives/SKILL.md
-  engine_path: skills/think-random-perspectives/references/engine.md
-  references_path: skills/think-random-perspectives/references/
-  evidence_path: skills/think-random-perspectives/evidence/dossier.md
-  evals_path: skills/think-random-perspectives/eval/
+  skill_path: skills/think-random-frameworks/SKILL.md
+  engine_path: skills/think-random-frameworks/references/engine.md
+  references_path: skills/think-random-frameworks/references/
+  evidence_path: skills/think-random-frameworks/evidence/dossier.md
+  evals_path: skills/think-random-frameworks/eval/

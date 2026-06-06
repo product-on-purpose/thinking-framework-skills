@@ -1,4 +1,4 @@
-# Eval cases: think-random-perspectives
+# Eval cases: think-random-frameworks
 
 > Trigger and output evaluation, derived from `SKILL.md`, `references/engine.md`, and `evidence/dossier.md`. No runner yet; these are the cases to check by hand or wire into evals later.
 

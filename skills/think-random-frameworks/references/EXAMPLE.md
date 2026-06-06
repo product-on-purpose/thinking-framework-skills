@@ -1,5 +1,5 @@
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
-# Example run: think-random-perspectives
+# Example run: think-random-frameworks
 
 A compressed worked run. The point is that the draw ignores fit; the artifacts are abbreviated to show the shape and the harvest.
 

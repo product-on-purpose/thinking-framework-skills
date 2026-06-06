@@ -25,7 +25,7 @@ Most thinking tools name or recommend a method. This one runs three. It ranks th
 - **You do not yet know whether you need three frameworks, or might need none.** Use `think-framework-advisor`; it subtracts to the fewest fitting moves (often zero to two). This skill force-applies exactly three and will manufacture work on a problem that needs one move or none.
 - **You already know the single framework you want.** Run that skill directly, for example `think-premortem`. This skill adds two frameworks you did not ask for.
 - **A known multi-step chain already fits the job.** Use the relevant recipe (reframe-problem, expand-options, stress-test-decision, audit-reasoning); recipes are curated, sequence-checked chains. This skill is an ad-hoc relevance-ranked set with no validated sequence.
-- **You are stuck and want unexpected lenses to break a frozen framing.** That is the opposite selection rule; use `think-random-perspectives`.
+- **You are stuck and want unexpected lenses to break a frozen framing.** That is the opposite selection rule; use `think-random-frameworks`.
 - **Not a thinking task** (lookup, drafting, coding): redirect.
 
 ## Instructions

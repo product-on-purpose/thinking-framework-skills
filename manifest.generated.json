@@ -150,8 +150,8 @@
       "description": "Generates a rapid burst of questions about a problem (questions only, no answers), then ranks them for which would most change the approach and selects the single most catalytic one to pursue, producing a ranked question set. Use when you are stuck, too attached to one framing, or need a better question before answering."
     },
     {
-      "name": "think-random-perspectives",
-      "path": "skills/think-random-perspectives/SKILL.md",
+      "name": "think-random-frameworks",
+      "path": "skills/think-random-frameworks/SKILL.md",
       "description": "Generates three off-pattern framework analyses of a topic by drawing frameworks at random, applying each regardless of fit, and harvesting the non-obvious angles the unexpected lenses expose. Use when a framing feels frozen or fixated and the goal is to break out of it with deliberately unranked methods rather than the obvious best-fit ones. Use when relevance-ranked selection would only reinforce the stuck view and a random draw is wanted to surface what a fitted analysis would miss."
     },
     {

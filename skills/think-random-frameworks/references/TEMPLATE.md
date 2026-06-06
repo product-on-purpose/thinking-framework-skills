@@ -1,5 +1,5 @@
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
-# Random Perspectives - <topic in a phrase>
+# Random Frameworks - <topic in a phrase>
 
 ## Topic
 <one or two sentence restatement of the situation or frozen framing, in the user's terms>

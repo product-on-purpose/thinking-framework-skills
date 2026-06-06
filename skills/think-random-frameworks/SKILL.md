@@ -1,16 +1,16 @@
 ---
-name: think-random-perspectives
+name: think-random-frameworks
 description: Generates three off-pattern framework analyses of a topic by drawing frameworks at random, applying each regardless of fit, and harvesting the non-obvious angles the unexpected lenses expose. Use when a framing feels frozen or fixated and the goal is to break out of it with deliberately unranked methods rather than the obvious best-fit ones. Use when relevance-ranked selection would only reinforce the stuck view and a random draw is wanted to surface what a fitted analysis would miss.
 license: Apache-2.0
 metadata:
-  id: thinking-framework-skills.random-perspectives
+  id: thinking-framework-skills.random-frameworks
   family: meta-thinking-and-reflection
   evidence-tier: "C"
   version: 0.1.0
   standard: "0.8"
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
-# Random Perspectives
+# Random Frameworks
 
 When a framing is stuck, the frameworks you would naturally reach for tend to reinforce the stuck view. This skill does the opposite: it draws three frameworks at random from the library, ignoring fit on purpose, and applies each to your topic to force lenses the situation would never summon. The value is exactly what relevance ranking suppresses. The deliberate randomness, the same logic as a random-stimulus creativity move, dislodges a frozen framing and surfaces angles a fitted analysis would miss.
 

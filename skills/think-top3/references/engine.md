@@ -1,7 +1,7 @@
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Shared applicator engine
 
-This is the shared engine behind `think-top3` and `think-random-perspectives`. Both skills SELECT three frameworks from the library, then APPLY each one to the user's topic. Applying means actually running the framework and emitting its real artifact (a risk register, an option matrix, a restated problem), not naming or recommending it. Recommending without running is the advisor's job; this engine does the opposite.
+This is the shared engine behind `think-top3` and `think-random-frameworks`. Both skills SELECT three frameworks from the library, then APPLY each one to the user's topic. Applying means actually running the framework and emitting its real artifact (a risk register, an option matrix, a restated problem), not naming or recommending it. Recommending without running is the advisor's job; this engine does the opposite.
 
 The two skills differ ONLY in the selection step. Each skill's SKILL.md names its mode (RANK or RANDOM); follow the matching "Selection mode" section below, then run the shared Apply and Output steps for all three.
 
@@ -17,19 +17,19 @@ Score every `skills[]` entry for relevance to the topic, then take the top 3.
 - POSITIVE signal: the topic matches the "Use when ..." triggers and the emitted artifact in `description`; the dominant cognitive job the topic needs matches the entry's `family`. Weight by `tier` as a tie-breaker only (prefer S over P when fit is equal); never let tier override a clearly better fit.
 - NEGATIVE signal: if the topic matches an `anti_triggers` near-miss or a `not_use` bullet for an entry, push it DOWN (that entry is a known wrong fit for this kind of input).
 - DEDUPE BY JOB: if two of your top 3 do the same cognitive job (two ideation methods, or an entry and a sibling listed in its `overlaps`), keep the better-fitting one and promote the next distinct framework. Three lenses on three different jobs beats three near-duplicates.
-- DETERMINISM: ranking is a function of the topic. The same topic yields the same 3 (stable ordering; break exact ties by `tier` then alphabetical `name`).
+- DETERMINISM: ranking is a function of the topic. The same topic yields the same 3 (stable ordering; break exact ties by `tier` using the total order S, then S/M, then M/P, then P, and then alphabetical `name`).
 - DEFER TO RECIPES: if the topic squarely matches a named recipe's job (reframe-problem, expand-options, stress-test-decision, audit-reasoning), say so in one line and point the user to that recipe (it is curated and sequence-checked); then proceed with the three best-fitting INDIVIDUAL frameworks for the part the recipe does not cover. This skill makes no claim of a validated sequence; a recipe does.
 
 Record, for each of the 3: its `name`, why it ranked (the trigger or artifact it matched), and its `tier`.
 
-## Selection mode: RANDOM (used by think-random-perspectives)
+## Selection mode: RANDOM (used by think-random-frameworks)
 
 Draw 3 frameworks at random from `skills[]`, deliberately ignoring relevance. The point is to break fixation by applying lenses the situation would not naturally summon.
 
-- Draw uniformly at random WITHOUT replacement (3 distinct entries).
-- Do NOT rank, filter, or fit to the topic. Anti-fit is the feature. Resist the pull to pick "sensible" frameworks; if a draw feels obviously off-topic, that is working.
-- FRESH each run unless the user supplies a seed. If the user gives a seed word or number, derive the draw deterministically from it (state the seed in the output) so a run is reproducible; otherwise draw fresh and state "unseeded (fresh draw)".
-- Exclude nothing on relevance grounds. The only exclusions are non-`skills[]` entries (recipes) and the applicator skills themselves (already absent from this corpus).
+- Use a MECHANICAL, relevance-blind draw so the selection cannot be quietly fitted to the topic. Sort `skills[]` alphabetically by `name` and number them 0 to N-1.
+- Compute a base index b from a content-independent number: if the user gave a seed, b = the sum of the seed's character codes; otherwise b = the number of characters in the user's topic text. Take the three entries at indices b mod N, (b + 11) mod N, and (b + 23) mod N (if two collide, step the later index forward until all three are distinct). This spreads the draw across the list and decouples it from your judgement of relevance.
+- This is a relevance-blind draw, not a cryptographic random number generator: anti-fit is the point, not statistical randomness. Resist any pull to substitute "sensible" frameworks; if a drawn framework feels off-topic, that is the method working.
+- A seed makes the draw reproducible (state the seed in the output); unseeded, state "unseeded (fresh draw)" and note it varies with the topic. Exclude nothing on relevance grounds; the only non-draws are recipes (not in `skills[]`) and the applicator skills (already absent from this corpus).
 
 Record, for each of the 3: its `name`, the (fresh or seeded) draw, and its `tier`.
 
@@ -49,7 +49,7 @@ For EACH of the 3 selected frameworks, in turn:
 After all three artifacts:
 
 - (RANK / think-top3) Reconcile: where do the three converge, where do they conflict, and what is the single most load-bearing thing they jointly say about the topic? End with one short integrated read. This cross-synthesis is what makes top3 more than "advisor plus auto-run".
-- (RANDOM / think-random-perspectives) Harvest the surprises: which random lens surfaced an angle the obvious analysis would have missed? Name 1 to 3 non-obvious prompts the draw exposed. Do NOT pretend the random set is a fitted analysis; its value is dislodging a frozen framing, not deciding the matter.
+- (RANDOM / think-random-frameworks) Harvest the surprises: which random lens surfaced an angle the obvious analysis would have missed? Name 1 to 3 non-obvious prompts the draw exposed. Do NOT pretend the random set is a fitted analysis; its value is dislodging a frozen framing, not deciding the matter.
 
 ## Step C - Output format
 
