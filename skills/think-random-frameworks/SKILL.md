@@ -30,7 +30,7 @@ When a framing is stuck, the frameworks you would naturally reach for tend to re
 
 ## Instructions
 
-When asked for random perspectives on a topic, follow these steps:
+When asked to apply random frameworks to a topic, follow these steps:
 
 1. **Parse the topic.** Restate the situation in one or two sentences. If the input is under about 15 words or carries no concrete signal, ask one clarifying question, then proceed.
 2. **Run the shared engine in RANDOM mode.** Follow `references/engine.md`: read the corpus, draw three frameworks uniformly at random without replacement (seeded only if the user supplies a seed), and apply each to the topic so it emits that framework's real artifact, flagging poor structural fit rather than swapping it out.
