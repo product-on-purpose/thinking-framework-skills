@@ -48,5 +48,5 @@ if (problems.length) {
   console.error('\nFix the proposed entry and re-run before showing it to a human.');
   process.exit(1);
 }
-console.log('Proposed entry: OK (schema-valid; cross-entry and filesystem invariants enforced later by check-registry.mjs).');
+console.log('Proposed entry: OK (single-entry schema-valid; the stricter source-url http shape, cross-entry, and filesystem invariants are enforced later by check-registry.mjs).');
 process.exit(0);

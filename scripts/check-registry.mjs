@@ -133,6 +133,10 @@ for (const dir of readdirSync(resolve(ROOT, 'skills'))) {
 const frameworksDir = resolve(ROOT, 'frameworks');
 for (const name of readdirSync(frameworksDir, { withFileTypes: true })) {
   if (!name.isDirectory()) continue;
+  // Underscore-prefixed dirs are staging/scaffold, not catalog entries: frameworks/_proposed/<slug>/
+  // (where the research engine drafts a dossier before its entry is admitted) and a future
+  // frameworks/_template/. They are intentionally exempt from the orphan-dossier check.
+  if (name.name.startsWith('_')) continue;
   if (existsSync(resolve(frameworksDir, name.name, 'dossier.md')) && !seenSlugs.has(name.name)) {
     fail(`completeness: frameworks/${name.name}/dossier.md exists with no registry entry.`);
   }

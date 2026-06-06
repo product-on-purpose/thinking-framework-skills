@@ -11,7 +11,7 @@ metadata:
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Research Framework
 
-This meta-skill is the entry point to the framework-research engine. It is not a thinking method and ships no registry entry of its own; it hands the bounded research role to the `think-research-framework` subagent, so the work runs in its own context with web search.
+This meta-skill is the entry point to the framework-research engine. It is not a thinking method and ships no registry entry of its own; it delegates the bounded research role to the `think-research-framework` subagent so the work runs in its own context with web search.
 
 ## When to use
 
@@ -27,4 +27,6 @@ This meta-skill is the entry point to the framework-research engine. It is not a
 
 ## What it does
 
-Hand off to the `think-research-framework` subagent. In name mode it researches the method, grades it on the seven-tier model (S, M, P, V, A, C, X), flags transferred evidence, assesses overlap (distinct above the roughly 20 percent ceiling, else fold, recipe, reject, or out-of-scope), writes `frameworks/<slug>/dossier.md`, validates a proposed registry entry against the schema with `scripts/check-proposed-entry.mjs`, and prints that entry (for human paste) plus a one-screen verdict. It never writes `frameworks/registry.mjs`. In discovery mode it returns a ranked candidate shortlist with a distinctness hypothesis for each.
+Dispatch the work to the `think-research-framework` subagent: invoke the Task tool with subagent_type `think-research-framework`, passing the framework name (or the "discover N in family X" brief) the user supplied. Do not run the research inline in this context; the subagent holds the honesty discipline and runs the web research in its own window.
+
+In name mode the subagent researches the method, grades it on the seven-tier model (S, M, P, V, A, C, X) using the conservative governing grade when the evidence is split or transferred, assesses overlap (distinct only above the roughly 20 percent ceiling, else fold, recipe, reject, or out-of-scope), writes the dossier body to a staging path (`frameworks/_proposed/<slug>/dossier.md` for a not-yet-shipped method; a shipped method keeps its record at `skills/think-<slug>/evidence/dossier.md`), validates a proposed registry entry against the schema with `scripts/check-proposed-entry.mjs`, and prints that entry for human paste plus a one-screen verdict. It never writes `frameworks/registry.mjs`. In discovery mode it returns a ranked shortlist of real, named candidate methods, each with a distinctness hypothesis.

@@ -76,7 +76,37 @@ test("a shipped entry without evalCases fails the shipped conditional", () => {
   assert.ok(problems.some((p) => /is shipped but has no evalCases/.test(p)), problems.join("; "));
 });
 
-test("a non-object input is rejected rather than throwing", () => {
-  assert.ok(validateEntry(null, schema).length > 0);
-  assert.ok(validateEntry([1, 2], schema).length > 0);
+test("a non-object input is rejected (with a clear message) rather than throwing", () => {
+  for (const bad of [null, [1, 2], "string", 42]) {
+    const problems = validateEntry(bad, schema);
+    assert.ok(problems.some((p) => /is not a JSON object/.test(p)), `${JSON.stringify(bad)} -> ${problems.join("; ")}`);
+  }
+});
+
+test("a wrong-typed field is rejected", () => {
+  assert.ok(validateEntry({ ...OK, name: 123 }, schema).some((p) => /field "name" must be a string/.test(p)));
+  assert.ok(validateEntry({ ...OK, sources: "x" }, schema).some((p) => /field "sources" must be an array/.test(p)));
+  assert.ok(validateEntry({ ...OK, branded: "true" }, schema).some((p) => /field "branded" must be a boolean/.test(p)));
+});
+
+test("a non-ISO evalDate is rejected", () => {
+  const problems = validateEntry({ ...OK, evalDate: "2020/01/01" }, schema);
+  assert.ok(problems.some((p) => /evalDate must be an ISO date/.test(p)), problems.join("; "));
+});
+
+test("a non-kebab slug is rejected", () => {
+  const problems = validateEntry({ ...OK, slug: "Bad_Slug" }, schema);
+  assert.ok(problems.some((p) => /slug is not kebab-case/.test(p)), problems.join("; "));
+});
+
+test("a malformed source (missing title, unknown field) is caught by the single-entry validator", () => {
+  const bad = { ...OK, sources: [{ url: "https://ok.example", bogus: 1 }] };
+  const problems = validateEntry(bad, schema);
+  assert.ok(problems.some((p) => /source is missing a non-empty title/.test(p)), problems.join("; "));
+  assert.ok(problems.some((p) => /source has unknown field "bogus"/.test(p)), problems.join("; "));
+});
+
+test("an empty or non-string alias is rejected", () => {
+  assert.ok(validateEntry({ ...OK, aliases: [""] }, schema).some((p) => /empty or non-string alias/.test(p)));
+  assert.ok(validateEntry({ ...OK, aliases: [42] }, schema).some((p) => /empty or non-string alias/.test(p)));
 });

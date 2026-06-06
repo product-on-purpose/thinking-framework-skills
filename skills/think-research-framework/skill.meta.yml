@@ -1,0 +1,73 @@
+# Rich sidecar for the think-research-framework skill.
+# DRAFT shape (see skills/think-framework-advisor/skill.meta.yml). This is the library's
+# meta/engine skill: a thin front door that delegates to the think-research-framework subagent.
+# It is NOT a thinking method and carries no framework registry entry (it is exempt in
+# scripts/check-registry.mjs and excluded from the recommendable corpus, like the advisor).
+
+identity:
+  id: thinking-framework-skills.research-framework
+  slug: research-framework
+  name: think-research-framework        # installable name (matches the skill directory)
+  display_name: Research Framework
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: meta-thinking-and-reflection
+  secondary_families: []     # operates on the whole catalog; not a member of one family
+  role: meta-engine          # the framework-documentation engine; distinct from the executor skills
+  thinking_modes: [evaluative, evidence-grading, meta-cognitive]
+  problem_contexts: [framework-vetting, catalog-expansion, evidence-grading]
+  use_cases:
+    - grade a candidate method's evidence on the seven-tier model and call build or fold
+    - reproduce the evidence-and-overlap vetting on a method the catalog already judged
+    - draft a learning dossier and a schema-valid proposed registry entry for human review
+    - shortlist real, uncovered candidate methods in a given family
+  poor_fit_cases:
+    - the verdict is already known and the user just wants the skill authored
+    - the user wants a framework executed on their own problem (use that skill, or the advisor)
+    - a product or domain question rather than a thinking-method evaluation (defer to pm-skills)
+
+interface:
+  required_inputs:
+    - a framework name, or a "discover N candidates in family X" brief
+  optional_inputs:
+    - a one-line gloss of the method
+  primary_artifact_type: proposed-registry-entry
+  output_formats: [markdown, json]
+
+execution:
+  mode: forked                 # inline | forked
+  subagent_suitable: true      # the role lives in the think-research-framework subagent
+  recipe_suitable: false
+  dispatches_to: think-research-framework   # the subagent, invoked via the Task tool at runtime
+  likely_companions: []
+
+relationships:
+  often_follows: []
+  often_precedes: []           # its output feeds a human decision and (later) SP4 dossiers
+  complements: [think-framework-advisor]   # the advisor recommends; this engine documents and grades
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: authored   # see eval/cases.md
+  output_eval_status: authored
+  known_failure_modes:
+    - inflating a grade, or emitting the optimistic half of a split tier instead of the conservative one
+    - passing an untraceable statistic through into the dossier or the tier
+    - accepting a near-twin as distinct instead of folding it
+    - inventing a method name in discovery mode, or a foldInto target that is not a shipped slug
+
+evidence:
+  evidence_tier: n/a               # a meta-engine, not an evidence-graded thinking method
+  transferred_evidence: false
+  attribution_required: false
+  trademark: none
+
+implementation:
+  skill_path: skills/think-research-framework/SKILL.md
+  subagent_path: agents/think-research-framework.md
+  evals_path: skills/think-research-framework/eval/
+  validator: scripts/check-proposed-entry.mjs   # the C3 proposed-entry schema gate
