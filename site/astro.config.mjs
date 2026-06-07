@@ -86,6 +86,10 @@ export default defineConfig({
           items: [{ autogenerate: { directory: 'frameworks' } }],
         },
         {
+          label: 'Framework Library',
+          items: [{ autogenerate: { directory: 'library' } }],
+        },
+        {
           label: 'Domains',
           items: [{ autogenerate: { directory: 'families' } }],
         },

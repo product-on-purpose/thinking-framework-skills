@@ -93,6 +93,7 @@ export default {
       foldInto: 'red-team-light',
       oneLine: 'state the strongest version of an opposing view before responding',
       reasoning: 'Subsumed: it is the core move of red-team-light.',
+      dossierPath: 'frameworks/steelmanning/dossier.md',
     },
     {
       slug: 'six-thinking-hats',
@@ -107,6 +108,7 @@ export default {
       attribution: 'Edward de Bono, 1985',
       trademark: 'Six Thinking Hats (de Bono method; "Six Thinking Hats" is a trademark of the de Bono estate / IP holders)',
       aliases: ['6 Thinking Hats', 'de Bono hats'],
+      dossierPath: 'frameworks/six-thinking-hats/dossier.md',
     },
     {
       slug: 'role-storming',
@@ -521,6 +523,7 @@ export default {
       evalCases: 'skills/think-premortem/eval/cases.md',
       attribution: 'Gary Klein (premortem)',
       aliases: ['Pre-mortem', 'prospective hindsight'],
+      dossierPath: 'frameworks/premortem/dossier.md',
     },
     {
       slug: 'reference-class-forecasting',
