@@ -1,7 +1,4 @@
-I have everything I need. The registry entry confirms: slug `six-thinking-hats`, name "Six Thinking Hats", tier X, status flag, verdict reject, branded true, attribution "Edward de Bono, 1985", trademark string, and the reasoning that the mechanism already ships de-branded. The shipped sibling dossier lives at `skills/think-parallel-perspectives-review/evidence/dossier.md`. Now I'll author the dossier in the exact required shape.
-
 ---
-
 title: Six Thinking Hats
 slug: six-thinking-hats
 generated_status: true

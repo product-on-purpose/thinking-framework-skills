@@ -633,13 +633,22 @@ function spliceStatus(body, block) {
 const libAuthored = new Set();
 for (const e of registry.frameworks) {
   if (!e.dossierPath || e.dossierPath === 'pending' || !existsSync(join(ROOT, e.dossierPath))) continue;
-  const body = bodyOf(readFileSync(join(ROOT, e.dossierPath), 'utf8'));
+  const raw = readFileSync(join(ROOT, e.dossierPath), 'utf8');
+  // Fail loudly on a malformed dossier (e.g. leaked authoring preamble) rather than rendering
+  // garbage to a public page: bodyOf only strips frontmatter when the file STARTS with ---.
+  if (!/^---\r?\n/.test(raw)) throw new Error(`gen-site: ${e.dossierPath} must start with YAML frontmatter (--- on line 1).`);
+  const body = bodyOf(raw);
   const lines = [
     `> **Status:** ${LIB_STATUS(e.status)}  ·  **Evidence:** ${tierBadge(e.tier)}  ·  **Family:** ${libFamName.get(e.family) || e.family}  ·  **Verdict:** ${e.verdict} (${e.evalDate || registry.seededDate})`,
   ];
   if (e.status === 'shipped' && libShipped.has(e.slug)) lines.push('>', `> Run it: [\`think-${e.slug}\`](../../frameworks/think-${e.slug}/)`);
   if (e.foldInto && libShipped.has(e.foldInto)) lines.push('>', `> Use instead: [\`${libDisplayName(e.foldInto)}\`](../../frameworks/think-${e.foldInto}/)`);
-  if (e.branded && e.trademark) lines.push('>', `> ${e.name} is a trademark of ${e.trademark}.${e.attribution ? ` ${e.attribution}.` : ''}`);
+  if (e.branded && e.trademark) {
+    // Avoid a tautology when the trademark string already leads with the brand name
+    // (e.g. "Six Thinking Hats (a trademark of ...)"); otherwise use the "X is a trademark of Y" form.
+    const tm = e.trademark.startsWith(e.name) ? e.trademark : `${e.name} is a trademark of ${e.trademark}`;
+    lines.push('>', `> ${tm}.${e.attribution ? ` ${e.attribution}.` : ''}`);
+  }
   const page = `---
 title: ${yaml(e.name)}
 description: ${yaml(e.oneLine)}
