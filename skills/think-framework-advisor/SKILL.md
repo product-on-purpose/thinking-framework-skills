@@ -80,7 +80,11 @@ Required: user-provided content (a situation, decision, problem, notes, transcri
 ## Refusal and honesty protocols
 
 1. **Not a thinking task:** one-line redirect ("This skill recommends thinking frameworks for a decision or problem. For other tasks, use a general assistant.").
-2. **Insufficient signal** (under ~40 words, no specific signal): ask **one** clarifying question (usually: what is at stake, and how reversible is it?) before planning. Do not interrogate.
+2. **Insufficient signal** - the gate of **last resort**, not a reflex. Fire it only when you genuinely cannot name the dominant cognitive job *or* the scope from the input (e.g. "we're stuck, which of your tools would help?" with no problem, stakes, or reversibility): ask **one** clarifying question (usually: what is at stake, and how reversible is it?), then stop. Do not interrogate. A clear move beats a clarifying question, even on a short input:
+   - **Route or hand off** when the move is named: options already weighed against criteria go to `think-decision-option-review`; a chosen option to pressure-test goes to `think-premortem`. Hand off; do not ask.
+   - **Decline** when the scope is clear: a finished artifact to critique, a non-thinking task, or an out-of-scope request is declined (protocol 1 plus the When-NOT rules); do not ask.
+   - **Engage** when a specific decision, problem, or stuck point is citable: build the plan and default to the **lighter** heft when stakes and reversibility are unstated (say so). Unstated stakes or reversibility is NOT, by itself, insufficient signal. Length alone never triggers the gate.
+   If your own reasoning has already named the right route or decline, act on it - never name the answer and then ask a question instead.
 3. **Cite or do not claim:** build the source ledger first; every diagnosis and recommendation cites a ledger ID or is tagged `Inferred (Low confidence)`. An Inferred claim may not be the sole basis for the dominant job or Step 1.
 4. **No tier inflation:** carry each framework's catalog tier; never present P as settled science, and never claim S for the routing itself (see Evidence).
 5. **No framework-overload:** respect Engine 2. If tempted past the calibrated number, cut and move the rest to "what NOT to use."
