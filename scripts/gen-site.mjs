@@ -13,6 +13,7 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
+import registry from '../frameworks/registry.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = join(ROOT, 'site', 'src', 'content', 'docs');
@@ -21,6 +22,7 @@ const OUT = {
   families: join(DOCS, 'families'),
   recipes: join(DOCS, 'recipes'),
   evidence: join(DOCS, 'evidence'),
+  library: join(DOCS, 'library'), // SP4: Framework Library dossiers + index (registry-driven)
 };
 
 // --- helpers ----------------------------------------------------------------
@@ -607,4 +609,82 @@ writeFileSync(join(GENERATED, 'site-meta.json'), JSON.stringify({
   recipeCount: recipes.length,
 }, null, 2), 'utf8');
 
-console.log(`Generated ${count} framework pages, ${Object.keys(byFamily).length} domains, ${recipes.length} recipes, 4 lenses + map + chooser data, + indexes & bibliography -> ${DOCS}`);
+// --- SP4: Framework Library (per-method dossiers + index, registry-driven) ----
+// A library/<slug>/ page is emitted ONLY for an entry whose dossier source exists
+// (dossierPath set + on disk). pending/absent entries appear in the index as plain text.
+// The status block is generated from the registry and spliced between the dossier's
+// STATUS:GENERATED markers, so the committed dossier source never carries a status line.
+const libFamName = new Map(registry.families.map((f) => [f.slug, f.name]));
+const libBySlug = new Map(registry.frameworks.map((e) => [e.slug, e]));
+const libDisplayName = (slug) => libBySlug.get(slug)?.name ?? slug;
+const libShipped = new Set(registry.frameworks.filter((e) => e.status === 'shipped').map((e) => e.slug));
+const LIB_STATUS = (st) => ({
+  shipped: 'Shipped', fold: 'Folded', cand: 'Candidate', recipe: 'Candidate', next: 'Candidate',
+  flag: 'Documented, not shipped', excl: 'Documented, not shipped', pm: 'Documented, not shipped',
+}[st] || 'Documented, not shipped');
+const STATUS_BEGIN = '<!-- STATUS:GENERATED (gen-site.mjs from frameworks/registry.mjs) - do not edit between these markers -->';
+const STATUS_END = '<!-- /STATUS:GENERATED -->';
+function spliceStatus(body, block) {
+  const i = body.indexOf(STATUS_BEGIN);
+  const j = body.indexOf(STATUS_END);
+  if (i === -1 || j === -1 || j < i) throw new Error('gen-site: a Framework Library dossier is missing its STATUS:GENERATED markers');
+  return body.slice(0, i + STATUS_BEGIN.length) + '\n' + block + '\n' + body.slice(j);
+}
+const libAuthored = new Set();
+for (const e of registry.frameworks) {
+  if (!e.dossierPath || e.dossierPath === 'pending' || !existsSync(join(ROOT, e.dossierPath))) continue;
+  const raw = readFileSync(join(ROOT, e.dossierPath), 'utf8');
+  // Fail loudly on a malformed dossier (e.g. leaked authoring preamble) rather than rendering
+  // garbage to a public page: bodyOf only strips frontmatter when the file STARTS with ---.
+  if (!/^---\r?\n/.test(raw)) throw new Error(`gen-site: ${e.dossierPath} must start with YAML frontmatter (--- on line 1).`);
+  const body = bodyOf(raw);
+  const lines = [
+    `> **Status:** ${LIB_STATUS(e.status)}  ·  **Evidence:** ${tierBadge(e.tier)}  ·  **Family:** ${libFamName.get(e.family) || e.family}  ·  **Verdict:** ${e.verdict} (${e.evalDate || registry.seededDate})`,
+  ];
+  if (e.status === 'shipped' && libShipped.has(e.slug)) lines.push('>', `> Run it: [\`think-${e.slug}\`](../../frameworks/think-${e.slug}/)`);
+  if (e.foldInto && libShipped.has(e.foldInto)) lines.push('>', `> Use instead: [\`${libDisplayName(e.foldInto)}\`](../../frameworks/think-${e.foldInto}/)`);
+  if (e.branded && e.trademark) {
+    // Avoid a tautology when the trademark string already leads with the brand name
+    // (e.g. "Six Thinking Hats (a trademark of ...)"); otherwise use the "X is a trademark of Y" form.
+    const tm = e.trademark.startsWith(e.name) ? e.trademark : `${e.name} is a trademark of ${e.trademark}`;
+    lines.push('>', `> ${tm}.${e.attribution ? ` ${e.attribution}.` : ''}`);
+  }
+  const page = `---
+title: ${yaml(e.name)}
+description: ${yaml(e.oneLine)}
+generated: true
+editUrl: ${JSON.stringify(EDIT_BASE ? `${EDIT_BASE}${e.dossierPath}` : false)}
+slug_id: ${yaml(e.slug)}
+status: ${yaml(e.status)}
+evidence_tier: ${yaml(e.tier)}
+---
+
+${BANNER('Framework Library dossier; status block from frameworks/registry.mjs, body from ' + e.dossierPath)}
+
+${spliceStatus(body, lines.join('\n')).trim()}
+`;
+  writeFileSync(join(OUT.library, `${e.slug}.md`), page, 'utf8');
+  libAuthored.add(e.slug);
+}
+const libRow = (e) => `| ${libAuthored.has(e.slug) ? `[${e.name}](./${e.slug}/)` : e.name} | ${tierBadge(e.tier)} | ${LIB_STATUS(e.status)}${libAuthored.has(e.slug) ? '' : ' _(dossier pending)_'} |`;
+const libGroups = registry.families.map((f) => {
+  const members = registry.frameworks.filter((e) => e.family === f.slug);
+  return members.length ? `## ${f.name}\n\n| Framework | Evidence | Status |\n|---|---|---|\n${members.map(libRow).join('\n')}` : '';
+}).filter(Boolean).join('\n\n');
+writeFileSync(join(OUT.library, 'index.md'), `---
+title: Framework Library
+description: ${yaml('Every thinking method this library has evaluated, with its honest evidence grade and a long-form dossier.')}
+generated: true
+editUrl: false
+sidebar:
+  order: 0
+---
+
+${BANNER('Framework Library index from frameworks/registry.mjs')}
+
+Every thinking method this library has evaluated, grouped by family, with its honest evidence grade and verdict. Entries marked _(dossier pending)_ are catalogued but their long-form dossier is not yet written. See [why some methods are documented but not shipped](../about/why-not/) and the full [evidence index](../evidence/).
+
+${libGroups}
+`, 'utf8');
+
+console.log(`Generated ${count} framework pages, ${Object.keys(byFamily).length} domains, ${recipes.length} recipes, ${libAuthored.size} library dossiers, 4 lenses + map + chooser data, + indexes & bibliography -> ${DOCS}`);
