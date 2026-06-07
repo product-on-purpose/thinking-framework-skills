@@ -1,0 +1,462 @@
+{
+  "$note": "Third advisor-routing eval (SP1 C2), after calibrating the insufficient-signal gate (SKILL.md protocol 2). 2 trials x 12 cases. Compare 2026-06-03-advisor-routing-recalibrated.json. Still a model-dependent, small-N MEASUREMENT, not a gate or validation.",
+  "eval": "advisor-routing",
+  "run": "gate-calibrated",
+  "date": "2026-06-06",
+  "model": "claude-opus-4-8",
+  "baseline": "2026-06-03-advisor-routing-recalibrated.json",
+  "trials_per_case": 2,
+  "cases": 12,
+  "runs": 24,
+  "routing_category_accuracy": {
+    "correct": 24,
+    "total": 24,
+    "pct": 1
+  },
+  "consistency": {
+    "cases_consistent": 12,
+    "total_cases": 12,
+    "note": "every case produced the same action on both trials - the prior run-to-run wavering is gone"
+  },
+  "boundary_fix": {
+    "prev_failures": [
+      "e6",
+      "d2",
+      "d3"
+    ],
+    "all_fixed_and_consistent": true
+  },
+  "name_safety": {
+    "safe": 12,
+    "total": 12,
+    "pct": 1,
+    "note": "every named framework is a real think-* name"
+  },
+  "gate_case": {
+    "id": "g1",
+    "result": "clarify on both trials - the gate still fires correctly on a genuinely thin prompt"
+  },
+  "label_note": "d5/d6 (non-thinking tasks) were declined via protocol 1 one-line redirect (action decline-redirect); a strict refuse-vs-redirect split would read 20/24, but the decline behavior is correct - protocol 1 is itself a redirect.",
+  "delta_vs_baseline": {
+    "routing": "9/12 (recalibrated) -> 24/24 category-correct (gate-calibrated)",
+    "wavering": "e6 flipped run-to-run -> zero wavering across all 12 cases",
+    "boundary": "e6/d2/d3 over-fired -> all fixed + consistent"
+  },
+  "grade_impact": "Advisor routing grade STAYS C (measured, not validated). The calibration removed the gate over-firing AND the run-to-run wavering - a real measurement improvement - but the evidence is still single-eval, 2-trial, self-authored cases, small-N (12), model-dependent. No external validation; the grade does not rise.",
+  "per_case": [
+    {
+      "id": "e1",
+      "expect": "engage",
+      "trials": [
+        "engage",
+        "engage"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "e3",
+      "expect": "engage",
+      "trials": [
+        "engage",
+        "engage"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "e4",
+      "expect": "engage",
+      "trials": [
+        "engage",
+        "engage"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "e5",
+      "expect": "engage",
+      "trials": [
+        "engage",
+        "engage"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "e6",
+      "expect": "engage",
+      "trials": [
+        "engage",
+        "engage"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "g1",
+      "expect": "clarify",
+      "trials": [
+        "clarify",
+        "clarify"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "d1",
+      "expect": "route:think-premortem",
+      "trials": [
+        "route",
+        "route"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "d2",
+      "expect": "route:think-decision-option-review",
+      "trials": [
+        "route",
+        "route"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "d3",
+      "expect": "decline:out-of-scope-review",
+      "trials": [
+        "decline-redirect",
+        "decline-redirect"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "d4",
+      "expect": "decline:redirect",
+      "trials": [
+        "decline-redirect",
+        "decline-redirect"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "d5",
+      "expect": "decline:refuse",
+      "trials": [
+        "decline-redirect",
+        "decline-redirect"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    },
+    {
+      "id": "d6",
+      "expect": "decline:refuse",
+      "trials": [
+        "decline-redirect",
+        "decline-redirect"
+      ],
+      "correct": [
+        true,
+        true
+      ],
+      "consistent": true
+    }
+  ],
+  "raw": [
+    {
+      "id": "e1",
+      "expect": "engage",
+      "trial": 1,
+      "action": "engage",
+      "namedFrameworks": [
+        "think-decision-option-review",
+        "think-what-would-have-to-be-true",
+        "think-premortem"
+      ],
+      "targetOrReason": "Routeable thinking situation: a specific, high-stakes, one-way-door decision with the user explicitly asking where to start - produce a Thinking Plan.",
+      "rationale": "Dominant job = evaluate/decide among contested options (team split, not yet compared), with a one-way-door + high-stakes follow-on to surface load-bearing conditions and stress-test before the irreversible cutover; insufficient-signal gate does not fire because stakes and reversibility are both stated and a decision is citable."
+    },
+    {
+      "id": "e1",
+      "expect": "engage",
+      "trial": 2,
+      "action": "engage",
+      "namedFrameworks": [
+        "think-decision-option-review",
+        "think-premortem",
+        "think-decision-journal"
+      ],
+      "targetOrReason": "Routeable thinking situation: a citable, high-stakes, user-stated one-way-door decision where the user explicitly asks where to start - the advisor's core \"what should I even do here?\" case. Produce a Thinking Plan.",
+      "rationale": "Dominant job is decide (binary migrate/stay, team split) with a stress-test follow-on; one-way door + high stakes (Engine 2) justifies the 2-4 framework gauntlet, so engage rather than fire the last-resort clarify gate."
+    },
+    {
+      "id": "e3",
+      "expect": "engage",
+      "trial": 1,
+      "action": "engage",
+      "namedFrameworks": [
+        "think-affinity-mapping",
+        "think-problem-restatement"
+      ],
+      "targetOrReason": "Routeable thinking situation with a nameable dominant job: synthesize scattered interview notes into themes, then reframe the fuzzy \"improve retention\" goal before any decide/stress-test. Produce a Thinking Plan.",
+      "rationale": "Citable problem + competing framings + explicit ordering ask = engage; dominant job is synthesize-then-reframe, and the user's brainstorm/decide/stress-test moves are premature and get deferred to \"what NOT to use\"; lighter heft since stakes/reversibility unstated (not the protocol-2 gate)."
+    },
+    {
+      "id": "e3",
+      "expect": "engage",
+      "trial": 2,
+      "action": "engage",
+      "namedFrameworks": [
+        "think-problem-restatement",
+        "think-what-would-have-to-be-true"
+      ],
+      "targetOrReason": "Citable unframed thinking situation: a vague \"improve retention\" goal plus three competing directions from interview notes, with an explicit \"what should I work through and in what order\" - exactly the advisor's diagnose-the-sequence job. Engine 1 dominant job = reframe the fuzzy goal (think-problem-restatement), natural follow-on = evaluate the competing directions/bets via their load-bearing conditions (think-what-would-have-to-be-true). Engine 2 keeps it minimal (stakes/reversibility unstated -> lighter plan, said so); the user's \"stress-test the riskiest one\" premortem instinct is deferred to What-NOT until a direction is chosen.",
+      "rationale": "A specific problem, citable directions, and an explicit \"in what order\" ask is the textbook engage - protocol 2's gate (last resort) must not fire on a clearly routeable, signal-rich situation."
+    },
+    {
+      "id": "e4",
+      "expect": "engage",
+      "trial": 1,
+      "action": "engage",
+      "namedFrameworks": [
+        "think-decision-option-review",
+        "think-premortem"
+      ],
+      "targetOrReason": "The input is a routeable thinking situation: a citable, specific decision (two defined Q3 bets, stuck \"going in circles,\" recommendation due) where the user explicitly asks the advisor for a plan of frameworks with rationale. The advisor builds a Thinking Plan rather than running a framework or routing to one skill.",
+      "rationale": "Two defined-but-uncompared options under a deadline = dominant job \"decide\" (think-decision-option-review), and \"very different risks\" on a consequential bet = stress-test follow-on (borrow think-premortem; the stress-test recipe's \"already-compared\" precondition is not yet met)."
+    },
+    {
+      "id": "e4",
+      "expect": "engage",
+      "trial": 2,
+      "action": "engage",
+      "namedFrameworks": [
+        "think-decision-option-review",
+        "think-premortem"
+      ],
+      "targetOrReason": "Routeable thinking situation: user explicitly asks for a sequenced plan of frameworks with per-framework rationale, which is the advisor's Thinking Plan deliverable, not a single handoff.",
+      "rationale": "Two defined options + \"very different risks\" + high-stakes roadmap call going to leadership = dominant job decide (think-decision-option-review) with a stress-test follow-on (think-premortem); options not yet compared so the stress-test recipe's precondition fails and I borrow its steps instead."
+    },
+    {
+      "id": "e5",
+      "expect": "engage",
+      "trial": 1,
+      "action": "engage",
+      "namedFrameworks": [
+        "think-affinity-mapping",
+        "think-decision-option-review"
+      ],
+      "targetOrReason": "Citable stuck point with a nameable dominant job (make sense of a scattered pile of ~40 requests, then prioritize); the user explicitly asks which approach and in what sequence, so the Thinking Plan itself is the deliverable.",
+      "rationale": "Engage: dominant job is synthesize-the-pile then decide priority; minimal sequence think-affinity-mapping -> think-decision-option-review, with reframing (think-problem-restatement) weighed and likely deferred; gate stays cold because the job and scope are clear from the input."
+    },
+    {
+      "id": "e5",
+      "expect": "engage",
+      "trial": 2,
+      "action": "engage",
+      "namedFrameworks": [
+        "think-affinity-mapping",
+        "think-decision-option-review"
+      ],
+      "targetOrReason": "Routeable thinking situation with a citable dominant job and scope; produce a Thinking Plan sequencing the fewest fitting frameworks.",
+      "rationale": "~40 scattered inputs with no priority is a synthesis-then-decide job: cluster the pile (think-affinity-mapping) as the first unblocking move, then prioritize the emergent themes (think-decision-option-review); minimal heft, with think-problem-restatement noted as a secondary reframe rather than stacked."
+    },
+    {
+      "id": "e6",
+      "expect": "engage",
+      "trial": 1,
+      "action": "engage",
+      "namedFrameworks": [
+        "think-what-would-have-to-be-true",
+        "think-premortem"
+      ],
+      "targetOrReason": "Citable decision + stuck point: a single default move (\"launch a free tier\") the user fears they are committing to on autopilot (\"obvious move, not because we thought it through\"). Dominant job = stress-test/examine the default before committing, not decide among compared options (none exist) - so engage, not route, decline, or clarify.",
+      "rationale": "Engage with a lighter 2-step plan: surface the load-bearing conditions the obvious move rests on (think-what-would-have-to-be-true), then stress-test it before committing (think-premortem); decision-option-review and the stress-test-decision recipe are deferred because options were never compared."
+    },
+    {
+      "id": "e6",
+      "expect": "engage",
+      "trial": 2,
+      "action": "engage",
+      "namedFrameworks": [
+        "think-what-would-have-to-be-true",
+        "think-red-team-light"
+      ],
+      "targetOrReason": "Citable stuck point (committing to the \"obvious move\" without examining it) with a nameable dominant job: surface and pressure-test the unexamined assumptions behind the default. Lighter heft (1-2 frameworks) since stakes/reversibility are unstated.",
+      "rationale": "Dominant job is challenge-the-obvious-default (what-would-have-to-be-true), with an adversarial check (red-team-light) on the blind spot; not a decide job since no compared options exist, and the named worry is sufficient signal so the insufficient-signal gate stays closed."
+    },
+    {
+      "id": "g1",
+      "expect": "clarify",
+      "trial": 1,
+      "action": "clarify",
+      "namedFrameworks": [],
+      "targetOrReason": "No problem content, no nameable cognitive job, and no stakes/reversibility are citable - this is the canonical insufficient-signal case the SKILL itself names verbatim (\"we're stuck, which of your tools would help?\"). Ask one question: what specifically is the problem you're stuck on, what's at stake, and how reversible is the call? Then diagnose.",
+      "rationale": "\"This problem\" has no content and no signal for Engine 1 (dominant job) or Engine 2 (stakes/reversibility); there is no clear route or decline to act on instead, so the last-resort gate genuinely applies rather than being over-fired."
+    },
+    {
+      "id": "g1",
+      "expect": "clarify",
+      "trial": 2,
+      "action": "clarify",
+      "namedFrameworks": [],
+      "targetOrReason": "No citable problem content: \"this problem\" is a bare pronoun with no referent, and \"stuck\" alone names no dominant cognitive job or scope. This is the canonical insufficient-signal case the SKILL's protocol 2 names almost verbatim (\"we're stuck, which of your tools would help?\" with no problem, stakes, or reversibility). Ask one question: what is the problem, and what is at stake / how reversible is the decision?",
+      "rationale": "No problem, job, stakes, or reversibility is citable, so no route/decline/engage is available; the last-resort gate legitimately fires with one clarifying question."
+    },
+    {
+      "id": "d1",
+      "expect": "route:think-premortem",
+      "trial": 1,
+      "action": "route",
+      "namedFrameworks": [
+        "think-premortem"
+      ],
+      "targetOrReason": "think-premortem",
+      "rationale": "The input names the exact move (\"run a premortem\"), so the advisor routes straight to think-premortem rather than building a plan or firing the last-resort clarify gate (When-NOT rule: \"if they want a premortem, route them straight to think-premortem\"; protocol 2: hand off when the move is named)."
+    },
+    {
+      "id": "d1",
+      "expect": "route:think-premortem",
+      "trial": 2,
+      "action": "route",
+      "namedFrameworks": [
+        "think-premortem"
+      ],
+      "targetOrReason": "think-premortem",
+      "rationale": "User named the exact move (\"run a premortem\") on a specific subject (their launch); the advisor's When-NOT rule and protocol 2 say hand off to think-premortem rather than build a plan or ask."
+    },
+    {
+      "id": "d2",
+      "expect": "route:think-decision-option-review",
+      "trial": 1,
+      "action": "route",
+      "namedFrameworks": [
+        "think-decision-option-review"
+      ],
+      "targetOrReason": "think-decision-option-review",
+      "rationale": "Defined options (three vendors) compared against stated weighted criteria is the named decide-by-matrix move; protocol 2 says hand off, do not engage or ask."
+    },
+    {
+      "id": "d2",
+      "expect": "route:think-decision-option-review",
+      "trial": 2,
+      "action": "route",
+      "namedFrameworks": [
+        "think-decision-option-review"
+      ],
+      "targetOrReason": "think-decision-option-review",
+      "rationale": "Defined options (three vendors) already being weighed against pre-set weighted criteria is the named \"compare options against weighted criteria, score, recommend one\" move - a clean single-skill handoff, not a clarify or multi-step plan."
+    },
+    {
+      "id": "d3",
+      "expect": "decline:out-of-scope-review",
+      "trial": 1,
+      "action": "decline-redirect",
+      "namedFrameworks": [],
+      "targetOrReason": "A finished artifact (a PRD) submitted for critique is a review task, not a routing task - explicitly excluded by When-NOT bullet 4 and protocol 2's decline branch. Redirect to a document-review/critique tool outside this thinking-framework library (e.g. a general assistant or pm-skills); no think-* framework selects or critiques an existing deliverable.",
+      "rationale": "\"Is this PRD any good? Critique it.\" is a finished artifact awaiting critique - a clear out-of-scope review task, so decline-redirect, not clarify (gate stays closed) and not a route."
+    },
+    {
+      "id": "d3",
+      "expect": "decline:out-of-scope-review",
+      "trial": 2,
+      "action": "decline-redirect",
+      "namedFrameworks": [],
+      "targetOrReason": "Finished artifact (a written PRD) awaiting critique = a review task, not a routing task (When-NOT rule 4); scope is clear, so protocol 2 declines rather than clarifies. Redirect to a document/code-review tool, not a thinking framework.",
+      "rationale": "\"Is this PRD any good? Critique it\" asks to evaluate an existing deliverable, which the advisor explicitly excludes as a review task and declines-with-redirect, not a clarify."
+    },
+    {
+      "id": "d4",
+      "expect": "decline:redirect",
+      "trial": 1,
+      "action": "decline-redirect",
+      "namedFrameworks": [],
+      "targetOrReason": "Out of family: \"facilitate an offsite agenda\" is group-facilitation / event-planning work (human-social), not a citable decision, problem, or stuck point with a diagnosable cognitive job. The advisor's own \"thin families - be honest\" rule says group-facilitation value is human-social; point outward rather than force a poor-fit framework. Redirect to facilitation/planning help, not a Thinking Plan.",
+      "rationale": "No diagnosable thinking job; an \"facilitate\" agenda request is group-facilitation/logistics, which the advisor explicitly defers outward instead of recommending a framework."
+    },
+    {
+      "id": "d4",
+      "expect": "decline:redirect",
+      "trial": 2,
+      "action": "decline-redirect",
+      "namedFrameworks": [],
+      "targetOrReason": "Out of family: \"facilitate our team offsite agenda\" is a group-facilitation / meeting-design task, which the advisor explicitly names as a thin, human-social area (\"group-facilitation value is human-social... point outward rather than forcing a poor-fit recommendation\"). No cognitive job (reframe/diverge/decide/stress-test/synthesize) is citable, and no recommendable.json skill is a facilitation or agenda-design tool. Redirect outward rather than force-fit a framework.",
+      "rationale": "A facilitation/agenda-design deliverable lands in the advisor's declared thin human-social family with no diagnosable thinking move and no fitting named skill, so the honest call is decline-redirect, not a clarifying question (protocol 2 is last resort when scope is unclear; here scope is clear)."
+    },
+    {
+      "id": "d5",
+      "expect": "decline:refuse",
+      "trial": 1,
+      "action": "decline-redirect",
+      "namedFrameworks": [],
+      "targetOrReason": "Factual lookup, not a thinking task: the advisor recommends thinking frameworks for a decision or problem; for a factual question like this, use a general assistant.",
+      "rationale": "Pure factual recall with no decision, problem, or stuck point to frame, so protocol 1 redirect applies and the insufficient-signal gate is not triggered."
+    },
+    {
+      "id": "d5",
+      "expect": "decline:refuse",
+      "trial": 2,
+      "action": "decline-redirect",
+      "namedFrameworks": [],
+      "targetOrReason": "Factual lookup, not a thinking task: no decision, problem, or stuck point to diagnose. Per When-NOT-to-Use and refusal protocol 1, redirect to a general assistant.",
+      "rationale": "A capital-city fact is a one-shot lookup with no cognitive job to route; clear scope means decline-redirect, not the insufficient-signal clarify gate."
+    },
+    {
+      "id": "d6",
+      "expect": "decline:refuse",
+      "trial": 1,
+      "action": "decline-redirect",
+      "namedFrameworks": [],
+      "targetOrReason": "Coding request, not a thinking task: per \"When NOT to Use\" (coding -> redirect) and refusal protocol 1, one-line redirect to a general assistant / coding tool. No thinking framework applies.",
+      "rationale": "\"Write me a Python script to parse this CSV\" is a code-drafting task with no decision, problem, or stuck point to diagnose; scope is clear so the advisor declines and redirects rather than firing the clarify gate."
+    },
+    {
+      "id": "d6",
+      "expect": "decline:refuse",
+      "trial": 2,
+      "action": "decline-redirect",
+      "namedFrameworks": [],
+      "targetOrReason": "Coding request is out of scope: not a thinking task. Redirect to a general assistant per When-NOT-to-Use and refusal protocol 1.",
+      "rationale": "\"Write me a Python script\" is a code-drafting/execution task with no decision, problem, or stuck point to diagnose, so the advisor declines and redirects rather than recommending any framework or firing the insufficient-signal gate."
+    }
+  ]
+}
