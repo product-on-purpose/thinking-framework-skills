@@ -44,13 +44,16 @@ skills/think-<method>/
 5. **Write `SKILL.md`** from the dossier: `think-<method>` name (must match the directory), a description that leads with an action verb + a "Use when ..." trigger clause (under 1024 chars, no first person - it is the activation trigger), the four commitments, a bounded procedure, and a quality checklist drawn from the dossier's failure modes.
 6. **Write `references/TEMPLATE.md` and `references/EXAMPLE.md`** (the artifact structure, and a worked example on the Northwind scenario).
 7. **Fill `skill.meta.yml`** (id, family, relationships, failure modes) from the dossier.
-8. **Register** the skill: add the component to `library.json` (`name: think-<method>`, `path: skills/think-<method>/SKILL.md`).
-9. **Validate to zero errors at Bronze** (the gate):
+8. **Register** the skill in both sources of truth. Add the component to `library.json` (`name: think-<method>`, `path: skills/think-<method>/SKILL.md`), and add or update its entry in `frameworks/registry.mjs` (`status: 'shipped'`, the governing `tier`, `family`, `verdict`, `reasoning`, and - for a branded method - `attribution` + `trademark`). Then regenerate the views: `npm run gen:registry` (catalog + why-not) and `npm run gen:recommendable` (the advisor corpus). CI enforces shipped-entry <-> skill-dir parity both ways and tier consistency, so a skill without a matching entry (or a tier that disagrees with the SKILL.md `evidence-tier`) fails the gate.
+9. **Validate to zero errors at the conformance gate:**
    ```
-   node "E:/Projects/product-on-purpose/agent-skills-toolkit/scripts/evaluate.mjs" "E:/Projects/product-on-purpose/thinking-framework-skills"
+   node scripts/check.mjs        # advanced tier, 0 errors / 0 warnings (structural + eval-cases + registry + engine drift)
+   npm test                      # the node --test suites
    ```
-   Require `Tier: universal`, `0 error(s), 0 warning(s)`. Fix anything flagged. (Silver/Gold items in the burndown are deferred.)
-10. **Commit** on a branch, open a PR, merge. Then update the BACKLOG (mark the skill done, move the "Now" pointer to the next skill).
+   The gate resolves the `agent-skills-toolkit` at the CI-pinned ref (clone it next to this repo, or as a `.agent-skills-toolkit` worktree). Require `advanced`, `0 error(s), 0 warning(s)` across every layer. For a site-affecting change also run `npm --prefix site run build` and the link/route guards (`scripts/check-rendered-links.mjs`, `scripts/check-route-parity.mjs`). Fix anything flagged.
+10. **Commit** on a branch, open a PR, merge. Then record the method as `shipped` in the registry status (the catalog/roadmap is the generated view of it).
+
+> **Vetting a candidate first.** Rather than research a method by hand, run the `think-research-framework` engine (the `/think-research-framework` command, or its subagent): it grades the evidence conservatively, proves distinctness against the catalog, drafts the dossier to `frameworks/_proposed/<slug>/`, and prints a schema-valid proposed registry entry. It never writes the registry - you admit the entry, then build the skill with the loop above. Note the **frameworks vs tools** split: a graded thinking method gets a registry entry and ships under `/frameworks/`; a meta-skill (router/applicator like the advisor, top3, random-frameworks, or the engine itself) gets NO registry entry, is added to the `META_SKILLS` set in `check-registry.mjs` + `gen-recommendable.mjs`, and renders under `/tools/`.
 
 ---
 
@@ -65,20 +68,29 @@ step 8). A stale or wrong entry here silently drops a skill from the docs site a
 generated manifests even though its files still exist on disk, so keep it in lockstep with
 `skills/`.
 
-Everything below is **generated from `library.json`** (plus the skills' own files). Do not
-hand-edit any of it: edit the source and regenerate, or the next generation overwrites the
-change and drifts from the source of truth.
+There is a **second hand-authored source of truth**: `frameworks/registry.mjs`, the catalog of
+every evaluated method (shipped or not) with its evidence tier, status, verdict, and reasoning
+(see [architecture](../architecture.md)). Edit it when you add, re-grade, fold, or retire a
+method; CI cross-checks it against the skills (shipped entry <-> skill dir, tier consistency).
+
+Everything below is **generated from `library.json` + `frameworks/registry.mjs`** (plus the
+skills' own files). Do not hand-edit any of it: edit the source and regenerate, or the next
+generation overwrites the change and drifts from the source of truth.
 
 | Generated artifact | Produced by | What it is |
 |---|---|---|
 | `manifest.generated.json` | agent-skills-toolkit `gen-manifest` | The resolved, denormalized roster (each skill's name, path, full description) a tool can read in one shot. It omits a `license` field; the root `LICENSE` (Apache-2.0) is authoritative. |
 | `.claude-plugin/plugin.json` | agent-skills-toolkit `gen-manifest` | The Claude Code plugin manifest (identity only; skills are auto-discovered). The marketplace install entry point. |
 | `.codex-plugin/plugin.json` | agent-skills-toolkit `gen-manifest` | The Codex CLI manifest; adds `skills: "./skills/"` and an `interface` block. |
-| `skills/think-framework-advisor/references/recommendable.{json,md}` | `scripts/gen-recommendable.mjs` | The advisor's name-safety set - the closed set of names it may recommend. CI runs `--check`, so a forgotten regenerate fails the build instead of shipping an advisor that names a nonexistent skill. |
-| `site/src/content/docs/{frameworks,families,recipes,evidence,explore}/` | `scripts/gen-site.mjs` | The Starlight docs pages - a generated *view* of the skills. Gitignored and rebuilt each build. |
+| `skills/think-framework-advisor/references/recommendable.{json,md}` | `scripts/gen-recommendable.mjs` | The advisor's name-safety set + enrichment (anti-triggers, when-not, overlaps). CI runs `--check`, so a forgotten regenerate fails the build instead of shipping an advisor that names a nonexistent skill. Meta-skills (tools) are excluded. |
+| `docs/internal/research/framework-catalog.md`, `site/.../about/why-not.md` | `scripts/gen-registry.mjs` | Generated *views* of `frameworks/registry.mjs`: the catalog family tables (between markers; narrative preserved) and the public why-not index. `--check` byte-compares. |
+| `INDEX.md` | agent-skills-toolkit `gen-index` | The repo-root index of components (regenerated at release time with the manifests). |
+| `skills/think-random-frameworks/references/engine.md` | `scripts/gen-engine.mjs` | The byte-identical copy of the shared applicator engine authored in `think-top3`. `--check` is a layer of the gate. |
+| `site/src/content/docs/{frameworks,tools,families,recipes,evidence,library,explore}/` | `scripts/gen-site.mjs` | The Starlight docs pages - a generated *view* of the skills + registry (frameworks, the `/tools/` meta-skills, the Framework Library, lenses, map, chooser). Gitignored and rebuilt each build. |
 
-The two generator scripts (`scripts/gen-site.mjs`, `scripts/gen-recommendable.mjs`) document
-their own what / why / usage in their file headers; read those rather than a per-file sidecar.
+The generator scripts (`scripts/gen-site.mjs`, `scripts/gen-recommendable.mjs`,
+`scripts/gen-registry.mjs`, `scripts/gen-engine.mjs`) document their own what / why / usage in
+their file headers; read those rather than a per-file sidecar.
 
 ---
 

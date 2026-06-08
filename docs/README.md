@@ -11,14 +11,14 @@ It is not the learning experience. The rendered guide for end users (quick-facts
 - [contributing.md](./contributing.md) - how to propose or change a skill, plus the evals and checks a change has to pass.
 - [concepts.md](./concepts.md) - the vocabulary: cognitive-operation families, recipes, IDs (`thinking-framework-skills.<method>`), and the evidence tiers (S/M/P/V/A/C/X).
 - [conformance.md](./conformance.md) - what advanced (Gold) tier means, the G1-G7 checks, and how this plugin meets (or vacuously passes) each.
-- [internal/](./internal/) - **internal** specs, plans, research, and the authoring guide ([internal/AUTHORING.md](./internal/AUTHORING.md)). Working notes, not polished docs; expect churn.
+- [internal/](./internal/) - **internal** specs, plans, research, the [authoring loop](./internal/AUTHORING.md), and the [release process](./internal/release-process.md). Working notes, not polished docs; expect churn.
 
-## Per-file sidecars
+## Self-documenting code
 
-Many code and config files have a `<name>.md` sidecar next to them (for example `gen-site.mjs.md` beside `scripts/gen-site.mjs`; the sidecar keeps the full filename including extension). The sidecar explains what that one file does, its inputs and outputs, and the gotchas. When you open an unfamiliar file, check for its sidecar first.
+Generators, validators, and config files document their what / why / usage in their own header comments (the per-file `.md` sidecars were retired in v0.2.1). When you open an unfamiliar script, read its header: `frameworks/registry.mjs`, `scripts/gen-*.mjs`, and `scripts/check-*.mjs` each carry one.
 
 ## Pointers off this folder
 
-- The frameworks: [`../skills/`](../skills/) - 34 skills across 10 families, plus 5 composable recipes.
+- The frameworks: [`../skills/`](../skills/) - 34 graded frameworks across 10 families, 4 tools (meta-skills), and 6 composable recipes.
 - The live docs site: <https://product-on-purpose.github.io/thinking-framework-skills/> - the reading experience, generated from the skills.
 - The advisor (front door): pick a framework by describing your situation at <https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-framework-advisor/>.

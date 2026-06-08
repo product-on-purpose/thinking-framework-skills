@@ -11,9 +11,10 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
 <p>
   <img src="https://img.shields.io/badge/status-active-success?style=flat-square" alt="Status: Active">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square" alt="License: Apache-2.0"></a>
-  <img src="https://img.shields.io/badge/version-0.2.0-blue?style=flat-square" alt="Version 0.2.0">
+  <img src="https://img.shields.io/badge/version-0.4.0-blue?style=flat-square" alt="Version 0.4.0">
   <a href="#-conformance-what-advanced-gold-tier-means"><img src="https://img.shields.io/badge/tier-advanced%20(Gold)-B8860B?style=flat-square" alt="Conformance tier: advanced (Gold)"></a>
-  <a href="#-the-catalog"><img src="https://img.shields.io/badge/skills-35-brightgreen?style=flat-square" alt="Skills: 35"></a>
+  <a href="#-the-catalog"><img src="https://img.shields.io/badge/frameworks-34-brightgreen?style=flat-square" alt="Frameworks: 34"></a>
+  <a href="#-tools-meta-skills"><img src="https://img.shields.io/badge/tools-4-brightgreen?style=flat-square" alt="Tools: 4"></a>
   <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-6-brightgreen?style=flat-square" alt="Recipes: 6"></a>
   <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/spec-agentskills.io-orange?style=flat-square" alt="Agent Skills Spec"></a>
   <img src="https://img.shields.io/badge/evidence-graded-purple?style=flat-square" alt="Evidence-graded">
@@ -76,7 +77,7 @@ Three things make it different from a list of mental models:
 /plugin install thinking-framework-skills@product-on-purpose
 ```
 
-All 35 skills become available immediately, invocable by name (for example `/think-premortem`).
+All 34 frameworks (plus the 4 tools and 6 recipes) become available immediately, invocable by name (for example `/think-premortem`).
 
 **Cross-agent (Cursor, Copilot, Cline, and others via the open [skills CLI](https://github.com/vercel-labs/skills)):**
 
@@ -123,7 +124,7 @@ This one does the opposite, and that honesty is the product:
 
 ## 🗺️ The library at a glance
 
-35 skills across 10 cognitive-operation families, arranged as a thinking lifecycle. You rarely run all ten; the Framework Advisor picks the few that fit your situation.
+34 frameworks across 10 cognitive-operation families, arranged as a thinking lifecycle. (Four [tools](#-tools-meta-skills) and six [recipes](#-recipes) ride on top.) You rarely run all ten; the Framework Advisor picks the few that fit your situation.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1','fontFamily':'system-ui, sans-serif'}}}%%
@@ -143,7 +144,7 @@ flowchart TB
     DO["7. Decision & Option Evaluation (5) - decide between options"]:::decide
     RR["8. Risk & Resilience (4) - anticipate what could go wrong"]:::decide
     SY["9. Synthesis (3) - turn inputs into a message"]:::reflect
-    MR["10. Meta-Thinking & Reflection (4) - learn and route"]:::reflect
+    MR["10. Meta-Thinking & Reflection (3) - learn and route"]:::reflect
 
     PF --> DI --> PM --> SC --> AB --> RC --> DO --> RR --> SY --> MR
 ```
@@ -178,7 +179,7 @@ A strong-evidence core anchors the library; everything else is honestly labeled 
 
 ## 📚 The catalog
 
-All 35 skills, by family. The `Tier` column is the [evidence grade](#-the-evidence-model) defined just above. **Each skill name links to its full page** - mechanism, numbered procedure, worked example, and graded sources - on the live site.
+All 34 frameworks, by family. The `Tier` column is the [evidence grade](#-the-evidence-model) defined just above. **Each name links to its full page** - mechanism, numbered procedure, worked example, and graded sources - on the live site. (The routers and applicators are listed under [Tools](#-tools-meta-skills); the chains under [Recipes](#-recipes).)
 
 ### Problem Framing - frame the real problem (2)
 
@@ -256,16 +257,32 @@ All 35 skills, by family. The `Tier` column is the [evidence grade](#-the-eviden
 | [**Affinity Mapping**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-affinity-mapping/) | `P` | Cluster many raw notes into emergent themes from the bottom up |
 | [**Pyramid Principle**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-pyramid-principle/) | `P` | Structure communication as a governing claim over grouped, ordered support |
 
-### Meta-Thinking & Reflection - learn and route (4)
+### Meta-Thinking & Reflection - learn and route (3)
 
 | Skill | Tier | What it does |
 |---|---|---|
 | [**After Action Review**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-after-action-review/) | `S` | Structured review of expected vs actual, and what to change, to improve the next loop |
 | [**Decision Journal**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-decision-journal/) | `P` | Record the decision, rationale, and prediction now to calibrate your judgment later |
 | [**Belief-Update Routine**](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-belief-update-routine/) | `P` | Re-score a standing inventory of open beliefs against new evidence on a cadence, with an explicit confidence delta and an under-updating guard |
-| [**Framework Advisor**](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-framework-advisor/) | `M/C` | The front door: describe a situation, get a prioritized Thinking Plan of which skills to run |
 
 > Browse them five other ways - by job, by evidence, by artifact, by situation, or on the map - in the site's [Explore](https://product-on-purpose.github.io/thinking-framework-skills/explore/) section. The skills themselves live in [`skills/`](skills/).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## 🛠️ Tools (meta-skills)
+
+Four skills are **tools**, not thinking methods: they operate *over* the library - routing you to the right framework, applying several at once, or researching new ones. They carry no evidence tier of their own (any grade in a tool's dossier is about the tool's behavior, not a method), and they live under [`/tools/`](https://product-on-purpose.github.io/thinking-framework-skills/tools/) on the site.
+
+| Tool | What it does |
+|---|---|
+| [**Framework Advisor**](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-framework-advisor/) | **Router**, the front door. Describe a situation, get a prioritized Thinking Plan of which frameworks to run, in order, and what to skip. Use it when you do not know which method fits. |
+| [**Top-3**](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-top3/) | **Applicator**. Rank the most relevant frameworks for your topic, apply the top three so each emits its artifact, then cross-synthesize. Use it when you want worked output now, not a plan. |
+| [**Random Frameworks**](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-random-frameworks/) | **Applicator**. Draw three frameworks at random and apply each regardless of fit, to break a frozen or fixated framing. Use it when the obvious lenses are not working. |
+| [**Research Framework**](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-research-framework/) | **Engine**. Research a candidate method, grade its evidence conservatively, and propose a catalog entry for review. This is how the library grows; it never auto-admits. |
+
+**Frameworks, tools, and recipes, in one line:** a *framework* is a single graded thinking method (the 34 in the catalog above); a *tool* helps you choose or apply frameworks (the 4 here); a *recipe* is a fixed chain of frameworks for a recurring job (the 6 below).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -333,7 +350,7 @@ Browse them on the [live site](https://product-on-purpose.github.io/thinking-fra
 ## 📖 Documentation
 
 - **[Live site](https://product-on-purpose.github.io/thinking-framework-skills/)** - the full, searchable, interactive experience (per-framework pages, learning tracks, explorers, the bibliography). This is the home for *using* the library.
-- **[`docs/`](docs/)** - the repo-browser and contributor layer: [getting started](docs/getting-started.md), [architecture](docs/architecture.md), [concepts](docs/concepts.md), [contributing](docs/contributing.md), [conformance](docs/conformance.md). Plus a `<file>.md` sidecar next to each code/config file.
+- **[`docs/`](docs/)** - the repo-browser and contributor layer: [architecture](docs/architecture.md), [concepts](docs/concepts.md), [contributing](docs/contributing.md), [conformance](docs/conformance.md), the [authoring loop](docs/internal/AUTHORING.md), and the [release process](docs/internal/release-process.md).
 - **[`skills/`](skills/)** - the frameworks themselves (the source of truth the site renders).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -367,14 +384,15 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ## 📊 Project status
 
-`v0.2.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
+`v0.4.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
 
 ### At a glance
 
 |  |  |
 |---|---|
-| **Current version** | [v0.2.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0) |
-| **Skills** | 35, across 10 cognitive-operation families |
+| **Current version** | [v0.4.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.4.0) |
+| **Frameworks** | 34, across 10 cognitive-operation families |
+| **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 6 (skill chains shipped as workflow components) |
 | **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) - 0 errors / 0 warnings, self-hosting CI |
 | **Evidence** | 11 skills at `S` / `S-M` tier; every skill graded and sourced |
@@ -387,7 +405,8 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ```
 thinking-framework-skills/
-├── skills/                  # 35 thinking-method skills (the source of truth)
+├── skills/                  # 34 frameworks + 4 tools (the source of truth)
+├── frameworks/              # registry.mjs (the catalog) + per-method dossiers
 │   └── think-<method>/      #   SKILL.md, evidence/dossier.md, references/, eval/cases.md, skill.meta.yml
 ├── _workflows/              # Recipe definitions (multi-skill chains) as workflow components
 ├── recipes/                 # Human-readable recipe write-ups
@@ -405,7 +424,8 @@ thinking-framework-skills/
 
 | Path | What's in it |
 |---|---|
-| [`skills/`](skills/) | All 35 skills, each a self-contained 5-file unit (the site renders from these) |
+| [`skills/`](skills/) | All 34 frameworks + 4 tools, each a self-contained unit (the site renders from these) |
+| [`frameworks/`](frameworks/) | `registry.mjs` (the single-source-of-truth catalog of 102 evaluated methods) + per-method dossiers |
 | [`_workflows/`](_workflows/) | The 6 recipes as workflow components - ordered skill chains with handoffs |
 | [`scripts/`](scripts/) | Generators (site, manifests, name-safety set) and [`check.mjs`](scripts/check.mjs), the conformance gate |
 | [`docs/`](docs/) | [Getting started](docs/getting-started.md), [architecture](docs/architecture.md), [concepts](docs/concepts.md), [contributing](docs/contributing.md), [conformance](docs/conformance.md) |
@@ -420,6 +440,8 @@ Full detail in [`CHANGELOG.md`](CHANGELOG.md); curated highlights in [`RELEASE-N
 
 | Version | Highlights |
 |---|---|
+| [**0.4.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.4.0) | The Framework Library platform: the registry as a single source of truth with strong CI, the research-framework engine, the Top-3 and Random-Frameworks applicators, the published Framework Library dossiers, a `/tools/` section separating meta-skills from graded frameworks, and the advisor's calibrated routing gate. |
+| [**0.3.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.3.0) | The advisor-credibility milestone: behavioral eval cases enforced in CI, and advisor corpus enrichment (anti-triggers, when-not, overlaps). Plus the Belief-Update Routine framework and an idea-quality-audit recipe. |
 | [**0.2.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0) | Catalog grows 31 to 34 (Concept Mapping, Causal Loop Diagrams, Fermi Estimation, each vetted against the catalog before authoring) plus a first-principles recipe (4 to 5). A more visual docs site: legible diagrams and beginner concept diagrams on six pages. Gold-tier hardening - a self-hosting conformance gate in CI, a generated `INDEX.md`, and `RELEASE-NOTES.md`. Tier declared `advanced`. |
 | [**0.1.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.1.0) | First public release: 31 evidence-graded, agent-executable skills + 4 composable recipes, validating at convergent (Silver). The `think-framework-advisor` front-door router. A full Astro Starlight docs site (per-framework pages, learning tracks, exploration lenses, interactive chooser, graded bibliography). Listed in the Product on Purpose marketplace. |
 
