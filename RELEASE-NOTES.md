@@ -2,6 +2,17 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://product-on-purpose.github.io/thinking-framework-skills/).
 
+## v0.4.0
+
+**The Framework Library platform: a trustworthy catalog you can browse, plus tools that put it to work.**
+
+- **A published Framework Library.** Every thinking method the library has evaluated now lives in one honest catalog, with per-method learning dossiers - what the evidence does and does not show, with graded sources - browsable by family on the site.
+- **Tools, kept honestly separate from the methods.** The Framework Advisor, Top-3, and Random-Frameworks now live in their own [Tools](https://product-on-purpose.github.io/thinking-framework-skills/tools/) section: they help you choose or apply the frameworks rather than masquerading as graded methods, so they no longer carry an evidence badge a router has no business showing.
+- **A research engine that grades honestly.** A new `think-research-framework` tool researches a candidate method, grades its evidence conservatively on a seven-tier model, checks it for overlap with what already ships, and proposes a catalog entry for review - it never auto-adds. It is how the catalog grows without diluting the honesty bar.
+- **A more trustworthy advisor.** The advisor's gate for thin requests was rewritten and re-measured so it stops over-asking and never names an answer and then asks a clarifying question anyway. Its routing grade stays an honest C.
+- **Clearer evidence badges.** A method's library badge now shows its full grade (for example `S/M`) to match its dossier, instead of a single letter that could read as overstating the evidence.
+- **Refreshed documentation** for readers and contributors alike: a new architecture overview, a repeatable release process, and a plain-language explainer of frameworks vs tools vs recipes.
+
 ## v0.3.0
 
 **The advisor gets more trustworthy, plus a new reflection skill and recipe.**
