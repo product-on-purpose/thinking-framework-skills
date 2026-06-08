@@ -11,6 +11,7 @@ src/content/docs/families/
 src/content/docs/recipes/
 src/content/docs/evidence/
 src/content/docs/library/
+src/content/docs/tools/
 # explore/ is mixed: the lens + map pages are generated, chooser.mdx is hand-authored.
 src/content/docs/explore/*
 !src/content/docs/explore/chooser.mdx

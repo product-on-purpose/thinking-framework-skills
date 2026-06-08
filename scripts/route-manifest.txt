@@ -53,13 +53,10 @@
 /frameworks/think-problem-restatement/index.html
 /frameworks/think-pyramid-principle/index.html
 /frameworks/think-question-burst/index.html
-/frameworks/think-random-frameworks/index.html
 /frameworks/think-red-team-light/index.html
 /frameworks/think-reference-class-forecasting/index.html
-/frameworks/think-research-framework/index.html
 /frameworks/think-scamper/index.html
 /frameworks/think-stocks-and-flows-reasoning/index.html
-/frameworks/think-top3/index.html
 /frameworks/think-what-would-have-to-be-true/index.html
 /frameworks/think-woop/index.html
 /index.html
@@ -85,3 +82,8 @@
 /start/evidence-model/index.html
 /start/getting-started/index.html
 /start/how-to-read-a-page/index.html
+/tools/index.html
+/tools/think-framework-advisor/index.html
+/tools/think-random-frameworks/index.html
+/tools/think-research-framework/index.html
+/tools/think-top3/index.html
