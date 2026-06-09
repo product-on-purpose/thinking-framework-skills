@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+- `scripts/gen-agents.mjs` - the `AGENTS.md` Skills and Recipes tables are now **generated and drift-checked** from the same sources as everything else (the registry + each `SKILL.md` frontmatter + `skill.meta.yml` + `_workflows/`), spliced between `BEGIN/END GENERATED` markers. A new fifth layer of the conformance gate (`gen-agents.mjs --check`) byte-compares the committed tables against a fresh generation, so the agent-facing roster can no longer silently fall behind the catalog (it had drifted to a stale count since v0.3.0). The contributor guide joins the "no second store" principle: edit a source, regenerate, never hand-edit the table. Generating de-slugifies the artifact labels and drops the prior inline `(flag)` markers (each skill's caveats still live in its own `When NOT to Use` and the registry).
+
 ## [0.5.0] - 2026-06-09
 
 **Catalog expansion.** The catalog grows from 34 to 40 shipped frameworks (and from 10 to 11 cognitive-operation families). Three are de-branded problem-framing methods the `think-research-framework` engine discovered, vetted, and the library built end to end (contradiction-resolution, boundary-critique, frame-creation - the platform's first engine-discovered-to-shipped frameworks, and its first shipped C-tier methods); three come from the v0.5.0 phase-1 shortlist (theory-of-constraints, expected-value-decision-tree, and scenario-planning, which adds the 11th family). The same shortlist also reconciled four candidates honestly - two folds into premortem and two rejects - now published as rejected-with-reasoning Framework Library pages. The honesty bar held throughout: both "M-tier" candidates were downgraded to P before building, and the engine's high fold/reject rate kept breadth from diluting the grade.
