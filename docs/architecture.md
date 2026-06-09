@@ -41,6 +41,7 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 | `scripts/gen-recommendable.mjs` | the skills + recipes | the advisor's `recommendable.{json,md}` corpus (names, tiers, anti-triggers, when-not, overlaps); the registry cross-checks this corpus rather than feeding it |
 | `scripts/gen-site.mjs` | the skills + registry + recipes + intros | the Starlight site (frameworks, tools, families, recipes, library, explore lenses, map, chooser, bibliography) |
 | `scripts/gen-engine.mjs` | the shared applicator engine | the byte-identical copy of `engine.md` in `think-random-frameworks` |
+| `scripts/gen-agents.mjs` | the registry + skills + `_workflows/` | the `AGENTS.md` Skills + Recipes tables (the contributor/agent guide) |
 | agent-skills-toolkit `gen-manifest` / `gen-index` | `library.json` | the native plugin manifests + `INDEX.md` |
 
 ```mermaid
@@ -48,7 +49,7 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 graph LR
   reg["frameworks/registry.mjs<br/>(the catalog: 105 methods)"]:::source
   skl["skills/ + library.json + _workflows/<br/>(the 40 shipped + 4 tools + 6 recipes)"]:::source
-  gen["gen-registry · gen-recommendable<br/>gen-site · gen-engine · gen-manifest"]:::build
+  gen["gen-registry · gen-recommendable · gen-site<br/>gen-engine · gen-agents · gen-manifest"]:::build
   views["catalog · why-not · advisor corpus<br/>Starlight site · plugin manifests · INDEX"]:::site
   pages["GitHub Pages + marketplace"]:::deploy
   reg --> gen
@@ -64,12 +65,13 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 
 ## The conformance gate
 
-`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs four layers in order, and any failure is a red build:
+`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs five layers in order, and any failure is a red build:
 
 1. **Structural** - the `agent-skills-toolkit` validators (`evaluate.mjs`), pinned to a known-good ref, asserting the plugin meets the `advanced` tier with 0 errors / 0 warnings.
 2. **Eval cases** (`scripts/eval-cases.mjs`) - every `skills/*/eval/cases.md` is well-formed and name-safe (no case may reference a framework that does not exist).
 3. **Registry** (`scripts/check-registry.mjs`) - schema validation, generated-view drift, referential integrity (shipped <-> skill dir, fold targets resolve to a shipped skill, dossier paths and source URLs resolve), completeness, the IP/attribution lint, eval-coupling, tier consistency, and the registry <-> advisor recommendable cross-check.
 4. **Engine drift** (`scripts/gen-engine.mjs --check`) - the shared applicator engine copy is in sync.
+5. **AGENTS.md drift** (`scripts/gen-agents.mjs --check`) - the generated Skills + Recipes tables in the contributor/agent guide are in sync with the catalog, so the agent-facing roster cannot silently fall behind.
 
 The docs site adds two build-time guards run after `astro build` (family Astro site standard, clause 14.11): `scripts/check-rendered-links.mjs` (no browser-broken internal links) and `scripts/check-route-parity.mjs` (no silently dropped published route, against the committed `scripts/route-manifest.txt`).
 

@@ -13,62 +13,68 @@ Each skill is built around four commitments, not just a prompt:
 
 ## Skills
 
+<!-- BEGIN GENERATED SKILLS (scripts/gen-agents.mjs from frameworks/registry.mjs + skills/) - do not hand-edit below this line -->
 | Skill | Family | Evidence | Artifact |
 |---|---|---|---|
-| [`think-premortem`](skills/think-premortem/SKILL.md) | risk-and-resilience | S/M | risk register |
-| [`think-problem-restatement`](skills/think-problem-restatement/SKILL.md) | problem-framing | M/P | problem frame set |
-| [`think-evidence-vs-inference-sort`](skills/think-evidence-vs-inference-sort/SKILL.md) | reasoning-clarity | P | evidence/inference ledger |
+| [`think-authentic-dissent`](skills/think-authentic-dissent/SKILL.md) | assumption-and-belief-challenge | **S** | dissent audit |
 | [`think-ladder-of-inference-check`](skills/think-ladder-of-inference-check/SKILL.md) | assumption-and-belief-challenge | P | reasoning trace |
-| [`think-what-would-have-to-be-true`](skills/think-what-would-have-to-be-true/SKILL.md) | decision-and-option-evaluation | P | assumption ledger |
-| [`think-decision-option-review`](skills/think-decision-option-review/SKILL.md) | decision-and-option-evaluation | P (flag) | option matrix |
-| [`think-parallel-perspectives-review`](skills/think-parallel-perspectives-review/SKILL.md) | perspective-and-multi-lens | P (flag) | multi-lens review |
-| [`think-red-team-light`](skills/think-red-team-light/SKILL.md) | assumption-and-belief-challenge | P (flag) | adversarial critique |
-| [`think-scamper`](skills/think-scamper/SKILL.md) | divergent-ideation | P | expansion sheet |
-| [`think-question-burst`](skills/think-question-burst/SKILL.md) | divergent-ideation | P | ranked question set |
-| [`think-assumption-reversal`](skills/think-assumption-reversal/SKILL.md) | divergent-ideation | P | assumptions-and-reversals sheet |
-| [`think-brainwriting`](skills/think-brainwriting/SKILL.md) | divergent-ideation | **S** | idea pool |
-| [`think-futures-wheel`](skills/think-futures-wheel/SKILL.md) | systems-and-consequences | P | consequence map |
-| [`think-reference-class-forecasting`](skills/think-reference-class-forecasting/SKILL.md) | risk-and-resilience | **S** | reference-class estimate |
-| [`think-argument-mapping`](skills/think-argument-mapping/SKILL.md) | reasoning-clarity | **S** | argument map |
-| [`think-woop`](skills/think-woop/SKILL.md) | risk-and-resilience | **S** | WOOP commitment card |
-| [`think-authentic-dissent`](skills/think-authentic-dissent/SKILL.md) | assumption-and-belief-challenge | **S** | dissent audit and plan |
-| [`think-after-action-review`](skills/think-after-action-review/SKILL.md) | meta-thinking-and-reflection | S/M | after-action review |
-| [`think-far-analogy-ideation`](skills/think-far-analogy-ideation/SKILL.md) | divergent-ideation | **S** | far-analogy transfer sheet |
-| [`think-natural-frequency-bayesian`](skills/think-natural-frequency-bayesian/SKILL.md) | reasoning-clarity | **S** | natural-frequency breakdown |
-| [`think-issue-tree`](skills/think-issue-tree/SKILL.md) | reasoning-clarity | P | issue tree (MECE) |
-| [`think-affinity-mapping`](skills/think-affinity-mapping/SKILL.md) | synthesis | P | clustered theme map |
-| [`think-pyramid-principle`](skills/think-pyramid-principle/SKILL.md) | synthesis | P | answer-first pyramid |
-| [`think-abstraction-laddering`](skills/think-abstraction-laddering/SKILL.md) | problem-framing | P | abstraction ladder |
-| [`think-one-way-vs-two-way-door`](skills/think-one-way-vs-two-way-door/SKILL.md) | decision-and-option-evaluation | P | reversibility classification |
-| [`think-decision-journal`](skills/think-decision-journal/SKILL.md) | meta-thinking-and-reflection | P | decision journal entry |
-| [`think-iceberg-model`](skills/think-iceberg-model/SKILL.md) | systems-and-consequences | P | iceberg (4 levels) |
-| [`think-backcasting`](skills/think-backcasting/SKILL.md) | risk-and-resilience | P | backcast path |
-| [`think-stocks-and-flows-reasoning`](skills/think-stocks-and-flows-reasoning/SKILL.md) | systems-and-consequences | **S** | stock-flow map |
+| [`think-red-team-light`](skills/think-red-team-light/SKILL.md) | assumption-and-belief-challenge | P | adversarial critique |
+| [`think-decision-option-review`](skills/think-decision-option-review/SKILL.md) | decision-and-option-evaluation | P | option matrix |
+| [`think-expected-value-decision-tree`](skills/think-expected-value-decision-tree/SKILL.md) | decision-and-option-evaluation | P | decision tree ev |
+| [`think-fermi-estimation`](skills/think-fermi-estimation/SKILL.md) | decision-and-option-evaluation | M/P | fermi decomposition worksheet |
 | [`think-linear-model-aggregation`](skills/think-linear-model-aggregation/SKILL.md) | decision-and-option-evaluation | **S** | scoring model |
-| [`think-causal-loop-diagrams`](skills/think-causal-loop-diagrams/SKILL.md) | systems-and-consequences | M/P | signed causal loop diagram |
+| [`think-one-way-vs-two-way-door`](skills/think-one-way-vs-two-way-door/SKILL.md) | decision-and-option-evaluation | P | reversibility classification |
+| [`think-what-would-have-to-be-true`](skills/think-what-would-have-to-be-true/SKILL.md) | decision-and-option-evaluation | P | assumption ledger |
+| [`think-assumption-reversal`](skills/think-assumption-reversal/SKILL.md) | divergent-ideation | P | assumptions and reversals sheet |
+| [`think-brainwriting`](skills/think-brainwriting/SKILL.md) | divergent-ideation | **S** | idea pool |
+| [`think-far-analogy-ideation`](skills/think-far-analogy-ideation/SKILL.md) | divergent-ideation | **S** | far analogy transfer sheet |
+| [`think-question-burst`](skills/think-question-burst/SKILL.md) | divergent-ideation | P | ranked question set |
+| [`think-scamper`](skills/think-scamper/SKILL.md) | divergent-ideation | P | scamper expansion sheet |
+| [`think-after-action-review`](skills/think-after-action-review/SKILL.md) | meta-thinking-and-reflection | **S** | after action review |
+| [`think-belief-update-routine`](skills/think-belief-update-routine/SKILL.md) | meta-thinking-and-reflection | P | belief update ledger |
+| [`think-decision-journal`](skills/think-decision-journal/SKILL.md) | meta-thinking-and-reflection | P | decision journal entry |
+| [`think-parallel-perspectives-review`](skills/think-parallel-perspectives-review/SKILL.md) | perspective-and-multi-lens | P | multi lens review |
+| [`think-abstraction-laddering`](skills/think-abstraction-laddering/SKILL.md) | problem-framing | P | abstraction ladder |
+| [`think-boundary-critique`](skills/think-boundary-critique/SKILL.md) | problem-framing | C/P | boundary judgment audit |
+| [`think-contradiction-resolution`](skills/think-contradiction-resolution/SKILL.md) | problem-framing | M/P | contradiction resolution worksheet |
+| [`think-frame-creation`](skills/think-frame-creation/SKILL.md) | problem-framing | C/P | frame proposal |
+| [`think-problem-restatement`](skills/think-problem-restatement/SKILL.md) | problem-framing | M/P | problem frame set |
+| [`think-argument-mapping`](skills/think-argument-mapping/SKILL.md) | reasoning-clarity | **S** | argument map |
+| [`think-evidence-vs-inference-sort`](skills/think-evidence-vs-inference-sort/SKILL.md) | reasoning-clarity | P | evidence inference ledger |
+| [`think-issue-tree`](skills/think-issue-tree/SKILL.md) | reasoning-clarity | P | issue tree |
+| [`think-natural-frequency-bayesian`](skills/think-natural-frequency-bayesian/SKILL.md) | reasoning-clarity | **S** | natural frequency breakdown |
+| [`think-backcasting`](skills/think-backcasting/SKILL.md) | risk-and-resilience | P | backcast path |
+| [`think-premortem`](skills/think-premortem/SKILL.md) | risk-and-resilience | S/M | risk register |
+| [`think-reference-class-forecasting`](skills/think-reference-class-forecasting/SKILL.md) | risk-and-resilience | **S** | reference class estimate |
+| [`think-woop`](skills/think-woop/SKILL.md) | risk-and-resilience | **S** | woop card |
+| [`think-scenario-planning`](skills/think-scenario-planning/SKILL.md) | strategy-and-opportunity | P | scenario set |
+| [`think-affinity-mapping`](skills/think-affinity-mapping/SKILL.md) | synthesis | P | clustered theme map |
 | [`think-concept-mapping`](skills/think-concept-mapping/SKILL.md) | synthesis | M/P | concept map |
-| [`think-fermi-estimation`](skills/think-fermi-estimation/SKILL.md) | decision-and-option-evaluation | M/P | Fermi decomposition worksheet |
-| [`think-belief-update-routine`](skills/think-belief-update-routine/SKILL.md) | meta-thinking-and-reflection | P | belief-update ledger |
-| [`think-contradiction-resolution`](skills/think-contradiction-resolution/SKILL.md) | problem-framing | M/P | contradiction / IFR worksheet |
-| [`think-boundary-critique`](skills/think-boundary-critique/SKILL.md) | problem-framing | C/P | boundary-judgment audit |
-| [`think-frame-creation`](skills/think-frame-creation/SKILL.md) | problem-framing | C/P | new-frame brief |
-| [`think-theory-of-constraints`](skills/think-theory-of-constraints/SKILL.md) | systems-and-consequences | P | constraint-intervention plan |
-| [`think-expected-value-decision-tree`](skills/think-expected-value-decision-tree/SKILL.md) | decision-and-option-evaluation | P | EV decision tree |
-| [`think-scenario-planning`](skills/think-scenario-planning/SKILL.md) | strategy-and-opportunity | P | scenario set (2x2) |
+| [`think-pyramid-principle`](skills/think-pyramid-principle/SKILL.md) | synthesis | P | pyramid |
+| [`think-causal-loop-diagrams`](skills/think-causal-loop-diagrams/SKILL.md) | systems-and-consequences | M/P | signed causal loop diagram |
+| [`think-futures-wheel`](skills/think-futures-wheel/SKILL.md) | systems-and-consequences | P | consequence map |
+| [`think-iceberg-model`](skills/think-iceberg-model/SKILL.md) | systems-and-consequences | P | iceberg |
+| [`think-stocks-and-flows-reasoning`](skills/think-stocks-and-flows-reasoning/SKILL.md) | systems-and-consequences | **S** | stock flow map |
+| [`think-theory-of-constraints`](skills/think-theory-of-constraints/SKILL.md) | systems-and-consequences | P | constraint intervention plan |
 | [`think-framework-advisor`](skills/think-framework-advisor/SKILL.md) | meta (router) | M/C | Thinking Plan |
 
-40 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). "(flag)" marks skills with a documented evidence or trademark caveat. See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
+40 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
+<!-- END GENERATED SKILLS -->
 
 ## Recipes
 
 Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **advanced (Gold)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`).
 
+<!-- BEGIN GENERATED RECIPES (scripts/gen-agents.mjs from _workflows/) - do not hand-edit below this line -->
 | Recipe | Chain |
 |---|---|
-| [reframe-problem](recipes/reframe-problem.md) | restate -> evidence-sort -> perspectives |
-| [expand-options](recipes/expand-options.md) | restate -> scamper -> assumption-reversal |
-| [stress-test-decision](recipes/stress-test-decision.md) | option-review -> WWHTBT -> premortem -> reference-class |
-| [audit-reasoning](recipes/audit-reasoning.md) | evidence-sort -> ladder -> perspectives |
+| [audit-reasoning](recipes/audit-reasoning.md) | evidence-vs-inference-sort -> ladder-of-inference-check -> parallel-perspectives-review |
+| [expand-options](recipes/expand-options.md) | problem-restatement -> scamper -> assumption-reversal |
+| [first-principles](recipes/first-principles.md) | abstraction-laddering -> assumption-reversal |
+| [idea-quality-audit](recipes/idea-quality-audit.md) | decision-option-review -> red-team-light |
+| [reframe-problem](recipes/reframe-problem.md) | problem-restatement -> evidence-vs-inference-sort -> parallel-perspectives-review |
+| [stress-test-decision](recipes/stress-test-decision.md) | decision-option-review -> what-would-have-to-be-true -> premortem -> reference-class-forecasting |
+<!-- END GENERATED RECIPES -->
 
 ## Skill anatomy
 

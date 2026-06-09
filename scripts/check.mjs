@@ -3,16 +3,18 @@
 // contributor or CI runs to validate the plugin against the agent-skills-toolkit
 // Standard: `node scripts/check.mjs` (or `npm run check`).
 //
-// It runs four layers:
+// It runs five layers:
 //   1. the toolkit's portable STRUCTURAL validators (the toolkit is the source of truth;
 //      vendoring them here would drift),
 //   2. the repo-local static eval-case validator (scripts/eval-cases.mjs, SP1): every
 //      skills/*/eval/cases.md must be well-formed and name-safe,
 //   3. the registry conformance check (scripts/check-registry.mjs, SP3): frameworks/
 //      registry.mjs validates against its schema, its generated views are not stale, and
-//      its referential / IP / eval-coupling invariants hold, and
+//      its referential / IP / eval-coupling invariants hold,
 //   4. the shared applicator engine-copy drift check (scripts/gen-engine.mjs --check, SP7/SP8):
-//      the byte-identical engine.md copy stays in sync.
+//      the byte-identical engine.md copy stays in sync, and
+//   5. the AGENTS.md table drift check (scripts/gen-agents.mjs --check): the generated
+//      Skills + Recipes tables in the contributor guide stay in sync with the catalog.
 //
 // To reproduce a CI failure locally, clone the public toolkit next to this repo:
 //   git clone https://github.com/product-on-purpose/agent-skills-toolkit.git ../agent-skills-toolkit
@@ -74,5 +76,8 @@ const registry = spawnSync('node', [resolve(ROOT, 'scripts', 'check-registry.mjs
 console.log('\nRunning engine-copy drift check (scripts/gen-engine.mjs --check)\n');
 const engine = spawnSync('node', [resolve(ROOT, 'scripts', 'gen-engine.mjs'), '--check'], { stdio: 'inherit' });
 
+console.log('\nRunning AGENTS.md table drift check (scripts/gen-agents.mjs --check)\n');
+const agents = spawnSync('node', [resolve(ROOT, 'scripts', 'gen-agents.mjs'), '--check'], { stdio: 'inherit' });
+
 // Fail if any layer failed; all run so contributors see all problems at once.
-process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1));
+process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1) || (agents.status ?? 1));
