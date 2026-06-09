@@ -16,13 +16,14 @@
 //
 // FAMILY NOTE: `family` uses the 11-family CATALOG (universe) taxonomy, which differs
 // by design from the live skill metadata.family slugs (a separate, coarser grouping the
-// 34 shipped skills + the Astro families/ pages use). The registry must cover all 102
+// 40 shipped skills + the Astro families/ pages use). The registry must cover all 105
 // methods, most of which are unbuilt and have no skill metadata; harmonizing the two
 // taxonomies is a noted follow-up, out of scope for SP3.
 //
 // SEED: migrated 2026-06-03 from the truthed-up framework-catalog.md (113 table rows ->
 // 102 distinct methods: 10 expansion re-listings deduped into their families,
-// decision-journal de-duplicated across families 7 and 11). 34 are shipped skills.
+// decision-journal de-duplicated across families 7 and 11). The catalog has since grown
+// to 105 methods; 40 are shipped skills.
 // =============================================================================
 
 export default {

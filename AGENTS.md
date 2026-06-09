@@ -48,9 +48,16 @@ Each skill is built around four commitments, not just a prompt:
 | [`think-causal-loop-diagrams`](skills/think-causal-loop-diagrams/SKILL.md) | systems-and-consequences | M/P | signed causal loop diagram |
 | [`think-concept-mapping`](skills/think-concept-mapping/SKILL.md) | synthesis | M/P | concept map |
 | [`think-fermi-estimation`](skills/think-fermi-estimation/SKILL.md) | decision-and-option-evaluation | M/P | Fermi decomposition worksheet |
+| [`think-belief-update-routine`](skills/think-belief-update-routine/SKILL.md) | meta-thinking-and-reflection | P | belief-update ledger |
+| [`think-contradiction-resolution`](skills/think-contradiction-resolution/SKILL.md) | problem-framing | M/P | contradiction / IFR worksheet |
+| [`think-boundary-critique`](skills/think-boundary-critique/SKILL.md) | problem-framing | C/P | boundary-judgment audit |
+| [`think-frame-creation`](skills/think-frame-creation/SKILL.md) | problem-framing | C/P | new-frame brief |
+| [`think-theory-of-constraints`](skills/think-theory-of-constraints/SKILL.md) | systems-and-consequences | P | constraint-intervention plan |
+| [`think-expected-value-decision-tree`](skills/think-expected-value-decision-tree/SKILL.md) | decision-and-option-evaluation | P | EV decision tree |
+| [`think-scenario-planning`](skills/think-scenario-planning/SKILL.md) | strategy-and-opportunity | P | scenario set (2x2) |
 | [`think-framework-advisor`](skills/think-framework-advisor/SKILL.md) | meta (router) | M/C | Thinking Plan |
 
-34 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). "(flag)" marks skills with a documented evidence or trademark caveat. See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
+40 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). "(flag)" marks skills with a documented evidence or trademark caveat. See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
 
 ## Recipes
 

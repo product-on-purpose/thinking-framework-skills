@@ -16,7 +16,7 @@ The first 7 candidates were taken through `research -> spec -> plan` (workflow r
 | Cognitive bias checklist | cand/P | **Reject** | `excl` | C | `frameworks/cognitive-bias-checklist/` |
 | Decision Brief / PR-FAQ | cand/P | **Reject** | `pm` | V | `frameworks/decision-brief-pr-faq/` |
 
-Each candidate's full evidence dossier (with the distinctness proof and the conservative re-grade reasoning) is staged under `frameworks/_proposed/<slug>/dossier.md`.
+Each candidate's full evidence dossier (with the distinctness proof and the conservative re-grade reasoning) now lives at its admitted location: the 3 Build skills under `skills/think-<slug>/evidence/dossier.md`, and the 4 fold/reject dossiers under `frameworks/<slug>/dossier.md` (the staging path `frameworks/_proposed/` was consumed and removed on admission).
 
 ### The 3 Build-ready skills
 Distinct moves the catalog genuinely lacks, each with a build spec + implementation plan ready to execute:
