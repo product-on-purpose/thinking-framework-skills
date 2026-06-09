@@ -5,7 +5,7 @@
 > component is not listed here, the advisor must describe the step in plain language
 > rather than name a skill. Regenerate when components change.
 
-## Skills (37)
+## Skills (40)
 
 | Skill (`name`) | Family | Tier | What it does |
 |---|---|---|---|
@@ -25,6 +25,7 @@
 | `think-decision-journal` | meta-thinking-and-reflection | P | Produces a decision journal entry that records a consequential decision at the moment it is made - the decision, the rationale, the predicted outcome, an expli... |
 | `think-decision-option-review` | decision-and-option-evaluation | P | Produces a criteria-weighted option matrix by comparing a set of options against weighted criteria, scoring each, surfacing the explicit tradeoffs, and recomme... |
 | `think-evidence-vs-inference-sort` | reasoning-clarity | P | Produces an evidence/inference ledger by sorting the claims in a prompt, document, or proposed conclusion into evidence, inference, and assumption, attaching a... |
+| `think-expected-value-decision-tree` | decision-and-option-evaluation | P | Evaluates competing actions under uncertainty by building a decision tree of choice and chance nodes, placing explicit probabilities on outcomes the decider do... |
 | `think-far-analogy-ideation` | divergent-ideation | S | Generates novel solution candidates by stating a problem's deep relational structure, mapping it to distant source domains (nature, other industries, games), a... |
 | `think-fermi-estimation` | decision-and-option-evaluation | M/P | Produces a Fermi decomposition worksheet that estimates an unknown numeric quantity by factoring it into a chain of order-of-magnitude sub-estimates, guessing... |
 | `think-frame-creation` | problem-framing | C/P | Generates a new problem frame from theme analysis of the broader context, an abductive standpoint stated as approach it as if it were Y that redefines what the... |
@@ -43,7 +44,9 @@
 | `think-red-team-light` | assumption-and-belief-challenge | P | Produces an adversarial critique by constructing the strongest case against a proposal or thesis (the best objections an intelligent adversary would raise), th... |
 | `think-reference-class-forecasting` | risk-and-resilience | S | Produces a reference-class estimate by defining a class of similar past cases, taking their base-rate distribution of outcomes, and anchoring the forecast on t... |
 | `think-scamper` | divergent-ideation | P | Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adap... |
+| `think-scenario-planning` | strategy-and-opportunity | P | Produces a scenario set, 2-4 contrasting and internally consistent short narratives of alternative external futures named by two critical-uncertainty axes, plu... |
 | `think-stocks-and-flows-reasoning` | systems-and-consequences | S | Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory f... |
+| `think-theory-of-constraints` | systems-and-consequences | P | Produces a constraint-intervention plan that names the single binding constraint capping a system's throughput and attaches its exploit, subordinate, and eleva... |
 | `think-what-would-have-to-be-true` | decision-and-option-evaluation | P | Converts a strategy, option, or contested claim into the specific conditions that would have to be true for it to be the best choice, rates each condition's co... |
 | `think-woop` | risk-and-resilience | S | Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and b... |
 

@@ -1,0 +1,88 @@
+# Rich sidecar for the think-expected-value-decision-tree skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.expected-value-decision-tree;
+# slug = bare method = expected-value-decision-tree;
+# installable name = prefix + slug = think-expected-value-decision-tree (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.expected-value-decision-tree
+  slug: expected-value-decision-tree
+  name: think-expected-value-decision-tree
+  display_name: Expected Value Decision Tree
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: []
+  thinking_modes: [convergent, critical, analytical, quantitative]
+  problem_contexts: [high-stakes, high-uncertainty]
+  use_cases:
+    - choose among actions when the payoff hinges on uncertain outcomes you can put rough probabilities on
+    - price a sequential decision where a choice now opens chance events that open later choices
+    - make the probability assumptions explicit and inspectable so a disagreement is about a named number
+    - decide test-first vs commit by valuing the option to learn before acting
+  poor_fit_cases:
+    - the probabilities and values are guessed and then trusted (false precision) - source a base rate with reference-class-forecasting instead
+    - a one-shot decision with intolerable downside, where risk of ruin governs, not raw EV
+    - EV mistaken for descriptive truth, overriding a real risk preference rather than surfacing it
+    - the outcome space cannot be enumerated or priced (deep uncertainty, incommensurable values)
+    - a reversible low-stakes call that needs no tree (triage with one-way-vs-two-way-door first)
+
+interface:
+  required_inputs:
+    - two or more options to choose among
+    - the uncertain outcomes that distinguish them, with probabilities that can be sourced
+  optional_inputs:
+    - a value (in a common unit) for each outcome
+    - a base rate or measured rate for the chance-node probabilities
+    - the decider's risk attitude and any ruin constraint
+  primary_artifact_type: decision-tree-ev
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.reference-class-forecasting
+    - thinking-framework-skills.premortem
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.reference-class-forecasting   # source the chance-node probability first, then price the choice
+    - thinking-framework-skills.one-way-vs-two-way-door       # triage whether a tree is warranted at all
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.decision-option-review        # the matrix when the differentiator is which attributes matter; the tree when it is uncertain outcomes
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - false precision (guessed probabilities and values rendered as authoritative arithmetic)
+    - single-shot ruin (treating a positive-EV average as the answer when one outcome ends the game)
+    - normative mistaken for descriptive (overriding a real risk preference with the risk-neutral EV)
+    - forcing a non-enumerable or incommensurable outcome space into a tidy-but-fictional EV
+
+evidence:
+  evidence_tier: "P"   # governing; honest read S/P, capped at P
+  confidence: moderate that an explicit EV tree makes the assumptions inspectable and the arithmetic checkable; low that any specific decision-outcome gain transfers to agents
+  transferred_evidence: true       # every effectiveness datum is from human deciders; none from an AI-produced EV tree
+  lineage:
+    derived_from: [expected-utility theory, decision analysis, decision trees, rollback / fold-back]
+  source_dossier: evidence/dossier.md
+  attribution_required: false      # generic descriptive terms
+  trademark: none
+  risk_flags: [false-precision, ruin]
+
+implementation:
+  skill_path: skills/think-expected-value-decision-tree/SKILL.md
+  references_path: skills/think-expected-value-decision-tree/references/
+  evidence_path: skills/think-expected-value-decision-tree/evidence/dossier.md
+  evals_path: skills/think-expected-value-decision-tree/eval/

@@ -1,0 +1,89 @@
+# Rich sidecar for the think-scenario-planning skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.scenario-planning;
+# slug = bare method = scenario-planning;
+# installable name = prefix + slug = think-scenario-planning (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.scenario-planning
+  slug: scenario-planning
+  name: think-scenario-planning
+  display_name: Scenario Planning (2x2)
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: strategy-and-opportunity
+  secondary_families: [risk-and-resilience, systems-and-consequences]
+  thinking_modes: [divergent, strategic, foresight]
+  problem_contexts: [high-uncertainty, high-stakes, long-horizon]
+  use_cases:
+    - construct multiple alternative external futures (2x2) and hold them in parallel
+    - stress-test a strategy for robustness across worlds rather than against a single forecast
+    - select two genuinely independent critical-uncertainty axes from a driving-force scan
+    - surface robust moves, one-world bets, a signal watch-list, and options to keep open
+  poor_fit_cases:
+    - used as forecasting - ranking the worlds by likelihood or acting on the most likely quadrant (the central wall)
+    - used to validate or path to one desired endpoint (that is think-backcasting)
+    - used to trace the ripples of one decision being made (that is think-futures-wheel)
+    - used to imagine one specified failure (that is think-premortem)
+    - a rich force field collapsed to two axes for neatness, or four mild variations of the present
+    - run as ritual with no strategy ever tested against the worlds
+
+interface:
+  required_inputs:
+    - a focal strategic decision under pressure, plus its horizon and the uncontrollable external domain
+  optional_inputs:
+    - candidate driving forces or known critical uncertainties
+    - the strategy or candidate moves to stress-test for robustness
+  primary_artifact_type: scenario-set
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.backcasting
+    - thinking-framework-skills.premortem
+    - thinking-framework-skills.futures-wheel
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.futures-wheel   # map one move's ripples, then model the worlds it lands in
+  often_precedes:
+    - thinking-framework-skills.backcasting     # once a robust target world is chosen, path back to it
+  complements:
+    - thinking-framework-skills.backcasting     # multi-future robustness vs single-future path
+    - thinking-framework-skills.premortem       # multi-future exploration vs one imagined failure
+    - thinking-framework-skills.futures-wheel   # alternative external worlds vs one consequence map
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - treating the four worlds as probabilities and acting on the most likely quadrant
+    - collapsing a rich driving-force field to two axes for neatness, discarding the interactions that matter
+    - producing four mild variations of the present instead of genuinely divergent worlds
+    - running it as ritual with no strategy ever stress-tested against the worlds
+
+evidence:
+  evidence_tier: "P"   # governing; honest read M-down-to-P, capped at P
+  confidence: moderate that multi-future construction breaks single-forecast anchoring and surfaces robust moves; low that any decision-outcome effect size transfers to agents
+  transferred_evidence: true       # all studies on human students/experts in workshop/lab/field; not agent-validated
+  lineage:
+    derived_from: [scenario planning, intuitive logics, 2x2 critical-uncertainties matrix, Wack/Shell]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Pierre Wack / Royal Dutch Shell as lineage; terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-scenario-planning/SKILL.md
+  references_path: skills/think-scenario-planning/references/
+  evidence_path: skills/think-scenario-planning/evidence/dossier.md
+  evals_path: skills/think-scenario-planning/eval/

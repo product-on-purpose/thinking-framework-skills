@@ -21,6 +21,7 @@
 /families/problem-framing/index.html
 /families/reasoning-clarity/index.html
 /families/risk-and-resilience/index.html
+/families/strategy-and-opportunity/index.html
 /families/synthesis/index.html
 /families/systems-and-consequences/index.html
 /frameworks/index.html
@@ -40,6 +41,7 @@
 /frameworks/think-decision-journal/index.html
 /frameworks/think-decision-option-review/index.html
 /frameworks/think-evidence-vs-inference-sort/index.html
+/frameworks/think-expected-value-decision-tree/index.html
 /frameworks/think-far-analogy-ideation/index.html
 /frameworks/think-fermi-estimation/index.html
 /frameworks/think-frame-creation/index.html
@@ -59,7 +61,9 @@
 /frameworks/think-red-team-light/index.html
 /frameworks/think-reference-class-forecasting/index.html
 /frameworks/think-scamper/index.html
+/frameworks/think-scenario-planning/index.html
 /frameworks/think-stocks-and-flows-reasoning/index.html
+/frameworks/think-theory-of-constraints/index.html
 /frameworks/think-what-would-have-to-be-true/index.html
 /frameworks/think-woop/index.html
 /index.html
@@ -71,8 +75,12 @@
 /learn/get-unstuck/index.html
 /learn/index.html
 /learn/think-better-in-30-minutes/index.html
+/library/cognitive-bias-checklist/index.html
+/library/decision-brief-pr-faq/index.html
 /library/fishbone-ishikawa/index.html
+/library/fmea-lite/index.html
 /library/index.html
+/library/inversion/index.html
 /library/premortem/index.html
 /library/six-thinking-hats/index.html
 /library/steelmanning/index.html
