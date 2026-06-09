@@ -1,0 +1,90 @@
+# Rich sidecar for the think-frame-creation skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.frame-creation;
+# slug = bare method = frame-creation;
+# installable name = prefix + slug = think-frame-creation (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.frame-creation
+  slug: frame-creation
+  name: think-frame-creation
+  display_name: Frame Creation
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: problem-framing
+  secondary_families: [divergent-ideation]
+  thinking_modes: [divergent, analytical, generative]
+  problem_contexts: [high-ambiguity, high-stakes]
+  use_cases:
+    - reframe an open, paradoxical problem whose current frame is itself the obstacle
+    - distil themes from the broader context and abduce a new working principle for what the problem is
+    - crystallise a new standpoint as an "approach it as if it were Y" reconception, then derive solution directions forward from it
+    - replace solving-inside-the-frame with re-seeing what kind of problem this is
+  poor_fit_cases:
+    - the problem is closed, familiar, or already well-framed - forcing a reframe manufactures a paradox that is not there
+    - the analogy is wanted on the solution with the problem held fixed (use far-analogy-ideation)
+    - menu-driven rewording and selection within the problem's own terms is enough (use problem-restatement)
+    - only the right altitude (why/how) is at issue (use abstraction-laddering)
+    - a settled trade-off must be chosen under (use decision-option-review)
+
+interface:
+  required_inputs:
+    - an open, complex, paradoxical problem where solving inside the given frame has failed
+  optional_inputs:
+    - the broader context (people, forces, history) around the problem
+    - what conventional solutions inside the current frame have already tried
+    - the value the stakeholders actually seek
+  primary_artifact_type: frame-proposal
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: false       # the theme-to-abductive-frame engine is a single integrated move, not a chain
+  likely_companions:
+    - thinking-framework-skills.problem-restatement
+    - thinking-framework-skills.far-analogy-ideation
+    - thinking-framework-skills.decision-option-review
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.problem-restatement   # if the problem is merely vague, frame it first, then reframe deeply
+  often_precedes:
+    - thinking-framework-skills.decision-option-review # the honest fallback if the reframe fails or is not adoptable
+  complements:
+    - thinking-framework-skills.abstraction-laddering # both are problem-framing; laddering moves one axis, this builds a new standpoint
+    - thinking-framework-skills.far-analogy-ideation  # analogy on the frame here vs analogy on the solution there
+  overlaps_with:
+    - thinking-framework-skills.problem-restatement   # both reframe before solving; this adds theme-distillation + abductive working-principle construction
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - forcing a reframe on a closed, familiar, or already-well-framed problem (manufacturing a paradox)
+    - goal-reformulation drift - reframing so freely that the reframed problem is solved, not the original one
+    - frame failure - proposing a standpoint the people who own the problem will not adopt
+    - running the "as if it were Y" line as surface analogy / free-association instead of a theme-grounded reconception
+    - presenting a frame as a proven answer before any design built on it has been tested
+
+evidence:
+  evidence_tier: "C/P"   # honest read C/P; governing (registry) grade capped at C
+  confidence: moderate that theme-grounded reframing surfaces useful new standpoints in open paradoxical problems; low that any specific effect transfers to agents
+  transferred_evidence: true       # human design research + illustrative case studies; not agent-validated
+  lineage:
+    derived_from: [dorst frame creation, frame innovation, abduction-2, schon reflective practitioner]
+  source_dossier: evidence/dossier.md
+  attribution_required: false      # "frame creation" / "frame innovation" are generic academic terms, not trademarks; credit Dorst as lineage
+  trademark: none
+
+implementation:
+  skill_path: skills/think-frame-creation/SKILL.md
+  references_path: skills/think-frame-creation/references/
+  evidence_path: skills/think-frame-creation/evidence/dossier.md
+  evals_path: skills/think-frame-creation/eval/
