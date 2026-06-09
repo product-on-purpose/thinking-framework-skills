@@ -13,7 +13,7 @@ A candidate must clear all four commitments and the overlap ceiling. If it fails
 3. **Artifact, not prose.** The skill must emit a named, structured, reusable deliverable - a risk register, an option matrix, an assumption ledger, a concept map. A method that only produces "think harder" is not a skill here.
 4. **Explicit "when NOT to use."** State the situations where the method misleads or wastes effort, so it cannot be cargo-culted.
 
-**The overlap ceiling.** A new method must add a distinct, durable cognitive move and not substantially duplicate an existing one. If the move is already a mode of a shipped skill, fold it in rather than shipping a near-twin. Check the [framework catalog](./internal/research/framework-catalog.md) first: it marks every in-scope method as `[shipped]`, `[next]`, `[cand]`, `[fold]`, `[flag]`, `[pm]`, or `[excl]`, and records why each fold or exclusion was a decision rather than an oversight.
+**The overlap ceiling.** A new method must add a distinct, durable cognitive move and not substantially duplicate an existing one (it shares no more than about a fifth of its working mechanism with any shipped skill). If the move is already a mode of a shipped skill, fold it in rather than shipping a near-twin. The **framework registry** (`frameworks/registry.mjs`) is the single source of truth for what the library has judged: every in-scope method carries a `status` (`shipped`, `next`, `cand`, `recipe`, `fold`, `flag`, `pm`, or `excl`) and the reasoning behind it, so each fold or exclusion is a recorded decision rather than an oversight. (The [framework catalog](./internal/research/framework-catalog.md) and the public why-not index are generated *views* of the registry - do not hand-edit them.) The fastest way to vet a candidate is the `think-research-framework` engine (the `/think-research-framework` command): it grades the evidence conservatively, proves distinctness against the catalog, drafts the dossier, and prints a schema-valid proposed registry entry for review - it never auto-admits.
 
 ## The evidence requirement
 
@@ -25,9 +25,9 @@ Grade honestly against the seven-tier model: **S** strong research, **M** modera
 
 1. Confirm the method clears the selection bar above. Sanity-check it against the catalog for overlap and prior decisions.
 2. Open the [framework catalog](./internal/research/framework-catalog.md) and place your candidate: is it genuinely additive, or a `[fold]`?
-3. Follow [the authoring loop](./internal/AUTHORING.md) end to end: gather evidence, scaffold from the template, write the dossier first, then `SKILL.md`, the template and worked example, and the metadata sidecar.
+3. Follow [the authoring loop](./internal/AUTHORING.md) end to end: gather evidence, scaffold from the template, write the dossier first, then `SKILL.md`, the template and worked example, the metadata sidecar, and the eval cases.
 4. Use the shared **Northwind** scenario in your worked example where it fits, so the library reads as one product.
-5. Validate to zero errors at the Bronze gate (the evaluator command is in the authoring loop), then commit on a branch and open a PR.
+5. Register the method in both sources of truth (the `library.json` component and a `status: shipped` entry in `frameworks/registry.mjs`) and regenerate the views, then validate to zero errors at the conformance gate (`node scripts/check.mjs`; advanced tier - structural, eval-cases, registry, and engine-drift layers). Commit on a branch and open a PR. CI re-runs the same gate plus the site link/route guards.
 
 ## Conventions
 

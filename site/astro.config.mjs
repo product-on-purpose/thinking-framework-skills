@@ -29,6 +29,16 @@ const gaHead = GA_ID
 export default defineConfig({
   site: 'https://product-on-purpose.github.io',
   base: BASE,
+  // The Framework Advisor moved from /frameworks/ to /tools/ (decision A: meta-skills are tools,
+  // not graded frameworks). This redirect keeps the old published URL alive so external links and
+  // bookmarks survive, and the route-parity guard sees the emitted redirect page as the route
+  // staying present. Astro applies `base` to the redirect SOURCE (the emitted page's path) but
+  // emits the DESTINATION verbatim, so the destination must carry BASE explicitly - verified
+  // against the built dist, where a base-less destination resolved outside the Pages subpath. BASE
+  // is the single source (scripts/site-base.mjs), so the redirect cannot drift from the real base.
+  redirects: {
+    '/frameworks/think-framework-advisor/': `${BASE}/tools/think-framework-advisor/`,
+  },
   integrations: [
     // astro-mermaid MUST come before starlight (integration-order rule).
     // Client-side render; only loads the mermaid bundle on pages with diagrams.
@@ -88,6 +98,11 @@ export default defineConfig({
         {
           label: 'Framework Library',
           items: [{ autogenerate: { directory: 'library' } }],
+        },
+        {
+          // Meta-skills (routers/applicators), kept distinct from the graded frameworks (decision A).
+          label: 'Tools',
+          items: [{ autogenerate: { directory: 'tools' } }],
         },
         {
           label: 'Domains',

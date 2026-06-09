@@ -21,6 +21,7 @@ The durable cognitive move already ships inside another skill, named descriptive
 - **Kill criteria / Tripwires** - pre-decided stop signals and conditions. Folds into [Premortem](../../frameworks/think-premortem/).
 - **Second-Order Effects** - lightweight 'and then what?' prompt. Folds into [Futures Wheel](../../frameworks/think-futures-wheel/).
 - **Systems map / Leverage points** - sketch elements/relationships; find intervention points. Folds into [Iceberg Model](../../frameworks/think-iceberg-model/).
+- **Fishbone / Ishikawa** - decompose one observed effect into candidate causes grouped under a fixed category checklist (6M/8P). Folds into [Issue Trees](../../frameworks/think-issue-tree/).
 - **Multi-Criteria Decision Analysis** - weighted scoring across criteria. Folds into [Decision Option Review](../../frameworks/think-decision-option-review/).
 - **MECE decomposition** - mutually-exclusive, collectively-exhaustive split. Folds into [Issue Trees](../../frameworks/think-issue-tree/).
 - **Silent writing before discussion** - write independently first to prevent anchoring. Folds into [Brainwriting 6-3-5 / NGT](../../frameworks/think-brainwriting/).

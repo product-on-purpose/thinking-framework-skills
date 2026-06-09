@@ -120,7 +120,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Three Horizons | present / transition / emerging future | C | `[cand]` |
 | Causal Layered Analysis | litany / system / worldview / myth layers | C | `[cand]` |
 | Theory of Constraints | find and exploit the system bottleneck | P | `[cand]` |
-| Fishbone / Ishikawa | structured multi-cause diagram | P | `[cand]` |
+| Fishbone / Ishikawa | decompose one observed effect into candidate causes grouped under a fixed category checklist (6M/8P) | P | `[fold]` -> Issue Trees |
 
 ## 7. Decision and option evaluation
 

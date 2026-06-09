@@ -47,6 +47,6 @@ Do not know which framework you need? Start with the **Framework Advisor**: desc
 
 - Full getting-started tutorial: https://product-on-purpose.github.io/thinking-framework-skills/start/getting-started/
 - Interactive chooser: https://product-on-purpose.github.io/thinking-framework-skills/explore/chooser/
-- Framework Advisor (the front door): https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-framework-advisor/
+- Framework Advisor (the front door): https://product-on-purpose.github.io/thinking-framework-skills/tools/think-framework-advisor/
 
 To author or grade a skill, see [the authoring guide](./internal/AUTHORING.md). The skills themselves live in [`../skills/`](../skills/) and are the source of truth; the docs site is a generated view.

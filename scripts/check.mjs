@@ -3,14 +3,16 @@
 // contributor or CI runs to validate the plugin against the agent-skills-toolkit
 // Standard: `node scripts/check.mjs` (or `npm run check`).
 //
-// It runs three layers:
+// It runs four layers:
 //   1. the toolkit's portable STRUCTURAL validators (the toolkit is the source of truth;
 //      vendoring them here would drift),
 //   2. the repo-local static eval-case validator (scripts/eval-cases.mjs, SP1): every
-//      skills/*/eval/cases.md must be well-formed and name-safe, and
+//      skills/*/eval/cases.md must be well-formed and name-safe,
 //   3. the registry conformance check (scripts/check-registry.mjs, SP3): frameworks/
 //      registry.mjs validates against its schema, its generated views are not stale, and
-//      its referential / IP / eval-coupling invariants hold.
+//      its referential / IP / eval-coupling invariants hold, and
+//   4. the shared applicator engine-copy drift check (scripts/gen-engine.mjs --check, SP7/SP8):
+//      the byte-identical engine.md copy stays in sync.
 //
 // To reproduce a CI failure locally, clone the public toolkit next to this repo:
 //   git clone https://github.com/product-on-purpose/agent-skills-toolkit.git ../agent-skills-toolkit
