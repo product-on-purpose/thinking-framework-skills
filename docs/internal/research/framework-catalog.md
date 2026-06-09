@@ -71,6 +71,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 |---|---|---|---|
 | Problem Restatement | rewrite the problem several ways, pick a better frame | M | `[shipped]` |
 | Abstraction Laddering | move up (why) and down (how) to the right altitude | P | `[shipped]` |
+| Contradiction Resolution (Ideal Final Result) | reframe a trade-off as a contradiction to dissolve (separation in time/space/scale/condition), anchored to an implementation-free Ideal Final Result | P | `[shipped]` |
 | First Principles Thinking | decompose to fundamental truths, reason up | P | `[recipe]` (ships as a workflow) |
 | How Might We | turn an insight into an opportunity question | P | `[fold]` -> Problem Restatement |
 | Is / Is Not analysis | sharpen scope by what the problem is and is not | P | `[fold]` -> Problem Restatement |

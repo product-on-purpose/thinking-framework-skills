@@ -35,6 +35,7 @@
 /frameworks/think-brainwriting/index.html
 /frameworks/think-causal-loop-diagrams/index.html
 /frameworks/think-concept-mapping/index.html
+/frameworks/think-contradiction-resolution/index.html
 /frameworks/think-decision-journal/index.html
 /frameworks/think-decision-option-review/index.html
 /frameworks/think-evidence-vs-inference-sort/index.html

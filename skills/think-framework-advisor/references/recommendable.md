@@ -5,7 +5,7 @@
 > component is not listed here, the advisor must describe the step in plain language
 > rather than name a skill. Regenerate when components change.
 
-## Skills (34)
+## Skills (35)
 
 | Skill (`name`) | Family | Tier | What it does |
 |---|---|---|---|
@@ -20,6 +20,7 @@
 | `think-brainwriting` | divergent-ideation | S | Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first v... |
 | `think-causal-loop-diagrams` | systems-and-consequences | M/P | Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities,... |
 | `think-concept-mapping` | synthesis | M/P | Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit prop... |
+| `think-contradiction-resolution` | problem-framing | M/P | Converts a stuck trade-off into a contradiction to dissolve rather than a compromise to settle for. |
 | `think-decision-journal` | meta-thinking-and-reflection | P | Produces a decision journal entry that records a consequential decision at the moment it is made - the decision, the rationale, the predicted outcome, an expli... |
 | `think-decision-option-review` | decision-and-option-evaluation | P | Produces a criteria-weighted option matrix by comparing a set of options against weighted criteria, scoring each, surfacing the explicit tradeoffs, and recomme... |
 | `think-evidence-vs-inference-sort` | reasoning-clarity | P | Produces an evidence/inference ledger by sorting the claims in a prompt, document, or proposed conclusion into evidence, inference, and assumption, attaching a... |

@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+- `think-contradiction-resolution` (tier P, honest read M/P) - a problem-framing skill that reframes a stuck trade-off as a contradiction to dissolve rather than a compromise to optimize: it names the opposing pair, states an implementation-free Ideal Final Result, and runs the four separation principles (time / space / scale / condition), exiting honestly to `think-decision-option-review` when the trade-off is genuinely fundamental. The de-branded core of TRIZ (Altshuller); attributed, not branded (the "TRIZ" trademark was abolished in 2004). Discovered by the SP6 engine discovery run, vetted Build by `think-research-framework`, then built end to end - the platform's first engine-discovered-to-shipped framework. Catalog 34 -> 35 shipped. [SP6]
+
 ## [0.4.0] - 2026-06-08
 
 The **Framework Library platform**. The registry (`frameworks/registry.mjs`) becomes the single source of truth for the whole catalog with strong CI; the `think-research-framework` engine produces graded, sourced proposals; the `think-top3` and `think-random-frameworks` applicators put the corpus to work; the published Framework Library renders per-method dossiers; a `/tools/` section separates the meta-skills from the graded frameworks; and the advisor's insufficient-signal gate is calibrated and re-measured. Documentation is refreshed for the registry era.

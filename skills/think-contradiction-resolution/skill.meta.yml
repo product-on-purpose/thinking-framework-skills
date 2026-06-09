@@ -1,0 +1,86 @@
+# Rich sidecar for the think-contradiction-resolution skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.contradiction-resolution;
+# slug = bare method = contradiction-resolution;
+# installable name = prefix + slug = think-contradiction-resolution (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.contradiction-resolution
+  slug: contradiction-resolution
+  name: think-contradiction-resolution
+  display_name: Contradiction Resolution (Ideal Final Result)
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: problem-framing
+  secondary_families: [divergent-ideation]
+  thinking_modes: [analytical, divergent, critical]
+  problem_contexts: [high-stakes, high-ambiguity]
+  use_cases:
+    - test whether an "A vs B" trade-off is real before settling for the compromise
+    - dissolve a stuck design or process tension via separation in time/space/scale/condition
+    - anchor a problem to an implementation-free Ideal Final Result to break psychological inertia
+    - convert a painful balance into a win-win, or honestly declare it a genuine trade-off
+  poor_fit_cases:
+    - the trade-off is fundamental (physical law, conservation, regulation) - choose under it with decision-option-review
+    - you need idea volume, not a frame (use brainwriting / far-analogy-ideation)
+    - the tension must be managed not eliminated (use tension/polarity mapping)
+    - no real opposition exists yet (frame first with problem-restatement)
+
+interface:
+  required_inputs:
+    - a problem that contains or has collapsed into an A-vs-B trade-off
+  optional_inputs:
+    - the parameters in tension and their direction
+    - any hard external constraints (law, regulation, conservation) bounding the trade-off
+  primary_artifact_type: contradiction-resolution-worksheet
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.problem-restatement
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.abstraction-laddering
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.problem-restatement   # frame a real trade-off first, then resolve it
+  often_precedes:
+    - thinking-framework-skills.decision-option-review # the honest exit when the trade-off is genuine
+  complements:
+    - thinking-framework-skills.abstraction-laddering # IFR shares the function-not-implementation instinct
+  overlaps_with:
+    - thinking-framework-skills.assumption-reversal   # both challenge an inevitability; this adds the classify + separation + IFR apparatus
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - forcing a dissolution on a genuinely fundamental trade-off (manufacturing a clever non-solution)
+    - inventing a contradiction where the problem is merely vague or under-specified
+    - treating the 39x39 contradiction matrix as an authoritative lookup rather than a heuristic prompt
+    - stating the IFR as a reworded goal instead of an implementation-free end-state
+
+evidence:
+  evidence_tier: "M/P"   # honest read M/P; governing (registry) grade capped at P
+  confidence: moderate that the reframe-and-separate discipline finds real dissolutions; low that any specific effect size transfers to agents
+  transferred_evidence: true       # human design-education research + one small human-agent study; not agent-validated
+  lineage:
+    derived_from: [triz contradictions, ideal final result, separation principles, 40 inventive principles]
+  source_dossier: evidence/dossier.md
+  attribution_required: false      # TRIZ trademark abolished 2004; generic, public-domain term
+  trademark: none
+
+implementation:
+  skill_path: skills/think-contradiction-resolution/SKILL.md
+  references_path: skills/think-contradiction-resolution/references/
+  evidence_path: skills/think-contradiction-resolution/evidence/dossier.md
+  evals_path: skills/think-contradiction-resolution/eval/
