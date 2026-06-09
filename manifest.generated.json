@@ -45,6 +45,11 @@
       "description": "Produces a belief-update ledger that re-scores a standing inventory of open beliefs against newly arrived evidence on a cadence - each belief carrying a prior confidence, the evidence accrued since the last review, a revised confidence with an explicit delta and direction, a reason for the size of the move (a guard against under-updating), and a next-review trigger. Use when you hold consequential open beliefs, forecasts, or standing assumptions that should track new evidence over time and you want a disciplined, recurring re-score - not a one-time decision record, a finished-event retro, or a single claim's conditions."
     },
     {
+      "name": "think-boundary-critique",
+      "path": "skills/think-boundary-critique/SKILL.md",
+      "description": "Audits the boundary judgments that silently define a problem frame. For each of four sources, who benefits, who decides, whose knowledge counts, who has standing, it contrasts the descriptive is boundary against the normative ought boundary, names the gaps, and lists the affected-but-excluded parties who have no voice in the frame, producing a boundary-judgment audit rather than a stakeholder round-up. Use when a plan, metric, or proposal already encodes who matters and who does not and the risk is solving a tidy problem for the people inside the line while pushing harm onto people outside it, when an improvement claim rests on an unexamined judgment about whose improvement, or on contested, value-laden, multi-party situations."
+    },
+    {
       "name": "think-brainwriting",
       "path": "skills/think-brainwriting/SKILL.md",
       "description": "Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first voice, then consolidates them into a shortlisted idea pool. Use when you need breadth of options and want to avoid the anchoring and conformity that make ordinary brainstorming underperform."
@@ -88,6 +93,11 @@
       "name": "think-fermi-estimation",
       "path": "skills/think-fermi-estimation/SKILL.md",
       "description": "Produces a Fermi decomposition worksheet that estimates an unknown numeric quantity by factoring it into a chain of order-of-magnitude sub-estimates, guessing each to within a band, then multiplying back to a point estimate plus a compounded low/high range, with an independence check and a dominant-uncertainty flag. Use when you need a number and no lookup-able data or genuine reference class exists, so the magnitude has to be built from factors (for example sizing a market, a load, a cost, or a conversion you cannot look up). Not for forecasting from real base rates (use reference-class-forecasting) or decomposing a question for coverage with no number (use issue-tree)."
+    },
+    {
+      "name": "think-frame-creation",
+      "path": "skills/think-frame-creation/SKILL.md",
+      "description": "Generates a new problem frame from theme analysis of the broader context, an abductive standpoint stated as approach it as if it were Y that redefines what the problem is and reasons forward to native solution directions. Use when an open paradoxical problem keeps resisting solutions inside the frame it arrived in, when conventional problem solving has only produced more of the symptom, or when the way a problem is framed is itself the obstacle and a fresh standpoint would be worth more than another solution attempt."
     },
     {
       "name": "think-framework-advisor",

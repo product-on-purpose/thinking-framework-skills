@@ -32,6 +32,7 @@
 /frameworks/think-authentic-dissent/index.html
 /frameworks/think-backcasting/index.html
 /frameworks/think-belief-update-routine/index.html
+/frameworks/think-boundary-critique/index.html
 /frameworks/think-brainwriting/index.html
 /frameworks/think-causal-loop-diagrams/index.html
 /frameworks/think-concept-mapping/index.html
@@ -41,6 +42,7 @@
 /frameworks/think-evidence-vs-inference-sort/index.html
 /frameworks/think-far-analogy-ideation/index.html
 /frameworks/think-fermi-estimation/index.html
+/frameworks/think-frame-creation/index.html
 /frameworks/think-framework-advisor/index.html
 /frameworks/think-futures-wheel/index.html
 /frameworks/think-iceberg-model/index.html
