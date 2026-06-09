@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-06-09
+
+**Catalog expansion.** The catalog grows from 34 to 40 shipped frameworks (and from 10 to 11 cognitive-operation families). Three are de-branded problem-framing methods the `think-research-framework` engine discovered, vetted, and the library built end to end (contradiction-resolution, boundary-critique, frame-creation - the platform's first engine-discovered-to-shipped frameworks, and its first shipped C-tier methods); three come from the v0.5.0 phase-1 shortlist (theory-of-constraints, expected-value-decision-tree, and scenario-planning, which adds the 11th family). The same shortlist also reconciled four candidates honestly - two folds into premortem and two rejects - now published as rejected-with-reasoning Framework Library pages. The honesty bar held throughout: both "M-tier" candidates were downgraded to P before building, and the engine's high fold/reject rate kept breadth from diluting the grade.
+
 ### Added
 - `think-contradiction-resolution` (tier P, honest read M/P) - a problem-framing skill that reframes a stuck trade-off as a contradiction to dissolve rather than a compromise to optimize: it names the opposing pair, states an implementation-free Ideal Final Result, and runs the four separation principles (time / space / scale / condition), exiting honestly to `think-decision-option-review` when the trade-off is genuinely fundamental. The de-branded core of TRIZ (Altshuller); attributed, not branded (the "TRIZ" trademark was abolished in 2004). Discovered by the SP6 engine discovery run, vetted Build by `think-research-framework`, then built end to end - the platform's first engine-discovered-to-shipped framework. Catalog 34 -> 35 shipped. [SP6]
 - `think-boundary-critique` (tier C, honest read C/P) - a problem-framing skill that audits the boundary judgments behind a frame across Critical Systems Heuristics' four sources (who benefits, who decides, whose expertise counts, who has standing) in descriptive "is" and normative "ought" modes, and names the parties affected but excluded. The de-branded core of Ulrich's CSH; attributed, not branded. Discovered by the SP6 engine run and vetted Build. The library's first shipped C-tier framework, graded honestly (a 40-year OR/systems literature but no controlled outcome study, per the Hutcheson/Morton/Blair 2024 review). Catalog 35 -> 36 shipped. [SP6]
@@ -101,7 +105,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.4.0...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.1
