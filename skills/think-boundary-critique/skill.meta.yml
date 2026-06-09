@@ -1,0 +1,86 @@
+# Rich sidecar for the think-boundary-critique skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.boundary-critique;
+# slug = bare method = boundary-critique;
+# installable name = prefix + slug = think-boundary-critique (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.boundary-critique
+  slug: boundary-critique
+  name: think-boundary-critique
+  display_name: Boundary Critique
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: problem-framing
+  secondary_families: [perspective-taking]
+  thinking_modes: [critical, analytical, ethical]
+  problem_contexts: [high-ambiguity, high-stakes, contested]
+  use_cases:
+    - audit the boundary judgments that constitute a frame before reasoning inside it
+    - test whose improvement a metric or proposal silently encodes (is vs ought)
+    - surface the affected-but-excluded - parties with a stake but no seat in the frame
+    - check a contested, value-laden, or multi-party frame for illegitimate inclusion/exclusion
+  poor_fit_cases:
+    - the frame is settled, agreed, and legitimate - auditing it manufactures doubt and stalls execution
+    - the problem is technical or single-party - the "ought" columns come up empty
+    - you expect it to resolve the disputed boundary - it surfaces, it does not adjudicate; choose under it with decision-option-review
+    - you only need in-scope stakeholders voiced - that is a round-up (parallel-perspectives-review / problem-restatement)
+
+interface:
+  required_inputs:
+    - a problem frame (plan, metric, proposal, or decision) whose membership can be audited
+  optional_inputs:
+    - the claimed improvement and the measure it is judged on
+    - the parties currently treated as in-scope (beneficiary, decision-maker, experts)
+  primary_artifact_type: boundary-judgment-audit
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.problem-restatement
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.parallel-perspectives-review
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.problem-restatement   # frame a problem first, then audit whether the frame is legitimately bounded
+  often_precedes:
+    - thinking-framework-skills.decision-option-review # the onward route when a real is-vs-ought boundary gap exists
+  complements:
+    - thinking-framework-skills.parallel-perspectives-review # that voices in-scope parties; this audits whether the party set itself is legitimate
+  overlaps_with:
+    - thinking-framework-skills.problem-restatement   # both touch affected parties; this adds the is/ought boundary audit + the affected-but-excluded accounting
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - running it on a settled, uncontested, or single-party frame (ritual with empty ought columns)
+    - presenting the output as a resolution of the boundary dispute rather than a surfacing of it
+    - degrading into a stakeholder round-up that voices only in-scope parties
+    - answering a source in one mode only (is without ought, or vice versa), losing the gap that is the finding
+
+evidence:
+  evidence_tier: "C/P"   # honest read C/P; governing (registry) grade capped at C
+  confidence: moderate that the is/ought interrogation surfaces real exclusions on contested frames; low that any outcome benefit transfers to agents
+  transferred_evidence: true       # human policy/evaluation/OR/action-research practice only; not agent-validated; no controlled/outcome study exists
+  lineage:
+    derived_from: [critical systems heuristics, boundary judgments, twelve boundary questions, is/ought modes, affected-but-not-involved]
+  source_dossier: evidence/dossier.md
+  attribution_required: false      # "Critical Systems Heuristics" / "boundary critique" are generic academic terms, not trademarks
+  trademark: none
+
+implementation:
+  skill_path: skills/think-boundary-critique/SKILL.md
+  references_path: skills/think-boundary-critique/references/
+  evidence_path: skills/think-boundary-critique/evidence/dossier.md
+  evals_path: skills/think-boundary-critique/eval/

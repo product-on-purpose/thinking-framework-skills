@@ -5,7 +5,7 @@
 > component is not listed here, the advisor must describe the step in plain language
 > rather than name a skill. Regenerate when components change.
 
-## Skills (34)
+## Skills (37)
 
 | Skill (`name`) | Family | Tier | What it does |
 |---|---|---|---|
@@ -17,14 +17,17 @@
 | `think-authentic-dissent` | assumption-and-belief-challenge | S | Checks whether a decision has genuine minority dissent or only smooth surface consensus, identifies who actually holds a contrary view, and plans how to elicit... |
 | `think-backcasting` | risk-and-resilience | P | Produces a backcast path by fixing a vivid desired future state and reasoning backward through the milestones and preconditions required to reach it, ending at... |
 | `think-belief-update-routine` | meta-thinking-and-reflection | P | Produces a belief-update ledger that re-scores a standing inventory of open beliefs against newly arrived evidence on a cadence - each belief carrying a prior... |
+| `think-boundary-critique` | problem-framing | C/P | Audits the boundary judgments that silently define a problem frame. |
 | `think-brainwriting` | divergent-ideation | S | Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first v... |
 | `think-causal-loop-diagrams` | systems-and-consequences | M/P | Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities,... |
 | `think-concept-mapping` | synthesis | M/P | Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit prop... |
+| `think-contradiction-resolution` | problem-framing | M/P | Converts a stuck trade-off into a contradiction to dissolve rather than a compromise to settle for. |
 | `think-decision-journal` | meta-thinking-and-reflection | P | Produces a decision journal entry that records a consequential decision at the moment it is made - the decision, the rationale, the predicted outcome, an expli... |
 | `think-decision-option-review` | decision-and-option-evaluation | P | Produces a criteria-weighted option matrix by comparing a set of options against weighted criteria, scoring each, surfacing the explicit tradeoffs, and recomme... |
 | `think-evidence-vs-inference-sort` | reasoning-clarity | P | Produces an evidence/inference ledger by sorting the claims in a prompt, document, or proposed conclusion into evidence, inference, and assumption, attaching a... |
 | `think-far-analogy-ideation` | divergent-ideation | S | Generates novel solution candidates by stating a problem's deep relational structure, mapping it to distant source domains (nature, other industries, games), a... |
 | `think-fermi-estimation` | decision-and-option-evaluation | M/P | Produces a Fermi decomposition worksheet that estimates an unknown numeric quantity by factoring it into a chain of order-of-magnitude sub-estimates, guessing... |
+| `think-frame-creation` | problem-framing | C/P | Generates a new problem frame from theme analysis of the broader context, an abductive standpoint stated as approach it as if it were Y that redefines what the... |
 | `think-futures-wheel` | systems-and-consequences | P | Produces a consequence map by tracing the first, second, and third order effects of a change or decision radiating outward from the center, surfacing ripples b... |
 | `think-iceberg-model` | systems-and-consequences | P | Produces an iceberg that moves a problem down four levels of causation - from the visible event, to the pattern over time, to the underlying structures, to the... |
 | `think-issue-tree` | reasoning-clarity | P | Produces an issue tree that decomposes one big, ambiguous question top-down into a mutually-exclusive, collectively-exhaustive (MECE) set of smaller sub-questi... |
