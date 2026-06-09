@@ -21,4 +21,4 @@ Generators, validators, and config files document their what / why / usage in th
 
 - The frameworks: [`../skills/`](../skills/) - 34 graded frameworks across 10 families, 4 tools (meta-skills), and 6 composable recipes.
 - The live docs site: <https://product-on-purpose.github.io/thinking-framework-skills/> - the reading experience, generated from the skills.
-- The advisor (front door): pick a framework by describing your situation at <https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-framework-advisor/>.
+- The advisor (front door): pick a framework by describing your situation at <https://product-on-purpose.github.io/thinking-framework-skills/tools/think-framework-advisor/>.

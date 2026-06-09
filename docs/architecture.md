@@ -38,7 +38,7 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 | Generator | Reads | Emits (all drift-checked) |
 |---|---|---|
 | `scripts/gen-registry.mjs` | the registry | the `framework-catalog.md` family tables + the public `about/why-not.md` index |
-| `scripts/gen-recommendable.mjs` | the skills + registry | the advisor's `recommendable.{json,md}` corpus (names, tiers, anti-triggers, when-not, overlaps) |
+| `scripts/gen-recommendable.mjs` | the skills + recipes | the advisor's `recommendable.{json,md}` corpus (names, tiers, anti-triggers, when-not, overlaps); the registry cross-checks this corpus rather than feeding it |
 | `scripts/gen-site.mjs` | the skills + registry + recipes + intros | the Starlight site (frameworks, tools, families, recipes, library, explore lenses, map, chooser, bibliography) |
 | `scripts/gen-engine.mjs` | the shared applicator engine | the byte-identical copy of `engine.md` in `think-random-frameworks` |
 | agent-skills-toolkit `gen-manifest` / `gen-index` | `library.json` | the native plugin manifests + `INDEX.md` |
