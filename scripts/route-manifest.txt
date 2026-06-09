@@ -68,6 +68,7 @@
 /learn/get-unstuck/index.html
 /learn/index.html
 /learn/think-better-in-30-minutes/index.html
+/library/fishbone-ishikawa/index.html
 /library/index.html
 /library/premortem/index.html
 /library/six-thinking-hats/index.html
