@@ -2,6 +2,15 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://product-on-purpose.github.io/thinking-framework-skills/).
 
+## v0.5.0
+
+**Catalog expansion: six new thinking methods, a new family, and four documented "no"s you can actually read.**
+
+- **+6 frameworks (now 40).** Three are problem-framing methods the research engine discovered, graded, and the library built end to end: **Contradiction Resolution** (dissolve a trade-off instead of splitting the difference), **Boundary Critique** (audit who a frame includes and excludes), and **Frame Creation** (reframe the problem by analogy). Three come from the latest shortlist: **Theory of Constraints** (find and exploit the single binding bottleneck), the **Expected-Value Decision Tree** (price the uncertainty and see what would flip the call), and **Scenario Planning** (stress-test a strategy against a set of divergent futures).
+- **A new family: Strategy & Opportunity.** Scenario Planning opens the library's 11th cognitive-operation family.
+- **Four honest "no"s, each with a full dossier.** Inversion and FMEA-lite fold into Premortem; a generic cognitive-bias checklist and the PR-FAQ decision memo are rejected on the merits. Every one is published in the [Framework Library](https://product-on-purpose.github.io/thinking-framework-skills/library/) with its sources and the reasoning, so "we considered it and said no" is browsable, not buried.
+- **Honest grading, visibly enforced.** Two methods that arrived looking like "moderate evidence" were downgraded to "practitioner" once the research was read closely - the strong studies measured an adjacent claim, not the move itself. The library would rather under-claim than launder a grade.
+
 ## v0.4.0
 
 **The Framework Library platform: a trustworthy catalog you can browse, plus tools that put it to work.**

@@ -4,7 +4,7 @@ How this repo is built. The short version: there are two coordinated sources of 
 
 ## The two sources of truth
 
-**1. The registry: every method we have judged.** `frameworks/registry.mjs` is the single source of truth for the *catalog* - all 102 thinking methods the library has evaluated, shipped or not. Each entry carries `slug`, `name`, `family`, evidence `tier`, `status`, `verdict`, `reasoning`, an optional `foldInto` target, an optional `dossierPath`, and - for branded methods - `attribution` + `trademark`. It is a zero-dependency ES data module (the repo's scripts are zero-dep and Node ships no YAML parser), validated against a committed JSON Schema, `frameworks/registry.schema.json`. The registry is where "we considered X and folded it into Y" lives, so a rejected method is a recorded decision, not an oversight.
+**1. The registry: every method we have judged.** `frameworks/registry.mjs` is the single source of truth for the *catalog* - all 105 thinking methods the library has evaluated, shipped or not. Each entry carries `slug`, `name`, `family`, evidence `tier`, `status`, `verdict`, `reasoning`, an optional `foldInto` target, an optional `dossierPath`, and - for branded methods - `attribution` + `trademark`. It is a zero-dependency ES data module (the repo's scripts are zero-dep and Node ships no YAML parser), validated against a committed JSON Schema, `frameworks/registry.schema.json`. The registry is where "we considered X and folded it into Y" lives, so a rejected method is a recorded decision, not an oversight.
 
 **2. The skills: the methods that shipped.** Each shipped framework lives in `skills/think-<method>/` and is self-contained:
 
@@ -16,7 +16,7 @@ How this repo is built. The short version: there are two coordinated sources of 
 
 The two are bound together in CI: every `status: shipped` registry entry must have a matching `skills/think-<slug>/` directory (both directions), and each shipped entry's governing `tier` must be one of the grades in its skill's `evidence-tier` - so the catalog grade can never drift from the grade the advisor and the site publish.
 
-There are **37 shipped frameworks** across **10 cognitive-operation families**, plus **6 recipes** (composable chains) under `_workflows/` with their prose in `recipes/`. `library.json` is the manifest that lists every skill component, its path, and its version. Skills install with a `think-` prefix and carry IDs of the form `thinking-framework-skills.<method>`.
+There are **40 shipped frameworks** across **11 cognitive-operation families**, plus **6 recipes** (composable chains) under `_workflows/` with their prose in `recipes/`. `library.json` is the manifest that lists every skill component, its path, and its version. Skills install with a `think-` prefix and carry IDs of the form `thinking-framework-skills.<method>`.
 
 ## Frameworks vs. tools (meta-skills)
 
@@ -46,8 +46,8 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1'}}}%%
 graph LR
-  reg["frameworks/registry.mjs<br/>(the catalog: 102 methods)"]:::source
-  skl["skills/ + library.json + _workflows/<br/>(the 37 shipped + 4 tools + 6 recipes)"]:::source
+  reg["frameworks/registry.mjs<br/>(the catalog: 105 methods)"]:::source
+  skl["skills/ + library.json + _workflows/<br/>(the 40 shipped + 4 tools + 6 recipes)"]:::source
   gen["gen-registry · gen-recommendable<br/>gen-site · gen-engine · gen-manifest"]:::build
   views["catalog · why-not · advisor corpus<br/>Starlight site · plugin manifests · INDEX"]:::site
   pages["GitHub Pages + marketplace"]:::deploy

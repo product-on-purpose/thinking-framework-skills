@@ -18,6 +18,8 @@ The durable cognitive move already ships inside another skill, named descriptive
 - **How Might We** - turn an insight into an opportunity question. Folds into [Problem Restatement](../../frameworks/think-problem-restatement/).
 - **Is / Is Not analysis** - sharpen scope by what the problem is and is not. Folds into [Problem Restatement](../../frameworks/think-problem-restatement/).
 - **Frame storming** - brainstorm the framing, not the solution. Folds into [Problem Restatement](../../frameworks/think-problem-restatement/).
+- **Inversion** - ask how to guarantee failure, then avoid it. Folds into [Premortem](../../frameworks/think-premortem/).
+- **FMEA-lite** - list failure modes by likelihood x severity x detection. Folds into [Premortem](../../frameworks/think-premortem/).
 - **Kill criteria / Tripwires** - pre-decided stop signals and conditions. Folds into [Premortem](../../frameworks/think-premortem/).
 - **Second-Order Effects** - lightweight 'and then what?' prompt. Folds into [Futures Wheel](../../frameworks/think-futures-wheel/).
 - **Systems map / Leverage points** - sketch elements/relationships; find intervention points. Folds into [Iceberg Model](../../frameworks/think-iceberg-model/).
@@ -48,6 +50,7 @@ Weak or contradictory evidence, or redundant with a shipped skill. Excluded afte
 
 - **Disney Creative Strategy** - dreamer/realist/critic cycle. (Branded: Disney Method (Dilts); "Disney" is a trademark of The Walt Disney Company.)
 - **Key Assumptions Check / Assumption Mapping** - inventory and rank a plan's assumptions.
+- **Cognitive bias checklist** - run a decision against relevant biases.
 - **Double-crux** - find the single belief whose change would flip each side of a disagreement.
 - **OODA Loop** - observe-orient-decide-act.
 - **SWOT** - strengths / weaknesses / opportunities / threats.
@@ -57,6 +60,7 @@ Weak or contradictory evidence, or redundant with a shipped skill. Excluded afte
 
 Sound PM and business-domain methods whose home is pm-skills, not a cross-domain cognitive library.
 
+- **Decision Brief / PR-FAQ** - force a decision into a short structured memo.
 - **Opportunity-Solution Tree** - outcome -> opportunities -> solutions.
 - **Value proposition contrast** - sharpen vs the next-best alternative.
 

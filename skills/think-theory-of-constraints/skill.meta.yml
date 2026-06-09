@@ -1,0 +1,85 @@
+# Rich sidecar for the think-theory-of-constraints skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.theory-of-constraints;
+# slug = bare method = theory-of-constraints;
+# installable name = prefix + slug = think-theory-of-constraints (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.theory-of-constraints
+  slug: theory-of-constraints
+  name: think-theory-of-constraints
+  display_name: Theory of Constraints
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: systems-and-consequences
+  secondary_families: [problem-framing]
+  thinking_modes: [systems, analytical]
+  problem_contexts: [operational, high-stakes]
+  use_cases:
+    - locate the single binding constraint that caps a system's throughput
+    - test capacity versus demand per step to confirm the rate-limiter rather than the loudest step
+    - exploit a constraint with current resources before spending to add capacity
+    - subordinate non-constraints to the constraint's pace instead of optimizing them locally
+  poor_fit_cases:
+    - no single binding constraint, or an unstable or non-flow problem (do not manufacture a bottleneck)
+    - coverage / exhaustive-decomposition questions (use issue-tree)
+    - recurring or deep-structural-cause questions (use iceberg-model)
+    - accumulation-trajectory questions (use stocks-and-flows-reasoning)
+
+interface:
+  required_inputs:
+    - a system with a flow (a sequence of steps work passes through) whose output appears capped by one step
+  optional_inputs:
+    - each step's capacity (how much it can process per unit time)
+    - the demand placed on each step
+  primary_artifact_type: constraint-intervention-plan
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.iceberg-model
+    - thinking-framework-skills.stocks-and-flows-reasoning
+    - thinking-framework-skills.issue-tree
+
+relationships:
+  often_follows: []
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.iceberg-model              # depth leverage where this provides flow leverage
+    - thinking-framework-skills.stocks-and-flows-reasoning # the other flow tool; accumulation vs rate-limiter
+  overlaps_with:
+    - thinking-framework-skills.iceberg-model              # both answer "where to act"; depth-ladder vs single rate-limiter
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - inventing a single bottleneck when none binds, or the constraint is unstable or non-flow
+    - naming the loudest or most-visible step instead of testing capacity versus demand per step
+    - elevating (adding capacity) before exploiting the constraint with resources on hand
+    - subordinating healthy parts to a step that was never the true rate-limiter
+
+evidence:
+  evidence_tier: "P"   # governing; honest floor and ceiling per the dossier
+  confidence: high that the bottleneck principle is real and operationally useful; low that a controlled effect size for the bare move transfers to agents
+  transferred_evidence: true       # human teams in manufacturing, projects, healthcare; not agent-validated
+  lineage:
+    derived_from: [theory of constraints, the goal (goldratt and cox 1984), five focusing steps, bottleneck principle]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # attribute Eliyahu M. Goldratt
+  trademark: none                  # used generically with attribution, not a branded mark
+
+implementation:
+  skill_path: skills/think-theory-of-constraints/SKILL.md
+  references_path: skills/think-theory-of-constraints/references/
+  evidence_path: skills/think-theory-of-constraints/evidence/dossier.md
+  evals_path: skills/think-theory-of-constraints/eval/

@@ -614,7 +614,7 @@ ${mapTextFallback}
 
 ## The thinking lifecycle
 
-Domains in the order they tend to fire on a piece of work, from framing to reflection. You rarely run all ten; the [Framework Advisor](../../tools/think-framework-advisor/) picks the few that fit.
+Domains in the order they tend to fire on a piece of work, from framing to reflection. You rarely run all eleven; the [Framework Advisor](../../tools/think-framework-advisor/) picks the few that fit.
 
 \`\`\`mermaid
 graph TD

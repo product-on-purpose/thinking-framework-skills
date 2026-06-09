@@ -5,7 +5,7 @@ A single, simplified, complete, and prioritized list of every thinking framework
 - **Taxonomy:** the 11 cognitive-operation families (Claude Opus's landscape, the recommended foundation).
 - **Evidence tiers (7-tier model):** **S** strong research · **M** moderate · **P** practitioner · **V** vendor/commercial · **A** anecdotal · **C** conceptually plausible, under-tested · **X** poor/contradictory.
 - **Status legend:**
-  - `[shipped]` - built and validated (34 skills, Tier advanced 0/0).
+  - `[shipped]` - built and validated (40 skills, Tier advanced 0/0).
   - `[next]` - strongest unbuilt candidates (build these first; S/M evidence or cross-LLM consensus, and distinct).
   - `[recipe]` - ships as a workflow chaining existing skills, not a standalone skill (no separable mechanism).
   - `[cand]` - candidate (clears the bar but lower priority / P-tier coverage).
@@ -20,7 +20,7 @@ The honest core (from the meta-analyses): the field is a small **empirical core*
 
 ## Priority summary (what to build next, in order)
 
-The skill build-out is at 34 skills + 6 recipes. **2026-06-03 truth-up** (multi-agent vetting + v0.2.0 reconciliation) resolved the old `[next]` list:
+The skill build-out is at 40 skills + 6 recipes. The generated family tables below are regenerated from the registry and are current; this priority summary records the **2026-06-03 truth-up** (multi-agent vetting + v0.2.0 reconciliation), with later SP6 and v0.5.0 catalog growth recorded in the [`CHANGELOG`](../../../CHANGELOG.md). The truth-up resolved the old `[next]` list:
 
 1. **Shipped since (v0.2.0):** `concept-mapping`, `causal-loop-diagrams`, `fermi-estimation` are built; `first-principles` shipped as a **recipe**. The two S-tier empirical-core stragglers (stocks-and-flows, linear-model-aggregation) are shipped - the empirical core is complete (11/11).
 2. **Vetted-closed:** `key-assumptions-check` and `double-crux` were **rejected** (both reduce to `what-would-have-to-be-true`); `idea-quality-audit` is a **`[recipe]`** (decision-option-review + red-team-light over a shortlist); `leverage-points` re-vetted `[cand]` -> **`[fold]`** (owned by `iceberg-model`, which already cites its Meadows source).
@@ -91,8 +91,8 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Ladder of Inference Check | reconstruct the climb from data to conclusion | P | `[shipped]` |
 | What Would Have to Be True | turn a claim into testable conditions | P | `[shipped]` |
 | Key Assumptions Check / Assumption Mapping | inventory and rank a plan's assumptions | P | `[excl]` |
-| Cognitive bias checklist | run a decision against relevant biases | P | `[cand]` |
-| Inversion | ask how to guarantee failure, then avoid it | P | `[cand]` |
+| Cognitive bias checklist | run a decision against relevant biases | C | `[excl]` |
+| Inversion | ask how to guarantee failure, then avoid it | P | `[fold]` -> Premortem |
 | Counterfactual reasoning | examine 'what if X had been different' | P | `[cand]` |
 | Devil's Advocacy | assign someone to argue against | X | `[flag]` |
 | Double-crux | find the single belief whose change would flip each side of a disagreement | C | `[excl]` |
@@ -105,7 +105,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Reference Class Forecasting | anchor an estimate on the base rate of comparable cases | S | `[shipped]` |
 | WOOP / MCII | wish-outcome-obstacle-plan with an if-then | S | `[shipped]` |
 | Backcasting | from a desired future, work back to the path | P | `[shipped]` |
-| FMEA-lite | list failure modes by likelihood x severity x detection | P | `[cand]` |
+| FMEA-lite | list failure modes by likelihood x severity x detection | P | `[fold]` -> Premortem |
 | Kill criteria / Tripwires | pre-decided stop signals and conditions | P | `[fold]` -> Premortem |
 | Regret minimization | choose the least-future-regret option | P | `[cand]` |
 | Pre-commitment / Ulysses contract | bind future behavior in advance against known weakness | P | `[cand]` |
@@ -122,7 +122,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Systems map / Leverage points | sketch elements/relationships; find intervention points | C | `[fold]` -> Iceberg Model |
 | Three Horizons | present / transition / emerging future | C | `[cand]` |
 | Causal Layered Analysis | litany / system / worldview / myth layers | C | `[cand]` |
-| Theory of Constraints | find and exploit the system bottleneck | P | `[cand]` |
+| Theory of Constraints | find the single binding constraint capping throughput and attach its exploit / subordinate / elevate decisions (the five focusing steps) | P | `[shipped]` |
 | Fishbone / Ishikawa | decompose one observed effect into candidate causes grouped under a fixed category checklist (6M/8P) | P | `[fold]` -> Issue Trees |
 
 ## 7. Decision and option evaluation
@@ -133,9 +133,9 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | One-way vs Two-way Door | classify by reversibility, match deliberation | P | `[shipped]` |
 | Decision Journal | record decision + expectation + confidence for calibration | P | `[shipped]` |
 | Multi-Criteria Decision Analysis | weighted scoring across criteria | P | `[fold]` -> Decision Option Review |
-| Decision Brief / PR-FAQ | force a decision into a short structured memo | P | `[cand]` |
+| Decision Brief / PR-FAQ | force a decision into a short structured memo | V | `[pm]` |
 | Pairwise comparison | compare two at a time to rank fuzzy criteria | P | `[cand]` |
-| Expected-value / decision-tree | weigh outcomes by probability x magnitude | M | `[cand]` |
+| Expected-value / decision-tree | price the uncertainty: a tree of choice and chance nodes, rolled back to an expected value per option, with a what-flips-it sensitivity note | P | `[shipped]` |
 | Minimax regret | minimize worst-case regret | P | `[cand]` |
 | Fermi estimation | structured order-of-magnitude estimate from decomposition | M | `[shipped]` |
 | Eisenhower / MoSCoW / Pareto | urgent-important triage; vital-few focus | P | `[cand]` |
@@ -153,7 +153,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Value proposition contrast | sharpen vs the next-best alternative | P | `[pm]` |
 | White-space / adjacent-possible / 10x-vs-incremental | locate uncontested or reachable opportunity | P | `[cand]` |
 | Moat / defensibility lens | test what stops a competitor copying you | P | `[cand]` |
-| Scenario planning | construct multiple plausible futures (2x2) | M | `[cand]` |
+| Scenario planning | construct a set of divergent, internally consistent external futures (2x2 critical-uncertainty axes), then robustness-test strategy across them | P | `[shipped]` |
 | PEST(LE) | scan macro-environmental forces | P | `[cand]` |
 | Jobs To Be Done | frame demand as progress sought | P | `[flag]` |
 | Wardley Mapping | value chain vs evolution | C | `[flag]` (branded) |
