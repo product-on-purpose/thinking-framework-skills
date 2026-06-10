@@ -1,0 +1,607 @@
+{
+  "generated": "TRIGGER eval",
+  "cases": 561,
+  "totals": {
+    "trigger": 281,
+    "anti": 280,
+    "antiNamed": 69,
+    "unrouted": 0,
+    "triggerTop1": 278,
+    "triggerTop3": 281,
+    "antiNoFire": 280,
+    "antiRightAlt": 63,
+    "triggerTop1Pct": 98.9,
+    "antiNoFirePct": 100,
+    "antiRightAltPct": 91.3,
+    "falseFires": 0
+  },
+  "perSkill": {
+    "abstraction-laddering": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 5,
+      "antiNoFire": 5,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
+      "miss": [],
+      "fire": []
+    },
+    "affinity-mapping": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "after-action-review": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "argument-mapping": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "assumption-reversal": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "authentic-dissent": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "backcasting": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "belief-update-routine": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "boundary-critique": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 2,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c150",
+          "want": "decision-option-review",
+          "got": "none",
+          "prompt": "This is a purely technical config decision with one obvious owner and no"
+        },
+        {
+          "kind": "anti-soft",
+          "id": "c151",
+          "want": "decision-option-review",
+          "got": "none",
+          "prompt": "We know the boundary is disputed - now just tell us who's right and sett"
+        }
+      ],
+      "fire": []
+    },
+    "brainwriting": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "causal-layered-analysis": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 6,
+      "miss": [],
+      "fire": []
+    },
+    "causal-loop-diagrams": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "concept-mapping": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "contradiction-resolution": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 5,
+      "antiNoFire": 5,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "contradiction-tension-mapping": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 5,
+      "antiNamedHit": 5,
+      "miss": [],
+      "fire": []
+    },
+    "decision-journal": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "decision-option-review": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "evidence-vs-inference-sort": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "expected-value-decision-tree": {
+      "trig": 5,
+      "trigHit": 5,
+      "trigSoft": 5,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 2,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c425",
+          "want": "one-way-vs-two-way-door",
+          "got": "none",
+          "prompt": "Deploy the hotfix now or wait for the morning window? Pretty obvious, fu"
+        },
+        {
+          "kind": "anti-soft",
+          "id": "c427",
+          "want": "reference-class-forecasting",
+          "got": "none",
+          "prompt": "Just multiply some made-up odds by some made-up payoffs and give me a nu"
+        }
+      ],
+      "fire": []
+    },
+    "far-analogy-ideation": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "fermi-estimation": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 7,
+      "antiNoFire": 7,
+      "antiNamed": 5,
+      "antiNamedHit": 5,
+      "miss": [],
+      "fire": []
+    },
+    "frame-creation": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 4,
+      "miss": [],
+      "fire": []
+    },
+    "futures-wheel": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "iceberg-model": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "issue-tree": {
+      "trig": 6,
+      "trigHit": 5,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [
+        {
+          "kind": "trigger",
+          "id": "c480",
+          "want": "issue-tree",
+          "got": "what-would-have-to-be-true",
+          "prompt": "Should we launch a self-serve free tier? It's too big a question - help "
+        }
+      ],
+      "fire": []
+    },
+    "ladder-of-inference-check": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "linear-model-aggregation": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "minimax-regret": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "morphological-analysis": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 5,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c108",
+          "want": "decision-option-review",
+          "got": "none",
+          "prompt": "Just tell me the single best pricing model for us."
+        }
+      ],
+      "fire": []
+    },
+    "natural-frequency-bayesian": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "one-way-vs-two-way-door": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
+      "miss": [],
+      "fire": []
+    },
+    "pairwise-comparison": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 4,
+      "miss": [],
+      "fire": []
+    },
+    "parallel-perspectives-review": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "premortem": {
+      "trig": 6,
+      "trigHit": 5,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [
+        {
+          "kind": "trigger",
+          "id": "c244",
+          "want": "premortem",
+          "got": "authentic-dissent",
+          "prompt": "I have a nagging feeling about this acquisition but nobody will say anyt"
+        }
+      ],
+      "fire": []
+    },
+    "problem-restatement": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "pyramid-principle": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "question-burst": {
+      "trig": 6,
+      "trigHit": 5,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [
+        {
+          "kind": "trigger",
+          "id": "c75",
+          "want": "question-burst",
+          "got": "problem-restatement",
+          "prompt": "We're just starting to explore this ambiguous onboarding mess and I don'"
+        }
+      ],
+      "fire": []
+    },
+    "red-team-light": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "reference-class-forecasting": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "role-storming": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 5,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c32",
+          "want": "authentic-dissent",
+          "got": "red-team-light",
+          "prompt": "I want someone to genuinely poke holes in this plan and surface real obj"
+        }
+      ],
+      "fire": []
+    },
+    "scamper": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "scenario-planning": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "stocks-and-flows-reasoning": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "theory-of-constraints": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 5,
+      "antiNoFire": 5,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "three-horizons": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 4,
+      "miss": [],
+      "fire": []
+    },
+    "what-would-have-to-be-true": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "woop": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    }
+  }
+}

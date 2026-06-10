@@ -64,7 +64,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: not-run
+  trigger_eval_status: measured-2026-06-10
   output_eval_status: not-run
   known_failure_modes:
     - treating the four worlds as probabilities and acting on the most likely quadrant

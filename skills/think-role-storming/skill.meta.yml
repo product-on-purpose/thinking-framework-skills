@@ -66,7 +66,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: not-run
+  trigger_eval_status: measured-2026-06-10
   output_eval_status: not-run
   known_failure_modes:
     - using an inhibited or narrowing persona, which suppresses ideas below baseline (the sharpest, evidence-backed failure)

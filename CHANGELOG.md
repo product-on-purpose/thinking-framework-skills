@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+- **Behavioral trigger-eval harness** (`scripts/eval/`) - the first measurement of the catalog's routing behavior, closing the half of the honesty claim the library actually controls. The *method's* evidence is graded in each dossier, but whether *this agent-executable skill triggers correctly* was `not-run`. `extract-cases.mjs` builds a blind answer key from every skill's `eval/cases.md`; `route.workflow.mjs` fans out blind router agents that route each situation against the advisor catalog (never seeing the authoring skill or the expected answer, so the score reflects the catalog and not an agent agreeing with itself); `score.mjs` grades routed-vs-expected. Model-executed (no API key), reproducible, a measurement rather than a gate layer. The first full run (561 cases across 47 skills) is recorded under `docs/internal/eval-results/2026-06-10-trigger-eval.{md,json}`: **0 false-fires, 99% trigger top1 / 100% top3, 100% anti no-false-fire**. Each shipped skill's `skill.meta.yml` `trigger_eval_status` is stamped from `not-run` to `measured-2026-06-10`. The output eval (artifact quality) is a planned follow-on.
+
 ## [0.6.0] - 2026-06-10
 
 **Catalog expansion, phase 2.** The catalog grows from 40 to 47 shipped frameworks - seven survivors of a 26-candidate research-and-reconcile sweep, with the rest honestly folded (11), shipped as recipes (2), or rejected with reasoning (6), growing the published Framework Library from 8 to 25 dossiers. The 73% fold/recipe/reject rate kept breadth from diluting the honest grade. Also: the `AGENTS.md` roster tables are now generated and drift-checked (#51).

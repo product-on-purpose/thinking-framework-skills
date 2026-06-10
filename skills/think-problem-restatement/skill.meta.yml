@@ -56,7 +56,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: not-run
+  trigger_eval_status: measured-2026-06-10
   output_eval_status: not-run
   known_failure_modes:
     - cosmetic restatements that do not shift altitude, stakeholder, or goal-vs-implementation
