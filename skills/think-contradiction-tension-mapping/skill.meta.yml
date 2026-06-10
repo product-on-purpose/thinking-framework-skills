@@ -63,7 +63,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: not-run
+  trigger_eval_status: measured-2026-06-10
   output_eval_status: not-run
   known_failure_modes:
     - running it on a genuinely solvable problem and manufacturing false balance over a question with a right answer (dominant failure mode)

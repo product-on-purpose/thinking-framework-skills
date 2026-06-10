@@ -52,7 +52,7 @@ relationships:
     - "named protocol: AAR (US Army TC 25-20); team debrief"
 
 quality:
-  trigger_eval_status: not-run
+  trigger_eval_status: measured-2026-06-10
   output_eval_status: not-run
   known_failure_modes:
     - skipping the recorded expectation (hindsight narrative, not learning)

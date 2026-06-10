@@ -53,7 +53,7 @@ relationships:
     - "protocols: 6-3-5, Nominal Group Technique"
 
 quality:
-  trigger_eval_status: not-run
+  trigger_eval_status: measured-2026-06-10
   output_eval_status: not-run
   known_failure_modes:
     - collapsing into a single idea stream

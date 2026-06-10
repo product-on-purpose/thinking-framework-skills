@@ -53,7 +53,7 @@ relationships:
     - "related: devil's advocacy (weaker, role-played)"
 
 quality:
-  trigger_eval_status: not-run
+  trigger_eval_status: measured-2026-06-10
   output_eval_status: not-run
   known_failure_modes:
     - strawman instead of the strongest objections

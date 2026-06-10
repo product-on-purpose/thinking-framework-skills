@@ -67,7 +67,7 @@ relationships:
     - IFF futures-practice Three Horizons (Sharpe/Curry/Hodgson) - transformation-pathways and "future consciousness"
 
 quality:
-  trigger_eval_status: not-run
+  trigger_eval_status: measured-2026-06-10
   output_eval_status: not-run
   known_failure_modes:
     - reading the horizons as fixed time bands instead of degrees of transformation (the core Steve Blank critique)

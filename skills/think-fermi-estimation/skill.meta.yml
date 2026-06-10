@@ -53,7 +53,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: not-run
+  trigger_eval_status: measured-2026-06-10
   output_eval_status: not-run
   known_failure_modes:
     - emitting a point estimate with no low/high band

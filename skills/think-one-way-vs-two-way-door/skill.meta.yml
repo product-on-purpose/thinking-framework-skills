@@ -57,7 +57,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: not-run     # see eval/ (harness deferred to the Silver climb)
+  trigger_eval_status: measured-2026-06-10
   output_eval_status: not-run
   known_failure_modes:
     - misjudging reversibility by accepting the convenient label (under-classifying one-way doors)
