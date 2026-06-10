@@ -55,6 +55,11 @@
       "description": "Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first voice, then consolidates them into a shortlisted idea pool. Use when you need breadth of options and want to avoid the anchoring and conformity that make ordinary brainstorming underperform."
     },
     {
+      "name": "think-causal-layered-analysis",
+      "path": "skills/think-causal-layered-analysis/SKILL.md",
+      "description": "Produces a four-layer matrix (litany, system, worldview, myth) of the current 'used future' beside a reconstructed preferred future per layer, anchored by a deliberately changed deep metaphor. Use when an issue is stuck because the framing is stuck, the official account and the system explanation have been argued to exhaustion, and the real disagreement is about clashing worldviews and the unexamined story underneath. Not a single-cause diagnosis (that is think-iceberg-model) and not a forecast."
+    },
+    {
       "name": "think-causal-loop-diagrams",
       "path": "skills/think-causal-loop-diagrams/SKILL.md",
       "description": "Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities, and reading likely dynamics (spiral, goal-seeking, or oscillation) off which loop dominates. Use when a situation feeds back on itself - growth that funds more growth, a fix that recreates its own problem, capacity that relieves then re-attracts demand - and you need to see why it keeps accelerating, stalling, or overshooting. Not for a single accumulation, a one-directional consequence tree, or a genuinely linear chain."
@@ -68,6 +73,11 @@
       "name": "think-contradiction-resolution",
       "path": "skills/think-contradiction-resolution/SKILL.md",
       "description": "Converts a stuck trade-off into a contradiction to dissolve rather than a compromise to settle for. Names the two conflicting requirements, states an implementation-free Ideal Final Result, and applies the four separation principles (separate the requirements in time, space, scale, or condition) to satisfy both at once, then produces either a concrete resolution or an honest flag that the trade-off is genuine. Use when a decision has hardened into an either/or like speed versus quality, thorough versus fast, or generous versus profitable, when splitting the difference feels wrong and a win-win would be worth far more than the best compromise, or when a recurring design or product trade-off keeps forcing the same painful balance."
+    },
+    {
+      "name": "think-contradiction-tension-mapping",
+      "path": "skills/think-contradiction-tension-mapping/SKILL.md",
+      "description": "Produces a both/and polarity map - two interdependent poles, the upside and downside quadrant of each, a greater purpose and a deeper fear, early-warning signs, and action steps - for a chronic tension that should be managed rather than resolved. Use when an organization keeps oscillating destructively between two opposites that are both true and interdependent (centralize versus decentralize, stability versus change, candor versus diplomacy), and treating each swing as a problem to solve is the actual mistake. Not for a dissolvable trade-off and not for a real either/or choice."
     },
     {
       "name": "think-decision-journal",
@@ -135,6 +145,16 @@
       "description": "Builds a simple mechanical scoring model - a few weighted predictive cues combined by a fixed formula and applied consistently - for a repeated predictive judgment, because consistent simple rules reliably match or beat holistic expert intuition. Use when the same kind of evaluative judgment recurs (screening candidates, scoring leads, triaging) and gut calls are inconsistent or overconfident."
     },
     {
+      "name": "think-minimax-regret",
+      "path": "skills/think-minimax-regret/SKILL.md",
+      "description": "Produces a regret (opportunity-loss) matrix with the minimax pick and the binding worst-case state, choosing among options over un-probabilized states of nature. Use when a few discrete options face a few discrete uncontrollable states and no defensible probabilities exist. Not an expected-value tree (which needs probabilities) and not an attribute scorecard."
+    },
+    {
+      "name": "think-morphological-analysis",
+      "path": "skills/think-morphological-analysis/SKILL.md",
+      "description": "Produces a morphological field (a Zwicky box of independent parameters by their possible values) plus a cross-consistency-pruned set of internally consistent configurations. Use when a solution is genuinely a configuration - a choice on each of several semi-independent dimensions (product architecture, service bundle, policy package) - and the risk is defaulting to one familiar combination and never seeing the rest of the space. Not a top-down MECE tree and not a provoked option list."
+    },
+    {
       "name": "think-natural-frequency-bayesian",
       "path": "skills/think-natural-frequency-bayesian/SKILL.md",
       "description": "Converts a conditional-probability or base-rate question into natural frequencies over a concrete population (for example 9 of 1000) to compute the correct posterior and expose base-rate neglect, and refuses to proceed without real input rates. Use when interpreting a test result, screening signal, or any \"given a positive, what is the real probability\" question."
@@ -143,6 +163,11 @@
       "name": "think-one-way-vs-two-way-door",
       "path": "skills/think-one-way-vs-two-way-door/SKILL.md",
       "description": "Produces a reversibility classification that triages a decision before any analysis - labeling it a reversible two-way door or a hard-to-reverse one-way door - and matches the deliberation and sign-off level to that verdict, so reversible calls are made fast and irreversible ones get real rigor. Use when it is unclear how much process a decision deserves, when a team is about to rubber-stamp something irreversible or convene a committee over something trivially reversible, or when a chronically slow org needs a defensible reason to move fast or slow down."
+    },
+    {
+      "name": "think-pairwise-comparison",
+      "path": "skills/think-pairwise-comparison/SKILL.md",
+      "description": "Produces a binary-vote comparison matrix (every pair judged A-beats-B), a derived ranking, and a consistency check, ordering options without any criteria axis or absolute scoring. Use when items must be ranked but no defensible scale or articulable criteria exist. Not a criteria-weighted option matrix and not a base-rate forecast."
     },
     {
       "name": "think-parallel-perspectives-review",
@@ -190,6 +215,11 @@
       "description": "Researches a thinking framework end to end and produces a schema-valid proposed registry entry plus a learning dossier, grading the evidence on the seven-tier model and assessing overlap against the shipped catalog. Use when you need an honest evidence grade and a build-or-fold verdict for a candidate method before turning it into a skill, when reproducing the evidence-and-overlap vetting on a method the catalog already judged, or when you need a ranked shortlist of new candidate methods in a family."
     },
     {
+      "name": "think-role-storming",
+      "path": "skills/think-role-storming/SKILL.md",
+      "description": "Produces a persona-tagged divergent idea list, ideas generated while inhabiting a chosen non-self identity to lower self-censorship and shift associations. Use when idea flow is throttled by self-consciousness or a fixated frame rather than missing knowledge, and you want more and stranger candidates before converging. Not evaluation through fixed lenses (that is parallel-perspectives) and not genuine challenge (that is authentic-dissent)."
+    },
+    {
       "name": "think-scamper",
       "path": "skills/think-scamper/SKILL.md",
       "description": "Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adapt, modify, put to other use, eliminate, reverse), then shortlists the most promising, producing an expansion sheet. Use when you have a seed idea and need to break past the obvious options; not for blank-page ideation."
@@ -208,6 +238,11 @@
       "name": "think-theory-of-constraints",
       "path": "skills/think-theory-of-constraints/SKILL.md",
       "description": "Produces a constraint-intervention plan that names the single binding constraint capping a system's throughput and attaches its exploit, subordinate, and elevate decisions, after testing capacity versus demand at each step to confirm that step is genuinely the rate-limiter rather than the loudest one. Use when a system has a clear flow (a pipeline, a funnel, a queue, an approval chain, a production line) whose output is capped by one step and improvement effort is being spread evenly across all steps instead of aimed at the bottleneck. Not for coverage questions (route to think-issue-tree), recurring deep-cause questions (route to think-iceberg-model), or accumulation-trajectory questions (route to think-stocks-and-flows-reasoning)."
+    },
+    {
+      "name": "think-three-horizons",
+      "path": "skills/think-three-horizons/SKILL.md",
+      "description": "Produces a three-curve transition map (a declining present H1, a contested middle H2 read in two directions, an emerging future H3) with the actor located in it. Use when a group is stuck in a present-versus-future binary and needs to govern the managed decline of the old system and the cultivation of the new one at once. Not a single backward path from one fixed future, and not a set of ranked external futures."
     },
     {
       "name": "think-top3",

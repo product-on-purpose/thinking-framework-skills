@@ -1,0 +1,92 @@
+# Rich sidecar for the think-causal-layered-analysis skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.causal-layered-analysis;
+# slug = bare method = causal-layered-analysis;
+# installable name = prefix + slug = think-causal-layered-analysis (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.causal-layered-analysis
+  slug: causal-layered-analysis
+  name: think-causal-layered-analysis
+  display_name: Causal Layered Analysis
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: systems-and-consequences
+  secondary_families: [problem-framing, strategy-and-opportunity]
+  thinking_modes: [critical, reframing, foresight, divergent]
+  problem_contexts: [contested, value-laden, long-horizon, framing-stuck]
+  use_cases:
+    - read a stuck contested issue at four depths (litany, system, worldview, myth/metaphor)
+    - surface whose worldview is privileged and hold competing readings rather than one true cause
+    - deliberately change the deep guiding metaphor that silently steers the issue
+    - reconstruct a preferred-future worldview, system, and litany upward from the new metaphor
+    - emit a four-layer matrix of the current "used future" beside the reconstructed preferred future
+  poor_fit_cases:
+    - a simple, technical, or single-cause problem - forcing a myth layer manufactures false profundity
+    - needing a single-cause diagnosis and a leverage point (that is think-iceberg-model)
+    - needing a forecast, a ranking, or a decision - CLA reframes, it does not decide, and it can induce analysis paralysis
+    - modeling alternative external futures you do not control (that is think-scenario-planning)
+    - wanting one fresh standpoint for the whole problem (that is think-frame-creation)
+    - run as a downward descent only, with the reconstruction skipped (a heavier iceberg, not CLA)
+    - presenting "the real myth" as a discovered fact rather than one contestable reading
+
+interface:
+  required_inputs:
+    - a contested, value-laden, framing-stuck issue whose surface and system arguments have been exhausted
+  optional_inputs:
+    - the competing parties or worldviews already in play
+    - a candidate deep metaphor (current or preferred) the user already suspects is operating
+  primary_artifact_type: four-layer-matrix
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.scenario-planning
+    - thinking-framework-skills.frame-creation
+    - thinking-framework-skills.boundary-critique
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.iceberg-model      # when a diagnostic descent stalls on a worldview clash, reframe with CLA
+  often_precedes:
+    - thinking-framework-skills.scenario-planning  # once the framing has shifted, model the external worlds and decide
+  complements:
+    - thinking-framework-skills.frame-creation              # four-layer descent-and-rebuild vs one abduced standpoint
+    - thinking-framework-skills.boundary-critique           # four-layer myth rewrite vs a boundary judgment of who is in/out
+    - thinking-framework-skills.parallel-perspectives-review # competing worldview readings vs structured multi-standpoint review
+  overlaps_with:
+    - thinking-framework-skills.iceberg-model      # near-twin four-level descent; distinct on reconstruction, multiplicity, and the myth object (see dossier section 6)
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - over-complicating a simple or single-cause issue by forcing a civilizational myth layer
+    - skipping the upward reconstruction, collapsing CLA into a four-box depth diagram (a heavier iceberg)
+    - presenting the worldview and myth readings as objective truth rather than contestable interpretations
+    - drifting into a forecast, a ranking, or a decision, or inducing analysis paralysis instead of reframing and handing off
+
+evidence:
+  evidence_tier: "C"   # governing; conceptually plausible but under-tested; honest split C/P, capped at C
+  confidence: moderate that forcing the descent past litany/system into worldview and myth plus a deliberate reconstruction reframes a stuck issue; low-to-none that any specific outcome effect is measured or transfers to agents
+  transferred_evidence: true       # all sources are human futures-and-policy practice (workshops, case write-ups, theory); not agent-validated
+  lineage:
+    derived_from: [causal layered analysis, Inayatullah 1998, Slaughter levels-of-futures typology, poststructuralist deconstruction]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Sohail Inayatullah (with the Slaughter lineage); terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-causal-layered-analysis/SKILL.md
+  references_path: skills/think-causal-layered-analysis/references/
+  evidence_path: skills/think-causal-layered-analysis/evidence/dossier.md
+  evals_path: skills/think-causal-layered-analysis/eval/

@@ -1,0 +1,90 @@
+# Rich sidecar for the think-contradiction-tension-mapping skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.contradiction-tension-mapping;
+# slug = bare method = contradiction-tension-mapping;
+# installable name = prefix + slug = think-contradiction-tension-mapping (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.contradiction-tension-mapping
+  slug: contradiction-tension-mapping
+  name: think-contradiction-tension-mapping
+  display_name: Contradiction / Tension Mapping
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: synthesis
+  secondary_families: [problem-framing]
+  thinking_modes: [synthetic, integrative, dialectical]
+  problem_contexts: [chronic-tension, values-clash, high-ambiguity]
+  use_cases:
+    - diagnose whether a chronic either/or is a solvable problem or an unsolvable, interdependent polarity
+    - map a both/and polarity - two poles, four upside/downside quadrants, greater purpose, deeper fear
+    - convert a destructive pendulum or a values clash into a shared management instrument
+    - define early-warning signs and action steps to stay in the upper half of both poles over time
+  poor_fit_cases:
+    - run on a genuinely solvable problem - manufacturing false balance and stalling a needed decision (the central wall)
+    - used when the trade-off can be dissolved (that is think-contradiction-resolution)
+    - used to choose a single weighted winner among options (that is think-decision-option-review)
+    - used as separated content lenses over one object (that is think-parallel-perspectives-review)
+    - a tension manufactured to dodge a conflict that should be settled on the merits
+    - left as a static diagram with no early-warning signs and no action steps
+
+interface:
+  required_inputs:
+    - a chronic tension framed as two opposing poles, with a sense that each swing is being treated as a problem to solve
+  optional_inputs:
+    - the history of oscillation (what has been tried, which way it keeps lurching)
+    - the shared higher purpose both poles serve, and the worst-case loss of getting both downsides
+  primary_artifact_type: polarity-map
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.contradiction-resolution
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.problem-restatement
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.contradiction-resolution   # when dissolution fails and the trade-off is declared a standing polarity
+  often_precedes:
+    - thinking-framework-skills.decision-option-review     # the map informs the concrete allocation calls it cannot replace
+  complements:
+    - thinking-framework-skills.contradiction-resolution   # manage an unresolvable polarity vs dissolve a dissolvable trade-off
+    - thinking-framework-skills.parallel-perspectives-review # two interdependent poles vs several lenses on one object
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - running it on a genuinely solvable problem and manufacturing false balance over a question with a right answer (dominant failure mode)
+    - using the map as a permanent excuse to avoid a decision the polarity framing was meant to inform
+    - labeling a genuine disagreement a "polarity to manage" to dodge being beaten on the merits
+    - treating poles that are not actually interdependent as a polarity, so the four-quadrant structure adds nothing
+    - leaving the map as a static diagram with no early-warning signs or action steps
+
+evidence:
+  evidence_tier: "C"   # governing; conceptually plausible but under-tested
+  confidence: moderate that some tensions are genuinely interdependent and better managed as both/and than resolved; low that drawing the map itself improves any decision, and untested for agents
+  transferred_evidence: true       # all evidence on human subjects - survey respondents and clinical training cohorts; not agent-validated
+  lineage:
+    derived_from: [polarity management, polarity map, paradox theory, dynamic-equilibrium model of organizing]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Barry Johnson, Polarity Management (1992); paradox-theory backbone Smith and Lewis (2011)
+  attribution: "Barry Johnson, Polarity Management (1992); paradox-theory backbone Smith and Lewis (2011)"
+  trademark: "Polarity Map, Polarity Thinking, and the PACT Process are trademarks of Barry Johnson / Polarity Partnerships, LLC"
+
+implementation:
+  skill_path: skills/think-contradiction-tension-mapping/SKILL.md
+  references_path: skills/think-contradiction-tension-mapping/references/
+  evidence_path: skills/think-contradiction-tension-mapping/evidence/dossier.md
+  evals_path: skills/think-contradiction-tension-mapping/eval/

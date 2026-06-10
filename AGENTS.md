@@ -23,17 +23,21 @@ Each skill is built around four commitments, not just a prompt:
 | [`think-expected-value-decision-tree`](skills/think-expected-value-decision-tree/SKILL.md) | decision-and-option-evaluation | P | decision tree ev |
 | [`think-fermi-estimation`](skills/think-fermi-estimation/SKILL.md) | decision-and-option-evaluation | M/P | fermi decomposition worksheet |
 | [`think-linear-model-aggregation`](skills/think-linear-model-aggregation/SKILL.md) | decision-and-option-evaluation | **S** | scoring model |
+| [`think-minimax-regret`](skills/think-minimax-regret/SKILL.md) | decision-and-option-evaluation | P | regret matrix |
 | [`think-one-way-vs-two-way-door`](skills/think-one-way-vs-two-way-door/SKILL.md) | decision-and-option-evaluation | P | reversibility classification |
+| [`think-pairwise-comparison`](skills/think-pairwise-comparison/SKILL.md) | decision-and-option-evaluation | P | pairwise comparison matrix |
 | [`think-what-would-have-to-be-true`](skills/think-what-would-have-to-be-true/SKILL.md) | decision-and-option-evaluation | P | assumption ledger |
 | [`think-assumption-reversal`](skills/think-assumption-reversal/SKILL.md) | divergent-ideation | P | assumptions and reversals sheet |
 | [`think-brainwriting`](skills/think-brainwriting/SKILL.md) | divergent-ideation | **S** | idea pool |
 | [`think-far-analogy-ideation`](skills/think-far-analogy-ideation/SKILL.md) | divergent-ideation | **S** | far analogy transfer sheet |
+| [`think-morphological-analysis`](skills/think-morphological-analysis/SKILL.md) | divergent-ideation | P | morphological field |
 | [`think-question-burst`](skills/think-question-burst/SKILL.md) | divergent-ideation | P | ranked question set |
 | [`think-scamper`](skills/think-scamper/SKILL.md) | divergent-ideation | P | scamper expansion sheet |
 | [`think-after-action-review`](skills/think-after-action-review/SKILL.md) | meta-thinking-and-reflection | **S** | after action review |
 | [`think-belief-update-routine`](skills/think-belief-update-routine/SKILL.md) | meta-thinking-and-reflection | P | belief update ledger |
 | [`think-decision-journal`](skills/think-decision-journal/SKILL.md) | meta-thinking-and-reflection | P | decision journal entry |
 | [`think-parallel-perspectives-review`](skills/think-parallel-perspectives-review/SKILL.md) | perspective-and-multi-lens | P | multi lens review |
+| [`think-role-storming`](skills/think-role-storming/SKILL.md) | perspective-and-multi-lens | P | persona tagged idea list |
 | [`think-abstraction-laddering`](skills/think-abstraction-laddering/SKILL.md) | problem-framing | P | abstraction ladder |
 | [`think-boundary-critique`](skills/think-boundary-critique/SKILL.md) | problem-framing | C/P | boundary judgment audit |
 | [`think-contradiction-resolution`](skills/think-contradiction-resolution/SKILL.md) | problem-framing | M/P | contradiction resolution worksheet |
@@ -50,15 +54,18 @@ Each skill is built around four commitments, not just a prompt:
 | [`think-scenario-planning`](skills/think-scenario-planning/SKILL.md) | strategy-and-opportunity | P | scenario set |
 | [`think-affinity-mapping`](skills/think-affinity-mapping/SKILL.md) | synthesis | P | clustered theme map |
 | [`think-concept-mapping`](skills/think-concept-mapping/SKILL.md) | synthesis | M/P | concept map |
+| [`think-contradiction-tension-mapping`](skills/think-contradiction-tension-mapping/SKILL.md) | synthesis | C | polarity map |
 | [`think-pyramid-principle`](skills/think-pyramid-principle/SKILL.md) | synthesis | P | pyramid |
+| [`think-causal-layered-analysis`](skills/think-causal-layered-analysis/SKILL.md) | systems-and-consequences | C | four layer matrix |
 | [`think-causal-loop-diagrams`](skills/think-causal-loop-diagrams/SKILL.md) | systems-and-consequences | M/P | signed causal loop diagram |
 | [`think-futures-wheel`](skills/think-futures-wheel/SKILL.md) | systems-and-consequences | P | consequence map |
 | [`think-iceberg-model`](skills/think-iceberg-model/SKILL.md) | systems-and-consequences | P | iceberg |
 | [`think-stocks-and-flows-reasoning`](skills/think-stocks-and-flows-reasoning/SKILL.md) | systems-and-consequences | **S** | stock flow map |
 | [`think-theory-of-constraints`](skills/think-theory-of-constraints/SKILL.md) | systems-and-consequences | P | constraint intervention plan |
+| [`think-three-horizons`](skills/think-three-horizons/SKILL.md) | systems-and-consequences | C | three horizons transition map |
 | [`think-framework-advisor`](skills/think-framework-advisor/SKILL.md) | meta (router) | M/C | Thinking Plan |
 
-40 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
+47 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
 <!-- END GENERATED SKILLS -->
 
 ## Recipes
@@ -72,6 +79,8 @@ Composable chains that solve a recurring job end to end. Each ships as a **workf
 | [expand-options](recipes/expand-options.md) | problem-restatement -> scamper -> assumption-reversal |
 | [first-principles](recipes/first-principles.md) | abstraction-laddering -> assumption-reversal |
 | [idea-quality-audit](recipes/idea-quality-audit.md) | decision-option-review -> red-team-light |
+| [kepner-tregoe](recipes/kepner-tregoe.md) | issue-tree -> decision-option-review -> premortem |
+| [pdca-a3](recipes/pdca-a3.md) | issue-tree -> decision-option-review -> after-action-review |
 | [reframe-problem](recipes/reframe-problem.md) | problem-restatement -> evidence-vs-inference-sort -> parallel-perspectives-review |
 | [stress-test-decision](recipes/stress-test-decision.md) | decision-option-review -> what-would-have-to-be-true -> premortem -> reference-class-forecasting |
 <!-- END GENERATED RECIPES -->

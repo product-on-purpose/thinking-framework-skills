@@ -1,0 +1,86 @@
+# Rich sidecar for the think-minimax-regret skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.minimax-regret;
+# slug = bare method = minimax-regret;
+# installable name = prefix + slug = think-minimax-regret (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.minimax-regret
+  slug: minimax-regret
+  name: think-minimax-regret
+  display_name: Minimax Regret
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: [risk-and-resilience]
+  thinking_modes: [convergent, analytical, decision]
+  problem_contexts: [deep-uncertainty, no-probabilities, high-stakes, one-shot]
+  use_cases:
+    - choose among discrete options when the states of nature cannot be defensibly probabilized
+    - transform a payoff matrix into a regret (opportunity-loss) matrix
+    - select the option whose maximum regret across un-probabilized states is smallest (the minimax pick)
+    - name the binding worst-case state and contrast the pick against sibling criteria (maximin, maximax)
+  poor_fit_cases:
+    - a defensible probability distribution exists - price the uncertainty with think-expected-value-decision-tree instead
+    - scoring options on weighted attributes you assert, with no states of nature (that is think-decision-option-review)
+    - the option set is unstable or gameable - adding a dominated option can flip the pick (IIA violation, Chernoff 1954)
+    - the states or payoffs are invented and then trusted, producing a confident answer about nothing
+    - presenting the pick as the single rational answer rather than one criterion among several
+    - the states cannot even be enumerated (a framing problem, not a scoring one)
+
+interface:
+  required_inputs:
+    - a decision among a few discrete options over a few discrete uncontrollable states, with no defensible probabilities
+  optional_inputs:
+    - candidate payoffs for each option-by-state cell (unit and sign convention stated)
+    - known states of nature or a known option set
+  primary_artifact_type: regret-matrix
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.scenario-planning
+    - thinking-framework-skills.expected-value-decision-tree
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.scenario-planning   # enumerate the uncontrollable states, then choose an option across them without probabilities
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.expected-value-decision-tree  # no-probability sibling vs probability-weighted rollback
+    - thinking-framework-skills.decision-option-review        # opportunity-loss-across-states vs weighted-attribute scoring
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - discarding available probabilities to run a probability-free criterion (should use an expected-value tree instead)
+    - an unstable or padded option set silently steering the pick (IIA violation, Chernoff 1954)
+    - inventing the cell payoffs and then trusting the authoritative-looking regret table
+    - presenting the minimax pick as the uniquely rational answer when sibling criteria disagree
+
+evidence:
+  evidence_tier: "P"   # governing; recognized formal/practitioner criterion, no controlled decision-quality evidence
+  confidence: high that the rule is mathematically coherent and runs without arithmetic slips; low that any decision-outcome benefit transfers to an applied decision or to agents
+  transferred_evidence: true       # all data are mathematical properties of the rule or human-subject findings; not agent-validated
+  lineage:
+    derived_from: [minimax regret, Savage criterion, Savage 1951, Wald minimax, Robust Decision Making]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Leonard J. Savage as lineage; terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-minimax-regret/SKILL.md
+  references_path: skills/think-minimax-regret/references/
+  evidence_path: skills/think-minimax-regret/evidence/dossier.md
+  evals_path: skills/think-minimax-regret/eval/

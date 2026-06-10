@@ -1,0 +1,98 @@
+# Evidence Dossier: Role-Storming
+
+> The single source of truth for the `role-storming` skill. The `SKILL.md`, the sidecar
+> (`skill.meta.yml`), and the eval cases all derive from this file. If a claim is not here, it does
+> not belong in the skill. Promoted from `frameworks/_proposed/role-storming/dossier.md` and
+> admitted as a Build at tier P (a documented candidate, distinct on mechanism, held low-priority on
+> conditional, transferred evidence).
+
+| | |
+|---|---|
+| **Skill** | `thinking-framework-skills.role-storming` (installable name `think-role-storming`) |
+| **Family** | perspective-and-multi-lens (registry/catalog: perspective-shifting-and-multi-lens) |
+| **Evidence tier** | **P** governing (a recognized practitioner technique with a plausible, partially-evidenced mechanism; no direct controlled evidence for its own idea-generation claim - see "What the evidence shows") |
+| **Confidence** | Moderate that persona-adoption can lower self-censorship and shift associations; low that any idea-count or idea-quality effect transfers to agents; high that an INHIBITED persona backfires |
+| **Status** | draft (admitted as Build / cand; holds the prior catalog tag `cand / build / P` and sharpens it with the evidence caveat the prior tag lacked) |
+
+---
+
+## 1. The mechanism (what actually does the work)
+
+Role-storming is an ideation method: instead of generating ideas as yourself, you adopt a specific assumed identity - "answer as an eccentric inventor," "as our most demanding customer," "as a rival CEO," "as a curious ten-year-old" - and produce the ideas you imagine that persona would offer. The claimed payoff has two parts that the honest description must keep separate, because they are two different mechanisms wearing one name:
+
+1. **Inhibition-release through ownership distance.** Speaking "in character" detaches the idea from the speaker - it is the persona's idea, not yours - which is supposed to lower the social anxiety and self-censorship that suppress odd suggestions in a group. The product is *more* ideas, and in particular more ideas people would have been too self-conscious to voice as themselves.
+2. **Construal distance through a foreign standpoint.** Inhabiting someone unlike you is meant to pull you out of your default associations and into the persona's, surfacing ideas your own frame would not reach. The product is *different* ideas, semantically further from the obvious.
+
+The durable cognitive move, stripped of the slogan, is: **generate divergent ideas while inhabiting a chosen non-self identity, using that identity as both an inhibition-lowering shield and a distancing lens.** The artifact is a **persona-tagged idea list** - candidate ideas attributed to each adopted role. That persona-as-generation-engine is what distinguishes it from its neighbors; it is not the fixed functional-lens evaluation that the perspective family otherwise runs. It pairs naturally with a downstream convergence step, because on its own it only widens the pool.
+
+## 2. Lineage
+
+The technique is attributed to **Rick Griggs** (R. E. Griggs), who coined "rolestorming" around 1985 while a productivity and training manager at National Semiconductor and Intel; he framed it as a fix for the inhibition and first-idea conformity he saw stalling ordinary brainstorms. It entered the creativity-facilitation literature through **Arthur B. VanGundy**, who described and catalogued it (see *101 Activities for Teaching Creativity and Problem-Solving*, 2005, and his earlier creative-problem-solving texts).
+
+"Rolestorming / role-storming" is a generic descriptive term in common use - no trademark, no attribution required beyond crediting Griggs and VanGundy - so this entry is documented descriptively and is **not** flagged as branded. The attribution string credits Rick Griggs (and VanGundy for cataloguing it) as lineage.
+
+## 3. What the evidence shows, and what it does NOT show
+
+The honest grade for role-storming's stated move - "generate ideas while adopting another identity" - is **P (practitioner)**, and this dossier has to be careful, because role-storming is a case where a genuinely M-tier result sits one step away and is easy to misattribute to it. This holds the prior catalog tier (P) rather than overturning it.
+
+**What the record supports.** Role-storming is a real, named, long-lived ideation heuristic with a clear origin (Griggs, mid-1980s) and a place in the creativity-facilitation canon (VanGundy). As a stance it is plausibly useful, and there is a coherent mechanism story (ownership distance lowers inhibition; standpoint distance widens associations) that is consistent with established lines of research. That is the extent of the directly supported claim: a respectable practitioner technique with a plausible mechanism.
+
+**What the record does NOT support, and the laundering trap.** There is **no controlled or comparative study locatable that measures role-storming itself** - no RCT, no nominal-group comparison testing whether role-storming produces more or better ideas than ordinary brainstorming or brainwriting. The qualitative claims that it "lowers anxiety" and yields "more creative ideas" trace to Griggs's own practitioner assertion, not to a primary measurement. The studies that *do* get cited to make role-storming look evidence-backed measure adjacent operations, and attaching their robustness to role-storming would be exactly the transferred-evidence laundering this library exists to prevent:
+
+- **Dumas and Dunbar (2016), "The Creative Stereotype Effect"** (PLOS ONE; Study 1 N=96, Study 2 N=105) is the nearest real evidence and is **M-tier in method** (controlled, two studies, real effect sizes: within-subjects fluency d=.84, originality d=.67). But it measures a *different operation than role-storming*: a single person imagines an "eccentric poet" or "rigid librarian" immediately **before a solo Alternative Uses Task**, and the dependent measures are AUT fluency and originality - it is stereotype priming on a standard divergent-thinking test, not role-storming as a group ideation method, and the authors never call it role-storming. Worse for the candidate, its central result is *conditional*: the uninhibited persona helps, the inhibited persona *hurts* (the librarian condition fell below control). It therefore cannot be banked as evidence *for* role-storming; it is evidence for a boundary condition role-storming usually ignores, and it is what the When-NOT persona gate is built around.
+- **Lo and Hsu (2025), Scientific Reports** - embodying a *dissimilar* VR avatar improved insight problem solving versus a similar avatar, interpreted through psychological distance. Adjacent and supportive of the distancing mechanism, but it is avatar embodiment in immersive VR on insight puzzles, not persona-driven divergent ideation, and not role-storming.
+- **Galinsky and colleagues** on perspective-taking, and **construal-level theory** (Trope and Liberman) on distance raising abstraction and creativity, supply the *theoretical* backing for "a foreign standpoint can free thinking," but they study debiasing and abstract construal, not the role-storming procedure or its idea-count claim.
+
+Borrowing the Dumas-Dunbar d-values, or the avatar and construal-level results, to lift role-storming to M would be laundering a cousin's robustness onto a move the cousin did not test - and in this case the cousin actively flags a failure mode the candidate does not control for. The conservative governing grade is therefore **P**: a recognized practitioner technique with a plausible, partially-evidenced mechanism, no direct controlled evidence for its own idea-generation claim, with the M-tier creative-stereotype work explicitly *not* counted toward it.
+
+## 4. Transferred-evidence flag (required honesty for this library)
+
+Every adjacent result above is from human subjects (undergraduates in lab tasks, VR participants on insight puzzles). **None studies role-storming, in any form, performed by or with an AI agent.** The evidence is transferred from human contexts and not validated for AI-augmented use, which independently caps the grade at P. For a language model "adopting a persona," the two mechanisms may not transfer equally: the inhibition-release rationale (defeating social self-censorship) may not even apply to a model that has no social anxiety to release, while the distancing-via-standpoint rationale (a foreign standpoint shifting associations) might - this is untested. The AI value is mechanical and modest: an agent makes the method cheap to run, can hold several distinct personas in parallel, enforces the persona gate (uninhibited or deliberately-foreign personas only), and produces a durable, inspectable, persona-tagged artifact - benefits that do not depend on any contested outcome claim. The skill ships honestly as a P-tier divergence aid with a hard persona gate, never as a proven idea multiplier.
+
+## 5. Excluded figures
+
+No primary quantitative effect for role-storming exists in the sources reviewed; the "more ideas / lowers anxiety" claims are practitioner assertions attributable to Griggs, not measured results, and are reported here as claims, not facts. Any percentage-style effectiveness figure for role-storming circulating in popularizations traces to no primary source and is excluded from the grade. The Dumas-Dunbar effect sizes are reported only as evidence about the *adjacent* creative-stereotype operation, not as role-storming's effect, and are never transferred to role-storming.
+
+## 6. When it works / when it fails (drives the eval negative cases and "When NOT to Use")
+
+**Works best when:**
+- A group's idea flow is being throttled by self-consciousness rather than by a shortage of knowledge - the room where two confident voices set the frame and everyone else self-edits, or where the "serious" identity of the participants makes a playful or extreme idea feel unsafe to say aloud. Putting people behind a persona gives the timid idea a deniable owner.
+- The thinking is fixated on one frame and a deliberately foreign persona ("how would a street artist / a regulator / a child see this?") can break the fixation.
+- More and more-varied candidates are wanted at the divergent stage, with a downstream convergence step to follow.
+
+**Fails or misleads when (poor-fit / anti-patterns):**
+- **The persona is an inhibited one.** This is the method's sharpest, evidence-backed failure mode. The one controlled result in the vicinity (Dumas and Dunbar 2016) shows the creativity boost is *conditional on an uninhibited stereotype*: imagining "an eccentric poet" raised fluency and originality, but imagining "a rigid librarian" *lowered* them below control. Role-storming as commonly taught lets participants pick any relevant identity - "a senior executive," "a cautious auditor," "an irate customer" - several of which are stereotypically inhibited or narrowing. Chosen badly, the persona suppresses ideas instead of freeing them. The skill therefore mandates an uninhibited or deliberately-foreign persona and forbids inhibited ones.
+- **It is mistaken for evaluation.** Generating ideas "as the customer" is not the same as evaluating a decision through the customer's interests. If the job is a balanced, multi-mode appraisal of a choice, the fixed functional lenses of a parallel-perspectives review are the tool; role-storming will give you a creative pile, not a judgment. Route to `think-parallel-perspectives-review`.
+- **It is mistaken for genuine dissent.** A persona arguing against the plan is *role-played* opposition. The decision literature is explicit that role-played dissent (devil's advocacy) underperforms authentic minority dissent and can even harden the original view (Nemeth 2001); if the goal is real challenge, engineer for genuine dissent, not a costume. Route to `think-authentic-dissent`.
+- **The caricature substitutes for the work.** Personas can collapse into shallow stereotype performance ("the angry customer just complains"), producing theatrical noise rather than ideas, and can import or reinforce crude stereotypes. The value is the distancing, not the impersonation; when the impersonation becomes the point, the exercise degrades.
+
+## 7. Why it is a skill here (distinctness vs the named neighbors)
+
+Verdict: **Build** - a documented entry that clears the distinctness bar on mechanism yet stays low-priority on conditional, transferred evidence.
+
+The Build burden is to name one distinct, durable cognitive move that no shipped skill produces, and to show no existing skill (or chain) already produces it. Role-storming meets that burden on the mechanism, narrowly:
+
+- **The closest shipped skill is `think-parallel-perspectives-review`, and it does NOT subsume the move.** Parallel-perspectives runs a *fixed set of functional lenses* (facts, upside, risk, intuition, alternatives, process) over a *single decision* to produce a *balanced evaluation with a synthesis*. Its lenses are modes of thought, and even its stakeholder absorption walks a proposal "through each affected party's eyes" for appraisal. Role-storming differs on all three axes: the lens is an *arbitrary assumed identity* chosen for distance, not a fixed functional checklist; the purpose is *divergent idea generation via inhibition-release*, not convergent balance; and the artifact is a *persona-tagged idea list*, not a per-lens review. The genuine shared element is only the abstract instruction "take more than one viewpoint" - the same family resemblance that loosely links the whole perspective family - which sits below the working-mechanism overlap ceiling once the generation-vs-evaluation purpose and the identity-vs-function lens object are accounted for. Notably, this is exactly why role-storming is *not* folded the way persona/role *evaluation* rituals were: those are genuinely redundant with parallel-perspectives, whereas role-storming is a *generation* engine parallel-perspectives does not run.
+
+- **No shipped ideation skill owns the engine.** The divergent-ideation family generates by *different machinery*: `think-assumption-reversal` negates foundational premises; `think-brainwriting` runs silent parallel written generation; `think-scamper` applies seven transformations to a seed; `think-far-analogy-ideation` transfers deep structure from distant domains. None generates by *adopting an identity to lower self-censorship and shift associations*. So role-storming's engine is not a mode of any single shipped ideation skill, which is what a fold would require.
+
+- **It is not a recipe.** Role-storming is one move (inhabit a persona, generate in character), not a fixed chain like skill-A-then-skill-B; there is no sequence of two shipped skills whose composition is "persona-driven inhibition-release ideation." So Build, not Recipe.
+
+What keeps the evidence honest rather than confident: many shipped skills are P, so P alone does not disqualify it, but role-storming's P is unusually thin and *conditional*. Its own idea-generation claim has zero direct controlled support, and the single strong adjacent result (Dumas and Dunbar) shows the effect flips negative with an inhibited persona - a failure mode the open "pick any relevant identity" method does not guard against. The library has also recorded a consistent skepticism toward role-play-based perspective methods (`think-authentic-dissent` was built precisely because role-played dissent underperforms genuine dissent). Role-storming survives that skepticism only because its *purpose* (generation) and *artifact* (persona-tagged idea list) are not the ones those folds already cover - and it ships only because a builder can hard-wire the when-NOT wall (mandate an uninhibited or deliberately-foreign persona, forbid inhibited/narrowing ones, route evaluation to `think-parallel-perspectives-review` and genuine challenge to `think-authentic-dissent`) into the artifact so the method cannot be cargo-culted into its own failure mode.
+
+## 8. Output artifact
+
+The skill must emit a **persona-tagged idea list**, not prose: the generative question; the chosen personas (3-5), each justified in a phrase as uninhibited or frame-breaking; the candidate ideas, each attributed to the persona that produced it; and a hand-off note marking the list as a divergent pool for a separate convergence step. The list is never ranked, scored, or down-selected inside this artifact, and is never framed as an evaluation of a decision or as genuine challenge.
+
+## 9. Sources
+
+### Named sources
+
+- **Rick (R. E.) Griggs**, originator of rolestorming, c. 1985 (productivity/training manager, National Semiconductor and Intel). The primary articulation of the method (assume another identity to lower inhibition and surface non-obvious ideas). The "lowers anxiety / more ideas" claims are his practitioner assertion, not a measured result. Practitioner / foundational. (P)
+- **Arthur B. VanGundy**, *101 Activities for Teaching Creativity and Problem-Solving* (Pfeiffer, 2005) and earlier creative-problem-solving texts. Catalogued and popularized rolestorming as a facilitation activity; descriptive, no controlled evaluation of the technique. Practitioner. (P)
+- **Denis Dumas and Kevin N. Dunbar**, "The Creative Stereotype Effect," *PLOS ONE* 11(2): e0142567 (2016). Controlled, two studies (N=96; N=105): imagining an "eccentric poet" before the Alternative Uses Task raised fluency and originality versus a "rigid librarian" (within-subjects d=.84 fluency, d=.67 originality), the librarian condition falling below control. Measures stereotype priming on a solo divergent-thinking task, NOT rolestorming; cited to show the evidence belongs to an adjacent operation and that the effect is conditional on an uninhibited persona. (M, for the creative-stereotype effect - not for rolestorming)
+- **Shih-Yu Lo and Li-Jung Hsu**, "Embodying an avatar with a dissimilar appearance enhances insight problem solving," *Scientific Reports* (2025). Participants embodying a dissimilar VR avatar solved more insight problems than those with a similar avatar, interpreted via psychological distance. Supports the distancing mechanism; not rolestorming and not divergent ideation. (M, for avatar-distance on insight - adjacent)
+- **Yaacov Trope and Nira Liberman**, "Construal-Level Theory of Psychological Distance," *Psychological Review* 117(2) (2010): 440-463. The theoretical basis for distance raising abstraction and enabling creative leaps; supplies the mechanism rationale, not a test of rolestorming. (M, theory - adjacent)
+- **Charlan J. Nemeth, Keith Brown and John Rogers**, "Devil's advocate versus authentic dissent: stimulating quantity and quality," *European Journal of Social Psychology* 31(6) (2001): 707-720. Experimental: authentic minority dissent stimulated more divergent thought than role-played devil's advocacy, which tended to bolster the original view. Cited to mark the limit of role-played stances and the divide between rolestorming (generation) and genuine dissent (challenge), which ships here as `think-authentic-dissent`. (M, for dissent - adjacent)
+
+> Excluded under the evidence rule: no primary source measures rolestorming's own effect on idea quantity or quality; the "lowers anxiety / yields more creative ideas" framing is Griggs's practitioner claim, not a measured finding, and any circulating effectiveness percentage traces to no primary source and is not counted toward this entry's grade. The Dumas-Dunbar effect sizes are counted only as evidence about the adjacent creative-stereotype operation, never transferred to rolestorming.
