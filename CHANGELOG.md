@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+- `scripts/check-counts.mjs` - a sixth conformance-gate layer that verifies the README's four hand-authored count surfaces (the badges, the mermaid lifecycle map, the catalog table headers, and the project-status table) against the registry / `_workflows/` / tools, and asserts every shipped skill's `metadata.family` is a valid skill-family slug. The README is the last hand-authored denormalization of catalog counts; a stale count is now a red build instead of a late review catch (the same drift an adversarial review caught by hand during the v0.6.0 cut).
+- `site/intros/families/strategy-and-opportunity.md` - the Strategy & Opportunity family arrived in v0.5.0 without an intro, so its docs-site page fell back to a generic blurb and sorted last; it now has a real intro and slots into the lifecycle after Decision & Option Evaluation.
+
+### Changed
+- The `causal-layered-analysis` evidence dossier records the explicit resolution of the v0.6.0 distinctness review: kept as an honest-C Build, because folding into `iceberg-model` would bury the upward reconstruction and the four-layer matrix the diagnostic-only iceberg cannot produce, and no fixed chain of shipped skills reproduces that matrix; the descent overlap is fully disclosed rather than hidden.
+- Documented (not closed) registry follow-up #3: the count-check confirmed the registry catalog taxonomy and the coarse skill `metadata.family` taxonomy place several shipped skills in different families by design and use different slug sets, so the check enforces skill-family validity but deliberately not a pair match; unifying the two taxonomies reshuffles user-facing groupings and stays a deferred design call.
+
 ## [0.6.0] - 2026-06-10
 
 **Catalog expansion, phase 2.** The catalog grows from 40 to 47 shipped frameworks - seven survivors of a 26-candidate research-and-reconcile sweep, with the rest honestly folded (11), shipped as recipes (2), or rejected with reasoning (6), growing the published Framework Library from 8 to 25 dossiers. The 73% fold/recipe/reject rate kept breadth from diluting the honest grade. Also: the `AGENTS.md` roster tables are now generated and drift-checked (#51).
