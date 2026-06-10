@@ -65,7 +65,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-06-10
-  output_eval_status: not-run
+  output_eval_status: measured-2026-06-10
   known_failure_modes:
     - forcing a reframe on a closed, familiar, or already-well-framed problem (manufacturing a paradox)
     - goal-reformulation drift - reframing so freely that the reframed problem is solved, not the original one

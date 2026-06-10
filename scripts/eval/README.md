@@ -35,7 +35,25 @@ The router agents never see which skill authored a case or what the expected ans
    ```
    Prints the markdown scorecard (overall + per-skill top1 / top3 / anti, and the misses), and writes `scorecard.json` next to the routed file. Commit the scorecard under `docs/internal/eval-results/<date>-trigger-eval.{md,json}`.
 
+## Running the output eval (three steps)
+
+The output eval measures **artifact quality**: run each skill and check whether the deliverable it produces satisfies the skill's own "Output checks".
+
+1. **Extract the prompt + checks per skill.**
+   ```
+   node scripts/eval/extract-output.mjs              # all shipped skills (or pass slugs for a pilot)
+   ```
+   Prints `{ summary, cases:[{skill, prompt, checks:[...]}] }`. Save it; the workflow reads it.
+2. **Produce, then judge** (via the Workflow tool, `scriptPath: scripts/eval/output.workflow.mjs`, `args = {casesPath, skills}`). For each skill: a PRODUCE agent invokes the skill on its trigger prompt and emits the full artifact; a **separate** JUDGE agent grades that artifact against the skill's output checks (so the producer never grades itself). Throttle-safe serial groups. Returns `{results:[{skill, perCheck, passed, total}]}`.
+3. **Score.**
+   ```
+   node scripts/eval/score-output.mjs <results.json>
+   ```
+   Prints the per-skill + overall check-pass scorecard and every failed check with the judge's reason; writes `output-scorecard.json`. Commit under `docs/internal/eval-results/<date>-output-eval.{md,json}`.
+
+After either eval, stamp the per-skill placeholder: `node scripts/eval/stamp-meta.mjs <YYYY-MM-DD> [trigger|output]`.
+
 ## Status / roadmap
 
-- **Trigger eval**: implemented (this harness). First full run recorded under `docs/internal/eval-results/`.
-- **Output eval** (`output_eval_status`): not yet - it would run each skill on a prompt and score its artifact against the "Output checks" already written in each `eval/cases.md`. A planned follow-on.
+- **Trigger eval**: implemented (routing accuracy). First full run under `docs/internal/eval-results/`.
+- **Output eval**: implemented (artifact quality, produce -> judge). First full run under `docs/internal/eval-results/`.

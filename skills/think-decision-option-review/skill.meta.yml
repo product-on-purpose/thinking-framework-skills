@@ -55,7 +55,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-06-10
-  output_eval_status: not-run
+  output_eval_status: measured-2026-06-10
   known_failure_modes:
     - false precision (a single weighted total treated as the answer)
     - criteria or weights chosen to justify a pre-picked option
