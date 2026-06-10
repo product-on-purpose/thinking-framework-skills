@@ -11,7 +11,7 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
 <p>
   <img src="https://img.shields.io/badge/status-active-success?style=flat-square" alt="Status: Active">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square" alt="License: Apache-2.0"></a>
-  <img src="https://img.shields.io/badge/version-0.4.0-blue?style=flat-square" alt="Version 0.4.0">
+  <img src="https://img.shields.io/badge/version-0.6.0-blue?style=flat-square" alt="Version 0.6.0">
   <a href="#-conformance-what-advanced-gold-tier-means"><img src="https://img.shields.io/badge/tier-advanced%20(Gold)-B8860B?style=flat-square" alt="Conformance tier: advanced (Gold)"></a>
   <a href="#-the-catalog"><img src="https://img.shields.io/badge/frameworks-47-brightgreen?style=flat-square" alt="Frameworks: 47"></a>
   <a href="#-tools-meta-skills"><img src="https://img.shields.io/badge/tools-4-brightgreen?style=flat-square" alt="Tools: 4"></a>
@@ -405,13 +405,13 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ## 📊 Project status
 
-`v0.4.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
+`v0.6.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
 
 ### At a glance
 
 |  |  |
 |---|---|
-| **Current version** | [v0.4.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.4.0) |
+| **Current version** | [v0.6.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.6.0) |
 | **Frameworks** | 47, across 11 cognitive-operation families |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 8 (skill chains shipped as workflow components) |

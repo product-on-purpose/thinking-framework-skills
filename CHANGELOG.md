@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-06-10
+
+**Catalog expansion, phase 2.** The catalog grows from 40 to 47 shipped frameworks - seven survivors of a 26-candidate research-and-reconcile sweep, with the rest honestly folded (11), shipped as recipes (2), or rejected with reasoning (6), growing the published Framework Library from 8 to 25 dossiers. The 73% fold/recipe/reject rate kept breadth from diluting the honest grade. Also: the `AGENTS.md` roster tables are now generated and drift-checked (#51).
+
 ### Added
 - `scripts/gen-agents.mjs` - the `AGENTS.md` Skills and Recipes tables are now **generated and drift-checked** from the same sources as everything else (the registry + each `SKILL.md` frontmatter + `skill.meta.yml` + `_workflows/`), spliced between `BEGIN/END GENERATED` markers. A new fifth layer of the conformance gate (`gen-agents.mjs --check`) byte-compares the committed tables against a fresh generation, so the agent-facing roster can no longer silently fall behind the catalog (it had drifted to a stale count since v0.3.0). The contributor guide joins the "no second store" principle: edit a source, regenerate, never hand-edit the table. Generating de-slugifies the artifact labels and drops the prior inline `(flag)` markers (each skill's caveats still live in its own `When NOT to Use` and the registry).
 - `think-role-storming` (tier P, honest read M/P) - a perspective-shifting skill that generates divergent ideas while inhabiting a chosen non-self persona, using ownership-distance to lower self-censorship and standpoint-distance to shift associations, emitting a persona-tagged idea list. Distinct from `parallel-perspectives-review` (fixed functional lenses for evaluation, not arbitrary identities for generation) and `authentic-dissent` (genuine challenge, not role-play); the load-bearing wall forbids inhibited personas, since the one controlled adjacent result (Dumas and Dunbar 2016) flips negative with a cautious persona and is not counted toward the method. Attributed to Griggs / VanGundy, not branded. Catalog 40 -> 41 shipped. [v0.6.0 catalog]
@@ -120,7 +124,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.5.0...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.2.1...v0.3.0
