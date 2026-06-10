@@ -2,6 +2,15 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://product-on-purpose.github.io/thinking-framework-skills/).
 
+## v0.6.0
+
+**Catalog expansion, phase 2: seven new methods (now 47), and the rest of the candidate field honestly resolved.**
+
+- **+7 frameworks (now 47).** Four practitioner-grade: **Role-Storming** (generate ideas as someone else, to get past your own self-censorship), **Morphological Analysis** (lay a solution's choices out as a grid and recombine them), **Pairwise Comparison** (rank options head-to-head when you cannot score them on a scale), and **Minimax Regret** (choose under deep uncertainty by minimizing your worst-case regret). Three honest C-tier methods (conceptually strong, not yet study-backed): **Three Horizons**, **Causal Layered Analysis**, and **Contradiction / Tension Mapping**.
+- **Two recipes.** **Kepner-Tregoe** and **PDCA / A3** ship as workflow chains of existing skills rather than as new methods, because that is honestly what they are.
+- **Seventeen documented "no"s.** The candidates that did not clear the bar - folded into a method that already covers them, or rejected on the merits - are each published in the [Framework Library](https://product-on-purpose.github.io/thinking-framework-skills/library/) with their reasoning. The Library now holds 25 such dossiers, so "we considered it and said no" stays browsable.
+- **Honesty held at scale.** Of 26 candidates researched and adversarially re-checked, only 7 became skills (a 73% fold/reject rate). Breadth never trumped the grade - the rejections are as much the product as the additions.
+
 ## v0.5.0
 
 **Catalog expansion: six new thinking methods, a new family, and four documented "no"s you can actually read.**

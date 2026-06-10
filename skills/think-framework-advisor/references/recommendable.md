@@ -5,7 +5,7 @@
 > component is not listed here, the advisor must describe the step in plain language
 > rather than name a skill. Regenerate when components change.
 
-## Skills (40)
+## Skills (47)
 
 | Skill (`name`) | Family | Tier | What it does |
 |---|---|---|---|
@@ -19,9 +19,11 @@
 | `think-belief-update-routine` | meta-thinking-and-reflection | P | Produces a belief-update ledger that re-scores a standing inventory of open beliefs against newly arrived evidence on a cadence - each belief carrying a prior... |
 | `think-boundary-critique` | problem-framing | C/P | Audits the boundary judgments that silently define a problem frame. |
 | `think-brainwriting` | divergent-ideation | S | Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first v... |
+| `think-causal-layered-analysis` | systems-and-consequences | C | Produces a four-layer matrix (litany, system, worldview, myth) of the current 'used future' beside a reconstructed preferred future per layer, anchored by a de... |
 | `think-causal-loop-diagrams` | systems-and-consequences | M/P | Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities,... |
 | `think-concept-mapping` | synthesis | M/P | Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit prop... |
 | `think-contradiction-resolution` | problem-framing | M/P | Converts a stuck trade-off into a contradiction to dissolve rather than a compromise to settle for. |
+| `think-contradiction-tension-mapping` | synthesis | C | Produces a both/and polarity map - two interdependent poles, the upside and downside quadrant of each, a greater purpose and a deeper fear, early-warning signs... |
 | `think-decision-journal` | meta-thinking-and-reflection | P | Produces a decision journal entry that records a consequential decision at the moment it is made - the decision, the rationale, the predicted outcome, an expli... |
 | `think-decision-option-review` | decision-and-option-evaluation | P | Produces a criteria-weighted option matrix by comparing a set of options against weighted criteria, scoring each, surfacing the explicit tradeoffs, and recomme... |
 | `think-evidence-vs-inference-sort` | reasoning-clarity | P | Produces an evidence/inference ledger by sorting the claims in a prompt, document, or proposed conclusion into evidence, inference, and assumption, attaching a... |
@@ -34,8 +36,11 @@
 | `think-issue-tree` | reasoning-clarity | P | Produces an issue tree that decomposes one big, ambiguous question top-down into a mutually-exclusive, collectively-exhaustive (MECE) set of smaller sub-questi... |
 | `think-ladder-of-inference-check` | assumption-and-belief-challenge | P | Produces an annotated reasoning trace that reconstructs how a conclusion was reached, from the observable data, to the data actually selected, to the meaning a... |
 | `think-linear-model-aggregation` | decision-and-option-evaluation | S | Builds a simple mechanical scoring model - a few weighted predictive cues combined by a fixed formula and applied consistently - for a repeated predictive judg... |
+| `think-minimax-regret` | decision-and-option-evaluation | P | Produces a regret (opportunity-loss) matrix with the minimax pick and the binding worst-case state, choosing among options over un-probabilized states of natur... |
+| `think-morphological-analysis` | divergent-ideation | P | Produces a morphological field (a Zwicky box of independent parameters by their possible values) plus a cross-consistency-pruned set of internally consistent c... |
 | `think-natural-frequency-bayesian` | reasoning-clarity | S | Converts a conditional-probability or base-rate question into natural frequencies over a concrete population (for example 9 of 1000) to compute the correct pos... |
 | `think-one-way-vs-two-way-door` | decision-and-option-evaluation | P | Produces a reversibility classification that triages a decision before any analysis - labeling it a reversible two-way door or a hard-to-reverse one-way door -... |
+| `think-pairwise-comparison` | decision-and-option-evaluation | P | Produces a binary-vote comparison matrix (every pair judged A-beats-B), a derived ranking, and a consistency check, ordering options without any criteria axis... |
 | `think-parallel-perspectives-review` | perspective-and-multi-lens | P | Evaluates a decision or idea through several deliberately separated lenses in turn (facts, upside, risks, intuition, alternatives, process) so that no single m... |
 | `think-premortem` | risk-and-resilience | S/M | Generates a ranked risk register that stress-tests a planned decision by imagining it has already failed, surfacing the likely causes and pairing each with a m... |
 | `think-problem-restatement` | problem-framing | M/P | Generates several genuinely different framings of an ambiguous problem by varying altitude, stakeholder, and goal-versus-implementation, then selects the most... |
@@ -43,14 +48,16 @@
 | `think-question-burst` | divergent-ideation | P | Generates a rapid burst of questions about a problem (questions only, no answers), then ranks them for which would most change the approach and selects the sin... |
 | `think-red-team-light` | assumption-and-belief-challenge | P | Produces an adversarial critique by constructing the strongest case against a proposal or thesis (the best objections an intelligent adversary would raise), th... |
 | `think-reference-class-forecasting` | risk-and-resilience | S | Produces a reference-class estimate by defining a class of similar past cases, taking their base-rate distribution of outcomes, and anchoring the forecast on t... |
+| `think-role-storming` | perspective-and-multi-lens | P | Produces a persona-tagged divergent idea list, ideas generated while inhabiting a chosen non-self identity to lower self-censorship and shift associations. |
 | `think-scamper` | divergent-ideation | P | Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adap... |
 | `think-scenario-planning` | strategy-and-opportunity | P | Produces a scenario set, 2-4 contrasting and internally consistent short narratives of alternative external futures named by two critical-uncertainty axes, plu... |
 | `think-stocks-and-flows-reasoning` | systems-and-consequences | S | Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory f... |
 | `think-theory-of-constraints` | systems-and-consequences | P | Produces a constraint-intervention plan that names the single binding constraint capping a system's throughput and attaches its exploit, subordinate, and eleva... |
+| `think-three-horizons` | systems-and-consequences | C | Produces a three-curve transition map (a declining present H1, a contested middle H2 read in two directions, an emerging future H3) with the actor located in i... |
 | `think-what-would-have-to-be-true` | decision-and-option-evaluation | P | Converts a strategy, option, or contested claim into the specific conditions that would have to be true for it to be the best choice, rates each condition's co... |
 | `think-woop` | risk-and-resilience | S | Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and b... |
 
-## Recipes (6)
+## Recipes (8)
 
 Multi-step chains. Recommend the recipe (by name) when the job needs the whole sequence; the steps are the skills it runs in order.
 
@@ -60,5 +67,7 @@ Multi-step chains. Recommend the recipe (by name) when the job needs the whole s
 | `think-expand-options` | `recipes/expand-options.md` | `think-problem-restatement` -> `think-scamper` -> `think-assumption-reversal` |
 | `think-first-principles` | `recipes/first-principles.md` | `think-abstraction-laddering` -> `think-assumption-reversal` |
 | `think-idea-quality-audit` | `recipes/idea-quality-audit.md` | `think-decision-option-review` -> `think-red-team-light` |
+| `think-kepner-tregoe` | `recipes/kepner-tregoe.md` | `think-issue-tree` -> `think-decision-option-review` -> `think-premortem` |
+| `think-pdca-a3` | `recipes/pdca-a3.md` | `think-issue-tree` -> `think-decision-option-review` -> `think-after-action-review` |
 | `think-reframe-problem` | `recipes/reframe-problem.md` | `think-problem-restatement` -> `think-evidence-vs-inference-sort` -> `think-parallel-perspectives-review` |
 | `think-stress-test-decision` | `recipes/stress-test-decision.md` | `think-decision-option-review` -> `think-what-would-have-to-be-true` -> `think-premortem` -> `think-reference-class-forecasting` |

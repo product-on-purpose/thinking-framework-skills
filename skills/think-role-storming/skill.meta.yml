@@ -1,0 +1,92 @@
+# Rich sidecar for the think-role-storming skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.role-storming;
+# slug = bare method = role-storming;
+# installable name = prefix + slug = think-role-storming (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.role-storming
+  slug: role-storming
+  name: think-role-storming
+  display_name: Role-Storming
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: perspective-and-multi-lens
+  secondary_families: [divergent-ideation]
+  thinking_modes: [divergent, generative, perspective-shifting]
+  problem_contexts: [idea-generation, fixated-frame, self-censoring-group, early-divergence]
+  use_cases:
+    - generate divergent ideas while inhabiting a chosen non-self identity (ownership distance + standpoint distance)
+    - break a stalled or self-censoring brainstorm by giving the timid idea a deniable owner
+    - shift off a fixated frame with a deliberately foreign persona ("how would a child / a regulator / a street artist see this?")
+    - produce a persona-tagged idea pool ready to hand to a downstream convergence step
+  poor_fit_cases:
+    - used to evaluate or appraise a decision rather than generate ideas (that is think-parallel-perspectives-review)
+    - used to produce genuine challenge to a plan - role-played opposition underperforms authentic dissent (that is think-authentic-dissent)
+    - run with an inhibited or narrowing persona (cautious auditor, risk-averse executive) - the effect flips negative
+    - structured generation better served by other machinery (assumption-reversal, scamper, brainwriting, far-analogy-ideation)
+    - the persona collapses into caricature / stereotype performance instead of producing ideas
+
+interface:
+  required_inputs:
+    - a generative question (the "how might we / what could we do" prompt the ideas should answer)
+  optional_inputs:
+    - candidate personas, or the default frame the thinking is stuck in
+    - the downstream convergence step the idea pool will feed
+  primary_artifact_type: persona-tagged-idea-list
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.brainwriting
+    - thinking-framework-skills.scamper
+    - thinking-framework-skills.decision-option-review
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.decision-option-review   # hand the divergent pool to a convergence/evaluation step
+  complements:
+    - thinking-framework-skills.brainwriting             # silent parallel written generation vs persona-driven generation
+    - thinking-framework-skills.scamper                  # seven transformations on a seed vs identity-adoption
+    - thinking-framework-skills.far-analogy-ideation     # distant-domain transfer vs foreign-standpoint distance
+    - thinking-framework-skills.assumption-reversal       # negate premises vs adopt an identity
+  contrasts_with:
+    - thinking-framework-skills.parallel-perspectives-review  # generation engine vs fixed-functional-lens evaluation (closest neighbor; not a fold)
+    - thinking-framework-skills.authentic-dissent             # role-played stance vs engineered genuine dissent
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - using an inhibited or narrowing persona, which suppresses ideas below baseline (the sharpest, evidence-backed failure)
+    - mistaking generation-in-persona for evaluation through a persona's interests (route to parallel-perspectives-review)
+    - mistaking a role-played objection for genuine challenge (route to authentic-dissent)
+    - the persona collapsing into shallow stereotype performance / caricature, producing theatrical noise not ideas
+    - ranking or down-selecting inside the artifact instead of handing a divergent pool to convergence
+
+evidence:
+  evidence_tier: "P"   # governing; recognized practitioner technique, plausible mechanism, no direct controlled evidence for its own idea-generation claim
+  confidence: moderate that persona-adoption lowers self-censorship and shifts associations; low that any idea-count/quality effect transfers to agents; high that an inhibited persona backfires
+  transferred_evidence: true       # all adjacent studies on human subjects (lab undergraduates, VR participants); none study role-storming, none agent-validated; inhibition-release rationale may not transfer to a model
+  lineage:
+    derived_from: [rolestorming, Rick Griggs (c. 1985), Arthur VanGundy (cataloguing)]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Rick Griggs (originator) and VanGundy (catalogued it) as lineage; term generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-role-storming/SKILL.md
+  references_path: skills/think-role-storming/references/
+  evidence_path: skills/think-role-storming/evidence/dossier.md
+  evals_path: skills/think-role-storming/eval/

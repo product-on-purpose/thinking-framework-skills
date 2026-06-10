@@ -1,0 +1,95 @@
+# Evidence Dossier: Causal Layered Analysis
+
+> The single source of truth for the `causal-layered-analysis` skill. The `SKILL.md`, the sidecar
+> (`skill.meta.yml`), and the eval cases all derive from this file. If a claim is not here, it does
+> not belong in the skill. Promoted from `frameworks/_proposed/causal-layered-analysis/dossier.md`
+> and admitted as a Build at tier C.
+
+| | |
+|---|---|
+| **Skill** | `thinking-framework-skills.causal-layered-analysis` (installable name `think-causal-layered-analysis`) |
+| **Family** | systems-and-consequences |
+| **Evidence tier** | **C** governing (conceptually plausible but under-tested; honest split read C/P, capped at C - see "What the evidence shows") |
+| **Confidence** | Moderate that forcing a descent past litany/system into worldview and myth, and a deliberate reconstruction, reframes a stuck issue; low-to-none that any specific outcome effect (decision quality, novelty of generated futures) is measured or transfers to agents |
+| **Status** | draft (admitted as a Build from the v0.5.0+ catalog work; honors the catalog's prior `cand / build / C` tag) |
+
+---
+
+## 1. The mechanism (what actually does the work)
+
+Causal Layered Analysis (CLA) is a futures-studies method that reads an issue at four vertical depths and then rebuilds it. Sohail Inayatullah introduced it explicitly as a futures research technique in 1998 ("Causal Layered Analysis: Poststructuralism as method," *Futures*), building on Richard Slaughter's earlier observation that futures studies operate at different epistemic levels. The four layers descend from surface to depth:
+
+1. **Litany** - the official, unquestioned, most visible account of the issue: the headline numbers, the accepted problem statement, the "everyone knows" framing.
+2. **System / social causes** - the systemic and structural explanation: the policies, economics, institutions, and short-term causes that the litany rests on, the level at which most policy analysis operates.
+3. **Worldview / discourse** - the deeper, often unconscious ideological and paradigmatic assumptions, and the competing discourses, that make the system feel natural - and, critically, *whose* worldview is being privileged.
+4. **Myth / metaphor** - the unconscious, emotive, civilizational story and archetype underneath it all, carried in a guiding metaphor rather than a proposition.
+
+Two features make CLA a distinct apparatus rather than a generic "go deeper" prompt, and the honest description has to foreground both because they are what separate it from a systems-thinking iceberg.
+
+First, the stance is **poststructuralist deconstruction**, not single-cause diagnosis. CLA does not descend to find *the* true structure and *the* real mental model that cause a recurring problem; it treats the issue as a "text" to be read, asks what each layer makes visible and what it hides, and surfaces *competing* worldviews and discourses (whose litany, whose system, who benefits from this framing). It deliberately refuses to converge on one authoritative causal account.
+
+Second, and decisively for this library, CLA does not stop at a downward reading. After deconstructing the four layers, it **moves back up and reconstructs** - rewriting each layer into an alternative: a new myth/metaphor (Inayatullah's healthcare example replaces a paternalistic story with "the patient will see you now" or "I am an expert of my body"), a transformed worldview, then a reconstructed system and litany that follow from the new deep story. The deliverable in practice is a layered matrix that holds the *current* ("used future") reading of each layer beside one or more *reconstructed* (preferred / alternative) readings of each layer, so the four-row table becomes a set of alternative futures anchored by a deliberately changed metaphor. The point of the method, in Inayatullah's own words, "is not in predicting the future but in creating transformative spaces for the creation of alternative futures."
+
+The output the skill must emit is this **four-layer matrix**: litany / system / worldview / myth down the side, the current "used future" reading beside a reconstructed preferred-future reading across, with the deliberately changed deep metaphor named as the anchor of the reconstruction.
+
+## 2. Lineage
+
+CLA is the work of **Sohail Inayatullah** (b. 1958), a Pakistani-Australian futures-studies scholar; he introduced it explicitly as a method in "Causal Layered Analysis: Poststructuralism as method," *Futures* 30(8) (1998): 815-829, and it is the central method of his practice at Metafuture (with Ivana Milojevic). Its proximate root is **Richard A. Slaughter**, whose "Probing Beneath the Surface" (*Futures*, 1989) and 1990 World Futures Studies Federation presentation framed futures studies as operating at levels from litany to epistemology - the typology Inayatullah turned into a method; the deconstruction stance is poststructuralist (Foucault, Derrida) by acknowledged design. For the canonical collection of theory plus applied case studies, see *The Causal Layered Analysis (CLA) Reader* (Inayatullah, ed., Tamkang University Press, 2004) and its successor *CLA 2.0* (Inayatullah and Milojevic, eds., 2015).
+
+CLA is a generic descriptive method name in common scholarly use - **no trademark** - so this entry is documented descriptively with attribution to Inayatullah (and the Slaughter lineage), not flagged as branded. The attribution string credits Sohail Inayatullah (with the Slaughter lineage).
+
+## 3. What the evidence shows, and what it does NOT show
+
+The honest grade is **C (conceptually plausible but under-tested)**, and this dossier confirms the catalog's prior C tag rather than overturning it. The split read is **C/P** and it is capped at **C**, because CLA lacks even the broad descriptive practitioner base that would justify a P: it is a critical-theory method documented through theory papers and illustrative case studies, with no controlled, comparative, or outcome evidence on the move it actually performs.
+
+**What the record supports.** CLA is a real, named, well-lineaged method with a 25-year literature in futures studies and a substantial body of *applied case studies* across foresight, policy, health, and community settings (the *CLA Reader*, Inayatullah ed., 2004, collects the canonical set; Bishop, Dzidic and Breen 2013 is a representative single-workshop application). It is taught and used by serious institutions (UNDP and UN foresight toolkits include it). As a structured way to surface and rewrite the worldview and myth beneath an issue, it is coherent and, in practitioner judgment, useful.
+
+**What the record does NOT support, and the trap to avoid.** There is **no controlled or comparative study** locatable that measures CLA against another method on any outcome - not decision quality, not the novelty or usefulness of the futures it generates, not policy results. A targeted search for a controlled experiment, randomized trial, or quantitative effectiveness comparison on CLA returned only generic causal-inference methodology and nothing on CLA itself. The published evaluations are *illustrative*: Bishop, Dzidic and Breen (2013) present a 17-farmer workshop "as an example" and explicitly "make no claims about empirical testing of CLA's effectiveness ... do not report comparative outcomes or controlled evaluations." Even the method's own author lists limitations (analysis paralysis, over-complication of simple issues, and a risk of dampening creativity by categorising reality). To grade CLA P or above by borrowing the robustness of adjacent systems-thinking tools, or of foresight in general, would be exactly the transferred-evidence laundering this library exists to prevent: those tools did not test *this* move, and CLA's distinguishing layers (the poststructuralist deconstruction and the myth reconstruction) are the *least* empirically examined parts of the foresight toolkit. The conservative governing grade is therefore **C**: conceptually rich, lineage-strong, application-documented, effectiveness-untested.
+
+## 4. Transferred-evidence flag (required honesty for this library)
+
+Every source above is human futures-and-policy practice - workshops, case write-ups, and theory. There is **no study of CLA performed by or with an AI agent**, and none of whether an agent-produced layered analysis improves a human's reframing or future-building. The evidence is transferred from human practice and not validated for AI-augmented use; treat the agent value as "forces the descent past the litany/system level into worldview and myth, and forces the reconstruction step a forward-only model skips," which is a process benefit that does not depend on any unproven outcome claim. The skill ships honestly as a C-tier reframing aid with a hard "this is not a forecast, a ranking, or a decision" wall, and with the deep readings always marked as contestable interpretations rather than discovered facts.
+
+## 5. When it works / when it fails (drives the eval negative cases and "When NOT to Use")
+
+**Works best when:**
+- The issue is stuck because the *framing* is stuck - the official litany and the system explanation have been argued to exhaustion and the disagreement is really about clashing worldviews and the unexamined story underneath.
+- The goal is to open up genuinely different futures rather than to optimize the current one.
+- The question is contested, value-laden, long-horizon, civilizational, or cultural - and you suspect the deep metaphor ("growth is health," "the market knows best," "the user is a passive funnel") is doing more work than any number in the litany.
+
+**Fails or misleads when (poor-fit / anti-patterns):**
+- **The problem is simple, technical, or single-cause.** Inayatullah himself warns that CLA can over-complicate relatively simple issues; forcing a myth/metaphor layer onto a logistics bug or a one-off failure manufactures false profundity. A method whose deepest layer is civilizational narrative is the wrong tool for "the deploy is failing."
+- **You need a forecast or a decision.** CLA is explicitly *not* predictive and not a ranking or option-evaluation method. Inayatullah cautions it is best used *with* other methods (emerging-issues analysis, visioning, scenarios) and that it can induce "a paralysis of action" - too much time problematizing, not enough designing the next move. Reach for it to reframe, then leave it for the decision.
+- **The reconstruction is skipped.** Run only as a downward descent, CLA collapses into a four-box depth diagram and loses the one thing that distinguishes it - the up-the-layers rewrite into an alternative future. A descent with no reconstructed myth is just a heavier iceberg.
+- **The deconstruction is treated as objective truth.** CLA's worldview and myth readings are interpretive and contestable by design (that is the poststructuralist point); presenting "the real myth" as a discovered fact, rather than one reading among several, betrays the method and invites confident nonsense.
+
+## 6. Distinctness (why this is a Build, not a Fold or a Recipe)
+
+The Build burden is to name one distinct, durable cognitive move CLA adds, name the artifact it emits, and prove no shipped skill (or short chain) already produces that move above the ~20% overlap ceiling - against an unusually close neighbor, because the foresight literature itself draws CLA *as* an iceberg.
+
+The decisive comparison is **`think-iceberg-model`** (HIGH overlap, the near-twin). Both are four-level vertical descents whose deepest level is about beliefs, and the surface mapping is genuinely close: litany/system sit near event/pattern/structures, and worldview sits near "mental models." If CLA were only a descent, it would fold here. It is not, on three load-bearing axes that together carry well over a fifth of its mechanism *outside* the iceberg:
+
+1. **Reconstruction into alternative futures (the distinct move the iceberg does not have).** The iceberg descends to *diagnose* - it pairs each level with a candidate intervention and stops at a downward reading aimed at a leverage point. CLA descends *and then rebuilds upward*: it rewrites the myth/metaphor into a new guiding metaphor and propagates a transformed worldview, system, and litany, producing a set of *alternative futures*, not a single intervention plan. No shipped skill performs this layered upward rewrite. `think-iceberg-model` is diagnostic-only; `think-futures-wheel` maps consequences forward from one change (no layers, no worldview); `think-frame-creation` abduces a *single* new standpoint for the whole problem (not a four-layer descent-and-rebuild, and it does not rewrite a civilizational myth); `think-scenario-planning` builds *external* 2x2 futures from critical uncertainties (it does not deconstruct the narrative/myth layer of one issue). The reconstructed-myth-to-alternative-futures matrix is genuinely uncovered ground.
+2. **Poststructuralist multiple readings vs single-truth diagnosis.** The iceberg seeks *the* structures and *the* mental models that cause a recurring problem. CLA refuses a single causal account on purpose: it surfaces *competing* worldviews and asks whose litany this is and what each framing hides. That deconstructive stance is a different epistemology, not a stylistic variant, and it is absent from the iceberg. (It overlaps in spirit with `think-boundary-critique`'s "whose framing" question and `think-parallel-perspectives-review`'s multiple standpoints, but neither performs the four-layer descent-and-rebuild.)
+3. **The object of the deepest layer.** The iceberg's floor is *stated* beliefs and assumptions ("mental models"), surfaced to find leverage. CLA's floor is *unconscious, emotive, civilizational narrative and archetype*, surfaced as a metaphor and then deliberately rewritten. Different object, different output.
+
+It also survives the **recipe test**. The tempting chain is "run `think-iceberg-model`, then run `think-frame-creation` or `think-assumption-reversal` on the bottom layer," but that chain does not produce CLA's artifact: `think-frame-creation` yields one abductive standpoint, not a coherent rewrite of four stacked layers into an alternative future governed by a changed myth; `think-assumption-reversal` negates premises to generate options, not a transformed deep narrative. The integration - deconstruct four layers as competing readings, then reconstruct all four into alternative futures anchored by a new metaphor - is a single apparatus, not the emergent by-product of any nameable sequence of shipped moves. So it is Build, not Recipe, and Build, not Fold - held honestly at tier C, because the descent half is close to the iceberg and the distinguishing reconstruction-and-deconstruction half is exactly the part with the weakest evidence.
+
+(`think-three-horizons` ships in this same catalog and is the nearest foresight neighbor, but on a different axis: three-horizons layers by TIME (a declining present, a contested transition, an emerging future), whereas CLA layers by EPISTEMIC DEPTH (litany, system, worldview, myth). One reads *when* along the path, the other reads *how deep* the framing goes; they share the foresight family but neither performs the other's move, so they do not collapse - route a temporal-transition question to `think-three-horizons` and a deconstruct-the-deep-narrative question here.)
+
+## 7. Excluded figures
+
+No primary-source effect size or quantified-effectiveness statistic for CLA was located, so none is reported here and none influences the grade. The frequently repeated workshop-format descriptor ("works best with five to a few dozen participants") is a facilitation guideline, not a measured effect, and is treated as such. The recurring teaching image that "CLA is an iceberg with layers" is a *pedagogical analogy from the foresight literature*, not evidence of equivalence or of effect; it is addressed in the distinctness section above and is not counted toward the grade.
+
+## 8. Sources
+
+### Named sources
+
+- Sohail Inayatullah, "Causal Layered Analysis: Poststructuralism as method," *Futures* 30(8) (1998): 815-829. The foundational paper introducing CLA as a futures research technique; a theory/method paper, not an empirical study. Establishes the four layers and the deconstruction-reconstruction process. Foundational / practitioner. (C/P)
+- Sohail Inayatullah (ed.), *The Causal Layered Analysis (CLA) Reader: Theory and Case Studies of an Integrative and Transformative Methodology* (Tamkang University Press, 2004). The canonical collection of CLA theory and *applied case studies*; case-based and illustrative, not controlled. Practitioner / case studies. (C)
+- Brian J. Bishop, Peta L. Dzidic & Lauren J. Breen, "Causal layered analysis as a policy methodology," *Global Journal of Community Psychology Practice* 4(2) (2013). A single 17-farmer CLA workshop presented "as an example"; the authors explicitly make no claims about empirical testing and report no comparative outcomes. Cited to show the evidence base is illustrative, not experimental. Case study. (C)
+- Sohail Inayatullah, "Causal Layered Analysis Defined" (Metafuture, 2014) and "Causal layered analysis - Deepening the future." The author's own working description of the up-down movement and the reconstruction of a new myth/metaphor (the "the patient will see you now" / "I am an expert of my body" examples). Practitioner / primary doctrine. (C)
+- Richard A. Slaughter, "Probing Beneath the Surface," *Futures* 21(5) (1989). The levels-of-futures typology that prompted CLA; lineage, not evidence for CLA's effectiveness. Foundational lineage. (C)
+- Wikipedia, "Causal layered analysis." Used to confirm the foundational citation (Inayatullah 1998, *Futures* 30(8): 815-829), the four-layer definitions, and the author-acknowledged limitations; secondary, corroborating only. Reference. (not graded)
+
+> Excluded under the evidence rule: no primary-source effect size or quantified-effectiveness statistic for CLA was located, so none is reported and none moves the grade; the "five-to-a-few-dozen participants" workshop guideline is a facilitation descriptor, not a measured effect; and the foresight literature's habit of drawing CLA as "an iceberg with layers" is a teaching analogy, addressed in the distinctness section, not counted as evidence.

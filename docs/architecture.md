@@ -16,7 +16,7 @@ How this repo is built. The short version: there are two coordinated sources of 
 
 The two are bound together in CI: every `status: shipped` registry entry must have a matching `skills/think-<slug>/` directory (both directions), and each shipped entry's governing `tier` must be one of the grades in its skill's `evidence-tier` - so the catalog grade can never drift from the grade the advisor and the site publish.
 
-There are **40 shipped frameworks** across **11 cognitive-operation families**, plus **6 recipes** (composable chains) under `_workflows/` with their prose in `recipes/`. `library.json` is the manifest that lists every skill component, its path, and its version. Skills install with a `think-` prefix and carry IDs of the form `thinking-framework-skills.<method>`.
+There are **47 shipped frameworks** across **11 cognitive-operation families**, plus **8 recipes** (composable chains) under `_workflows/` with their prose in `recipes/`. `library.json` is the manifest that lists every skill component, its path, and its version. Skills install with a `think-` prefix and carry IDs of the form `thinking-framework-skills.<method>`.
 
 ## Frameworks vs. tools (meta-skills)
 
@@ -48,7 +48,7 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1'}}}%%
 graph LR
   reg["frameworks/registry.mjs<br/>(the catalog: 105 methods)"]:::source
-  skl["skills/ + library.json + _workflows/<br/>(the 40 shipped + 4 tools + 6 recipes)"]:::source
+  skl["skills/ + library.json + _workflows/<br/>(the 47 shipped + 4 tools + 8 recipes)"]:::source
   gen["gen-registry · gen-recommendable · gen-site<br/>gen-engine · gen-agents · gen-manifest"]:::build
   views["catalog · why-not · advisor corpus<br/>Starlight site · plugin manifests · INDEX"]:::site
   pages["GitHub Pages + marketplace"]:::deploy

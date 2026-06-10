@@ -1,0 +1,93 @@
+# Rich sidecar for the think-three-horizons skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.three-horizons;
+# slug = bare method = three-horizons;
+# installable name = prefix + slug = think-three-horizons (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.three-horizons
+  slug: three-horizons
+  name: think-three-horizons
+  display_name: Three Horizons
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: systems-and-consequences
+  secondary_families: [strategy-and-opportunity, risk-and-resilience]
+  thinking_modes: [foresight, systemic, strategic]
+  problem_contexts: [long-horizon, high-uncertainty, transformation]
+  use_cases:
+    - hold a declining present (H1), a contested transition zone (H2), and an emerging future (H3) as three overlapping curves on one time canvas
+    - break a present-versus-future binary by governing the managed decline of the old system and the cultivation of the new one together
+    - populate and classify the H2 transition zone, reading each move as H2-plus (carries H3) or H2-minus (captured by H1)
+    - locate the actor on the canvas and read where their attention and energy actually flow
+  poor_fit_cases:
+    - used to derive one backward path from a single fixed future (that is think-backcasting)
+    - used to test which futures are plausible and whether a strategy is robust across them (that is think-scenario-planning)
+    - used to trace the consequences of one change radiating outward (that is think-futures-wheel)
+    - used to drive one problem down through layers of causation (that is think-iceberg-model)
+    - reading the horizons as fixed time bands (the most destructive failure; horizons are degrees of transformation, not calendar distances)
+    - applying H1 governance (ROI / certainty hurdles) to early H2 and H3 work
+
+interface:
+  required_inputs:
+    - a system or domain in transition, plus the actor whose vantage point the map is drawn from
+  optional_inputs:
+    - candidate H2 transition moves (disruptions, ventures, innovations) to classify
+    - a stated desired future (H3) or a known declining present (H1) to anchor the canvas
+  primary_artifact_type: three-horizons-transition-map
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.backcasting
+    - thinking-framework-skills.scenario-planning
+    - thinking-framework-skills.futures-wheel
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.scenario-planning   # once a desired transition direction is chosen, map the H1/H2/H3 dynamics of getting there
+  often_precedes:
+    - thinking-framework-skills.backcasting          # once the H3 future is named and seeded, derive a milestone path back to it
+  complements:
+    - thinking-framework-skills.backcasting          # three simultaneous curves and a transition read vs one fixed future and a derived path
+    - thinking-framework-skills.scenario-planning    # one committed transition picture vs a set of uncommitted parallel external futures
+    - thinking-framework-skills.futures-wheel        # temporal three-curve transition map vs radial consequence map from one change
+    - thinking-framework-skills.iceberg-model        # horizontal time canvas vs vertical depth-of-causation probe
+  overlaps_with: []
+  variants:
+    - growth-portfolio Three Horizons (Baghai/Coley/White) - H1 defend core / H2 build emerging / H3 seed options
+    - IFF futures-practice Three Horizons (Sharpe/Curry/Hodgson) - transformation-pathways and "future consciousness"
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - reading the horizons as fixed time bands instead of degrees of transformation (the core Steve Blank critique)
+    - applying H1 ROI/certainty governance to early H2 and H3 work and strangling it
+    - skipping the H2-plus / H2-minus two-directional read, collapsing the map into a fuzzier backcast
+    - using the single declining-present / single-desired-future picture to launder one preferred narrative as if it were tested
+    - treating the map as a decision or analysis rather than a sensemaking scaffold for dialogue
+
+evidence:
+  evidence_tier: "C"   # governing; conceptually plausible but undertested - honors the prior cand/build/C tag, not inflated
+  confidence: low-to-moderate that the three-curve transition map breaks present-versus-future binaries and surfaces H2 transition dynamics as a scaffold; no confidence in any foresight-accuracy or decision-outcome effect (no controlled evidence exists)
+  transferred_evidence: true       # all evidence from human participants in workshops/strategy rooms/field cases; not agent-validated
+  lineage:
+    derived_from: [Three Horizons, The Alchemy of Growth (Baghai/Coley/White 1999), IFF futures practice (Curry/Hodgson 2008; Sharpe et al. 2016)]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Baghai/Coley/White (growth version) and Sharpe/Curry/Hodgson/IFF (foresight version); terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-three-horizons/SKILL.md
+  references_path: skills/think-three-horizons/references/
+  evidence_path: skills/think-three-horizons/evidence/dossier.md
+  evals_path: skills/think-three-horizons/eval/

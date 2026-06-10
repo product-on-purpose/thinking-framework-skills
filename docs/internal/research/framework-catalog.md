@@ -5,7 +5,7 @@ A single, simplified, complete, and prioritized list of every thinking framework
 - **Taxonomy:** the 11 cognitive-operation families (Claude Opus's landscape, the recommended foundation).
 - **Evidence tiers (7-tier model):** **S** strong research · **M** moderate · **P** practitioner · **V** vendor/commercial · **A** anecdotal · **C** conceptually plausible, under-tested · **X** poor/contradictory.
 - **Status legend:**
-  - `[shipped]` - built and validated (40 skills, Tier advanced 0/0).
+  - `[shipped]` - built and validated (47 skills, Tier advanced 0/0).
   - `[next]` - strongest unbuilt candidates (build these first; S/M evidence or cross-LLM consensus, and distinct).
   - `[recipe]` - ships as a workflow chaining existing skills, not a standalone skill (no separable mechanism).
   - `[cand]` - candidate (clears the bar but lower priority / P-tier coverage).
@@ -20,7 +20,7 @@ The honest core (from the meta-analyses): the field is a small **empirical core*
 
 ## Priority summary (what to build next, in order)
 
-The skill build-out is at 40 skills + 6 recipes. The generated family tables below are regenerated from the registry and are current; this priority summary records the **2026-06-03 truth-up** (multi-agent vetting + v0.2.0 reconciliation), with later SP6 and v0.5.0 catalog growth recorded in the [`CHANGELOG`](../../../CHANGELOG.md). The truth-up resolved the old `[next]` list:
+The skill build-out is at 47 skills + 8 recipes. The generated family tables below are regenerated from the registry and are current; this priority summary records the **2026-06-03 truth-up** (multi-agent vetting + v0.2.0 reconciliation), with later SP6 and v0.5.0 catalog growth recorded in the [`CHANGELOG`](../../../CHANGELOG.md). The truth-up resolved the old `[next]` list:
 
 1. **Shipped since (v0.2.0):** `concept-mapping`, `causal-loop-diagrams`, `fermi-estimation` are built; `first-principles` shipped as a **recipe**. The two S-tier empirical-core stragglers (stocks-and-flows, linear-model-aggregation) are shipped - the empirical core is complete (11/11).
 2. **Vetted-closed:** `key-assumptions-check` and `double-crux` were **rejected** (both reduce to `what-would-have-to-be-true`); `idea-quality-audit` is a **`[recipe]`** (decision-option-review + red-team-light over a shortlist); `leverage-points` re-vetted `[cand]` -> **`[fold]`** (owned by `iceberg-model`, which already cites its Meadows source).
@@ -45,8 +45,8 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Stakeholder Lens Review | walk a proposal through each affected party's eyes | P | `[fold]` -> Parallel Perspectives Review |
 | Steelmanning | state the strongest version of an opposing view before responding | P | `[fold]` -> Red Team / Blue Team |
 | Six Thinking Hats | branded parallel-thinking ritual | X | `[flag]` (branded) |
-| Role-storming | generate ideas while adopting another identity | P | `[cand]` |
-| Outside-in / Inside-out framing | alternate market view and capability view | P | `[cand]` |
+| Role-storming | generate divergent ideas while inhabiting a chosen non-self persona, using the identity as an inhibition-lowering and distancing lens | P | `[shipped]` |
+| Outside-in / Inside-out framing | alternate a market/external view and a capability/internal view, then reconcile | P | `[fold]` -> Parallel Perspectives Review |
 | Disney Creative Strategy | dreamer/realist/critic cycle | A | `[excl]` (branded) |
 
 ## 2. Divergent ideation and idea expansion
@@ -58,12 +58,12 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | SCAMPER | seven transformation prompts on a seed idea | P | `[shipped]` |
 | Question Burst | rapid questions-only burst, then rank + pick | P | `[shipped]` |
 | Assumption Reversal | negate foundational premises to generate options | P | `[shipped]` |
-| Morphological analysis | enumerate the solution space by parameter combination | P | `[cand]` |
-| Worst possible idea / reverse brainstorming | generate bad ideas, then invert | P | `[cand]` |
+| Morphological analysis | enumerate the solution space by parameter combination, then prune to the internally consistent configurations (cross-consistency assessment) | P | `[shipped]` |
+| Worst possible idea / reverse brainstorming | generate the worst/most-absurd ideas, then flip their bad-making attributes into candidate solutions | P | `[fold]` -> Assumption Reversal |
 | Crazy 8s | eight sketches in eight minutes | P | `[fold]` -> Brainwriting 6-3-5 / NGT |
-| Lotus Blossom | expand a center into 8 sub-themes, recurse | P | `[cand]` |
+| Lotus Blossom | fan a center into eight sub-themes, re-center each, and expand again into a recursive idea grid | P | `[fold]` -> Issue Trees |
 | Forced connections / Random stimulus | pair the problem with an unrelated stimulus | P | `[fold]` -> Far-analogy ideation |
-| Alternate uses / Constraint insertion-removal | loosen functional fixedness; add/strip a constraint | P | `[cand]` |
+| Alternate uses / Constraint insertion-removal | loosen functional fixedness; add/strip a constraint | P | `[fold]` -> Assumption Reversal |
 
 ## 3. Problem framing and reframing
 
@@ -93,7 +93,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Key Assumptions Check / Assumption Mapping | inventory and rank a plan's assumptions | P | `[excl]` |
 | Cognitive bias checklist | run a decision against relevant biases | C | `[excl]` |
 | Inversion | ask how to guarantee failure, then avoid it | P | `[fold]` -> Premortem |
-| Counterfactual reasoning | examine 'what if X had been different' | P | `[cand]` |
+| Counterfactual reasoning | examine 'what if X had been different' | P | `[fold]` -> After Action Review |
 | Devil's Advocacy | assign someone to argue against | X | `[flag]` |
 | Double-crux | find the single belief whose change would flip each side of a disagreement | C | `[excl]` |
 
@@ -107,8 +107,8 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Backcasting | from a desired future, work back to the path | P | `[shipped]` |
 | FMEA-lite | list failure modes by likelihood x severity x detection | P | `[fold]` -> Premortem |
 | Kill criteria / Tripwires | pre-decided stop signals and conditions | P | `[fold]` -> Premortem |
-| Regret minimization | choose the least-future-regret option | P | `[cand]` |
-| Pre-commitment / Ulysses contract | bind future behavior in advance against known weakness | P | `[cand]` |
+| Regret minimization | choose the least-future-regret option (project to age 80, pick what you would most regret not trying) | P | `[fold]` -> One-way vs Two-way Door |
+| Pre-commitment / Ulysses contract | bind future behavior in advance against known weakness | P | `[fold]` -> WOOP / MCII |
 
 ## 6. Systems and consequences
 
@@ -120,8 +120,8 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Causal Loop Diagrams | diagram reinforcing/balancing feedback loops | M | `[shipped]` |
 | Second-Order Effects | lightweight 'and then what?' prompt | P | `[fold]` -> Futures Wheel |
 | Systems map / Leverage points | sketch elements/relationships; find intervention points | C | `[fold]` -> Iceberg Model |
-| Three Horizons | present / transition / emerging future | C | `[cand]` |
-| Causal Layered Analysis | litany / system / worldview / myth layers | C | `[cand]` |
+| Three Horizons | hold three overlapping change curves (declining present H1, contested transition H2, emerging desired future H3) on one time canvas, locate the actor, and read the transition dynamics | C | `[shipped]` |
+| Causal Layered Analysis | read an issue at four depths (litany / system / worldview / myth-metaphor), then reconstruct each layer into alternative futures anchored by a rewritten guiding metaphor | C | `[shipped]` |
 | Theory of Constraints | find the single binding constraint capping throughput and attach its exploit / subordinate / elevate decisions (the five focusing steps) | P | `[shipped]` |
 | Fishbone / Ishikawa | decompose one observed effect into candidate causes grouped under a fixed category checklist (6M/8P) | P | `[fold]` -> Issue Trees |
 
@@ -134,12 +134,12 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Decision Journal | record decision + expectation + confidence for calibration | P | `[shipped]` |
 | Multi-Criteria Decision Analysis | weighted scoring across criteria | P | `[fold]` -> Decision Option Review |
 | Decision Brief / PR-FAQ | force a decision into a short structured memo | V | `[pm]` |
-| Pairwise comparison | compare two at a time to rank fuzzy criteria | P | `[cand]` |
+| Pairwise comparison | rank when you cannot score: judge items two at a time, tally the binary wins into a comparison matrix, and derive an order without an absolute scale | P | `[shipped]` |
 | Expected-value / decision-tree | price the uncertainty: a tree of choice and chance nodes, rolled back to an expected value per option, with a what-flips-it sensitivity note | P | `[shipped]` |
-| Minimax regret | minimize worst-case regret | P | `[cand]` |
+| Minimax regret | minimize worst-case regret: build a regret (opportunity-loss) matrix over un-probabilized states and choose the option whose maximum regret is smallest | P | `[shipped]` |
 | Fermi estimation | structured order-of-magnitude estimate from decomposition | M | `[shipped]` |
-| Eisenhower / MoSCoW / Pareto | urgent-important triage; vital-few focus | P | `[cand]` |
-| Kepner-Tregoe | structured situation / problem / decision / potential-problem analysis | P | `[cand]` (branded) |
+| Eisenhower / MoSCoW / Pareto | urgent-important triage; vital-few focus | P | `[excl]` |
+| Kepner-Tregoe | the rational-process bundle - situation appraisal routes to problem analysis (cause), decision analysis (MUST/WANT choice), and potential problem analysis (forward risk) | P | `[recipe]` (ships as a workflow) |
 | Cynefin | sort clear / complicated / complex / chaotic | C | `[flag]` (branded) |
 | ICE / RICE / WSJF | prioritization scores | V | `[flag]` (branded) |
 | OODA Loop | observe-orient-decide-act | P | `[excl]` |
@@ -151,10 +151,10 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 |---|---|---|---|
 | Opportunity-Solution Tree | outcome -> opportunities -> solutions | P | `[pm]` |
 | Value proposition contrast | sharpen vs the next-best alternative | P | `[pm]` |
-| White-space / adjacent-possible / 10x-vs-incremental | locate uncontested or reachable opportunity | P | `[cand]` |
-| Moat / defensibility lens | test what stops a competitor copying you | P | `[cand]` |
+| White-space / adjacent-possible / 10x-vs-incremental | locate uncontested or reachable opportunity (white space / adjacent possible / 10x vs incremental) | P | `[pm]` |
+| Moat / defensibility lens | test what stops a competitor copying you | P | `[pm]` |
 | Scenario planning | construct a set of divergent, internally consistent external futures (2x2 critical-uncertainty axes), then robustness-test strategy across them | P | `[shipped]` |
-| PEST(LE) | scan macro-environmental forces | P | `[cand]` |
+| PEST(LE) | scan the macro-environment against a fixed category checklist (political/economic/social/technological/legal/environmental) | P | `[fold]` -> Issue Trees |
 | Jobs To Be Done | frame demand as progress sought | P | `[flag]` |
 | Wardley Mapping | value chain vs evolution | C | `[flag]` (branded) |
 | Blue Ocean tools | strategy canvas / four actions | V | `[flag]` (branded) |
@@ -170,17 +170,17 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Pyramid Principle | answer-first governing thought + grouped support | P | `[shipped]` |
 | MECE decomposition | mutually-exclusive, collectively-exhaustive split | P | `[fold]` -> Issue Trees |
 | Concept Mapping | diagram concepts and labeled relationships | M | `[shipped]` |
-| Dialectical synthesis | hold thesis/antithesis to a stronger synthesis | C | `[cand]` |
-| Contradiction / tension mapping | surface central tensions rather than smoothing | C | `[cand]` |
-| Insight statement generation | turn observations into sharp transferable insights | P | `[cand]` |
-| Sensemaking matrix | organize conflicting signals for interpretation | C | `[cand]` |
+| Dialectical synthesis | hold thesis/antithesis to a stronger synthesis | C | `[fold]` -> Red Team / Blue Team |
+| Contradiction / Tension Mapping (Polarity Mapping) | map an unsolvable polarity as both/and rather than smoothing it - name the two interdependent poles, the upside and downside of each, the greater purpose that makes managing both worthwhile, plus early-warning signs and action steps for staying in the productive zone | C | `[shipped]` (branded) |
+| Insight statement generation | turn observations into sharp, transferable insight statements (the why behind a finding) | P | `[excl]` |
+| Sensemaking matrix | organize conflicting signals for interpretation | C | `[excl]` |
 
 ## 10. Facilitation and group structures
 
 | Framework | Mechanism | Tier | Status |
 |---|---|---|---|
 | Silent writing before discussion | write independently first to prevent anchoring | M | `[fold]` -> Brainwriting 6-3-5 / NGT |
-| Note-and-vote / Decider supervote | individual notes, then vote / weighted decider | P | `[cand]` |
+| Note-and-vote / Decider supervote | individual notes, then a group vote, then a single Decider's weighted supervote | P | `[excl]` |
 | Dot voting | allocate limited votes | P | `[flag]` |
 | 1-2-4-All / Round-robin / Lean Coffee / World Cafe / Open Space | scaled-participation group formats | P | `[excl]` |
 
@@ -191,9 +191,9 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | After Action Review | expected vs actual -> why -> sustain/change | S | `[shipped]` |
 | Belief-update routine | periodically revisit and update key beliefs vs new evidence | P | `[shipped]` |
 | Idea-quality audit | score and pressure-test a batch of ideas (solo + AI) | P | `[recipe]` (ships as a workflow) |
-| What / So What / Now What | observation -> meaning -> action | P | `[cand]` |
-| PDCA / A3 | plan-do-check-act improvement loop | P | `[cand]` |
-| Socratic self-questioning | disciplined self-interrogation of a belief | P | `[cand]` |
+| What / So What / Now What | observation -> meaning -> action | P | `[fold]` -> After Action Review |
+| PDCA / A3 | plan-do-check-act iterative improvement loop (A3 = the one-page storyboard of one turn) | P | `[recipe]` (ships as a workflow) |
+| Socratic self-questioning | disciplined self-interrogation of a belief via a fixed set of probing question-types | P | `[fold]` -> Ladder of Inference Check |
 | Plus/Delta, Start/Stop/Continue, Rose/Thorn/Bud | fast retro formats | P | `[fold]` -> After Action Review |
 
 <!-- END GENERATED FRAMEWORK TABLES -->

@@ -1,0 +1,84 @@
+# Rich sidecar for the think-pairwise-comparison skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.pairwise-comparison;
+# slug = bare method = pairwise-comparison;
+# installable name = prefix + slug = think-pairwise-comparison (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.pairwise-comparison
+  slug: pairwise-comparison
+  name: think-pairwise-comparison
+  display_name: Pairwise Comparison
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: []
+  thinking_modes: [evaluative, comparative, convergent]
+  problem_contexts: [no-defensible-scale, qualitative-artifacts, small-option-set]
+  use_cases:
+    - rank a small set of items when no absolute scale can be defended and the criteria cannot be articulated
+    - order qualitative artifacts (writing, designs, proposals) where holistic marking is noisy
+    - derive a ranking from binary A-beats-B votes over every pair, with no criteria axis
+    - surface intransitivity (cycles) in head-to-head judgments as a prompt to revisit, not an error to hide
+  poor_fit_cases:
+    - criteria are nameable and a scale is defensible - that is think-decision-option-review (the criteria-weighted matrix)
+    - weighting criteria for a scoring model (AHP / PAPRIKA) - folds into think-decision-option-review as optional elicitation
+    - fixing a repeatable formula over named cues for a recurring prediction - that is think-linear-model-aggregation
+    - anchoring a number on a base rate - that is think-reference-class-forecasting
+    - the item count is large (n(n-1)/2 blows up past ~8 items) with no adaptive tooling to prune the matrix
+    - treating the derived ranking as objective output or ignoring rank-reversal from near-duplicate items
+
+interface:
+  required_inputs:
+    - a small set of items to rank, and confirmation that no defensible absolute scale or articulable criteria axis exists
+  optional_inputs:
+    - the single comparative question to apply to each pair (otherwise it is named in step 1)
+  primary_artifact_type: pairwise-comparison-matrix
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.decision-option-review
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.decision-option-review   # once a ranking exists, the top items may go into a scored matrix
+  complements:
+    - thinking-framework-skills.decision-option-review   # rank-without-a-scale vs criteria-weighted scoring
+  overlaps_with: []
+  variants:
+    - the criteria-weighting reading (AHP / PAPRIKA) is intentionally NOT shipped here; it folds into think-decision-option-review
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - letting the comparative question drift between pairs, which manufactures spurious cycles
+    - treating the derived ranking as an objective measurement (false precision from a clean-looking order)
+    - attempting a set too large to compare by hand instead of cutting it down or handing off
+    - ignoring rank reversal - a near-duplicate item added to the set can shift the others' order
+
+evidence:
+  evidence_tier: "P"   # governing; a practitioner technique with a scaling core, but no controlled evidence it improves decisions, and contested in its own field
+  confidence: moderate that forced binary comparison yields a more stable signal than holistic scoring and surfaces intransitivity; low that any decision-quality effect transfers to an agent
+  transferred_evidence: true       # all studies on human subjects (psychophysics, exam marking, weight-elicitation, preference); not agent-validated
+  lineage:
+    derived_from: [pairwise comparison, paired comparison analysis, Thurstone Law of Comparative Judgment, Saaty AHP, Pollitt comparative judgement]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Thurstone and Saaty as lineage; terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-pairwise-comparison/SKILL.md
+  references_path: skills/think-pairwise-comparison/references/
+  evidence_path: skills/think-pairwise-comparison/evidence/dossier.md
+  evals_path: skills/think-pairwise-comparison/eval/

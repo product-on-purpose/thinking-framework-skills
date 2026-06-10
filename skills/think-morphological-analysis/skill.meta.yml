@@ -1,0 +1,91 @@
+# Rich sidecar for the think-morphological-analysis skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.morphological-analysis;
+# slug = bare method = morphological-analysis;
+# installable name = prefix + slug = think-morphological-analysis (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.morphological-analysis
+  slug: morphological-analysis
+  name: think-morphological-analysis
+  display_name: Morphological Analysis
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: divergent-ideation
+  secondary_families: [problem-framing, synthesis-and-structuring]
+  thinking_modes: [divergent, structured, combinatorial]
+  problem_contexts: [configurational, multi-dimensional-design, solution-space-coverage]
+  use_cases:
+    - decompose a solution into a small set of independent parameters with their discrete values (the Zwicky box)
+    - enumerate the full combinatorial cross-product of parameter values
+    - run a cross-consistency assessment to strike internally incompatible value pairs (inference by exclusion)
+    - reduce the raw space to the internally consistent configurations and surface the unobvious corners
+  poor_fit_cases:
+    - used to provoke options by negating premises (that is think-assumption-reversal)
+    - used to transform one seed idea with fixed verbs (that is think-scamper)
+    - used to import structure from a distant domain (that is think-far-analogy-ideation)
+    - used as a top-down MECE diagnostic tree (that is think-issue-tree)
+    - treated as the evaluator - ranking configurations by value (scoring is think-decision-option-review, downstream)
+    - applied to a non-configurational problem whose answer is a single insight, reframe, or number
+    - arbitrary parameters that merely justify a preferred solution, or an unmanaged combinatorial explosion
+
+interface:
+  required_inputs:
+    - a configurational problem - a solution that factorizes into several semi-independent dimensions to be mapped
+  optional_inputs:
+    - candidate parameters (the dimensions) or known incompatible value pairs
+    - the downstream criteria the surviving configurations will later be scored against
+  primary_artifact_type: morphological-field
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.issue-tree
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.issue-tree          # a tree can clarify the question before parameterizing the solution
+  often_precedes:
+    - thinking-framework-skills.decision-option-review  # generate consistent configurations here, then score and choose them
+  complements:
+    - thinking-framework-skills.assumption-reversal     # combinatorial enumeration vs premise negation
+    - thinking-framework-skills.scamper                 # parameter cross-product vs fixed transformation verbs on one seed
+    - thinking-framework-skills.far-analogy-ideation    # recombine the problem's own parameters vs import a distant analogy
+    - thinking-framework-skills.issue-tree              # parallel orthogonal axes recombined vs a top-down MECE tree
+  overlaps_with: []
+  variants:
+    - morphological chart (the lighter sibling, without the cross-consistency step - what most controlled studies measure)
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - arbitrary parameter selection that lets the box rationalize a preferred solution rather than cover the space
+    - unmanaged combinatorial explosion, so only a fraction of the space is actually examined (the coverage promise unrealized)
+    - forcing a non-configurational problem (a single insight, reframe, or number) onto orthogonal axes
+    - treating a surviving configuration as the chosen answer, skipping the trade-off comparison the box never makes
+
+evidence:
+  evidence_tier: "P"   # governing; controlled studies exist but measure a sibling variant on humans and do not favor the method
+  confidence: moderate that decompose-enumerate-and-prune-for-consistency surfaces unobvious configurations and breaks default-combination tunnel vision; low that any solution-quality effect size transfers to agents, and the coverage promise is often only partly realized
+  transferred_evidence: true       # all studies on human design students/practitioners, on the chart variant; not agent-validated (double transfer)
+  lineage:
+    derived_from: [morphological analysis, Zwicky box, general morphological analysis, cross-consistency assessment, Zwicky, Ritchey]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Fritz Zwicky (origin) and Tom Ritchey (modern CCA) as lineage; terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-morphological-analysis/SKILL.md
+  references_path: skills/think-morphological-analysis/references/
+  evidence_path: skills/think-morphological-analysis/evidence/dossier.md
+  evals_path: skills/think-morphological-analysis/eval/
