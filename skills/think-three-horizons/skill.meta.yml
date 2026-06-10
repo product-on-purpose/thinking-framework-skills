@@ -68,7 +68,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-06-10
-  output_eval_status: not-run
+  output_eval_status: measured-2026-06-10
   known_failure_modes:
     - reading the horizons as fixed time bands instead of degrees of transformation (the core Steve Blank critique)
     - applying H1 ROI/certainty governance to early H2 and H3 work and strangling it

@@ -58,7 +58,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-06-10
-  output_eval_status: not-run
+  output_eval_status: measured-2026-06-10
   known_failure_modes:
     - misjudging reversibility by accepting the convenient label (under-classifying one-way doors)
     - treating reversibility as a license for speed alone, ignoring trust/legal/path-dependence

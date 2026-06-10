@@ -67,7 +67,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-06-10
-  output_eval_status: not-run
+  output_eval_status: measured-2026-06-10
   known_failure_modes:
     - arbitrary parameter selection that lets the box rationalize a preferred solution rather than cover the space
     - unmanaged combinatorial explosion, so only a fraction of the space is actually examined (the coverage promise unrealized)

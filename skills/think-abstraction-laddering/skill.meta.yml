@@ -63,7 +63,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-06-10
-  output_eval_status: not-run
+  output_eval_status: measured-2026-06-10
   known_failure_modes:
     - up-steps that reword instead of naming a genuine purpose; down-steps that are not actually more concrete
     - laddering to infinity (uselessly-universal top or bare-detail bottom) without selecting a working rung
