@@ -65,13 +65,14 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 
 ## The conformance gate
 
-`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs five layers in order, and any failure is a red build:
+`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs six layers in order, and any failure is a red build:
 
 1. **Structural** - the `agent-skills-toolkit` validators (`evaluate.mjs`), pinned to a known-good ref, asserting the plugin meets the `advanced` tier with 0 errors / 0 warnings.
 2. **Eval cases** (`scripts/eval-cases.mjs`) - every `skills/*/eval/cases.md` is well-formed and name-safe (no case may reference a framework that does not exist).
 3. **Registry** (`scripts/check-registry.mjs`) - schema validation, generated-view drift, referential integrity (shipped <-> skill dir, fold targets resolve to a shipped skill, dossier paths and source URLs resolve), completeness, the IP/attribution lint, eval-coupling, tier consistency, and the registry <-> advisor recommendable cross-check.
 4. **Engine drift** (`scripts/gen-engine.mjs --check`) - the shared applicator engine copy is in sync.
 5. **AGENTS.md drift** (`scripts/gen-agents.mjs --check`) - the generated Skills + Recipes tables in the contributor/agent guide are in sync with the catalog, so the agent-facing roster cannot silently fall behind.
+6. **Counts** (`scripts/check-counts.mjs`) - the four hand-authored count surfaces in `README.md` (the badges, the lifecycle map, the catalog table headers, and the project-status table) match the registry / `_workflows/` / tools, and every shipped skill's `metadata.family` is a valid skill-family slug. The README is the last hand-authored denormalization of catalog counts; this layer makes a stale count a red build instead of a late review catch.
 
 The docs site adds two build-time guards run after `astro build` (family Astro site standard, clause 14.11): `scripts/check-rendered-links.mjs` (no browser-broken internal links) and `scripts/check-route-parity.mjs` (no silently dropped published route, against the committed `scripts/route-manifest.txt`).
 
