@@ -15,7 +15,7 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
   <a href="#-conformance-what-advanced-gold-tier-means"><img src="https://img.shields.io/badge/tier-advanced%20(Gold)-B8860B?style=flat-square" alt="Conformance tier: advanced (Gold)"></a>
   <a href="#-the-catalog"><img src="https://img.shields.io/badge/frameworks-47-brightgreen?style=flat-square" alt="Frameworks: 47"></a>
   <a href="#-tools-meta-skills"><img src="https://img.shields.io/badge/tools-4-brightgreen?style=flat-square" alt="Tools: 4"></a>
-  <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-6-brightgreen?style=flat-square" alt="Recipes: 6"></a>
+  <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-8-brightgreen?style=flat-square" alt="Recipes: 8"></a>
   <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/spec-agentskills.io-orange?style=flat-square" alt="Agent Skills Spec"></a>
   <img src="https://img.shields.io/badge/evidence-graded-purple?style=flat-square" alt="Evidence-graded">
 </p>
@@ -136,15 +136,15 @@ flowchart TB
     classDef reflect fill:#f3e8ff,stroke:#9333ea,color:#581c87,font-weight:bold
 
     PF["1. Problem Framing (5) - frame the real problem"]:::frame
-    DI["2. Divergent Ideation (5) - generate options"]:::gen
-    PM["3. Perspective & Multi-Lens (1) - see it from other angles"]:::gen
-    SC["4. Systems & Consequences (5) - trace consequences"]:::analyze
+    DI["2. Divergent Ideation (6) - generate options"]:::gen
+    PM["3. Perspective & Multi-Lens (2) - see it from other angles"]:::gen
+    SC["4. Systems & Consequences (7) - trace consequences"]:::analyze
     AB["5. Assumption & Belief Challenge (3) - challenge assumptions"]:::analyze
     RC["6. Reasoning Clarity (4) - clarify the reasoning"]:::analyze
-    DO["7. Decision & Option Evaluation (6) - decide between options"]:::decide
+    DO["7. Decision & Option Evaluation (8) - decide between options"]:::decide
     SO["8. Strategy & Opportunity (1) - test strategy against alternative futures"]:::decide
     RR["9. Risk & Resilience (4) - anticipate what could go wrong"]:::decide
-    SY["10. Synthesis (3) - turn inputs into a message"]:::reflect
+    SY["10. Synthesis (4) - turn inputs into a message"]:::reflect
     MR["11. Meta-Thinking & Reflection (3) - learn and route"]:::reflect
 
     PF --> DI --> PM --> SC --> AB --> RC --> DO --> SO --> RR --> SY --> MR
@@ -414,7 +414,7 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 | **Current version** | [v0.4.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.4.0) |
 | **Frameworks** | 47, across 11 cognitive-operation families |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
-| **Recipes** | 6 (skill chains shipped as workflow components) |
+| **Recipes** | 8 (skill chains shipped as workflow components) |
 | **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) - 0 errors / 0 warnings, self-hosting CI |
 | **Evidence** | 11 skills at `S` / `S-M` tier; every skill graded and sourced |
 | **Spec** | [agentskills.io](https://agentskills.io/specification) |
