@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-06-12
+
+**Measured behavior, a depth pass, and the largest catalog expansion yet.** Both behavioral evals (routing and artifact quality) land with their first full runs; the four skills the output eval flagged are tightened by construction; and the re-opened candidate queue is vetted end to end - 30 candidates through NAME-mode research plus adversarial verify (9 Build, 7 Fold, 1 Recipe, 13 Reject), growing the catalog from 47 to 56 shipped frameworks across a new 13th catalog family (and 12th skill-family), Ethics & Values Deliberation, with 20 new rejected-with-reasoning Framework Library dossiers and the famous-but-weak personality instruments (MBTI, CliftonStrengths, DISC, Enneagram, learning styles) now carrying honest public why-not pages.
+
 ### Added
 - **Behavioral trigger-eval harness** (`scripts/eval/`) - the first measurement of the catalog's routing behavior, closing the half of the honesty claim the library actually controls. The *method's* evidence is graded in each dossier, but whether *this agent-executable skill triggers correctly* was `not-run`. `extract-cases.mjs` builds a blind answer key from every skill's `eval/cases.md`; `route.workflow.mjs` fans out blind router agents that route each situation against the advisor catalog (never seeing the authoring skill or the expected answer, so the score reflects the catalog and not an agent agreeing with itself); `score.mjs` grades routed-vs-expected. Model-executed (no API key), reproducible, a measurement rather than a gate layer. The first full run (561 cases across 47 skills) is recorded under `docs/internal/eval-results/2026-06-10-trigger-eval.{md,json}`: **0 false-fires, 99% trigger top1 / 100% top3, 100% anti no-false-fire**. Each shipped skill's `skill.meta.yml` `trigger_eval_status` is stamped from `not-run` to `measured-2026-06-10`.
 - **Behavioral output eval** added to the harness - the companion measurement: whether each skill, once run, produces an artifact that meets its own quality bar (`output_eval_status` was `not-run`). `extract-output.mjs` pulls each skill's trigger prompt and its "Output checks" checklist; `output.workflow.mjs` runs the skill to produce its artifact, then a SEPARATE judge grades that artifact against the checklist (so the producer never grades itself); `score-output.mjs` aggregates. The first full run (47 skills, 315 checks) is recorded under `docs/internal/eval-results/2026-06-10-output-eval.{md,json}`: **99% of checks passed (311/315), 43/47 skills perfect**; the four misses cluster on one element (the evidence caveat dropped from the artifact). `stamp-meta.mjs` now stamps either eval; `output_eval_status` is stamped `not-run` -> `measured-2026-06-10`. Both behavioral evals (routing + artifact quality) are now in place.
@@ -153,7 +157,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.6.0...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.3.0...v0.4.0

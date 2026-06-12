@@ -2,6 +2,15 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://product-on-purpose.github.io/thinking-framework-skills/).
 
+## v0.7.0
+
+**The library now measures its own behavior, and ships its largest catalog jump yet (now 56) with a new ethics family.**
+
+- **+9 frameworks (now 56), including a new family: Ethics & Values Deliberation.** Three new methods take a moral trade-off as the input and reason to a defensible position across everyone affected: **Veil-of-Ignorance Reasoning** (decide as if you had an equal chance of being any affected party), the **Ethical Matrix** (grid the stakeholders against wellbeing, autonomy, and fairness), and **Speculative Harms & Anti-Goals** (assume your success and name who it harms). The other six: **Dialectical Bootstrapping** (improve an estimate by disagreeing with yourself and averaging), **Interval Calibration Check** (test whether your confidence intervals are really as wide as your certainty), **Consider the Unknowns** (weigh what you cannot see before you commit), **Process Tracing** (test rival causes of a single case by the diagnostic weight of each clue), **Argumentation Schemes** (name the argument pattern, then ask its standard critical questions), and **Interest-Based Negotiation** (the library's first method for a decision with a counterparty).
+- **The library now measures its own behavior.** Two evals run across every skill: a **trigger eval** (does the right skill fire for a situation - 561 cases, zero false-fires, 99% top-1) and an **output eval** (does a skill, once run, produce an artifact that meets its own bar - 99% of checks passed). They are model-executed and reproducible. The four skills the output eval flagged were tightened so the evidence caveat now ships with the artifact by construction, and re-scored 100%.
+- **Twenty new documented "no"s, including the famous personality tests.** The candidates that did not clear the bar are each published in the [Framework Library](https://product-on-purpose.github.io/thinking-framework-skills/library/) with their reasoning - among them honest, sourced "why we do not ship this" pages for **MBTI**, **CliftonStrengths**, **DISC**, the **Enneagram**, and **learning styles**, graded on what the psychometric evidence actually shows.
+- **Honesty held at scale.** Of 30 candidates researched and adversarially re-checked, 9 became skills (a 70% fold/recipe/reject rate); independent research and verification agreed on all 30, with three grades knocked down to stop an adjacent claim's evidence from inflating the method's own. One new skill ships at an openly anecdotal grade, and says so on its face.
+
 ## v0.6.0
 
 **Catalog expansion, phase 2: seven new methods (now 47), and the rest of the candidate field honestly resolved.**
