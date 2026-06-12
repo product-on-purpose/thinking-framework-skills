@@ -2,7 +2,7 @@
 
 A single, simplified, complete, and prioritized list of every thinking framework in scope, synthesized from the discovery meta-analyses (`_local/initial-discovery/meta-analysis_claude-opus_*`) and the README candidate universe, then **expanded** with methods the meta-analyses did not cover.
 
-- **Taxonomy:** the 11 cognitive-operation families (Claude Opus's landscape, the recommended foundation).
+- **Taxonomy:** the 11 cognitive-operation families (Claude Opus's landscape, the recommended foundation), extended 2026-06-10 with a 12th candidate-only family, self and team awareness, for psychometric / disposition methods, and 2026-06-11 with a 13th candidate-only family, ethics and values deliberation, for moral and values trade-off methods (the structural gap all three wave-3 external research runs agreed on).
 - **Evidence tiers (7-tier model):** **S** strong research · **M** moderate · **P** practitioner · **V** vendor/commercial · **A** anecdotal · **C** conceptually plausible, under-tested · **X** poor/contradictory.
 - **Status legend:**
   - `[shipped]` - built and validated (47 skills, Tier advanced 0/0).
@@ -64,6 +64,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Lotus Blossom | fan a center into eight sub-themes, re-center each, and expand again into a recursive idea grid | P | `[fold]` -> Issue Trees |
 | Forced connections / Random stimulus | pair the problem with an unrelated stimulus | P | `[fold]` -> Far-analogy ideation |
 | Alternate uses / Constraint insertion-removal | loosen functional fixedness; add/strip a constraint | P | `[fold]` -> Assumption Reversal |
+| C-K theory (Concept-Knowledge design theory) | partition design work into a concept space of undecidable propositions and a knowledge space, and iterate the four operators between them | C | `[cand]` |
 
 ## 3. Problem framing and reframing
 
@@ -96,6 +97,9 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Counterfactual reasoning | examine 'what if X had been different' | P | `[fold]` -> After Action Review |
 | Devil's Advocacy | assign someone to argue against | X | `[flag]` |
 | Double-crux | find the single belief whose change would flip each side of a disagreement | C | `[excl]` |
+| Ideological Turing Test | state an opposing view well enough that its holders cannot tell you are not one of them | C | `[cand]` |
+| Consider the unknowns | before committing to a judgment, explicitly list the relevant variables you cannot observe and weigh the gap they leave | M | `[cand]` |
+| Analysis of Competing Hypotheses (ACH) | score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence | X | `[cand]` |
 
 ## 5. Risk, failure, and resilience
 
@@ -124,6 +128,9 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Causal Layered Analysis | read an issue at four depths (litany / system / worldview / myth-metaphor), then reconstruct each layer into alternative futures anchored by a rewritten guiding metaphor | C | `[shipped]` |
 | Theory of Constraints | find the single binding constraint capping throughput and attach its exploit / subordinate / elevate decisions (the five focusing steps) | P | `[shipped]` |
 | Fishbone / Ishikawa | decompose one observed effect into candidate causes grouped under a fixed category checklist (6M/8P) | P | `[fold]` -> Issue Trees |
+| System archetypes | match a recurring dynamic to a named archetype (fixes that fail, shifting the burden, tragedy of the commons) to find the leverage point | C | `[cand]` |
+| Process tracing | test rival causal explanations of a single case by each piece of evidence's diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests) | P | `[cand]` |
+| Qualitative Comparative Analysis (QCA) | code several cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome | P | `[cand]` |
 
 ## 7. Decision and option evaluation
 
@@ -144,6 +151,8 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | ICE / RICE / WSJF | prioritization scores | V | `[flag]` (branded) |
 | OODA Loop | observe-orient-decide-act | P | `[excl]` |
 | Mechanical / linear-model aggregation | combine cues with a simple fixed formula instead of holistic judgment | S | `[shipped]` |
+| Interest-based negotiation (BATNA / principled negotiation) | separate positions from interests, invent options for mutual gain, and decide against your BATNA | P | `[cand]` |
+| Dialectical bootstrapping | estimate, assume the estimate is wrong and list why, estimate again from those changed assumptions, then average the two numbers | M | `[cand]` |
 
 ## 8. Strategy and opportunity
 
@@ -174,6 +183,9 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Contradiction / Tension Mapping (Polarity Mapping) | map an unsolvable polarity as both/and rather than smoothing it - name the two interdependent poles, the upside and downside of each, the greater purpose that makes managing both worthwhile, plus early-warning signs and action steps for staying in the productive zone | C | `[shipped]` (branded) |
 | Insight statement generation | turn observations into sharp, transferable insight statements (the why behind a finding) | P | `[excl]` |
 | Sensemaking matrix | organize conflicting signals for interpretation | C | `[excl]` |
+| Toulmin argument model | lay out a claim as data, warrant, and backing, with qualifier and rebuttal, to test whether it holds | C | `[cand]` |
+| Issue-Position-Argument mapping (IBIS) | capture a deliberation live as a typed graph where positions may only answer issues and arguments may only support or attack positions | P | `[cand]` (branded) |
+| Argumentation schemes with critical questions | identify which stereotyped argument pattern is in play, then test it with that scheme's standard critical questions | P | `[cand]` |
 
 ## 10. Facilitation and group structures
 
@@ -183,6 +195,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Note-and-vote / Decider supervote | individual notes, then a group vote, then a single Decider's weighted supervote | P | `[excl]` |
 | Dot voting | allocate limited votes | P | `[flag]` |
 | 1-2-4-All / Round-robin / Lean Coffee / World Cafe / Open Space | scaled-participation group formats | P | `[excl]` |
+| Estimate-talk-estimate (Delphi) | collect independent estimates, share only the anonymized spread and rationales, discuss the variance, then re-estimate independently | M | `[cand]` |
 
 ## 11. Meta-thinking and reflection
 
@@ -195,6 +208,33 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | PDCA / A3 | plan-do-check-act iterative improvement loop (A3 = the one-page storyboard of one turn) | P | `[recipe]` (ships as a workflow) |
 | Socratic self-questioning | disciplined self-interrogation of a belief via a fixed set of probing question-types | P | `[fold]` -> Ladder of Inference Check |
 | Plus/Delta, Start/Stop/Continue, Rose/Thorn/Bud | fast retro formats | P | `[fold]` -> After Action Review |
+| Interval calibration check | state a confidence interval, test it against an equivalent bet, widen until indifferent, and train with scored feedback until hit rate matches stated confidence | M | `[cand]` |
+
+## 12. Self and team awareness
+
+| Framework | Mechanism | Tier | Status |
+|---|---|---|---|
+| Trait-lens perspective (Big Five / HEXACO) | view a decision through contrasting personality-trait viewpoints (high vs low openness, conscientiousness, and so on) | C | `[cand]` |
+| RIASEC interest-fit (Holland codes) | reason about person-environment fit across six interest types (realistic, investigative, artistic, social, enterprising, conventional) | M | `[cand]` |
+| Belbin Team Roles | map a team against nine complementary contribution roles to surface gaps and overlaps | C | `[cand]` (branded) |
+| Tuckman group-development stages | diagnose a team's stage on the forming-storming-norming-performing arc to pick the fitting intervention | P | `[cand]` |
+| VIA character-strengths lens | frame a problem or role through signature strengths drawn from the 24-strength classification | C | `[cand]` |
+| Kirton Adaption-Innovation (cognitive style) | place a person or approach on the adaptor-innovator style continuum to predict how they will tackle change | C | `[cand]` |
+| Myers-Briggs Type Indicator (MBTI) | sort a person into one of sixteen types across four dichotomies | X | `[cand]` (branded) |
+| CliftonStrengths (StrengthsFinder) | rank a person across 34 talent themes from a proprietary assessment | V | `[cand]` (branded) |
+| Strong Interest Inventory | profile vocational interests against occupational reference groups | M | `[cand]` (branded) |
+| DISC profile | classify behavioral style across dominance, influence, steadiness, conscientiousness | V | `[cand]` (branded) |
+| Enneagram of Personality | map a person to one of nine interconnected types with wings and stress / growth arrows | C | `[cand]` |
+| Learning-styles inventories | match instruction to a learner's preferred modality (visual, auditory, kinesthetic, and so on) | X | `[cand]` |
+
+## 13. Ethics and values deliberation
+
+| Framework | Mechanism | Tier | Status |
+|---|---|---|---|
+| Veil-of-ignorance reasoning | decide as if you had an equal chance of being any affected party, then return to the actual decision | M | `[cand]` |
+| Ethical Matrix | grid stakeholder groups against prima facie principles (wellbeing, autonomy, fairness) and read the pattern of impacts | P | `[cand]` |
+| Speculative harms and anti-goals | narrate your product as a dystopian near-future story, name who is harmed and who exploits it, then convert the harms into explicit anti-goals | A | `[cand]` |
+| Reflective equilibrium | iterate between case judgments and general principles, revising whichever fits worse, until they cohere | C | `[cand]` |
 
 <!-- END GENERATED FRAMEWORK TABLES -->
 

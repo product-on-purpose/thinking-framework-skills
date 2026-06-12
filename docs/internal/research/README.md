@@ -21,3 +21,9 @@ So the corpus stays private. Per-skill evidence is carried forward where it belo
 ## If you later decide the research should be public
 
 Move the specific files you want to publish into this folder deliberately (after a fresh secret scan), rather than committing the whole corpus. Anything committed here becomes part of public history once the repo is public.
+
+## Committed research syntheses in this folder
+
+- [`framework-catalog.md`](framework-catalog.md) - the generated master catalog (tables regenerated from `frameworks/registry.mjs`; hand-authored preamble).
+- [`2026-06-11-wave3-external-research.md`](2026-06-11-wave3-external-research.md) - wave-3 external deep-research provenance, dedup against the registry, the 14 admissions + 13th family, and the non-admitted leads. Raw platform outputs stay gitignored at `_local/ingest/`.
+- [`documentation-and-site-plan.md`](documentation-and-site-plan.md) - the original docs/site planning record.
