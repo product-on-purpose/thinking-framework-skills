@@ -33,11 +33,11 @@ A premortem stress-tests a plan by assuming it has *already failed* and reasonin
 When asked to run a premortem, follow these steps:
 
 1. **Frame the decision and the horizon.** State the plan and intended outcome in one or two sentences, and pick a concrete time horizon (for example, "six months after launch"). If the decision is trivial or already irreversible, say so and stop.
-2. **Declare the failure vividly.** Assert it in the definite past: "It is [horizon]. This plan has failed badly." Make the failure concrete and specific, not "it underperformed."
+2. **Declare the failure vividly.** Assert it in the definite past: "It is [horizon]. This plan has failed badly." Make the failure concrete and specific, not "it underperformed." Write it into the template's "The failure, declared" section as a past-tense scene of observed fact - it is part of the artifact, and every cause in the register must explain it in the past tense.
 3. **Generate causes broadly, before judging.** List the plausible reasons the failure happened. Aim for breadth and specificity; include uncomfortable, political, and second-order causes, not just technical ones. Do not filter yet.
 4. **Cluster and rank.** Group related causes and rank them by likelihood and impact (High/Medium/Low each). Keep the vital few; do not pad.
 5. **Convert each top cause into action.** For each high-priority cause, define a **leading signal / tripwire** (the early sign it is happening), a **mitigation** (what reduces the risk now), an **owner**, and a **kill criterion** (the pre-decided condition under which you stop or change course). This conversion step is mandatory; a list of risks without it is not a premortem.
-6. **Emit the risk register and a short summary.** Produce the artifact in `references/TEMPLATE.md`: a one-paragraph "top risks and what we will do" summary above a ranked register table.
+6. **Emit the risk register and a short summary.** Produce the artifact in `references/TEMPLATE.md`: the declared failure in the definite past, then a one-paragraph "top risks and what we will do" summary above a ranked register table.
 
 ## Output Format
 

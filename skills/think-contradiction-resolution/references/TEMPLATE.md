@@ -42,3 +42,9 @@ For a **physical** contradiction, work the four separation principles. For a **t
   OR
 
 - **Honest exit (if not dissolved):** **This is a genuine trade-off.** [why no operator dissolves it - the hard constraint that holds it]. Routed to: [`think-decision-option-review` to choose under it / managed as a standing polarity over time].
+
+## Evidence caveat
+
+<!-- This section is pre-printed: copy it into the artifact verbatim, without this comment. -->
+
+> This worksheet tests whether the trade-off is real and often dissolves it. The method's evidence is practitioner-grade (tier P) and transferred from human engineering practice, and the classical contradiction matrix is contested; matrix prompts here are heuristics, not lookups.

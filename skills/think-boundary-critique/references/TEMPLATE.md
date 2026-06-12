@@ -38,3 +38,5 @@ The move the rest of the library does not have. List the parties with a real sta
 
 - **It surfaces the boundary question; it does not adjudicate it.** [restate the sharpest gap as an open question, not a verdict]
 - **Onward route (where a real gap exists):** [e.g. `think-decision-option-review` to choose deliberately under the gap / take the named exclusion back to the frame's owner]. The audit informs that decision; it is not the decision.
+<!-- The evidence-caveat line below is pre-printed: copy it into the artifact verbatim, without this comment. -->
+- **Evidence caveat:** this audit surfaces who the frame illegitimately includes or excludes, descriptively versus normatively. The method's evidence is conceptual (tier C) and transferred from human practice; it is not a measured improvement in decisions.

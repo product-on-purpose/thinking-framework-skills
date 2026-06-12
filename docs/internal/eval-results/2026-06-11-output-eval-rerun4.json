@@ -1,0 +1,188 @@
+{
+  "evaluated": 4,
+  "of": 4,
+  "results": [
+    {
+      "skill": "boundary-critique",
+      "artifactChars": 8958,
+      "perCheck": [
+        {
+          "check": "Capture the frame under audit verbatim, in one line, with the improvement it claims.",
+          "pass": true,
+          "reason": "The 'Frame under audit' section quotes the frame verbatim ('Our launch plan optimizes for the growth metric') in one line and states the claimed improvement (lift in the growth metric) in a separate labeled bullet."
+        },
+        {
+          "check": "Answer all four sources (who benefits, who decides, whose knowledge counts, who has standing) in *both* is and ought modes - no source left in one mode only.",
+          "pass": true,
+          "reason": "The four-source table covers motivation, power/control, knowledge, and legitimacy, each row with a concrete 'Is' cell and a concrete 'Ought' cell; no source is single-mode."
+        },
+        {
+          "check": "State an explicit is-vs-ought gap for each source (or an honest \"no gap - legitimate boundary\"), not a restatement of the answers.",
+          "pass": true,
+          "reason": "Each row has a dedicated Gap cell that sizes the gap (Large / Moderate-to-large) and diagnoses its consequence (e.g. 'deciders book the upside while the load lands on teams with no vote'), going beyond restating the is/ought cells."
+        },
+        {
+          "check": "List the affected-but-excluded as a distinct section - parties outside the line with a stake but no voice, each with who (if anyone) witnesses for them - not merged into a voicing of in-scope stakeholders.",
+          "pass": true,
+          "reason": "A dedicated 'Affected-but-excluded' section lists 5 outside-the-line parties, each with their stake and a 'Who (if anyone) witnesses for them now' column, and explicitly distinguishes them from in-scope stakeholders."
+        },
+        {
+          "check": "State plainly that the audit surfaces the boundary question and does NOT adjudicate it, and route a real gap onward (e.g. to `think-decision-option-review`).",
+          "pass": true,
+          "reason": "The non-adjudication statement appears in both the summary and the 'What this audit does NOT do' section, and a concrete onward route to think-decision-option-review (with named options) is given."
+        },
+        {
+          "check": "Deliver the boundary-judgment audit artifact, not prose.",
+          "pass": true,
+          "reason": "The output is a structured audit artifact with titled sections, an is/ought/gap table, an affected-but-excluded table, a summary block, and a limitations section, not conversational prose."
+        },
+        {
+          "check": "Not overclaim: keep to \"surfaces who the frame illegitimately includes or excludes, descriptively versus normatively\"; the evidence is conceptual (C) and transferred from human practice.",
+          "pass": true,
+          "reason": "The evidence caveat is present verbatim (conceptual tier C, transferred from human practice, not a measured improvement) and the body stays within surfacing claims; the leaked '(pre-printed; keep this line...)' template note is a cosmetic flaw only."
+        }
+      ],
+      "passed": 7,
+      "total": 7
+    },
+    {
+      "skill": "contradiction-resolution",
+      "artifactChars": 8220,
+      "perCheck": [
+        {
+          "check": "Write the trade-off as an explicit opposing pair (to get more A we accept less B) and classify it technical (two parameters) or physical (one parameter, two opposite values).",
+          "pass": true,
+          "reason": "States the pair in the canonical form ('to get more free-tier generosity... we must accept less upgrade pressure') and explicitly classifies it Physical, with reasoning that both requirements land on one parameter (free-tier value) needing to be both high and low."
+        },
+        {
+          "check": "State the Ideal Final Result implementation-free (no \"how\"), not a reworded goal.",
+          "pass": true,
+          "reason": "IFR describes a pure end state ('everyone extracting real economic value pays - by itself, with no generosity line... no new gating mechanism, no harm to either funnel') with no mechanism, and goes beyond the original goal by idealizing it rather than rewording it."
+        },
+        {
+          "check": "Attempt dissolution with named operators - the four separation principles (time, space, scale, condition) for a physical contradiction, or inventive-principle prompts for a technical one - and record each attempt, not just the winner.",
+          "pass": true,
+          "reason": "The table works all four named separation principles (time, space, scale/system level, condition) plus one inventive-principle prompt, and records every result including the two Partials, not just the winning scale separation."
+        },
+        {
+          "check": "Treat any 39x39 contradiction matrix as a heuristic prompt, never an authoritative lookup.",
+          "pass": true,
+          "reason": "Explicitly states 'Matrix-style prompts below are heuristics, not lookups' before the table and repeats 'the classical contradiction matrix is contested' in the caveat; no row is presented as a matrix lookup."
+        },
+        {
+          "check": "End in either a concrete resolution OR an honest \"this is a genuine trade-off\" with an onward route (e.g. to `think-decision-option-review`) - never a vague compromise dressed up as a dissolution.",
+          "pass": true,
+          "reason": "Ends with a concrete dissolution (paid boundary moved to org level, reinforced by commercial-use condition and a reverse trial) and honestly names the residual design work; it is a structural redesign, not a midpoint on the original dial."
+        },
+        {
+          "check": "Deliver the contradiction-resolution worksheet artifact, not prose.",
+          "pass": true,
+          "reason": "Delivered as a titled Contradiction-Resolution Worksheet with the structured sections (problem, summary, contradiction, IFR, attempts table, outcome, caveat), not free-form prose."
+        },
+        {
+          "check": "Not overclaim: keep to \"tests whether the trade-off is real and often dissolves it\"; the evidence is practitioner-grade and transferred, and the matrix is contested.",
+          "pass": true,
+          "reason": "The evidence caveat appears verbatim ('tests whether the trade-off is real and often dissolves it... practitioner-grade (tier P) and transferred... matrix is contested') and the body claims dissolution only for this specific case, not for the method universally."
+        }
+      ],
+      "passed": 7,
+      "total": 7
+    },
+    {
+      "skill": "three-horizons",
+      "artifactChars": 8645,
+      "perCheck": [
+        {
+          "check": "Name the system in transition and the actor's vantage point in one line.",
+          "pass": true,
+          "reason": "Opening 'System in transition and actor' section names the system (the company's business model under pressure from the disruptive alternative) and the actor's vantage (the divided leadership team owning both the core P&L and the decision) each in a single concrete line."
+        },
+        {
+          "check": "Set the axis explicitly to **degree of transformation, not calendar time**, and not read the horizons as fixed time bands.",
+          "pass": true,
+          "reason": "Header blockquote states the axis is degree of transformation not calendar time, explicitly forbids equating H3 with '5+ years out', and the 'Axis reminder' bullet repeats that a competitor can ship an H3 move next quarter; no horizon is given a time band anywhere."
+        },
+        {
+          "check": "Describe **H1** as the dominant-now system AND state what is failing / losing fit in it.",
+          "pass": true,
+          "reason": "H1 section names the dominant system (flagship offering, sales motion, internal operating machine generating essentially all revenue) and gives concrete losing-fit signals (flattening growth, renewal concessions, new entrants without legacy cost structure, talent drifting away)."
+        },
+        {
+          "check": "Describe **H3** as a qualitatively different desired future AND identify its \"pockets of the future in the present\" (concrete present-day seeds).",
+          "pass": true,
+          "reason": "H3 is framed as 'a qualitatively different logic, not the core product but better' and the 'Pockets of the future in the present' bullet lists concrete seeds: the advocating half of the team, the prototype/skunkworks work, customers piloting the new model, competitor launches, early revenue."
+        },
+        {
+          "check": "Populate the **H2** transition zone with actual moves - the messy middle is not skipped.",
+          "pass": true,
+          "reason": "H2 section contains a six-row table of specific moves (premium add-on, standalone venture, innovation lab, cannibalization-tolerant pricing experiment, acquisition/partnership, hybrid migration offering), each with reasoning; the middle is the largest section."
+        },
+        {
+          "check": "Classify every H2 move as **H2-plus** (carries H3) or **H2-minus** (captured by H1) - the two-directional read is present.",
+          "pass": true,
+          "reason": "Every row carries a plus/minus classification with a why; the acquisition row is honestly 'contested' but resolves both directions conditionally (plus if autonomous, minus if absorbed) and the section closes with explicit H2-plus and H2-minus rollup lists, so the two-directional read is fully present."
+        },
+        {
+          "check": "Locate the **actor** on the canvas and name where attention and energy actually flow, including any mismatch.",
+          "pass": true,
+          "reason": "Dedicated 'actor located on the canvas' section places the team astride H1/H3 as two camps with H2 unstaffed, names where energy actually goes (defending H1 plus arguing), and states the mismatch out loud ('talks defend-or-chase, effort pattern is defend, plus argue')."
+        },
+        {
+          "check": "Include the **governance implication** (different horizons need different metrics; H1 governance not misapplied to H2/H3).",
+          "pass": true,
+          "reason": "A 'Governance implication' section warns that holding the venture to core ROI hurdles strangles it (H2-minus capture) and proposes distinct yardsticks per horizon: managed-decline economics for H1, learning velocity and standalone unit economics for H2-plus, seed growth for H3."
+        },
+        {
+          "check": "Frame the map as a **shared orientation for dialogue**, not a forecast or a defended decision.",
+          "pass": true,
+          "reason": "Header says verbatim 'a shared orientation for dialogue, not a forecast and not a defended decision'; the inputs note makes the replacement conversation 'the point of the artifact', and the governance section is labeled 'orientation note, not a decision'."
+        },
+        {
+          "check": "Not overclaim: keep to a sensemaking scaffold that surfaces transition dynamics; the evidence is tier C and transferred, and this is not a foresight or outcome method.",
+          "pass": true,
+          "reason": "The closing evidence caveat states it is 'a sensemaking scaffold that surfaces transition dynamics', evidence 'tier C (conceptual, transferred from human facilitation practice)', 'not a foresight or outcome method', and 'not a forecast'; nothing elsewhere claims predictive power."
+        }
+      ],
+      "passed": 10,
+      "total": 10
+    },
+    {
+      "skill": "premortem",
+      "artifactChars": 8746,
+      "perCheck": [
+        {
+          "check": "Declare the failure in the definite past with a concrete, specific scenario anchored to a stated horizon (not \"it underperformed\").",
+          "pass": true,
+          "reason": "Dedicated declared-failure section uses definite past (\"This launch has failed - badly\") with concrete specifics (4% double-charged, 7% uninvoiced, 9-day freeze, churned top-10 account) anchored to the stated 90-day / two-billing-cycle horizon."
+        },
+        {
+          "check": "Include at least one people/political, process, second-order, or external cause, not only technical ones.",
+          "pass": true,
+          "reason": "Risk #2 is people/political (unspoken doubt, unowned edge cases, hedging), #5 is process (support/finance unprepared), and #6 is explicitly second-order (trust and compliance damage)."
+        },
+        {
+          "check": "Pair every high-priority cause with all four: a tripwire, a mitigation, a named owner, and a pre-decided kill criterion.",
+          "pass": true,
+          "reason": "All 6 register rows have populated tripwire, mitigation, owner (named roles), and concrete kill-criterion columns; unowned items are explicitly relegated to the lower-priority watch list."
+        },
+        {
+          "check": "Rank risks by likelihood and impact (each H/M/L), not a flat list.",
+          "pass": true,
+          "reason": "Separate Likelihood (H/M/L) and Impact (H/M/L) columns are rated per row, and rows are ordered from H/H downward rather than presented flat."
+        },
+        {
+          "check": "Deliver the risk-register artifact (ranked table + a short \"top risks and what we will do\" summary), not prose.",
+          "pass": true,
+          "reason": "The artifact is a ranked register table plus an explicit \"Top risks and what we will do (summary)\" section naming the top risks and pre-committed responses."
+        },
+        {
+          "check": "Not promise a better decision/outcome; limit any claim to better-surfaced and better-handled risk.",
+          "pass": true,
+          "reason": "Scope note limits the claim to better-surfaced, better-handled risk and reduced overconfidence and states it \"does not promise the launch will succeed\"; no success promises appear elsewhere."
+        }
+      ],
+      "passed": 6,
+      "total": 6
+    }
+  ]
+}

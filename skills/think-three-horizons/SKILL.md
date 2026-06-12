@@ -43,7 +43,7 @@ When asked to map a transition, govern an incumbent-to-future shift, or break a 
 6. **Read H2 in two directions (the signature move).** Classify each H2 move as **H2-plus** (genuinely carries the H3 future) or **H2-minus** (gets captured by H1 and merely props up the incumbent). A move can look innovative and still be H2-minus. This two-directional read is the heart of the method; do not skip it.
 7. **Locate the actor and their energy.** Place the actor on the canvas: which horizon are they standing in, and where is their attention and energy actually going right now (defending H1, working the H2 middle, cultivating H3)? Name any mismatch between where they say they are and where their effort flows.
 8. **Note the governance implication.** State, briefly, that the three horizons need different metrics, and flag where H1 governance is being (or would be) misapplied to H2 or H3 work. This is an orientation note, not a decision.
-9. **Emit the three-horizons transition map** per `references/TEMPLATE.md`: the named H1 and what is failing, the H3 aspiration and its present seeds, the H2 moves classified H2-plus / H2-minus, and the actor located in the picture. Frame the map as a shared orientation for dialogue, never as a forecast or a defended answer.
+9. **Emit the three-horizons transition map** per `references/TEMPLATE.md`: the named H1 and what is failing, the H3 aspiration and its present seeds, the H2 moves classified H2-plus / H2-minus, and the actor located in the picture. Frame the map as a shared orientation for dialogue, never as a forecast or a defended answer. The template's pre-printed evidence caveat is part of the artifact; carry it through verbatim.
 
 ## Output Format
 

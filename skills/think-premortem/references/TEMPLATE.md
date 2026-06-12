@@ -11,6 +11,12 @@ Fill this in. The deliverable is the table plus the summary above it, not prose.
 - **Horizon:** [the future point at which we imagine failure, e.g. "6 months after launch"]
 - **Reversibility:** [one-way door / two-way door - if fully reversible and low stakes, a premortem may not be warranted]
 
+## The failure, declared (definite past - the signature move)
+
+> It is [the horizon, stated as a date or elapsed time, e.g. "six months after launch"]. This plan **has failed** - badly. [Two or three sentences of concrete, specific scene, written entirely in the past tense as observed fact: what happened, what the numbers showed, what state things were left in. Not "it underperformed" or "it might fail because..." - the failure already occurred; describe it.]
+
+Every cause in the register below explains THIS declared failure, phrased in the past tense ("we lost the migration window", not "we might lose the migration window").
+
 ## Top risks and what we will do (summary)
 
 [3-5 sentences. Name the two or three risks most likely to kill this, and the single most important action against each. A reader who stops here should know the biggest threats and the plan.]
