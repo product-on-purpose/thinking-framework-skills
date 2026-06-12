@@ -2,6 +2,12 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://product-on-purpose.github.io/thinking-framework-skills/).
 
+## v0.7.1
+
+**The Framework Library is now complete: every method we evaluated and chose not to ship has an honest, browsable page.**
+
+- **+30 documented "no"s (the library now holds 75 dossiers).** The famous methods the library considered and did not ship as standalone skills - because they fold into something already shipped, carry a trademark or weak-evidence caveat, or do not survive on the merits - each now has a sourced page explaining the call. Among them: **SWOT**, **Five Whys**, **Cynefin**, **Wardley Mapping**, **Jobs-to-be-Done**, **Porter's Five Forces**, **Blue Ocean**, **OODA**, **MECE**, **Multi-Criteria Decision Analysis**, **Key Assumptions Check**, **Double-Crux**, **Devil's Advocacy**, **How Might We**, and more. "We considered it and said no, and here is exactly why" is now the rule, not the exception - documentation only, with no method's verdict changed.
+
 ## v0.7.0
 
 **The library now measures its own behavior, and ships its largest catalog jump yet (now 56) with a new ethics family.**

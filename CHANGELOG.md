@@ -4,6 +4,13 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.7.1] - 2026-06-12
+
+**Depth pass: the Framework Library is now complete.** Every documented-not-shipped registry entry (fold / flag / excl / pm) that lacked a published dossier now has one, taking the public [Framework Library](https://product-on-purpose.github.io/thinking-framework-skills/library/) from 45 to 75 dossiers. Documentation only: no registry verdicts changed, no new shipped skills, no catalog count change.
+
+### Added
+- **Thirty documented-not-shipped Framework Library dossiers** authored for the famous methods the library evaluated but does not ship as standalone skills, each documenting its already-settled verdict with honest, sourced research (the real mechanism, when it helps or misleads, the honest evidence grade with a transferred-evidence flag, why it folds / flags / is excluded / defers to pm-skills, and the lineage). Now browsable as "we evaluated this and here is what we found": **SWOT** (X, the Hill and Westbrook 1997 "product recall" finding), **Five Whys** (X), **Cynefin** (flag, trademarked), **Wardley Mapping**, **Jobs-to-be-Done**, **Porter's Five Forces**, **Blue Ocean**, **ICE/RICE/WSJF**, **OODA Loop**, **MECE Decomposition**, **Multi-Criteria Decision Analysis**, **Key Assumptions Check**, **Double-Crux**, **Devil's Advocacy**, **How Might We**, **Crazy-8s**, **Disney Creative Strategy**, **Stakeholder Lens Review**, **Opportunity-Solution Tree**, and the rest. `dossierPath` set on all 30; the generated catalog, why-not index, and route manifest refreshed (site 157 -> 187 pages). An inline adversarial review (the codex path was sandbox-blocked) found zero grade-laundering, verdict-infidelity, fabrication, or format issues.
+
 ## [0.7.0] - 2026-06-12
 
 **Measured behavior, a depth pass, and the largest catalog expansion yet.** Both behavioral evals (routing and artifact quality) land with their first full runs; the four skills the output eval flagged are tightened by construction; and the re-opened candidate queue is vetted end to end - 30 candidates through NAME-mode research plus adversarial verify (9 Build, 7 Fold, 1 Recipe, 13 Reject), growing the catalog from 47 to 56 shipped frameworks across a new 13th catalog family (and 12th skill-family), Ethics & Values Deliberation, with 20 new rejected-with-reasoning Framework Library dossiers and the famous-but-weak personality instruments (MBTI, CliftonStrengths, DISC, Enneagram, learning styles) now carrying honest public why-not pages.
@@ -157,7 +164,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.7.0...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.7.1...HEAD
+[0.7.1]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.4.0...v0.5.0
