@@ -19,7 +19,7 @@
     },
     "families": {
       "type": "array",
-      "description": "The ordered catalog families (the 11-family universe taxonomy). Note: this is the catalog taxonomy, which differs by design from the live skill metadata.family slugs (those are a separate, coarser grouping the shipped skills + Astro site use).",
+      "description": "The ordered catalog families (the 13-family universe taxonomy). Note: this is the catalog taxonomy, which differs by design from the live skill metadata.family slugs (those are a separate, coarser grouping the shipped skills + Astro site use).",
       "minItems": 11,
       "items": {
         "type": "object",
@@ -62,9 +62,11 @@
             "strategy-and-opportunity",
             "synthesis-and-reasoning-clarity",
             "facilitation-and-group-structures",
-            "meta-thinking-and-reflection"
+            "meta-thinking-and-reflection",
+            "self-and-team-awareness",
+            "ethics-values-deliberation"
           ],
-          "description": "One of the 11 catalog family slugs; must also appear in the top-level families list (referential)."
+          "description": "One of the 13 catalog family slugs; must also appear in the top-level families list (referential)."
         },
         "tier": {
           "type": "string",

@@ -9,7 +9,7 @@
 //
 // FAMILY TAXONOMY NOTE (registry follow-up #3): the per-family counts use each skill's
 // `metadata.family` (the coarse "skill" taxonomy the site lifecycle + README catalog group
-// by), which differs BY DESIGN from the registry's 11-family catalog taxonomy (and uses a
+// by), which differs BY DESIGN from the registry's 13-family catalog taxonomy (and uses a
 // different slug set - e.g. there is no `reasoning-clarity` registry family). The two are
 // intentionally independent: the catalog taxonomy drives the framework-catalog.md / why-not
 // index, the skill taxonomy drives the user-facing lifecycle. Several skills are placed in
