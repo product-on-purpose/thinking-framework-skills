@@ -1,0 +1,89 @@
+# Rich sidecar for the think-walton-argumentation-schemes skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.walton-argumentation-schemes;
+# slug = bare method = walton-argumentation-schemes;
+# installable name = prefix + slug = think-walton-argumentation-schemes (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.walton-argumentation-schemes
+  slug: walton-argumentation-schemes
+  name: think-walton-argumentation-schemes
+  display_name: Argumentation Schemes with Critical Questions
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: reasoning-clarity
+  secondary_families: [assumption-and-belief-challenge]
+  thinking_modes: [evaluative, critical, analytical]
+  problem_contexts: [single-argument-evaluation, defeasible-reasoning, authority-and-analogy-claims]
+  use_cases:
+    - classify one short defeasible argument as a stereotyped reasoning scheme, stated and contestable
+    - instantiate the scheme's premise slots to expose the implicit premises the pattern requires
+    - put the scheme's keyed critical questions to the argument with per-question burden of proof
+    - render a presumption verdict (stands / stands-pending / falls) with the binding open question named
+  poor_fit_cases:
+    - used on a structurally complex, multi-premise argument whose whole structure matters (that is think-argument-mapping)
+    - forced onto a deductive proof or a statistical result (not an instance of any scheme)
+    - run without stating the scheme classification, so a confident mis-type corrupts every keyed question
+    - run as checklist theater - shallow rubber-stamp answers presented as scrutiny
+    - naming the scheme treated as a refutation, or an answered checklist presented as a soundness proof
+
+interface:
+  required_inputs:
+    - a single short defeasible argument (an authority appeal, analogy, sign, cause, consequence, popular-practice, or slippery-slope inference) to be evaluated
+  optional_inputs:
+    - the surrounding decision the argument is being used to settle
+    - any context that would answer the scheme's critical questions (other expert views, underlying data, the source's incentives)
+  primary_artifact_type: scheme-critique-sheet
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.argument-mapping
+    - thinking-framework-skills.red-team-light
+    - thinking-framework-skills.evidence-vs-inference-sort
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.argument-mapping   # map the whole argument, then scheme-critique a single load-bearing inference in it
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.argument-mapping            # one typed inference vs the whole argument's structure
+    - thinking-framework-skills.red-team-light              # typed interrogation of one inference vs building the strongest opposing case
+    - thinking-framework-skills.ladder-of-inference-check   # keyed scheme defeaters vs auditing one reasoning chain rung by rung
+  overlaps_with:
+    - thinking-framework-skills.argument-mapping   # shared skeleton (extract conclusion/premises, surface implicit premises, flag weakness); disjoint evaluative engine (scheme typing + keyed defeater battery + presumption verdict)
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - mis-typing the scheme, which corrupts every downstream critical question (Feng and Hirst 2011 - even the five most common schemes machine-separate at only 63-91%)
+    - forcing a deductive or statistical argument into a presumptive scheme
+    - applying the scheme method to a structurally complex multi-premise argument instead of routing it to argument-mapping
+    - checklist theater - shallow answers to the critical questions presented as scrutiny
+    - treating the scheme name as a refutation or an answered checklist as a soundness proof
+
+evidence:
+  evidence_tier: "P"   # governing; an M-flavored controlled signal exists only on the adjacent classroom-instruction claim, capped at P
+  confidence: moderate that scheme-keyed critical questions surface more relevant defeaters than improvised objection-raising; low that single-application evaluation accuracy or any decision-quality effect transfers to agents
+  transferred_evidence: true       # all studies on human students in classroom/writing settings; sustained instruction, not single application; not agent-validated
+  lineage:
+    derived_from: [argumentation schemes, presumptive reasoning, critical questions, burden of proof, Walton/Reed/Macagno, Carneades]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Douglas Walton (1996) and Walton, Reed and Macagno (2008) as lineage; terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-walton-argumentation-schemes/SKILL.md
+  references_path: skills/think-walton-argumentation-schemes/references/
+  evidence_path: skills/think-walton-argumentation-schemes/evidence/dossier.md
+  evals_path: skills/think-walton-argumentation-schemes/eval/

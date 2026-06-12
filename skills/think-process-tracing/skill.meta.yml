@@ -1,0 +1,90 @@
+# Rich sidecar for the think-process-tracing skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.process-tracing;
+# slug = bare method = process-tracing;
+# installable name = prefix + slug = think-process-tracing (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.process-tracing
+  slug: process-tracing
+  name: think-process-tracing
+  display_name: Process Tracing (rival-explanation adjudication)
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: systems-and-consequences
+  secondary_families: [evidence-and-inference, decision-and-tradeoff]
+  thinking_modes: [convergent, diagnostic, evidential]
+  problem_contexts: [single-case, root-cause, contested-explanation]
+  use_cases:
+    - adjudicate genuinely rival causal explanations of one outcome in one case
+    - make each rival concrete as a causal mechanism chain with expected observable fingerprints
+    - type each within-case evidence item by diagnosticity (hoop / smoking gun / straw-in-the-wind / doubly decisive)
+    - eliminate or confirm rivals item by item, letting one decisive observation outrank soft support
+    - report the surviving explanation with residual uncertainty and the most decisive missing observation
+  poor_fit_cases:
+    - no rivals on the table - a single agreed causal story (that is iceberg-model or issue-tree)
+    - cross-case generalization - which conditions generally cause the outcome across many cases
+    - an all-straw-in-the-wind evidence pool - the honest output is "non-diagnostic," not a winner
+    - degenerating into an evidence-by-hypothesis consistency tally matrix (that is ACH, declined here)
+    - assigning test types after seeing the evidence (post-hoc diagnosticity inflation)
+
+interface:
+  required_inputs:
+    - a single case with a specific outcome and at least two genuinely rival explanations of why it happened
+  optional_inputs:
+    - the available within-case evidence (logs, timestamps, documents, sequence, who knew what when)
+    - the mechanism chains already proposed for each rival
+  primary_artifact_type: rival-explanation-evidence-ledger
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.iceberg-model
+    - thinking-framework-skills.issue-tree
+    - thinking-framework-skills.red-team-light
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.red-team-light   # generate rival explanations, then adjudicate them by diagnosticity
+  often_precedes:
+    - thinking-framework-skills.iceberg-model     # once the surviving cause is fixed, descend its systemic levels
+  complements:
+    - thinking-framework-skills.evidence-vs-inference-sort   # classify claim status vs adjudicate rival stories
+    - thinking-framework-skills.what-would-have-to-be-true    # forward truth-conditions for one claim vs weighing observed evidence across rivals
+    - thinking-framework-skills.iceberg-model     # single-story level-descent vs rival-story discrimination
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - picking the explanation with the most supporting items instead of weighing each item by diagnosticity
+    - assigning a test type (e.g. "smoking gun") after seeing the evidence, inflating its diagnosticity
+    - manufacturing a confident winner when the evidence pool is all straw-in-the-wind and nothing discriminates
+    - degenerating into an evidence-by-hypothesis consistency tally matrix (the ACH anti-pattern with a null-to-negative record)
+    - running it on a cross-case generalization question instead of a single case
+
+evidence:
+  evidence_tier: "P"   # governing; deep peer-reviewed methodology, no controlled reasoning-outcome trial
+  confidence: moderate that per-item diagnosticity typing against rival mechanism chains discriminates causal stories better than an evidence tally; low that any reasoning-accuracy effect transfers to agents (no such study exists)
+  transferred_evidence: true       # all evidence is human case-study methodology; the nearby controlled record is ACH's, negative, and sets no tier
+  lineage:
+    derived_from: [process tracing, Van Evera four tests, within-case causal inference, Bayesian process tracing]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Van Evera / Collier / Beach and Pedersen / Fairfield and Charman as lineage; terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-process-tracing/SKILL.md
+  references_path: skills/think-process-tracing/references/
+  evidence_path: skills/think-process-tracing/evidence/dossier.md
+  evals_path: skills/think-process-tracing/eval/

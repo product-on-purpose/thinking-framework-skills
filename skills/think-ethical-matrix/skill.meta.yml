@@ -1,0 +1,88 @@
+# Rich sidecar for the think-ethical-matrix skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.ethical-matrix;
+# slug = bare method = ethical-matrix;
+# installable name = prefix + slug = think-ethical-matrix (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.ethical-matrix
+  slug: ethical-matrix
+  name: think-ethical-matrix
+  display_name: Ethical Matrix
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: ethics-values-deliberation
+  secondary_families: [perspective-shifting-and-multi-lens, decision-and-option-evaluation]
+  thinking_modes: [evaluative, deliberative, ethical]
+  problem_contexts: [moral-trade-off, multi-stakeholder, values-conflict]
+  use_cases:
+    - cross-reference affected parties (rows) against prima facie principles (columns) and fill every cell with an impact specification
+    - give voiceless parties (non-human, future, absent) a row whether or not anyone present represents them
+    - tag each cell factual or contested so value judgments surface instead of hiding in cell wording
+    - read the grid as a trade-off pattern (who bears which burden, where one party's benefit is paid for by another) without aggregating to a score
+  poor_fit_cases:
+    - presented as a decision calculator - the matrix maps but cannot weigh what it uncovers (the central wall)
+    - used to score options against the decider's own weighted criteria (that is think-decision-option-review)
+    - used when who counts as affected is the live dispute (audit the frame first with think-boundary-critique)
+    - the fixed principle columns imposed unreflectively, crowding out the values participants actually hold (Cotton 2009)
+    - run as completeness theater - a populated grid that looks rigorous while the judgments hide inside cell wording
+
+interface:
+  required_inputs:
+    - a single concrete proposal, technology, policy, or feature with a genuine moral trade-off across affected parties
+  optional_inputs:
+    - a candidate roster of affected parties (the skill adds voiceless ones)
+    - an adapted principle-column set, with justification
+  primary_artifact_type: ethical-matrix
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.boundary-critique
+    - thinking-framework-skills.parallel-perspectives-review
+    - thinking-framework-skills.decision-option-review
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.boundary-critique          # audit who is in the frame, then type the impacts on the given roster
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.boundary-critique          # frame membership (upstream) vs impacts on a given roster
+    - thinking-framework-skills.parallel-perspectives-review  # voicing each party's perspective vs typing the option's impact on each party
+    - thinking-framework-skills.decision-option-review     # options x decider's criteria, aggregated vs one proposal x impartial principles, never aggregated
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - presenting the filled grid as a verdict, score, or ranking instead of a trade-off map
+    - omitting the voiceless parties so the grid only reflects who showed up to speak
+    - leaving cells as perspective voicings ("what they would say") instead of impact specifications ("how it affects them")
+    - failing to tag cells factual vs contested, so the disputed value judgments hide inside fluent cell wording
+    - swapping or imposing the principle columns silently, crowding out the values that actually matter (Cotton 2009)
+
+evidence:
+  evidence_tier: "P"   # governing; practitioner - no controlled outcome study exists
+  confidence: moderate that principled cross-referencing surfaces trade-offs a single-axis analysis hides; low-to-none that any decision-quality effect transfers to agents (no controlled study exists, and none is on agents)
+  transferred_evidence: true       # all evidence is human group-deliberation practice; not agent-validated
+  lineage:
+    derived_from: [ethical matrix, Mepham, Beauchamp and Childress principlism, EU Ethical Bio-TA Tools, O'Neil and Gunn AI-audit adaptation]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Ben Mepham (2000); principle columns from Beauchamp and Childress; AI-audit adaptation O'Neil and Gunn (2020)
+  trademark: none                  # "ethical matrix" is a generic descriptive name; documented descriptively, not branded
+
+implementation:
+  skill_path: skills/think-ethical-matrix/SKILL.md
+  references_path: skills/think-ethical-matrix/references/
+  evidence_path: skills/think-ethical-matrix/evidence/dossier.md
+  evals_path: skills/think-ethical-matrix/eval/

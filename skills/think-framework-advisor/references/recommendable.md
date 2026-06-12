@@ -5,7 +5,7 @@
 > component is not listed here, the advisor must describe the step in plain language
 > rather than name a skill. Regenerate when components change.
 
-## Skills (47)
+## Skills (56)
 
 | Skill (`name`) | Family | Tier | What it does |
 |---|---|---|---|
@@ -22,10 +22,13 @@
 | `think-causal-layered-analysis` | systems-and-consequences | C | Produces a four-layer matrix (litany, system, worldview, myth) of the current 'used future' beside a reconstructed preferred future per layer, anchored by a de... |
 | `think-causal-loop-diagrams` | systems-and-consequences | M/P | Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities,... |
 | `think-concept-mapping` | synthesis | M/P | Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit prop... |
+| `think-consider-the-unknowns` | assumption-and-belief-challenge | M | Produces a known-unknowns ledger by enumerating the relevant evidence not in hand, the variables that bear on a judgment but are unknown or unobservable, ratin... |
 | `think-contradiction-resolution` | problem-framing | M/P | Converts a stuck trade-off into a contradiction to dissolve rather than a compromise to settle for. |
 | `think-contradiction-tension-mapping` | synthesis | C | Produces a both/and polarity map - two interdependent poles, the upside and downside quadrant of each, a greater purpose and a deeper fear, early-warning signs... |
 | `think-decision-journal` | meta-thinking-and-reflection | P | Produces a decision journal entry that records a consequential decision at the moment it is made - the decision, the rationale, the predicted outcome, an expli... |
 | `think-decision-option-review` | decision-and-option-evaluation | P | Produces a criteria-weighted option matrix by comparing a set of options against weighted criteria, scoring each, surfacing the explicit tradeoffs, and recomme... |
+| `think-dialectical-bootstrapping` | decision-and-option-evaluation | M | Produces a dialectical estimate that improves a single committed number by polling the inner crowd, make a first estimate, assume it is wrong and list why, rea... |
+| `think-ethical-matrix` | ethics-values-deliberation | P | Produces an ethical matrix, a grid that cross-references affected parties (rows, deliberately including voiceless ones such as future generations and the envir... |
 | `think-evidence-vs-inference-sort` | reasoning-clarity | P | Produces an evidence/inference ledger by sorting the claims in a prompt, document, or proposed conclusion into evidence, inference, and assumption, attaching a... |
 | `think-expected-value-decision-tree` | decision-and-option-evaluation | P | Evaluates competing actions under uncertainty by building a decision tree of choice and chance nodes, placing explicit probabilities on outcomes the decider do... |
 | `think-far-analogy-ideation` | divergent-ideation | S | Generates novel solution candidates by stating a problem's deep relational structure, mapping it to distant source domains (nature, other industries, games), a... |
@@ -33,6 +36,8 @@
 | `think-frame-creation` | problem-framing | C/P | Generates a new problem frame from theme analysis of the broader context, an abductive standpoint stated as approach it as if it were Y that redefines what the... |
 | `think-futures-wheel` | systems-and-consequences | P | Produces a consequence map by tracing the first, second, and third order effects of a change or decision radiating outward from the center, surfacing ripples b... |
 | `think-iceberg-model` | systems-and-consequences | P | Produces an iceberg that moves a problem down four levels of causation - from the visible event, to the pattern over time, to the underlying structures, to the... |
+| `think-interest-based-negotiation` | decision-and-option-evaluation | P | Produces a negotiation preparation map that separates both sides' positions from their underlying interests, anchors the accept-or-walk decision on a named, va... |
+| `think-interval-calibration-check` | meta-thinking-and-reflection | P | Audits whether a stated confidence interval means what it claims by running an equivalent-bet indifference test on its width and scoring nominal confidence aga... |
 | `think-issue-tree` | reasoning-clarity | P | Produces an issue tree that decomposes one big, ambiguous question top-down into a mutually-exclusive, collectively-exhaustive (MECE) set of smaller sub-questi... |
 | `think-ladder-of-inference-check` | assumption-and-belief-challenge | P | Produces an annotated reasoning trace that reconstructs how a conclusion was reached, from the observable data, to the data actually selected, to the meaning a... |
 | `think-linear-model-aggregation` | decision-and-option-evaluation | S | Builds a simple mechanical scoring model - a few weighted predictive cues combined by a fixed formula and applied consistently - for a repeated predictive judg... |
@@ -44,6 +49,7 @@
 | `think-parallel-perspectives-review` | perspective-and-multi-lens | P | Evaluates a decision or idea through several deliberately separated lenses in turn (facts, upside, risks, intuition, alternatives, process) so that no single m... |
 | `think-premortem` | risk-and-resilience | S/M | Generates a ranked risk register that stress-tests a planned decision by imagining it has already failed, surfacing the likely causes and pairing each with a m... |
 | `think-problem-restatement` | problem-framing | M/P | Generates several genuinely different framings of an ambiguous problem by varying altitude, stakeholder, and goal-versus-implementation, then selects the most... |
+| `think-process-tracing` | systems-and-consequences | P | Evaluates rival causal explanations of a single case by typing each piece of within-case evidence by its diagnosticity (hoop, smoking-gun, straw-in-the-wind, d... |
 | `think-pyramid-principle` | synthesis | P | Produces a pyramid that structures a recommendation answer-first - a single governing thought on top, a small set of MECE, deliberately ordered key arguments b... |
 | `think-question-burst` | divergent-ideation | P | Generates a rapid burst of questions about a problem (questions only, no answers), then ranks them for which would most change the approach and selects the sin... |
 | `think-red-team-light` | assumption-and-belief-challenge | P | Produces an adversarial critique by constructing the strongest case against a proposal or thesis (the best objections an intelligent adversary would raise), th... |
@@ -51,9 +57,12 @@
 | `think-role-storming` | perspective-and-multi-lens | P | Produces a persona-tagged divergent idea list, ideas generated while inhabiting a chosen non-self identity to lower self-censorship and shift associations. |
 | `think-scamper` | divergent-ideation | P | Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adap... |
 | `think-scenario-planning` | strategy-and-opportunity | P | Produces a scenario set, 2-4 contrasting and internally consistent short narratives of alternative external futures named by two critical-uncertainty axes, plu... |
+| `think-speculative-harms-anti-goals` | ethics-values-deliberation | A | Produces an anti-goals register by assuming a design succeeds at scale, narrating the near-future in which that success harms third parties (including non-user... |
 | `think-stocks-and-flows-reasoning` | systems-and-consequences | S | Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory f... |
 | `think-theory-of-constraints` | systems-and-consequences | P | Produces a constraint-intervention plan that names the single binding constraint capping a system's throughput and attaches its exploit, subordinate, and eleva... |
 | `think-three-horizons` | systems-and-consequences | C | Produces a three-curve transition map (a declining present H1, a contested middle H2 read in two directions, an emerging future H3) with the actor located in i... |
+| `think-veil-of-ignorance-reasoning` | ethics-values-deliberation | M | Produces a veiled-decision comparison that decides a values trade-off as if the decider had an equal chance of being any affected party, under an explicit deci... |
+| `think-walton-argumentation-schemes` | reasoning-clarity | P | Evaluates one short defeasible argument by classifying it as a stereotyped reasoning scheme (appeal to expert opinion, analogy, sign, cause to effect, conseque... |
 | `think-what-would-have-to-be-true` | decision-and-option-evaluation | P | Converts a strategy, option, or contested claim into the specific conditions that would have to be true for it to be the best choice, rates each condition's co... |
 | `think-woop` | risk-and-resilience | S | Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and b... |
 

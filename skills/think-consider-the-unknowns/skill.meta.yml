@@ -1,0 +1,90 @@
+# Rich sidecar for the think-consider-the-unknowns skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.consider-the-unknowns;
+# slug = bare method = consider-the-unknowns;
+# installable name = prefix + slug = think-consider-the-unknowns (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.consider-the-unknowns
+  slug: consider-the-unknowns
+  name: think-consider-the-unknowns
+  display_name: Consider the Unknowns
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: assumption-and-belief-challenge
+  secondary_families: [reasoning-clarity, risk-and-resilience]
+  thinking_modes: [critical, analytical, calibration]
+  problem_contexts: [thin-evidence, high-stakes, one-off-judgment]
+  use_cases:
+    - enumerate the relevant evidence not in hand that bears on a thin-evidence judgment
+    - rate each unknown by its bearing on the call and its obtainability
+    - flag the high-bearing resolvable unknowns to close before committing
+    - re-rate confidence against the mapped gap, selectively, where it is inflated
+  poor_fit_cases:
+    - a genuine reference class exists (route to reference-class-forecasting)
+    - widening a numeric interval - reasoning prompts do not fix interval overprecision
+    - the unknowns are cheap to just resolve (go get the information)
+    - the judge is already well-calibrated or underconfident (little effect, only feeds doubt)
+    - a low-stakes, reversible two-way-door decision (process for its own sake)
+    - the task is testing one named assumption (what-would-have-to-be-true), imagining a failure (premortem), or arguing the known counter-case (red-team-light)
+
+interface:
+  required_inputs:
+    - a specific consequential judgment made from thin or partial evidence, plus the confidence currently attached to it
+  optional_inputs:
+    - the evidence already in hand behind the judgment
+    - known candidate unknowns or open questions
+  primary_artifact_type: known-unknowns-ledger
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.reference-class-forecasting
+    - thinking-framework-skills.red-team-light
+    - thinking-framework-skills.what-would-have-to-be-true
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.evidence-vs-inference-sort   # sort the present claims, then map the absent variables
+  often_precedes:
+    - thinking-framework-skills.reference-class-forecasting  # if a resolvable unknown is "what is the base rate", go get it
+  complements:
+    - thinking-framework-skills.red-team-light               # enumerate the absent vs argue the strongest known case
+    - thinking-framework-skills.what-would-have-to-be-true   # absence-based and direction-agnostic vs proposition-based and direction-committed
+    - thinking-framework-skills.evidence-vs-inference-sort   # operates on absent material vs present claims
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - listing present claims or known counterarguments instead of absent variables
+    - cataloging resolvable unknowns instead of just resolving them (procrastination with a worksheet)
+    - forcing the confidence down even when the original already absorbed the gap (losing the selectivity)
+    - selling it as interval-width repair, which the controlled evidence shows it is not
+    - running it where a real reference class exists, where base rates would be the stronger move
+
+evidence:
+  evidence_tier: "M"   # governing; moderate - direct controlled support plus an independent mechanism line, capped at M
+  confidence: moderate that listing relevant unknowns before stating confidence reduces overconfidence selectively; low that any human-subject effect transfers unchanged to agents
+  transferred_evidence: true       # all studies on human students/online panels answering trivia; not agent-validated
+  lineage:
+    derived_from: [known unknowns, omission neglect debiasing, Walters/Fernbach/Fox/Sloman, Sanbonmatsu-Kardes omission-neglect program]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Walters, Fernbach, Fox and Sloman (2017); mechanism line via Sanbonmatsu-Kardes; terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-consider-the-unknowns/SKILL.md
+  references_path: skills/think-consider-the-unknowns/references/
+  evidence_path: skills/think-consider-the-unknowns/evidence/dossier.md
+  evals_path: skills/think-consider-the-unknowns/eval/

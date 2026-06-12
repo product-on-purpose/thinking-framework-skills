@@ -1,0 +1,88 @@
+# Rich sidecar for the think-interval-calibration-check skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.interval-calibration-check;
+# slug = bare method = interval-calibration-check;
+# installable name = prefix + slug = think-interval-calibration-check (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.interval-calibration-check
+  slug: interval-calibration-check
+  name: think-interval-calibration-check
+  display_name: Interval Calibration Check
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: meta-thinking-and-reflection
+  secondary_families: [estimation-and-forecasting, decision-and-prioritization]
+  thinking_modes: [reflective, evaluative, quantitative]
+  problem_contexts: [stated-uncertainty, high-stakes, repeated-estimation]
+  use_cases:
+    - test the WIDTH of a stated confidence interval with the equivalent-bet indifference test
+    - widen an overprecise interval (or narrow an underconfident one) to genuine indifference
+    - score a human's track record of stated confidence against the actual hit rate
+    - diagnose over- or underprecision and emit a calibration scorecard with corrected intervals
+  poor_fit_cases:
+    - run on the agent's own confidence rather than a human's stated intervals (the central wall - verbalized LLM confidence is itself overconfident, Xiong et al. 2024)
+    - used when the problem is the LOCATION of the estimate, not the width (that is reference-class-forecasting or fermi-estimation)
+    - calibrating an interval around a lookupable fact or where no genuine uncertainty exists
+    - presented as a one-shot bet-test with no resolvable items, without marking the scorecard one-legged
+    - sold as full debiasing rather than the documented partial correction
+
+interface:
+  required_inputs:
+    - a human-stated interval or confidence number, its nominal confidence, and what rides on it
+  optional_inputs:
+    - a battery of resolvable items or the judge's own resolved past predictions (for hit-rate scoring)
+    - the downstream method that will consume the number (an expected-value tree, a risk model)
+  primary_artifact_type: calibration-scorecard
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.decision-journal
+    - thinking-framework-skills.reference-class-forecasting
+    - thinking-framework-skills.expected-value-decision-tree
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.fermi-estimation              # build the number, then calibrate the stated band around it
+  often_precedes:
+    - thinking-framework-skills.expected-value-decision-tree  # calibrate the probability inputs before the arithmetic launders them
+    - thinking-framework-skills.decision-journal             # calibrate the interval, then record it
+  complements:
+    - thinking-framework-skills.reference-class-forecasting   # location fix vs width fix - route a wrong number there, an untrustworthy "sure" here
+    - thinking-framework-skills.decision-journal             # the journal captures confidence; this adjusts and scores it
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - calibrating the agent's own confidence instead of a human's stated intervals
+    - adjusting the location of the estimate instead of only the width of the uncertainty
+    - presenting a bet-only result as a verified calibration when no items resolve
+    - promising full debiasing rather than the documented partial correction
+
+evidence:
+  evidence_tier: "P"   # governing; preliminary M overturned to P (conservative-split rule)
+  confidence: moderate that interval overprecision is real and scored feedback partially corrects it; low that the equivalent-bet device specifically improves outcomes, and the protocol is transferred from human studies not agent-validated
+  transferred_evidence: true       # all studies on human subjects; no agent validation; the model cannot calibrate itself
+  lineage:
+    derived_from: [probability encoding, equivalent bet test, calibration training, overprecision research]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # probability encoding (Spetzler and Stael von Holstein, SRI); calibration literature (Lichtenstein, Fischhoff, Phillips); popularized by Douglas Hubbard
+  trademark: none                  # terms generic/descriptive; "equivalent bet test" is Hubbard's popularization, carried as an attributed term not a brand claim
+
+implementation:
+  skill_path: skills/think-interval-calibration-check/SKILL.md
+  references_path: skills/think-interval-calibration-check/references/
+  evidence_path: skills/think-interval-calibration-check/evidence/dossier.md
+  evals_path: skills/think-interval-calibration-check/eval/

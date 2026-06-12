@@ -1,0 +1,91 @@
+# Rich sidecar for the think-dialectical-bootstrapping skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.dialectical-bootstrapping;
+# slug = bare method = dialectical-bootstrapping;
+# installable name = prefix + slug = think-dialectical-bootstrapping (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.dialectical-bootstrapping
+  slug: dialectical-bootstrapping
+  name: think-dialectical-bootstrapping
+  display_name: Dialectical Bootstrapping
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: [forecasting-and-estimation, assumption-and-belief-challenge]
+  thinking_modes: [convergent, quantitative, debiasing]
+  problem_contexts: [single-numeric-estimate, high-uncertainty, no-second-judge]
+  use_cases:
+    - improve a single committed numeric estimate by averaging a deliberately contrarian second self-estimate
+    - debias an anchored point estimate when no real second judge and no reference class are available
+    - generate a second estimate from assumed-wrong reasoning and a stated direction, then take the mean
+    - emit a dialectical estimate artifact with an applicability check and the mechanical average
+  poor_fit_cases:
+    - an easy question or one well within competence (a forced second estimate harms accuracy)
+    - an unbounded order-of-magnitude unknown (no gain; that is think-fermi-estimation's regime)
+    - a real second judge or real reference class is available (both beat the inner crowd)
+    - the error is one shared load-bearing assumption (test the assumption, do not average over it)
+    - the average is treated as optional - cherry-picking a single number forfeits the effect
+    - a qualitative judgment with nothing to average
+
+interface:
+  required_inputs:
+    - a single hard, bounded-scale, one-off numeric quantity that must be committed now
+  optional_inputs:
+    - the assumptions and considerations behind a first instinct
+    - a known direction the estimate may be biased
+  primary_artifact_type: dialectical-estimate
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: false
+  likely_companions:
+    - thinking-framework-skills.fermi-estimation
+    - thinking-framework-skills.reference-class-forecasting
+    - thinking-framework-skills.red-team-light
+
+relationships:
+  often_follows: []
+  often_precedes: []
+  complements:
+    - thinking-framework-skills.fermi-estimation              # decompose an unbounded magnitude vs re-sample-and-average a bounded one
+    - thinking-framework-skills.reference-class-forecasting   # outside view from real cases vs inner crowd when no cases exist
+    - thinking-framework-skills.red-team-light                # adjudicate objections vs read a direction then average two numbers
+  overlaps_with: []
+  variants:
+    - crowd within
+    - wisdom of many in one mind
+    - disagreeing-perspective second estimate (modern variant)
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - running it on an easy question, where a forced contrarian second estimate adds error the average bakes in
+    - running it on an unbounded order-of-magnitude unknown, where the gains vanish (fermi's regime)
+    - cherry-picking the preferred estimate instead of committing the mechanical arithmetic mean
+    - simulating a crowd from one mind when a real second judge or real reference class is available
+    - averaging over a single shared load-bearing assumption instead of testing it
+
+evidence:
+  evidence_tier: "M"   # moderate; governing grade from the vetted dossier, carried unchanged
+  confidence: moderate that averaging a deliberately contrarian second self-estimate beats the first on a hard bounded-scale one-off numeric question; low that any specific gain transfers to an AI agent
+  transferred_evidence: true       # all studies on human students/panels/casino patrons; not agent-validated
+  lineage:
+    derived_from: [dialectical bootstrapping, crowd within, consider-the-opposite, wisdom of crowds]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Herzog and Hertwig (2009); crowd-within base effect Vul and Pashler (2008)
+  trademark: none
+
+implementation:
+  skill_path: skills/think-dialectical-bootstrapping/SKILL.md
+  references_path: skills/think-dialectical-bootstrapping/references/
+  evidence_path: skills/think-dialectical-bootstrapping/evidence/dossier.md
+  evals_path: skills/think-dialectical-bootstrapping/eval/

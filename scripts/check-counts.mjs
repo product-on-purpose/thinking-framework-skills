@@ -16,7 +16,7 @@
 // different families by each (a deliberate divergence, not a bug); unifying them reshuffles
 // user-facing groupings and is a deferred design call, so this check does NOT force a pair
 // match. It does enforce that every shipped skill's metadata.family is one of the canonical
-// 11 skill-family slugs below (a typo guard).
+// 12 skill-family slugs below (a typo guard).
 //
 // Usage: node scripts/check-counts.mjs        (exit 1 on any mismatch)
 
@@ -42,6 +42,7 @@ const FAMILIES = [
   { slug: 'reasoning-clarity', display: 'Reasoning Clarity' },
   { slug: 'decision-and-option-evaluation', display: 'Decision & Option Evaluation' },
   { slug: 'strategy-and-opportunity', display: 'Strategy & Opportunity' },
+  { slug: 'ethics-values-deliberation', display: 'Ethics & Values Deliberation' },
   { slug: 'risk-and-resilience', display: 'Risk & Resilience' },
   { slug: 'synthesis', display: 'Synthesis' },
   { slug: 'meta-thinking-and-reflection', display: 'Meta-Thinking & Reflection' },
@@ -69,7 +70,7 @@ const perFamily = Object.fromEntries(FAMILIES.map((f) => [f.slug, 0]));
 for (const e of shippedEntries) {
   const fam = skillFamily('think-' + e.slug);
   if (!fam) { problems.push(`shipped skill think-${e.slug}: no metadata.family in SKILL.md`); continue; }
-  if (!(fam in perFamily)) { problems.push(`shipped skill think-${e.slug}: metadata.family "${fam}" is not one of the 11 canonical skill-family slugs`); continue; }
+  if (!(fam in perFamily)) { problems.push(`shipped skill think-${e.slug}: metadata.family "${fam}" is not one of the 12 canonical skill-family slugs`); continue; }
   perFamily[fam]++;
 }
 
