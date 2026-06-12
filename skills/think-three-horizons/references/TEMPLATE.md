@@ -43,3 +43,9 @@ List the disruptions, ventures, and innovations bridging H1 and H3, then classif
 ## Governance implication (orientation note, not a decision)
 
 [State briefly that the three horizons need different metrics, and flag where H1 governance is being - or would be - misapplied to H2 or H3 work (e.g. holding an early H3 venture to H1's ROI and certainty hurdles). This is a sensemaking note that frames the dialogue, not a recommendation.]
+
+## Evidence caveat
+
+<!-- This section is pre-printed: copy it into the artifact verbatim, without this comment. -->
+
+> This map is a sensemaking scaffold that surfaces transition dynamics. The method's evidence is tier C (conceptual, transferred from human facilitation practice); it is not a foresight or outcome method, and the map is not a forecast.

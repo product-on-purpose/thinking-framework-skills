@@ -62,7 +62,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-06-10
-  output_eval_status: measured-2026-06-10
+  output_eval_status: measured-2026-06-11
   known_failure_modes:
     - forcing a dissolution on a genuinely fundamental trade-off (manufacturing a clever non-solution)
     - inventing a contradiction where the problem is merely vague or under-specified
