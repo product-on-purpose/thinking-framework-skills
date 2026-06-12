@@ -1,0 +1,92 @@
+# Rich sidecar for the think-interest-based-negotiation skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.interest-based-negotiation;
+# slug = bare method = interest-based-negotiation;
+# installable name = prefix + slug = think-interest-based-negotiation (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.interest-based-negotiation
+  slug: interest-based-negotiation
+  name: think-interest-based-negotiation
+  display_name: Interest-Based Negotiation
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: [problem-framing-and-structuring]
+  thinking_modes: [analytical, strategic, integrative]
+  problem_contexts: [multi-party, high-stakes, conflicting-interests]
+  use_cases:
+    - separate stated positions from underlying interests on both sides of a negotiation
+    - anchor an accept-or-walk decision on a named, valued best alternative and a reservation point
+    - estimate the counterparty's alternative and bound the zone of possible agreement
+    - invent options for mutual gain across differently-valued issues before dividing value
+    - name objective criteria for dividing value and the follow-through an agreement must carry
+  poor_fit_cases:
+    - a genuinely single-issue, one-shot, distributive haggle with nothing to logroll (report the zone-only read, no manufactured win-win)
+    - a hard bargainer acting in bad faith where naive interest disclosure is exploitable (mark disclose-or-hold; do not assume good faith)
+    - a choice with no counterparty (that is solo option evaluation - decision-option-review or expected-value-decision-tree)
+    - an undefined or unexamined best alternative (develop one first; emit no accept-or-walk call without it)
+    - presenting the five-element package as validated procedure (it is practitioner codification with evidenced components)
+    - scripting live-table tactics or concession timing (out of scope by design - preparation deskwork only)
+
+interface:
+  required_inputs:
+    - a deal requiring another party's agreement, with the parties and the issues in play
+  optional_inputs:
+    - the user's known interests, priorities, and constraints
+    - the user's best alternative away from the table, if already identified
+    - what is known or inferable about the counterparty's interests and alternatives
+  primary_artifact_type: negotiation-preparation-map
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.expected-value-decision-tree
+    - thinking-framework-skills.decision-option-review
+    - thinking-framework-skills.boundary-critique
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.boundary-critique          # who counts as affected can feed the parties-and-interests table
+  often_precedes:
+    - thinking-framework-skills.expected-value-decision-tree # value an uncertain best alternative as one cell of the prep
+  complements:
+    - thinking-framework-skills.decision-option-review      # solo option scoring vs a modeled two-party decision
+    - thinking-framework-skills.expected-value-decision-tree # value an uncertain alternative; the tree has no counterparty model
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - manufacturing integrative options on a genuinely single-issue distributive haggle
+    - assuming good faith and coaching exploitable interest disclosure against a bad-faith counterparty
+    - emitting an accept-or-walk recommendation without a named, valued best alternative
+    - presenting the five-element package as validated procedure rather than practitioner codification with evidenced components
+    - drifting into live-table tactics and concession scripting instead of preparation deskwork
+
+evidence:
+  evidence_tier: "P"   # governing; component mechanisms carry M human-dyad evidence, package uncontrolled, capped at P
+  confidence: moderate that interest-elicitation and a named, valued best alternative improve the structure of a negotiated decision; low that any specific outcome effect transfers to an agent-produced prep map
+  transferred_evidence: true       # all studies on human dyads; the package is not validated as a package, and nothing is agent-validated
+  lineage:
+    derived_from: [principled negotiation, getting to yes, BATNA, ZOPA, Raiffa decision-analytic negotiation, mutual gains approach]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Fisher and Ury (Harvard Negotiation Project), Raiffa, and Susskind/CBI as lineage; terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-interest-based-negotiation/SKILL.md
+  references_path: skills/think-interest-based-negotiation/references/
+  evidence_path: skills/think-interest-based-negotiation/evidence/dossier.md
+  evals_path: skills/think-interest-based-negotiation/eval/
+</content>

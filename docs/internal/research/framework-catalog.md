@@ -97,7 +97,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Counterfactual reasoning | examine 'what if X had been different' | P | `[fold]` -> After Action Review |
 | Devil's Advocacy | assign someone to argue against | X | `[flag]` |
 | Double-crux | find the single belief whose change would flip each side of a disagreement | C | `[excl]` |
-| Consider the unknowns | before committing to a judgment, explicitly list the relevant variables you cannot observe and weigh the gap they leave | M | `[cand]` |
+| Consider the unknowns | before committing to a judgment, explicitly list the relevant variables you cannot observe and weigh the gap they leave | M | `[shipped]` |
 | Ideological Turing Test | state an opposing view well enough that its holders cannot tell you are not one of them | C | `[fold]` -> Red Team / Blue Team |
 | Analysis of Competing Hypotheses (ACH) | score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence | X | `[excl]` |
 
@@ -128,7 +128,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Causal Layered Analysis | read an issue at four depths (litany / system / worldview / myth-metaphor), then reconstruct each layer into alternative futures anchored by a rewritten guiding metaphor | C | `[shipped]` |
 | Theory of Constraints | find the single binding constraint capping throughput and attach its exploit / subordinate / elevate decisions (the five focusing steps) | P | `[shipped]` |
 | Fishbone / Ishikawa | decompose one observed effect into candidate causes grouped under a fixed category checklist (6M/8P) | P | `[fold]` -> Issue Trees |
-| Process tracing | test rival causal explanations of a single case by each piece of evidence's diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests) | P | `[cand]` |
+| Process tracing | test rival causal explanations of a single case by each piece of evidence's diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests) | P | `[shipped]` |
 | System archetypes | match a recurring dynamic to a named feedback-structure template (fixes that fail, shifting the burden, tragedy of the commons) and import its canonical leverage prescription | C | `[fold]` -> Causal Loop Diagrams |
 | Qualitative Comparative Analysis (QCA) | code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome | P | `[excl]` |
 
@@ -151,8 +151,8 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | ICE / RICE / WSJF | prioritization scores | V | `[flag]` (branded) |
 | OODA Loop | observe-orient-decide-act | P | `[excl]` |
 | Mechanical / linear-model aggregation | combine cues with a simple fixed formula instead of holistic judgment | S | `[shipped]` |
-| Dialectical bootstrapping | estimate, assume the estimate is wrong and list why, estimate again from those changed assumptions, then average the two numbers | M | `[cand]` |
-| Interest-based negotiation (BATNA / principled negotiation) | separate both sides' interests from their positions, decide against your BATNA inside the mapped ZOPA, and invent options for mutual gain across differently-valued issues before dividing value | P | `[cand]` |
+| Dialectical bootstrapping | estimate, assume the estimate is wrong and list why, estimate again from those changed assumptions, then average the two numbers | M | `[shipped]` |
+| Interest-based negotiation (BATNA / principled negotiation) | separate both sides' interests from their positions, decide against your BATNA inside the mapped ZOPA, and invent options for mutual gain across differently-valued issues before dividing value | P | `[shipped]` |
 
 ## 8. Strategy and opportunity
 
@@ -183,7 +183,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Contradiction / Tension Mapping (Polarity Mapping) | map an unsolvable polarity as both/and rather than smoothing it - name the two interdependent poles, the upside and downside of each, the greater purpose that makes managing both worthwhile, plus early-warning signs and action steps for staying in the productive zone | C | `[shipped]` (branded) |
 | Insight statement generation | turn observations into sharp, transferable insight statements (the why behind a finding) | P | `[excl]` |
 | Sensemaking matrix | organize conflicting signals for interpretation | C | `[excl]` |
-| Argumentation schemes with critical questions | identify which stereotyped argument pattern is in play, then test it with that scheme's standard critical questions | P | `[cand]` |
+| Argumentation schemes with critical questions | identify which stereotyped argument pattern is in play, then test it with that scheme's standard critical questions | P | `[shipped]` |
 | Toulmin argument model | lay out a claim as data, warrant, and backing, with qualifier and rebuttal, to test whether it holds | C | `[fold]` -> Argument Mapping |
 | Issue-Position-Argument mapping (IBIS) | capture a deliberation as a typed graph where positions may only answer issues and arguments may only support or attack positions | P | `[recipe]` (ships as a workflow) |
 
@@ -208,7 +208,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | PDCA / A3 | plan-do-check-act iterative improvement loop (A3 = the one-page storyboard of one turn) | P | `[recipe]` (ships as a workflow) |
 | Socratic self-questioning | disciplined self-interrogation of a belief via a fixed set of probing question-types | P | `[fold]` -> Ladder of Inference Check |
 | Plus/Delta, Start/Stop/Continue, Rose/Thorn/Bud | fast retro formats | P | `[fold]` -> After Action Review |
-| Interval calibration check | test a stated confidence interval against an equivalent bet, widen until indifferent, then score stated confidence against the actual hit rate wherever outcomes resolve | P | `[cand]` |
+| Interval calibration check | test a stated confidence interval against an equivalent bet, widen until indifferent, then score stated confidence against the actual hit rate wherever outcomes resolve | P | `[shipped]` |
 
 ## 12. Self and team awareness
 
@@ -231,9 +231,9 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 
 | Framework | Mechanism | Tier | Status |
 |---|---|---|---|
-| Veil-of-ignorance reasoning | decide a values trade-off as if you had an equal chance of being any affected party, then return to the actual decision and confront the gap | M | `[cand]` |
-| Ethical Matrix | grid affected parties (rows, including voiceless ones) against prima facie principles (wellbeing, autonomy, fairness) and read the cell-level pattern of trade-offs | P | `[cand]` |
-| Speculative harms and anti-goals | assume the design succeeds at scale, narrate the dystopian near-future in which it harms third parties and is exploited in bad faith, then convert each harm into an explicit anti-goal constraining the design | A | `[cand]` |
+| Veil-of-ignorance reasoning | decide a values trade-off as if you had an equal chance of being any affected party, then return to the actual decision and confront the gap | M | `[shipped]` |
+| Ethical Matrix | grid affected parties (rows, including voiceless ones) against prima facie principles (wellbeing, autonomy, fairness) and read the cell-level pattern of trade-offs | P | `[shipped]` |
+| Speculative harms and anti-goals | assume the design succeeds at scale, narrate the dystopian near-future in which it harms third parties and is exploited in bad faith, then convert each harm into an explicit anti-goal constraining the design | A | `[shipped]` |
 | Reflective equilibrium | iterate between case judgments and general principles, revising whichever fits worse, until they cohere | C | `[excl]` |
 
 <!-- END GENERATED FRAMEWORK TABLES -->

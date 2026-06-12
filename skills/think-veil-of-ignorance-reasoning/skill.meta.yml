@@ -1,0 +1,87 @@
+# Rich sidecar for the think-veil-of-ignorance-reasoning skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.veil-of-ignorance-reasoning;
+# slug = bare method = veil-of-ignorance-reasoning;
+# installable name = prefix + slug = think-veil-of-ignorance-reasoning (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.veil-of-ignorance-reasoning
+  slug: veil-of-ignorance-reasoning
+  name: think-veil-of-ignorance-reasoning
+  display_name: Veil-of-Ignorance Reasoning
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: ethics-values-deliberation
+  secondary_families: [decision-under-uncertainty, perspective-shifting-and-multi-lens]
+  thinking_modes: [normative, deliberative, evaluative]
+  problem_contexts: [values-trade-off, resource-allocation, self-serving-bias-risk]
+  use_cases:
+    - decide a values trade-off impartially, as if equiprobably any affected party, under a stated rule
+    - surface where a decider's own position is silently driving an allocation (self-serving bias)
+    - confront a veiled choice against the positioned choice and name the gap
+    - reach a publicly justifiable position on who gets a scarce benefit or burden
+  poor_fit_cases:
+    - run with no explicit decision rule behind the veil (launders a contested normative choice as impartiality - the central wall)
+    - used where desert, promises, fiduciary duties, or compensatory claims make identity morally load-bearing (Sandel's critique)
+    - presented as a neutral verdict despite the device's known directional push toward aggregate welfare
+    - used as training or a durability fix (cross-dilemma transfer failed; it is per-decision)
+    - applied to an empirical "which option performs best" question rather than a normative whose-interests-count one
+    - mistaken for identity-known stakeholder perspective enumeration (that is parallel-perspectives-review)
+
+interface:
+  required_inputs:
+    - a normative values trade-off under pressure, plus the parties it distributes benefit and burden across
+  optional_inputs:
+    - the decision rule to carry behind the veil (average utility, maximin, or floor-constrained)
+    - the positioned answer the decider would otherwise default to
+  primary_artifact_type: veiled-decision-comparison
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.boundary-critique
+    - thinking-framework-skills.parallel-perspectives-review
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.boundary-critique          # audit who counts as affected, then decide impartially over that party list
+  often_precedes:
+    - thinking-framework-skills.parallel-perspectives-review  # take a defensible position, then walk it through each party's eyes if needed
+  complements:
+    - thinking-framework-skills.parallel-perspectives-review  # identity removal vs identity-known enumeration on the same party list
+    - thinking-framework-skills.boundary-critique            # who is counted as affected vs how to decide impartially among them
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - running the veil with no explicit decision rule, so a contested normative choice is laundered as impartiality
+    - veiling away morally load-bearing identity (promises, desert, fiduciary duty, compensatory claims)
+    - presenting the veiled answer as a neutral verdict despite its known directional push toward aggregate welfare
+    - treating it as training rather than a per-decision device (cross-dilemma transfer failed)
+
+evidence:
+  evidence_tier: "M"   # governing; moderate; controlled studies test the actual move, capped at M (not S, not P)
+  confidence: moderate that equiprobable self-placement shifts a positioned judgment and surfaces silent self-interest; the measured outcome is a directional judgment shift in a normatively contested space, not validated decision quality
+  transferred_evidence: true       # all studies on human subjects; the 2023 work has humans choosing principles FOR AI, not agents reasoning; not agent-validated
+  lineage:
+    derived_from: [veil of ignorance, original position, Rawls difference principle, Harsanyi equiprobability model, focused per-dilemma VOI exercise]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit John Rawls (1971) and John Harsanyi (1953-1955); experimental line from Huang, Greene and Bazerman (2019); terms generic
+  trademark: none
+
+implementation:
+  skill_path: skills/think-veil-of-ignorance-reasoning/SKILL.md
+  references_path: skills/think-veil-of-ignorance-reasoning/references/
+  evidence_path: skills/think-veil-of-ignorance-reasoning/evidence/dossier.md
+  evals_path: skills/think-veil-of-ignorance-reasoning/eval/

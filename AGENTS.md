@@ -17,11 +17,14 @@ Each skill is built around four commitments, not just a prompt:
 | Skill | Family | Evidence | Artifact |
 |---|---|---|---|
 | [`think-authentic-dissent`](skills/think-authentic-dissent/SKILL.md) | assumption-and-belief-challenge | **S** | dissent audit |
+| [`think-consider-the-unknowns`](skills/think-consider-the-unknowns/SKILL.md) | assumption-and-belief-challenge | M | known unknowns ledger |
 | [`think-ladder-of-inference-check`](skills/think-ladder-of-inference-check/SKILL.md) | assumption-and-belief-challenge | P | reasoning trace |
 | [`think-red-team-light`](skills/think-red-team-light/SKILL.md) | assumption-and-belief-challenge | P | adversarial critique |
 | [`think-decision-option-review`](skills/think-decision-option-review/SKILL.md) | decision-and-option-evaluation | P | option matrix |
+| [`think-dialectical-bootstrapping`](skills/think-dialectical-bootstrapping/SKILL.md) | decision-and-option-evaluation | M | dialectical estimate |
 | [`think-expected-value-decision-tree`](skills/think-expected-value-decision-tree/SKILL.md) | decision-and-option-evaluation | P | decision tree ev |
 | [`think-fermi-estimation`](skills/think-fermi-estimation/SKILL.md) | decision-and-option-evaluation | M/P | fermi decomposition worksheet |
+| [`think-interest-based-negotiation`](skills/think-interest-based-negotiation/SKILL.md) | decision-and-option-evaluation | P | negotiation preparation map |
 | [`think-linear-model-aggregation`](skills/think-linear-model-aggregation/SKILL.md) | decision-and-option-evaluation | **S** | scoring model |
 | [`think-minimax-regret`](skills/think-minimax-regret/SKILL.md) | decision-and-option-evaluation | P | regret matrix |
 | [`think-one-way-vs-two-way-door`](skills/think-one-way-vs-two-way-door/SKILL.md) | decision-and-option-evaluation | P | reversibility classification |
@@ -33,9 +36,13 @@ Each skill is built around four commitments, not just a prompt:
 | [`think-morphological-analysis`](skills/think-morphological-analysis/SKILL.md) | divergent-ideation | P | morphological field |
 | [`think-question-burst`](skills/think-question-burst/SKILL.md) | divergent-ideation | P | ranked question set |
 | [`think-scamper`](skills/think-scamper/SKILL.md) | divergent-ideation | P | scamper expansion sheet |
+| [`think-ethical-matrix`](skills/think-ethical-matrix/SKILL.md) | ethics-values-deliberation | P | ethical matrix |
+| [`think-speculative-harms-anti-goals`](skills/think-speculative-harms-anti-goals/SKILL.md) | ethics-values-deliberation | A | anti goals register |
+| [`think-veil-of-ignorance-reasoning`](skills/think-veil-of-ignorance-reasoning/SKILL.md) | ethics-values-deliberation | M | veiled decision comparison |
 | [`think-after-action-review`](skills/think-after-action-review/SKILL.md) | meta-thinking-and-reflection | **S** | after action review |
 | [`think-belief-update-routine`](skills/think-belief-update-routine/SKILL.md) | meta-thinking-and-reflection | P | belief update ledger |
 | [`think-decision-journal`](skills/think-decision-journal/SKILL.md) | meta-thinking-and-reflection | P | decision journal entry |
+| [`think-interval-calibration-check`](skills/think-interval-calibration-check/SKILL.md) | meta-thinking-and-reflection | P | calibration scorecard |
 | [`think-parallel-perspectives-review`](skills/think-parallel-perspectives-review/SKILL.md) | perspective-and-multi-lens | P | multi lens review |
 | [`think-role-storming`](skills/think-role-storming/SKILL.md) | perspective-and-multi-lens | P | persona tagged idea list |
 | [`think-abstraction-laddering`](skills/think-abstraction-laddering/SKILL.md) | problem-framing | P | abstraction ladder |
@@ -47,6 +54,7 @@ Each skill is built around four commitments, not just a prompt:
 | [`think-evidence-vs-inference-sort`](skills/think-evidence-vs-inference-sort/SKILL.md) | reasoning-clarity | P | evidence inference ledger |
 | [`think-issue-tree`](skills/think-issue-tree/SKILL.md) | reasoning-clarity | P | issue tree |
 | [`think-natural-frequency-bayesian`](skills/think-natural-frequency-bayesian/SKILL.md) | reasoning-clarity | **S** | natural frequency breakdown |
+| [`think-walton-argumentation-schemes`](skills/think-walton-argumentation-schemes/SKILL.md) | reasoning-clarity | P | scheme critique sheet |
 | [`think-backcasting`](skills/think-backcasting/SKILL.md) | risk-and-resilience | P | backcast path |
 | [`think-premortem`](skills/think-premortem/SKILL.md) | risk-and-resilience | S/M | risk register |
 | [`think-reference-class-forecasting`](skills/think-reference-class-forecasting/SKILL.md) | risk-and-resilience | **S** | reference class estimate |
@@ -60,12 +68,13 @@ Each skill is built around four commitments, not just a prompt:
 | [`think-causal-loop-diagrams`](skills/think-causal-loop-diagrams/SKILL.md) | systems-and-consequences | M/P | signed causal loop diagram |
 | [`think-futures-wheel`](skills/think-futures-wheel/SKILL.md) | systems-and-consequences | P | consequence map |
 | [`think-iceberg-model`](skills/think-iceberg-model/SKILL.md) | systems-and-consequences | P | iceberg |
+| [`think-process-tracing`](skills/think-process-tracing/SKILL.md) | systems-and-consequences | P | rival explanation evidence ledger |
 | [`think-stocks-and-flows-reasoning`](skills/think-stocks-and-flows-reasoning/SKILL.md) | systems-and-consequences | **S** | stock flow map |
 | [`think-theory-of-constraints`](skills/think-theory-of-constraints/SKILL.md) | systems-and-consequences | P | constraint intervention plan |
 | [`think-three-horizons`](skills/think-three-horizons/SKILL.md) | systems-and-consequences | C | three horizons transition map |
 | [`think-framework-advisor`](skills/think-framework-advisor/SKILL.md) | meta (router) | M/C | Thinking Plan |
 
-47 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
+56 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
 <!-- END GENERATED SKILLS -->
 
 ## Recipes

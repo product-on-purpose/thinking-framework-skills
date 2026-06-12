@@ -15,6 +15,7 @@
 /families/assumption-and-belief-challenge/index.html
 /families/decision-and-option-evaluation/index.html
 /families/divergent-ideation/index.html
+/families/ethics-values-deliberation/index.html
 /families/index.html
 /families/meta-thinking-and-reflection/index.html
 /families/perspective-and-multi-lens/index.html
@@ -38,10 +39,13 @@
 /frameworks/think-causal-layered-analysis/index.html
 /frameworks/think-causal-loop-diagrams/index.html
 /frameworks/think-concept-mapping/index.html
+/frameworks/think-consider-the-unknowns/index.html
 /frameworks/think-contradiction-resolution/index.html
 /frameworks/think-contradiction-tension-mapping/index.html
 /frameworks/think-decision-journal/index.html
 /frameworks/think-decision-option-review/index.html
+/frameworks/think-dialectical-bootstrapping/index.html
+/frameworks/think-ethical-matrix/index.html
 /frameworks/think-evidence-vs-inference-sort/index.html
 /frameworks/think-expected-value-decision-tree/index.html
 /frameworks/think-far-analogy-ideation/index.html
@@ -50,6 +54,8 @@
 /frameworks/think-framework-advisor/index.html
 /frameworks/think-futures-wheel/index.html
 /frameworks/think-iceberg-model/index.html
+/frameworks/think-interest-based-negotiation/index.html
+/frameworks/think-interval-calibration-check/index.html
 /frameworks/think-issue-tree/index.html
 /frameworks/think-ladder-of-inference-check/index.html
 /frameworks/think-linear-model-aggregation/index.html
@@ -61,6 +67,7 @@
 /frameworks/think-parallel-perspectives-review/index.html
 /frameworks/think-premortem/index.html
 /frameworks/think-problem-restatement/index.html
+/frameworks/think-process-tracing/index.html
 /frameworks/think-pyramid-principle/index.html
 /frameworks/think-question-burst/index.html
 /frameworks/think-red-team-light/index.html
@@ -68,9 +75,12 @@
 /frameworks/think-role-storming/index.html
 /frameworks/think-scamper/index.html
 /frameworks/think-scenario-planning/index.html
+/frameworks/think-speculative-harms-anti-goals/index.html
 /frameworks/think-stocks-and-flows-reasoning/index.html
 /frameworks/think-theory-of-constraints/index.html
 /frameworks/think-three-horizons/index.html
+/frameworks/think-veil-of-ignorance-reasoning/index.html
+/frameworks/think-walton-argumentation-schemes/index.html
 /frameworks/think-what-would-have-to-be-true/index.html
 /frameworks/think-woop/index.html
 /index.html

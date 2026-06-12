@@ -1,0 +1,91 @@
+# Rich sidecar for the think-speculative-harms-anti-goals skill.
+# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+#
+# Naming: id = thinking-framework-skills.speculative-harms-anti-goals;
+# slug = bare method = speculative-harms-anti-goals;
+# installable name = prefix + slug = think-speculative-harms-anti-goals (matches the skill directory).
+
+identity:
+  id: thinking-framework-skills.speculative-harms-anti-goals
+  slug: speculative-harms-anti-goals
+  name: think-speculative-harms-anti-goals
+  display_name: Speculative Harms and Anti-Goals
+  version: 0.1.0
+  status: draft        # draft | experimental | active | deprecated | archived
+  maturity: alpha
+
+classification:
+  primary_family: ethics-values-deliberation
+  secondary_families: [risk-failure-and-resilience, systems-and-consequences]
+  thinking_modes: [divergent, normative, adversarial, foresight]
+  problem_contexts: [high-stakes, irreversible, third-party-harm, misuse-surface]
+  use_cases:
+    - assume a design succeeds at scale and narrate the near-future in which that success harms people
+    - cast the third-party victims (including non-users) and the named bad-faith misuse actors
+    - convert each speculated harm into an anti-goal, a standing constraint on what the product must never do
+    - bind each anti-goal into a requirement, acceptance criterion, default, or review gate
+  poor_fit_cases:
+    - used for project-survival risk - whether the plan fails and why (that is think-premortem)
+    - used on harms that are already present and documented (route to incident analysis, not fiction)
+    - used on trivial or fully reversible decisions (manufactures dystopian gravity for a button color)
+    - run with no intent to bind the anti-goals into requirements (ethics theater)
+    - used as a complete adversarial-coverage assurance (a structured threat model finds more)
+    - used to produce a compliance or assurance artifact (governance process work, not a thinking move)
+
+interface:
+  required_inputs:
+    - a focal product, feature, or decision whose success case could externalize harm onto third parties
+  optional_inputs:
+    - the known misuse actors or harmed populations of concern
+    - where the resulting anti-goals will be bound (requirements doc, backlog, review gate)
+  primary_artifact_type: anti-goals-register
+  output_formats: [markdown]
+
+execution:
+  mode: inline                 # inline | forked
+  subagent_suitable: false
+  recipe_suitable: true
+  likely_companions:
+    - thinking-framework-skills.premortem
+    - thinking-framework-skills.ethical-matrix
+    - thinking-framework-skills.futures-wheel
+
+relationships:
+  often_follows:
+    - thinking-framework-skills.futures-wheel   # map one move's ripples, then stress its success case for third-party harm
+  often_precedes:
+    - thinking-framework-skills.ethical-matrix  # once harms and parties are surfaced, grid the parties against principles
+  complements:
+    - thinking-framework-skills.premortem       # success-anchored third-party harm vs failure-anchored plan risk
+    - thinking-framework-skills.ethical-matrix  # narrative harm generation vs present-impact stakeholder grid
+    - thinking-framework-skills.boundary-critique # success-future misuse cast vs present-frame inclusion audit
+  overlaps_with:
+    - thinking-framework-skills.premortem       # shared prospective-narration engine; the closest-run call (~20% ceiling). Walled on anchor (success vs failure), cast (third parties + misuse actors vs project), generative question, and artifact (design constraints vs monitoring controls). A maintainer could defensibly fold this into premortem; recorded honestly in evidence/dossier.md.
+  variants: []
+
+quality:
+  trigger_eval_status: not-run
+  output_eval_status: not-run
+  known_failure_modes:
+    - running it as a premortem - hunting plan-survival risk instead of success-coexistent third-party harm
+    - speculation drifting to the cinematically far-fetched while present, mundane harms go unexamined
+    - skipping the misuse-actor question, so the adversarial harms (the sharpest output) never surface
+    - emitting an anti-goals register that no requirement or review gate ever references (ethics theater)
+
+evidence:
+  evidence_tier: "A"   # governing; anecdotal - documented practice plus one qualitative perception study, no controlled outcome evidence
+  confidence: low that dystopian narration measurably improves harm anticipation or any outcome; the move ships as a structural elicitation prompt, not a validated method
+  transferred_evidence: true       # all evidence from human classrooms and workshops; nothing studies an AI agent running the move
+  lineage:
+    derived_from: [design fiction, speculative design, Black Mirror Writers Room (Fiesler), anti-goals exercise (Mauldin), harms-envisioning genre]
+  source_dossier: evidence/dossier.md
+  attribution_required: true       # credit Joshua Mauldin (2018, the anti-goals conversion) and Casey Fiesler's writers-room exercise, studied by Klassen and Fiesler (2022); terms de-branded
+  trademark: "'Black Mirror' (the popular aliases' namesake) is a trademark of the television series' rights holders; the method itself is community design-ethics practice, not proprietary, and ships here under a de-branded descriptive name"
+
+implementation:
+  skill_path: skills/think-speculative-harms-anti-goals/SKILL.md
+  references_path: skills/think-speculative-harms-anti-goals/references/
+  evidence_path: skills/think-speculative-harms-anti-goals/evidence/dossier.md
+  evals_path: skills/think-speculative-harms-anti-goals/eval/
+</content>
