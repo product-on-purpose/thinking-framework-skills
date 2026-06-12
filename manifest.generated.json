@@ -1,6 +1,6 @@
 {
   "name": "thinking-framework-skills",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "tier": "advanced",
   "standard": "0.8",
   "skills": [
@@ -70,6 +70,11 @@
       "description": "Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit proposition, with cross-links across clusters - then surfaces gaps, missing links, and questionable propositions. Use when a domain has many interrelated concepts and the goal is to externalize and inspect how they relate, forcing every relationship to be named rather than left as a vague association."
     },
     {
+      "name": "think-consider-the-unknowns",
+      "path": "skills/think-consider-the-unknowns/SKILL.md",
+      "description": "Produces a known-unknowns ledger by enumerating the relevant evidence not in hand, the variables that bear on a judgment but are unknown or unobservable, rating each unknown by its bearing and its obtainability, then re-rating confidence against the mapped gap. Use when a consequential one-off judgment rests on thin or partial evidence, no usable base rate exists, and the confidence on the table may be inflated by what was never looked at. Not for cases with a real reference class, for widening a numeric interval, or for unknowns cheap enough to just go resolve."
+    },
+    {
       "name": "think-contradiction-resolution",
       "path": "skills/think-contradiction-resolution/SKILL.md",
       "description": "Converts a stuck trade-off into a contradiction to dissolve rather than a compromise to settle for. Names the two conflicting requirements, states an implementation-free Ideal Final Result, and applies the four separation principles (separate the requirements in time, space, scale, or condition) to satisfy both at once, then produces either a concrete resolution or an honest flag that the trade-off is genuine. Use when a decision has hardened into an either/or like speed versus quality, thorough versus fast, or generous versus profitable, when splitting the difference feels wrong and a win-win would be worth far more than the best compromise, or when a recurring design or product trade-off keeps forcing the same painful balance."
@@ -88,6 +93,16 @@
       "name": "think-decision-option-review",
       "path": "skills/think-decision-option-review/SKILL.md",
       "description": "Produces a criteria-weighted option matrix by comparing a set of options against weighted criteria, scoring each, surfacing the explicit tradeoffs, and recommending one while flagging where the scoring is soft. Use when choosing among several real options, or when a decision needs its tradeoffs made explicit rather than left to intuition."
+    },
+    {
+      "name": "think-dialectical-bootstrapping",
+      "path": "skills/think-dialectical-bootstrapping/SKILL.md",
+      "description": "Produces a dialectical estimate that improves a single committed number by polling the inner crowd, make a first estimate, assume it is wrong and list why, read whether that pushes the answer too high or too low, make a second estimate from those changed assumptions, then mechanically average the two. Use when a hard, one-off, bounded-scale numeric estimate (a year, a percentage, a count, a forecast) is about to be committed and no second judge, no real reference class, and no better data are available. Not for easy questions, not for unbounded order-of-magnitude unknowns, and never a cherry-picked single number in place of the average."
+    },
+    {
+      "name": "think-ethical-matrix",
+      "path": "skills/think-ethical-matrix/SKILL.md",
+      "description": "Produces an ethical matrix, a grid that cross-references affected parties (rows, deliberately including voiceless ones such as future generations and the environment) against prima facie principles (columns of wellbeing, autonomy, fairness), specifying the option's impact in every cell and reading the result as a trade-off pattern rather than a score. Use when a concrete proposal affects multiple parties with a genuine moral trade-off among them, some affected parties have no voice, and an ethics debate keeps sliding between groups and principles. Not a decision calculator and not an option-versus-criteria scorer; the matrix maps the terrain and leaves the weighing to deliberation."
     },
     {
       "name": "think-evidence-vs-inference-sort",
@@ -128,6 +143,16 @@
       "name": "think-iceberg-model",
       "path": "skills/think-iceberg-model/SKILL.md",
       "description": "Produces an iceberg that moves a problem down four levels of causation - from the visible event, to the pattern over time, to the underlying structures, to the mental models that hold them in place - pairing each level with the intervention it implies to find systemic causes and higher-leverage fixes. Use when a problem keeps recurring despite event-level fixes, when a symptom is being treated as a one-off, or when the question is why this keeps happening and where to actually intervene."
+    },
+    {
+      "name": "think-interest-based-negotiation",
+      "path": "skills/think-interest-based-negotiation/SKILL.md",
+      "description": "Produces a negotiation preparation map that separates both sides' positions from their underlying interests, anchors the accept-or-walk decision on a named, valued best alternative inside the mapped zone of possible agreement, and invents options for mutual gain across differently-valued issues before dividing value against objective criteria. Use when agreement is required from a party not under your control and more than one issue is in play (salary, vendor, partnership, resource, or multi-party disputes), and a position fight has hardened before anyone checked whether the interests actually conflict. Preparation deskwork only, not live-table tactics, and not for a single-issue distributive haggle or a choice with no counterparty."
+    },
+    {
+      "name": "think-interval-calibration-check",
+      "path": "skills/think-interval-calibration-check/SKILL.md",
+      "description": "Audits whether a stated confidence interval means what it claims by running an equivalent-bet indifference test on its width and scoring nominal confidence against the actual hit rate, emitting corrected intervals and a calibration scorecard. Use when a human-stated interval or confidence number drives a consequential plan, forecast, or commitment and has never been audited, and the worry is overprecision rather than a wrong central estimate. Calibrates human-stated uncertainty only, never the agent's own confidence, and resizes width without relocating the number. Not for lookupable facts and not a promise of full debiasing."
     },
     {
       "name": "think-issue-tree",
@@ -185,6 +210,11 @@
       "description": "Generates several genuinely different framings of an ambiguous problem by varying altitude, stakeholder, and goal-versus-implementation, then selects the most useful one to solve and produces a reframed problem statement with How Might We angles. Use when a problem is vague, arrived as a symptom or a pre-baked solution, or before committing significant work to solving the wrong thing."
     },
     {
+      "name": "think-process-tracing",
+      "path": "skills/think-process-tracing/SKILL.md",
+      "description": "Evaluates rival causal explanations of a single case by typing each piece of within-case evidence by its diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests) against each rival's mechanism chain, then eliminating or confirming rivals item by item rather than by tallying. Use when one outcome has happened, several genuine rival explanations compete to explain it, and mechanism-level evidence (logs, timestamps, documents, who knew what when) is available to discriminate them - an incident postmortem, a churn spike, a lost deal, a metric anomaly. Not for cross-case generalization, not a consistency-matrix scoring tally, and not for cases with no rivals on the table."
+    },
+    {
       "name": "think-pyramid-principle",
       "path": "skills/think-pyramid-principle/SKILL.md",
       "description": "Produces a pyramid that structures a recommendation answer-first - a single governing thought on top, a small set of MECE, deliberately ordered key arguments beneath it, and supporting evidence under each (Minto), with an optional SCQA intro framing. Use when a conclusion or recommendation already exists and must be communicated clearly to a busy or senior reader, when findings need to be ordered into a tight top-down case, or when a write-up buries its point under context."
@@ -230,6 +260,11 @@
       "description": "Produces a scenario set, 2-4 contrasting and internally consistent short narratives of alternative external futures named by two critical-uncertainty axes, plus a robustness read of the strategy across the worlds (which moves survive every world, which early signals show which world is arriving, which options to keep open). Use when the planning horizon is long and the decisive forces are outside control and not reliably predictable, and a single implicit forecast is driving the strategy. Not forecasting and not a single preferred path."
     },
     {
+      "name": "think-speculative-harms-anti-goals",
+      "path": "skills/think-speculative-harms-anti-goals/SKILL.md",
+      "description": "Produces an anti-goals register by assuming a design succeeds at scale, narrating the near-future in which that success harms third parties (including non-users) and is exploited in bad faith by named bad actors, then converting each speculated harm into a standing design constraint bound into the requirements. Use when a feature's success case could externalize harm onto people outside the customer relationship (location, ranking, inference, targeting, automation) and the team's risk review is entirely project-centric. Not a premortem (route plan-survival risk there), not for present documented harms (route to incident analysis), and not a security threat model."
+    },
+    {
       "name": "think-stocks-and-flows-reasoning",
       "path": "skills/think-stocks-and-flows-reasoning/SKILL.md",
       "description": "Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory from the net flow rather than the direction of any single flow. Use when a problem involves an accumulation (cash, debt, backlog, headcount, customer base, technical debt, emissions) and intuition about whether it is rising or falling may be wrong."
@@ -248,6 +283,16 @@
       "name": "think-top3",
       "path": "skills/think-top3/SKILL.md",
       "description": "Produces a worked three-framework analysis of a topic. Ranks the library's thinking frameworks for relevance, applies the top three so each emits its real artifact, and reconciles them into one cross-framework synthesis. Use when a decision, problem, or stuck point deserves more than one lens and the goal is worked output now rather than a plan of which methods to run later. Use when several frameworks plausibly fit and the most relevant few should be ranked, executed, and integrated into a single read."
+    },
+    {
+      "name": "think-veil-of-ignorance-reasoning",
+      "path": "skills/think-veil-of-ignorance-reasoning/SKILL.md",
+      "description": "Produces a veiled-decision comparison that decides a values trade-off as if the decider had an equal chance of being any affected party, under an explicit decision rule, then returns to the positioned decision and names the gap that self-interest was silently driving. Use when a decision distributes benefit and burden across parties, the decider is one of those parties, and the risk is a self-serving call dressed as fairness. Not a neutral verdict, not forecasting, and not for cases where desert, promises, or compensatory claims make identity morally load-bearing."
+    },
+    {
+      "name": "think-walton-argumentation-schemes",
+      "path": "skills/think-walton-argumentation-schemes/SKILL.md",
+      "description": "Evaluates one short defeasible argument by classifying it as a stereotyped reasoning scheme (appeal to expert opinion, analogy, sign, cause to effect, consequences, popular practice, slippery slope, practical reasoning), instantiating the scheme's premise slots to expose its implicit premises, then putting that scheme's keyed critical questions to it and rendering a presumption verdict that stands or falls by burden of proof. Produces a scheme critique sheet. Use when a single presumptive argument rests on an authority's say-so, a load-bearing analogy, a slippery-slope objection, or a consequence-based case, and the question is whether its presumption survives the standard defeaters for that pattern. Not for structurally complex multi-premise arguments (use argument-mapping) and not for deductive or statistical proof."
     },
     {
       "name": "think-what-would-have-to-be-true",
