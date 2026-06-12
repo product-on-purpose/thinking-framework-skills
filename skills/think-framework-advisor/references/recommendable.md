@@ -57,7 +57,7 @@
 | `think-what-would-have-to-be-true` | decision-and-option-evaluation | P | Converts a strategy, option, or contested claim into the specific conditions that would have to be true for it to be the best choice, rates each condition's co... |
 | `think-woop` | risk-and-resilience | S | Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and b... |
 
-## Recipes (8)
+## Recipes (9)
 
 Multi-step chains. Recommend the recipe (by name) when the job needs the whole sequence; the steps are the skills it runs in order.
 
@@ -67,6 +67,7 @@ Multi-step chains. Recommend the recipe (by name) when the job needs the whole s
 | `think-expand-options` | `recipes/expand-options.md` | `think-problem-restatement` -> `think-scamper` -> `think-assumption-reversal` |
 | `think-first-principles` | `recipes/first-principles.md` | `think-abstraction-laddering` -> `think-assumption-reversal` |
 | `think-idea-quality-audit` | `recipes/idea-quality-audit.md` | `think-decision-option-review` -> `think-red-team-light` |
+| `think-issue-position-argument-mapping` | `recipes/issue-position-argument-mapping.md` | `think-issue-tree` -> `think-decision-option-review` -> `think-argument-mapping` |
 | `think-kepner-tregoe` | `recipes/kepner-tregoe.md` | `think-issue-tree` -> `think-decision-option-review` -> `think-premortem` |
 | `think-pdca-a3` | `recipes/pdca-a3.md` | `think-issue-tree` -> `think-decision-option-review` -> `think-after-action-review` |
 | `think-reframe-problem` | `recipes/reframe-problem.md` | `think-problem-restatement` -> `think-evidence-vs-inference-sort` -> `think-parallel-perspectives-review` |
