@@ -1,6 +1,6 @@
 # plan_v0.7.0 - eval-informed quality pass + wave-3 candidate intake
 
-> **STATUS: IN FLIGHT (planning + registry intake applied, 2026-06-11).** The wave-3 admissions (14 candidates + the 13th family) and the dialectical-bootstrapping unbundle are applied to `frameworks/registry.mjs` in the working tree, gate-green (advanced 0/0; registry 135/47; 43/43 tests), alongside the still-uncommitted 2026-06-10 queue re-open (16 candidates + the 12th family). Nothing here is committed, shipped, or version-bumped yet. Canonical history stays in [`CHANGELOG.md`](../../../../CHANGELOG.md); cut mechanics follow [`release-process.md`](../../release-process.md).
+> **STATUS: IN FLIGHT (phases 0-2 + 3a + 4 landed/landing, 2026-06-11).** Phase 0 (intake) merged as PR #56; phase 1 (the four tightened skills) merged as PR #57; phase 2 (the 30-candidate NAME-mode vetting) is complete - **9 Build, 7 Fold, 1 Recipe, 13 Reject**, reconciled in [`phase2-verdicts.md`](./phase2-verdicts.md); phase 3a (the 21 fold/reject/recipe reconciliations + 20 published dossiers + the IBIS recipe) and phase 4 (six enrichments, [`phase2-enrichments.md`](./phase2-enrichments.md)) are applied and gate-green. Remaining: phase 3b (build the 9 survivors) and phase 6 (the cut). Canonical history stays in [`CHANGELOG.md`](../../../../CHANGELOG.md); cut mechanics follow [`release-process.md`](../../release-process.md).
 
 ## What v0.7.0 contains
 

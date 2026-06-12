@@ -15,7 +15,7 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
   <a href="#-conformance-what-advanced-gold-tier-means"><img src="https://img.shields.io/badge/tier-advanced%20(Gold)-B8860B?style=flat-square" alt="Conformance tier: advanced (Gold)"></a>
   <a href="#-the-catalog"><img src="https://img.shields.io/badge/frameworks-47-brightgreen?style=flat-square" alt="Frameworks: 47"></a>
   <a href="#-tools-meta-skills"><img src="https://img.shields.io/badge/tools-4-brightgreen?style=flat-square" alt="Tools: 4"></a>
-  <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-8-brightgreen?style=flat-square" alt="Recipes: 8"></a>
+  <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-9-brightgreen?style=flat-square" alt="Recipes: 9"></a>
   <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/spec-agentskills.io-orange?style=flat-square" alt="Agent Skills Spec"></a>
   <img src="https://img.shields.io/badge/evidence-graded-purple?style=flat-square" alt="Evidence-graded">
 </p>
@@ -77,7 +77,7 @@ Three things make it different from a list of mental models:
 /plugin install thinking-framework-skills@product-on-purpose
 ```
 
-All 47 frameworks (plus the 4 tools and 8 recipes) become available immediately, invocable by name (for example `/think-premortem`).
+All 47 frameworks (plus the 4 tools and 9 recipes) become available immediately, invocable by name (for example `/think-premortem`).
 
 **Cross-agent (Cursor, Copilot, Cline, and others via the open [skills CLI](https://github.com/vercel-labs/skills)):**
 
@@ -301,7 +301,7 @@ Four skills are **tools**, not thinking methods: they operate *over* the library
 | [**Random Frameworks**](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-random-frameworks/) | **Applicator**. Draw three frameworks at random and apply each regardless of fit, to break a frozen or fixated framing. Use it when the obvious lenses are not working. |
 | [**Research Framework**](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-research-framework/) | **Engine**. Research a candidate method, grade its evidence conservatively, and propose a catalog entry for review. This is how the library grows; it never auto-admits. |
 
-**Frameworks, tools, and recipes, in one line:** a *framework* is a single graded thinking method (the 47 in the catalog above); a *tool* helps you choose or apply frameworks (the 4 here); a *recipe* is a fixed chain of frameworks for a recurring job (the 8 below).
+**Frameworks, tools, and recipes, in one line:** a *framework* is a single graded thinking method (the 47 in the catalog above); a *tool* helps you choose or apply frameworks (the 4 here); a *recipe* is a fixed chain of frameworks for a recurring job (the 9 below).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -333,7 +333,7 @@ When you run `/think-premortem "..."`, the agent loads the skill, follows its nu
 
 ## 🧩 Recipes
 
-Recipes chain several skills into one end-to-end job, passing a compressed artifact at each handoff. Eight ship today:
+Recipes chain several skills into one end-to-end job, passing a compressed artifact at each handoff. Nine ship today:
 
 | Recipe | What it does |
 |---|---|
@@ -345,6 +345,7 @@ Recipes chain several skills into one end-to-end job, passing a compressed artif
 | **Audit reasoning** | Separate evidence from inference, map the argument, and pressure-test it |
 | **First principles** | Decompose a problem to its fundamentals, then strip the inherited assumptions to rebuild from what is necessary |
 | **Idea-quality audit** | Score a batch of ideas on explicit quality dimensions, then pressure-test the strongest few before committing |
+| **Issue-Position-Argument mapping** | Turn a tangled multi-question deliberation or transcript into a typed map - the open issues, the rival positions on each, and the arguments for and against |
 
 Browse them on the [live site](https://product-on-purpose.github.io/thinking-framework-skills/recipes/) or in [`_workflows/`](_workflows/).
 
@@ -414,7 +415,7 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 | **Current version** | [v0.6.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.6.0) |
 | **Frameworks** | 47, across 11 cognitive-operation families |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
-| **Recipes** | 8 (skill chains shipped as workflow components) |
+| **Recipes** | 9 (skill chains shipped as workflow components) |
 | **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) - 0 errors / 0 warnings, self-hosting CI |
 | **Evidence** | 11 skills at `S` / `S-M` tier; every skill graded and sourced |
 | **Spec** | [agentskills.io](https://agentskills.io/specification) |
@@ -447,7 +448,7 @@ thinking-framework-skills/
 |---|---|
 | [`skills/`](skills/) | All 47 frameworks + 4 tools, each a self-contained unit (the site renders from these) |
 | [`frameworks/`](frameworks/) | `registry.mjs` (the single-source-of-truth catalog of 105 evaluated methods) + per-method dossiers |
-| [`_workflows/`](_workflows/) | The 8 recipes as workflow components - ordered skill chains with handoffs |
+| [`_workflows/`](_workflows/) | The 9 recipes as workflow components - ordered skill chains with handoffs |
 | [`scripts/`](scripts/) | Generators (site, manifests, name-safety set) and [`check.mjs`](scripts/check.mjs), the conformance gate |
 | [`docs/`](docs/) | [Getting started](docs/getting-started.md), [architecture](docs/architecture.md), [concepts](docs/concepts.md), [contributing](docs/contributing.md), [conformance](docs/conformance.md) |
 | [`docs/internal/`](docs/internal/) | The [authoring loop](docs/internal/AUTHORING.md), specs, [release plans](docs/internal/release-plans/), and research |

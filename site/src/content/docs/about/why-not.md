@@ -39,6 +39,13 @@ The durable cognitive move already ships inside another skill, named descriptive
 - **What / So What / Now What** - observation -> meaning -> action. Folds into [After Action Review](../../frameworks/think-after-action-review/).
 - **Socratic self-questioning** - disciplined self-interrogation of a belief via a fixed set of probing question-types. Folds into [Ladder of Inference Check](../../frameworks/think-ladder-of-inference-check/).
 - **Plus/Delta, Start/Stop/Continue, Rose/Thorn/Bud** - fast retro formats. Folds into [After Action Review](../../frameworks/think-after-action-review/).
+- **Toulmin argument model** - lay out a claim as data, warrant, and backing, with qualifier and rebuttal, to test whether it holds. Folds into [Argument Mapping](../../frameworks/think-argument-mapping/).
+- **System archetypes** - match a recurring dynamic to a named feedback-structure template (fixes that fail, shifting the burden, tragedy of the commons) and import its canonical leverage prescription. Folds into [Causal Loop Diagrams](../../frameworks/think-causal-loop-diagrams/).
+- **Ideological Turing Test** - state an opposing view well enough that its holders cannot tell you are not one of them. Folds into [Red Team / Blue Team](../../frameworks/think-red-team-light/).
+- **Trait-lens perspective (Big Five / HEXACO)** - view a decision through contrasting personality-trait viewpoints (high vs low openness, conscientiousness, and so on). Folds into [Parallel Perspectives Review](../../frameworks/think-parallel-perspectives-review/).
+- **VIA character-strengths lens** - frame a problem or role through signature strengths drawn from the 24-strength classification. Folds into [Parallel Perspectives Review](../../frameworks/think-parallel-perspectives-review/).
+- **Kirton Adaption-Innovation (cognitive style)** - read a problem, plan, or team through the adaptor (do it better) and innovator (do it differently) style poles. Folds into [Parallel Perspectives Review](../../frameworks/think-parallel-perspectives-review/). (Branded: Kirton Adaption-Innovation Inventory / KAI (proprietary instrument managed by the KAI Foundation / Occupational Research Centre; administration restricted to certificated practitioners).)
+- **RIASEC interest-fit (Holland codes)** - score a role, option, or person against the six fixed interest types (realistic, investigative, artistic, social, enterprising, conventional) and read the fit. Folds into [Decision Option Review](../../frameworks/think-decision-option-review/).
 
 ## Documented, not shipped
 
@@ -54,6 +61,7 @@ Included only with explicit caveats - a trademark, a narrow valid range, or a fa
 - **Blue Ocean tools** - strategy canvas / four actions. (Branded: Blue Ocean Strategy / Strategy Canvas (registered marks of the authors / Blue Ocean Global Network).)
 - **Porter's Five Forces** - competitive-structure scan. (Branded: Porter's Five Forces (associated with Michael E. Porter / Harvard Business School).)
 - **Dot voting** - allocate limited votes.
+- **Strong Interest Inventory** - profile vocational interests against occupational reference groups. (Branded: Strong Interest Inventory (registered trademark of The Myers-Briggs Company, formerly CPP / Consulting Psychologists Press).)
 
 ## Excluded on the merits
 
@@ -70,6 +78,18 @@ Weak or contradictory evidence, or redundant with a shipped skill. Excluded afte
 - **Sensemaking matrix** - organize conflicting signals for interpretation.
 - **Note-and-vote / Decider supervote** - individual notes, then a group vote, then a single Decider's weighted supervote.
 - **1-2-4-All / Round-robin / Lean Coffee / World Cafe / Open Space** - scaled-participation group formats.
+- **Reflective equilibrium** - iterate between case judgments and general principles, revising whichever fits worse, until they cohere.
+- **Estimate-talk-estimate (Delphi)** - collect independent estimates, share only the anonymized spread and rationales, discuss the variance, then re-estimate independently.
+- **Qualitative Comparative Analysis (QCA)** - code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome.
+- **Analysis of Competing Hypotheses (ACH)** - score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence.
+- **C-K theory (Concept-Knowledge design theory)** - partition design work into a concept space of undecidable propositions and a knowledge space, and iterate the four operators (C-C, C-K, K-C, K-K) between them.
+- **Belbin Team Roles** - map a team against nine complementary contribution roles to surface gaps and overlaps. (Branded: Belbin and Belbin Team Roles (associated with Belbin Associates, Cambridge UK; BTRSPI inventory licensed by Belbin Associates).)
+- **Tuckman group-development stages** - diagnose a team's stage on the forming-storming-norming-performing arc to pick the fitting intervention.
+- **Myers-Briggs Type Indicator (MBTI)** - sort a person into one of sixteen types across four dichotomies. (Branded: MBTI and Myers-Briggs Type Indicator (trademarks of The Myers and Briggs Foundation / The Myers-Briggs Company).)
+- **CliftonStrengths (StrengthsFinder)** - rank a person across 34 talent themes from a proprietary forced-choice assessment. (Branded: CliftonStrengths and StrengthsFinder (trademarks of Gallup, Inc.).)
+- **DISC profile** - classify behavioral style across dominance, influence, steadiness, conscientiousness. (Branded: Everything DiSC (Wiley); Insights Discovery (The Insights Group); True Colors and related marks. Marston's underlying model is public domain..)
+- **Enneagram of Personality** - map a person to one of nine interconnected types with wings and stress / growth arrows.
+- **Learning-styles inventories** - match instruction to a learner's preferred modality (visual, auditory, kinesthetic, and so on). (Branded: VARK (Neil Fleming / VARK Learn Limited); Kolb Learning Style Inventory (Hay Group / Korn Ferry); HBDI and Herrmann Brain Dominance Instrument (Herrmann Global / Herrmann International).)
 
 ## Out of scope (a sibling library)
 

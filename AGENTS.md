@@ -79,6 +79,7 @@ Composable chains that solve a recurring job end to end. Each ships as a **workf
 | [expand-options](recipes/expand-options.md) | problem-restatement -> scamper -> assumption-reversal |
 | [first-principles](recipes/first-principles.md) | abstraction-laddering -> assumption-reversal |
 | [idea-quality-audit](recipes/idea-quality-audit.md) | decision-option-review -> red-team-light |
+| [issue-position-argument-mapping](recipes/issue-position-argument-mapping.md) | issue-tree -> decision-option-review -> argument-mapping |
 | [kepner-tregoe](recipes/kepner-tregoe.md) | issue-tree -> decision-option-review -> premortem |
 | [pdca-a3](recipes/pdca-a3.md) | issue-tree -> decision-option-review -> after-action-review |
 | [reframe-problem](recipes/reframe-problem.md) | problem-restatement -> evidence-vs-inference-sort -> parallel-perspectives-review |
