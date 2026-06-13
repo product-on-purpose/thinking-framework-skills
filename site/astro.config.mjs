@@ -79,9 +79,14 @@ export default defineConfig({
           label: 'Start here',
           items: [
             'start/getting-started',
+            'start/does-this-work',
             'start/evidence-model',
             'start/how-to-read-a-page',
           ],
+        },
+        {
+          label: 'Showcase',
+          items: [{ autogenerate: { directory: 'showcase' } }],
         },
         {
           label: 'Learn',

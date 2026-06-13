@@ -1,0 +1,76 @@
+---
+title: Does this actually work?
+description: We measured it. The catalog routes the right framework for a situation (99% top-1, zero false-fires across 561 cases) and the skills produce artifacts that meet their own bar (99% of 315 checks). Here are the numbers, and what they do and do not prove.
+---
+
+import { Card, CardGrid, Aside, Badge } from '@astrojs/starlight/components';
+
+Most thinking-tool collections ask you to take their value on faith. This library measures two things you can check, and publishes the raw results.
+
+<Aside type="caution" title="The honest frame first">
+These are thinking *aids*, not magic. The evidence that any given method improves a real-world decision is graded honestly on every framework page, and is often weaker than the method is usually sold on (see [the evidence model](../evidence-model/)). What the two evals below measure is narrower and more checkable: does the right framework fire for a situation, and does a framework, once run, produce the artifact it promises. They do **not** measure whether the artifact made your decision turn out better.
+</Aside>
+
+## The two questions a library like this must answer
+
+<CardGrid>
+  <Card title="Does the right tool fire?" icon="random">
+    If you describe a situation, does the catalog route you to the framework that actually fits, and stay quiet when no tool fits? This is what the [Framework Advisor](../../tools/think-framework-advisor/) depends on. Measured by the **trigger eval**.
+  </Card>
+  <Card title="Is the output any good?" icon="document">
+    When a framework runs, does it produce a structured artifact that meets its own quality checklist, not a wall of prose? Measured by the **output eval**.
+  </Card>
+</CardGrid>
+
+## Trigger eval: the catalog routes cleanly
+
+Every trigger and anti-case from the shipped skills' own `eval/cases.md` was pooled into a blind answer key. Blind router agents - which never see which skill authored a case or the expected answer - routed each situation against the public advisor catalog, exactly as the live advisor does. A deterministic scorer graded routed-versus-expected.
+
+<CardGrid>
+  <Card title="0 false-fires" icon="approve-check">
+    Across **280 anti-cases** (deliberately wrong-tool or no-tool situations), no skill wrongly grabbed one. **100%.** This is the metric that matters most: skills that do not over-trigger.
+  </Card>
+  <Card title="99% top-1, 100% top-3" icon="approve-check">
+    Of **281 "should fire" situations**, 278 routed to the intended framework on the first pick; all 281 had it in the top 3. The 3 first-pick misses are near-twins, each with the intended skill still in the top 3.
+  </Card>
+</CardGrid>
+
+The headline: **561 cases, zero false-fires, 99% top-1 routing.** The catalog discriminates - the descriptions and anti-triggers send a situation to the right framework.
+
+## Output eval: the artifacts hit their own bar
+
+A separate measurement. For each skill, a producer agent runs it on a real prompt and emits the full artifact; a *separate* judge agent grades that artifact against the skill's own "output checks," check by check, so nothing grades itself.
+
+<CardGrid>
+  <Card title="99% of checks passed" icon="approve-check">
+    **311 of 315** individual output checks passed across freshly produced artifacts. **43 of 47** skills satisfied every single check.
+  </Card>
+  <Card title="The misses were specific" icon="information">
+    The four failures clustered on one element: the evidence caveat dropped from the artifact when a skill was run cold. A precise, fixable gap, not a vague score; the flagged skills were tightened so the caveat now ships by construction.
+  </Card>
+</CardGrid>
+
+## What this does **not** prove
+
+<Aside type="note" title="The limits, stated plainly">
+- The evals measure **routing** and **artifact quality**, not real-world **decision outcomes**. A premortem that surfaces five sharp risks is a good artifact; whether it made your launch succeed is a different, harder question the dossiers are honest about.
+- They are **model-executed and non-deterministic** - a snapshot, not a fixed property. One skill failed a check in a pilot and passed it in the full run. They are a measurement, not a gate.
+- The full runs above were measured **2026-06-10 across the 47 skills shipped then**; the catalog is now 56. A full re-run across the current catalog is the natural next measurement (it is cheap and reproducible).
+</Aside>
+
+## Check it yourself
+
+<CardGrid>
+  <Card title="The methodology" icon="open-book">
+    How the blind routers, answer keys, and scorers work is documented in the harness ([`scripts/eval/`](https://github.com/product-on-purpose/thinking-framework-skills/tree/main/scripts/eval)). It runs without an API key and is reproducible.
+  </Card>
+  <Card title="The raw results" icon="document">
+    The full per-skill scorecards and machine records live in the repo ([`docs/internal/eval-results/`](https://github.com/product-on-purpose/thinking-framework-skills/tree/main/docs/internal/eval-results)) - every number above traces to a `.json` you can audit.
+  </Card>
+  <Card title="The evidence behind each method" icon="approve-check">
+    Separately from behavior, every framework carries a graded dossier. Trace any claim to its source in [the bibliography](../../evidence/bibliography/).
+  </Card>
+  <Card title="How a page is built" icon="setting">
+    The pages are generated from the skills, so the docs cannot drift from what runs. See [how to read a page](../how-to-read-a-page/).
+  </Card>
+</CardGrid>

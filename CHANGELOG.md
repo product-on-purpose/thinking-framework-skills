@@ -4,11 +4,24 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
-### Fixed
-- **Stale catalog counts in the repo-facing docs.** `docs/getting-started.md` still read "31 thinking frameworks" (the v0.1.0 count) and `docs/README.md` read "47 graded frameworks across 11 families ... 8 composable recipes"; both now read the current 56 frameworks across 12 families, 4 tools, and 9 recipes. These docs are hand-authored and sit outside the site generator, so the drift was invisible to readers checking the repo first.
+## [0.8.0] - 2026-06-13
+
+**Learn by example.** The library gains the example layer: a Showcase of real decisions worked end to end, an operating guide, a prompt gallery, and a page that publishes the behavioral-eval numbers as a trust artifact - plus a metadata-hygiene sweep that makes catalog-count drift a red build.
+
+### Added
+- **Showcase** (`site/src/content/docs/showcase/`) - 16 worked journeys plus an index, each running a real situation from the exact prompt to the full artifact, no teasers. Three recurring protagonists span the library's range: **Mira** (a founder, casual prompts), **Daniel** (an engineer, organized prompts), and **Priya** (a policy analyst, detailed prompts run by hand). Covers single-framework runs, two recipe chains (stress-test-a-decision, audit-reasoning, issue-position-argument), the advisor as the front door, and by-hand runs. New top-level "Showcase" sidebar section. The recurring cast is documented in `docs/internal/SCENARIO_PROFILES.md`.
+- **"Does this actually work?"** (`start/does-this-work`) - a trust page publishing the behavioral-eval results as first-class content: the trigger eval (561 cases, 99% top-1, 0 false-fires) and the output eval (315 checks, 99% passed), with the honest limits stated (they measure routing and artifact quality, not decision outcomes, and the full runs were on the 47-skill catalog) and links to the reproducible harness and raw results.
+- **"Using the frameworks"** (`learn/using-the-frameworks`) - the flagship operating guide: a beginner-to-advanced ladder covering invocation, describing a situation with the SOFT check, iterating, chaining, the advisor, recipes, named power-user patterns, and a by-job reference.
+- **Prompt Gallery** (`learn/prompt-gallery`) - real prompts in three styles (casual, organized, advisor-routed), advisor-first, teaching that a sparse prompt produces the same complete artifact as a polished one.
+- Discoverability: a Showcase card on the landing page, and the two new guides surfaced on the Learn index.
+- `docs/internal/CONTENT-STYLE.md` - the content style guide and per-page definition of done for the new narrative surfaces.
 
 ### Changed
-- **`scripts/check-counts.mjs` now also gates the repo-facing docs** (`docs/getting-started.md` and `docs/README.md`), not only `README.md`, against the registry / `_workflows/` / tools. The stale-count class that let "31 frameworks" linger for six releases is now a red build.
+- **README caught up to current reality** - the version label and project status had lagged at v0.6.0 though v0.7.0 and v0.7.1 shipped; the tools one-liner read "47" and the registry pointer "105". All now current (56 frameworks, 135 evaluated methods, 75 dossiers); the conformance-tier table reordered Gold-first; the release-history expanded.
+- **`scripts/check-counts.mjs` now also gates the repo-facing docs** (`docs/getting-started.md`, `docs/README.md`) and two previously-ungated README prose counts (the tools one-liner and the registry total), not only the four README count surfaces. The stale-count class that let "31 frameworks" linger for six releases is now a red build.
+
+### Fixed
+- **Stale catalog counts in the repo-facing docs.** `docs/getting-started.md` read "31 thinking frameworks" (the v0.1.0 count) and `docs/README.md` read "47 graded frameworks across 11 families ... 8 composable recipes"; both now read the current 56 / 12 / 9. These docs are hand-authored and sit outside the site generator, so the drift was invisible to anyone reading the repo first.
 
 ## [0.7.1] - 2026-06-12
 
@@ -170,7 +183,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.7.1...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.7.1...v0.8.0
 [0.7.1]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.5.0...v0.6.0

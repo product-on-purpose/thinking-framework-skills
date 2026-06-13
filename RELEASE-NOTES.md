@@ -2,6 +2,25 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://product-on-purpose.github.io/thinking-framework-skills/).
 
+## v0.8.0
+
+**Learn by example: watch the frameworks work on real decisions, and see the numbers behind the claims.**
+
+This release adds the part a newcomer most wants - proof. You can now watch real decisions worked end to end, see real prompts in the styles people actually type, and read the measured evidence that the library routes and produces what it promises. No new frameworks; the catalog stays at 56. This is a documentation and trust release.
+
+### For everyone
+
+- **A Showcase of real decisions, prompt to finished artifact.** Three people work hard problems start to finish: a founder deciding fast, an engineer making an architectural call, and a policy analyst deliberating on paper. Each page shows the exact prompt typed and the full artifact it produced - a ranked risk register, a weighted option matrix, an argument map, a stakeholder trade-off grid - so you can judge the quality before you run anything. Sixteen worked journeys, including full recipe chains and runs done entirely by hand.
+- **"Does this actually work?" - we measured it.** A new page publishes the behavioral-eval results: the catalog routes the right framework for a situation 99% of the time with zero false-fires across 561 cases, and the artifacts meet their own quality bar on 99% of 315 checks. It also says plainly what the numbers do not prove. Most thinking-tool collections ask for faith; this one shows the scorecard.
+- **A prompt gallery, so your messy prompt is fine.** Real prompts in three styles: a one-line casual ask, a structured block, or just describing the mess to the advisor. The lesson - a sparse prompt produces the same complete artifact as a polished one, because the framework does the structuring.
+- **An operating guide.** "Using the frameworks" takes you from running one framework to chaining several like a power user.
+
+### For builders
+
+- **The example surfaces are hand-authored pages** wired into the existing Astro Starlight site; nothing about the install surface, the skills, or the manifests changed (the manifest diff is version-only).
+- **The behavioral-eval harness is reproducible and runs without an API key** ([`scripts/eval/`](https://github.com/product-on-purpose/thinking-framework-skills/tree/main/scripts/eval)); every number on the new trust page traces to a committed JSON you can audit.
+- **Catalog-count drift is now a hard CI failure.** The count gate (`scripts/check-counts.mjs`) was extended to the repo-facing docs and the README prose counts, closing the gap that let a stale "31 frameworks" linger in the getting-started doc for six releases.
+
 ## v0.7.1
 
 **The Framework Library is now complete: every method we evaluated and chose not to ship has an honest, browsable page.**
