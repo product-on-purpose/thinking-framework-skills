@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+- **Example-coverage ratchet** (`scripts/check-example-coverage.mjs`, a 7th conformance-gate layer in `check.mjs`) - every shipped skill must have a worked example (a Showcase appearance or a sample) or be grandfathered in `scripts/example-coverage-baseline.txt`. A newly shipped skill with no example reds the build, so the example layer cannot fall behind the catalog the way the doc counts drifted to a stale "31". The uncovered set can only shrink (regenerate the baseline with `--update` as skills gain examples).
+- **Measurement and feedback loop** - a "Was this page helpful?" widget in the site footer (fires a GA4 `page_feedback` event when analytics is enabled, and always offers a pre-filled GitHub issue; no backend, no PII beyond the current path); GA4 wired through the deploy workflow via the `PUBLIC_GA_ID` repository variable (off unless set, so local/PR/fork builds never track); and `docs/internal/MEASUREMENT.md` documenting how to enable analytics and read the signals (including the conversion-vs-acquisition read).
+
 ## [0.8.0] - 2026-06-13
 
 **Learn by example.** The library gains the example layer: a Showcase of real decisions worked end to end, an operating guide, a prompt gallery, and a page that publishes the behavioral-eval numbers as a trust artifact - plus a metadata-hygiene sweep that makes catalog-count drift a red build.

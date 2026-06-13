@@ -1,21 +1,80 @@
 ---
-// Footer override: renders Starlight's default footer, then a small version
-// label sourced from the generated site-meta.json (library.json version).
+// Footer override: renders Starlight's default footer, then a lightweight "Was this
+// page helpful?" feedback widget, then a version label sourced from the generated
+// site-meta.json (library.json version).
+//
+// The widget is the feedback half of the measurement loop (docs/internal/MEASUREMENT.md).
+// It needs no backend: on a click it fires a GA4 `page_feedback` event when analytics is
+// enabled (PUBLIC_GA_ID set at deploy), and always offers a pre-filled GitHub issue for
+// detail. No tracking and no PII beyond the page path the reader is already on.
 import Default from '@astrojs/starlight/components/Footer.astro';
 import meta from '../generated/site-meta.json';
 ---
 
 <Default><slot /></Default>
 
+<div class="tfs-feedback" data-tfs-feedback>
+  <span class="tfs-feedback-q">Was this page helpful?</span>
+  <button type="button" data-fb="yes" aria-label="Yes, this page was helpful">Yes</button>
+  <button type="button" data-fb="no" aria-label="No, this page was not helpful">No</button>
+  <span class="tfs-feedback-thanks" hidden>Thanks. <a data-fb-issue href="#" target="_blank" rel="noopener">Tell us more</a>.</span>
+</div>
+
 <div class="tfs-version">
   Thinking Framework Skills <span>v{meta.version}</span> &middot; {meta.skillCount} frameworks
 </div>
 
+<script>
+  const repo = 'product-on-purpose/thinking-framework-skills';
+  for (const root of document.querySelectorAll('[data-tfs-feedback]')) {
+    const thanks = root.querySelector('.tfs-feedback-thanks');
+    const issue = root.querySelector('[data-fb-issue]');
+    root.querySelectorAll('button[data-fb]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const helpful = btn.dataset.fb;
+        const page = location.pathname;
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'page_feedback', { helpful, page });
+        }
+        if (issue) {
+          const title = encodeURIComponent(`Docs feedback (${helpful}): ${page}`);
+          const body = encodeURIComponent(`Page: ${location.href}\nHelpful: ${helpful}\n\nWhat would have made this page better?`);
+          issue.href = `https://github.com/${repo}/issues/new?title=${title}&body=${body}`;
+        }
+        root.querySelectorAll('button[data-fb]').forEach((b) => (b.disabled = true));
+        if (thanks) thanks.hidden = false;
+      });
+    });
+  }
+</script>
+
 <style>
-  .tfs-version {
+  .tfs-feedback {
     margin-top: 1.5rem;
     padding-top: 0.75rem;
     border-top: 1px solid var(--sl-color-gray-6);
+    font-size: 0.8125rem;
+    color: var(--sl-color-gray-3);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .tfs-feedback button {
+    font: inherit;
+    cursor: pointer;
+    padding: 0.15rem 0.7rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.4rem;
+    background: var(--sl-color-gray-7, transparent);
+    color: var(--sl-color-gray-2);
+  }
+  .tfs-feedback button:hover:not(:disabled) { border-color: var(--sl-color-accent); color: var(--sl-color-white); }
+  .tfs-feedback button:disabled { opacity: 0.5; cursor: default; }
+  .tfs-feedback-thanks a { color: var(--sl-color-accent-high); }
+  .tfs-version {
+    margin-top: 0.75rem;
     font-size: 0.75rem;
     color: var(--sl-color-gray-4);
     text-align: center;
