@@ -4,6 +4,12 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Fixed
+- **Stale catalog counts in the repo-facing docs.** `docs/getting-started.md` still read "31 thinking frameworks" (the v0.1.0 count) and `docs/README.md` read "47 graded frameworks across 11 families ... 8 composable recipes"; both now read the current 56 frameworks across 12 families, 4 tools, and 9 recipes. These docs are hand-authored and sit outside the site generator, so the drift was invisible to readers checking the repo first.
+
+### Changed
+- **`scripts/check-counts.mjs` now also gates the repo-facing docs** (`docs/getting-started.md` and `docs/README.md`), not only `README.md`, against the registry / `_workflows/` / tools. The stale-count class that let "31 frameworks" linger for six releases is now a red build.
+
 ## [0.7.1] - 2026-06-12
 
 **Depth pass: the Framework Library is now complete.** Every documented-not-shipped registry entry (fold / flag / excl / pm) that lacked a published dossier now has one, taking the public [Framework Library](https://product-on-purpose.github.io/thinking-framework-skills/library/) from 45 to 75 dossiers. Documentation only: no registry verdicts changed, no new shipped skills, no catalog count change.

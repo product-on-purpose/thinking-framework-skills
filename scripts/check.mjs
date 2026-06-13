@@ -17,7 +17,8 @@
 //      Skills + Recipes tables in the contributor guide stay in sync with the catalog, and
 //   6. the README count-consistency check (scripts/check-counts.mjs): the four hand-authored
 //      count surfaces in README.md (the badges, the lifecycle map, the catalog table headers,
-//      and the project-status table) match the registry / _workflows / tools, and every
+//      and the project-status table) plus the repo-facing docs (docs/getting-started.md,
+//      docs/README.md) match the registry / _workflows / tools, and every
 //      shipped skill's metadata.family is a valid skill-family slug.
 //
 // To reproduce a CI failure locally, clone the public toolkit next to this repo:

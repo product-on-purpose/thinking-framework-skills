@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// check-counts.mjs - verify the README's hand-authored count surfaces against the
+// check-counts.mjs - verify the hand-authored count surfaces (README.md plus the
+// repo-facing docs/getting-started.md and docs/README.md) against the
 // machine-readable sources, so catalog-count drift fails the gate instead of slipping
 // through to a human/Codex catch three steps later. The README is the last hand-authored
 // denormalization of data that lives in the registry (shipped count + per-family), in
@@ -102,6 +103,35 @@ for (const f of FAMILIES) {
   expect(`lifecycle map "${f.display}"`, new RegExp(`\\d+\\. ${disp} \\((\\d+)\\)`, 'g'), perFamily[f.slug]);
 }
 
+// ---- repo-facing docs outside the site generator ----------------------------
+// docs/getting-started.md and docs/README.md are hand-authored repo docs (not site
+// pages emitted by gen-site.mjs), so their catalog counts were ungated and drifted
+// silently: getting-started lingered at "31 thinking frameworks" (the v0.1.0 count)
+// and docs/README at "47 graded frameworks across 11 families ... 8 composable recipes".
+// Gate their live counts here so that drift class is a red build, not a reader's surprise.
+const EXTRA_DOC_CHECKS = [
+  ['docs/getting-started.md', [
+    [/\*\*(\d+) thinking frameworks/g, shippedTotal, 'frameworks'],
+  ]],
+  ['docs/README.md', [
+    [/(\d+) graded frameworks across/g, shippedTotal, 'frameworks'],
+    [/graded frameworks across (\d+) families/g, FAMILIES.length, 'families'],
+    [/(\d+) tools \(meta-skills\)/g, toolCount, 'tools'],
+    [/(\d+) composable recipes/g, recipeCount, 'recipes'],
+  ]],
+];
+for (const [rel, checks] of EXTRA_DOC_CHECKS) {
+  const text = readFileSync(join(ROOT, ...rel.split('/')), 'utf8');
+  for (const [re, want, what] of checks) {
+    const matches = [...text.matchAll(re)];
+    if (!matches.length) { problems.push(`${rel}: expected a ${what} count matching ${re}, found none (keep the count phrase gate-visible if you reword)`); continue; }
+    for (const mm of matches) {
+      const got = Number(mm[1]);
+      if (got !== want) problems.push(`${rel}: ${what} shows ${got}, canonical is ${want}`);
+    }
+  }
+}
+
 // ---- report -----------------------------------------------------------------
 if (problems.length) {
   console.error(`check-counts: ${problems.length} problem(s):\n`);
@@ -110,5 +140,5 @@ if (problems.length) {
   console.error('Fix the hand-authored counts in README.md (or the source), then re-run.');
   process.exit(1);
 }
-console.log(`check-counts: OK (${shippedTotal} shipped / ${recipeCount} recipes / ${toolCount} tools; all four README count surfaces + skill-family validity consistent).`);
+console.log(`check-counts: OK (${shippedTotal} shipped / ${recipeCount} recipes / ${toolCount} tools; the four README count surfaces + repo-facing docs (getting-started, docs/README) + skill-family validity consistent).`);
 process.exit(0);
