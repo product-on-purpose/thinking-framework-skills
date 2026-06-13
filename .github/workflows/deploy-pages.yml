@@ -43,6 +43,12 @@ jobs:
       - name: Build site (gen-site.mjs + astro build)
         id: build
         run: npm run build
+        env:
+          # Set the PUBLIC_GA_ID repository variable (Settings -> Secrets and variables ->
+          # Actions -> Variables) to enable GA4 on the deployed site. astro.config.mjs injects
+          # gtag only when this is non-empty, so an unset variable means no tracking at all
+          # (local and PR builds never get it). This is the measurement half of the feedback loop.
+          PUBLIC_GA_ID: ${{ vars.PUBLIC_GA_ID }}
 
       # Link/route integrity guards (clause 14.11) on the DEPLOY build, so the artifact that ships
       # is guarded, not only the PR build. Gated on the build step's outcome; a guard failure stops
