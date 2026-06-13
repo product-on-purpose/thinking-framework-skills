@@ -66,6 +66,7 @@ const shippedEntries = reg.frameworks.filter((f) => f.status === 'shipped');
 const shippedTotal = shippedEntries.length;
 const recipeCount = readdirSync(join(ROOT, '_workflows')).filter((f) => f.endsWith('.md')).length;
 const toolCount = TOOLS.length;
+const totalMethods = reg.frameworks.length; // every registry entry (shipped + documented-not-shipped + recipe)
 
 const perFamily = Object.fromEntries(FAMILIES.map((f) => [f.slug, 0]));
 for (const e of shippedEntries) {
@@ -95,6 +96,9 @@ expect('status Frameworks row', /\|\s*\*\*Frameworks\*\*\s*\|\s*(\d+),/g, shippe
 expect('status Recipes row', /\|\s*\*\*Recipes\*\*\s*\|\s*(\d+)\s/g, recipeCount);
 // catalog intro
 expect('catalog "All N frameworks, by family"', /All (\d+) frameworks, by family/g, shippedTotal);
+// prose one-liners that previously drifted: the catalog count in the tools section and the registry total
+expect('catalog one-liner "(the N in the catalog above)"', /thinking method \(the (\d+) in the catalog above\)/g, shippedTotal);
+expect('registry total "N evaluated methods"', /catalog of (\d+) evaluated methods/g, totalMethods);
 
 // per-family surfaces: catalog headers `### <Display> - <blurb> (N)` and lifecycle map `N. <Display> (N)`
 for (const f of FAMILIES) {
