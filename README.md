@@ -11,7 +11,7 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
 <p>
   <img src="https://img.shields.io/badge/status-active-success?style=flat-square" alt="Status: Active">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square" alt="License: Apache-2.0"></a>
-  <img src="https://img.shields.io/badge/version-0.6.0-blue?style=flat-square" alt="Version 0.6.0">
+  <img src="https://img.shields.io/badge/version-0.7.1-blue?style=flat-square" alt="Version 0.7.1">
   <a href="#-conformance-what-advanced-gold-tier-means"><img src="https://img.shields.io/badge/tier-advanced%20(Gold)-B8860B?style=flat-square" alt="Conformance tier: advanced (Gold)"></a>
   <a href="#-the-catalog"><img src="https://img.shields.io/badge/frameworks-56-brightgreen?style=flat-square" alt="Frameworks: 56"></a>
   <a href="#-tools-meta-skills"><img src="https://img.shields.io/badge/tools-4-brightgreen?style=flat-square" alt="Tools: 4"></a>
@@ -316,7 +316,7 @@ Four skills are **tools**, not thinking methods: they operate *over* the library
 | [**Random Frameworks**](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-random-frameworks/) | **Applicator**. Draw three frameworks at random and apply each regardless of fit, to break a frozen or fixated framing. Use it when the obvious lenses are not working. |
 | [**Research Framework**](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-research-framework/) | **Engine**. Research a candidate method, grade its evidence conservatively, and propose a catalog entry for review. This is how the library grows; it never auto-admits. |
 
-**Frameworks, tools, and recipes, in one line:** a *framework* is a single graded thinking method (the 47 in the catalog above); a *tool* helps you choose or apply frameworks (the 4 here); a *recipe* is a fixed chain of frameworks for a recurring job (the 9 below).
+**Frameworks, tools, and recipes, in one line:** a *framework* is a single graded thinking method (the 56 in the catalog above); a *tool* helps you choose or apply frameworks (the 4 here); a *recipe* is a fixed chain of frameworks for a recurring job (the 9 below).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -400,18 +400,18 @@ This plugin is built to the [agent-skills-toolkit](https://github.com/product-on
 
 | Tier | Name | What it certifies |
 |---|---|---|
-| 🥉 | **Universal (Bronze)** | The skills are portable - valid frontmatter, an `AGENTS.md`, a manifest, references one level deep - so the identical files run on any agentskills.io-compatible agent. |
-| 🥈 | **Convergent (Silver)** | The plugin declares its agent targets and emits each higher-order component (commands, workflows, chain contracts) correctly for both Claude Code and Codex, with a manifest that matches what is on disk. |
 | 🥇 | **Advanced (Gold)** | The plugin proves itself - it ships CI that runs the Standard's own validators against it and passes (self-hosting), generates its `INDEX.md` and native manifests from a single authored source, and maintains release notes and a deprecation policy. |
+| 🥈 | **Convergent (Silver)** | The plugin declares its agent targets and emits each higher-order component (commands, workflows, chain contracts) correctly for both Claude Code and Codex, with a manifest that matches what is on disk. |
+| 🥉 | **Universal (Bronze)** | The skills are portable - valid frontmatter, an `AGENTS.md`, a manifest, references one level deep - so the identical files run on any agentskills.io-compatible agent. |
 
 `thinking-framework-skills` validates at **advanced (Gold) with 0 errors and 0 warnings** against the pinned toolkit. Concretely, it earns Gold through:
 
-- **G2 - self-hosting CI that passes.** Every pull request runs [`scripts/check.mjs`](scripts/check.mjs) (the Standard's validators) via [`.github/workflows/ci.yml`](.github/workflows/ci.yml), and `check` is a required status check on `main`. The same one command reproduces the result locally.
-- **G4 - generated INDEX + manifests.** [`INDEX.md`](INDEX.md), `.claude-plugin/plugin.json`, the Codex manifest, and `manifest.generated.json` are all generated from the authored [`library.json`](library.json) and drift-checked; a hand-edit is a CI error.
-- **G5 - release notes.** Curated [`RELEASE-NOTES.md`](RELEASE-NOTES.md), distinct from the technical [`CHANGELOG.md`](CHANGELOG.md).
-- **G6 - deprecation policy** and **G7 - all Bronze + Silver requirements**, by inclusion.
+- **Self-hosting CI that passes.** Every pull request runs [`scripts/check.mjs`](scripts/check.mjs) (the Standard's validators) via [`.github/workflows/ci.yml`](.github/workflows/ci.yml), and `check` is a required status check on `main`. The same one command reproduces the result locally.
+- **Generated INDEX and manifests.** [`INDEX.md`](INDEX.md), `.claude-plugin/plugin.json`, the Codex manifest, and `manifest.generated.json` are all generated from the authored [`library.json`](library.json) and drift-checked; a hand-edit is a CI error.
+- **Curated release notes.** [`RELEASE-NOTES.md`](RELEASE-NOTES.md) is maintained separately from the technical [`CHANGELOG.md`](CHANGELOG.md).
+- **Deprecation policy** and all Bronze and Silver requirements, by inclusion.
 
-Two Gold checks are **not applicable** here, and the library says so rather than papering over it: **G1 (hook documentation)** and **G3 (eval coverage for chains and hooks)** apply only to plugins that ship hooks or chained components. This library ships neither - its recipes are workflow chains of independent skills, not runtime chain contracts - so those checks pass vacuously. Every skill still carries its own `eval/cases.md`.
+Two Gold checks are **not applicable** here, and the library says so rather than papering over it: **hook documentation** and **chain/hook eval coverage** apply only to plugins that ship hooks or chained components. This library ships neither - its recipes are workflow chains of independent skills, not runtime chain contracts - so those checks pass vacuously. Every skill still carries its own `eval/cases.md`.
 
 > Full breakdown, check by check: [`docs/conformance.md`](docs/conformance.md). The Standard itself: [agent-skills-toolkit / STANDARD.md](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md).
 
@@ -421,13 +421,13 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ## 📊 Project status
 
-`v0.6.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
+`v0.7.1` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
 
 ### At a glance
 
 |  |  |
 |---|---|
-| **Current version** | [v0.6.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.6.0) |
+| **Current version** | [v0.7.1](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.7.1) |
 | **Frameworks** | 56, across 12 cognitive-operation families |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 9 (skill chains shipped as workflow components) |
@@ -442,7 +442,7 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ```
 thinking-framework-skills/
-├── skills/                  # 47 frameworks + 4 tools (the source of truth)
+├── skills/                  # 56 frameworks + 4 tools (the source of truth)
 ├── frameworks/              # registry.mjs (the catalog) + per-method dossiers
 │   └── think-<method>/      #   SKILL.md, evidence/dossier.md, references/, eval/cases.md, skill.meta.yml
 ├── _workflows/              # Recipe definitions (multi-skill chains) as workflow components
@@ -462,7 +462,7 @@ thinking-framework-skills/
 | Path | What's in it |
 |---|---|
 | [`skills/`](skills/) | All 56 frameworks + 4 tools, each a self-contained unit (the site renders from these) |
-| [`frameworks/`](frameworks/) | `registry.mjs` (the single-source-of-truth catalog of 105 evaluated methods) + per-method dossiers |
+| [`frameworks/`](frameworks/) | `registry.mjs` (the single-source-of-truth catalog of 135 evaluated methods) + per-method dossiers |
 | [`_workflows/`](_workflows/) | The 9 recipes as workflow components - ordered skill chains with handoffs |
 | [`scripts/`](scripts/) | Generators (site, manifests, name-safety set) and [`check.mjs`](scripts/check.mjs), the conformance gate |
 | [`docs/`](docs/) | [Getting started](docs/getting-started.md), [architecture](docs/architecture.md), [concepts](docs/concepts.md), [contributing](docs/contributing.md), [conformance](docs/conformance.md) |
@@ -477,10 +477,14 @@ Full detail in [`CHANGELOG.md`](CHANGELOG.md); curated highlights in [`RELEASE-N
 
 | Version | Highlights |
 |---|---|
-| [**0.4.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.4.0) | The Framework Library platform: the registry as a single source of truth with strong CI, the research-framework engine, the Top-3 and Random-Frameworks applicators, the published Framework Library dossiers, a `/tools/` section separating meta-skills from graded frameworks, and the advisor's calibrated routing gate. |
+| [**0.7.1**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.7.1) | Framework Library complete: every documented-not-shipped method now has a published dossier (45 -> 75), documenting settled verdicts with honest sourced research. Documentation-only patch; no catalog count change. |
+| [**0.7.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.7.0) | Behavioral evals land (routing: 99% top-1, 0 false-fires; artifact quality: 99% checks pass); the four flagged skills tightened by construction; catalog grows 47 -> 56 with a new Ethics & Values Deliberation family (9 Build / 7 Fold / 1 Recipe / 13 Reject from 30 candidates). |
+| [**0.6.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.6.0) | Catalog grows 40 -> 47 with 7 survivors of a 26-candidate research sweep; `AGENTS.md` roster tables generated and drift-checked; published Framework Library grows 8 -> 25 dossiers. |
+| [**0.5.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.5.0) | Catalog grows 37 -> 40 (Theory of Constraints, Expected-Value Decision Tree, Scenario Planning); 7-candidate shortlist fully reconciled; Strategy & Opportunity family intro added. |
+| [**0.4.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.4.0) | The Framework Library platform: registry as single source of truth with strong CI, the research-framework engine, Top-3 and Random-Frameworks applicators, published Framework Library dossiers, a `/tools/` section separating meta-skills from graded frameworks, and the advisor's calibrated routing gate. |
 | [**0.3.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.3.0) | The advisor-credibility milestone: behavioral eval cases enforced in CI, and advisor corpus enrichment (anti-triggers, when-not, overlaps). Plus the Belief-Update Routine framework and an idea-quality-audit recipe. |
-| [**0.2.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0) | Catalog grows 31 to 34 (Concept Mapping, Causal Loop Diagrams, Fermi Estimation, each vetted against the catalog before authoring) plus a first-principles recipe (4 to 5). A more visual docs site: legible diagrams and beginner concept diagrams on six pages. Gold-tier hardening - a self-hosting conformance gate in CI, a generated `INDEX.md`, and `RELEASE-NOTES.md`. Tier declared `advanced`. |
-| [**0.1.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.1.0) | First public release: 31 evidence-graded, agent-executable skills + 4 composable recipes, validating at convergent (Silver). The `think-framework-advisor` front-door router. A full Astro Starlight docs site (per-framework pages, learning tracks, exploration lenses, interactive chooser, graded bibliography). Listed in the Product on Purpose marketplace. |
+| [**0.2.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.2.0) | Catalog grows 31 to 34; Gold-tier hardening with a self-hosting conformance gate in CI, a generated `INDEX.md`, and `RELEASE-NOTES.md`. Tier declared `advanced`. |
+| [**0.1.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.1.0) | First public release: 31 evidence-graded, agent-executable skills + 4 composable recipes, validating at convergent (Silver). The `think-framework-advisor` front-door router. A full Astro Starlight docs site. Listed in the Product on Purpose marketplace. |
 
 </details>
 

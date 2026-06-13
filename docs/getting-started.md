@@ -1,6 +1,6 @@
 # Getting started
 
-This is a library of **31 thinking frameworks rebuilt as skills** an AI agent can run, and that humans can follow by hand. Each one takes a messy situation and produces a concrete artifact: a ranked risk register, a weighted option matrix, an argument map, an honest base-rate estimate.
+This is a library of **56 thinking frameworks rebuilt as skills** an AI agent can run, and that humans can follow by hand. Each one takes a messy situation and produces a concrete artifact: a ranked risk register, a weighted option matrix, an argument map, an honest base-rate estimate.
 
 This page gets you installed and running one skill. For the full tutorial and the interactive chooser, go to the live docs (linked at the bottom).
 
