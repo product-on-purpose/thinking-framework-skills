@@ -2,6 +2,23 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://product-on-purpose.github.io/thinking-framework-skills/).
 
+## v0.9.0
+
+**Discoverable by agents: the library now publishes a machine-readable index other AI agents can read to find and route to the right thinking skill.**
+
+This release makes the library legible to other software, not just people. An agent (or a crawler) can fetch a single index and learn every skill, what each produces, when to use it, and how to chain it - no scraping, no guessing. It also folds in the measurement loop and the example-coverage gate that landed after v0.8.0. No new frameworks; the catalog stays at 56.
+
+### For everyone
+
+- **An `llms.txt` index at the site root.** Following the [llmstxt.org](https://llmstxt.org) convention, the site now serves a clean, linked index of every skill, tool, and recipe, grouped by cognitive job, plus the key getting-started pages. Point an AI assistant at it and it can discover and route to the library on its own.
+- **A "Was this page helpful?" prompt on every docs page.** A lightweight feedback widget (no tracking by default, no backend) that offers a one-click signal or a pre-filled GitHub issue, so the docs improve from real use.
+
+### For builders
+
+- **Two machine-readable catalogs.** `catalog.json` lists the 69 invokable components (56 skills + 4 tools + 9 recipes) with the fields an agent needs to route and chain - mechanism, when-to-use, the artifact each produces, evidence tier, recipe membership, likely companions, and a live URL. `evaluated.json` projects all 135 graded methods, so the 79 the library evaluated and chose not to ship are available in context, each linking to its dossier. Both are generated from the existing sources of truth and validated against the live route set, so every link resolves.
+- **Drift-gated like everything else.** A new 8th conformance-gate layer regenerates the three artifacts and reds CI if the committed copies are stale, so the catalog can never silently fall behind the registry. The manifest diff for this release is version-only.
+- **Example-coverage ratchet.** Every shipped skill must now have a worked example (a Showcase appearance or a sample) or be explicitly grandfathered; a new skill with no example reds the build.
+
 ## v0.8.0
 
 **Learn by example: watch the frameworks work on real decisions, and see the numbers behind the claims.**
