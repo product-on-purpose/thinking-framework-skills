@@ -45,8 +45,8 @@ Each skill is two things: a **procedure** the agent executes, and a **saveable a
 
 Do not know which framework you need? Start with the **Framework Advisor**: describe your situation in plain language and it returns a short Thinking Plan naming the one or two frameworks worth running, in order.
 
-- Full getting-started tutorial: https://product-on-purpose.github.io/thinking-framework-skills/start/getting-started/
-- Interactive chooser: https://product-on-purpose.github.io/thinking-framework-skills/explore/chooser/
-- Framework Advisor (the front door): https://product-on-purpose.github.io/thinking-framework-skills/tools/think-framework-advisor/
+- Full getting-started tutorial: https://thinking-framework-skills.productonpurpose.com/start/getting-started/
+- Interactive chooser: https://thinking-framework-skills.productonpurpose.com/explore/chooser/
+- Framework Advisor (the front door): https://thinking-framework-skills.productonpurpose.com/tools/think-framework-advisor/
 
 To author or grade a skill, see [the authoring guide](./internal/AUTHORING.md). The skills themselves live in [`../skills/`](../skills/) and are the source of truth; the docs site is a generated view.

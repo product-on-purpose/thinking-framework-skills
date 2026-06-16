@@ -16,7 +16,7 @@ The field of thinking tools is a small empirical core wrapped in a large practit
 | C | Conceptually plausible, under-tested - reasonable, not yet demonstrated. |
 | X | Poor or contradictory - the evidence cuts against it (excluded, documented). |
 
-A "P, useful anyway, here is when not to use it" is more trustworthy than a dressed-up "S". The grade reflects the evidence for the framework's mechanism, and most of that evidence comes from human-subject studies rather than tests of an AI agent running the method, so pages flag transferred evidence where it applies. Honest grading is the product, not a footer disclaimer. Full version: [The evidence model](https://product-on-purpose.github.io/thinking-framework-skills/start/evidence-model/).
+A "P, useful anyway, here is when not to use it" is more trustworthy than a dressed-up "S". The grade reflects the evidence for the framework's mechanism, and most of that evidence comes from human-subject studies rather than tests of an AI agent running the method, so pages flag transferred evidence where it applies. Honest grading is the product, not a footer disclaimer. Full version: [The evidence model](https://thinking-framework-skills.productonpurpose.com/start/evidence-model/).
 
 ## 2. Mechanism over ritual
 
@@ -30,4 +30,4 @@ Every skill emits a named, structured, reusable deliverable: a ranked risk regis
 
 Every skill states explicitly where its method misleads or wastes effort. This guards against cargo-cult execution, running a framework because it is there rather than because the move fits the problem. A skill that knows its own limits is more useful than one that claims to fit everything.
 
-These four are the authoring commitments behind every skill. The full argument, including the empirical-core anchor skills, is in [Philosophy](https://product-on-purpose.github.io/thinking-framework-skills/about/philosophy/). To author a skill that meets all four, see [./internal/AUTHORING.md](./internal/AUTHORING.md); the skills themselves live in [../skills/](../skills/) and are the source of truth the docs site is generated from.
+These four are the authoring commitments behind every skill. The full argument, including the empirical-core anchor skills, is in [Philosophy](https://thinking-framework-skills.productonpurpose.com/about/philosophy/). To author a skill that meets all four, see [./internal/AUTHORING.md](./internal/AUTHORING.md); the skills themselves live in [../skills/](../skills/) and are the source of truth the docs site is generated from.
