@@ -5,8 +5,8 @@
 //
 // OUTPUT (into site/public/, copied verbatim by Astro to the site root):
 //   site/public/llms.txt        (the llmstxt.org index: invokable surface + key docs)
-//   site/public/catalog.json    (69 invokable components: 56 skills + 4 tools + 9 recipes)
-//   site/public/evaluated.json  (all 135 evaluated registry methods; the 79 not-shipped in context)
+//   site/public/catalog.json    (the invokable components: skills + tools + recipes)
+//   site/public/evaluated.json  (every evaluated registry method; the not-shipped ones in context)
 //
 // SOURCES OF TRUTH (joined, never invented): frameworks/registry.mjs + library.json +
 // each SKILL.md frontmatter + each skill.meta.yml + _workflows/*.md. Every emitted URL
@@ -29,7 +29,7 @@ const OUT_DIR = join(ROOT, 'site', 'public');
 
 // --- helpers ----------------------------------------------------------------
 const strip = (s) => s.replace(/^["']/, '').replace(/["']$/, '').trim();
-const firstSentence = (s) => (s || '').split(/\.\s/)[0].replace(/\.$/, '') + '.';
+const firstSentence = (s) => { const r = (s || '').split(/\.\s/)[0].replace(/\.$/, ''); return r ? r + '.' : ''; };
 const titleCase = (slug) => slug.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
 function useWhen(desc) {
   const i = (desc || '').search(/Use when/i);
@@ -82,6 +82,14 @@ function metaBlockList(text, key) {
     else if (indent <= base) break;
   }
   return out;
+}
+// likely_companions / complements appear as EITHER a block list (skills, id form) OR an
+// inline array (tools, invocation form). Accept both; idToInvocation normalizes the values.
+function metaList(text, key) {
+  const block = metaBlockList(text, key);
+  if (block.length) return block;
+  const m = (text || '').match(new RegExp(`^\\s*${key}:\\s*\\[([^\\]]*)\\]`, 'm'));
+  return m ? m[1].split(',').map((s) => strip(s.trim())).filter(Boolean) : [];
 }
 const idToInvocation = (id) => id.replace(/^thinking-framework-skills\./, 'think-');
 
@@ -144,8 +152,8 @@ for (const c of lib.components.skills) {
   const sidecarPath = join(dir, 'skill.meta.yml');
   const sidecar = existsSync(sidecarPath) ? readFileSync(sidecarPath, 'utf8') : '';
   const artifact = metaScalar(sidecar, 'primary_artifact_type');
-  const compIds = metaBlockList(sidecar, 'likely_companions');
-  const compFallback = compIds.length ? compIds : metaBlockList(sidecar, 'complements');
+  const compIds = metaList(sidecar, 'likely_companions');
+  const compFallback = compIds.length ? compIds : metaList(sidecar, 'complements');
   const seen = new Set();
   const likely_companions = compFallback
     .map(idToInvocation)
@@ -214,7 +222,7 @@ const methods = registry.frameworks.map((e) => ({
 })).sort((a, b) => a.slug.localeCompare(b.slug));
 const shipped = methods.filter((m) => m.status === 'shipped').length;
 export const evaluated = {
-  $note: NOTE,
+  $note: NOTE + ' Each method url is the absolute Framework Library dossier URL, or null if the method has no dossier page.',
   generated_from: 'frameworks/registry.mjs',
   counts: { total: methods.length, shipped, not_shipped: methods.length - shipped },
   families: registry.families,
@@ -231,15 +239,15 @@ function renderLlmsTxt(cat, ev) {
   L.push(`Machine-readable: [catalog.json](${abs('/catalog.json')}) (the invokable skills, tools, and recipes) and [evaluated.json](${abs('/evaluated.json')}) (all ${ev.counts.total} evaluated methods).`);
   L.push('');
   L.push('## Start here');
-  for (const [path, label] of [
-    ['/start/getting-started/', 'Getting started: install and first run'],
-    ['/showcase/', 'Showcase: worked, end-to-end examples'],
-    ['/start/does-this-work/', 'Does this work?: the behavioral-eval results'],
-    ['/learn/using-the-frameworks/', 'Using the frameworks: the operating guide'],
-    ['/learn/prompt-gallery/', 'Prompt gallery: real prompts you can copy'],
+  for (const [path, linkText, desc] of [
+    ['/start/getting-started/', 'Getting started', 'install and first run'],
+    ['/showcase/', 'Showcase', 'worked, end-to-end examples'],
+    ['/start/does-this-work/', 'Does this work?', 'the behavioral-eval results'],
+    ['/learn/using-the-frameworks/', 'Using the frameworks', 'the operating guide'],
+    ['/learn/prompt-gallery/', 'Prompt gallery', 'real prompts you can copy'],
   ]) {
     const u = liveUrl(path);
-    if (u) L.push(`- [${label.split(':')[0]}](${u}):${label.slice(label.indexOf(':') + 1)}`);
+    if (u) L.push(`- [${linkText}](${u}): ${desc}`);
   }
   L.push('');
   L.push('## Skills');

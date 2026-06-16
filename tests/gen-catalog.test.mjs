@@ -40,6 +40,23 @@ test("a known skill (premortem) carries the routing fields", () => {
   assert.ok(Array.isArray(p.likely_companions));
 });
 
+test("a tool entry (think-top3) carries its inline-array companions", () => {
+  const t = catalog.entries.find((e) => e.invocation === "think-top3");
+  assert.ok(t, "think-top3 present");
+  assert.equal(t.type, "tool");
+  assert.ok(t.url.endsWith("/tools/think-top3/"), t.url);
+  assert.ok(t.likely_companions.includes("think-framework-advisor"), "inline companions parsed");
+});
+
+test("a recipe entry (stress-test-decision) carries ordered steps", () => {
+  const r = catalog.entries.find((e) => e.invocation === "think-stress-test-decision");
+  assert.ok(r, "recipe present");
+  assert.equal(r.type, "recipe");
+  assert.ok(Array.isArray(r.steps) && r.steps.length >= 2, "has steps");
+  assert.ok(r.steps.includes("think-premortem"), "steps name real skills");
+  assert.ok(r.url.endsWith("/recipes/stress-test-decision/"), r.url);
+});
+
 test("likely_companions only ever names real shipped skills", () => {
   for (const e of catalog.entries) {
     for (const c of e.likely_companions || []) {
