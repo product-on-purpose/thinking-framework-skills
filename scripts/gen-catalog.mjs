@@ -193,6 +193,11 @@ for (const c of lib.components.skills) {
 skills.sort((a, b) => a.slug.localeCompare(b.slug));
 tools.sort((a, b) => a.slug.localeCompare(b.slug));
 
+const expectedShipped = registry.frameworks.filter((e) => e.status === 'shipped').length;
+if (skills.length !== expectedShipped) {
+  throw new Error(`gen-catalog: built ${skills.length} skill entries but the registry has ${expectedShipped} shipped frameworks - a shipped framework is missing from library.json (or a non-shipped one is present).`);
+}
+
 if (deadUrls.length) {
   throw new Error('gen-catalog: these surfaces have no live route (regenerate route-manifest.txt or fix the slug):\n  ' + deadUrls.join('\n  '));
 }
@@ -218,11 +223,15 @@ const methods = registry.frameworks.map((e) => ({
   verdict: e.verdict,
   fold_into: e.foldInto || null,
   mechanism: e.oneLine,
-  url: liveUrl(`/library/${e.slug}/`), // may be null when a method has no dossier page
+  // shipped methods link to their live skill page; everything else to its Framework Library
+  // dossier (or null if neither route exists).
+  url: e.status === 'shipped'
+    ? (liveUrl(`/frameworks/think-${e.slug}/`) || liveUrl(`/library/${e.slug}/`))
+    : liveUrl(`/library/${e.slug}/`),
 })).sort((a, b) => a.slug.localeCompare(b.slug));
 const shipped = methods.filter((m) => m.status === 'shipped').length;
 export const evaluated = {
-  $note: NOTE + ' Each method url is the absolute Framework Library dossier URL, or null if the method has no dossier page.',
+  $note: NOTE + ' Each method url is the absolute URL of its live page (the shipped skill page, or the Framework Library dossier), or null if neither exists.',
   generated_from: 'frameworks/registry.mjs',
   counts: { total: methods.length, shipped, not_shipped: methods.length - shipped },
   families: registry.families,

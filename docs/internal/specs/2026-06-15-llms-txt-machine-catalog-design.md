@@ -113,7 +113,7 @@ Per-entry shape, by `type`:
   "type": "skill",
   "invocation": "think-premortem",            // installable name an agent calls
   "name": "Premortem",                         // display name
-  "family": "risk-and-resilience",             // skill metadata.family
+  "family": "risk-failure-and-resilience",      // registry catalog family (registry.frameworks[].family)
   "evidence_tier": "S/M",                       // registry tier (skill); from SKILL.md for tools; null if n/a
   "mechanism": "stress-test a plan by imagining it already failed ...",  // registry oneLine (skill); SKILL.md summary for tools
   "when_to_use": "Use when about to commit to a launch, hire, ...",      // SKILL.md description, full
@@ -142,6 +142,11 @@ Per-entry shape, by `type`:
 
 ### Field provenance and edge rules
 
+- `family` for framework skills is the registry catalog family
+  (`registry.frameworks[].family`), NOT `metadata.family` from `SKILL.md`. The
+  llms.txt grouping iterates the registry families (`registry.families`), so using
+  a coarser or different source would break the family grouping. Tools carry
+  `family: null` (they have no registry entry).
 - `evidence_tier` for framework skills comes from the registry (single source of
   truth for tier, already gate-checked against SKILL.md). For tools it comes from
   `SKILL.md metadata.evidence-tier` or is `null` if a tool has none.

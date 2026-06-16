@@ -74,6 +74,14 @@ test("evaluated.json projects the whole registry with shipped/not-shipped split"
   assert.equal(steel.fold_into, "red-team-light", "fold_into surfaces where it ships");
 });
 
+test("evaluated.json shipped methods link to their live skill page (no null urls)", () => {
+  const p = evaluated.methods.find((m) => m.slug === "premortem");
+  assert.ok(p && p.status === "shipped", "premortem is a shipped method");
+  assert.ok(p.url && p.url.endsWith("/frameworks/think-premortem/"), `premortem url: ${p.url}`);
+  const nullShipped = evaluated.methods.filter((m) => m.status === "shipped" && !m.url);
+  assert.equal(nullShipped.length, 0, `every shipped method must have a live url; null: ${nullShipped.map((m) => m.slug).join(", ")}`);
+});
+
 test("llms.txt has the convention shape and links the data files", () => {
   assert.ok(llmsTxt.startsWith("# Thinking Framework Skills"), "H1 title");
   assert.match(llmsTxt, /^> /m, "blockquote summary");
