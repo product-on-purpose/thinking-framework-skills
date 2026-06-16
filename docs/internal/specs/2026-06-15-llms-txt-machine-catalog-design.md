@@ -114,7 +114,7 @@ Per-entry shape, by `type`:
   "invocation": "think-premortem",            // installable name an agent calls
   "name": "Premortem",                         // display name
   "family": "risk-failure-and-resilience",      // registry catalog family (registry.frameworks[].family)
-  "evidence_tier": "S/M",                       // registry tier (skill); from SKILL.md for tools; null if n/a
+  "evidence_tier": "S/M",                       // SKILL.md metadata.evidence-tier (compound display grade), falling back to registry tier; null if n/a
   "mechanism": "stress-test a plan by imagining it already failed ...",  // registry oneLine (skill); SKILL.md summary for tools
   "when_to_use": "Use when about to commit to a launch, hire, ...",      // SKILL.md description, full
   "artifact": "risk-register",                  // skill.meta.yml interface.primary_artifact_type
@@ -147,9 +147,12 @@ Per-entry shape, by `type`:
   llms.txt grouping iterates the registry families (`registry.families`), so using
   a coarser or different source would break the family grouping. Tools carry
   `family: null` (they have no registry entry).
-- `evidence_tier` for framework skills comes from the registry (single source of
-  truth for tier, already gate-checked against SKILL.md). For tools it comes from
-  `SKILL.md metadata.evidence-tier` or is `null` if a tool has none.
+- `evidence_tier` is the compound display grade from `SKILL.md`
+  `metadata.evidence-tier` (e.g. `"S/M"`), falling back to the registry `tier`
+  (the coarse single-letter governing tier) and then `null`. The two are tied
+  together by the registry's tier-drift CI check, but only the SKILL.md value
+  carries the compound display grade users and the site see, so the catalog emits
+  that. For tools (no registry entry) it is the `SKILL.md` value or `null`.
 - `mechanism` for framework skills is the registry `oneLine`. Tools have no
   registry entry, so their `mechanism` is the first sentence of the `SKILL.md`
   body summary (or the description) - clearly the same role (a one-line "what it
