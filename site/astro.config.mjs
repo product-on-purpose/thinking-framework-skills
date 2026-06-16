@@ -27,7 +27,7 @@ const gaHead = GA_ID
   : [];
 
 export default defineConfig({
-  site: 'https://product-on-purpose.github.io',
+  site: 'https://thinking-framework-skills.productonpurpose.com/',
   base: BASE,
   // The Framework Advisor moved from /frameworks/ to /tools/ (decision A: meta-skills are tools,
   // not graded frameworks). This redirect keeps the old published URL alive so external links and
