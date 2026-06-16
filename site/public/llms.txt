@@ -1,0 +1,115 @@
+# Thinking Framework Skills
+
+> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 56 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 56 ship as skills.
+
+Machine-readable: [catalog.json](https://product-on-purpose.github.io/thinking-framework-skills/catalog.json) (the invokable skills, tools, and recipes) and [evaluated.json](https://product-on-purpose.github.io/thinking-framework-skills/evaluated.json) (all 135 evaluated methods).
+
+## Start here
+- [Getting started](https://product-on-purpose.github.io/thinking-framework-skills/start/getting-started/): install and first run
+- [Showcase](https://product-on-purpose.github.io/thinking-framework-skills/showcase/): worked, end-to-end examples
+- [Does this work?](https://product-on-purpose.github.io/thinking-framework-skills/start/does-this-work/): the behavioral-eval results
+- [Using the frameworks](https://product-on-purpose.github.io/thinking-framework-skills/learn/using-the-frameworks/): the operating guide
+- [Prompt gallery](https://product-on-purpose.github.io/thinking-framework-skills/learn/prompt-gallery/): real prompts you can copy
+
+## Skills
+
+### Perspective-shifting and multi-lens
+- [think-parallel-perspectives-review](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-parallel-perspectives-review/): examine a decision through separated lenses (facts/upside/risk/intuition/alternatives/process)
+- [think-red-team-light](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-red-team-light/): construct the strongest adversarial case against a thesis
+- [think-role-storming](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-role-storming/): generate divergent ideas while inhabiting a chosen non-self persona, using the identity as an inhibition-lowering and distancing lens
+
+### Divergent ideation and idea expansion
+- [think-assumption-reversal](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-assumption-reversal/): negate foundational premises to generate options
+- [think-brainwriting](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-brainwriting/): silent parallel written generation + build-on
+- [think-far-analogy-ideation](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-far-analogy-ideation/): transfer deep structure from distant domains
+- [think-morphological-analysis](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-morphological-analysis/): enumerate the solution space by parameter combination, then prune to the internally consistent configurations (cross-consistency assessment)
+- [think-question-burst](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-question-burst/): rapid questions-only burst, then rank + pick
+- [think-scamper](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-scamper/): seven transformation prompts on a seed idea
+
+### Problem framing and reframing
+- [think-abstraction-laddering](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-abstraction-laddering/): move up (why) and down (how) to the right altitude
+- [think-boundary-critique](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-boundary-critique/): audit the boundary judgments that define a frame (who benefits / decides / has expertise / has standing), contrasting the 'is' boundary against the 'ought' boundary and naming the affected-but-excluded
+- [think-contradiction-resolution](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-contradiction-resolution/): reframe a trade-off as a contradiction to dissolve (separation in time/space/scale/condition), anchored to an implementation-free Ideal Final Result
+- [think-frame-creation](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-frame-creation/): reframe the problem by distilling themes and the core paradox, then abduce a new standpoint (often an 'approach it as if it were Y' analogy) and reason forward to solutions
+- [think-problem-restatement](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-problem-restatement/): rewrite the problem several ways, pick a better frame
+
+### Assumption and belief challenge
+- [think-argument-mapping](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-argument-mapping/): diagram claim, reasons, co-premises, objections
+- [think-authentic-dissent](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-authentic-dissent/): engineer for genuine minority dissent (not role-played)
+- [think-consider-the-unknowns](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-consider-the-unknowns/): before committing to a judgment, explicitly list the relevant variables you cannot observe and weigh the gap they leave
+- [think-evidence-vs-inference-sort](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-evidence-vs-inference-sort/): label claims evidence / inference / assumption
+- [think-ladder-of-inference-check](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-ladder-of-inference-check/): reconstruct the climb from data to conclusion
+- [think-natural-frequency-bayesian](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-natural-frequency-bayesian/): re-express conditional probabilities as frequencies
+- [think-what-would-have-to-be-true](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-what-would-have-to-be-true/): turn a claim into testable conditions
+
+### Risk, failure, and resilience
+- [think-backcasting](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-backcasting/): from a desired future, work back to the path
+- [think-premortem](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-premortem/): imagine the plan failed, work back to causes
+- [think-reference-class-forecasting](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-reference-class-forecasting/): anchor an estimate on the base rate of comparable cases
+- [think-woop](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-woop/): wish-outcome-obstacle-plan with an if-then
+
+### Systems and consequences
+- [think-causal-layered-analysis](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-causal-layered-analysis/): read an issue at four depths (litany / system / worldview / myth-metaphor), then reconstruct each layer into alternative futures anchored by a rewritten guiding metaphor
+- [think-causal-loop-diagrams](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-causal-loop-diagrams/): diagram reinforcing/balancing feedback loops
+- [think-futures-wheel](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-futures-wheel/): map first/second/third-order consequences outward
+- [think-iceberg-model](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-iceberg-model/): events -> patterns -> structures -> mental models
+- [think-process-tracing](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-process-tracing/): test rival causal explanations of a single case by each piece of evidence's diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests)
+- [think-stocks-and-flows-reasoning](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-stocks-and-flows-reasoning/): reason about accumulations and rates
+- [think-theory-of-constraints](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-theory-of-constraints/): find the single binding constraint capping throughput and attach its exploit / subordinate / elevate decisions (the five focusing steps)
+- [think-three-horizons](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-three-horizons/): hold three overlapping change curves (declining present H1, contested transition H2, emerging desired future H3) on one time canvas, locate the actor, and read the transition dynamics
+
+### Decision and option evaluation
+- [think-decision-journal](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-decision-journal/): record decision + expectation + confidence for calibration
+- [think-decision-option-review](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-decision-option-review/): compare options against weighted criteria
+- [think-dialectical-bootstrapping](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-dialectical-bootstrapping/): estimate, assume the estimate is wrong and list why, estimate again from those changed assumptions, then average the two numbers
+- [think-expected-value-decision-tree](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-expected-value-decision-tree/): price the uncertainty: a tree of choice and chance nodes, rolled back to an expected value per option, with a what-flips-it sensitivity note
+- [think-fermi-estimation](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-fermi-estimation/): structured order-of-magnitude estimate from decomposition
+- [think-interest-based-negotiation](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-interest-based-negotiation/): separate both sides' interests from their positions, decide against your BATNA inside the mapped ZOPA, and invent options for mutual gain across differently-valued issues before dividing value
+- [think-linear-model-aggregation](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-linear-model-aggregation/): combine cues with a simple fixed formula instead of holistic judgment
+- [think-minimax-regret](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-minimax-regret/): minimize worst-case regret: build a regret (opportunity-loss) matrix over un-probabilized states and choose the option whose maximum regret is smallest
+- [think-one-way-vs-two-way-door](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-one-way-vs-two-way-door/): classify by reversibility, match deliberation
+- [think-pairwise-comparison](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-pairwise-comparison/): rank when you cannot score: judge items two at a time, tally the binary wins into a comparison matrix, and derive an order without an absolute scale
+
+### Strategy and opportunity
+- [think-scenario-planning](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-scenario-planning/): construct a set of divergent, internally consistent external futures (2x2 critical-uncertainty axes), then robustness-test strategy across them
+
+### Synthesis and reasoning clarity
+- [think-affinity-mapping](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-affinity-mapping/): cluster many notes into emergent themes (bottom-up)
+- [think-concept-mapping](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-concept-mapping/): diagram concepts and labeled relationships
+- [think-contradiction-tension-mapping](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-contradiction-tension-mapping/): map an unsolvable polarity as both/and rather than smoothing it - name the two interdependent poles, the upside and downside of each, the greater purpose that makes managing both worthwhile, plus early-warning signs and action steps for staying in the productive zone
+- [think-issue-tree](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-issue-tree/): decompose a question into a MECE tree
+- [think-pyramid-principle](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-pyramid-principle/): answer-first governing thought + grouped support
+- [think-walton-argumentation-schemes](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-walton-argumentation-schemes/): identify which stereotyped argument pattern is in play, then test it with that scheme's standard critical questions
+
+### Meta-thinking and reflection
+- [think-after-action-review](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-after-action-review/): expected vs actual -> why -> sustain/change
+- [think-belief-update-routine](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-belief-update-routine/): periodically revisit and update key beliefs vs new evidence
+- [think-interval-calibration-check](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-interval-calibration-check/): test a stated confidence interval against an equivalent bet, widen until indifferent, then score stated confidence against the actual hit rate wherever outcomes resolve
+
+### Ethics and values deliberation
+- [think-ethical-matrix](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-ethical-matrix/): grid affected parties (rows, including voiceless ones) against prima facie principles (wellbeing, autonomy, fairness) and read the cell-level pattern of trade-offs
+- [think-speculative-harms-anti-goals](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-speculative-harms-anti-goals/): assume the design succeeds at scale, narrate the dystopian near-future in which it harms third parties and is exploited in bad faith, then convert each harm into an explicit anti-goal constraining the design
+- [think-veil-of-ignorance-reasoning](https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-veil-of-ignorance-reasoning/): decide a values trade-off as if you had an equal chance of being any affected party, then return to the actual decision and confront the gap
+
+## Tools
+
+- [think-framework-advisor](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-framework-advisor/): Produces a prioritized, evidence-graded Thinking Plan that diagnoses which thinking frameworks a situation actually needs - the dominant cognitive job, a short sequence of the fewest fitting frameworks to apply (each with its evidence tier, expected artifact, and a ready-to-run prompt), and what not to use.
+- [think-random-frameworks](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-random-frameworks/): Generates three off-pattern framework analyses of a topic by drawing frameworks at random, applying each regardless of fit, and harvesting the non-obvious angles the unexpected lenses expose.
+- [think-research-framework](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-research-framework/): Researches a thinking framework end to end and produces a schema-valid proposed registry entry plus a learning dossier, grading the evidence on the seven-tier model and assessing overlap against the shipped catalog.
+- [think-top3](https://product-on-purpose.github.io/thinking-framework-skills/tools/think-top3/): Produces a worked three-framework analysis of a topic.
+
+## Recipes
+
+- [think-audit-reasoning](https://product-on-purpose.github.io/thinking-framework-skills/recipes/audit-reasoning/): Check whether a conclusion is sound before trusting it, by sorting evidence from inference, reconstructing the inferential climb, and reviewing through separated lenses. (steps: think-evidence-vs-inference-sort -> think-ladder-of-inference-check -> think-parallel-perspectives-review)
+- [think-expand-options](https://product-on-purpose.github.io/thinking-framework-skills/recipes/expand-options/): Break past the obvious option set by reframing the problem, transforming the seed with SCAMPER, and reversing its foundational assumptions, then shortlisting candidates. (steps: think-problem-restatement -> think-scamper -> think-assumption-reversal)
+- [think-first-principles](https://product-on-purpose.github.io/thinking-framework-skills/recipes/first-principles/): Reason from fundamentals by decomposing a problem to its irreducible level, then stripping the inherited assumptions, so you rebuild from what is actually necessary rather than from convention or analogy. (steps: think-abstraction-laddering -> think-assumption-reversal)
+- [think-idea-quality-audit](https://product-on-purpose.github.io/thinking-framework-skills/recipes/idea-quality-audit/): Decide which of a batch of candidate ideas are worth committing to, by scoring them on explicit quality dimensions and then adversarially stress-testing the strongest few. (steps: think-decision-option-review -> think-red-team-light)
+- [think-issue-position-argument-mapping](https://product-on-purpose.github.io/thinking-framework-skills/recipes/issue-position-argument-mapping/): Turn a tangled multi-question deliberation or transcript into an inspectable typed map by chaining shipped moves, surfacing the open issues, attaching rival positions to each, and running a pro/con pass on each position, so a sprawling debate becomes a navigable structure. (steps: think-issue-tree -> think-decision-option-review -> think-argument-mapping)
+- [think-kepner-tregoe](https://product-on-purpose.github.io/thinking-framework-skills/recipes/kepner-tregoe/): Run the Kepner-Tregoe rational process as a chain of shipped moves, taking a bounded operational problem through cause-finding, then a weighted choice among options, then a forward risk pass, so a fix is de-risked end to end. (steps: think-issue-tree -> think-decision-option-review -> think-premortem)
+- [think-pdca-a3](https://product-on-purpose.github.io/thinking-framework-skills/recipes/pdca-a3/): Run the Plan-Do-Check-Act improvement loop as a chain of shipped moves, taking a performance gap through root-cause and countermeasure choice, then a structured review of actual versus expected, then a standardize-or-iterate decision. (steps: think-issue-tree -> think-decision-option-review -> think-after-action-review)
+- [think-reframe-problem](https://product-on-purpose.github.io/thinking-framework-skills/recipes/reframe-problem/): Make sure you are solving the right problem before generating solutions, by restating it, sorting evidence from inference, and reviewing it through separated lenses. (steps: think-problem-restatement -> think-evidence-vs-inference-sort -> think-parallel-perspectives-review)
+- [think-stress-test-decision](https://product-on-purpose.github.io/thinking-framework-skills/recipes/stress-test-decision/): Pressure-test a consequential decision before committing, by comparing options, surfacing the conditions that must hold, imagining failure, and sanity-checking the estimate against base rates. (steps: think-decision-option-review -> think-what-would-have-to-be-true -> think-premortem -> think-reference-class-forecasting)
+
+## Evaluated, not shipped
+
+We evaluated 135 methods; 56 ship as skills. The other 79 are documented with the reasoning in the Framework Library. See [evaluated.json](https://product-on-purpose.github.io/thinking-framework-skills/evaluated.json) and the [Framework Library](https://product-on-purpose.github.io/thinking-framework-skills/library/).
