@@ -15,13 +15,14 @@ import { spawnSync } from "node:child_process";
 // resolves its real BASE from scripts/site-base.mjs. This is a repo-local test, not a registered
 // gate check, mirroring the agent-skills-toolkit donor test.
 //
-// BASE is value-pinned here to the configured base. This is a sanctioned clause 14.7 exception (a
-// test that pins the expected base), alongside the public/robots.txt sitemap URL - it must equal
-// what scripts/site-base.mjs exports, or the fixtures will not line up with the guard's resolver.
+// BASE is value-pinned here to the configured base, which is the empty string for the
+// root-served custom domain. This is a sanctioned clause 14.7 exception (a test that pins the
+// expected base), alongside the public/robots.txt sitemap URL - it must equal what
+// scripts/site-base.mjs exports, or the fixtures will not line up with the guard's resolver.
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const GUARD = path.join(REPO_ROOT, "scripts/check-rendered-links.mjs");
-const BASE = "/thinking-framework-skills";
+const BASE = "";
 
 // Build a throwaway dist tree from a { relPath: htmlString } map and return its root.
 function makeDist(files) {
@@ -67,14 +68,19 @@ test("FAIL on a browser-broken internal link (target route does not exist in dis
   }
 });
 
-test("FAIL on a host-root link missing the base path (the 'Site not found' class)", () => {
+test("FAIL on a link to the old /thinking-framework-skills subpath (stale-base class)", () => {
+  // At a root deploy the page lives at /overview/, not /thinking-framework-skills/overview/. A
+  // stale link carrying the retired project subpath 404s at the root domain (GitHub redirects the
+  // old github.io path at the host, not inside dist), so the guard must flag it. This replaces the
+  // old "missing base" case, which no longer exists once the base is empty (root).
   const dist = makeDist({
-    "index.html": `<a href="/overview/">missing base</a>`,
+    "index.html": `<a href="/thinking-framework-skills/overview/">stale base</a>`,
     "overview/index.html": `<h1>Overview</h1>`,
   });
   try {
     const r = runGuard(dist);
     assert.equal(r.status, 1, `expected exit 1, got ${r.status}\n${r.stdout}`);
+    assert.match(r.stdout, /Browser-broken internal links: 1/);
   } finally {
     rmSync(dist, { recursive: true, force: true });
   }
@@ -126,9 +132,9 @@ test("a malformed percent-escape in an anchor does not crash the guard (defensiv
 });
 
 test("FAIL on a broken bare-relative link on a deep page (no leading ./ or /, F2)", () => {
-  // A bare-relative href on /thinking-framework-skills/overview/ resolves one URL level deeper, so a
-  // link to a sibling that exists at the site root still 404s from a sub-page. This is the class the
-  // guard must catch; regression test for the classification gap the askit fix closed.
+  // A bare-relative href on /overview/ resolves one URL level deeper, so a link to a sibling that
+  // exists at the site root still 404s from a sub-page. This is the class the guard must catch;
+  // regression test for the classification gap the askit fix closed.
   const dist = makeDist({
     "index.html": `<a href="${BASE}/overview/">ok</a>`,
     "overview/index.html": `<a href="getting-started/">broken from here</a>`,

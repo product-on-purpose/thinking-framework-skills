@@ -70,7 +70,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "move up (why) and down (how) to the right altitude",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-abstraction-laddering/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-abstraction-laddering/"
     },
     {
       "slug": "affinity-mapping",
@@ -81,7 +81,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "cluster many notes into emergent themes (bottom-up)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-affinity-mapping/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-affinity-mapping/"
     },
     {
       "slug": "after-action-review",
@@ -92,7 +92,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "expected vs actual -> why -> sustain/change",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-after-action-review/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-after-action-review/"
     },
     {
       "slug": "alternate-uses-constraint-insertion-removal",
@@ -103,7 +103,7 @@
       "verdict": "fold",
       "fold_into": "assumption-reversal",
       "mechanism": "loosen functional fixedness; add/strip a constraint",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/alternate-uses-constraint-insertion-removal/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/alternate-uses-constraint-insertion-removal/"
     },
     {
       "slug": "analysis-of-competing-hypotheses",
@@ -114,7 +114,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/analysis-of-competing-hypotheses/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/analysis-of-competing-hypotheses/"
     },
     {
       "slug": "argument-mapping",
@@ -125,7 +125,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "diagram claim, reasons, co-premises, objections",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-argument-mapping/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-argument-mapping/"
     },
     {
       "slug": "assumption-reversal",
@@ -136,7 +136,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "negate foundational premises to generate options",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-assumption-reversal/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-assumption-reversal/"
     },
     {
       "slug": "authentic-dissent",
@@ -147,7 +147,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "engineer for genuine minority dissent (not role-played)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-authentic-dissent/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-authentic-dissent/"
     },
     {
       "slug": "backcasting",
@@ -158,7 +158,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "from a desired future, work back to the path",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-backcasting/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-backcasting/"
     },
     {
       "slug": "belbin-team-roles",
@@ -169,7 +169,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "map a team against nine complementary contribution roles to surface gaps and overlaps",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/belbin-team-roles/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/belbin-team-roles/"
     },
     {
       "slug": "belief-update-routine",
@@ -180,7 +180,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "periodically revisit and update key beliefs vs new evidence",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-belief-update-routine/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-belief-update-routine/"
     },
     {
       "slug": "blue-ocean-tools",
@@ -191,7 +191,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "strategy canvas / four actions",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/blue-ocean-tools/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/blue-ocean-tools/"
     },
     {
       "slug": "boundary-critique",
@@ -202,7 +202,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "audit the boundary judgments that define a frame (who benefits / decides / has expertise / has standing), contrasting the 'is' boundary against the 'ought' boundary and naming the affected-but-excluded",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-boundary-critique/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-boundary-critique/"
     },
     {
       "slug": "brainwriting",
@@ -213,7 +213,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "silent parallel written generation + build-on",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-brainwriting/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-brainwriting/"
     },
     {
       "slug": "causal-layered-analysis",
@@ -224,7 +224,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "read an issue at four depths (litany / system / worldview / myth-metaphor), then reconstruct each layer into alternative futures anchored by a rewritten guiding metaphor",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-causal-layered-analysis/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-causal-layered-analysis/"
     },
     {
       "slug": "causal-loop-diagrams",
@@ -235,7 +235,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "diagram reinforcing/balancing feedback loops",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-causal-loop-diagrams/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-causal-loop-diagrams/"
     },
     {
       "slug": "cliftonstrengths",
@@ -246,7 +246,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "rank a person across 34 talent themes from a proprietary forced-choice assessment",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/cliftonstrengths/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/cliftonstrengths/"
     },
     {
       "slug": "cognitive-bias-checklist",
@@ -257,7 +257,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "run a decision against relevant biases",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/cognitive-bias-checklist/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/cognitive-bias-checklist/"
     },
     {
       "slug": "concept-knowledge-theory",
@@ -268,7 +268,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "partition design work into a concept space of undecidable propositions and a knowledge space, and iterate the four operators (C-C, C-K, K-C, K-K) between them",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/concept-knowledge-theory/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/concept-knowledge-theory/"
     },
     {
       "slug": "concept-mapping",
@@ -279,7 +279,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "diagram concepts and labeled relationships",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-concept-mapping/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-concept-mapping/"
     },
     {
       "slug": "consider-the-unknowns",
@@ -290,7 +290,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "before committing to a judgment, explicitly list the relevant variables you cannot observe and weigh the gap they leave",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-consider-the-unknowns/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-consider-the-unknowns/"
     },
     {
       "slug": "contradiction-resolution",
@@ -301,7 +301,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "reframe a trade-off as a contradiction to dissolve (separation in time/space/scale/condition), anchored to an implementation-free Ideal Final Result",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-contradiction-resolution/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-contradiction-resolution/"
     },
     {
       "slug": "contradiction-tension-mapping",
@@ -312,7 +312,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "map an unsolvable polarity as both/and rather than smoothing it - name the two interdependent poles, the upside and downside of each, the greater purpose that makes managing both worthwhile, plus early-warning signs and action steps for staying in the productive zone",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-contradiction-tension-mapping/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-contradiction-tension-mapping/"
     },
     {
       "slug": "counterfactual-reasoning",
@@ -323,7 +323,7 @@
       "verdict": "fold",
       "fold_into": "after-action-review",
       "mechanism": "examine 'what if X had been different'",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/counterfactual-reasoning/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/counterfactual-reasoning/"
     },
     {
       "slug": "crazy-8s",
@@ -334,7 +334,7 @@
       "verdict": "fold",
       "fold_into": "brainwriting",
       "mechanism": "eight sketches in eight minutes",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/crazy-8s/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/crazy-8s/"
     },
     {
       "slug": "cynefin",
@@ -345,7 +345,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "sort clear / complicated / complex / chaotic",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/cynefin/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/cynefin/"
     },
     {
       "slug": "decision-brief-pr-faq",
@@ -356,7 +356,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "force a decision into a short structured memo",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/decision-brief-pr-faq/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/decision-brief-pr-faq/"
     },
     {
       "slug": "decision-journal",
@@ -367,7 +367,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "record decision + expectation + confidence for calibration",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-decision-journal/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-decision-journal/"
     },
     {
       "slug": "decision-option-review",
@@ -378,7 +378,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "compare options against weighted criteria",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-decision-option-review/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-decision-option-review/"
     },
     {
       "slug": "devils-advocacy",
@@ -389,7 +389,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "assign someone to argue against",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/devils-advocacy/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/devils-advocacy/"
     },
     {
       "slug": "dialectical-bootstrapping",
@@ -400,7 +400,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "estimate, assume the estimate is wrong and list why, estimate again from those changed assumptions, then average the two numbers",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-dialectical-bootstrapping/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-dialectical-bootstrapping/"
     },
     {
       "slug": "dialectical-synthesis",
@@ -411,7 +411,7 @@
       "verdict": "fold",
       "fold_into": "red-team-light",
       "mechanism": "hold thesis/antithesis to a stronger synthesis",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/dialectical-synthesis/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/dialectical-synthesis/"
     },
     {
       "slug": "disc-profile",
@@ -422,7 +422,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "classify behavioral style across dominance, influence, steadiness, conscientiousness",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/disc-profile/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/disc-profile/"
     },
     {
       "slug": "disney-creative-strategy",
@@ -433,7 +433,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "dreamer/realist/critic cycle",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/disney-creative-strategy/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/disney-creative-strategy/"
     },
     {
       "slug": "dot-voting",
@@ -444,7 +444,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "allocate limited votes",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/dot-voting/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/dot-voting/"
     },
     {
       "slug": "double-crux",
@@ -455,7 +455,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "find the single belief whose change would flip each side of a disagreement",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/double-crux/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/double-crux/"
     },
     {
       "slug": "eisenhower-moscow-pareto",
@@ -466,7 +466,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "urgent-important triage; vital-few focus",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/eisenhower-moscow-pareto/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/eisenhower-moscow-pareto/"
     },
     {
       "slug": "enneagram",
@@ -477,7 +477,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "map a person to one of nine interconnected types with wings and stress / growth arrows",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/enneagram/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/enneagram/"
     },
     {
       "slug": "estimate-talk-estimate",
@@ -488,7 +488,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "collect independent estimates, share only the anonymized spread and rationales, discuss the variance, then re-estimate independently",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/estimate-talk-estimate/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/estimate-talk-estimate/"
     },
     {
       "slug": "ethical-matrix",
@@ -499,7 +499,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "grid affected parties (rows, including voiceless ones) against prima facie principles (wellbeing, autonomy, fairness) and read the cell-level pattern of trade-offs",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-ethical-matrix/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-ethical-matrix/"
     },
     {
       "slug": "evidence-vs-inference-sort",
@@ -510,7 +510,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "label claims evidence / inference / assumption",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-evidence-vs-inference-sort/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-evidence-vs-inference-sort/"
     },
     {
       "slug": "expected-value-decision-tree",
@@ -521,7 +521,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "price the uncertainty: a tree of choice and chance nodes, rolled back to an expected value per option, with a what-flips-it sensitivity note",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-expected-value-decision-tree/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-expected-value-decision-tree/"
     },
     {
       "slug": "far-analogy-ideation",
@@ -532,7 +532,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "transfer deep structure from distant domains",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-far-analogy-ideation/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-far-analogy-ideation/"
     },
     {
       "slug": "fermi-estimation",
@@ -543,7 +543,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "structured order-of-magnitude estimate from decomposition",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-fermi-estimation/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-fermi-estimation/"
     },
     {
       "slug": "first-principles",
@@ -565,7 +565,7 @@
       "verdict": "fold",
       "fold_into": "issue-tree",
       "mechanism": "decompose one observed effect into candidate causes grouped under a fixed category checklist (6M/8P)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/fishbone-ishikawa/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/fishbone-ishikawa/"
     },
     {
       "slug": "five-whys",
@@ -576,7 +576,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "iterative why to trace a cause",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/five-whys/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/five-whys/"
     },
     {
       "slug": "fmea-lite",
@@ -587,7 +587,7 @@
       "verdict": "fold",
       "fold_into": "premortem",
       "mechanism": "list failure modes by likelihood x severity x detection",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/fmea-lite/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/fmea-lite/"
     },
     {
       "slug": "forced-connections",
@@ -598,7 +598,7 @@
       "verdict": "fold",
       "fold_into": "far-analogy-ideation",
       "mechanism": "pair the problem with an unrelated stimulus",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/forced-connections/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/forced-connections/"
     },
     {
       "slug": "frame-creation",
@@ -609,7 +609,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "reframe the problem by distilling themes and the core paradox, then abduce a new standpoint (often an 'approach it as if it were Y' analogy) and reason forward to solutions",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-frame-creation/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-frame-creation/"
     },
     {
       "slug": "frame-storming",
@@ -620,7 +620,7 @@
       "verdict": "fold",
       "fold_into": "problem-restatement",
       "mechanism": "brainstorm the framing, not the solution",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/frame-storming/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/frame-storming/"
     },
     {
       "slug": "futures-wheel",
@@ -631,7 +631,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "map first/second/third-order consequences outward",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-futures-wheel/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-futures-wheel/"
     },
     {
       "slug": "how-might-we",
@@ -642,7 +642,7 @@
       "verdict": "fold",
       "fold_into": "problem-restatement",
       "mechanism": "turn an insight into an opportunity question",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/how-might-we/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/how-might-we/"
     },
     {
       "slug": "ice-rice-wsjf",
@@ -653,7 +653,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "prioritization scores",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/ice-rice-wsjf/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/ice-rice-wsjf/"
     },
     {
       "slug": "iceberg-model",
@@ -664,7 +664,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "events -> patterns -> structures -> mental models",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-iceberg-model/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-iceberg-model/"
     },
     {
       "slug": "idea-quality-audit",
@@ -686,7 +686,7 @@
       "verdict": "fold",
       "fold_into": "red-team-light",
       "mechanism": "state an opposing view well enough that its holders cannot tell you are not one of them",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/ideological-turing-test/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/ideological-turing-test/"
     },
     {
       "slug": "insight-statement-generation",
@@ -697,7 +697,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "turn observations into sharp, transferable insight statements (the why behind a finding)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/insight-statement-generation/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/insight-statement-generation/"
     },
     {
       "slug": "interest-based-negotiation",
@@ -708,7 +708,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "separate both sides' interests from their positions, decide against your BATNA inside the mapped ZOPA, and invent options for mutual gain across differently-valued issues before dividing value",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-interest-based-negotiation/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-interest-based-negotiation/"
     },
     {
       "slug": "interval-calibration-check",
@@ -719,7 +719,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "test a stated confidence interval against an equivalent bet, widen until indifferent, then score stated confidence against the actual hit rate wherever outcomes resolve",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-interval-calibration-check/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-interval-calibration-check/"
     },
     {
       "slug": "inversion",
@@ -730,7 +730,7 @@
       "verdict": "fold",
       "fold_into": "premortem",
       "mechanism": "ask how to guarantee failure, then avoid it",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/inversion/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/inversion/"
     },
     {
       "slug": "is-is-not-analysis",
@@ -741,7 +741,7 @@
       "verdict": "fold",
       "fold_into": "problem-restatement",
       "mechanism": "sharpen scope by what the problem is and is not",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/is-is-not-analysis/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/is-is-not-analysis/"
     },
     {
       "slug": "issue-position-argument-mapping",
@@ -763,7 +763,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "decompose a question into a MECE tree",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-issue-tree/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-issue-tree/"
     },
     {
       "slug": "jobs-to-be-done",
@@ -774,7 +774,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "frame demand as progress sought",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/jobs-to-be-done/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/jobs-to-be-done/"
     },
     {
       "slug": "kepner-tregoe",
@@ -796,7 +796,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "inventory and rank a plan's assumptions",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/key-assumptions-check/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/key-assumptions-check/"
     },
     {
       "slug": "kill-criteria-tripwires",
@@ -807,7 +807,7 @@
       "verdict": "fold",
       "fold_into": "premortem",
       "mechanism": "pre-decided stop signals and conditions",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/kill-criteria-tripwires/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/kill-criteria-tripwires/"
     },
     {
       "slug": "kirton-adaption-innovation",
@@ -818,7 +818,7 @@
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
       "mechanism": "read a problem, plan, or team through the adaptor (do it better) and innovator (do it differently) style poles",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/kirton-adaption-innovation/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/kirton-adaption-innovation/"
     },
     {
       "slug": "ladder-of-inference-check",
@@ -829,7 +829,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "reconstruct the climb from data to conclusion",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-ladder-of-inference-check/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-ladder-of-inference-check/"
     },
     {
       "slug": "learning-styles-inventory",
@@ -840,7 +840,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "match instruction to a learner's preferred modality (visual, auditory, kinesthetic, and so on)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/learning-styles-inventory/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/learning-styles-inventory/"
     },
     {
       "slug": "leverage-points",
@@ -851,7 +851,7 @@
       "verdict": "fold",
       "fold_into": "iceberg-model",
       "mechanism": "sketch elements/relationships; find intervention points",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/leverage-points/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/leverage-points/"
     },
     {
       "slug": "linear-model-aggregation",
@@ -862,7 +862,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "combine cues with a simple fixed formula instead of holistic judgment",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-linear-model-aggregation/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-linear-model-aggregation/"
     },
     {
       "slug": "lotus-blossom",
@@ -873,7 +873,7 @@
       "verdict": "fold",
       "fold_into": "issue-tree",
       "mechanism": "fan a center into eight sub-themes, re-center each, and expand again into a recursive idea grid",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/lotus-blossom/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/lotus-blossom/"
     },
     {
       "slug": "mbti",
@@ -884,7 +884,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "sort a person into one of sixteen types across four dichotomies",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/mbti/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/mbti/"
     },
     {
       "slug": "mece-decomposition",
@@ -895,7 +895,7 @@
       "verdict": "fold",
       "fold_into": "issue-tree",
       "mechanism": "mutually-exclusive, collectively-exhaustive split",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/mece-decomposition/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/mece-decomposition/"
     },
     {
       "slug": "minimax-regret",
@@ -906,7 +906,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "minimize worst-case regret: build a regret (opportunity-loss) matrix over un-probabilized states and choose the option whose maximum regret is smallest",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-minimax-regret/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-minimax-regret/"
     },
     {
       "slug": "moat-defensibility-lens",
@@ -917,7 +917,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "test what stops a competitor copying you",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/moat-defensibility-lens/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/moat-defensibility-lens/"
     },
     {
       "slug": "morphological-analysis",
@@ -928,7 +928,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "enumerate the solution space by parameter combination, then prune to the internally consistent configurations (cross-consistency assessment)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-morphological-analysis/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-morphological-analysis/"
     },
     {
       "slug": "multi-criteria-decision-analysis",
@@ -939,7 +939,7 @@
       "verdict": "fold",
       "fold_into": "decision-option-review",
       "mechanism": "weighted scoring across criteria",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/multi-criteria-decision-analysis/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/multi-criteria-decision-analysis/"
     },
     {
       "slug": "natural-frequency-bayesian",
@@ -950,7 +950,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "re-express conditional probabilities as frequencies",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-natural-frequency-bayesian/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-natural-frequency-bayesian/"
     },
     {
       "slug": "note-and-vote",
@@ -961,7 +961,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "individual notes, then a group vote, then a single Decider's weighted supervote",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/note-and-vote/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/note-and-vote/"
     },
     {
       "slug": "one-way-vs-two-way-door",
@@ -972,7 +972,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "classify by reversibility, match deliberation",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-one-way-vs-two-way-door/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-one-way-vs-two-way-door/"
     },
     {
       "slug": "ooda-loop",
@@ -983,7 +983,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "observe-orient-decide-act",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/ooda-loop/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/ooda-loop/"
     },
     {
       "slug": "opportunity-solution-tree",
@@ -994,7 +994,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "outcome -> opportunities -> solutions",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/opportunity-solution-tree/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/opportunity-solution-tree/"
     },
     {
       "slug": "outside-in-inside-out-framing",
@@ -1005,7 +1005,7 @@
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
       "mechanism": "alternate a market/external view and a capability/internal view, then reconcile",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/outside-in-inside-out-framing/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/outside-in-inside-out-framing/"
     },
     {
       "slug": "pairwise-comparison",
@@ -1016,7 +1016,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "rank when you cannot score: judge items two at a time, tally the binary wins into a comparison matrix, and derive an order without an absolute scale",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-pairwise-comparison/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-pairwise-comparison/"
     },
     {
       "slug": "parallel-perspectives-review",
@@ -1027,7 +1027,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "examine a decision through separated lenses (facts/upside/risk/intuition/alternatives/process)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-parallel-perspectives-review/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-parallel-perspectives-review/"
     },
     {
       "slug": "pdca-a3",
@@ -1049,7 +1049,7 @@
       "verdict": "fold",
       "fold_into": "issue-tree",
       "mechanism": "scan the macro-environment against a fixed category checklist (political/economic/social/technological/legal/environmental)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/pestle/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/pestle/"
     },
     {
       "slug": "porters-five-forces",
@@ -1060,7 +1060,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "competitive-structure scan",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/porters-five-forces/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/porters-five-forces/"
     },
     {
       "slug": "pre-commitment-ulysses-contract",
@@ -1071,7 +1071,7 @@
       "verdict": "fold",
       "fold_into": "woop",
       "mechanism": "bind future behavior in advance against known weakness",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/pre-commitment-ulysses-contract/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/pre-commitment-ulysses-contract/"
     },
     {
       "slug": "premortem",
@@ -1082,7 +1082,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "imagine the plan failed, work back to causes",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-premortem/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-premortem/"
     },
     {
       "slug": "problem-restatement",
@@ -1093,7 +1093,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "rewrite the problem several ways, pick a better frame",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-problem-restatement/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-problem-restatement/"
     },
     {
       "slug": "process-tracing",
@@ -1104,7 +1104,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "test rival causal explanations of a single case by each piece of evidence's diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-process-tracing/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-process-tracing/"
     },
     {
       "slug": "pyramid-principle",
@@ -1115,7 +1115,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "answer-first governing thought + grouped support",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-pyramid-principle/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-pyramid-principle/"
     },
     {
       "slug": "qualitative-comparative-analysis",
@@ -1126,7 +1126,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/qualitative-comparative-analysis/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/qualitative-comparative-analysis/"
     },
     {
       "slug": "question-burst",
@@ -1137,7 +1137,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "rapid questions-only burst, then rank + pick",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-question-burst/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-question-burst/"
     },
     {
       "slug": "red-team-light",
@@ -1148,7 +1148,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "construct the strongest adversarial case against a thesis",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-red-team-light/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-red-team-light/"
     },
     {
       "slug": "reference-class-forecasting",
@@ -1159,7 +1159,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "anchor an estimate on the base rate of comparable cases",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-reference-class-forecasting/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-reference-class-forecasting/"
     },
     {
       "slug": "reflective-equilibrium",
@@ -1170,7 +1170,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "iterate between case judgments and general principles, revising whichever fits worse, until they cohere",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/reflective-equilibrium/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/reflective-equilibrium/"
     },
     {
       "slug": "regret-minimization",
@@ -1181,7 +1181,7 @@
       "verdict": "fold",
       "fold_into": "one-way-vs-two-way-door",
       "mechanism": "choose the least-future-regret option (project to age 80, pick what you would most regret not trying)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/regret-minimization/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/regret-minimization/"
     },
     {
       "slug": "retro-formats",
@@ -1192,7 +1192,7 @@
       "verdict": "fold",
       "fold_into": "after-action-review",
       "mechanism": "fast retro formats",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/retro-formats/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/retro-formats/"
     },
     {
       "slug": "riasec-interest-fit",
@@ -1203,7 +1203,7 @@
       "verdict": "fold",
       "fold_into": "decision-option-review",
       "mechanism": "score a role, option, or person against the six fixed interest types (realistic, investigative, artistic, social, enterprising, conventional) and read the fit",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/riasec-interest-fit/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/riasec-interest-fit/"
     },
     {
       "slug": "role-storming",
@@ -1214,7 +1214,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "generate divergent ideas while inhabiting a chosen non-self persona, using the identity as an inhibition-lowering and distancing lens",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-role-storming/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-role-storming/"
     },
     {
       "slug": "scaled-participation-formats",
@@ -1225,7 +1225,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "scaled-participation group formats",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/scaled-participation-formats/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/scaled-participation-formats/"
     },
     {
       "slug": "scamper",
@@ -1236,7 +1236,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "seven transformation prompts on a seed idea",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-scamper/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-scamper/"
     },
     {
       "slug": "scenario-planning",
@@ -1247,7 +1247,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "construct a set of divergent, internally consistent external futures (2x2 critical-uncertainty axes), then robustness-test strategy across them",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-scenario-planning/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-scenario-planning/"
     },
     {
       "slug": "second-order-effects",
@@ -1258,7 +1258,7 @@
       "verdict": "fold",
       "fold_into": "futures-wheel",
       "mechanism": "lightweight 'and then what?' prompt",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/second-order-effects/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/second-order-effects/"
     },
     {
       "slug": "sensemaking-matrix",
@@ -1269,7 +1269,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "organize conflicting signals for interpretation",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/sensemaking-matrix/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/sensemaking-matrix/"
     },
     {
       "slug": "silent-writing-before-discussion",
@@ -1280,7 +1280,7 @@
       "verdict": "fold",
       "fold_into": "brainwriting",
       "mechanism": "write independently first to prevent anchoring",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/silent-writing-before-discussion/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/silent-writing-before-discussion/"
     },
     {
       "slug": "six-thinking-hats",
@@ -1291,7 +1291,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "branded parallel-thinking ritual",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/six-thinking-hats/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/six-thinking-hats/"
     },
     {
       "slug": "socratic-self-questioning",
@@ -1302,7 +1302,7 @@
       "verdict": "fold",
       "fold_into": "ladder-of-inference-check",
       "mechanism": "disciplined self-interrogation of a belief via a fixed set of probing question-types",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/socratic-self-questioning/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/socratic-self-questioning/"
     },
     {
       "slug": "speculative-harms-anti-goals",
@@ -1313,7 +1313,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "assume the design succeeds at scale, narrate the dystopian near-future in which it harms third parties and is exploited in bad faith, then convert each harm into an explicit anti-goal constraining the design",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-speculative-harms-anti-goals/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-speculative-harms-anti-goals/"
     },
     {
       "slug": "stakeholder-lens-review",
@@ -1324,7 +1324,7 @@
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
       "mechanism": "walk a proposal through each affected party's eyes",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/stakeholder-lens-review/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/stakeholder-lens-review/"
     },
     {
       "slug": "steelmanning",
@@ -1335,7 +1335,7 @@
       "verdict": "fold",
       "fold_into": "red-team-light",
       "mechanism": "state the strongest version of an opposing view before responding",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/steelmanning/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/steelmanning/"
     },
     {
       "slug": "stocks-and-flows-reasoning",
@@ -1346,7 +1346,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "reason about accumulations and rates",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-stocks-and-flows-reasoning/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-stocks-and-flows-reasoning/"
     },
     {
       "slug": "strong-interest-inventory",
@@ -1357,7 +1357,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "profile vocational interests against occupational reference groups",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/strong-interest-inventory/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/strong-interest-inventory/"
     },
     {
       "slug": "swot",
@@ -1368,7 +1368,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "strengths / weaknesses / opportunities / threats",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/swot/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/swot/"
     },
     {
       "slug": "system-archetypes",
@@ -1379,7 +1379,7 @@
       "verdict": "fold",
       "fold_into": "causal-loop-diagrams",
       "mechanism": "match a recurring dynamic to a named feedback-structure template (fixes that fail, shifting the burden, tragedy of the commons) and import its canonical leverage prescription",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/system-archetypes/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/system-archetypes/"
     },
     {
       "slug": "theory-of-constraints",
@@ -1390,7 +1390,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "find the single binding constraint capping throughput and attach its exploit / subordinate / elevate decisions (the five focusing steps)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-theory-of-constraints/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-theory-of-constraints/"
     },
     {
       "slug": "three-horizons",
@@ -1401,7 +1401,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "hold three overlapping change curves (declining present H1, contested transition H2, emerging desired future H3) on one time canvas, locate the actor, and read the transition dynamics",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-three-horizons/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-three-horizons/"
     },
     {
       "slug": "toulmin-argument-model",
@@ -1412,7 +1412,7 @@
       "verdict": "fold",
       "fold_into": "argument-mapping",
       "mechanism": "lay out a claim as data, warrant, and backing, with qualifier and rebuttal, to test whether it holds",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/toulmin-argument-model/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/toulmin-argument-model/"
     },
     {
       "slug": "trait-lens-perspective",
@@ -1423,7 +1423,7 @@
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
       "mechanism": "view a decision through contrasting personality-trait viewpoints (high vs low openness, conscientiousness, and so on)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/trait-lens-perspective/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/trait-lens-perspective/"
     },
     {
       "slug": "tuckman-group-development",
@@ -1434,7 +1434,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "diagnose a team's stage on the forming-storming-norming-performing arc to pick the fitting intervention",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/tuckman-group-development/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/tuckman-group-development/"
     },
     {
       "slug": "value-proposition-contrast",
@@ -1445,7 +1445,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "sharpen vs the next-best alternative",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/value-proposition-contrast/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/value-proposition-contrast/"
     },
     {
       "slug": "veil-of-ignorance-reasoning",
@@ -1456,7 +1456,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "decide a values trade-off as if you had an equal chance of being any affected party, then return to the actual decision and confront the gap",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-veil-of-ignorance-reasoning/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-veil-of-ignorance-reasoning/"
     },
     {
       "slug": "via-character-strengths",
@@ -1467,7 +1467,7 @@
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
       "mechanism": "frame a problem or role through signature strengths drawn from the 24-strength classification",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/via-character-strengths/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/via-character-strengths/"
     },
     {
       "slug": "walton-argumentation-schemes",
@@ -1478,7 +1478,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "identify which stereotyped argument pattern is in play, then test it with that scheme's standard critical questions",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-walton-argumentation-schemes/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-walton-argumentation-schemes/"
     },
     {
       "slug": "wardley-mapping",
@@ -1489,7 +1489,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "value chain vs evolution",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/wardley-mapping/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/wardley-mapping/"
     },
     {
       "slug": "what-so-what-now-what",
@@ -1500,7 +1500,7 @@
       "verdict": "fold",
       "fold_into": "after-action-review",
       "mechanism": "observation -> meaning -> action",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/what-so-what-now-what/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/what-so-what-now-what/"
     },
     {
       "slug": "what-would-have-to-be-true",
@@ -1511,7 +1511,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "turn a claim into testable conditions",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-what-would-have-to-be-true/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-what-would-have-to-be-true/"
     },
     {
       "slug": "white-space-adjacent-possible",
@@ -1522,7 +1522,7 @@
       "verdict": "reject",
       "fold_into": null,
       "mechanism": "locate uncontested or reachable opportunity (white space / adjacent possible / 10x vs incremental)",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/white-space-adjacent-possible/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/white-space-adjacent-possible/"
     },
     {
       "slug": "woop",
@@ -1533,7 +1533,7 @@
       "verdict": "shipped",
       "fold_into": null,
       "mechanism": "wish-outcome-obstacle-plan with an if-then",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/frameworks/think-woop/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-woop/"
     },
     {
       "slug": "worst-possible-idea",
@@ -1544,7 +1544,7 @@
       "verdict": "fold",
       "fold_into": "assumption-reversal",
       "mechanism": "generate the worst/most-absurd ideas, then flip their bad-making attributes into candidate solutions",
-      "url": "https://product-on-purpose.github.io/thinking-framework-skills/library/worst-possible-idea/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/library/worst-possible-idea/"
     }
   ]
 }

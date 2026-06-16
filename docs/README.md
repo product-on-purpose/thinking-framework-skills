@@ -2,7 +2,7 @@
 
 This folder is for people working **with the repo**: anyone browsing the source and anyone contributing to it. It covers install, architecture, contributing, the core concepts, and the per-file sidecars that sit next to code and config.
 
-It is not the learning experience. The rendered guide for end users (quick-facts cards, worked examples, evidence dossiers) lives on the **[live site](https://product-on-purpose.github.io/thinking-framework-skills/)**, and the frameworks themselves are the skills in [`../skills/`](../skills/). The site is a generated view of those skills; it is the source of truth for using the library. This folder deliberately does **not** duplicate the site. It holds the material that has no other home.
+It is not the learning experience. The rendered guide for end users (quick-facts cards, worked examples, evidence dossiers) lives on the **[live site](https://thinking-framework-skills.productonpurpose.com/)**, and the frameworks themselves are the skills in [`../skills/`](../skills/). The site is a generated view of those skills; it is the source of truth for using the library. This folder deliberately does **not** duplicate the site. It holds the material that has no other home.
 
 ## Map
 
@@ -20,5 +20,5 @@ Generators, validators, and config files document their what / why / usage in th
 ## Pointers off this folder
 
 - The frameworks: [`../skills/`](../skills/) - 56 graded frameworks across 12 families, 4 tools (meta-skills), and 9 composable recipes.
-- The live docs site: <https://product-on-purpose.github.io/thinking-framework-skills/> - the reading experience, generated from the skills.
-- The advisor (front door): pick a framework by describing your situation at <https://product-on-purpose.github.io/thinking-framework-skills/tools/think-framework-advisor/>.
+- The live docs site: <https://thinking-framework-skills.productonpurpose.com/> - the reading experience, generated from the skills.
+- The advisor (front door): pick a framework by describing your situation at <https://thinking-framework-skills.productonpurpose.com/tools/think-framework-advisor/>.
