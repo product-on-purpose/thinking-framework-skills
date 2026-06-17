@@ -1,6 +1,6 @@
 ---
 title: Does this actually work?
-description: We measured it. The catalog routes the right framework for a situation (99% top-1, zero false-fires across 561 cases) and the skills produce artifacts that meet their own bar (99% of 315 checks). Here are the numbers, and what they do and do not prove.
+description: We measured it. The catalog routes the right framework for a situation (99% top-1, zero false-fires across 673 cases) and the skills produce artifacts that meet their own bar (99% of 389 checks). Here are the numbers, and what they do and do not prove.
 ---
 
 import { Card, CardGrid, Aside, Badge } from '@astrojs/starlight/components';
@@ -28,14 +28,14 @@ Every trigger and anti-case from the shipped skills' own `eval/cases.md` was poo
 
 <CardGrid>
   <Card title="0 false-fires" icon="approve-check">
-    Across **280 anti-cases** (deliberately wrong-tool or no-tool situations), no skill wrongly grabbed one. **100%.** This is the metric that matters most: skills that do not over-trigger.
+    Across **338 anti-cases** (deliberately wrong-tool or no-tool situations), no skill wrongly grabbed one. **100%.** This is the metric that matters most: skills that do not over-trigger.
   </Card>
   <Card title="99% top-1, 100% top-3" icon="approve-check">
-    Of **281 "should fire" situations**, 278 routed to the intended framework on the first pick; all 281 had it in the top 3. The 3 first-pick misses are near-twins, each with the intended skill still in the top 3.
+    Of **335 "should fire" situations**, 332 routed to the intended framework on the first pick; all 335 had it in the top 3. The 3 first-pick misses are near-twins, each with the intended skill still in the top 3.
   </Card>
 </CardGrid>
 
-The headline: **561 cases, zero false-fires, 99% top-1 routing.** The catalog discriminates - the descriptions and anti-triggers send a situation to the right framework.
+The headline: **673 cases, zero false-fires, 99% top-1 routing.** The catalog discriminates - the descriptions and anti-triggers send a situation to the right framework.
 
 ## Output eval: the artifacts hit their own bar
 
@@ -43,10 +43,10 @@ A separate measurement. For each skill, a producer agent runs it on a real promp
 
 <CardGrid>
   <Card title="99% of checks passed" icon="approve-check">
-    **311 of 315** individual output checks passed across freshly produced artifacts. **43 of 47** skills satisfied every single check.
+    **386 of 389** individual output checks passed across freshly produced artifacts. **53 of 56** skills satisfied every single check.
   </Card>
   <Card title="The misses were specific" icon="information">
-    The four failures clustered on one element: the evidence caveat dropped from the artifact when a skill was run cold. A precise, fixable gap, not a vague score; the flagged skills were tightened so the caveat now ships by construction.
+    The three misses were specific: two skills dropped the evidence caveat when run cold, and one filled unknown payoff cells with illustrative numbers instead of flagging them. Precise, fixable gaps, not a vague score. The eval is non-deterministic, so the exact skills vary run to run, but the pattern - the evidence caveat is the single easiest element to drop - is stable.
   </Card>
 </CardGrid>
 
@@ -55,7 +55,7 @@ A separate measurement. For each skill, a producer agent runs it on a real promp
 <Aside type="note" title="The limits, stated plainly">
 - The evals measure **routing** and **artifact quality**, not real-world **decision outcomes**. A premortem that surfaces five sharp risks is a good artifact; whether it made your launch succeed is a different, harder question the dossiers are honest about.
 - They are **model-executed and non-deterministic** - a snapshot, not a fixed property. One skill failed a check in a pilot and passed it in the full run. They are a measurement, not a gate.
-- The full runs above were measured **2026-06-10 across the 47 skills shipped then**; the catalog is now 56. A full re-run across the current catalog is the natural next measurement (it is cheap and reproducible).
+- The full runs above were measured **2026-06-17 across all 56 shipped skills** (673 routing cases, 389 output checks). Re-running after each catalog change keeps these numbers live rather than frozen; the previous run was 2026-06-10 across the 47 skills shipped then.
 </Aside>
 
 ## Check it yourself

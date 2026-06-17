@@ -65,8 +65,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: not-run
-  output_eval_status: not-run
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - running it as a premortem - hunting plan-survival risk instead of success-coexistent third-party harm
     - speculation drifting to the cinematically far-fetched while present, mundane harms go unexamined

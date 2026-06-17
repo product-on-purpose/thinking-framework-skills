@@ -63,8 +63,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-10
-  output_eval_status: measured-2026-06-10
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - running it on a genuinely solvable problem and manufacturing false balance over a question with a right answer (dominant failure mode)
     - using the map as a permanent excuse to avoid a decision the polarity framing was meant to inform

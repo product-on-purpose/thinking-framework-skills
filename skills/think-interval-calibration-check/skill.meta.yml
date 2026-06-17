@@ -63,8 +63,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: not-run
-  output_eval_status: not-run
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - calibrating the agent's own confidence instead of a human's stated intervals
     - adjusting the location of the estimate instead of only the width of the uncertainty

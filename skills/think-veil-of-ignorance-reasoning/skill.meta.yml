@@ -62,8 +62,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: not-run
-  output_eval_status: not-run
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - running the veil with no explicit decision rule, so a contested normative choice is laundered as impartiality
     - veiling away morally load-bearing identity (promises, desert, fiduciary duty, compensatory claims)

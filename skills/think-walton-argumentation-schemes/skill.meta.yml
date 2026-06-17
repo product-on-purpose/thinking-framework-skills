@@ -63,8 +63,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: not-run
-  output_eval_status: not-run
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - mis-typing the scheme, which corrupts every downstream critical question (Feng and Hirst 2011 - even the five most common schemes machine-separate at only 63-91%)
     - forcing a deductive or statistical argument into a presumptive scheme
