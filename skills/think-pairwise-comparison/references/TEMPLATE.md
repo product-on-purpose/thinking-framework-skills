@@ -54,3 +54,9 @@ Scan for cycles - any triangle where A beats B, B beats C, and C beats A. A cycl
 ## Honest framing
 
 [One line: this order is a forced-choice ranking derived from head-to-head votes, not an objective measurement. A passing consistency check does not make the preference correct, and adding a near-duplicate item could shift the order.]
+
+## Evidence caveat
+
+<!-- This section is pre-printed: copy it into the artifact verbatim, without this comment. -->
+
+> Pairwise comparison is an easier-and-more-stable ranking aid - judging one pair at a time is lower-load than scoring a whole set at once. Its evidence is practitioner-grade and transferred, not a measured gain in decision quality; the resulting order is a forced choice, not an objective measurement.

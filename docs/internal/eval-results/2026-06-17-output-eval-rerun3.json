@@ -1,0 +1,28 @@
+{
+  "generated": "OUTPUT eval",
+  "skills": 3,
+  "totals": {
+    "checks": 26,
+    "passed": 26,
+    "passPct": 100,
+    "perfectSkills": 3,
+    "failedChecks": 0
+  },
+  "perSkill": {
+    "causal-layered-analysis": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "minimax-regret": {
+      "passed": 10,
+      "total": 10,
+      "fails": []
+    },
+    "pairwise-comparison": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    }
+  }
+}
