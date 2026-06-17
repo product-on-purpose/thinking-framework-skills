@@ -30,14 +30,16 @@ Fill this in. The deliverable is the regret analysis - the payoff matrix, the de
 
 ## Payoff matrix
 
-Payoff of each option in each state (in the unit stated above). Do not invent cells; flag any genuinely unknown cell rather than fabricating it.
+Payoff of each option in each state (in the unit stated above). **State the provenance of these figures, and never let invented numbers read as real inputs.** If the situation supplies payoffs, use them. If it does NOT, do not fabricate precise values and present them as given: either mark each cell as an explicit estimate (e.g. `8 (assumed)`) and make the pick conditional on those assumptions, or flag a genuinely unknown cell (`?`) and say the matrix cannot resolve until it is supplied.
+
+- **Payoff provenance:** [one line - are these figures given in the situation, analyst estimates flagged as such, or partly unknown? The regret pick is only as trustworthy as this line.]
 
 | Option \ State | State A | State B | State C |
 |---|---|---|---|
-| Option 1 | [payoff] | [payoff] | [payoff] |
+| Option 1 | [payoff, or `n (assumed)` / `?`] | [payoff] | [payoff] |
 | Option 2 | [payoff] | [payoff] | [payoff] |
 | Option 3 | [payoff] | [payoff] | [payoff] |
-| **Column best** | **[max of column]** | **[max of column]** | **[max of column]** |
+| **Column best** | **[max of the column]** | **[max]** | **[max]** |
 
 ## Regret matrix
 

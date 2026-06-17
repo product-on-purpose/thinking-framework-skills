@@ -32,3 +32,9 @@ Fill this in. The deliverable is the four-layer matrix - litany, system, worldvi
 - Read **down** the current column first (litany to myth), then **change the metaphor**, then reconstruct **up** the preferred column (myth to litany). Each reconstructed layer must follow from the new metaphor, not from the old stack.
 - **Contestability note:** [state plainly that the worldview and myth readings are interpretations, not facts; name an alternative reading of the deep layer if one is plausible]
 - **Scope note:** [confirm the output stops at the reframe and is not a forecast, a ranking, or a decision]
+
+## Evidence caveat
+
+<!-- This section is pre-printed: copy it into the artifact verbatim, without this comment. -->
+
+> This four-layer matrix is a reframing aid. The method's evidence is conceptually plausible but untested (transferred from human futures and facilitation practice), with no measured outcome effect; the reconstructed preferred future is an interpretive reframe, not a forecast.
