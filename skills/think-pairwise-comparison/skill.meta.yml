@@ -59,8 +59,8 @@ relationships:
     - the criteria-weighting reading (AHP / PAPRIKA) is intentionally NOT shipped here; it folds into think-decision-option-review
 
 quality:
-  trigger_eval_status: measured-2026-06-10
-  output_eval_status: measured-2026-06-10
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - letting the comparative question drift between pairs, which manufactures spurious cycles
     - treating the derived ranking as an objective measurement (false precision from a clean-looking order)

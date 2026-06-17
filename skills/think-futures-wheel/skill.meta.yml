@@ -55,8 +55,8 @@ relationships:
     - "sub-skill / lightweight mode: second-order-effects"
 
 quality:
-  trigger_eval_status: measured-2026-06-10
-  output_eval_status: measured-2026-06-10
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - stopping at first-order consequences
     - branching to irrelevance until the map is noise

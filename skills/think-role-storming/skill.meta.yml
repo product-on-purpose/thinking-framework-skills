@@ -66,8 +66,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-10
-  output_eval_status: measured-2026-06-10
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - using an inhibited or narrowing persona, which suppresses ideas below baseline (the sharpest, evidence-backed failure)
     - mistaking generation-in-persona for evaluation through a persona's interests (route to parallel-perspectives-review)

@@ -61,8 +61,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-10
-  output_eval_status: measured-2026-06-11
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - running it on a settled, uncontested, or single-party frame (ritual with empty ought columns)
     - presenting the output as a resolution of the boundary dispute rather than a surfacing of it

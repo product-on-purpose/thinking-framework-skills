@@ -53,8 +53,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-10
-  output_eval_status: measured-2026-06-10
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - emitting a point estimate with no low/high band
     - multiplying correlated factors as if independent (cancellation fails)

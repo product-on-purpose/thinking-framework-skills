@@ -1,0 +1,299 @@
+{
+  "generated": "OUTPUT eval",
+  "skills": 56,
+  "totals": {
+    "checks": 389,
+    "passed": 386,
+    "passPct": 99.2,
+    "perfectSkills": 53,
+    "failedChecks": 3
+  },
+  "perSkill": {
+    "abstraction-laddering": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "affinity-mapping": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "after-action-review": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "argument-mapping": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "assumption-reversal": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "authentic-dissent": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "backcasting": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "belief-update-routine": {
+      "passed": 7,
+      "total": 7,
+      "fails": []
+    },
+    "boundary-critique": {
+      "passed": 7,
+      "total": 7,
+      "fails": []
+    },
+    "brainwriting": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "causal-layered-analysis": {
+      "passed": 7,
+      "total": 8,
+      "fails": [
+        "Not overclaim: keep to a reframing aid; the evidence is conceptually-plausible-but-untested and transferred, with no measured outcome effect."
+      ]
+    },
+    "causal-loop-diagrams": {
+      "passed": 7,
+      "total": 7,
+      "fails": []
+    },
+    "concept-mapping": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "consider-the-unknowns": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "contradiction-resolution": {
+      "passed": 7,
+      "total": 7,
+      "fails": []
+    },
+    "contradiction-tension-mapping": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "decision-journal": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "decision-option-review": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "dialectical-bootstrapping": {
+      "passed": 9,
+      "total": 9,
+      "fails": []
+    },
+    "ethical-matrix": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "evidence-vs-inference-sort": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "expected-value-decision-tree": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "far-analogy-ideation": {
+      "passed": 5,
+      "total": 5,
+      "fails": []
+    },
+    "fermi-estimation": {
+      "passed": 7,
+      "total": 7,
+      "fails": []
+    },
+    "frame-creation": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "futures-wheel": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "iceberg-model": {
+      "passed": 7,
+      "total": 7,
+      "fails": []
+    },
+    "interest-based-negotiation": {
+      "passed": 9,
+      "total": 9,
+      "fails": []
+    },
+    "interval-calibration-check": {
+      "passed": 7,
+      "total": 7,
+      "fails": []
+    },
+    "issue-tree": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "ladder-of-inference-check": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "linear-model-aggregation": {
+      "passed": 7,
+      "total": 7,
+      "fails": []
+    },
+    "minimax-regret": {
+      "passed": 9,
+      "total": 10,
+      "fails": [
+        "Show the payoff matrix with real inputs (unknown cells flagged, not fabricated) and the per-column best."
+      ]
+    },
+    "morphological-analysis": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "natural-frequency-bayesian": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "one-way-vs-two-way-door": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "pairwise-comparison": {
+      "passed": 7,
+      "total": 8,
+      "fails": [
+        "Not overclaim: keep to an easier-and-more-stable ranking aid; the evidence is practitioner-grade and transferred, not a measured gain in decision quality."
+      ]
+    },
+    "parallel-perspectives-review": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "premortem": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "problem-restatement": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "process-tracing": {
+      "passed": 9,
+      "total": 9,
+      "fails": []
+    },
+    "pyramid-principle": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "question-burst": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "red-team-light": {
+      "passed": 7,
+      "total": 7,
+      "fails": []
+    },
+    "reference-class-forecasting": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "role-storming": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "scamper": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "scenario-planning": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "speculative-harms-anti-goals": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "stocks-and-flows-reasoning": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "theory-of-constraints": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "three-horizons": {
+      "passed": 10,
+      "total": 10,
+      "fails": []
+    },
+    "veil-of-ignorance-reasoning": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "walton-argumentation-schemes": {
+      "passed": 8,
+      "total": 8,
+      "fails": []
+    },
+    "what-would-have-to-be-true": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "woop": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    }
+  }
+}

@@ -60,8 +60,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-10
-  output_eval_status: measured-2026-06-10
+  trigger_eval_status: measured-2026-06-17
+  output_eval_status: measured-2026-06-17
   known_failure_modes:
     - inventing a single bottleneck when none binds, or the constraint is unstable or non-flow
     - naming the loudest or most-visible step instead of testing capacity versus demand per step
