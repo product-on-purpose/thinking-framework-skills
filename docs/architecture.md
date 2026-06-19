@@ -4,7 +4,7 @@ How this repo is built. The short version: there are two coordinated sources of 
 
 ## The two sources of truth
 
-**1. The registry: every method we have judged.** `frameworks/registry.mjs` is the single source of truth for the *catalog* - all 105 thinking methods the library has evaluated, shipped or not. Each entry carries `slug`, `name`, `family`, evidence `tier`, `status`, `verdict`, `reasoning`, an optional `foldInto` target, an optional `dossierPath`, and - for branded methods - `attribution` + `trademark`. It is a zero-dependency ES data module (the repo's scripts are zero-dep and Node ships no YAML parser), validated against a committed JSON Schema, `frameworks/registry.schema.json`. The registry is where "we considered X and folded it into Y" lives, so a rejected method is a recorded decision, not an oversight.
+**1. The registry: every method we have judged.** `frameworks/registry.mjs` is the single source of truth for the *catalog* - all 135 thinking methods the library has evaluated, shipped or not. Each entry carries `slug`, `name`, `family`, evidence `tier`, `status`, `verdict`, `reasoning`, an optional `foldInto` target, an optional `dossierPath`, and - for branded methods - `attribution` + `trademark`. It is a zero-dependency ES data module (the repo's scripts are zero-dep and Node ships no YAML parser), validated against a committed JSON Schema, `frameworks/registry.schema.json`. The registry is where "we considered X and folded it into Y" lives, so a rejected method is a recorded decision, not an oversight.
 
 **2. The skills: the methods that shipped.** Each shipped framework lives in `skills/think-<method>/` and is self-contained:
 
