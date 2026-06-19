@@ -41,7 +41,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Framework | Mechanism | Tier | Status |
 |---|---|---|---|
 | Parallel Perspectives Review | examine a decision through separated lenses (facts/upside/risk/intuition/alternatives/process) | P | `[shipped]` |
-| Red Team / Blue Team | construct the strongest adversarial case against a thesis | P | `[shipped]` |
+| Red Team / Blue Team | construct the strongest adversarial case against a thesis | M | `[shipped]` |
 | Stakeholder Lens Review | walk a proposal through each affected party's eyes | P | `[fold]` -> Parallel Perspectives Review |
 | Steelmanning | state the strongest version of an opposing view before responding | P | `[fold]` -> Red Team / Blue Team |
 | Six Thinking Hats | branded parallel-thinking ritual | X | `[flag]` (branded) |

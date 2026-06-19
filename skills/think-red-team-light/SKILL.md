@@ -5,7 +5,7 @@ license: Apache-2.0
 metadata:
   id: thinking-framework-skills.red-team-light
   family: assumption-and-belief-challenge
-  evidence-tier: "P"
+  evidence-tier: "M"
   version: 0.1.0
   standard: "0.8"
 ---

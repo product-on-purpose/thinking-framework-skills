@@ -6,7 +6,7 @@
 |---|---|
 | **Skill** | `thinking-framework-skills.red-team-light` (installable name `think-red-team-light`) |
 | **Family** | assumption-and-belief-challenge |
-| **Evidence tier** | **P** (flag: role-played dissent underperforms genuine dissent) |
+| **Evidence tier** | **M (transferred)** (flag: role-played dissent underperforms genuine dissent) |
 | **Confidence** | High that surfacing the strongest counter-case is useful; honest that constructed dissent is weaker than authentic dissent |
 | **Status** | draft (authored 2026-05-31 from the discovery corpus) |
 
@@ -25,9 +25,9 @@ No trademark. Named descriptively.
 
 ## 3. What the evidence shows, and what it does NOT show
 
-**Supported:** adversarial review surfaces objections that cooperative review misses; steelmanning the opposition is a sound reasoning discipline.
+**Supported (M, transferred):** red-team-light's core operation - suspend the first agreeable framing and construct the strongest contrary case - is the "consider the opposite" move shown in controlled human debiasing studies to reduce biased assimilation, anchoring, and overconfidence (Lord, Lepper & Preston 1984; Mussweiler, Strack & Pfeiffer 2000; Hirt & Markman 1995). Under the anti-laundering test this is the SAME cognitive operation the skill performs - the steelman / rank-by-force / rebuttal-test / verdict structure is artifact craft layered on the evidenced move, not a different untested operation - so the M-tier debiasing evidence is red-team-light's own, not a cousin's. Re-graded P -> M (transferred) 2026-06-19 via think-research-framework (engine verdict).
 
-**NOT shown:** that constructed/role-played dissent improves decisions as much as genuine dissent (Nemeth indicates it does not). Grade P with a flag; present it as a blind-spot finder, and where stakes are high, recommend seeking a real dissenting view, not just the model's.
+**NOT shown / the honesty flag:** that constructed / role-played dissent improves decisions as much as GENUINE dissent (Nemeth, Brown & Rogers 2001). That result is a group minority-dissent paradigm - a different reference class from self-administered debiasing - so it does NOT cap the consider-the-opposite grade or this one, but it remains the load-bearing flag: present red-team-light as a blind-spot finder, and where stakes are high, recommend seeking a real dissenting view, not just the model's. Capped at M, not S, because all evidence is human-subject, not AI-validated.
 
 ## 4. Transferred-evidence flag
 
@@ -51,6 +51,9 @@ An **adversarial critique**: the thesis stated fairly, then the strongest object
 ## 7. Sources
 
 1. Red teaming practice (military / intelligence / security).
-2. Nemeth, C. et al. (2001) - authentic dissent vs role-played devil's advocacy (role-play does not replicate the gains).
+2. Nemeth, C., Brown, K. & Rogers, J. (2001) - authentic dissent vs role-played devil's advocacy (role-play does not replicate the gains; the load-bearing honesty flag).
+3. Lord, C., Lepper, M. & Preston, E. (1984) - "consider the opposite" reduces biased assimilation (controlled, self-administered debiasing).
+4. Mussweiler, T., Strack, F. & Pfeiffer, T. (2000) - consider-the-opposite reduces anchoring.
+5. Hirt, E. & Markman, K. (1995) - consider-an-alternative / multiple-explanation improves calibration.
 
 > **Verification status:** the Nemeth finding is well-attested and is deliberately surfaced as the honesty flag. Do not present an AI red team as equivalent to genuine dissent.

@@ -19,7 +19,7 @@ Each skill is built around four commitments, not just a prompt:
 | [`think-authentic-dissent`](skills/think-authentic-dissent/SKILL.md) | assumption-and-belief-challenge | **S** | dissent audit |
 | [`think-consider-the-unknowns`](skills/think-consider-the-unknowns/SKILL.md) | assumption-and-belief-challenge | M | known unknowns ledger |
 | [`think-ladder-of-inference-check`](skills/think-ladder-of-inference-check/SKILL.md) | assumption-and-belief-challenge | P | reasoning trace |
-| [`think-red-team-light`](skills/think-red-team-light/SKILL.md) | assumption-and-belief-challenge | P | adversarial critique |
+| [`think-red-team-light`](skills/think-red-team-light/SKILL.md) | assumption-and-belief-challenge | M | adversarial critique |
 | [`think-decision-option-review`](skills/think-decision-option-review/SKILL.md) | decision-and-option-evaluation | P | option matrix |
 | [`think-dialectical-bootstrapping`](skills/think-dialectical-bootstrapping/SKILL.md) | decision-and-option-evaluation | M | dialectical estimate |
 | [`think-expected-value-decision-tree`](skills/think-expected-value-decision-tree/SKILL.md) | decision-and-option-evaluation | P | decision tree ev |
