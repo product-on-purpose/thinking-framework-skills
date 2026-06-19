@@ -1,6 +1,6 @@
 ---
 title: Showcase
-description: Watch the frameworks used on real decisions, prompt to artifact. Three people - a founder, an engineer, and a policy analyst - work hard problems end to end, so you can see the quality bar before you run anything.
+description: Watch the frameworks used on real decisions, prompt to artifact. Three people work hard problems end to end, and three companies carry a decision across to pm-skills, so you can see the quality bar before you run anything.
 sidebar:
   label: Showcase
   order: 0
@@ -42,6 +42,28 @@ Decisions with ethical dimensions and public accountability, often worked on pap
 - [Audit the argument in a proposal](./priya-argument-mapping/) - the load-bearing premise made explicit.
 - [Record a decision before a public commitment](./priya-decision-journal/) - a journal entry built for later calibration.
 - [Work a contested docket](./priya-ipa-recipe/) - the issue-position-argument recipe across many conflicting comments.
+
+## Browse by company (cross-library: tfs decides, pm-skills delivers)
+
+Three companies take one feature each from a raw idea to a launch decision, then hand off to the delivery work in pm-skills. Follow a company down its thread to see the whole arc.
+
+### Storevine - a native Campaigns feature (organized prompts)
+
+- [Reframe the build request](./storevine-restate-campaigns/) -> pm-skills define-problem-statement
+- [Build vs buy vs partner](./storevine-build-vs-buy/) -> pm-skills develop-adr
+- [Red-team the launch](./storevine-red-team-launch/) -> the risks in pm-skills deliver-prd
+
+### Brainshelf - a morning digest (casual prompts)
+
+- [Draw the boundary](./brainshelf-boundary-resurface/) -> pm-skills define-problem-statement
+- [Forecast adoption from the outside](./brainshelf-forecast-adoption/) -> pm-skills foundation-okr-writer
+- [Premortem the launch](./brainshelf-premortem-digest/) -> pm-skills deliver-launch-checklist
+
+### Workbench - approval gates (enterprise prompts)
+
+- [Map stakeholders against values](./workbench-stakeholder-matrix/) -> pm-skills deliver-acceptance-criteria
+- [Structure the adoption question](./workbench-issue-tree-adoption/) -> pm-skills discover-competitive-analysis
+- [Price the gate model](./workbench-gate-model-ev/) -> pm-skills develop-adr
 
 ## Browse by what you want to produce
 
