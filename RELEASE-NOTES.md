@@ -1,6 +1,21 @@
 # Release notes
 
-Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://product-on-purpose.github.io/thinking-framework-skills/).
+Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
+
+## v0.10.0
+
+**Find it by example, and let agents find it at all.** A worked example for every framework, a cross-library Showcase that hands off to pm-skills, the agent-discovery index switched on, and the behavioral-eval numbers refreshed across the full 56-skill catalog. No new frameworks; the catalog stays 56.
+
+### For everyone
+
+- **A quick worked example for every framework.** The new [Samples](https://thinking-framework-skills.productonpurpose.com/samples/) shelf gives each of the 56 skills one compact, end-to-end example - a real situation, the prompt, and the full artifact - so you can scan the whole library by example. Example coverage is now 56 of 56.
+- **A cross-library Showcase: tfs decides, pm-skills delivers.** Three companies (Storevine, Brainshelf, Workbench) each take one feature from a raw decision to a launch call, then hand the reasoning artifact off to the matching pm-skills delivery artifact - so you can follow one company across both libraries. See the "Browse by company" section of the [Showcase](https://thinking-framework-skills.productonpurpose.com/showcase/).
+- **The trust page is current.** Both behavioral evals were re-run across all 56 skills (routing: 99% top-1, 0 false-fires across 673 cases; artifact quality: 99% of 389 checks, 53 of 56 skills perfect), and the [Does this actually work?](https://thinking-framework-skills.productonpurpose.com/start/does-this-work/) page now reflects the full catalog, not the earlier 47-skill run.
+
+### For builders
+
+- **The agent-discovery index is switched on.** v0.9.0 published a machine-readable catalog; this release makes it discoverable - `llms.txt` is now linked from `robots.txt` and every page, and a new `llms-full.txt` inlines the whole catalog (every component plus the 79 not-shipped methods) so an agent can ingest it in one fetch.
+- **`red-team-light` re-graded P -> M (transferred).** Its core move - construct the strongest contrary case - is the well-studied "consider the opposite" debiasing technique (Lord, Lepper & Preston 1984; Mussweiler et al. 2000; Hirt & Markman 1995), so its grade rises a notch, with the honest caveats kept: group-dissent research does not transfer, and the evidence is human-subject, not AI-validated.
 
 ## v0.9.0
 
