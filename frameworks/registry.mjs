@@ -70,11 +70,11 @@ export default {
       slug: 'red-team-light',
       name: 'Red Team / Blue Team',
       family: 'perspective-shifting-and-multi-lens',
-      tier: 'P',
+      tier: 'M',
       status: 'shipped',
       verdict: 'shipped',
       oneLine: 'construct the strongest adversarial case against a thesis',
-      reasoning: "Shipped as red-team-light; absorbs steelmanning as its core move. Enrichment (v0.7.0): consider-the-opposite (Lord, Lepper and Preston 1984; Mussweiler, Strack and Pfeiffer 2000) and consider-an-alternative / multiple-explanation (Hirt and Markman 1995) supply strong controlled debiasing evidence for the core move of forcing the mind off its first agreeable framing to generate the contrary case, while Nemeth (2001) on authentic vs role-played dissent remains the load-bearing honesty flag - so the evidence base strengthens at the mechanism level without a hand tier change at the artifact level (flagged for a think-research-framework re-grade, P to possibly M).",
+      reasoning: "Shipped as red-team-light; absorbs steelmanning as its core move. Re-graded P -> M (transferred) 2026-06-19 via think-research-framework (engine verdict). The skill's core operation - suspend the first agreeable framing and construct the strongest contrary case - is the consider-the-opposite operation shown to reduce biased assimilation, anchoring, and overconfidence in controlled human debiasing studies (Lord, Lepper and Preston 1984; Mussweiler, Strack and Pfeiffer 2000; Hirt and Markman 1995); under the anti-laundering test this is the SAME operation, not a cousin's borrowed robustness (the added steelman/rank/rebuttal/verdict craft is artifact structure on the evidenced move), and the library already routes consider-the-opposite's M-tier evidence here in the inversion, counterfactual-reasoning, and dialectical-synthesis entries. Nemeth, Brown and Rogers (2001) does NOT cap the grade because it measures group minority dissent (role-played vs authentic), a different reference class from self-administered debiasing; it is retained as the load-bearing honesty flag that constructed dissent is not authentic dissent (seek a real dissenter at high stakes). Capped at M, not S, because all evidence is human-subject and not AI-agent-validated.",
       evalCases: 'skills/think-red-team-light/eval/cases.md',
       aliases: ['Red Team', 'Blue Team'],
       sources: [

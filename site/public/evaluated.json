@@ -1143,7 +1143,7 @@
       "slug": "red-team-light",
       "name": "Red Team / Blue Team",
       "family": "perspective-shifting-and-multi-lens",
-      "tier": "P",
+      "tier": "M",
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,

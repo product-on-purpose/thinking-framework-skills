@@ -1041,7 +1041,7 @@
       "invocation": "think-red-team-light",
       "name": "Red Team / Blue Team",
       "family": "perspective-shifting-and-multi-lens",
-      "evidence_tier": "P",
+      "evidence_tier": "M",
       "mechanism": "construct the strongest adversarial case against a thesis",
       "when_to_use": "Use when a plan has too-easy consensus and needs pressure-testing, or to steelman the opposition before committing.",
       "artifact": "adversarial-critique",

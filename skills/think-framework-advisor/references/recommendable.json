@@ -1067,7 +1067,7 @@
       "name": "think-red-team-light",
       "id": "thinking-framework-skills.red-team-light",
       "family": "assumption-and-belief-challenge",
-      "tier": "P",
+      "tier": "M",
       "description": "Produces an adversarial critique by constructing the strongest case against a proposal or thesis (the best objections an intelligent adversary would raise), then judging which objections actually land and what would rebut them. Use when a plan has too-easy consensus and needs pressure-testing, or to steelman the opposition before committing.",
       "anti_triggers": [
         "\"The free-tier launch flopped last quarter. Walk us through what went wrong and what we'd do differently.\" (postmortem)",

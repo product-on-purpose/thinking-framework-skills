@@ -23,7 +23,7 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 #### think-red-team-light
 - Name: Red Team / Blue Team
 - Family: perspective-shifting-and-multi-lens
-- Evidence tier: P
+- Evidence tier: M
 - Mechanism: construct the strongest adversarial case against a thesis
 - When to use: Use when a plan has too-easy consensus and needs pressure-testing, or to steelman the opposition before committing.
 - Produces: adversarial-critique

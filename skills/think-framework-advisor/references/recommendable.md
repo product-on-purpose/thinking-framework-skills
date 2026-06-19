@@ -52,7 +52,7 @@
 | `think-process-tracing` | systems-and-consequences | P | Evaluates rival causal explanations of a single case by typing each piece of within-case evidence by its diagnosticity (hoop, smoking-gun, straw-in-the-wind, d... |
 | `think-pyramid-principle` | synthesis | P | Produces a pyramid that structures a recommendation answer-first - a single governing thought on top, a small set of MECE, deliberately ordered key arguments b... |
 | `think-question-burst` | divergent-ideation | P | Generates a rapid burst of questions about a problem (questions only, no answers), then ranks them for which would most change the approach and selects the sin... |
-| `think-red-team-light` | assumption-and-belief-challenge | P | Produces an adversarial critique by constructing the strongest case against a proposal or thesis (the best objections an intelligent adversary would raise), th... |
+| `think-red-team-light` | assumption-and-belief-challenge | M | Produces an adversarial critique by constructing the strongest case against a proposal or thesis (the best objections an intelligent adversary would raise), th... |
 | `think-reference-class-forecasting` | risk-and-resilience | S | Produces a reference-class estimate by defining a class of similar past cases, taking their base-rate distribution of outcomes, and anchoring the forecast on t... |
 | `think-role-storming` | perspective-and-multi-lens | P | Produces a persona-tagged divergent idea list, ideas generated while inhabiting a chosen non-self identity to lower self-censorship and shift associations. |
 | `think-scamper` | divergent-ideation | P | Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adap... |
