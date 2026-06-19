@@ -19,7 +19,7 @@ Mira's seed-stage app has a five-step setup wizard that new users hit on first l
 
 ## The artifact
 
-# SCAMPER Expansion Sheet
+> **SCAMPER Expansion Sheet**
 
 ## Seed
 

@@ -102,6 +102,7 @@ Will enterprises adopt Blueprints with approval gates?
 | Process switching cost off their current approval tooling | 3A | Current-state interviews; steps/tools replaced vs. added (owner: Priyanka Rao) | M |
 | Do non-regulated customers want gates enough to enable them? | 1B | Advisory-board survey; share who would turn gates on (owner: Priyanka Rao) | M |
 | Competitive parity with alternatives admins already use | 4A | Competitive scan of named alternatives (owner: Priyanka Rao) | L |
+| Is gated Blueprints enough better or cheaper to justify enabling it (differentiation, not just parity)? | 4B | Value-vs-effort read on whether gating is itself a reason to choose Workbench (owner: Priyanka Rao) | L |
 
 **Column notes:**
 - **What would answer it:** the concrete data, interview, or judgment needed to resolve the leaf, and the named owner who returns it. A leaf nobody can answer is not yet a leaf - split it further or restate it.

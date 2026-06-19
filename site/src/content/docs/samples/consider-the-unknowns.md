@@ -19,7 +19,7 @@ Daniel, a staff engineer at a ~200-person company, is signing off on a one-shot 
 
 ## The artifact
 
-# Known-Unknowns Ledger
+> **Known-Unknowns Ledger**
 
 > The unknowns listed are RELEVANT and ABSENT: variables not in hand that bear on the call, not a restatement of claims already present. Time-box the enumeration - the space of what you do not know is unbounded; this ledger covers the unknowns that matter, not all unknowns.
 
@@ -53,7 +53,7 @@ The relevant variables that bear on the "lands in window, zero data loss" judgme
 | Whether the on-call and DBA staffed for the window have done a real cutover before | Medium - improvisation cost under pressure shapes whether a surprise stays inside four hours | Resolvable - confirm the roster and pre-brief; run a tabletop on the abort criteria | Yes - cheap |
 | Sunday's actual traffic level (low, but not zero, and not the rehearsal's zero) | Low-medium - shifts how much live-traffic risk is in play during the window | Partly resolvable - historical Sunday-window traffic curves; coarse | No - coarse, and the live-behavior unknown above already carries this |
 
-- **Resolve-before-committing list (high bearing AND resolvable):** (1) Time the backfill against a production-sized snapshot to validate the four-hour window against real row counts; (2) rehearse and time the ROLLBACK path, not just the forward path; (3) build and test a cutover-boundary reconciliation check for in-flight and dual-written orders; (4) audit downstream consumers for stale connection strings or schema assumptions. These are obtainable before Sunday and each could change go to no-go.
+- **Resolve-before-committing list (resolvable; high-bearing first, plus one cheap medium-bearing omission):** (1) Time the backfill against a production-sized snapshot to validate the four-hour window against real row counts; (2) rehearse and time the ROLLBACK path, not just the forward path; (3) build and test a cutover-boundary reconciliation check for in-flight and dual-written orders; (4) audit downstream consumers for stale connection strings or schema assumptions (medium-bearing but cheap, so worth closing in the same pass). These are obtainable before Sunday and each could change go to no-go.
 - **Irreducible unknowns (high bearing but unobservable):** How the sharded cluster actually behaves under live production write traffic. No pre-Sunday work fully reproduces it; it is the uncertainty the confidence has to honestly carry, and it argues for a staffed abort criterion rather than a one-way commit.
 
 ## Re-rated confidence

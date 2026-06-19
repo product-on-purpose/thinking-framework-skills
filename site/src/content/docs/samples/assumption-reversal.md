@@ -19,7 +19,7 @@ Daniel's team runs a nightly ETL pipeline that loads ~40 source feeds into the a
 
 ## The artifact
 
-# Assumptions-and-Reversals Sheet
+> **Assumptions-and-Reversals Sheet**
 
 ## Subject
 

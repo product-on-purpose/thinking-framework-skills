@@ -19,7 +19,7 @@ Daniel's team owns a 900-case end-to-end test suite that has become flaky: about
 
 ## The artifact
 
-# Idea Pool (Brainwriting)
+> **Idea Pool (Brainwriting)**
 
 ## Prompt
 

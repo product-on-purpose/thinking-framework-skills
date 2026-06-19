@@ -19,7 +19,7 @@ Daniel's team at a 200-person company is replacing an aging, hand-rolled telemet
 
 ## The artifact
 
-# Morphological Field (Zwicky Box)
+> **Morphological Field (Zwicky Box)**
 
 > The box GENERATES and prunes for consistency. It does NOT rank configurations by value. Do not pick a "winner" here; hand the surviving configurations to a separate evaluation step (for example `think-decision-option-review`).
 

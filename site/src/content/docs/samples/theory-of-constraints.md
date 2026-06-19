@@ -19,7 +19,7 @@ Daniel's platform team owns the CI/CD pipeline for a 200-engineer monolith. A pu
 
 ## The artifact
 
-# Constraint-Intervention Plan
+> **Constraint-Intervention Plan**
 
 ## Problem under analysis
 

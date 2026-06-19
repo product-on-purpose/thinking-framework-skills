@@ -19,7 +19,7 @@ Priya is a policy analyst at a coastal city's resilience office, sizing the next
 
 ## The artifact
 
-# Regret (Opportunity-Loss) Matrix
+> **Regret (Opportunity-Loss) Matrix**
 
 > No probabilities go on the states. The columns are not ranked or weighted by likelihood. The whole point of this criterion is to choose *without* a probability distribution. If you can defensibly probabilize the states, this is the wrong tool - use an expected-value decision tree instead.
 

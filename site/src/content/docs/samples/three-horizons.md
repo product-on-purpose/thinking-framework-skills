@@ -23,7 +23,7 @@ up the monolith?"
 
 ## The artifact
 
-# Three-Horizons Transition Map
+> **Three-Horizons Transition Map**
 
 > The axis is **degree of transformation**, not calendar time. Do NOT equate H3 with "5+ years out" or H1 with "now"; an H3 disruption can ship as fast as an H1 product. The map is a shared orientation for dialogue, not a forecast and not a defended decision. The three horizons need different metrics - do not apply H1 governance to H2 or H3 work.
 

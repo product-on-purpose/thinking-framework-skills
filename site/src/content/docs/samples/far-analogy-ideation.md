@@ -19,7 +19,7 @@ Priya analyzes waste programs for a mid-size city. Contamination in the resident
 
 ## The artifact
 
-# Far-Analogy Transfer Sheet
+> **Far-Analogy Transfer Sheet**
 
 ## Problem (surface)
 

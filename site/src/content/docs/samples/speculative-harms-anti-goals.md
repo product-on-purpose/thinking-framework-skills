@@ -23,7 +23,7 @@ never be allowed to do? Give me anti-goals I can bind into the procurement requi
 
 ## The artifact
 
-# Anti-Goals Register - Smart-Streetlight Sensor Network
+> **Anti-Goals Register - Smart-Streetlight Sensor Network**
 
 > **Evidence caveat (ships with the artifact by construction).** This register is the output of an anecdotal-tier (A) design-ethics practice. There is no controlled or comparative evidence that dystopian narration improves harm anticipation, for this method or any of its genre siblings; the strongest study measures instructor perceptions of a teaching exercise, not whether teams ship safer products. All evidence is transferred from human classrooms and workshops - nothing studies an AI agent running the move. Treat this register as a structured elicitation that forces a discipline (assume success, cast the victims and the exploiters, convert each harm to a constraint), NOT as a complete harm inventory and NOT as a security-coverage guarantee. The value is in the bound constraints, not in a count of harms found.
 

@@ -19,7 +19,7 @@ Daniel is the staff engineer about to launch an activity feed across his company
 
 ## The artifact
 
-# Fermi Decomposition Worksheet
+> **Fermi Decomposition Worksheet**
 
 ## Target quantity
 

@@ -19,7 +19,7 @@ Daniel's team runs a 200-person company's core service on a single managed Postg
 
 ## The artifact
 
-# Reversibility Classification
+> **Reversibility Classification**
 
 ## Decision being triaged
 
