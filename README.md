@@ -373,6 +373,8 @@ Browse them on the [live site](https://thinking-framework-skills.productonpurpos
 | If you want to... | Start here |
 |---|---|
 | Get unstuck or decide, now | The [**Framework Advisor**](https://thinking-framework-skills.productonpurpose.com/tools/think-framework-advisor/) - describe your situation, get a plan |
+| See real decisions worked prompt-to-artifact (incl. the cross-library tfs -> pm-skills handoff) | The [**Showcase**](https://thinking-framework-skills.productonpurpose.com/showcase/) |
+| See one quick worked example of every framework | The [**Samples**](https://thinking-framework-skills.productonpurpose.com/samples/) shelf |
 | Browse by the job you need done | [Explore by job](https://thinking-framework-skills.productonpurpose.com/explore/by-job/) |
 | See only the strong-evidence methods | [Explore by evidence](https://thinking-framework-skills.productonpurpose.com/explore/by-evidence/) |
 | Filter by your situation, live | The [interactive chooser](https://thinking-framework-skills.productonpurpose.com/explore/chooser/) |
@@ -386,7 +388,7 @@ Browse them on the [live site](https://thinking-framework-skills.productonpurpos
 
 ## 📖 Documentation
 
-- **[Live site](https://thinking-framework-skills.productonpurpose.com/)** - the full, searchable, interactive experience (per-framework pages, learning tracks, explorers, the bibliography). This is the home for *using* the library.
+- **[Live site](https://thinking-framework-skills.productonpurpose.com/)** - the full, searchable, interactive experience (per-framework pages, learning tracks, explorers, the bibliography, the [Showcase](https://thinking-framework-skills.productonpurpose.com/showcase/) and per-framework [Samples](https://thinking-framework-skills.productonpurpose.com/samples/)). This is the home for *using* the library.
 - **[`docs/`](docs/)** - the repo-browser and contributor layer: [architecture](docs/architecture.md), [concepts](docs/concepts.md), [contributing](docs/contributing.md), [conformance](docs/conformance.md), the [authoring loop](docs/internal/AUTHORING.md), and the [release process](docs/internal/release-process.md).
 - **[`skills/`](skills/)** - the frameworks themselves (the source of truth the site renders).
 
