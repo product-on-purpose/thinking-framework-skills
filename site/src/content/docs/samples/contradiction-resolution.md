@@ -19,7 +19,7 @@ Daniel's team has to move a 400-million-row orders table to a new schema. The mi
 
 ## The artifact
 
-# Contradiction-Resolution Worksheet
+> **Contradiction-Resolution Worksheet**
 
 ## Problem under resolution
 

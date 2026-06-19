@@ -19,7 +19,7 @@ Daniel's platform team held an architecture review and agreed in under fifteen m
 
 ## The artifact
 
-# Dissent Audit and Plan
+> **Dissent Audit and Plan**
 
 ## Decision
 

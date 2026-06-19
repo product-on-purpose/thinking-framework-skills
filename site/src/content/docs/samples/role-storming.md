@@ -19,7 +19,7 @@ Mira's 8-person company ships a scheduling tool, and new-signup activation is fl
 
 ## The artifact
 
-# Persona-Tagged Idea List
+> **Persona-Tagged Idea List**
 
 > This is a DIVERGENT pool. Do NOT rank, score, or down-select inside this artifact; that is a separate convergence step. Every persona is uninhibited or deliberately foreign - an inhibited persona (a cautious auditor, a risk-averse executive, a rigid bureaucrat) suppresses ideas instead of freeing them.
 

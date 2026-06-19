@@ -19,7 +19,7 @@ Priya runs the public-comment intake for a regional transit agency's proposed fa
 
 ## The artifact
 
-# Affinity Map (Clustered Theme Map)
+> **Affinity Map (Clustered Theme Map)**
 
 ## Synthesis subject
 

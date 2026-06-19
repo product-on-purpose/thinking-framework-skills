@@ -19,7 +19,7 @@ Daniel is a staff engineer on a 200-person company's platform team. Last sprint 
 
 ## The artifact
 
-# Stock-Flow Map
+> **Stock-Flow Map**
 
 > Daniel's platform team closed a record 90 bugs in one sprint and leadership concluded the backlog is shrinking. This skill checks whether the open-bug count is actually falling or just being out-resolved for one sprint.
 

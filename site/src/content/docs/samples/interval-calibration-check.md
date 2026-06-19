@@ -19,7 +19,7 @@ Daniel, a senior engineer, is leading a Postgres-to-Aurora migration for a 200-p
 
 ## The artifact
 
-# Calibration Scorecard
+> **Calibration Scorecard**
 
 > **Evidence caveat (ships with this artifact by construction).** This method is graded **P (practitioner)**, governing. The phenomenon it targets - interval overprecision - is strongly established, but the controlled evidence for this specific fix (equivalent-bet plus scored feedback on intervals) is partial and largely transferred from sibling formats; the equivalent-bet device itself has no controlled outcome evidence. All evidence is **transferred from human studies, not agent-validated**. Expect **partial correction, not calibrated certainty**. This scorecard calibrates a **human's stated intervals only** - never the agent's own confidence. It resizes the **width** of stated uncertainty; it does **not** relocate the central estimate (a wrong number, well calibrated, is still wrong). See `evidence/dossier.md`.
 
@@ -65,7 +65,7 @@ Daniel keeps a migration log, so he has a track record of past cutover-timing es
 |---|---|---|---|
 | Read-only maintenance window | 35 - 45 min @ 90% | 30 - 60 min @ 90% | width only; the ~40-min center of mass is unchanged, the band now honestly reflects a real 90% |
 | CDC backlog replay | 10 - 20 min @ 90% | 8 - 40 min @ 90% | width only; the long right tail of a large unmeasured backlog is now inside the band |
-| Rollback if validation fails | 16 - 24 min @ 90% (was 15 - 25) | 16 - 24 min @ 90% | narrowed; the rehearsed, scripted rollback supports a tighter band |
+| Rollback if validation fails | 15 - 25 min @ 90% | 16 - 24 min @ 90% | narrowed; the rehearsed, scripted rollback supports a tighter band |
 
 ### Honest summary
 

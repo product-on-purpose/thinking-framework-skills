@@ -19,7 +19,7 @@ Daniel, a staff engineer, owns a six-month effort to move the payments service o
 
 ## The artifact
 
-# Belief-Update Ledger
+> **Belief-Update Ledger**
 
 ## Ledger header
 

@@ -19,7 +19,7 @@ Daniel is the staff engineer on a 200-person company's platform team. They are d
 
 ## The artifact
 
-# Scheme Critique Sheet
+> **Scheme Critique Sheet**
 
 > **Evidence caveat (ships with every sheet, by construction).** This verdict is a *presumptive,
 > burden-of-proof* read, not a soundness proof. The method is graded **tier P (practitioner)** on

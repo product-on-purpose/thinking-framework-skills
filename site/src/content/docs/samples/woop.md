@@ -19,7 +19,7 @@ Daniel, a staff engineer, has committed to fixing the team's flaky integration t
 
 ## The artifact
 
-# WOOP Card
+> **WOOP Card**
 
 ## W - Wish
 

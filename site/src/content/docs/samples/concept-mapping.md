@@ -22,7 +22,7 @@ argue about the relationships instead of the vibe."
 
 ## The artifact
 
-# Concept Map - On-call reliability and burnout
+> **Concept Map - On-call reliability and burnout**
 
 > Daniel's team believes alerts cause burnout and burnout hurts reliability, but the chain has never been drawn. This map externalizes how alert volume, on-call load, burnout, and reliability relate, and tests each link as a proposition.
 
