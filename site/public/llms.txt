@@ -2,7 +2,7 @@
 
 > An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 56 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 56 ship as skills.
 
-Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) (the invokable skills, tools, and recipes) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) (all 135 evaluated methods).
+Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) (the invokable skills, tools, and recipes) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) (all 135 evaluated methods). Full text: [llms-full.txt](https://thinking-framework-skills.productonpurpose.com/llms-full.txt) inlines every component for one-fetch ingestion.
 
 ## Start here
 - [Getting started](https://thinking-framework-skills.productonpurpose.com/start/getting-started/): install and first run

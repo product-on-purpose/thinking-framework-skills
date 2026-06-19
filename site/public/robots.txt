@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Machine-readable index for AI agents (llmstxt.org):
+# llms.txt:      https://thinking-framework-skills.productonpurpose.com/llms.txt
+# llms-full.txt: https://thinking-framework-skills.productonpurpose.com/llms-full.txt
 Sitemap: https://thinking-framework-skills.productonpurpose.com/sitemap-index.xml
