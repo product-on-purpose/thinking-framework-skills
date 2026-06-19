@@ -40,6 +40,7 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 | `scripts/gen-registry.mjs` | the registry | the `framework-catalog.md` family tables + the public `about/why-not.md` index |
 | `scripts/gen-recommendable.mjs` | the skills + recipes | the advisor's `recommendable.{json,md}` corpus (names, tiers, anti-triggers, when-not, overlaps); the registry cross-checks this corpus rather than feeding it |
 | `scripts/gen-site.mjs` | the skills + registry + recipes + intros | the Starlight site (frameworks, tools, families, recipes, library, explore lenses, map, chooser, bibliography) |
+| `scripts/gen-catalog.mjs` | the registry + skills + recipes | the machine-readable agent-discovery surface served at the site root: `site/public/{llms.txt, llms-full.txt, catalog.json, evaluated.json}` |
 | `scripts/gen-engine.mjs` | the shared applicator engine | the byte-identical copy of `engine.md` in `think-random-frameworks` |
 | `scripts/gen-agents.mjs` | the registry + skills + `_workflows/` | the `AGENTS.md` Skills + Recipes tables (the contributor/agent guide) |
 | agent-skills-toolkit `gen-manifest` / `gen-index` | `library.json` | the native plugin manifests + `INDEX.md` |
@@ -47,9 +48,9 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1'}}}%%
 graph LR
-  reg["frameworks/registry.mjs<br/>(the catalog: 105 methods)"]:::source
+  reg["frameworks/registry.mjs<br/>(the catalog: 135 methods)"]:::source
   skl["skills/ + library.json + _workflows/<br/>(the 56 shipped + 4 tools + 9 recipes)"]:::source
-  gen["gen-registry · gen-recommendable · gen-site<br/>gen-engine · gen-agents · gen-manifest"]:::build
+  gen["gen-registry · gen-recommendable · gen-site · gen-catalog<br/>gen-engine · gen-agents · gen-manifest"]:::build
   views["catalog · why-not · advisor corpus<br/>Starlight site · plugin manifests · INDEX"]:::site
   pages["GitHub Pages + marketplace"]:::deploy
   reg --> gen
@@ -65,7 +66,7 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 
 ## The conformance gate
 
-`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs six layers in order, and any failure is a red build:
+`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs eight layers in order, and any failure is a red build:
 
 1. **Structural** - the `agent-skills-toolkit` validators (`evaluate.mjs`), pinned to a known-good ref, asserting the plugin meets the `advanced` tier with 0 errors / 0 warnings.
 2. **Eval cases** (`scripts/eval-cases.mjs`) - every `skills/*/eval/cases.md` is well-formed and name-safe (no case may reference a framework that does not exist).
@@ -73,6 +74,8 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 4. **Engine drift** (`scripts/gen-engine.mjs --check`) - the shared applicator engine copy is in sync.
 5. **AGENTS.md drift** (`scripts/gen-agents.mjs --check`) - the generated Skills + Recipes tables in the contributor/agent guide are in sync with the catalog, so the agent-facing roster cannot silently fall behind.
 6. **Counts** (`scripts/check-counts.mjs`) - the four hand-authored count surfaces in `README.md` (the badges, the lifecycle map, the catalog table headers, and the project-status table) match the registry / `_workflows/` / tools, and every shipped skill's `metadata.family` is a valid skill-family slug. The README is the last hand-authored denormalization of catalog counts; this layer makes a stale count a red build instead of a late review catch.
+7. **Example coverage** (`scripts/check-example-coverage.mjs`) - every shipped skill has a worked example (a Showcase appearance or a sample) or is grandfathered in `scripts/example-coverage-baseline.txt`; a newly shipped skill with no example reds the build, so the example layer cannot fall behind the catalog. The grandfather set can only shrink.
+8. **Catalog drift** (`scripts/gen-catalog.mjs --check`) - the machine-readable agent-discovery surface (`llms.txt`, `llms-full.txt`, `catalog.json`, `evaluated.json`) is byte-identical to a fresh generation.
 
 The docs site adds two build-time guards run after `astro build` (family Astro site standard, clause 14.11): `scripts/check-rendered-links.mjs` (no browser-broken internal links) and `scripts/check-route-parity.mjs` (no silently dropped published route, against the committed `scripts/route-manifest.txt`).
 
@@ -82,7 +85,7 @@ New entries are not hand-invented. The `think-research-framework` engine (a `thi
 
 ## The hand-authored learning layer
 
-The only hand-written content is the connective tissue the sources cannot generate: the learning layer under `site/src/content/docs/{start,learn,about,explore}` (getting-started, the evidence model, how-to-read-a-page, the learning tracks, philosophy, FAQ, the interactive chooser) and the per-family intros in `site/intros/families/`, which `gen-site.mjs` weaves into each domain page. The split is deliberate: generated content is reference, hand-authored content is teaching.
+The only hand-written content is the connective tissue the sources cannot generate: the learning layer under `site/src/content/docs/{start,learn,showcase,samples,about,explore}` (getting-started, the evidence model, how-to-read-a-page, the learning tracks, philosophy, FAQ, the interactive chooser, the Showcase of decisions worked end to end - including the cross-library tfs -> pm-skills threads - and the per-framework Samples shelf) and the per-family intros in `site/intros/families/`, which `gen-site.mjs` weaves into each domain page. The split is deliberate: generated content is reference, hand-authored content is teaching.
 
 ## Where this `docs/` folder fits
 

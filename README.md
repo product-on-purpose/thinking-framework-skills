@@ -11,7 +11,7 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
 <p>
   <img src="https://img.shields.io/badge/status-active-success?style=flat-square" alt="Status: Active">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square" alt="License: Apache-2.0"></a>
-  <img src="https://img.shields.io/badge/version-0.9.0-blue?style=flat-square" alt="Version 0.9.0">
+  <img src="https://img.shields.io/badge/version-0.10.0-blue?style=flat-square" alt="Version 0.10.0">
   <a href="#-conformance-what-advanced-gold-tier-means"><img src="https://img.shields.io/badge/tier-advanced%20(Gold)-B8860B?style=flat-square" alt="Conformance tier: advanced (Gold)"></a>
   <a href="#-the-catalog"><img src="https://img.shields.io/badge/frameworks-56-brightgreen?style=flat-square" alt="Frameworks: 56"></a>
   <a href="#-tools-meta-skills"><img src="https://img.shields.io/badge/tools-4-brightgreen?style=flat-square" alt="Tools: 4"></a>
@@ -423,13 +423,13 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ## 📊 Project status
 
-`v0.9.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
+`v0.10.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
 
 ### At a glance
 
 |  |  |
 |---|---|
-| **Current version** | [v0.9.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.9.0) |
+| **Current version** | [v0.10.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.10.0) |
 | **Frameworks** | 56, across 12 cognitive-operation families |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 9 (skill chains shipped as workflow components) |
@@ -479,6 +479,7 @@ Full detail in [`CHANGELOG.md`](CHANGELOG.md); curated highlights in [`RELEASE-N
 
 | Version | Highlights |
 |---|---|
+| [**0.10.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.10.0) | Learn-by-example depth + agent discovery: a worked example for every framework (the samples shelf, coverage 56/56), a cross-library Showcase that hands off to pm-skills (tfs decides, pm-skills delivers), `llms.txt` linked + `llms-full.txt` added, both behavioral evals refreshed across the full 56-skill catalog, and `red-team-light` re-graded P -> M. No new frameworks; catalog stays 56. |
 | [**0.9.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.9.0) | Discoverable by agents: a generated, drift-gated `llms.txt` index plus `catalog.json` (the 69 invokable skills/tools/recipes with routing and chaining fields) and `evaluated.json` (all 135 graded methods) at the site root, so other agents can find and route to the library; bundles the post-v0.8.0 measurement loop and example-coverage ratchet. No new skills; catalog stays 56. |
 | [**0.8.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.8.0) | Learn by example: a Showcase of 16 real decisions worked prompt-to-artifact (a founder, an engineer, a policy analyst), an operating guide, a prompt gallery, and a "Does this actually work?" page publishing the behavioral-eval numbers (99% routing with 0 false-fires; 99% of output checks). Documentation and trust; catalog unchanged at 56. |
 | [**0.7.1**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.7.1) | Framework Library complete: every documented-not-shipped method now has a published dossier (45 -> 75), documenting settled verdicts with honest sourced research. Documentation-only patch; no catalog count change. |
