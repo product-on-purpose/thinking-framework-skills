@@ -100,6 +100,11 @@ export default defineConfig({
           items: [{ autogenerate: { directory: 'showcase' } }],
         },
         {
+          label: 'Samples',
+          collapsed: true,
+          items: [{ autogenerate: { directory: 'samples' } }],
+        },
+        {
           label: 'Learn',
           items: [{ autogenerate: { directory: 'learn' } }],
         },
