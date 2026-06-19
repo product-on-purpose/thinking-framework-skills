@@ -26,6 +26,14 @@ const gaHead = GA_ID
     ]
   : [];
 
+// A persistent head tag (unlike the env-gated GA tags above): advertise the machine-readable
+// llms.txt index on every page so agents and crawlers discover it instead of guessing the URL.
+// BASE is '' for the root-served domain, so href resolves to /llms.txt; single source is
+// scripts/site-base.mjs.
+const discoveryHead = [
+  { tag: 'link', attrs: { rel: 'alternate', type: 'text/plain', href: `${BASE}/llms.txt`, title: 'llms.txt' } },
+];
+
 export default defineConfig({
   site: 'https://thinking-framework-skills.productonpurpose.com',
   // BASE is the single source (scripts/site-base.mjs); it is the empty string for this
@@ -71,7 +79,7 @@ export default defineConfig({
           'https://github.com/product-on-purpose/thinking-framework-skills/edit/main/site/',
       },
       customCss: ['./src/styles/custom.css'],
-      head: gaHead,
+      head: [...discoveryHead, ...gaHead],
       // Footer override adds the library version label. (starlight-versions, the
       // full multi-version archive plugin, is deferred: it requires at least one
       // archived snapshot, which would freeze the generated docs into a committed

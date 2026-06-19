@@ -245,7 +245,7 @@ function renderLlmsTxt(cat, ev) {
   L.push('');
   L.push(`> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. ${cat.counts.skills} skills, ${cat.counts.tools} tools, and ${cat.counts.recipes} recipes; every skill produces a concrete, named artifact. ${ev.counts.total} methods were evaluated and graded, ${ev.counts.shipped} ship as skills.`);
   L.push('');
-  L.push(`Machine-readable: [catalog.json](${abs('/catalog.json')}) (the invokable skills, tools, and recipes) and [evaluated.json](${abs('/evaluated.json')}) (all ${ev.counts.total} evaluated methods).`);
+  L.push(`Machine-readable: [catalog.json](${abs('/catalog.json')}) (the invokable skills, tools, and recipes) and [evaluated.json](${abs('/evaluated.json')}) (all ${ev.counts.total} evaluated methods). Full text: [llms-full.txt](${abs('/llms-full.txt')}) inlines every component for one-fetch ingestion.`);
   L.push('');
   L.push('## Start here');
   for (const [path, linkText, desc] of [
@@ -286,11 +286,72 @@ function renderLlmsTxt(cat, ev) {
 }
 export const llmsTxt = renderLlmsTxt(catalog, evaluated);
 
+// --- render llms-full.txt (the expanded variant: every component inlined) ---
+// llms.txt is an index of links; llms-full.txt inlines each component's routing metadata
+// plus the not-shipped methods, so an agent ingests the whole catalog in a single fetch.
+function renderLlmsFullTxt(cat, ev) {
+  const F = [];
+  F.push('# Thinking Framework Skills - full catalog');
+  F.push('');
+  F.push(`> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. ${cat.counts.skills} skills, ${cat.counts.tools} tools, and ${cat.counts.recipes} recipes; every skill produces a concrete, named artifact. ${ev.counts.total} methods were evaluated and graded, ${ev.counts.shipped} ship as skills.`);
+  F.push('');
+  F.push(`This is the expanded llms.txt: every invokable component inlined with its routing metadata, so an agent can ingest the catalog in a single fetch. The compact index is [llms.txt](${abs('/llms.txt')}); the structured forms are [catalog.json](${abs('/catalog.json')}) and [evaluated.json](${abs('/evaluated.json')}).`);
+  F.push('');
+  const block = (e) => {
+    F.push(`#### ${e.invocation}`);
+    F.push(`- Name: ${e.name}`);
+    if (e.family) F.push(`- Family: ${e.family}`);
+    if (e.evidence_tier) F.push(`- Evidence tier: ${e.evidence_tier}`);
+    if (e.mechanism) F.push(`- Mechanism: ${e.mechanism}`);
+    if (e.when_to_use) F.push(`- When to use: ${e.when_to_use}`);
+    if (e.artifact) F.push(`- Produces: ${e.artifact}`);
+    if (e.aliases && e.aliases.length) F.push(`- Also known as: ${e.aliases.join(', ')}`);
+    if (e.in_recipes && e.in_recipes.length) F.push(`- Used in recipes: ${e.in_recipes.join(', ')}`);
+    if (e.likely_companions && e.likely_companions.length) F.push(`- Pairs with: ${e.likely_companions.join(', ')}`);
+    F.push(`- URL: ${e.url}`);
+    F.push('');
+  };
+  F.push('## Skills');
+  F.push('');
+  for (const fam of ev.families) {
+    const inFam = cat.entries.filter((e) => e.type === 'skill' && e.family === fam.slug);
+    if (!inFam.length) continue;
+    F.push(`### ${fam.name}`);
+    F.push('');
+    for (const s of inFam) block(s);
+  }
+  F.push('## Tools');
+  F.push('');
+  for (const t of cat.entries.filter((e) => e.type === 'tool')) block(t);
+  F.push('## Recipes');
+  F.push('');
+  for (const r of cat.entries.filter((e) => e.type === 'recipe')) {
+    F.push(`#### ${r.invocation}`);
+    if (r.when_to_use) F.push(`- When to use: ${r.when_to_use}`);
+    if (r.steps && r.steps.length) F.push(`- Steps: ${r.steps.join(' -> ')}`);
+    F.push(`- URL: ${r.url}`);
+    F.push('');
+  }
+  F.push('## Evaluated, not shipped');
+  F.push('');
+  F.push(`The ${ev.counts.not_shipped} methods that were evaluated and graded but do not ship as skills, with the verdict and where each folds. Full reasoning is in the Framework Library.`);
+  F.push('');
+  for (const m of ev.methods.filter((x) => x.status !== 'shipped')) {
+    const where = m.fold_into ? `, folds into ${m.fold_into}` : '';
+    const u = m.url ? ` ${m.url}` : '';
+    F.push(`- ${m.slug} (${m.family}; tier ${m.tier}; ${m.status}/${m.verdict}${where}): ${m.mechanism}${u}`);
+  }
+  F.push('');
+  return F.join('\n');
+}
+export const llmsFullTxt = renderLlmsFullTxt(catalog, evaluated);
+
 // --- main: write or --check -------------------------------------------------
 const FILES = [
   ['catalog.json', JSON.stringify(catalog, null, 2) + '\n'],
   ['evaluated.json', JSON.stringify(evaluated, null, 2) + '\n'],
   ['llms.txt', llmsTxt],
+  ['llms-full.txt', llmsFullTxt],
 ];
 const isMain = process.argv[1] && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url));
 if (isMain) {
