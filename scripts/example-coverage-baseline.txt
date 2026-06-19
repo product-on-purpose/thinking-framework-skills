@@ -4,7 +4,6 @@ assumption-reversal
 authentic-dissent
 backcasting
 belief-update-routine
-boundary-critique
 brainwriting
 causal-layered-analysis
 concept-mapping
@@ -12,7 +11,6 @@ consider-the-unknowns
 contradiction-resolution
 contradiction-tension-mapping
 dialectical-bootstrapping
-expected-value-decision-tree
 far-analogy-ideation
 fermi-estimation
 frame-creation
@@ -26,8 +24,6 @@ one-way-vs-two-way-door
 parallel-perspectives-review
 pyramid-principle
 question-burst
-red-team-light
-reference-class-forecasting
 role-storming
 scamper
 scenario-planning
