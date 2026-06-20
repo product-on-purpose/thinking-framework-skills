@@ -17,3 +17,4 @@ src/content/docs/explore/*
 !src/content/docs/explore/chooser.mdx
 # generated data consumed by components at build time
 src/generated/
+src/content/docs/changelog/
