@@ -14,6 +14,8 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import registry from '../frameworks/registry.mjs';
+import { BASE } from './site-base.mjs';
+import { extractReleaseTimeline, transformChangelog } from './lib/changelog-lib.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = join(ROOT, 'site', 'src', 'content', 'docs');
@@ -24,6 +26,7 @@ const OUT = {
   evidence: join(DOCS, 'evidence'),
   library: join(DOCS, 'library'), // SP4: Framework Library dossiers + index (registry-driven)
   tools: join(DOCS, 'tools'), // meta-skills (routers/applicators), not graded frameworks
+  changelog: join(DOCS, 'changelog'), // Workstream A: generated from root CHANGELOG.md / RELEASE-NOTES.md
 };
 
 // --- helpers ----------------------------------------------------------------
@@ -193,8 +196,40 @@ if (existsSync(wfDir)) {
   }
 }
 
-// --- emit: framework pages --------------------------------------------------
+// --- prep output dirs (fresh), then emit changelog + the framework/family/etc pages ---
 for (const d of Object.values(OUT)) fresh(d);
+
+// --- changelog (Workstream A): a generated view of the repo-root SSOT files ---
+{
+  const blob = 'https://github.com/product-on-purpose/thinking-framework-skills/blob/main/';
+  const selfLinks = { whatsNew: `${BASE}/changelog/whats-new/`, full: `${BASE}/changelog/full/` };
+  const rn = readFileSync(join(ROOT, 'RELEASE-NOTES.md'), 'utf8');
+  const cl = readFileSync(join(ROOT, 'CHANGELOG.md'), 'utf8');
+  const src = (file) => `> Source of truth: [\`${file}\`](${blob}${file}). This page is generated from it; edit the source and run \`npm run gen\`.\n\n`;
+  writeFileSync(join(OUT.changelog, 'whats-new.md'),
+`---
+title: "What's new"
+description: Curated, per-release highlights for the thinking-framework-skills library.
+editUrl: false
+---
+${BANNER('from RELEASE-NOTES.md')}
+${src('RELEASE-NOTES.md')}## Release history
+
+${extractReleaseTimeline(rn)}
+
+${transformChangelog(rn, { selfLinks, repoBlobBase: blob })}`, 'utf8');
+  writeFileSync(join(OUT.changelog, 'full.md'),
+`---
+title: Changelog
+description: The full technical changelog (Keep a Changelog) for thinking-framework-skills.
+editUrl: false
+tableOfContents:
+  maxHeadingLevel: 2
+---
+${BANNER('from CHANGELOG.md')}
+${src('CHANGELOG.md')}${transformChangelog(cl, { selfLinks, repoBlobBase: blob })}`, 'utf8');
+}
+
 let count = 0;
 for (const s of frameworks) {
   const card = [

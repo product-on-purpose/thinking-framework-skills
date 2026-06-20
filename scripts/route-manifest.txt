@@ -3,6 +3,8 @@
 /about/faq/index.html
 /about/philosophy/index.html
 /about/why-not/index.html
+/changelog/full/index.html
+/changelog/whats-new/index.html
 /evidence/bibliography/index.html
 /evidence/index.html
 /explore/by-artifact/index.html

@@ -145,6 +145,10 @@ export default defineConfig({
           label: 'About',
           items: [{ autogenerate: { directory: 'about' } }],
         },
+        {
+          label: 'Changelog',
+          items: ['changelog/whats-new', 'changelog/full'],
+        },
       ],
 
     }),
