@@ -51,9 +51,10 @@ export function extractReleaseTimeline(releaseNotesMd) {
   const lines = releaseNotesMd.split('\n');
   const entries = [];
   for (let i = 0; i < lines.length; i++) {
-    const h = lines[i].match(/^##\s+v?(\d+\.\d+\.\d+)\s*$/);
+    const h = lines[i].match(/^##\s+\[?v?(\d+\.\d+\.\d+)\]?\s*$/);
     if (!h) continue;
     let theme = '';
+    // Scan at most ~8 lines forward for the bold theme line of this version.
     for (let j = i + 1; j < lines.length && j < i + 8; j++) {
       if (/^##\s/.test(lines[j])) break;
       const t = lines[j].match(/^\*\*(.+?)\*\*/);

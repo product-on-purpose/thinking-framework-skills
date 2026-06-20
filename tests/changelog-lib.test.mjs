@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { rewriteLinks } from '../scripts/lib/changelog-lib.mjs';
+import { rewriteLinks, extractReleaseTimeline, transformChangelog } from '../scripts/lib/changelog-lib.mjs';
 
 const OPTS = {
   selfLinks: { whatsNew: '/changelog/whats-new/', full: '/changelog/full/' },
@@ -40,8 +40,6 @@ test('rewrites a repo-relative reference definition but preserves external ones'
   assert.equal(rewriteLinks('[0.11.0]: https://github.com/x/compare/a...b', OPTS), '[0.11.0]: https://github.com/x/compare/a...b');
 });
 
-import { extractReleaseTimeline, transformChangelog } from '../scripts/lib/changelog-lib.mjs';
-
 test('extractReleaseTimeline builds a mermaid timeline from versions + themes', () => {
   const md = ['# Release notes', '', '## v0.11.0', '', '**Contested lenses: shipped honestly.** body', '', '## v0.10.0', '', '**Learn by example.** body'].join('\n');
   const out = extractReleaseTimeline(md);
@@ -49,6 +47,11 @@ test('extractReleaseTimeline builds a mermaid timeline from versions + themes', 
   assert.match(out, /v0\.11\.0 : Contested lenses - shipped honestly\./);
   assert.match(out, /v0\.10\.0 : Learn by example\./);
   assert.ok(out.trim().endsWith('```'));
+});
+
+test('extractReleaseTimeline accepts the bracket heading form', () => {
+  const md = '## [0.11.0]\n\n**Contested lenses.** body';
+  assert.match(extractReleaseTimeline(md), /v0\.11\.0 : Contested lenses\./);
 });
 
 test('extractReleaseTimeline returns empty string when no versions parse', () => {
