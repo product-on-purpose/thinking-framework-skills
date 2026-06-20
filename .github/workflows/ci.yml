@@ -104,6 +104,10 @@ jobs:
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: node ../scripts/check-route-parity.mjs dist
 
+      - name: Check mermaid diagrams in generated site content
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: node ../scripts/check-mermaid.mjs src/content/docs
+
   # Robustness proof for the rendered-link guard (clause 14.11, "guard robustness is itself
   # normative"): a node --test suite over synthetic dist fixtures (clean, broken link, empty dist,
   # bare-relative, both quote styles, defensive decode). Node built-ins only, so no install or build.
