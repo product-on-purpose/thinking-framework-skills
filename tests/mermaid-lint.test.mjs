@@ -23,6 +23,11 @@ test('empty block is flagged', () => {
   assert.equal(f.length, 1);
   assert.match(f[0].message, /empty/);
 });
+test('block with only a %% directive (no diagram content) is flagged empty', () => {
+  const f = lintMermaidBlocks('```mermaid\n%%{init: {"theme":"base"}}%%\n```');
+  assert.equal(f.length, 1);
+  assert.match(f[0].message, /empty/);
+});
 test('unclosed fence is flagged', () => {
   const f = lintMermaidBlocks('```mermaid\ngraph LR\n  A-->B\n');
   assert.equal(f.length, 1);

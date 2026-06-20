@@ -17,7 +17,7 @@ export function lintMermaidBlocks(text) {
   const findings = [];
   let i = 0;
   while (i < lines.length) {
-    if (!/^\s*```+\s*mermaid\s*$/i.test(lines[i])) { i++; continue; }
+    if (!/^\s*```+\s*mermaid\s*$/.test(lines[i])) { i++; continue; }
     const fenceLine = i + 1; // 1-based
     let j = i + 1;
     const body = [];
