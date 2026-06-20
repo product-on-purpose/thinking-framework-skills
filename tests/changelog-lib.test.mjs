@@ -1,3 +1,4 @@
+// tests/changelog-lib.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { rewriteLinks, extractReleaseTimeline, transformChangelog } from '../scripts/lib/changelog-lib.mjs';
@@ -22,10 +23,11 @@ test('preserves a #fragment on a self-link', () => {
   assert.equal(rewriteLinks('[u](CHANGELOG.md#unreleased)', OPTS), '[u](/changelog/full/#unreleased)');
 });
 
-test('leaves external links, pure anchors, and images untouched', () => {
+test('leaves external links, pure anchors, images, and ftp:// untouched', () => {
   assert.equal(rewriteLinks('[x](https://example.com)', OPTS), '[x](https://example.com)');
   assert.equal(rewriteLinks('[x](#section)', OPTS), '[x](#section)');
   assert.equal(rewriteLinks('![alt](docs/img.png)', OPTS), '![alt](docs/img.png)');
+  assert.equal(rewriteLinks('[ftp](ftp://files.example.com/pub/doc.pdf)', OPTS), '[ftp](ftp://files.example.com/pub/doc.pdf)');
 });
 
 test('does not rewrite inside a fenced code block', () => {
@@ -69,4 +71,15 @@ test('transformChangelog strips the leading H1 and rewrites links', () => {
   const out = transformChangelog('# Changelog\n\nsee [a](docs/x.md)', OPTS);
   assert.ok(!out.startsWith('# Changelog'));
   assert.match(out, /blob\/main\/docs\/x\.md/);
+});
+
+// Negative test (changelog-lib hardening): malformed open bracket heading does NOT produce a timeline row
+test('extractReleaseTimeline does not match a malformed open-bracket heading (no close bracket)', () => {
+  const md = '## [0.11.0\n\n**Theme.** body';
+  assert.equal(extractReleaseTimeline(md), '');
+});
+
+// Negative test (changelog-lib hardening): 4-space-indented reference definition is NOT rewritten (CommonMark code indent)
+test('rewriteLinks leaves a 4-space-indented reference definition unrewritten', () => {
+  assert.equal(rewriteLinks('    [a]: docs/x.md', OPTS), '    [a]: docs/x.md');
 });

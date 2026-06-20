@@ -31,7 +31,7 @@ export function rewriteLinks(md, opts) {
     }
     if (inFence) return line;                         // inside code: untouched
 
-    const refDef = line.match(/^(\s*\[[^\]]+\]:\s*)(\S+)(.*)$/);
+    const refDef = line.match(/^( {0,3}\[[^\]]+\]:\s*)(\S+)(.*)$/);
     if (refDef) {
       const repl = classifyTarget(refDef[2], opts);
       return repl == null ? line : refDef[1] + repl + refDef[3];
@@ -51,8 +51,9 @@ export function extractReleaseTimeline(releaseNotesMd) {
   const lines = releaseNotesMd.split('\n');
   const entries = [];
   for (let i = 0; i < lines.length; i++) {
-    const h = lines[i].match(/^##\s+\[?v?(\d+\.\d+\.\d+)\]?\s*$/);
+    const h = lines[i].match(/^##\s+(?:\[v?(\d+\.\d+\.\d+)\]|v?(\d+\.\d+\.\d+))\s*$/);
     if (!h) continue;
+    const version = h[1] || h[2];
     let theme = '';
     // Scan at most ~8 lines forward for the bold theme line of this version.
     for (let j = i + 1; j < lines.length && j < i + 8; j++) {
@@ -60,7 +61,7 @@ export function extractReleaseTimeline(releaseNotesMd) {
       const t = lines[j].match(/^\*\*(.+?)\*\*/);
       if (t) { theme = t[1]; break; }
     }
-    entries.push({ version: h[1], theme });
+    entries.push({ version, theme });
   }
   if (!entries.length) return '';
   const sanitize = (s) => {
