@@ -52,8 +52,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: pending
-  output_eval_status: pending
+  trigger_eval_status: measured-2026-06-19
+  output_eval_status: measured-2026-06-19
   known_failure_modes:
     - running all three presets instead of the one asked for
     - MoSCoW category inflation (almost everything marked Must) with no intra-bucket ranking

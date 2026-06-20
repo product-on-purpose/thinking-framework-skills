@@ -25,8 +25,8 @@
 - [ ] Leads with the evidence caveat (Card 2017, the single-chain method oversimplifies multi-causal problems) before the chain; does not overclaim the method's value.
 - [ ] Flag every step `[single cause]` or `[branch]`.
 - [ ] If any step is `[branch]` or the failure is socio-technical, say so and redirect to think-issue-tree rather than presenting the chain as the cause.
-- [ ] Terminate at a cause you could act on, not a convenient symptom.
-- [ ] Aim one countermeasure at the terminal node, not the original symptom.
+- [ ] When the chain is genuinely single-cause, terminate at a cause you could act on (not a convenient symptom); when it branches, stop honestly instead of forcing a terminal cause.
+- [ ] Aim one countermeasure at the terminal node when the chain is single-cause; when it branched, name no countermeasure and hand the problem to think-issue-tree instead.
 - [ ] Invent no quantified claim about Five Whys' effectiveness.
 
 ## Value vs unaided baseline

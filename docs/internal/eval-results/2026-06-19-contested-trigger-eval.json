@@ -1,0 +1,97 @@
+{
+  "generated": "TRIGGER eval",
+  "cases": 82,
+  "totals": {
+    "trigger": 41,
+    "anti": 41,
+    "antiNamed": 35,
+    "unrouted": 0,
+    "triggerTop1": 41,
+    "triggerTop3": 41,
+    "antiNoFire": 41,
+    "antiRightAlt": 35,
+    "triggerTop1Pct": 100,
+    "antiNoFirePct": 100,
+    "antiRightAltPct": 100,
+    "falseFires": 0
+  },
+  "perSkill": {
+    "analysis-of-competing-hypotheses": {
+      "trig": 5,
+      "trigHit": 5,
+      "trigSoft": 5,
+      "anti": 5,
+      "antiNoFire": 5,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "complexity-domain-sort": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 5,
+      "antiNamedHit": 5,
+      "miss": [],
+      "fire": []
+    },
+    "eisenhower-moscow-pareto": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 6,
+      "miss": [],
+      "fire": []
+    },
+    "five-whys": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 5,
+      "antiNamedHit": 5,
+      "miss": [],
+      "fire": []
+    },
+    "qualitative-comparative-analysis": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 5,
+      "antiNamedHit": 5,
+      "miss": [],
+      "fire": []
+    },
+    "reflective-equilibrium": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 6,
+      "miss": [],
+      "fire": []
+    },
+    "swot": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 5,
+      "antiNamedHit": 5,
+      "miss": [],
+      "fire": []
+    }
+  }
+}

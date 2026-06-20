@@ -58,8 +58,8 @@ Before finalizing, verify:
 - [ ] Leads with the evidence caveat (Card 2017) before the artifact; does not overclaim the method's value.
 - [ ] Each step is flagged `[single cause]` or `[branch]`.
 - [ ] If any step is `[branch]` (or the failure is socio-technical), the output says so and redirects to `think-issue-tree` instead of presenting the chain as the cause.
-- [ ] The chain terminates at a cause you could act on, not a convenient symptom.
-- [ ] One countermeasure is aimed at the terminal node, not the original symptom.
+- [ ] When the chain is genuinely single-cause, it terminates at a cause you could act on (not a convenient symptom); when it branches, it stops honestly instead of forcing a terminal cause.
+- [ ] A countermeasure is aimed at the terminal node when the chain is single-cause; when it branched, no countermeasure is forced and the problem is handed to `think-issue-tree`.
 - [ ] No invented quantified claim about Five Whys' effectiveness appears.
 
 ## Evidence

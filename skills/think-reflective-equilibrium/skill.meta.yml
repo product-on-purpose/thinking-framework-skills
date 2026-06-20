@@ -52,8 +52,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: pending
-  output_eval_status: pending
+  trigger_eval_status: measured-2026-06-19
+  output_eval_status: measured-2026-06-19
   known_failure_modes:
     - declaring global coherence with no record of which commitment gave way (the documented failure mode)
     - laundering a preferred outcome by quietly demoting the principle that forbids it

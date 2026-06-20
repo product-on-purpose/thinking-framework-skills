@@ -51,8 +51,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: pending
-  output_eval_status: pending
+  trigger_eval_status: measured-2026-06-19
+  output_eval_status: measured-2026-06-19
   known_failure_modes:
     - emitting a confident bare label and calling it a decision (the cargo-cult failure)
     - presenting the placement as a measured fact rather than a contested judgment

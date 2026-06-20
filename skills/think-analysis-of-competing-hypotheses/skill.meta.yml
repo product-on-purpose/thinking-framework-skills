@@ -49,8 +49,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: pending
-  output_eval_status: pending
+  trigger_eval_status: measured-2026-06-19
+  output_eval_status: measured-2026-06-19
   known_failure_modes:
     - producing the disconfirmation matrix as if valid (the move the trials condemned)
     - citing institutional adoption as if it were outcome evidence
