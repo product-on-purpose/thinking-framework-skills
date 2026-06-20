@@ -21,6 +21,7 @@
 - "What's the capital of France?" (factual lookup - refuse)
 - "Write me a Python script to parse this CSV." (coding - refuse)
 - "We're stuck on this problem. Which of your thinking tools would actually help, and in what order?" (**insufficient-signal gate**: a routing request with no problem, stakes, or reversibility stated - under the advisor's own ~40-word / no-signal threshold, so the correct move is exactly ONE clarifying question, not a full Thinking Plan and not a refusal)
+- "Run a SWOT analysis on our pricing change." (the user named a contested lens - route directly to `think-swot`, which leads with its own evidence caveat; the advisor is not needed)
 
 ## Output checks (a good Thinking Plan must)
 
@@ -29,6 +30,7 @@
 - [ ] Name exactly one **dominant** cognitive job, classified by the thinking-move needed (not the topic), with a citation.
 - [ ] Read stakes x reversibility and let it cap the plan: the number of frameworks respects the heft table (no over-stacking).
 - [ ] Recommend 1-4 frameworks **in sequence**, each named ONLY from `recommendable.json`, each with: job, why-this-over-its-nearest-neighbor, honest evidence tier, expected artifact, a filled (placeholder-free) invocation, and a stop signal.
+- [ ] Never make an explicit-request-only contested lens (e.g. `think-swot`, `think-analysis-of-competing-hypotheses`) Step 1 for a generic prompt; route a generic "do a SWOT-ish read" to `think-issue-tree`. A contested lens appears only when the user named it, and then with its caveat.
 - [ ] Include a non-empty "what NOT to use, and why," including anything the calibrator cut, and decline a recipe whose precondition is not met.
 - [ ] Never invent a framework name; use plain language where nothing listed fits.
 - [ ] Never inflate a tier; never present the routing itself as S/validated (the dossier grades routing as C).
@@ -36,4 +38,4 @@
 
 ## Value vs unaided baseline
 
-Asked "what frameworks should I use here," an unaided strong model will typically: (a) name plausible-sounding frameworks including ones this library deliberately does not ship (Six Thinking Hats, mind-mapping, SWOT) - i.e., hallucinate the tool set; (b) over-stack ("here are seven approaches you could try"); (c) present them with uniform, false confidence and no honest evidence grading; and (d) fail to sequence them or tie them to a diagnosed job. This skill's distinctive value is the opposite on every count: diagnose ONE dominant job from the user's own words, prescribe the **minimal** fitting sequence governed by stakes x reversibility, name **only** frameworks that actually exist (name-safety via `recommendable.json`), carry each framework's honest tier - and grade its own routing as C rather than dressing it up - and state explicitly what not to use and why.
+Asked "what frameworks should I use here," an unaided strong model will typically: (a) name plausible-sounding frameworks including ones this library deliberately does not ship as default tools (Six Thinking Hats, mind-mapping) or that it ships only as caveat-first, explicit-request-only contested lenses (SWOT) - i.e., hallucinate or over-trust the tool set; (b) over-stack ("here are seven approaches you could try"); (c) present them with uniform, false confidence and no honest evidence grading; and (d) fail to sequence them or tie them to a diagnosed job. This skill's distinctive value is the opposite on every count: diagnose ONE dominant job from the user's own words, prescribe the **minimal** fitting sequence governed by stakes x reversibility, name **only** frameworks that actually exist (name-safety via `recommendable.json`), carry each framework's honest tier - and grade its own routing as C rather than dressing it up - and state explicitly what not to use and why.

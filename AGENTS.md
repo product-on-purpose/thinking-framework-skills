@@ -16,6 +16,7 @@ Each skill is built around four commitments, not just a prompt:
 <!-- BEGIN GENERATED SKILLS (scripts/gen-agents.mjs from frameworks/registry.mjs + skills/) - do not hand-edit below this line -->
 | Skill | Family | Evidence | Artifact |
 |---|---|---|---|
+| [`think-analysis-of-competing-hypotheses`](skills/think-analysis-of-competing-hypotheses/SKILL.md) | assumption-and-belief-challenge | X | honest redirect brief |
 | [`think-authentic-dissent`](skills/think-authentic-dissent/SKILL.md) | assumption-and-belief-challenge | **S** | dissent audit |
 | [`think-consider-the-unknowns`](skills/think-consider-the-unknowns/SKILL.md) | assumption-and-belief-challenge | M | known unknowns ledger |
 | [`think-ladder-of-inference-check`](skills/think-ladder-of-inference-check/SKILL.md) | assumption-and-belief-challenge | P | reasoning trace |
@@ -60,6 +61,7 @@ Each skill is built around four commitments, not just a prompt:
 | [`think-reference-class-forecasting`](skills/think-reference-class-forecasting/SKILL.md) | risk-and-resilience | **S** | reference class estimate |
 | [`think-woop`](skills/think-woop/SKILL.md) | risk-and-resilience | **S** | woop card |
 | [`think-scenario-planning`](skills/think-scenario-planning/SKILL.md) | strategy-and-opportunity | P | scenario set |
+| [`think-swot`](skills/think-swot/SKILL.md) | strategy-and-opportunity | X | swot tows option set |
 | [`think-affinity-mapping`](skills/think-affinity-mapping/SKILL.md) | synthesis | P | clustered theme map |
 | [`think-concept-mapping`](skills/think-concept-mapping/SKILL.md) | synthesis | M/P | concept map |
 | [`think-contradiction-tension-mapping`](skills/think-contradiction-tension-mapping/SKILL.md) | synthesis | C | polarity map |
@@ -74,7 +76,7 @@ Each skill is built around four commitments, not just a prompt:
 | [`think-three-horizons`](skills/think-three-horizons/SKILL.md) | systems-and-consequences | C | three horizons transition map |
 | [`think-framework-advisor`](skills/think-framework-advisor/SKILL.md) | meta (router) | M/C | Thinking Plan |
 
-56 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
+58 skills, 11 at **S**/S-M tier - the named empirical core is fully shipped. **`think-framework-advisor` is the front door / meta-router:** describe a situation and it returns a prioritized, evidence-graded *Thinking Plan* of which of the other skills to use and why (graded M/C - honest that the routing itself is unvalidated; see its dossier). See `docs/internal/research/framework-catalog.md` for the full framework universe and roadmap.
 <!-- END GENERATED SKILLS -->
 
 ## Recipes

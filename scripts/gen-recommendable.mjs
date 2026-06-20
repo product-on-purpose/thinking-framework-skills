@@ -82,11 +82,18 @@ for (const c of lib.components.skills) {
   //   overlaps <- the named sibling skills inside that "When NOT to Use" section.
   const casesPath = join(ROOT, c.path.replace(/SKILL\.md$/, 'eval/cases.md'));
   const casesText = existsSync(casesPath) ? readFileSync(casesPath, 'utf8') : '';
+  // Contested-lens routing policy (DS-02): a weak lens ships but must NOT auto-recommend. The
+  // marker travels in the SKILL.md frontmatter (kebab keys, like evidence-tier); frontmatter
+  // scalars arrive as strings, so coerce the boolean explicitly.
+  const recommendation_policy = meta['recommendation-policy'] || 'default';
+  const caveat_first = meta['caveat-first'] === 'true' || meta['caveat-first'] === true;
   skills.push({
     name,
     id: meta.id || null,
     family: meta.family || null,
     tier: meta['evidence-tier'] || null,
+    recommendation_policy,
+    caveat_first,
     description: fm.description || '',
     anti_triggers: deriveAntiTriggers(casesText),
     not_use: deriveNotUse(skillText),

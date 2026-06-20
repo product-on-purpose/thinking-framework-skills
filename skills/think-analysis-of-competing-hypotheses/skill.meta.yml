@@ -1,0 +1,79 @@
+# Rich sidecar for the think-analysis-of-competing-hypotheses skill (contested lens, warn-redirect).
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.analysis-of-competing-hypotheses
+  slug: analysis-of-competing-hypotheses
+  name: think-analysis-of-competing-hypotheses
+  display_name: Analysis of Competing Hypotheses (ACH)
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: assumption-and-belief-challenge
+  secondary_families: [synthesis-and-reasoning-clarity]
+  thinking_modes: [evaluative, critical]
+  problem_contexts: [high-stakes, contested-evidence]
+  use_cases:
+    - answer a by-name ACH request honestly, leading with the controlled-evidence caveat
+    - route rival-hypothesis work to the evidence-based shipped move it actually needs
+  poor_fit_cases:
+    - building the disconfirmation matrix and declaring a least-inconsistent winner (the discredited move)
+    - generic which-explanation-is-right work where ACH was not requested
+
+interface:
+  required_inputs:
+    - a by-name request for ACH and the decision behind it
+  optional_inputs:
+    - the candidate hypotheses and the evidence the user has
+  primary_artifact_type: honest-redirect-brief
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: false
+  likely_companions:
+    - thinking-framework-skills.red-team-light
+    - thinking-framework-skills.evidence-vs-inference-sort
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.evidence-vs-inference-sort
+    - thinking-framework-skills.red-team-light
+  complements:
+    - thinking-framework-skills.what-would-have-to-be-true
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: pending
+  output_eval_status: pending
+  known_failure_modes:
+    - producing the disconfirmation matrix as if valid (the move the trials condemned)
+    - citing institutional adoption as if it were outcome evidence
+    - manufacturing a confident verdict from entangled, correlated evidence
+
+evidence:
+  evidence_tier: "X"
+  confidence: high that the matrix does not improve accuracy; the honest move is warn-and-redirect
+  transferred_evidence: false
+  lineage:
+    derived_from: [Heuer (1999) Psychology of Intelligence Analysis]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+# Contested-lens posture markers (v0.11.0). Read by scripts/check-contested.mjs (the caveat-first
+# contract), scripts/gen-site.mjs (the caution admonition + badge), and scripts/gen-catalog.mjs.
+caveat_first: true
+posture: warn_redirect
+recommendation_policy: explicit_request_only
+
+implementation:
+  skill_path: skills/think-analysis-of-competing-hypotheses/SKILL.md
+  references_path: skills/think-analysis-of-competing-hypotheses/references/
+  evidence_path: skills/think-analysis-of-competing-hypotheses/evidence/dossier.md
+  evals_path: skills/think-analysis-of-competing-hypotheses/eval/

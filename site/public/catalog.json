@@ -3,10 +3,10 @@
   "generated_from": "frameworks/registry.mjs + library.json + skills/*/SKILL.md + skills/*/skill.meta.yml + _workflows/*.md",
   "site": "https://thinking-framework-skills.productonpurpose.com/",
   "counts": {
-    "skills": 56,
+    "skills": 58,
     "tools": 4,
     "recipes": 9,
-    "total": 69
+    "total": 71
   },
   "entries": [
     {
@@ -20,6 +20,9 @@
       "when_to_use": "Use when a problem is stated as a bare solution with an unstated purpose, as a vague aspiration with no concrete handle, when people are arguing past each other at different levels, or before committing effort at an altitude nobody chose on purpose.",
       "artifact": "abstraction-ladder",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Abstraction ladder",
         "Why-How ladder"
@@ -45,6 +48,9 @@
       "when_to_use": "Use when a scattered pile of dozens to hundreds of existing items needs to become a few emergent themes, such as synthesizing user-research notes, support tickets, survey free-text, or retro stickies, and the right structure should emerge from the data rather than be imposed.",
       "artifact": "clustered-theme-map",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Affinity diagram",
         "KJ method"
@@ -67,6 +73,9 @@
       "when_to_use": "Use when a project, launch, sprint, or incident has finished and you want to turn the outcome into learning, not a status update.",
       "artifact": "after-action-review",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "AAR"
       ],
@@ -80,6 +89,33 @@
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-after-action-review/"
     },
     {
+      "slug": "analysis-of-competing-hypotheses",
+      "type": "skill",
+      "invocation": "think-analysis-of-competing-hypotheses",
+      "name": "Analysis of Competing Hypotheses (ACH)",
+      "family": "assumption-and-belief-challenge",
+      "evidence_tier": "X",
+      "mechanism": "score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence",
+      "when_to_use": "Handles a by-name request for ACH (Analysis of Competing Hypotheses), the evidence-by-hypothesis disconfirmation matrix, honestly. Controlled trials found ACH raises confidence with no accuracy gain and does not reduce confirmation bias, so this skill does NOT build the matrix as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-red-team-light, think-evidence-vs-inference-sort, or think-what-would-have-to-be-true). Use only when someone asks for ACH or a competing-hypotheses matrix by name.",
+      "artifact": "honest-redirect-brief",
+      "status": "active",
+      "caveat_first": true,
+      "posture": "warn_redirect",
+      "recommendation_policy": "explicit_request_only",
+      "aliases": [
+        "ACH",
+        "competing hypotheses matrix",
+        "evidence diagnosticity matrix",
+        "hypothesis testing matrix"
+      ],
+      "in_recipes": [],
+      "likely_companions": [
+        "think-red-team-light",
+        "think-evidence-vs-inference-sort"
+      ],
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-analysis-of-competing-hypotheses/"
+    },
+    {
       "slug": "argument-mapping",
       "type": "skill",
       "invocation": "think-argument-mapping",
@@ -90,6 +126,9 @@
       "when_to_use": "Use when an argument or recommendation must be evaluated for soundness, or when a fluent case may be hiding a broken inference.",
       "artifact": "argument-map",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Argument map"
       ],
@@ -113,6 +152,9 @@
       "when_to_use": "Use when an option space feels stuck inside default constraints, or when you need to expose premises that are taken for granted.",
       "artifact": "assumptions-and-reversals-sheet",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [],
       "in_recipes": [
         "expand-options",
@@ -136,6 +178,9 @@
       "when_to_use": "Use when consensus feels too easy, or to set up genuine challenge before a high-stakes call.",
       "artifact": "dissent-audit",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [],
       "in_recipes": [],
       "likely_companions": [
@@ -155,6 +200,9 @@
       "when_to_use": "Use when planning toward a transformative or long-horizon goal that forward planning anchors too low, when a chosen future needs a route mapped back to today, or when milestones and dependencies between now and the goal must be made explicit.",
       "artifact": "backcast-path",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [],
       "in_recipes": [],
       "likely_companions": [
@@ -174,6 +222,9 @@
       "when_to_use": "Use when you hold consequential open beliefs, forecasts, or standing assumptions that should track new evidence over time and you want a disciplined, recurring re-score - not a one-time decision record, a finished-event retro, or a single claim's conditions.",
       "artifact": "belief-update-ledger",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Belief updating",
         "Bayesian belief update"
@@ -197,6 +248,9 @@
       "when_to_use": "Use when a plan, metric, or proposal already encodes who matters and who does not and the risk is solving a tidy problem for the people inside the line while pushing harm onto people outside it, when an improvement claim rests on an unexamined judgment about whose improvement, or on contested, value-laden, multi-party situations.",
       "artifact": "boundary-judgment-audit",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Critical Systems Heuristics",
         "CSH",
@@ -223,6 +277,9 @@
       "when_to_use": "Use when you need breadth of options and want to avoid the anchoring and conformity that make ordinary brainstorming underperform.",
       "artifact": "idea-pool",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Brainwriting 6-3-5",
         "6-3-5",
@@ -247,6 +304,9 @@
       "when_to_use": "Use when an issue is stuck because the framing is stuck, the official account and the system explanation have been argued to exhaustion, and the real disagreement is about clashing worldviews and the unexamined story underneath. Not a single-cause diagnosis (that is think-iceberg-model) and not a forecast.",
       "artifact": "four-layer-matrix",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "CLA",
         "litany-system-worldview-myth",
@@ -271,6 +331,9 @@
       "when_to_use": "Use when a situation feeds back on itself - growth that funds more growth, a fix that recreates its own problem, capacity that relieves then re-attracts demand - and you need to see why it keeps accelerating, stalling, or overshooting. Not for a single accumulation, a one-directional consequence tree, or a genuinely linear chain.",
       "artifact": "signed-causal-loop-diagram",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "CLD",
         "Causal loop diagram"
@@ -293,6 +356,9 @@
       "when_to_use": "Use when a domain has many interrelated concepts and the goal is to externalize and inspect how they relate, forcing every relationship to be named rather than left as a vague association.",
       "artifact": "concept-map",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Concept map"
       ],
@@ -314,6 +380,9 @@
       "when_to_use": "Use when a consequential one-off judgment rests on thin or partial evidence, no usable base rate exists, and the confidence on the table may be inflated by what was never looked at. Not for cases with a real reference class, for widening a numeric interval, or for unknowns cheap enough to just go resolve.",
       "artifact": "known-unknowns-ledger",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "known unknowns check",
         "missing-information audit",
@@ -340,6 +409,9 @@
       "when_to_use": "Use when a decision has hardened into an either/or like speed versus quality, thorough versus fast, or generous versus profitable, when splitting the difference feels wrong and a win-win would be worth far more than the best compromise, or when a recurring design or product trade-off keeps forcing the same painful balance.",
       "artifact": "contradiction-resolution-worksheet",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "TRIZ",
         "Theory of Inventive Problem Solving",
@@ -368,6 +440,9 @@
       "when_to_use": "Use when an organization keeps oscillating destructively between two opposites that are both true and interdependent (centralize versus decentralize, stability versus change, candor versus diplomacy), and treating each swing as a problem to solve is the actual mistake. Not for a dissolvable trade-off and not for a real either/or choice.",
       "artifact": "polarity-map",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Polarity Mapping",
         "Polarity Management",
@@ -396,6 +471,9 @@
       "when_to_use": "Use when committing to a consequential, uncertain decision (a launch, hire, investment, bet, or strategic choice) and you want to lock in the prediction now to defeat hindsight bias and build calibration, or when pairing a record-now step with a later review.",
       "artifact": "decision-journal-entry",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Decision diary"
       ],
@@ -418,6 +496,9 @@
       "when_to_use": "Use when choosing among several real options, or when a decision needs its tradeoffs made explicit rather than left to intuition.",
       "artifact": "option-matrix",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Weighted decision matrix"
       ],
@@ -445,6 +526,9 @@
       "when_to_use": "Use when a hard, one-off, bounded-scale numeric estimate (a year, a percentage, a count, a forecast) is about to be committed and no second judge, no real reference class, and no better data are available. Not for easy questions, not for unbounded order-of-magnitude unknowns, and never a cherry-picked single number in place of the average.",
       "artifact": "dialectical-estimate",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "crowd within",
         "wisdom of many in one mind",
@@ -471,6 +555,9 @@
       "when_to_use": "Use when a concrete proposal affects multiple parties with a genuine moral trade-off among them, some affected parties have no voice, and an ethics debate keeps sliding between groups and principles. Not a decision calculator and not an option-versus-criteria scorer; the matrix maps the terrain and leaves the weighing to deliberation.",
       "artifact": "ethical-matrix",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Mepham's ethical matrix",
         "stakeholder-principle grid",
@@ -496,6 +583,9 @@
       "when_to_use": "Use when a recommendation must be trusted, or when you need to audit the reasoning behind a conclusion in a high-stakes context.",
       "artifact": "evidence-inference-ledger",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [],
       "in_recipes": [
         "audit-reasoning",
@@ -518,6 +608,9 @@
       "when_to_use": "Use when a decision turns on uncertain outcomes you can put rough probabilities on, when the structure is sequential (a choice opens chance events that open later choices), and when the stakes justify making the probability assumptions explicit and inspectable instead of buried in a gut feel.",
       "artifact": "decision-tree-ev",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Expected value",
         "Decision tree",
@@ -543,6 +636,9 @@
       "when_to_use": "Use when near, obvious solutions are exhausted and you need genuinely original approaches.",
       "artifact": "far-analogy-transfer-sheet",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Far analogy",
         "analogical ideation"
@@ -565,6 +661,9 @@
       "when_to_use": "Use when you need a number and no lookup-able data or genuine reference class exists, so the magnitude has to be built from factors (for example sizing a market, a load, a cost, or a conversion you cannot look up). Not for forecasting from real base rates (use reference-class-forecasting) or decomposing a question for coverage with no number (use issue-tree).",
       "artifact": "fermi-decomposition-worksheet",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Fermi problem",
         "order-of-magnitude estimation"
@@ -587,6 +686,9 @@
       "when_to_use": "Use when an open paradoxical problem keeps resisting solutions inside the frame it arrived in, when conventional problem solving has only produced more of the symptom, or when the way a problem is framed is itself the obstacle and a fresh standpoint would be worth more than another solution attempt.",
       "artifact": "frame-proposal",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Frame Innovation",
         "framing",
@@ -613,6 +715,9 @@
       "when_to_use": "Use when a decision has knock-on effects over time, or when first-order thinking is missing downstream risks and opportunities.",
       "artifact": "consequence-map",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [],
       "in_recipes": [],
       "likely_companions": [
@@ -632,6 +737,9 @@
       "when_to_use": "Use when a problem keeps recurring despite event-level fixes, when a symptom is being treated as a one-off, or when the question is why this keeps happening and where to actually intervene.",
       "artifact": "iceberg",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Iceberg of systems thinking"
       ],
@@ -653,6 +761,9 @@
       "when_to_use": "Use when agreement is required from a party not under your control and more than one issue is in play (salary, vendor, partnership, resource, or multi-party disputes), and a position fight has hardened before anyone checked whether the interests actually conflict. Preparation deskwork only, not live-table tactics, and not for a single-issue distributive haggle or a choice with no counterparty.",
       "artifact": "negotiation-preparation-map",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "principled negotiation",
         "BATNA",
@@ -684,6 +795,9 @@
       "when_to_use": "Use when a human-stated interval or confidence number drives a consequential plan, forecast, or commitment and has never been audited, and the worry is overprecision rather than a wrong central estimate. Calibrates human-stated uncertainty only, never the agent's own confidence, and resizes width without relocating the number. Not for lookupable facts and not a promise of full debiasing.",
       "artifact": "calibration-scorecard",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "calibration training",
         "equivalent bet test",
@@ -711,6 +825,9 @@
       "when_to_use": "Use when a question is too broad or multi-cause to answer as posed (for example \"why is churn rising?\", \"where is margin leaking?\", \"should we launch a free tier?\"), when analysis work must be split into non-overlapping parts, or when coverage matters and missing a whole category would be costly. Not for evaluating a given argument's soundness (use argument-mapping) or clustering existing notes (use affinity-mapping).",
       "artifact": "issue-tree",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Issue tree",
         "Logic tree"
@@ -737,6 +854,9 @@
       "when_to_use": "Use when a conclusion feels certain but rests on interpretation, or to audit a contested inference.",
       "artifact": "reasoning-trace",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Ladder of Inference"
       ],
@@ -760,6 +880,9 @@
       "when_to_use": "Use when the same kind of evaluative judgment recurs (screening candidates, scoring leads, triaging) and gut calls are inconsistent or overconfident.",
       "artifact": "scoring-model",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Linear model aggregation",
         "Mechanical aggregation",
@@ -784,6 +907,9 @@
       "when_to_use": "Use when a few discrete options face a few discrete uncontrollable states and no defensible probabilities exist. Not an expected-value tree (which needs probabilities) and not an attribute scorecard.",
       "artifact": "regret-matrix",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Savage minimax regret",
         "Savage criterion",
@@ -809,6 +935,9 @@
       "when_to_use": "Use when a solution is genuinely a configuration - a choice on each of several semi-independent dimensions (product architecture, service bundle, policy package) - and the risk is defaulting to one familiar combination and never seeing the rest of the space. Not a top-down MECE tree and not a provoked option list.",
       "artifact": "morphological-field",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Morphological box",
         "Zwicky box",
@@ -835,6 +964,9 @@
       "when_to_use": "Use when interpreting a test result, screening signal, or any \"given a positive, what is the real probability\" question.",
       "artifact": "natural-frequency-breakdown",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Natural frequencies",
         "frequency framing"
@@ -857,6 +989,9 @@
       "when_to_use": "Use when it is unclear how much process a decision deserves, when a team is about to rubber-stamp something irreversible or convene a committee over something trivially reversible, or when a chronically slow org needs a defensible reason to move fast or slow down.",
       "artifact": "reversibility-classification",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Reversibility test",
         "Type 1 / Type 2 decisions"
@@ -879,6 +1014,9 @@
       "when_to_use": "Use when items must be ranked but no defensible scale or articulable criteria exist. Not a criteria-weighted option matrix and not a base-rate forecast.",
       "artifact": "pairwise-comparison-matrix",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Paired comparison",
         "paired comparison analysis",
@@ -906,6 +1044,9 @@
       "when_to_use": "Use when a choice needs a rounded look, or when risk-aversion or optimism is drowning out the other perspectives.",
       "artifact": "multi-lens-review",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "parallel-thinking",
         "separated-lens review"
@@ -931,6 +1072,9 @@
       "when_to_use": "Use when about to commit to a launch, hire, investment, migration, or any risky, hard-to-reverse decision, or when you need risks surfaced before committing.",
       "artifact": "risk-register",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Pre-mortem",
         "prospective hindsight"
@@ -956,6 +1100,9 @@
       "when_to_use": "Use when a problem is vague, arrived as a symptom or a pre-baked solution, or before committing significant work to solving the wrong thing.",
       "artifact": "problem-frame-set",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Problem reframing"
       ],
@@ -981,6 +1128,9 @@
       "when_to_use": "Use when one outcome has happened, several genuine rival explanations compete to explain it, and mechanism-level evidence (logs, timestamps, documents, who knew what when) is available to discriminate them - an incident postmortem, a churn spike, a lost deal, a metric anomaly. Not for cross-case generalization, not a consistency-matrix scoring tally, and not for cases with no rivals on the table.",
       "artifact": "rival-explanation-evidence-ledger",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "hoop test",
         "smoking gun test",
@@ -1007,6 +1157,9 @@
       "when_to_use": "Use when a conclusion or recommendation already exists and must be communicated clearly to a busy or senior reader, when findings need to be ordered into a tight top-down case, or when a write-up buries its point under context.",
       "artifact": "pyramid",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [],
       "in_recipes": [],
       "likely_companions": [
@@ -1027,6 +1180,9 @@
       "when_to_use": "Use when you are stuck, too attached to one framing, or need a better question before answering.",
       "artifact": "ranked-question-set",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [],
       "in_recipes": [],
       "likely_companions": [
@@ -1046,6 +1202,9 @@
       "when_to_use": "Use when a plan has too-easy consensus and needs pressure-testing, or to steelman the opposition before committing.",
       "artifact": "adversarial-critique",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Red Team",
         "Blue Team"
@@ -1070,6 +1229,9 @@
       "when_to_use": "Use when forecasting cost, time, or odds of success for a project prone to optimism or the planning fallacy.",
       "artifact": "reference-class-estimate",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "RCF",
         "outside view"
@@ -1094,6 +1256,9 @@
       "when_to_use": "Use when idea flow is throttled by self-consciousness or a fixated frame rather than missing knowledge, and you want more and stranger candidates before converging. Not evaluation through fixed lenses (that is parallel-perspectives) and not genuine challenge (that is authentic-dissent).",
       "artifact": "persona-tagged-idea-list",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "rolestorming",
         "role storming",
@@ -1118,6 +1283,9 @@
       "when_to_use": "Use when you have a seed idea and need to break past the obvious options; not for blank-page ideation.",
       "artifact": "scamper-expansion-sheet",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Substitute Combine Adapt Modify Put-to-other-use Eliminate Reverse"
       ],
@@ -1141,6 +1309,9 @@
       "when_to_use": "Use when the planning horizon is long and the decisive forces are outside control and not reliably predictable, and a single implicit forecast is driving the strategy. Not forecasting and not a single preferred path.",
       "artifact": "scenario-set",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Scenario analysis",
         "2x2 scenarios",
@@ -1166,6 +1337,9 @@
       "when_to_use": "Use when a feature's success case could externalize harm onto people outside the customer relationship (location, ranking, inference, targeting, automation) and the team's risk review is entirely project-centric. Not a premortem (route plan-survival risk there), not for present documented harms (route to incident analysis), and not a security threat model.",
       "artifact": "anti-goals-register",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "black mirror brainstorm",
         "black mirror writers room",
@@ -1192,6 +1366,9 @@
       "when_to_use": "Use when a problem involves an accumulation (cash, debt, backlog, headcount, customer base, technical debt, emissions) and intuition about whether it is rising or falling may be wrong.",
       "artifact": "stock-flow-map",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Stocks and flows",
         "stock-and-flow"
@@ -1204,6 +1381,30 @@
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-stocks-and-flows-reasoning/"
     },
     {
+      "slug": "swot",
+      "type": "skill",
+      "invocation": "think-swot",
+      "name": "SWOT",
+      "family": "strategy-and-opportunity",
+      "evidence_tier": "X",
+      "mechanism": "strengths / weaknesses / opportunities / threats",
+      "when_to_use": "Runs a SWOT analysis (strengths, weaknesses, opportunities, threats) caveat-first. It leads with the weak evidence (Hill and Westbrook 1997 found real SWOT grids did not amount to analysis), then forces the discipline a bare grid lacks, namely evidence-tagged and prioritized factors plus a TOWS matching step that turns the four lists into strategic options. Use only when a SWOT or TOWS is asked for by name; for genuine situation decomposition prefer think-issue-tree.",
+      "artifact": "swot-tows-option-set",
+      "status": "active",
+      "caveat_first": true,
+      "posture": "run_caveat_first",
+      "recommendation_policy": "explicit_request_only",
+      "aliases": [
+        "SWOT analysis"
+      ],
+      "in_recipes": [],
+      "likely_companions": [
+        "think-issue-tree",
+        "think-what-would-have-to-be-true"
+      ],
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-swot/"
+    },
+    {
       "slug": "theory-of-constraints",
       "type": "skill",
       "invocation": "think-theory-of-constraints",
@@ -1214,6 +1415,9 @@
       "when_to_use": "Use when a system has a clear flow (a pipeline, a funnel, a queue, an approval chain, a production line) whose output is capped by one step and improvement effort is being spread evenly across all steps instead of aimed at the bottleneck. Not for coverage questions (route to think-issue-tree), recurring deep-cause questions (route to think-iceberg-model), or accumulation-trajectory questions (route to think-stocks-and-flows-reasoning).",
       "artifact": "constraint-intervention-plan",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "TOC",
         "bottleneck analysis",
@@ -1239,6 +1443,9 @@
       "when_to_use": "Use when a group is stuck in a present-versus-future binary and needs to govern the managed decline of the old system and the cultivation of the new one at once. Not a single backward path from one fixed future, and not a set of ranked external futures.",
       "artifact": "three-horizons-transition-map",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "3 Horizons",
         "Three Horizons of Growth",
@@ -1264,6 +1471,9 @@
       "when_to_use": "Use when a decision distributes benefit and burden across parties, the decider is one of those parties, and the risk is a self-serving call dressed as fairness. Not a neutral verdict, not forecasting, and not for cases where desert, promises, or compensatory claims make identity morally load-bearing.",
       "artifact": "veiled-decision-comparison",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "veil of ignorance",
         "original position reasoning",
@@ -1289,6 +1499,9 @@
       "when_to_use": "Use when a single presumptive argument rests on an authority's say-so, a load-bearing analogy, a slippery-slope objection, or a consequence-based case, and the question is whether its presumption survives the standard defeaters for that pattern. Not for structurally complex multi-premise arguments (use argument-mapping) and not for deductive or statistical proof.",
       "artifact": "scheme-critique-sheet",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "Walton schemes",
         "presumptive reasoning schemes",
@@ -1314,6 +1527,9 @@
       "when_to_use": "Use when evaluating a strategic bet, or when a disagreement has become a clash of opinions rather than evidence.",
       "artifact": "assumption-ledger",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "WWHTBT"
       ],
@@ -1337,6 +1553,9 @@
       "when_to_use": "Use when a goal is already chosen but follow-through keeps failing, or to close the gap between intention and action.",
       "artifact": "woop-card",
       "status": "active",
+      "caveat_first": false,
+      "posture": null,
+      "recommendation_policy": null,
       "aliases": [
         "WOOP",
         "MCII",

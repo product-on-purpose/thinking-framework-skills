@@ -19,7 +19,8 @@
 //   7. Tier consistency - each shipped entry's governing tier is one of the grades in its
 //                  SKILL.md evidence-tier, so the catalog grade cannot silently diverge from
 //                  the grade the skill (and the advisor + site) publish.
-//   8. Recommendable - the shipped registry slugs match the advisor's recommendable set.
+//   8. Recommendable - the shipped registry slugs match the advisor's recommendable set,
+//                  and every contested lens (caveatFirst) carries explicit_request_only.
 //
 // Zero-dependency; reuses scripts/lib/cases-lib.mjs (the SP1 source) for eval coupling.
 // =============================================================================
@@ -187,13 +188,27 @@ for (const e of fw) {
   }
 }
 
-// --- 8. Recommendable cross-check ------------------------------------------
-// The advisor's recommendable set must be exactly the registry's shipped frameworks.
+// --- 8. Recommendable cross-check (policy-aware, DS-02) ---------------------
+// The advisor's recommendable set must be exactly the registry's shipped frameworks: a
+// contested lens stays IN the corpus (so the advisor can surface it when the user names it),
+// but it must carry recommendation_policy "explicit_request_only" so the advisor never makes
+// it a default candidate. Shipping == being in the corpus; the policy controls routing, not
+// membership.
 try {
   const reco = JSON.parse(readFileSync(resolve(ROOT, 'skills', ADVISOR_DIR, 'references', 'recommendable.json'), 'utf8'));
-  const recoSlugs = new Set((reco.skills ?? []).map((s) => String(s.name).replace(/^think-/, '')));
+  const recoByName = new Map((reco.skills ?? []).map((s) => [String(s.name).replace(/^think-/, ''), s]));
+  const recoSlugs = new Set(recoByName.keys());
   for (const slug of shipped) if (!recoSlugs.has(slug)) fail(`recommendable: shipped ${slug} is missing from recommendable.json.`);
   for (const slug of recoSlugs) if (!shipped.has(slug)) fail(`recommendable: recommendable.json lists think-${slug}, which is not a shipped registry entry.`);
+  // Policy-aware: every shipped contested lens must carry its explicit_request_only policy in
+  // the corpus, so a weak lens cannot silently become a default advisor recommendation.
+  for (const e of fw) {
+    if (e.status !== 'shipped' || e.caveatFirst !== true) continue;
+    const r = recoByName.get(e.slug);
+    if (r && r.recommendation_policy !== 'explicit_request_only') {
+      fail(`recommendable: contested lens ${e.slug} must be recommendation_policy "explicit_request_only" in recommendable.json (got ${JSON.stringify(r.recommendation_policy)}).`);
+    }
+  }
 } catch (err) {
   fail(`recommendable: could not cross-check recommendable.json (${err.message}).`);
 }

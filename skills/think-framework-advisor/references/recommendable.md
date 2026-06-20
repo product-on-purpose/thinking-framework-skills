@@ -5,13 +5,14 @@
 > component is not listed here, the advisor must describe the step in plain language
 > rather than name a skill. Regenerate when components change.
 
-## Skills (56)
+## Skills (58)
 
 | Skill (`name`) | Family | Tier | What it does |
 |---|---|---|---|
 | `think-abstraction-laddering` | problem-framing | P | Builds an abstraction ladder that moves a problem up ("why / to what end?") and down ("how / what specifically?") to locate the right altitude to work at, then... |
 | `think-affinity-mapping` | synthesis | P | Produces a clustered theme map that groups many raw notes, observations, quotes, or data points bottom-up into a small set of named, traceable themes (the KJ m... |
 | `think-after-action-review` | meta-thinking-and-reflection | S | Produces a structured after-action review by comparing what was expected against what actually happened, diagnosing why the gaps occurred, and converting them... |
+| `think-analysis-of-competing-hypotheses` | assumption-and-belief-challenge | X | Handles a by-name request for ACH (Analysis of Competing Hypotheses), the evidence-by-hypothesis disconfirmation matrix, honestly. |
 | `think-argument-mapping` | reasoning-clarity | S | Produces an argument map by laying out a claim's supporting reasons, the co-premises each silently depends on, and the objections against it as an explicit str... |
 | `think-assumption-reversal` | divergent-ideation | P | Generates non-obvious ideas by surfacing the foundational assumptions a problem or solution rests on, negating each, and reframing from the reversed assumption... |
 | `think-authentic-dissent` | assumption-and-belief-challenge | S | Checks whether a decision has genuine minority dissent or only smooth surface consensus, identifies who actually holds a contrary view, and plans how to elicit... |
@@ -59,6 +60,7 @@
 | `think-scenario-planning` | strategy-and-opportunity | P | Produces a scenario set, 2-4 contrasting and internally consistent short narratives of alternative external futures named by two critical-uncertainty axes, plu... |
 | `think-speculative-harms-anti-goals` | ethics-values-deliberation | A | Produces an anti-goals register by assuming a design succeeds at scale, narrating the near-future in which that success harms third parties (including non-user... |
 | `think-stocks-and-flows-reasoning` | systems-and-consequences | S | Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory f... |
+| `think-swot` | strategy-and-opportunity | X | Runs a SWOT analysis (strengths, weaknesses, opportunities, threats) caveat-first. |
 | `think-theory-of-constraints` | systems-and-consequences | P | Produces a constraint-intervention plan that names the single binding constraint capping a system's throughput and attaches its exploit, subordinate, and eleva... |
 | `think-three-horizons` | systems-and-consequences | C | Produces a three-curve transition map (a declining present H1, a contested middle H2 read in two directions, an emerging future H3) with the actor located in i... |
 | `think-veil-of-ignorance-reasoning` | ethics-values-deliberation | M | Produces a veiled-decision comparison that decides a values trade-off as if the decider had an equal chance of being any affected party, under an explicit deci... |

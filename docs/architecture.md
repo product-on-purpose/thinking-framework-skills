@@ -16,7 +16,9 @@ How this repo is built. The short version: there are two coordinated sources of 
 
 The two are bound together in CI: every `status: shipped` registry entry must have a matching `skills/think-<slug>/` directory (both directions), and each shipped entry's governing `tier` must be one of the grades in its skill's `evidence-tier` - so the catalog grade can never drift from the grade the advisor and the site publish.
 
-There are **56 shipped frameworks** across **12 cognitive-operation families**, plus **9 recipes** (composable chains) under `_workflows/` with their prose in `recipes/`. `library.json` is the manifest that lists every skill component, its path, and its version. Skills install with a `think-` prefix and carry IDs of the form `thinking-framework-skills.<method>`.
+There are **58 shipped frameworks** across **12 cognitive-operation families** (56 core, plus 2 contested lenses), plus **9 recipes** (composable chains) under `_workflows/` with their prose in `recipes/`. `library.json` is the manifest that lists every skill component, its path, and its version. Skills install with a `think-` prefix and carry IDs of the form `thinking-framework-skills.<method>`.
+
+A **contested lens** is a famous-but-weak framework (graded X/C/P) the library ships *caveat-first*: the deficiency leads the SKILL.md and the artifact, the advisor never auto-recommends it (`recommendation_policy: explicit_request_only`), and a `caveatFirst` + `posture` marker in `frameworks/registry.mjs` is enforced by `scripts/check-contested.mjs`. Two postures: `run_caveat_first` (lead with the deficiency, then still produce the weak artifact) and `warn_redirect` (own the famous name, warn, and route to an evidence-based alternative without reproducing the discredited artifact).
 
 ## Frameworks vs. tools (meta-skills)
 
@@ -66,7 +68,7 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 
 ## The conformance gate
 
-`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs eight layers in order, and any failure is a red build:
+`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs nine layers in order, and any failure is a red build:
 
 1. **Structural** - the `agent-skills-toolkit` validators (`evaluate.mjs`), pinned to a known-good ref, asserting the plugin meets the `advanced` tier with 0 errors / 0 warnings.
 2. **Eval cases** (`scripts/eval-cases.mjs`) - every `skills/*/eval/cases.md` is well-formed and name-safe (no case may reference a framework that does not exist).
@@ -76,6 +78,7 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 6. **Counts** (`scripts/check-counts.mjs`) - the four hand-authored count surfaces in `README.md` (the badges, the lifecycle map, the catalog table headers, and the project-status table) match the registry / `_workflows/` / tools, and every shipped skill's `metadata.family` is a valid skill-family slug. The README is the last hand-authored denormalization of catalog counts; this layer makes a stale count a red build instead of a late review catch.
 7. **Example coverage** (`scripts/check-example-coverage.mjs`) - every shipped skill has a worked example (a Showcase appearance or a sample) or is grandfathered in `scripts/example-coverage-baseline.txt`; a newly shipped skill with no example reds the build, so the example layer cannot fall behind the catalog. The grandfather set can only shrink.
 8. **Catalog drift** (`scripts/gen-catalog.mjs --check`) - the machine-readable agent-discovery surface (`llms.txt`, `llms-full.txt`, `catalog.json`, `evaluated.json`) is byte-identical to a fresh generation.
+9. **Contested-lens contract** (`scripts/check-contested.mjs`) - every contested lens (a `caveatFirst` registry entry) leads with its evidence caveat across `SKILL.md` / `TEMPLATE` / `EXAMPLE` / sample / eval-cases per its posture (`run_caveat_first` or `warn_redirect`), a branded lens carries its trademark attribution on every surface, and the marker agrees across the registry, the SKILL.md frontmatter, and the `skill.meta.yml` sidecar. The deterministic core is `scripts/lib/contested-lib.mjs` (unit-tested, both postures negative-tested).
 
 The docs site adds two build-time guards run after `astro build` (family Astro site standard, clause 14.11): `scripts/check-rendered-links.mjs` (no browser-broken internal links) and `scripts/check-route-parity.mjs` (no silently dropped published route, against the committed `scripts/route-manifest.txt`).
 

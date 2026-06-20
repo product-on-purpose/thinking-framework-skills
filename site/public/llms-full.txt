@@ -1,6 +1,6 @@
 # Thinking Framework Skills - full catalog
 
-> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 56 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 56 ship as skills.
+> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 58 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 58 ship as skills.
 
 This is the expanded llms.txt: every invokable component inlined with its routing metadata, so an agent can ingest the catalog in a single fetch. The compact index is [llms.txt](https://thinking-framework-skills.productonpurpose.com/llms.txt); the structured forms are [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json).
 
@@ -171,6 +171,18 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 - URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-problem-restatement/
 
 ### Assumption and belief challenge
+
+#### think-analysis-of-competing-hypotheses
+- Name: Analysis of Competing Hypotheses (ACH)
+- Family: assumption-and-belief-challenge
+- Evidence tier: X
+- Contested lens: warn-and-redirect, explicit-request-only (leads with its evidence caveat)
+- Mechanism: score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence
+- When to use: Handles a by-name request for ACH (Analysis of Competing Hypotheses), the evidence-by-hypothesis disconfirmation matrix, honestly. Controlled trials found ACH raises confidence with no accuracy gain and does not reduce confirmation bias, so this skill does NOT build the matrix as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-red-team-light, think-evidence-vs-inference-sort, or think-what-would-have-to-be-true). Use only when someone asks for ACH or a competing-hypotheses matrix by name.
+- Produces: honest-redirect-brief
+- Also known as: ACH, competing hypotheses matrix, evidence diagnosticity matrix, hypothesis testing matrix
+- Pairs with: think-red-team-light, think-evidence-vs-inference-sort
+- URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-analysis-of-competing-hypotheses/
 
 #### think-argument-mapping
 - Name: Argument Mapping
@@ -513,6 +525,18 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 - Pairs with: think-backcasting, think-premortem, think-futures-wheel
 - URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-scenario-planning/
 
+#### think-swot
+- Name: SWOT
+- Family: strategy-and-opportunity
+- Evidence tier: X
+- Contested lens: run-caveat-first, explicit-request-only (leads with its evidence caveat)
+- Mechanism: strengths / weaknesses / opportunities / threats
+- When to use: Runs a SWOT analysis (strengths, weaknesses, opportunities, threats) caveat-first. It leads with the weak evidence (Hill and Westbrook 1997 found real SWOT grids did not amount to analysis), then forces the discipline a bare grid lacks, namely evidence-tagged and prioritized factors plus a TOWS matching step that turns the four lists into strategic options. Use only when a SWOT or TOWS is asked for by name; for genuine situation decomposition prefer think-issue-tree.
+- Produces: swot-tows-option-set
+- Also known as: SWOT analysis
+- Pairs with: think-issue-tree, think-what-would-have-to-be-true
+- URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-swot/
+
 ### Synthesis and reasoning clarity
 
 #### think-affinity-mapping
@@ -737,10 +761,9 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 
 ## Evaluated, not shipped
 
-The 79 methods that were evaluated and graded but do not ship as skills, with the verdict and where each folds. Full reasoning is in the Framework Library.
+The 77 methods that were evaluated and graded but do not ship as skills, with the verdict and where each folds. Full reasoning is in the Framework Library.
 
 - alternate-uses-constraint-insertion-removal (divergent-ideation-and-idea-expansion; tier P; fold/fold, folds into assumption-reversal): loosen functional fixedness; add/strip a constraint https://thinking-framework-skills.productonpurpose.com/library/alternate-uses-constraint-insertion-removal/
-- analysis-of-competing-hypotheses (assumption-and-belief-challenge; tier X; excl/reject): score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence https://thinking-framework-skills.productonpurpose.com/library/analysis-of-competing-hypotheses/
 - belbin-team-roles (self-and-team-awareness; tier C; excl/reject): map a team against nine complementary contribution roles to surface gaps and overlaps https://thinking-framework-skills.productonpurpose.com/library/belbin-team-roles/
 - blue-ocean-tools (strategy-and-opportunity; tier V; flag/reject): strategy canvas / four actions https://thinking-framework-skills.productonpurpose.com/library/blue-ocean-tools/
 - cliftonstrengths (self-and-team-awareness; tier V; excl/reject): rank a person across 34 talent themes from a proprietary forced-choice assessment https://thinking-framework-skills.productonpurpose.com/library/cliftonstrengths/
@@ -807,7 +830,6 @@ The 79 methods that were evaluated and graded but do not ship as skills, with th
 - stakeholder-lens-review (perspective-shifting-and-multi-lens; tier P; fold/fold, folds into parallel-perspectives-review): walk a proposal through each affected party's eyes https://thinking-framework-skills.productonpurpose.com/library/stakeholder-lens-review/
 - steelmanning (perspective-shifting-and-multi-lens; tier P; fold/fold, folds into red-team-light): state the strongest version of an opposing view before responding https://thinking-framework-skills.productonpurpose.com/library/steelmanning/
 - strong-interest-inventory (self-and-team-awareness; tier M; flag/reject): profile vocational interests against occupational reference groups https://thinking-framework-skills.productonpurpose.com/library/strong-interest-inventory/
-- swot (strategy-and-opportunity; tier X; excl/reject): strengths / weaknesses / opportunities / threats https://thinking-framework-skills.productonpurpose.com/library/swot/
 - system-archetypes (systems-and-consequences; tier C; fold/fold, folds into causal-loop-diagrams): match a recurring dynamic to a named feedback-structure template (fixes that fail, shifting the burden, tragedy of the commons) and import its canonical leverage prescription https://thinking-framework-skills.productonpurpose.com/library/system-archetypes/
 - toulmin-argument-model (synthesis-and-reasoning-clarity; tier C; fold/fold, folds into argument-mapping): lay out a claim as data, warrant, and backing, with qualifier and rebuttal, to test whether it holds https://thinking-framework-skills.productonpurpose.com/library/toulmin-argument-model/
 - trait-lens-perspective (self-and-team-awareness; tier C; fold/fold, folds into parallel-perspectives-review): view a decision through contrasting personality-trait viewpoints (high vs low openness, conscientiousness, and so on) https://thinking-framework-skills.productonpurpose.com/library/trait-lens-perspective/

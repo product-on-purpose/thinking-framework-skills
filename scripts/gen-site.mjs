@@ -145,6 +145,10 @@ for (const c of lib.components.skills) {
   const example = read('references/EXAMPLE.md');
   const sidecar = read('skill.meta.yml');
   const artifact = (sidecar.match(/primary_artifact_type:\s*([^\n#]+)/) || [])[1]?.trim() || '';
+  // Contested-lens posture marker (v0.11.0): renders a "use with caution" admonition + a
+  // contested-lens note, so a famous-but-weak lens never reads as an endorsed skill.
+  const caveatFirst = /(^|\n)\s*caveat_first:\s*true\b/.test(sidecar);
+  const posture = (sidecar.match(/(^|\n)\s*posture:\s*([^\n#]+)/) || [])[2]?.trim() || '';
   skills.push({
     name: fm.name || c.name,
     srcPath: c.path,
@@ -157,6 +161,8 @@ for (const c of lib.components.skills) {
     dossier,
     example,
     artifact,
+    caveatFirst,
+    posture,
     concept: stripProvenance(read('references/CONCEPT.md')).trim(),
     contexts: inlineArr(sidecar, 'problem_contexts'),
     modes: inlineArr(sidecar, 'thinking_modes'),
@@ -195,10 +201,16 @@ for (const s of frameworks) {
     ':::note[Quick facts]',
     `**Mechanism:** ${firstSentence(s.description)}`,
     s.artifact ? `**Produces:** ${s.artifact}` : '',
-    `**Evidence:** ${tierBadge(s.tier)}  ·  **Domain:** [${FAMILY_LABEL(s.family)}](../../families/${s.family}/)`,
+    `**Evidence:** ${tierBadge(s.tier)}${s.caveatFirst ? ' · **Contested lens** (caveat-first, explicit-request-only)' : ''}  ·  **Domain:** [${FAMILY_LABEL(s.family)}](../../families/${s.family}/)`,
     useWhen(s.description) ? `**${useWhen(s.description)}**` : '',
     ':::',
   ].filter(Boolean).join('\n\n');
+
+  // Contested lenses lead with a "use with caution" admonition: a famous-but-weak framework we
+  // grade honestly and run caveat-first (or warn-and-redirect), never an endorsed default skill.
+  const caution = s.caveatFirst
+    ? `:::caution[Use with caution: a contested lens]\nThis is a famous framework the library grades **low** on the evidence. It ships ${s.posture === 'warn_redirect' ? 'as **warn-and-redirect**: it owns the name, leads with the controlled-evidence caveat, and routes you to a better-grounded move rather than reproducing the discredited artifact' : 'as **run-caveat-first**: the deficiency leads, then it still produces the (weak) artifact with the missing discipline added'}. It is explicit-request-only: the advisor will not recommend it for a generic prompt.\n:::`
+    : '';
 
   const deepDive = s.example
     ? `## Deep dive: worked example\n\n<details>\n<summary>A full worked run (the shared Northwind scenario)</summary>\n\n${demote(stripProvenance(bodyOf(s.example)))}\n\n</details>`
@@ -222,6 +234,7 @@ skill_name: ${yaml(s.name)}
 <!-- GENERATED from skills/${s.name} by scripts/gen-site.mjs - do not hand-edit. -->
 
 ${card}
+${caution ? `\n${caution}\n` : ''}
 ${s.concept ? `\n${s.concept}\n` : ''}
 ${s.body.trim()}
 

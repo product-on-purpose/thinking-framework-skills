@@ -3,7 +3,7 @@
 // contributor or CI runs to validate the plugin against the agent-skills-toolkit
 // Standard: `node scripts/check.mjs` (or `npm run check`).
 //
-// It runs eight layers:
+// It runs nine layers:
 //   1. the toolkit's portable STRUCTURAL validators (the toolkit is the source of truth;
 //      vendoring them here would drift),
 //   2. the repo-local static eval-case validator (scripts/eval-cases.mjs, SP1): every
@@ -25,7 +25,12 @@
 //      scripts/example-coverage-baseline.txt, so a new skill cannot ship without an example.
 //   8. the catalog + llms.txt drift check (scripts/gen-catalog.mjs --check): the generated
 //      site/public/{catalog.json,evaluated.json,llms.txt} stay in sync with the registry,
-//      the skills, and the recipes, so the machine-readable catalog cannot silently go stale.
+//      the skills, and the recipes, so the machine-readable catalog cannot silently go stale, and
+//   9. the contested-lens caveat-first contract check (scripts/check-contested.mjs, v0.11.0):
+//      every contested lens (caveatFirst in the registry) leads with its evidence caveat across
+//      SKILL.md / TEMPLATE / EXAMPLE / sample / eval-cases per its posture, branded lenses carry
+//      the trademark attribution on every surface, and the marker agrees across the registry, the
+//      SKILL.md frontmatter, and the skill.meta.yml sidecar.
 //
 // To reproduce a CI failure locally, clone the public toolkit next to this repo:
 //   git clone https://github.com/product-on-purpose/agent-skills-toolkit.git ../agent-skills-toolkit
@@ -99,5 +104,8 @@ const coverage = spawnSync('node', [resolve(ROOT, 'scripts', 'check-example-cove
 console.log('\nRunning catalog + llms.txt drift check (scripts/gen-catalog.mjs --check)\n');
 const catalog = spawnSync('node', [resolve(ROOT, 'scripts', 'gen-catalog.mjs'), '--check'], { stdio: 'inherit' });
 
+console.log('\nRunning contested-lens caveat-first contract check (scripts/check-contested.mjs)\n');
+const contested = spawnSync('node', [resolve(ROOT, 'scripts', 'check-contested.mjs'), ROOT], { stdio: 'inherit' });
+
 // Fail if any layer failed; all run so contributors see all problems at once.
-process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1) || (agents.status ?? 1) || (counts.status ?? 1) || (coverage.status ?? 1) || (catalog.status ?? 1));
+process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1) || (agents.status ?? 1) || (counts.status ?? 1) || (coverage.status ?? 1) || (catalog.status ?? 1) || (contested.status ?? 1));

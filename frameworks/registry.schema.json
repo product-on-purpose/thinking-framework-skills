@@ -71,7 +71,7 @@
         "tier": {
           "type": "string",
           "enum": ["S", "M", "P", "V", "A", "C", "X"],
-          "description": "Honest evidence grade (governing grade, single value): S strong / M moderate / P practitioner / V vendor / A anecdotal / C conceptually-plausible-under-tested / X poor-or-contradictory (never ships)."
+          "description": "Honest evidence grade (governing grade, single value): S strong / M moderate / P practitioner / V vendor / A anecdotal / C conceptually-plausible-under-tested / X poor-or-contradictory. X normally never ships; the one exception is a contested lens (caveatFirst: true), which ships at its honest low tier only because the deficiency leads the skill and the routing is explicit-request-only."
         },
         "status": {
           "type": "string",
@@ -135,6 +135,20 @@
               "kind": { "type": "string" }
             }
           }
+        },
+        "caveatFirst": {
+          "type": "boolean",
+          "description": "True for a contested lens: a famous-but-weak framework shipped as a low-tier skill where the deficiency leads the SKILL.md and the artifact (the caveat-first contract enforced by scripts/check-contested.mjs). A posture marker, NOT a second evidence tier."
+        },
+        "posture": {
+          "type": "string",
+          "enum": ["run_caveat_first", "warn_redirect"],
+          "description": "How a contested lens (caveatFirst: true) is executed. run_caveat_first: lead with the deficiency, then still produce the (weak) artifact. warn_redirect: a method tested and found harmful; own the famous name, lead with the controlled-evidence caveat, route to an evidence-based alternative, and do NOT reproduce the discredited artifact as if valid."
+        },
+        "recommendationPolicy": {
+          "type": "string",
+          "enum": ["explicit_request_only"],
+          "description": "Routing policy carried into the advisor's recommendable set. explicit_request_only: a contested lens is in the corpus but is never a default candidate; it surfaces only when the user names it or no stronger shipped skill fits, and the caveat surfaces with it."
         }
       },
       "allOf": [
@@ -153,6 +167,10 @@
         {
           "if": { "properties": { "branded": { "const": true } } },
           "then": { "required": ["attribution", "trademark"] }
+        },
+        {
+          "if": { "properties": { "caveatFirst": { "const": true } } },
+          "then": { "required": ["posture", "recommendationPolicy", "evalCases"] }
         }
       ]
     }

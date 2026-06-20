@@ -3,8 +3,8 @@
   "generated_from": "frameworks/registry.mjs",
   "counts": {
     "total": 135,
-    "shipped": 56,
-    "not_shipped": 79
+    "shipped": 58,
+    "not_shipped": 77
   },
   "families": [
     {
@@ -110,11 +110,11 @@
       "name": "Analysis of Competing Hypotheses (ACH)",
       "family": "assumption-and-belief-challenge",
       "tier": "X",
-      "status": "excl",
-      "verdict": "reject",
+      "status": "shipped",
+      "verdict": "shipped",
       "fold_into": null,
       "mechanism": "score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence",
-      "url": "https://thinking-framework-skills.productonpurpose.com/library/analysis-of-competing-hypotheses/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-analysis-of-competing-hypotheses/"
     },
     {
       "slug": "argument-mapping",
@@ -1364,11 +1364,11 @@
       "name": "SWOT",
       "family": "strategy-and-opportunity",
       "tier": "X",
-      "status": "excl",
-      "verdict": "reject",
+      "status": "shipped",
+      "verdict": "shipped",
       "fold_into": null,
       "mechanism": "strengths / weaknesses / opportunities / threats",
-      "url": "https://thinking-framework-skills.productonpurpose.com/library/swot/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-swot/"
     },
     {
       "slug": "system-archetypes",

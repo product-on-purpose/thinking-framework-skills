@@ -73,7 +73,6 @@ Weak or contradictory evidence, or redundant with a shipped skill. Excluded afte
 - **Double-crux** - find the single belief whose change would flip each side of a disagreement.
 - **Eisenhower / MoSCoW / Pareto** - urgent-important triage; vital-few focus.
 - **OODA Loop** - observe-orient-decide-act.
-- **SWOT** - strengths / weaknesses / opportunities / threats.
 - **Insight statement generation** - turn observations into sharp, transferable insight statements (the why behind a finding).
 - **Sensemaking matrix** - organize conflicting signals for interpretation.
 - **Note-and-vote / Decider supervote** - individual notes, then a group vote, then a single Decider's weighted supervote.
@@ -81,7 +80,6 @@ Weak or contradictory evidence, or redundant with a shipped skill. Excluded afte
 - **Reflective equilibrium** - iterate between case judgments and general principles, revising whichever fits worse, until they cohere.
 - **Estimate-talk-estimate (Delphi)** - collect independent estimates, share only the anonymized spread and rationales, discuss the variance, then re-estimate independently.
 - **Qualitative Comparative Analysis (QCA)** - code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome.
-- **Analysis of Competing Hypotheses (ACH)** - score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence.
 - **C-K theory (Concept-Knowledge design theory)** - partition design work into a concept space of undecidable propositions and a knowledge space, and iterate the four operators (C-C, C-K, K-C, K-K) between them.
 - **Belbin Team Roles** - map a team against nine complementary contribution roles to surface gaps and overlaps. (Branded: Belbin and Belbin Team Roles (associated with Belbin Associates, Cambridge UK; BTRSPI inventory licensed by Belbin Associates).)
 - **Tuckman group-development stages** - diagnose a team's stage on the forming-storming-norming-performing arc to pick the fitting intervention.
