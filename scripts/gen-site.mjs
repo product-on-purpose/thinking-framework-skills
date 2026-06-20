@@ -196,7 +196,7 @@ if (existsSync(wfDir)) {
   }
 }
 
-// --- emit: framework pages --------------------------------------------------
+// --- prep output dirs (fresh), then emit changelog + the framework/family/etc pages ---
 for (const d of Object.values(OUT)) fresh(d);
 
 // --- changelog (Workstream A): a generated view of the repo-root SSOT files ---

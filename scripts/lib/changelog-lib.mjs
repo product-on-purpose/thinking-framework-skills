@@ -63,7 +63,13 @@ export function extractReleaseTimeline(releaseNotesMd) {
     entries.push({ version: h[1], theme });
   }
   if (!entries.length) return '';
-  const sanitize = (s) => s.replace(/[`*_]/g, '').replace(/:/g, ' -').replace(/\s+/g, ' ').trim().slice(0, 60);
+  const sanitize = (s) => {
+    const clean = s.replace(/[`*_]/g, '').replace(/:/g, ' -').replace(/\s+/g, ' ').trim();
+    if (clean.length <= 60) return clean;
+    const truncated = clean.slice(0, 60);
+    const lastSpace = truncated.lastIndexOf(' ');
+    return lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated;
+  };
   const rows = entries.map((e) => `    v${e.version} : ${sanitize(e.theme) || 'Release'}`);
   return ['```mermaid', 'timeline', '    title Release history', ...rows, '```'].join('\n');
 }

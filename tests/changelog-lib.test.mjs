@@ -58,6 +58,13 @@ test('extractReleaseTimeline returns empty string when no versions parse', () =>
   assert.equal(extractReleaseTimeline('# Release notes\n\nnothing here'), '');
 });
 
+test('extractReleaseTimeline truncates a long theme without a trailing space or mid-word cut', () => {
+  const md = '## v9.9.9\n\n**one two three four five six seven eight nine ten eleven twelve thirteen.** body';
+  const label = extractReleaseTimeline(md).split('\n').find((l) => l.includes('v9.9.9')).split(' : ')[1];
+  assert.ok(label.length <= 60, 'label within 60 chars');
+  assert.equal(label, label.trimEnd(), 'no trailing space');
+});
+
 test('transformChangelog strips the leading H1 and rewrites links', () => {
   const out = transformChangelog('# Changelog\n\nsee [a](docs/x.md)', OPTS);
   assert.ok(!out.startsWith('# Changelog'));
