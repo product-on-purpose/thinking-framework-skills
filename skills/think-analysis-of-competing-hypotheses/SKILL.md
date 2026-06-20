@@ -15,7 +15,7 @@ metadata:
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Analysis of Competing Hypotheses (ACH)
 
-ACH builds an evidence-by-hypothesis matrix, scores each item of evidence for how well it disconfirms each hypothesis, and favors the hypothesis with the least inconsistent evidence. It is a famous intelligence-analysis technique, and it was tested and found wanting: in randomized controlled studies it raised analysts' confidence without improving accuracy and did not reduce confirmation bias. This skill therefore does not reproduce the matrix as if it were valid. It owns the request, leads with what the controlled evidence shows, and routes you to the evidence-based move your actual job needs. The output is an honest redirect brief, not a disconfirmation matrix with a declared winner.
+ACH builds an evidence-by-hypothesis matrix, scores each item of evidence for how well it disconfirms each hypothesis, and favors the hypothesis with the least inconsistent evidence. It is a famous intelligence-analysis technique, and it was tested and found wanting: in randomized controlled studies it raised participants' confidence without improving accuracy, and showed no debiasing or judgment-quality gain. This skill therefore does not reproduce the matrix as if it were valid. It owns the request, leads with what the controlled evidence shows, and routes you to the evidence-based move your actual job needs. The output is an honest redirect brief, not a disconfirmation matrix with a declared winner.
 
 ## Before you run this: what the controlled evidence shows
 

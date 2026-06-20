@@ -4,7 +4,7 @@ A completed run of `think-analysis-of-competing-hypotheses`, on the shared North
 
 > Northwind is a B2B SaaS weighing a self-serve free-tier launch and feeling stuck on "build it or not."
 
-> **Controlled-evidence caveat (read first):** ACH was tested and found wanting. It raised confidence with no accuracy gain (Otzipka 2025) and did not reduce confirmation bias in randomized trials (Dhami et al. 2019; Karvetski and Mandel 2020). This brief does not build the matrix as if valid.
+> **Controlled-evidence caveat (read first):** ACH was tested and found wanting. It raised confidence with no accuracy gain (Otzipka 2025) and showed no debiasing or judgment-quality gain in randomized trials (Dhami et al. 2019; Karvetski and Mandel 2020). This brief does not build the matrix as if valid.
 
 ---
 

@@ -2,7 +2,7 @@
 
 Fill this in. The deliverable is NOT a disconfirmation matrix. Controlled trials found ACH raises confidence with no accuracy gain, so this brief states the caveat, names the real job, and routes to the evidence-based move instead.
 
-> **Controlled-evidence caveat (read first):** ACH was tested and found wanting. It raised confidence with no accuracy gain (Otzipka 2025) and did not reduce confirmation bias in randomized trials (Dhami et al. 2019; Karvetski and Mandel 2020). This brief does not build the matrix as if valid.
+> **Controlled-evidence caveat (read first):** ACH was tested and found wanting. It raised confidence with no accuracy gain (Otzipka 2025) and showed no debiasing or judgment-quality gain in randomized trials (Dhami et al. 2019; Karvetski and Mandel 2020). This brief does not build the matrix as if valid.
 
 ---
 

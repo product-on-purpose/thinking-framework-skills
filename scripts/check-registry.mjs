@@ -188,6 +188,17 @@ for (const e of fw) {
   }
 }
 
+// --- 7b. Tier X ships only as a contested lens -----------------------------
+// Tier X is poor/contradictory evidence and normally never ships. The ONE exception is a contested
+// lens (caveatFirst), which ships caveat-first + explicit-request-only with the deficiency leading.
+// A shipped X-tier entry WITHOUT the marker would escape the caveat-first contract entirely, so
+// require it: an X-tier skill either ships as a contested lens or does not ship.
+for (const e of fw) {
+  if (e.status === 'shipped' && e.tier === 'X' && e.caveatFirst !== true) {
+    fail(`tier: shipped ${e.slug} is tier X but not a contested lens - tier X may ship only as a caveatFirst contested lens (set caveatFirst + posture + recommendationPolicy), or it must not ship.`);
+  }
+}
+
 // --- 8. Recommendable cross-check (policy-aware, DS-02) ---------------------
 // The advisor's recommendable set must be exactly the registry's shipped frameworks: a
 // contested lens stays IN the corpus (so the advisor can surface it when the user names it),

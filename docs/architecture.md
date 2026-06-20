@@ -51,7 +51,7 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1'}}}%%
 graph LR
   reg["frameworks/registry.mjs<br/>(the catalog: 135 methods)"]:::source
-  skl["skills/ + library.json + _workflows/<br/>(the 56 shipped + 4 tools + 9 recipes)"]:::source
+  skl["skills/ + library.json + _workflows/<br/>(the 58 shipped + 4 tools + 9 recipes)"]:::source
   gen["gen-registry · gen-recommendable · gen-site · gen-catalog<br/>gen-engine · gen-agents · gen-manifest"]:::build
   views["catalog · why-not · advisor corpus<br/>Starlight site · plugin manifests · INDEX"]:::site
   pages["GitHub Pages + marketplace"]:::deploy

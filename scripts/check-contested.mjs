@@ -23,6 +23,11 @@ const read = (p) => (existsSync(p) ? readFileSync(p, 'utf8') : null);
 const fw = registry.frameworks ?? [];
 const contested = fw.filter((e) => e.caveatFirst === true);
 const contestedSlugs = new Set(contested.map((e) => e.slug));
+// The set of invocations a warn_redirect may legitimately route to: shipped AND not a contested
+// lens AND (per call) not the self-slug. A redirect to a nonexistent or contested target is cosmetic.
+const validAlternatives = new Set(
+  fw.filter((e) => e.status === 'shipped' && e.caveatFirst !== true).map((e) => `think-${e.slug}`),
+);
 
 const problems = [];
 
@@ -36,7 +41,9 @@ for (const e of contested) {
     sidecar: read(resolve(dir, 'skill.meta.yml')),
     sample: read(resolve(ROOT, 'site', 'src', 'content', 'docs', 'samples', `${e.slug}.md`)),
   };
-  problems.push(...checkContestedEntry(e, files));
+  // Each lens may legitimately reference itself; exclude only the self-slug from its alternatives.
+  const alternatives = new Set([...validAlternatives].filter((t) => t !== `think-${e.slug}`));
+  problems.push(...checkContestedEntry(e, files, { validAlternatives: alternatives }));
 }
 
 // Drift the other way: a skill that declares caveat-first in its frontmatter but is NOT a
@@ -46,7 +53,7 @@ for (const dir of readdirSync(resolve(ROOT, 'skills'))) {
   const slug = dir.replace(/^think-/, '');
   if (contestedSlugs.has(slug)) continue;
   const md = read(resolve(ROOT, 'skills', dir, 'SKILL.md'));
-  if (md && /^\s*caveat-first:\s*true\s*$/m.test(md)) {
+  if (md && /^\s*caveat-first:\s*true\s*(#.*)?$/m.test(md)) {
     problems.push(`drift: skills/${dir}/SKILL.md declares caveat-first but is not a contested registry entry (add caveatFirst to the registry entry, or remove the frontmatter).`);
   }
 }

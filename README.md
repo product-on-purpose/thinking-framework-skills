@@ -124,7 +124,7 @@ This one does the opposite, and that honesty is the product:
 
 ## 🗺️ The library at a glance
 
-56 frameworks across 12 cognitive-operation families, arranged as a thinking lifecycle. (Four [tools](#-tools-meta-skills) and nine [recipes](#-recipes) ride on top.) You rarely run all twelve; the Framework Advisor picks the few that fit your situation.
+58 frameworks across 12 cognitive-operation families (56 core plus 2 contested lenses), arranged as a thinking lifecycle. (Four [tools](#-tools-meta-skills) and nine [recipes](#-recipes) ride on top.) You rarely run all twelve; the Framework Advisor picks the few that fit your situation.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1','fontFamily':'system-ui, sans-serif'}}}%%
@@ -446,7 +446,7 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ```
 thinking-framework-skills/
-├── skills/                  # 56 frameworks + 4 tools (the source of truth)
+├── skills/                  # 58 frameworks + 4 tools (the source of truth)
 ├── frameworks/              # registry.mjs (the catalog) + per-method dossiers
 │   └── think-<method>/      #   SKILL.md, evidence/dossier.md, references/, eval/cases.md, skill.meta.yml
 ├── _workflows/              # Recipe definitions (multi-skill chains) as workflow components

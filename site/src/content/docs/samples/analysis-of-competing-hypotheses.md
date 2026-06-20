@@ -6,7 +6,7 @@ sidebar:
 ---
 
 :::caution[ACH is a contested lens (warn-and-redirect)]
-ACH is tier X: tested and found wanting. Randomized trials found it raises confidence with no accuracy gain and does not reduce confirmation bias (Otzipka 2025; Dhami et al. 2019; Karvetski and Mandel 2020). This skill does not build the disconfirmation matrix as if valid; it warns and routes to an evidence-based move. It fires only because ACH was asked for by name.
+ACH is tier X: tested and found wanting. Randomized trials found it raises confidence with no accuracy gain (Otzipka 2025) and no debiasing or judgment-quality gain (Dhami et al. 2019; Karvetski and Mandel 2020). This skill does not build the disconfirmation matrix as if valid; it warns and routes to an evidence-based move. It fires only because ACH was asked for by name.
 :::
 
 > A compact worked example of [Analysis of Competing Hypotheses](../../frameworks/think-analysis-of-competing-hypotheses/) handled honestly. For full end-to-end narratives see the [Showcase](../../showcase/); for the evidence behind the method see its [framework page](../../frameworks/think-analysis-of-competing-hypotheses/).

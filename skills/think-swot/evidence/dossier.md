@@ -22,7 +22,7 @@ SWOT sorts a situation into Strengths and Weaknesses (internal) and Opportunitie
 
 ## 3. What the evidence shows, and what it does NOT show
 
-**The governing finding (contradictory evidence):** Terry Hill and Roy Westbrook, "SWOT Analysis: It's Time for a Product Recall," *Long Range Planning* 30(1) (1997): 46-52, reviewed SWOT use by consultants across more than 20 companies (14 consulting firms) in the UK DTI scheme. The grids collapsed into long, undifferentiated lists, averaging over 40 general factors, with no prioritization, no verification, and no connection to the rest of the strategy work. Conclusion: the activity and its outputs "did not constitute analysis."
+**The governing finding (contradictory evidence):** Terry Hill and Roy Westbrook, "SWOT Analysis: It's Time for a Product Recall," *Long Range Planning* 30(1) (1997): 46-52, reviewed SWOT use by consultants across more than 20 of 50 companies (14 consulting firms) in the UK DTI scheme. The grids collapsed into long, undifferentiated lists, averaging over 40 general factors, with no prioritization, no verification, and no connection to the rest of the strategy work. Conclusion: the activity and its outputs "did not constitute analysis."
 
 **NOT shown:** there is no controlled evidence that the SWOT box structure improves decision quality. Any "SWOT improves outcomes by N%" claim is unsupported and must never be reproduced.
 
