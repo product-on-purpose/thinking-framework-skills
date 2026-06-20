@@ -20,6 +20,35 @@ There are **63 shipped frameworks** across **12 cognitive-operation families** (
 
 A **contested lens** is a famous-but-weak framework (graded X/C/P) the library ships *caveat-first*: the deficiency leads the SKILL.md and the artifact, the advisor never auto-recommends it (`recommendation_policy: explicit_request_only`), and a `caveatFirst` + `posture` marker in `frameworks/registry.mjs` is enforced by `scripts/check-contested.mjs`. Two postures: `run_caveat_first` (lead with the deficiency, then still produce the weak artifact) and `warn_redirect` (own the famous name, warn, and route to an evidence-based alternative without reproducing the discredited artifact).
 
+### Metadata sourcing: cross-check, not full generation (registry follow-up #2, resolved: keep)
+
+The advisor's `recommendable.{json,md}` and the site framework pages derive each skill's tier / family / description from its `SKILL.md` (and `skill.meta.yml`), and the registry **cross-checks** that the shipped-slug set matches and that each shipped entry's governing tier is one of the grades in its `SKILL.md` evidence-tier. That cross-check closes the drift loop without making the registry the literal source of those surfaces. The stronger move - *generating* the advisor/site metadata from the registry so there is one byte-level source - is deliberately **not** taken: the registry stores a single governing grade, so generating `recommendable.json` from it would lose the per-skill compound grade (e.g. `M/P`) unless the registry schema grew to store it, and the cross-check already prevents divergence. The decision is to keep the per-skill source plus the registry cross-check.
+
+### Two family taxonomies, kept separate by design (registry follow-up #3, resolved: documented mapping)
+
+There are two family taxonomies, cut for different jobs, and they are deliberately **not** 1:1:
+
+- The registry's **13-family catalog universe** (`frameworks/registry.mjs` `family`): the research/evaluation taxonomy over all 135 methods, shipped or not. Two of the 13 (`facilitation-and-group-structures`, `self-and-team-awareness`) have no shipped skills - they exist to classify documented-only methods (group facilitation, person/team instruments).
+- The coarser **12-slug skill taxonomy** (`SKILL.md` `metadata.family`): the user-facing grouping the README catalog sections and the Astro `families/` pages use.
+
+They crisscross (they are not just a coarsening): the catalog merges synthesis and reasoning-clarity into one family while the skill taxonomy splits them, and `reasoning-clarity` (skill) draws from two catalog families. `scripts/check-counts.mjs` validates that every skill's `metadata.family` is one of the 12 canonical slugs (a typo guard) but deliberately enforces no registry-to-skill family match, because unifying them would reshuffle user-facing groupings for no correctness gain. The mapping (dominant target per catalog family; cross-family cases noted):
+
+| Registry catalog family | Skill `metadata.family` | Note |
+|---|---|---|
+| perspective-shifting-and-multi-lens | perspective-and-multi-lens | a few methods group under assumption-and-belief-challenge |
+| divergent-ideation-and-idea-expansion | divergent-ideation | |
+| problem-framing-and-reframing | problem-framing | |
+| assumption-and-belief-challenge | assumption-and-belief-challenge | some methods group under reasoning-clarity or decision-and-option-evaluation |
+| risk-failure-and-resilience | risk-and-resilience | |
+| systems-and-consequences | systems-and-consequences | |
+| decision-and-option-evaluation | decision-and-option-evaluation | one method (the decision journal) groups under meta-thinking-and-reflection |
+| strategy-and-opportunity | strategy-and-opportunity | |
+| synthesis-and-reasoning-clarity | synthesis + reasoning-clarity | the catalog merges these; the skill taxonomy splits them |
+| facilitation-and-group-structures | (none shipped) | catalog-only |
+| meta-thinking-and-reflection | meta-thinking-and-reflection | |
+| self-and-team-awareness | (none shipped) | catalog-only |
+| ethics-values-deliberation | ethics-values-deliberation | |
+
 ## Frameworks vs. tools (meta-skills)
 
 Not every skill is a graded thinking method. Four skills are **tools** (meta-skills) - they operate *over* the library rather than being one of its methods:

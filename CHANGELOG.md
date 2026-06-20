@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+- **Resolved the two long-deferred registry follow-ups** (open since the SP3 adversarial review). #2 (metadata sourcing) and #3 (family taxonomies) are decided as *keep the current design*, with the rationale and the catalog-to-skill family mapping now documented in `docs/architecture.md`: the advisor/site surfaces stay per-skill-sourced with a registry cross-check (rather than fully registry-generated, which would lose the compound grade), and the registry's 13-family catalog taxonomy stays deliberately separate from the coarser 12-slug skill taxonomy (unifying them would reshuffle user-facing groupings for no correctness gain). No behavior change; documentation + the `check-counts.mjs` note updated.
+
 ## [0.11.0] - 2026-06-19
 
 **Contested lenses: the famous-but-weak frameworks, shipped honestly.** Seven rejected frameworks now ship as low-tier, caveat-first, explicit-request-only contested lenses, enforced by a new 9th conformance-gate layer. The catalog grows 56 -> 63 (56 evidence-graded core skills + 7 contested lenses, reported as separate cohorts); the headline eval numbers stay the core-56 numbers.

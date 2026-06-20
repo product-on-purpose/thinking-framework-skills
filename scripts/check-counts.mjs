@@ -8,16 +8,17 @@
 // for those counts; the four surfaces it checks are the badges, the mermaid lifecycle map,
 // the catalog table headers, and the project-status table.
 //
-// FAMILY TAXONOMY NOTE (registry follow-up #3): the per-family counts use each skill's
+// FAMILY TAXONOMY NOTE (registry follow-up #3, RESOLVED - keep separate, mapping documented in
+// docs/architecture.md "Two family taxonomies"): the per-family counts use each skill's
 // `metadata.family` (the coarse "skill" taxonomy the site lifecycle + README catalog group
 // by), which differs BY DESIGN from the registry's 13-family catalog taxonomy (and uses a
 // different slug set - e.g. there is no `reasoning-clarity` registry family). The two are
-// intentionally independent: the catalog taxonomy drives the framework-catalog.md / why-not
-// index, the skill taxonomy drives the user-facing lifecycle. Several skills are placed in
-// different families by each (a deliberate divergence, not a bug); unifying them reshuffles
-// user-facing groupings and is a deferred design call, so this check does NOT force a pair
-// match. It does enforce that every shipped skill's metadata.family is one of the canonical
-// 12 skill-family slugs below (a typo guard).
+// intentionally independent and crisscross (the catalog merges synthesis + reasoning-clarity;
+// the skill taxonomy splits them): the catalog taxonomy drives framework-catalog.md / why-not,
+// the skill taxonomy drives the user-facing lifecycle. Unifying them reshuffles user-facing
+// groupings for no correctness gain, so this check does NOT force a pair match. It DOES enforce
+// that every shipped skill's metadata.family is one of the canonical 12 skill-family slugs below
+// (a typo guard). The dominant catalog-to-skill mapping table lives in docs/architecture.md.
 //
 // Usage: node scripts/check-counts.mjs        (exit 1 on any mismatch)
 
