@@ -26,3 +26,8 @@ test('findRedirectHopLinks ignores links to canonical (non-redirected) targets',
   const hops = findRedirectHopLinks('index.mdx', null, 'See [advisor](tools/think-framework-advisor/).', REDIRECTS);
   assert.equal(hops.length, 0);
 });
+test('findRedirectHopLinks flags a JSX href to a redirect source', () => {
+  const hops = findRedirectHopLinks('start/getting-started.mdx', null, '<LinkCard href="../../frameworks/think-framework-advisor/" />', REDIRECTS);
+  assert.equal(hops.length, 1);
+  assert.equal(hops[0].redirectSource, '/frameworks/think-framework-advisor/');
+});

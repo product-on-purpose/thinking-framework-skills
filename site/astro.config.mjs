@@ -48,9 +48,6 @@ export default defineConfig({
   // emits the DESTINATION verbatim. With BASE empty (root), `${BASE}/tools/...` is already the
   // correct root-absolute destination. BASE is the single source (scripts/site-base.mjs), so the
   // redirect cannot drift from the real base.
-  // Cynefin ships as a contested lens under its descriptive name (think-complexity-domain-sort,
-  // keeping the trademark out of the invocation per IP-01). Its Framework Library dossier moved
-  // from /library/cynefin/ to /library/complexity-domain-sort/; this keeps the old URL alive.
   // Single source: scripts/site-redirects.mjs (mirrors how scripts/site-base.mjs owns BASE).
   redirects: REDIRECTS,
   integrations: [

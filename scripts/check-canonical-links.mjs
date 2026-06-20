@@ -30,15 +30,27 @@ export function findRedirectHopLinks(relFromDocs, frontmatterSlug, body, redirec
   const pageUrl = servedPath(relFromDocs, frontmatterSlug);
   const sources = new Set(Object.keys(redirects));
   const hops = [];
-  for (const m of body.matchAll(/(!?)\[[^\]]*\]\(([^)\s]+)\)/g)) {
-    if (m[1] === '!') continue; // image
-    const raw = m[2];
-    if (EXTERNAL.test(raw)) continue;
+
+  // Shared resolution helper: checks one raw link target and pushes to hops if it hits a source.
+  function check(raw) {
+    if (EXTERNAL.test(raw)) return;
     let resolved;
-    try { resolved = new URL(raw.split('#')[0].split('?')[0], 'https://x' + pageUrl).pathname; } catch { continue; }
+    try { resolved = new URL(raw.split('#')[0].split('?')[0], 'https://x' + pageUrl).pathname; } catch { return; }
     if (!resolved.endsWith('/')) resolved += '/';
     if (sources.has(resolved)) hops.push({ href: raw, resolved, redirectSource: resolved });
   }
+
+  // Markdown links: [text](target) - skip images where group 1 is '!'
+  for (const m of body.matchAll(/(!?)\[[^\]]*\]\(([^)\s]+)\)/g)) {
+    if (m[1] === '!') continue;
+    check(m[2]);
+  }
+
+  // JSX/HTML href attributes: href="..." or href='...'
+  for (const m of body.matchAll(/\bhref=["']([^"']+)["']/g)) {
+    check(m[1]);
+  }
+
   return hops;
 }
 
