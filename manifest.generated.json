@@ -70,6 +70,11 @@
       "description": "Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities, and reading likely dynamics (spiral, goal-seeking, or oscillation) off which loop dominates. Use when a situation feeds back on itself - growth that funds more growth, a fix that recreates its own problem, capacity that relieves then re-attracts demand - and you need to see why it keeps accelerating, stalling, or overshooting. Not for a single accumulation, a one-directional consequence tree, or a genuinely linear chain."
     },
     {
+      "name": "think-complexity-domain-sort",
+      "path": "skills/think-complexity-domain-sort/SKILL.md",
+      "description": "Runs a Complexity Domain Sort, sorting a situation into Clear, Complicated, Complex, Chaotic, or Confusion and choosing the response posture that fits, caveat-first. It leads with the weak evidence (the 2021 PMC internal-medicine review found scientific proof of its validity has yet to be provided), then forces the discipline the bare label lacks, namely an explicit response posture and a concrete next action rather than just a name. Use only when this complexity sort (also known as Cynefin) is asked for by name; for cause decomposition prefer think-issue-tree."
+    },
+    {
       "name": "think-concept-mapping",
       "path": "skills/think-concept-mapping/SKILL.md",
       "description": "Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit proposition, with cross-links across clusters - then surfaces gaps, missing links, and questionable propositions. Use when a domain has many interrelated concepts and the goal is to externalize and inspect how they relate, forcing every relationship to be named rather than left as a vague association."
@@ -105,6 +110,11 @@
       "description": "Produces a dialectical estimate that improves a single committed number by polling the inner crowd, make a first estimate, assume it is wrong and list why, read whether that pushes the answer too high or too low, make a second estimate from those changed assumptions, then mechanically average the two. Use when a hard, one-off, bounded-scale numeric estimate (a year, a percentage, a count, a forecast) is about to be committed and no second judge, no real reference class, and no better data are available. Not for easy questions, not for unbounded order-of-magnitude unknowns, and never a cherry-picked single number in place of the average."
     },
     {
+      "name": "think-eisenhower-moscow-pareto",
+      "path": "skills/think-eisenhower-moscow-pareto/SKILL.md",
+      "description": "Runs one of the three lightweight prioritization presets (Eisenhower urgent-important 2x2, MoSCoW Must/Should/Could/Wont bucketing, or Pareto vital-few cut) caveat-first. It leads with the fact that this is a bundle of three different operations stapled by the word \"prioritization\", not one move, and each is weakly evidenced, then produces the one preset the user named with the discipline a canned template lacks. Use only when an Eisenhower matrix, MoSCoW list, or Pareto chart is asked for by name; for the rigorous versions prefer think-theory-of-constraints, think-one-way-vs-two-way-door, or think-decision-option-review."
+    },
+    {
       "name": "think-ethical-matrix",
       "path": "skills/think-ethical-matrix/SKILL.md",
       "description": "Produces an ethical matrix, a grid that cross-references affected parties (rows, deliberately including voiceless ones such as future generations and the environment) against prima facie principles (columns of wellbeing, autonomy, fairness), specifying the option's impact in every cell and reading the result as a trade-off pattern rather than a score. Use when a concrete proposal affects multiple parties with a genuine moral trade-off among them, some affected parties have no voice, and an ethics debate keeps sliding between groups and principles. Not a decision calculator and not an option-versus-criteria scorer; the matrix maps the terrain and leaves the weighing to deliberation."
@@ -128,6 +138,11 @@
       "name": "think-fermi-estimation",
       "path": "skills/think-fermi-estimation/SKILL.md",
       "description": "Produces a Fermi decomposition worksheet that estimates an unknown numeric quantity by factoring it into a chain of order-of-magnitude sub-estimates, guessing each to within a band, then multiplying back to a point estimate plus a compounded low/high range, with an independence check and a dominant-uncertainty flag. Use when you need a number and no lookup-able data or genuine reference class exists, so the magnitude has to be built from factors (for example sizing a market, a load, a cost, or a conversion you cannot look up). Not for forecasting from real base rates (use reference-class-forecasting) or decomposing a question for coverage with no number (use issue-tree)."
+    },
+    {
+      "name": "think-five-whys",
+      "path": "skills/think-five-whys/SKILL.md",
+      "description": "Runs a Five Whys root-cause trace caveat-first. It leads with the weak evidence (Card 2017 found the single-chain method oversimplifies multi-causal problems), then forces the discipline a bare why-chain lacks, namely flagging at each step whether more than one cause could apply. Use only when Five Whys is asked for by name; for any problem that might have more than one cause prefer think-issue-tree."
     },
     {
       "name": "think-frame-creation",
@@ -225,6 +240,11 @@
       "description": "Produces a pyramid that structures a recommendation answer-first - a single governing thought on top, a small set of MECE, deliberately ordered key arguments beneath it, and supporting evidence under each (Minto), with an optional SCQA intro framing. Use when a conclusion or recommendation already exists and must be communicated clearly to a busy or senior reader, when findings need to be ordered into a tight top-down case, or when a write-up buries its point under context."
     },
     {
+      "name": "think-qualitative-comparative-analysis",
+      "path": "skills/think-qualitative-comparative-analysis/SKILL.md",
+      "description": "Handles a by-name request for QCA (Qualitative Comparative Analysis), the truth-table-and-Boolean-minimization method, honestly. At session scale the input almost never exists and the method certifies configurations from noise, so this skill does NOT build the truth table as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-reference-class-forecasting for a set of comparable cases, or process tracing in prose for one case). Use only when someone asks for QCA or a truth-table minimization by name."
+    },
+    {
       "name": "think-question-burst",
       "path": "skills/think-question-burst/SKILL.md",
       "description": "Generates a rapid burst of questions about a problem (questions only, no answers), then ranks them for which would most change the approach and selects the single most catalytic one to pursue, producing a ranked question set. Use when you are stuck, too attached to one framing, or need a better question before answering."
@@ -243,6 +263,11 @@
       "name": "think-reference-class-forecasting",
       "path": "skills/think-reference-class-forecasting/SKILL.md",
       "description": "Produces a reference-class estimate by defining a class of similar past cases, taking their base-rate distribution of outcomes, and anchoring the forecast on that outside view rather than the optimistic inside view, with a conservative adjustment for specifics. Use when forecasting cost, time, or odds of success for a project prone to optimism or the planning fallacy."
+    },
+    {
+      "name": "think-reflective-equilibrium",
+      "path": "skills/think-reflective-equilibrium/SKILL.md",
+      "description": "Runs reflective equilibrium (mutual adjustment between considered case judgments, general principles, and background theories) caveat-first. It leads with the weak evidence (philosophically central since Rawls 1971 but empirically untested as a procedure, with three failure modes that bite in a bounded session), then forces the discipline a bare run lacks, namely an explicit revision ledger that records which commitment gave way and why. Use only when reflective equilibrium is asked for by name; for impartial allocation prefer think-veil-of-ignorance-reasoning, for a parties-by-principles audit think-ethical-matrix."
     },
     {
       "name": "think-research-framework",

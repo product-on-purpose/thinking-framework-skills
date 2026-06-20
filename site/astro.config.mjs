@@ -49,6 +49,10 @@ export default defineConfig({
   // redirect cannot drift from the real base.
   redirects: {
     '/frameworks/think-framework-advisor/': `${BASE}/tools/think-framework-advisor/`,
+    // Cynefin ships as a contested lens under its descriptive name (think-complexity-domain-sort,
+    // keeping the trademark out of the invocation per IP-01). Its Framework Library dossier moved
+    // from /library/cynefin/ to /library/complexity-domain-sort/; this keeps the old URL alive.
+    '/library/cynefin/': `${BASE}/library/complexity-domain-sort/`,
   },
   integrations: [
     // astro-mermaid MUST come before starlight (integration-order rule).

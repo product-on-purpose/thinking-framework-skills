@@ -460,6 +460,41 @@
         "version": "0.1.0",
         "tier": "universal",
         "status": "active"
+      },
+      {
+        "name": "think-five-whys",
+        "path": "skills/think-five-whys/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
+      },
+      {
+        "name": "think-eisenhower-moscow-pareto",
+        "path": "skills/think-eisenhower-moscow-pareto/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
+      },
+      {
+        "name": "think-complexity-domain-sort",
+        "path": "skills/think-complexity-domain-sort/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
+      },
+      {
+        "name": "think-reflective-equilibrium",
+        "path": "skills/think-reflective-equilibrium/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
+      },
+      {
+        "name": "think-qualitative-comparative-analysis",
+        "path": "skills/think-qualitative-comparative-analysis/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
       }
     ],
     "subagents": [

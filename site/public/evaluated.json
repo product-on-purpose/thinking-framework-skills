@@ -3,8 +3,8 @@
   "generated_from": "frameworks/registry.mjs",
   "counts": {
     "total": 135,
-    "shipped": 58,
-    "not_shipped": 77
+    "shipped": 63,
+    "not_shipped": 72
   },
   "families": [
     {
@@ -260,6 +260,17 @@
       "url": "https://thinking-framework-skills.productonpurpose.com/library/cognitive-bias-checklist/"
     },
     {
+      "slug": "complexity-domain-sort",
+      "name": "Complexity Domain Sort",
+      "family": "decision-and-option-evaluation",
+      "tier": "C",
+      "status": "shipped",
+      "verdict": "shipped",
+      "fold_into": null,
+      "mechanism": "sort clear / complicated / complex / chaotic",
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-complexity-domain-sort/"
+    },
+    {
       "slug": "concept-knowledge-theory",
       "name": "C-K theory (Concept-Knowledge design theory)",
       "family": "divergent-ideation-and-idea-expansion",
@@ -335,17 +346,6 @@
       "fold_into": "brainwriting",
       "mechanism": "eight sketches in eight minutes",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/crazy-8s/"
-    },
-    {
-      "slug": "cynefin",
-      "name": "Cynefin",
-      "family": "decision-and-option-evaluation",
-      "tier": "C",
-      "status": "flag",
-      "verdict": "reject",
-      "fold_into": null,
-      "mechanism": "sort clear / complicated / complex / chaotic",
-      "url": "https://thinking-framework-skills.productonpurpose.com/library/cynefin/"
     },
     {
       "slug": "decision-brief-pr-faq",
@@ -462,11 +462,11 @@
       "name": "Eisenhower / MoSCoW / Pareto",
       "family": "decision-and-option-evaluation",
       "tier": "P",
-      "status": "excl",
-      "verdict": "reject",
+      "status": "shipped",
+      "verdict": "shipped",
       "fold_into": null,
       "mechanism": "urgent-important triage; vital-few focus",
-      "url": "https://thinking-framework-skills.productonpurpose.com/library/eisenhower-moscow-pareto/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-eisenhower-moscow-pareto/"
     },
     {
       "slug": "enneagram",
@@ -572,11 +572,11 @@
       "name": "Five Whys",
       "family": "problem-framing-and-reframing",
       "tier": "X",
-      "status": "flag",
-      "verdict": "reject",
+      "status": "shipped",
+      "verdict": "shipped",
       "fold_into": null,
       "mechanism": "iterative why to trace a cause",
-      "url": "https://thinking-framework-skills.productonpurpose.com/library/five-whys/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-five-whys/"
     },
     {
       "slug": "fmea-lite",
@@ -1122,11 +1122,11 @@
       "name": "Qualitative Comparative Analysis (QCA)",
       "family": "systems-and-consequences",
       "tier": "P",
-      "status": "excl",
-      "verdict": "reject",
+      "status": "shipped",
+      "verdict": "shipped",
       "fold_into": null,
       "mechanism": "code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome",
-      "url": "https://thinking-framework-skills.productonpurpose.com/library/qualitative-comparative-analysis/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-qualitative-comparative-analysis/"
     },
     {
       "slug": "question-burst",
@@ -1166,11 +1166,11 @@
       "name": "Reflective equilibrium",
       "family": "ethics-values-deliberation",
       "tier": "C",
-      "status": "excl",
-      "verdict": "reject",
+      "status": "shipped",
+      "verdict": "shipped",
       "fold_into": null,
       "mechanism": "iterate between case judgments and general principles, revising whichever fits worse, until they cohere",
-      "url": "https://thinking-framework-skills.productonpurpose.com/library/reflective-equilibrium/"
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-reflective-equilibrium/"
     },
     {
       "slug": "regret-minimization",

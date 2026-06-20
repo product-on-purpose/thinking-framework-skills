@@ -79,7 +79,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | How Might We | turn an insight into an opportunity question | P | `[fold]` -> Problem Restatement |
 | Is / Is Not analysis | sharpen scope by what the problem is and is not | P | `[fold]` -> Problem Restatement |
 | Frame storming | brainstorm the framing, not the solution | P | `[fold]` -> Problem Restatement |
-| Five Whys | iterative why to trace a cause | X | `[flag]` |
+| Five Whys | iterative why to trace a cause | X | `[shipped]` |
 
 ## 4. Assumption and belief challenge
 
@@ -130,7 +130,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Fishbone / Ishikawa | decompose one observed effect into candidate causes grouped under a fixed category checklist (6M/8P) | P | `[fold]` -> Issue Trees |
 | Process tracing | test rival causal explanations of a single case by each piece of evidence's diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests) | P | `[shipped]` |
 | System archetypes | match a recurring dynamic to a named feedback-structure template (fixes that fail, shifting the burden, tragedy of the commons) and import its canonical leverage prescription | C | `[fold]` -> Causal Loop Diagrams |
-| Qualitative Comparative Analysis (QCA) | code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome | P | `[excl]` |
+| Qualitative Comparative Analysis (QCA) | code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome | P | `[shipped]` |
 
 ## 7. Decision and option evaluation
 
@@ -145,9 +145,9 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Expected-value / decision-tree | price the uncertainty: a tree of choice and chance nodes, rolled back to an expected value per option, with a what-flips-it sensitivity note | P | `[shipped]` |
 | Minimax regret | minimize worst-case regret: build a regret (opportunity-loss) matrix over un-probabilized states and choose the option whose maximum regret is smallest | P | `[shipped]` |
 | Fermi estimation | structured order-of-magnitude estimate from decomposition | M | `[shipped]` |
-| Eisenhower / MoSCoW / Pareto | urgent-important triage; vital-few focus | P | `[excl]` |
+| Eisenhower / MoSCoW / Pareto | urgent-important triage; vital-few focus | P | `[shipped]` |
 | Kepner-Tregoe | the rational-process bundle - situation appraisal routes to problem analysis (cause), decision analysis (MUST/WANT choice), and potential problem analysis (forward risk) | P | `[recipe]` (ships as a workflow) |
-| Cynefin | sort clear / complicated / complex / chaotic | C | `[flag]` (branded) |
+| Complexity Domain Sort | sort clear / complicated / complex / chaotic | C | `[shipped]` (branded) |
 | ICE / RICE / WSJF | prioritization scores | V | `[flag]` (branded) |
 | OODA Loop | observe-orient-decide-act | P | `[excl]` |
 | Mechanical / linear-model aggregation | combine cues with a simple fixed formula instead of holistic judgment | S | `[shipped]` |
@@ -234,7 +234,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Veil-of-ignorance reasoning | decide a values trade-off as if you had an equal chance of being any affected party, then return to the actual decision and confront the gap | M | `[shipped]` |
 | Ethical Matrix | grid affected parties (rows, including voiceless ones) against prima facie principles (wellbeing, autonomy, fairness) and read the cell-level pattern of trade-offs | P | `[shipped]` |
 | Speculative harms and anti-goals | assume the design succeeds at scale, narrate the dystopian near-future in which it harms third parties and is exploited in bad faith, then convert each harm into an explicit anti-goal constraining the design | A | `[shipped]` |
-| Reflective equilibrium | iterate between case judgments and general principles, revising whichever fits worse, until they cohere | C | `[excl]` |
+| Reflective equilibrium | iterate between case judgments and general principles, revising whichever fits worse, until they cohere | C | `[shipped]` |
 
 <!-- END GENERATED FRAMEWORK TABLES -->
 

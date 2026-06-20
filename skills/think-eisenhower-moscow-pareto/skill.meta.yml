@@ -1,0 +1,83 @@
+# Rich sidecar for the think-eisenhower-moscow-pareto skill (contested lens, run-caveat-first).
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.eisenhower-moscow-pareto
+  slug: eisenhower-moscow-pareto
+  name: think-eisenhower-moscow-pareto
+  display_name: Eisenhower / MoSCoW / Pareto
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: [systems-and-consequences]
+  thinking_modes: [evaluative, convergent]
+  problem_contexts: [prioritization, planning]
+  use_cases:
+    - run an explicitly-requested Eisenhower matrix, MoSCoW list, or Pareto chart honestly, leading with its weak evidence
+    - cut a backlog or scope fast with the discipline a bare preset omits (justified Musts, real measured concentration, named limit)
+  poor_fit_cases:
+    - focusing a system on its one binding constraint (use theory-of-constraints)
+    - deciding how much deliberation a choice deserves (use one-way-vs-two-way-door)
+    - comparing options against criteria that matter (use decision-option-review)
+
+interface:
+  required_inputs:
+    - a task list, backlog, or set of inputs to prioritize, and which of the three presets is wanted
+  optional_inputs:
+    - a timebox (for MoSCoW)
+    - measured contribution data (for Pareto)
+  primary_artifact_type: prioritization-preset-artifact
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: false
+  likely_companions:
+    - thinking-framework-skills.theory-of-constraints
+    - thinking-framework-skills.decision-option-review
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.decision-option-review
+  complements:
+    - thinking-framework-skills.one-way-vs-two-way-door
+  overlaps_with:
+    - thinking-framework-skills.theory-of-constraints
+    - thinking-framework-skills.decision-option-review
+  variants: []
+
+quality:
+  trigger_eval_status: pending
+  output_eval_status: pending
+  known_failure_modes:
+    - running all three presets instead of the one asked for
+    - MoSCoW category inflation (almost everything marked Must) with no intra-bucket ranking
+    - asserting a clean 80-20 split the data does not support, or inventing an effectiveness number
+    - laundering the Zhu, Yang and Hsee (2018) urgency-effect grade onto the matrix as if it tested the matrix
+
+evidence:
+  evidence_tier: "P"
+  confidence: low that any preset improves decisions as a procedure; the added discipline carries the value
+  transferred_evidence: true
+  lineage:
+    derived_from: [Eisenhower/Covey Time Management Matrix (1989), MoSCoW (Clegg 1994, DSDM), Pareto/Juran vital few (1951)]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+# Contested-lens posture markers (v0.11.0). Read by scripts/check-contested.mjs (the caveat-first
+# contract), scripts/gen-site.mjs (the caution admonition + badge), and scripts/gen-catalog.mjs.
+caveat_first: true
+posture: run_caveat_first
+recommendation_policy: explicit_request_only
+
+implementation:
+  skill_path: skills/think-eisenhower-moscow-pareto/SKILL.md
+  references_path: skills/think-eisenhower-moscow-pareto/references/
+  evidence_path: skills/think-eisenhower-moscow-pareto/evidence/dossier.md
+  evals_path: skills/think-eisenhower-moscow-pareto/eval/

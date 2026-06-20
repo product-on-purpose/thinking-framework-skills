@@ -1,0 +1,79 @@
+# Rich sidecar for the think-five-whys skill (contested lens, run-caveat-first).
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.five-whys
+  slug: five-whys
+  name: think-five-whys
+  display_name: Five Whys
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: problem-framing
+  secondary_families: [synthesis-and-reasoning-clarity]
+  thinking_modes: [analytical, convergent]
+  problem_contexts: [operations, troubleshooting]
+  use_cases:
+    - run an explicitly-requested Five Whys honestly, leading with its weak evidence
+    - trace a simple linear failure to a fixable terminal cause with branch flags
+  poor_fit_cases:
+    - any problem with more than one contributing cause (use issue-tree)
+    - socio-technical failures where the chain terminates at operator blame (use issue-tree)
+    - needing a reproducible, coverage-checked decomposition (use issue-tree)
+
+interface:
+  required_inputs:
+    - a concrete, observable problem or symptom to trace
+  optional_inputs:
+    - known facts about the failure that confirm a step is single-cause rather than a branch
+  primary_artifact_type: branch-flagged-five-whys-chain
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: false
+  likely_companions:
+    - thinking-framework-skills.issue-tree
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.issue-tree
+  complements: []
+  overlaps_with:
+    - thinking-framework-skills.issue-tree
+  variants: []
+
+quality:
+  trigger_eval_status: pending
+  output_eval_status: pending
+  known_failure_modes:
+    - presenting a single chain as the cause when the problem is multi-causal (the documented failure mode)
+    - terminating at a person ("operator error") in a socio-technical failure (the Bad Apple blame trap)
+    - stopping at a convenient symptom and calling it a root cause
+    - inventing quantified claims about Five Whys' effectiveness
+
+evidence:
+  evidence_tier: "X"
+  confidence: low that the single chain identifies the cause; the branch-flagging discipline and redirect carry the value
+  transferred_evidence: true
+  lineage:
+    derived_from: [Five Whys (Toyoda / Ohno, Toyota Production System)]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+# Contested-lens posture markers (v0.11.0). Read by scripts/check-contested.mjs (the caveat-first
+# contract), scripts/gen-site.mjs (the caution admonition + badge), and scripts/gen-catalog.mjs.
+caveat_first: true
+posture: run_caveat_first
+recommendation_policy: explicit_request_only
+
+implementation:
+  skill_path: skills/think-five-whys/SKILL.md
+  references_path: skills/think-five-whys/references/
+  evidence_path: skills/think-five-whys/evidence/dossier.md
+  evals_path: skills/think-five-whys/eval/

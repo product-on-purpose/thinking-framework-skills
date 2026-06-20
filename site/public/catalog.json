@@ -3,10 +3,10 @@
   "generated_from": "frameworks/registry.mjs + library.json + skills/*/SKILL.md + skills/*/skill.meta.yml + _workflows/*.md",
   "site": "https://thinking-framework-skills.productonpurpose.com/",
   "counts": {
-    "skills": 58,
+    "skills": 63,
     "tools": 4,
     "recipes": 9,
-    "total": 71
+    "total": 76
   },
   "entries": [
     {
@@ -346,6 +346,32 @@
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-causal-loop-diagrams/"
     },
     {
+      "slug": "complexity-domain-sort",
+      "type": "skill",
+      "invocation": "think-complexity-domain-sort",
+      "name": "Complexity Domain Sort",
+      "family": "decision-and-option-evaluation",
+      "evidence_tier": "C",
+      "mechanism": "sort clear / complicated / complex / chaotic",
+      "when_to_use": "Runs a Complexity Domain Sort, sorting a situation into Clear, Complicated, Complex, Chaotic, or Confusion and choosing the response posture that fits, caveat-first. It leads with the weak evidence (the 2021 PMC internal-medicine review found scientific proof of its validity has yet to be provided), then forces the discipline the bare label lacks, namely an explicit response posture and a concrete next action rather than just a name. Use only when this complexity sort (also known as Cynefin) is asked for by name; for cause decomposition prefer think-issue-tree.",
+      "artifact": "complexity-domain-sort-with-actions",
+      "status": "active",
+      "caveat_first": true,
+      "posture": "run_caveat_first",
+      "recommendation_policy": "explicit_request_only",
+      "aliases": [
+        "Cynefin",
+        "Cynefin framework",
+        "complexity domains"
+      ],
+      "in_recipes": [],
+      "likely_companions": [
+        "think-issue-tree",
+        "think-scenario-planning"
+      ],
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-complexity-domain-sort/"
+    },
+    {
       "slug": "concept-mapping",
       "type": "skill",
       "invocation": "think-concept-mapping",
@@ -545,6 +571,38 @@
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-dialectical-bootstrapping/"
     },
     {
+      "slug": "eisenhower-moscow-pareto",
+      "type": "skill",
+      "invocation": "think-eisenhower-moscow-pareto",
+      "name": "Eisenhower / MoSCoW / Pareto",
+      "family": "decision-and-option-evaluation",
+      "evidence_tier": "P",
+      "mechanism": "urgent-important triage; vital-few focus",
+      "when_to_use": "Runs one of the three lightweight prioritization presets (Eisenhower urgent-important 2x2, MoSCoW Must/Should/Could/Wont bucketing, or Pareto vital-few cut) caveat-first. It leads with the fact that this is a bundle of three different operations stapled by the word \"prioritization\", not one move, and each is weakly evidenced, then produces the one preset the user named with the discipline a canned template lacks. Use only when an Eisenhower matrix, MoSCoW list, or Pareto chart is asked for by name; for the rigorous versions prefer think-theory-of-constraints, think-one-way-vs-two-way-door, or think-decision-option-review.",
+      "artifact": "prioritization-preset-artifact",
+      "status": "active",
+      "caveat_first": true,
+      "posture": "run_caveat_first",
+      "recommendation_policy": "explicit_request_only",
+      "aliases": [
+        "Eisenhower matrix",
+        "urgent-important matrix",
+        "time management matrix",
+        "MoSCoW",
+        "Must Should Could Wont",
+        "Pareto",
+        "80/20",
+        "80-20 rule",
+        "vital few"
+      ],
+      "in_recipes": [],
+      "likely_companions": [
+        "think-theory-of-constraints",
+        "think-decision-option-review"
+      ],
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-eisenhower-moscow-pareto/"
+    },
+    {
       "slug": "ethical-matrix",
       "type": "skill",
       "invocation": "think-ethical-matrix",
@@ -674,6 +732,29 @@
         "think-issue-tree"
       ],
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-fermi-estimation/"
+    },
+    {
+      "slug": "five-whys",
+      "type": "skill",
+      "invocation": "think-five-whys",
+      "name": "Five Whys",
+      "family": "problem-framing-and-reframing",
+      "evidence_tier": "X",
+      "mechanism": "iterative why to trace a cause",
+      "when_to_use": "Runs a Five Whys root-cause trace caveat-first. It leads with the weak evidence (Card 2017 found the single-chain method oversimplifies multi-causal problems), then forces the discipline a bare why-chain lacks, namely flagging at each step whether more than one cause could apply. Use only when Five Whys is asked for by name; for any problem that might have more than one cause prefer think-issue-tree.",
+      "artifact": "branch-flagged-five-whys-chain",
+      "status": "active",
+      "caveat_first": true,
+      "posture": "run_caveat_first",
+      "recommendation_policy": "explicit_request_only",
+      "aliases": [
+        "5 Whys"
+      ],
+      "in_recipes": [],
+      "likely_companions": [
+        "think-issue-tree"
+      ],
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-five-whys/"
     },
     {
       "slug": "frame-creation",
@@ -1170,6 +1251,34 @@
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-pyramid-principle/"
     },
     {
+      "slug": "qualitative-comparative-analysis",
+      "type": "skill",
+      "invocation": "think-qualitative-comparative-analysis",
+      "name": "Qualitative Comparative Analysis (QCA)",
+      "family": "systems-and-consequences",
+      "evidence_tier": "P",
+      "mechanism": "code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome",
+      "when_to_use": "Handles a by-name request for QCA (Qualitative Comparative Analysis), the truth-table-and-Boolean-minimization method, honestly. At session scale the input almost never exists and the method certifies configurations from noise, so this skill does NOT build the truth table as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-reference-class-forecasting for a set of comparable cases, or process tracing in prose for one case). Use only when someone asks for QCA or a truth-table minimization by name.",
+      "artifact": "honest-redirect-brief",
+      "status": "active",
+      "caveat_first": true,
+      "posture": "warn_redirect",
+      "recommendation_policy": "explicit_request_only",
+      "aliases": [
+        "QCA",
+        "crisp-set QCA",
+        "fuzzy-set QCA",
+        "fsQCA",
+        "configurational analysis",
+        "truth-table analysis"
+      ],
+      "in_recipes": [],
+      "likely_companions": [
+        "think-reference-class-forecasting"
+      ],
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-qualitative-comparative-analysis/"
+    },
+    {
       "slug": "question-burst",
       "type": "skill",
       "invocation": "think-question-burst",
@@ -1244,6 +1353,32 @@
         "think-what-would-have-to-be-true"
       ],
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-reference-class-forecasting/"
+    },
+    {
+      "slug": "reflective-equilibrium",
+      "type": "skill",
+      "invocation": "think-reflective-equilibrium",
+      "name": "Reflective equilibrium",
+      "family": "ethics-values-deliberation",
+      "evidence_tier": "C",
+      "mechanism": "iterate between case judgments and general principles, revising whichever fits worse, until they cohere",
+      "when_to_use": "Runs reflective equilibrium (mutual adjustment between considered case judgments, general principles, and background theories) caveat-first. It leads with the weak evidence (philosophically central since Rawls 1971 but empirically untested as a procedure, with three failure modes that bite in a bounded session), then forces the discipline a bare run lacks, namely an explicit revision ledger that records which commitment gave way and why. Use only when reflective equilibrium is asked for by name; for impartial allocation prefer think-veil-of-ignorance-reasoning, for a parties-by-principles audit think-ethical-matrix.",
+      "artifact": "coherence-set-with-revision-ledger",
+      "status": "active",
+      "caveat_first": true,
+      "posture": "run_caveat_first",
+      "recommendation_policy": "explicit_request_only",
+      "aliases": [
+        "wide reflective equilibrium",
+        "narrow reflective equilibrium",
+        "considered-judgment balancing"
+      ],
+      "in_recipes": [],
+      "likely_companions": [
+        "think-veil-of-ignorance-reasoning",
+        "think-ethical-matrix"
+      ],
+      "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-reflective-equilibrium/"
     },
     {
       "slug": "role-storming",
