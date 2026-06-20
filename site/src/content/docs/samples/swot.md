@@ -13,12 +13,12 @@ SWOT is tier X (weak evidence). The most-cited field study found bare SWOT grids
 
 ## Situation
 
-Lena runs a six-store regional bookstore chain. A board member has asked for "a SWOT on whether we should launch online ordering." Lena knows SWOT has a bad reputation for producing long lists nobody acts on, so she wants it run with the discipline that makes it useful, not a 20-item dump.
+Mira runs an 8-person seed-stage product company with a self-serve product. A board member has asked her for "a SWOT on whether we should chase that big enterprise pilot." She knows the pilot would pull the tiny team off self-serve for months, and she knows SWOT has a bad reputation for producing long lists nobody acts on, so she wants it run with the discipline that makes it useful, not a 20-item dump.
 
 ## Prompt
 
 ```text
-/think-swot "Board asked for a SWOT on whether our six-store bookstore chain should launch online ordering. Run it honestly and turn it into options."
+/think-swot "board wants a SWOT on whether we chase the big enterprise pilot. we're 8 people on self-serve and it'd eat the team for months. run it honest and turn it into options."
 ```
 
 ## The artifact
@@ -27,33 +27,33 @@ Lena runs a six-store regional bookstore chain. A board member has asked for "a 
 
 ### Situation
 
-- Should the chain launch online ordering to defend against e-commerce erosion?
+- Should the team take the big enterprise pilot, knowing it pulls everyone off the self-serve product?
 
 ### The grid
 
 | Internal | External |
 |---|---|
-| **Strengths**<br>- (*) Loyal local customer base and staff curation `[evidence]`<br>- Six pickup points already in the region `[evidence]` | **Opportunities**<br>- (*) Customers asking to reserve online, collect in store `[evidence]`<br>- Local-author events could anchor a site `[assumption]` |
-| **Weaknesses**<br>- (*) No inventory system shared across stores `[evidence]`<br>- Thin margins leave little to fund a build `[evidence]` | **Threats**<br>- (*) National e-commerce undercutting on price `[evidence]`<br>- A full webshop invites a price war we lose `[assumption]` |
+| **Strengths**<br>- (*) Self-serve product ships fast with no sales overhead `[evidence]`<br>- Eight people who all know the codebase `[evidence]` | **Opportunities**<br>- (*) One named enterprise wants to pay for a pilot now `[evidence]`<br>- A logo could anchor a future sales motion `[assumption]` |
+| **Weaknesses**<br>- (*) No one on the team has run an enterprise delivery `[evidence]`<br>- Self-serve growth stalls the moment the team turns away `[assumption]` | **Threats**<br>- (*) The pilot's custom asks may not generalize to other buyers `[assumption]`<br>- Self-serve momentum and signups decay while we are heads-down `[evidence]` |
 
 ### Priorities
 
-- Internal: the missing shared inventory system is the binding constraint; the pickup network is the underused asset.
-- External: "reserve online, collect in store" is the reachable opportunity; a head-on price war is the threat to avoid.
+- Internal: the missing enterprise-delivery experience is the binding constraint; the small all-knowing team is the asset the pilot would consume.
+- External: the one paying enterprise is the reachable opportunity; losing self-serve momentum is the threat to avoid.
 
 ### TOWS matching
 
 | Match | Strategic option |
 |---|---|
-| **S-O** | Use the six pickup points for a reserve-and-collect service, not a full webshop. |
-| **S-T** | Compete on curation and local events, not price, where national sellers cannot follow. |
-| **W-O** | Build a lightweight shared-inventory view first; reserve-online is impossible without it. |
-| **W-T** | Avoid a full price-exposed webshop given thin margins; stay reserve-and-collect. |
+| **S-O** | Scope the pilot tight enough that the fast self-serve build skills carry it, not a bespoke enterprise rebuild. |
+| **S-T** | Protect self-serve by ring-fencing part of the team; don't let everyone go heads-down. |
+| **W-O** | Take the pilot only if its asks generalize; use it to learn enterprise delivery on someone else's dime. |
+| **W-T** | Decline or defer if the pilot is fully custom and would stall self-serve for months with no transferable win. |
 
 ### What to do next
 
-- The strongest path is W-O then S-O: a thin shared-inventory view, then reserve-and-collect on the existing pickup network, which sidesteps the price war (S-T, W-T). Before committing, verify the two starred assumptions: confirm demand for reserve-and-collect, and test whether local-author events actually anchor the site. That verification, not the grid, is where the decision turns.
+- The decision turns on one starred assumption: do the pilot's asks generalize to other enterprise buyers, or are they one-off custom? If they generalize, the S-O and W-O path (tight scope, learn delivery, ring-fence part of the team for self-serve, S-T) is worth it. If they are bespoke, W-T says decline. Before committing, get the pilot's actual requirements in writing and test whether self-serve signups really decay when the team turns away. That verification, not the grid, is where the call is made.
 
 ## Why this framework fits
 
-The board asked for SWOT by name, so a flat refusal would not help. Run caveat-first, the lens still earns its keep: pruning to the load-bearing few, separating evidence from assumption, and matching the lists into options surfaces a reachable strategy (reserve-and-collect) and the one assumption that gates it. Unaided, "do a SWOT" produces the 20-item dump the field study condemned; the disciplined version produces a decision.
+The board asked for SWOT by name, so a flat refusal would not help. Run caveat-first, the lens still earns its keep: pruning to the load-bearing few, separating evidence from assumption, and matching the lists into options surfaces a clear pivot (tight scope plus ring-fencing) and the one assumption that gates it. Unaided, "do a SWOT" produces the 20-item dump the field study condemned; the disciplined version produces a decision.

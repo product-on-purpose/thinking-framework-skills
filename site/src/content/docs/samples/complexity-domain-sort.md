@@ -13,12 +13,16 @@ This sort is descriptively named; the framework it derives from is Cynefin, a tr
 
 ## Situation
 
-Daniel runs delivery for a mid-size logistics firm. The ops lead has asked for "a Cynefin sort on our peak-season plan" because half the team wants a detailed playbook and half wants to "just run experiments," and the argument is going in circles. Daniel knows the sort has a reputation for producing satisfying labels nobody acts on, so he wants it run with the discipline that ends in actions.
+Daniel is a staff engineer at a 200-person company whose API gateway has started returning intermittent 503s under no obvious load pattern - a new class of failure the team has never seen, surfacing maybe twice a day with no reproduction and no clean trigger. The team has split: half want to write a fixed remediation runbook now so on-call has something to follow, half want to stop guessing and run safe-to-fail experiments against the live path. The ops lead, tired of the standoff, asked Daniel for "a Cynefin sort on this incident class" to settle which camp is right. Daniel knows the sort has a reputation for producing satisfying labels nobody acts on, so he wants it run with the discipline that ends in actions.
 
 ## Prompt
 
 ```text
-/think-complexity-domain-sort "Ops asked for a Cynefin sort on our peak-season plan. Half want a full playbook, half want to experiment. Run it honestly and tell us what to actually do."
+/think-complexity-domain-sort "Ops asked for a Cynefin sort on a new class of intermittent 503s on the API gateway.
+Situation: no reproduction, no clean trigger, ~2 events/day under no obvious load pattern.
+Constraint: half the team wants a fixed runbook now, half want safe-to-fail experiments.
+Tried so far: scaled the gateway tier (no change), grepped logs around each event (nothing consistent).
+Run it honestly and tell us what to actually do, not just which box we're in."
 ```
 
 ## The artifact
@@ -27,26 +31,26 @@ Daniel runs delivery for a mid-size logistics firm. The ops lead has asked for "
 
 ### Situation
 
-- Should the peak-season plan be a detailed playbook, a set of experiments, or some mix - and which parts are which?
+- Is this new class of intermittent 503s something to handle with a fixed runbook, with safe-to-fail experiments, or a mix - and which parts are which?
 
 ### The sort
 
 | Domain | Why here (and how confident) | Response posture | Concrete next action (the deliverable) |
 |---|---|---|---|
-| **Clear** | Warehouse staffing ramp is a known annual pattern with a working runbook. Confident. | sense - categorize - respond | Apply last year's staffing runbook; do not re-litigate it. |
-| **Complicated** | Carrier capacity allocation needs expert routing analysis, but the answer is knowable. Confident. | sense - analyze - respond | Have the logistics analyst model carrier mix at projected volume before locking contracts. |
-| **Complex** | How customers respond to a new same-day promise is coherent only in hindsight. Confident this is the contested part. | probe - sense - respond | Pilot same-day in two cities, instrument demand and cost, then decide on rollout. |
-| **Chaotic** | A major carrier outage during peak would be chaotic, but it has not happened. | act - sense - respond | n/a now; pre-stage a fallback carrier so an outage can be stabilized fast. |
-| **Confusion** | Whether the same-day demand is even large enough to matter is unplaced. | break it into parts you can place | Size the same-day demand signal before letting it drive the plan. |
+| **Clear** | On-call hygiene during a 503 spike (page the right owner, check the gateway dashboard, capture a trace) is a known, runnable checklist. Confident. | sense - categorize - respond | Write the short triage checklist the runbook camp wants - but only for the known response steps, not for the cause. |
+| **Complicated** | "Did scaling the tier or a recent config change move the rate?" is knowable with expert analysis of the metrics. Confident. | sense - analyze - respond | Have the gateway owner diff config and capacity changes against the 503 timeline before anyone theorizes further. |
+| **Complex** | The root cause itself - intermittent, no reproduction, no clean trigger under no obvious load - is coherent only in hindsight. Confident this is the contested core. | probe - sense - respond | Run a safe-to-fail probe: add high-cardinality tracing on the gateway path, force one controlled fault (e.g. throttle one upstream), watch whether the signature changes. |
+| **Chaotic** | A full gateway outage cascading across services would be chaotic, but the current failure is intermittent, not a meltdown. | act - sense - respond | n/a now; pre-write the "shed load and fail open" stabilizing action so a cascade can be contained fast if it escalates. |
+| **Confusion** | Whether the 503s are even one failure class or several unrelated faults lumped together is unplaced. | break it into parts you can place | Cluster the existing 503 events by route and upstream first; confirm it is one class before treating it as one. |
 
 ### The danger to name
 
-- The team's comfort zone is Complicated: they want one analysis-heavy playbook for everything. That default is wrong for the same-day promise, which is Complex - a playbook there manufactures false confidence where a two-city pilot gives a real signal.
+- The team's comfort zone is the runbook (Clear/Complicated): a documented remediation feels like progress. That default is wrong for the root cause, which is Complex - a runbook there codifies a guess as procedure and gives on-call false confidence, where a tracing-and-fault probe gives a real signal about what is actually firing.
 
 ### What to do next
 
-- The argument dissolves once the parts are placed: run the known parts as playbooks (staffing runbook, carrier model), and run the same-day promise as a two-city probe rather than planning it upfront. Size the same-day demand first. The placement was right if the pilot tells you something no plan could. That pilot, not the label "this is complex," is where the decision turns.
+- The standoff dissolves once the parts are placed: write the runbook camp's checklist for the known response steps (triage hygiene, the config/capacity diff), and treat the root cause as a Complex probe rather than a procedure - instrument the path and force one controlled fault. Confirm it is one failure class first. The placement was right if the probe reveals a signature no runbook could have predicted. That probe, not the label "this is complex," is where the decision turns.
 
 ## Why this framework fits
 
-The ops lead asked for the sort by name, so a flat refusal would not help. Run caveat-first, the lens still earns its keep: placing the parts separately settles a circular "plan vs experiment" fight by showing it is both, naming the comfort-zone default as the trap, and turning each domain into an action - the runbook, the carrier model, and above all the two-city probe. Unaided, "do a Cynefin sort" produces the confident label dump the critics condemn; the disciplined version produces a decision.
+The ops lead asked for the sort by name, so a flat refusal would not help. Run caveat-first, the lens still earns its keep: placing the parts separately settles a circular "runbook vs experiment" fight by showing it is both, naming the comfort-zone default as the trap, and turning each domain into an action - the triage checklist, the config diff, and above all the safe-to-fail tracing probe. Unaided, "do a Cynefin sort" produces the confident label dump the critics condemn; the disciplined version produces a decision.

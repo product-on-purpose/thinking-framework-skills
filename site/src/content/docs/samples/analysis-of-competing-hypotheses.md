@@ -1,6 +1,6 @@
 ---
 title: "Analysis of Competing Hypotheses (ACH) - quick sample"
-description: A by-name ACH request handled honestly - warn with the controlled evidence, then redirect to the move the job actually needs.
+description: A by-name ACH request handled honestly - warn with the controlled evidence, then redirect to the move the incident actually needs.
 sidebar:
   label: analysis-of-competing-hypotheses
 ---
@@ -13,12 +13,12 @@ ACH is tier X: tested and found wanting. Randomized trials found it raises confi
 
 ## Situation
 
-Raj leads a small security team. After a data-exfiltration alert, a senior stakeholder says: "Run ACH across our suspect list and tell us the least-inconsistent hypothesis." Raj has read the literature and knows the matrix tends to manufacture confidence rather than accuracy, but the request is explicit, so he wants to answer it honestly rather than refuse.
+Daniel, a staff engineer at a ~200-person company, is leading the postmortem on a p99 latency spike that started Tuesday afternoon on the checkout API. Three explanations are on the table: a release that shipped that morning, a downstream payments-vendor dependency whose own dashboards looked slow, and a traffic-pattern shift from a marketing push that hit the same window. In the review, the VP of Engineering says: "Run ACH across the three causes and tell us the most likely one." Daniel has read the literature and knows the matrix tends to manufacture confidence rather than accuracy, but the request is explicit and named, so he wants to answer it honestly rather than refuse.
 
 ## Prompt
 
 ```text
-/think-analysis-of-competing-hypotheses "Stakeholder wants an ACH across our suspect list for the exfil incident to pick the least-inconsistent hypothesis."
+/think-analysis-of-competing-hypotheses "Situation: p99 spike on checkout started Tue PM, still elevated. Constraints: VP asked for ACH by name on three candidate causes (morning deploy, slow payments vendor, marketing traffic shift); decision is where to dig next. Already tried: eyeballed the deploy timeline and the vendor status page, both look plausible, neither is conclusive. Reference: incident #4821 timeline in the postmortem doc."
 ```
 
 ## The artifact
@@ -27,11 +27,11 @@ Raj leads a small security team. After a data-exfiltration alert, a senior stake
 
 ### What was asked
 
-- An ACH across the suspect list for the exfiltration incident, to pick the least-inconsistent hypothesis. The real decision: where to focus the investigation next.
+- An ACH across the three candidate causes of the checkout latency spike, to name the most likely one. The real decision: where to focus the next hour of incident dig-in.
 
 ### Why not the ACH matrix
 
-- The controlled record on ACH is null-to-negative, and scoring shared log signals against each suspect would treat correlated evidence (one compromised credential touching several systems) as independent, manufacturing a confident "least-inconsistent" suspect from entangled data.
+- The controlled record on ACH is null-to-negative, and scoring shared signals (the same latency graph, the same time window) against each candidate cause would treat correlated evidence as independent, manufacturing a confident "most likely" cause from entangled telemetry. The deploy, the vendor, and the traffic push all overlap the same window, so a tidy least-inconsistent verdict would read as rigor it has not earned.
 
 ### The evidence-based move instead
 
@@ -39,12 +39,12 @@ Raj leads a small security team. After a data-exfiltration alert, a senior stake
 - Separate evidence from inference in the claim set: `think-evidence-vs-inference-sort`.
 - Test a named option's load-bearing conditions: `think-what-would-have-to-be-true`.
 
-- **Chosen move:** `think-evidence-vs-inference-sort`, because most "suspect X did it" claims are inferences from the same log, not independent evidence. Sorting them shows which suspect has any non-shared evidence at all, then `think-red-team-light` on that lead.
+- **Chosen move:** `think-evidence-vs-inference-sort`, because most "it was the deploy / the vendor / the traffic" claims are inferences from the same latency graph, not independent evidence. Sorting them shows which candidate has any non-shared signal (a deploy diff that touches the hot path, vendor-side error rates, a request-mix change), then `think-red-team-light` on whichever lead survives.
 
-### If you still need rival-hypothesis discrimination
+### If you still need rival-cause discrimination
 
-- The better-grounded move is per-item necessity/sufficiency testing within this one case (process tracing): for each suspect, what evidence would be necessary or sufficient if they were responsible, checked against the actual record. Do not present a matrix verdict as valid.
+- The better-grounded move is per-item necessity/sufficiency testing within this one incident (process tracing): for each candidate cause, what telemetry would be necessary or sufficient if it were the driver - a correlated rollback recovery for the deploy, vendor latency leading the spike for the dependency, a request-mix shift preceding it for traffic - checked against the actual timeline. Do not present a matrix verdict as valid.
 
 ## Why this framework fits
 
-The stakeholder asked for ACH by name, so refusing would not help. Handled honestly, the skill leads with the controlled record, declines to manufacture a confident matrix from entangled logs, and hands Raj a concrete, better-grounded next move. Unaided, "run ACH" produces a least-inconsistent verdict that feels rigorous and is not; the redirect produces an actual investigative step.
+The VP asked for ACH by name, so refusing would not help. Handled honestly, the skill leads with the controlled record, declines to manufacture a confident matrix from entangled incident telemetry, and hands Daniel a concrete, better-grounded next move. Unaided, "run ACH" produces a most-likely-cause verdict that feels rigorous and is not; the redirect produces an actual investigative step.
