@@ -22,7 +22,7 @@ export function topReleasedVersion(md) {
 }
 
 export function topReleaseNotesVersion(md) {
-  const m = md.match(/^##\s+v?(\d+\.\d+\.\d+)/m);
+  const m = md.match(/^##\s+v?(\d+\.\d+\.\d+)\s*$/m);
   return m ? m[1] : null;
 }
 
@@ -37,7 +37,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const lib = JSON.parse(read('library.json')).version;
   const rn = topReleaseNotesVersion(read('RELEASE-NOTES.md'));
   const all = { 'package.json': pkg, 'library.json': lib, 'CHANGELOG top released': cl, 'RELEASE-NOTES top': rn };
-  const distinct = [...new Set(Object.values(all))];
+  const distinct = [...new Set(Object.values(all).map(norm))];
   if (distinct.length > 1) errors.push(`version mismatch: ${JSON.stringify(all)}`);
   if (errors.length) { for (const e of errors) console.error(`check-changelog: ${e}`); process.exit(1); }
   console.log(`check-changelog: OK (all at ${pkg}; [Unreleased] present).`);

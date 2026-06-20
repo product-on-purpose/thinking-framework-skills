@@ -30,3 +30,8 @@ test('topReleasedVersion handles v-prefixed brackets like [v0.11.0]', () => {
   const md = '## [v0.11.0] - 2026-06-19\n- y\n';
   assert.equal(topReleasedVersion(md), '0.11.0');
 });
+
+test('topReleaseNotesVersion: bare (non-v) heading matches; trailing-garbage heading does not', () => {
+  assert.equal(topReleaseNotesVersion('# Release notes\n\n## 0.11.0\n\nbody'), '0.11.0');
+  assert.equal(topReleaseNotesVersion('# Release notes\n\n## v0.11.0-rc1\n\nbody'), null);
+});
