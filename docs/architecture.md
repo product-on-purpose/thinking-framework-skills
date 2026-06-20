@@ -16,7 +16,7 @@ How this repo is built. The short version: there are two coordinated sources of 
 
 The two are bound together in CI: every `status: shipped` registry entry must have a matching `skills/think-<slug>/` directory (both directions), and each shipped entry's governing `tier` must be one of the grades in its skill's `evidence-tier` - so the catalog grade can never drift from the grade the advisor and the site publish.
 
-There are **58 shipped frameworks** across **12 cognitive-operation families** (56 core, plus 2 contested lenses), plus **9 recipes** (composable chains) under `_workflows/` with their prose in `recipes/`. `library.json` is the manifest that lists every skill component, its path, and its version. Skills install with a `think-` prefix and carry IDs of the form `thinking-framework-skills.<method>`.
+There are **63 shipped frameworks** across **12 cognitive-operation families** (56 core, plus 7 contested lenses), plus **9 recipes** (composable chains) under `_workflows/` with their prose in `recipes/`. `library.json` is the manifest that lists every skill component, its path, and its version. Skills install with a `think-` prefix and carry IDs of the form `thinking-framework-skills.<method>`.
 
 A **contested lens** is a famous-but-weak framework (graded X/C/P) the library ships *caveat-first*: the deficiency leads the SKILL.md and the artifact, the advisor never auto-recommends it (`recommendation_policy: explicit_request_only`), and a `caveatFirst` + `posture` marker in `frameworks/registry.mjs` is enforced by `scripts/check-contested.mjs`. Two postures: `run_caveat_first` (lead with the deficiency, then still produce the weak artifact) and `warn_redirect` (own the famous name, warn, and route to an evidence-based alternative without reproducing the discredited artifact).
 
@@ -51,7 +51,7 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1'}}}%%
 graph LR
   reg["frameworks/registry.mjs<br/>(the catalog: 135 methods)"]:::source
-  skl["skills/ + library.json + _workflows/<br/>(the 58 shipped + 4 tools + 9 recipes)"]:::source
+  skl["skills/ + library.json + _workflows/<br/>(the 63 shipped + 4 tools + 9 recipes)"]:::source
   gen["gen-registry · gen-recommendable · gen-site · gen-catalog<br/>gen-engine · gen-agents · gen-manifest"]:::build
   views["catalog · why-not · advisor corpus<br/>Starlight site · plugin manifests · INDEX"]:::site
   pages["GitHub Pages + marketplace"]:::deploy

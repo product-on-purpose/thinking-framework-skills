@@ -4,6 +4,8 @@ slug: qualitative-comparative-analysis
 generated_status: true
 ---
 
+> **Update (v0.11.0):** now shipped as a contested lens, caveat-first and explicit-request-only - see `think-qualitative-comparative-analysis`. The evidence grade and the caveats below are unchanged; they are exactly why it ships caveat-first rather than as a default skill. Any "documented, not shipped" / "reject" wording below predates this decision.
+
 <!-- STATUS:GENERATED (gen-site.mjs from frameworks/registry.mjs) - do not edit between these markers -->
 <!-- /STATUS:GENERATED -->
 

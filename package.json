@@ -1,6 +1,6 @@
 {
   "name": "thinking-framework-skills",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "An evidence-graded library of agent-executable thinking-method skills.",
   "private": true,
   "license": "Apache-2.0",

@@ -1,0 +1,81 @@
+# Rich sidecar for the think-complexity-domain-sort skill (contested lens, run-caveat-first).
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.complexity-domain-sort
+  slug: complexity-domain-sort
+  name: think-complexity-domain-sort
+  display_name: Complexity Domain Sort
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: decision-and-option-evaluation
+  secondary_families: [strategy-and-opportunity]
+  thinking_modes: [evaluative, divergent]
+  problem_contexts: [strategy, high-stakes, ambiguity]
+  use_cases:
+    - run an explicitly-requested complexity sort (Cynefin) honestly, leading with its conceptual evidence
+    - match a response posture and a concrete next action to how knowable a problem's causal structure is
+  poor_fit_cases:
+    - stopping at the label ("this is complex") instead of a decision (the documented cargo-cult failure)
+    - enumerating the causes of one effect (use issue-tree)
+    - exploring divergent external futures (use scenario-planning)
+    - choosing among options under stated criteria (use decision-option-review)
+
+interface:
+  required_inputs:
+    - a decision or situation to triage by problem type
+  optional_inputs:
+    - known facts that let a part be placed confidently rather than parked in Confusion
+  primary_artifact_type: complexity-domain-sort-with-actions
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: false
+  likely_companions:
+    - thinking-framework-skills.issue-tree
+    - thinking-framework-skills.scenario-planning
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.decision-option-review
+  complements:
+    - thinking-framework-skills.scenario-planning
+  overlaps_with:
+    - thinking-framework-skills.issue-tree
+  variants: []
+
+quality:
+  trigger_eval_status: measured-2026-06-19
+  output_eval_status: measured-2026-06-19
+  known_failure_modes:
+    - emitting a confident bare label and calling it a decision (the cargo-cult failure)
+    - presenting the placement as a measured fact rather than a contested judgment
+    - inventing quantified claims about the method's effectiveness
+
+evidence:
+  evidence_tier: "C"
+  confidence: low that classifying a problem this way improves decisions; the response posture plus a concrete next action carries the value
+  transferred_evidence: true
+  lineage:
+    derived_from: [Cynefin (Snowden 1999), Kurtz and Snowden (2003), Snowden and Boone HBR (2007)]
+  source_dossier: evidence/dossier.md
+  attribution_required: true
+  trademark: "Cynefin (The Cynefin Co.)"
+
+# Contested-lens posture markers (v0.11.0). Read by scripts/check-contested.mjs (the caveat-first
+# contract), scripts/gen-site.mjs (the caution admonition + badge), and scripts/gen-catalog.mjs.
+caveat_first: true
+posture: run_caveat_first
+recommendation_policy: explicit_request_only
+
+implementation:
+  skill_path: skills/think-complexity-domain-sort/SKILL.md
+  references_path: skills/think-complexity-domain-sort/references/
+  evidence_path: skills/think-complexity-domain-sort/evidence/dossier.md
+  evals_path: skills/think-complexity-domain-sort/eval/

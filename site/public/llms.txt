@@ -1,6 +1,6 @@
 # Thinking Framework Skills
 
-> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 58 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 58 ship as skills.
+> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 63 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 63 ship as skills.
 
 Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) (the invokable skills, tools, and recipes) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) (all 135 evaluated methods). Full text: [llms-full.txt](https://thinking-framework-skills.productonpurpose.com/llms-full.txt) inlines every component for one-fetch ingestion.
 
@@ -30,6 +30,7 @@ Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurp
 - [think-abstraction-laddering](https://thinking-framework-skills.productonpurpose.com/frameworks/think-abstraction-laddering/): move up (why) and down (how) to the right altitude
 - [think-boundary-critique](https://thinking-framework-skills.productonpurpose.com/frameworks/think-boundary-critique/): audit the boundary judgments that define a frame (who benefits / decides / has expertise / has standing), contrasting the 'is' boundary against the 'ought' boundary and naming the affected-but-excluded
 - [think-contradiction-resolution](https://thinking-framework-skills.productonpurpose.com/frameworks/think-contradiction-resolution/): reframe a trade-off as a contradiction to dissolve (separation in time/space/scale/condition), anchored to an implementation-free Ideal Final Result
+- [think-five-whys](https://thinking-framework-skills.productonpurpose.com/frameworks/think-five-whys/): iterative why to trace a cause
 - [think-frame-creation](https://thinking-framework-skills.productonpurpose.com/frameworks/think-frame-creation/): reframe the problem by distilling themes and the core paradox, then abduce a new standpoint (often an 'approach it as if it were Y' analogy) and reason forward to solutions
 - [think-problem-restatement](https://thinking-framework-skills.productonpurpose.com/frameworks/think-problem-restatement/): rewrite the problem several ways, pick a better frame
 
@@ -55,14 +56,17 @@ Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurp
 - [think-futures-wheel](https://thinking-framework-skills.productonpurpose.com/frameworks/think-futures-wheel/): map first/second/third-order consequences outward
 - [think-iceberg-model](https://thinking-framework-skills.productonpurpose.com/frameworks/think-iceberg-model/): events -> patterns -> structures -> mental models
 - [think-process-tracing](https://thinking-framework-skills.productonpurpose.com/frameworks/think-process-tracing/): test rival causal explanations of a single case by each piece of evidence's diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests)
+- [think-qualitative-comparative-analysis](https://thinking-framework-skills.productonpurpose.com/frameworks/think-qualitative-comparative-analysis/): code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome
 - [think-stocks-and-flows-reasoning](https://thinking-framework-skills.productonpurpose.com/frameworks/think-stocks-and-flows-reasoning/): reason about accumulations and rates
 - [think-theory-of-constraints](https://thinking-framework-skills.productonpurpose.com/frameworks/think-theory-of-constraints/): find the single binding constraint capping throughput and attach its exploit / subordinate / elevate decisions (the five focusing steps)
 - [think-three-horizons](https://thinking-framework-skills.productonpurpose.com/frameworks/think-three-horizons/): hold three overlapping change curves (declining present H1, contested transition H2, emerging desired future H3) on one time canvas, locate the actor, and read the transition dynamics
 
 ### Decision and option evaluation
+- [think-complexity-domain-sort](https://thinking-framework-skills.productonpurpose.com/frameworks/think-complexity-domain-sort/): sort clear / complicated / complex / chaotic
 - [think-decision-journal](https://thinking-framework-skills.productonpurpose.com/frameworks/think-decision-journal/): record decision + expectation + confidence for calibration
 - [think-decision-option-review](https://thinking-framework-skills.productonpurpose.com/frameworks/think-decision-option-review/): compare options against weighted criteria
 - [think-dialectical-bootstrapping](https://thinking-framework-skills.productonpurpose.com/frameworks/think-dialectical-bootstrapping/): estimate, assume the estimate is wrong and list why, estimate again from those changed assumptions, then average the two numbers
+- [think-eisenhower-moscow-pareto](https://thinking-framework-skills.productonpurpose.com/frameworks/think-eisenhower-moscow-pareto/): urgent-important triage; vital-few focus
 - [think-expected-value-decision-tree](https://thinking-framework-skills.productonpurpose.com/frameworks/think-expected-value-decision-tree/): price the uncertainty: a tree of choice and chance nodes, rolled back to an expected value per option, with a what-flips-it sensitivity note
 - [think-fermi-estimation](https://thinking-framework-skills.productonpurpose.com/frameworks/think-fermi-estimation/): structured order-of-magnitude estimate from decomposition
 - [think-interest-based-negotiation](https://thinking-framework-skills.productonpurpose.com/frameworks/think-interest-based-negotiation/): separate both sides' interests from their positions, decide against your BATNA inside the mapped ZOPA, and invent options for mutual gain across differently-valued issues before dividing value
@@ -90,6 +94,7 @@ Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurp
 
 ### Ethics and values deliberation
 - [think-ethical-matrix](https://thinking-framework-skills.productonpurpose.com/frameworks/think-ethical-matrix/): grid affected parties (rows, including voiceless ones) against prima facie principles (wellbeing, autonomy, fairness) and read the cell-level pattern of trade-offs
+- [think-reflective-equilibrium](https://thinking-framework-skills.productonpurpose.com/frameworks/think-reflective-equilibrium/): iterate between case judgments and general principles, revising whichever fits worse, until they cohere
 - [think-speculative-harms-anti-goals](https://thinking-framework-skills.productonpurpose.com/frameworks/think-speculative-harms-anti-goals/): assume the design succeeds at scale, narrate the dystopian near-future in which it harms third parties and is exploited in bad faith, then convert each harm into an explicit anti-goal constraining the design
 - [think-veil-of-ignorance-reasoning](https://thinking-framework-skills.productonpurpose.com/frameworks/think-veil-of-ignorance-reasoning/): decide a values trade-off as if you had an equal chance of being any affected party, then return to the actual decision and confront the gap
 
@@ -114,4 +119,4 @@ Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurp
 
 ## Evaluated, not shipped
 
-We evaluated 135 methods; 58 ship as skills. The other 77 are documented with the reasoning in the Framework Library. See [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) and the [Framework Library](https://thinking-framework-skills.productonpurpose.com/library/).
+We evaluated 135 methods; 63 ship as skills. The other 72 are documented with the reasoning in the Framework Library. See [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) and the [Framework Library](https://thinking-framework-skills.productonpurpose.com/library/).

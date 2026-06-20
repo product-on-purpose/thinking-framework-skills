@@ -1,6 +1,6 @@
 # Thinking Framework Skills - full catalog
 
-> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 58 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 58 ship as skills.
+> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 63 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 63 ship as skills.
 
 This is the expanded llms.txt: every invokable component inlined with its routing metadata, so an agent can ingest the catalog in a single fetch. The compact index is [llms.txt](https://thinking-framework-skills.productonpurpose.com/llms.txt); the structured forms are [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json).
 
@@ -146,6 +146,18 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 - Also known as: TRIZ, Theory of Inventive Problem Solving, Ideal Final Result, IFR, contradiction matrix, 40 inventive principles, separation principles
 - Pairs with: think-problem-restatement, think-decision-option-review, think-abstraction-laddering
 - URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-contradiction-resolution/
+
+#### think-five-whys
+- Name: Five Whys
+- Family: problem-framing-and-reframing
+- Evidence tier: X
+- Contested lens: run-caveat-first, explicit-request-only (leads with its evidence caveat)
+- Mechanism: iterative why to trace a cause
+- When to use: Runs a Five Whys root-cause trace caveat-first. It leads with the weak evidence (Card 2017 found the single-chain method oversimplifies multi-causal problems), then forces the discipline a bare why-chain lacks, namely flagging at each step whether more than one cause could apply. Use only when Five Whys is asked for by name; for any problem that might have more than one cause prefer think-issue-tree.
+- Produces: branch-flagged-five-whys-chain
+- Also known as: 5 Whys
+- Pairs with: think-issue-tree
+- URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-five-whys/
 
 #### think-frame-creation
 - Name: Frame Creation
@@ -366,6 +378,18 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 - Pairs with: think-iceberg-model, think-issue-tree, think-red-team-light
 - URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-process-tracing/
 
+#### think-qualitative-comparative-analysis
+- Name: Qualitative Comparative Analysis (QCA)
+- Family: systems-and-consequences
+- Evidence tier: P
+- Contested lens: warn-and-redirect, explicit-request-only (leads with its evidence caveat)
+- Mechanism: code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome
+- When to use: Handles a by-name request for QCA (Qualitative Comparative Analysis), the truth-table-and-Boolean-minimization method, honestly. At session scale the input almost never exists and the method certifies configurations from noise, so this skill does NOT build the truth table as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-reference-class-forecasting for a set of comparable cases, or process tracing in prose for one case). Use only when someone asks for QCA or a truth-table minimization by name.
+- Produces: honest-redirect-brief
+- Also known as: QCA, crisp-set QCA, fuzzy-set QCA, fsQCA, configurational analysis, truth-table analysis
+- Pairs with: think-reference-class-forecasting
+- URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-qualitative-comparative-analysis/
+
 #### think-stocks-and-flows-reasoning
 - Name: Stocks and Flows reasoning
 - Family: systems-and-consequences
@@ -401,6 +425,18 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 
 ### Decision and option evaluation
 
+#### think-complexity-domain-sort
+- Name: Complexity Domain Sort
+- Family: decision-and-option-evaluation
+- Evidence tier: C
+- Contested lens: run-caveat-first, explicit-request-only (leads with its evidence caveat)
+- Mechanism: sort clear / complicated / complex / chaotic
+- When to use: Runs a Complexity Domain Sort, sorting a situation into Clear, Complicated, Complex, Chaotic, or Confusion and choosing the response posture that fits, caveat-first. It leads with the weak evidence (the 2021 PMC internal-medicine review found scientific proof of its validity has yet to be provided), then forces the discipline the bare label lacks, namely an explicit response posture and a concrete next action rather than just a name. Use only when this complexity sort (also known as Cynefin) is asked for by name; for cause decomposition prefer think-issue-tree.
+- Produces: complexity-domain-sort-with-actions
+- Also known as: Cynefin, Cynefin framework, complexity domains
+- Pairs with: think-issue-tree, think-scenario-planning
+- URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-complexity-domain-sort/
+
 #### think-decision-journal
 - Name: Decision Journal
 - Family: decision-and-option-evaluation
@@ -434,6 +470,18 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 - Also known as: crowd within, wisdom of many in one mind, self-averaging estimates, contradict-yourself estimation, inner crowd
 - Pairs with: think-fermi-estimation, think-reference-class-forecasting, think-red-team-light
 - URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-dialectical-bootstrapping/
+
+#### think-eisenhower-moscow-pareto
+- Name: Eisenhower / MoSCoW / Pareto
+- Family: decision-and-option-evaluation
+- Evidence tier: P
+- Contested lens: run-caveat-first, explicit-request-only (leads with its evidence caveat)
+- Mechanism: urgent-important triage; vital-few focus
+- When to use: Runs one of the three lightweight prioritization presets (Eisenhower urgent-important 2x2, MoSCoW Must/Should/Could/Wont bucketing, or Pareto vital-few cut) caveat-first. It leads with the fact that this is a bundle of three different operations stapled by the word "prioritization", not one move, and each is weakly evidenced, then produces the one preset the user named with the discipline a canned template lacks. Use only when an Eisenhower matrix, MoSCoW list, or Pareto chart is asked for by name; for the rigorous versions prefer think-theory-of-constraints, think-one-way-vs-two-way-door, or think-decision-option-review.
+- Produces: prioritization-preset-artifact
+- Also known as: Eisenhower matrix, urgent-important matrix, time management matrix, MoSCoW, Must Should Could Wont, Pareto, 80/20, 80-20 rule, vital few
+- Pairs with: think-theory-of-constraints, think-decision-option-review
+- URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-eisenhower-moscow-pareto/
 
 #### think-expected-value-decision-tree
 - Name: Expected-value / decision-tree
@@ -654,6 +702,18 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 - Pairs with: think-boundary-critique, think-parallel-perspectives-review, think-decision-option-review
 - URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-ethical-matrix/
 
+#### think-reflective-equilibrium
+- Name: Reflective equilibrium
+- Family: ethics-values-deliberation
+- Evidence tier: C
+- Contested lens: run-caveat-first, explicit-request-only (leads with its evidence caveat)
+- Mechanism: iterate between case judgments and general principles, revising whichever fits worse, until they cohere
+- When to use: Runs reflective equilibrium (mutual adjustment between considered case judgments, general principles, and background theories) caveat-first. It leads with the weak evidence (philosophically central since Rawls 1971 but empirically untested as a procedure, with three failure modes that bite in a bounded session), then forces the discipline a bare run lacks, namely an explicit revision ledger that records which commitment gave way and why. Use only when reflective equilibrium is asked for by name; for impartial allocation prefer think-veil-of-ignorance-reasoning, for a parties-by-principles audit think-ethical-matrix.
+- Produces: coherence-set-with-revision-ledger
+- Also known as: wide reflective equilibrium, narrow reflective equilibrium, considered-judgment balancing
+- Pairs with: think-veil-of-ignorance-reasoning, think-ethical-matrix
+- URL: https://thinking-framework-skills.productonpurpose.com/frameworks/think-reflective-equilibrium/
+
 #### think-speculative-harms-anti-goals
 - Name: Speculative harms and anti-goals
 - Family: ethics-values-deliberation
@@ -761,7 +821,7 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 
 ## Evaluated, not shipped
 
-The 77 methods that were evaluated and graded but do not ship as skills, with the verdict and where each folds. Full reasoning is in the Framework Library.
+The 72 methods that were evaluated and graded but do not ship as skills, with the verdict and where each folds. Full reasoning is in the Framework Library.
 
 - alternate-uses-constraint-insertion-removal (divergent-ideation-and-idea-expansion; tier P; fold/fold, folds into assumption-reversal): loosen functional fixedness; add/strip a constraint https://thinking-framework-skills.productonpurpose.com/library/alternate-uses-constraint-insertion-removal/
 - belbin-team-roles (self-and-team-awareness; tier C; excl/reject): map a team against nine complementary contribution roles to surface gaps and overlaps https://thinking-framework-skills.productonpurpose.com/library/belbin-team-roles/
@@ -771,7 +831,6 @@ The 77 methods that were evaluated and graded but do not ship as skills, with th
 - concept-knowledge-theory (divergent-ideation-and-idea-expansion; tier C; excl/reject): partition design work into a concept space of undecidable propositions and a knowledge space, and iterate the four operators (C-C, C-K, K-C, K-K) between them https://thinking-framework-skills.productonpurpose.com/library/concept-knowledge-theory/
 - counterfactual-reasoning (assumption-and-belief-challenge; tier P; fold/fold, folds into after-action-review): examine 'what if X had been different' https://thinking-framework-skills.productonpurpose.com/library/counterfactual-reasoning/
 - crazy-8s (divergent-ideation-and-idea-expansion; tier P; fold/fold, folds into brainwriting): eight sketches in eight minutes https://thinking-framework-skills.productonpurpose.com/library/crazy-8s/
-- cynefin (decision-and-option-evaluation; tier C; flag/reject): sort clear / complicated / complex / chaotic https://thinking-framework-skills.productonpurpose.com/library/cynefin/
 - decision-brief-pr-faq (decision-and-option-evaluation; tier V; pm/reject): force a decision into a short structured memo https://thinking-framework-skills.productonpurpose.com/library/decision-brief-pr-faq/
 - devils-advocacy (assumption-and-belief-challenge; tier X; flag/reject): assign someone to argue against https://thinking-framework-skills.productonpurpose.com/library/devils-advocacy/
 - dialectical-synthesis (synthesis-and-reasoning-clarity; tier C; fold/fold, folds into red-team-light): hold thesis/antithesis to a stronger synthesis https://thinking-framework-skills.productonpurpose.com/library/dialectical-synthesis/
@@ -779,12 +838,10 @@ The 77 methods that were evaluated and graded but do not ship as skills, with th
 - disney-creative-strategy (perspective-shifting-and-multi-lens; tier A; excl/reject): dreamer/realist/critic cycle https://thinking-framework-skills.productonpurpose.com/library/disney-creative-strategy/
 - dot-voting (facilitation-and-group-structures; tier P; flag/reject): allocate limited votes https://thinking-framework-skills.productonpurpose.com/library/dot-voting/
 - double-crux (assumption-and-belief-challenge; tier C; excl/reject): find the single belief whose change would flip each side of a disagreement https://thinking-framework-skills.productonpurpose.com/library/double-crux/
-- eisenhower-moscow-pareto (decision-and-option-evaluation; tier P; excl/reject): urgent-important triage; vital-few focus https://thinking-framework-skills.productonpurpose.com/library/eisenhower-moscow-pareto/
 - enneagram (self-and-team-awareness; tier C; excl/reject): map a person to one of nine interconnected types with wings and stress / growth arrows https://thinking-framework-skills.productonpurpose.com/library/enneagram/
 - estimate-talk-estimate (facilitation-and-group-structures; tier P; excl/reject): collect independent estimates, share only the anonymized spread and rationales, discuss the variance, then re-estimate independently https://thinking-framework-skills.productonpurpose.com/library/estimate-talk-estimate/
 - first-principles (problem-framing-and-reframing; tier P; recipe/recipe): decompose to fundamental truths, reason up
 - fishbone-ishikawa (systems-and-consequences; tier P; fold/fold, folds into issue-tree): decompose one observed effect into candidate causes grouped under a fixed category checklist (6M/8P) https://thinking-framework-skills.productonpurpose.com/library/fishbone-ishikawa/
-- five-whys (problem-framing-and-reframing; tier X; flag/reject): iterative why to trace a cause https://thinking-framework-skills.productonpurpose.com/library/five-whys/
 - fmea-lite (risk-failure-and-resilience; tier P; fold/fold, folds into premortem): list failure modes by likelihood x severity x detection https://thinking-framework-skills.productonpurpose.com/library/fmea-lite/
 - forced-connections (divergent-ideation-and-idea-expansion; tier P; fold/fold, folds into far-analogy-ideation): pair the problem with an unrelated stimulus https://thinking-framework-skills.productonpurpose.com/library/forced-connections/
 - frame-storming (problem-framing-and-reframing; tier P; fold/fold, folds into problem-restatement): brainstorm the framing, not the solution https://thinking-framework-skills.productonpurpose.com/library/frame-storming/
@@ -816,8 +873,6 @@ The 77 methods that were evaluated and graded but do not ship as skills, with th
 - pestle (strategy-and-opportunity; tier P; fold/fold, folds into issue-tree): scan the macro-environment against a fixed category checklist (political/economic/social/technological/legal/environmental) https://thinking-framework-skills.productonpurpose.com/library/pestle/
 - porters-five-forces (strategy-and-opportunity; tier V; flag/reject): competitive-structure scan https://thinking-framework-skills.productonpurpose.com/library/porters-five-forces/
 - pre-commitment-ulysses-contract (risk-failure-and-resilience; tier P; fold/fold, folds into woop): bind future behavior in advance against known weakness https://thinking-framework-skills.productonpurpose.com/library/pre-commitment-ulysses-contract/
-- qualitative-comparative-analysis (systems-and-consequences; tier P; excl/reject): code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome https://thinking-framework-skills.productonpurpose.com/library/qualitative-comparative-analysis/
-- reflective-equilibrium (ethics-values-deliberation; tier C; excl/reject): iterate between case judgments and general principles, revising whichever fits worse, until they cohere https://thinking-framework-skills.productonpurpose.com/library/reflective-equilibrium/
 - regret-minimization (risk-failure-and-resilience; tier P; fold/fold, folds into one-way-vs-two-way-door): choose the least-future-regret option (project to age 80, pick what you would most regret not trying) https://thinking-framework-skills.productonpurpose.com/library/regret-minimization/
 - retro-formats (meta-thinking-and-reflection; tier P; fold/fold, folds into after-action-review): fast retro formats https://thinking-framework-skills.productonpurpose.com/library/retro-formats/
 - riasec-interest-fit (self-and-team-awareness; tier P; fold/fold, folds into decision-option-review): score a role, option, or person against the six fixed interest types (realistic, investigative, artistic, social, enterprising, conventional) and read the fit https://thinking-framework-skills.productonpurpose.com/library/riasec-interest-fit/

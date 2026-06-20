@@ -1,0 +1,77 @@
+# Rich sidecar for the think-qualitative-comparative-analysis skill (contested lens, warn-redirect).
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.qualitative-comparative-analysis
+  slug: qualitative-comparative-analysis
+  name: think-qualitative-comparative-analysis
+  display_name: Qualitative Comparative Analysis (QCA)
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: systems-and-consequences
+  secondary_families: [decision-and-prioritization]
+  thinking_modes: [evaluative, analytical]
+  problem_contexts: [comparative, contested-evidence]
+  use_cases:
+    - answer a by-name QCA request honestly, leading with the simulation-evidence caveat
+    - route comparative-cases work to the evidence-based shipped move it actually needs
+  poor_fit_cases:
+    - building the truth table and minimizing to a sufficient configuration at session scale (the unreliable move)
+    - generic which-combination-of-factors work where QCA was not requested
+
+interface:
+  required_inputs:
+    - a by-name request for QCA and the decision behind it
+  optional_inputs:
+    - the candidate cases and the conditions the user wants to code
+  primary_artifact_type: honest-redirect-brief
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: false
+  likely_companions:
+    - thinking-framework-skills.reference-class-forecasting
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.reference-class-forecasting
+  complements:
+    - thinking-framework-skills.reference-class-forecasting
+  overlaps_with: []
+  variants: []
+
+quality:
+  trigger_eval_status: measured-2026-06-19
+  output_eval_status: measured-2026-06-19
+  known_failure_modes:
+    - producing the truth table and minimized configurations as if valid at session scale (the move the simulations condemn)
+    - citing methodological pedigree (textbooks, software, a methods community) as if it were outcome evidence
+    - certifying a "sufficient configuration" from a casual, loosely-coded handful of cases
+
+evidence:
+  evidence_tier: "P"
+  confidence: high that the truth table is unreliable at session scale; the honest move is warn-and-redirect
+  transferred_evidence: false
+  lineage:
+    derived_from: [Ragin (1987) The Comparative Method, Ragin (2008) Redesigning Social Inquiry]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+# Contested-lens posture markers (v0.11.0). Read by scripts/check-contested.mjs (the caveat-first
+# contract), scripts/gen-site.mjs (the caution admonition + badge), and scripts/gen-catalog.mjs.
+caveat_first: true
+posture: warn_redirect
+recommendation_policy: explicit_request_only
+
+implementation:
+  skill_path: skills/think-qualitative-comparative-analysis/SKILL.md
+  references_path: skills/think-qualitative-comparative-analysis/references/
+  evidence_path: skills/think-qualitative-comparative-analysis/evidence/dossier.md
+  evals_path: skills/think-qualitative-comparative-analysis/eval/

@@ -50,8 +50,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: pending
-  output_eval_status: pending
+  trigger_eval_status: measured-2026-06-19
+  output_eval_status: measured-2026-06-19
   known_failure_modes:
     - dumping a long unprioritized list and calling it analysis (the documented failure mode)
     - omitting the TOWS matching step, leaving four lists with no options

@@ -52,9 +52,7 @@ The durable cognitive move already ships inside another skill, named descriptive
 Included only with explicit caveats - a trademark, a narrow valid range, or a false-precision warning. The IP gate is open (branded methods are documented with attribution); the evidence and distinctness gates are not, so these stay out of the shippable set.
 
 - **Six Thinking Hats** - branded parallel-thinking ritual. (Branded: Six Thinking Hats (de Bono method; "Six Thinking Hats" is a trademark of the de Bono estate / IP holders).)
-- **Five Whys** - iterative why to trace a cause.
 - **Devil's Advocacy** - assign someone to argue against.
-- **Cynefin** - sort clear / complicated / complex / chaotic. (Branded: Cynefin (The Cynefin Co. / formerly Cognitive Edge).)
 - **ICE / RICE / WSJF** - prioritization scores. (Branded: SAFe and WSJF are trademarks of Scaled Agile, Inc.; RICE originates at Intercom.)
 - **Jobs To Be Done** - frame demand as progress sought.
 - **Wardley Mapping** - value chain vs evolution. (Branded: Wardley Mapping (licensed CC BY-SA 4.0 by Simon Wardley).)
@@ -71,15 +69,12 @@ Weak or contradictory evidence, or redundant with a shipped skill. Excluded afte
 - **Key Assumptions Check / Assumption Mapping** - inventory and rank a plan's assumptions.
 - **Cognitive bias checklist** - run a decision against relevant biases.
 - **Double-crux** - find the single belief whose change would flip each side of a disagreement.
-- **Eisenhower / MoSCoW / Pareto** - urgent-important triage; vital-few focus.
 - **OODA Loop** - observe-orient-decide-act.
 - **Insight statement generation** - turn observations into sharp, transferable insight statements (the why behind a finding).
 - **Sensemaking matrix** - organize conflicting signals for interpretation.
 - **Note-and-vote / Decider supervote** - individual notes, then a group vote, then a single Decider's weighted supervote.
 - **1-2-4-All / Round-robin / Lean Coffee / World Cafe / Open Space** - scaled-participation group formats.
-- **Reflective equilibrium** - iterate between case judgments and general principles, revising whichever fits worse, until they cohere.
 - **Estimate-talk-estimate (Delphi)** - collect independent estimates, share only the anonymized spread and rationales, discuss the variance, then re-estimate independently.
-- **Qualitative Comparative Analysis (QCA)** - code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome.
 - **C-K theory (Concept-Knowledge design theory)** - partition design work into a concept space of undecidable propositions and a knowledge space, and iterate the four operators (C-C, C-K, K-C, K-K) between them.
 - **Belbin Team Roles** - map a team against nine complementary contribution roles to surface gaps and overlaps. (Branded: Belbin and Belbin Team Roles (associated with Belbin Associates, Cambridge UK; BTRSPI inventory licensed by Belbin Associates).)
 - **Tuckman group-development stages** - diagnose a team's stage on the forming-storming-norming-performing arc to pick the fitting intervention.

@@ -1,0 +1,82 @@
+# Rich sidecar for the think-reflective-equilibrium skill (contested lens, run-caveat-first).
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.reflective-equilibrium
+  slug: reflective-equilibrium
+  name: think-reflective-equilibrium
+  display_name: Reflective Equilibrium
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: ethics-values-deliberation
+  secondary_families: [meta-thinking-and-reflection]
+  thinking_modes: [evaluative, reflective]
+  problem_contexts: [ethics, values, high-stakes]
+  use_cases:
+    - run an explicitly-requested reflective equilibrium honestly, leading with its weak evidence
+    - adjudicate a conflict between a general principle and a strong concrete-case judgment, bidirectionally
+    - produce a three-tier coherence set with an explicit revision ledger
+  poor_fit_cases:
+    - declaring "coherence reached" with no revision ledger (the documented failure mode)
+    - impartial rule or allocation under uncertainty (use veil-of-ignorance-reasoning)
+    - parties-by-principles audit of an action (use ethical-matrix)
+    - one-directional evidence-driven belief revision over time (use belief-update-routine)
+
+interface:
+  required_inputs:
+    - a general principle (or policy) and a conflicting judgment about a concrete case
+  optional_inputs:
+    - relevant background theories about persons, fairness, or how the judgments were formed
+  primary_artifact_type: coherence-set-with-revision-ledger
+  output_formats: [markdown]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: false
+  likely_companions:
+    - thinking-framework-skills.veil-of-ignorance-reasoning
+    - thinking-framework-skills.ethical-matrix
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.veil-of-ignorance-reasoning
+  complements:
+    - thinking-framework-skills.ethical-matrix
+  overlaps_with:
+    - thinking-framework-skills.belief-update-routine
+  variants: []
+
+quality:
+  trigger_eval_status: measured-2026-06-19
+  output_eval_status: measured-2026-06-19
+  known_failure_modes:
+    - declaring global coherence with no record of which commitment gave way (the documented failure mode)
+    - laundering a preferred outcome by quietly demoting the principle that forbids it
+    - inventing quantified claims about the method's effectiveness
+
+evidence:
+  evidence_tier: "C"
+  confidence: low that the bounded procedure improves judgments; the revision ledger and honest stopping carry the value
+  transferred_evidence: false
+  lineage:
+    derived_from: [Goodman 1955, Rawls 1971, Daniels 1979 (wide variant)]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+# Contested-lens posture markers (v0.11.0). Read by scripts/check-contested.mjs (the caveat-first
+# contract), scripts/gen-site.mjs (the caution admonition + badge), and scripts/gen-catalog.mjs.
+caveat_first: true
+posture: run_caveat_first
+recommendation_policy: explicit_request_only
+
+implementation:
+  skill_path: skills/think-reflective-equilibrium/SKILL.md
+  references_path: skills/think-reflective-equilibrium/references/
+  evidence_path: skills/think-reflective-equilibrium/evidence/dossier.md
+  evals_path: skills/think-reflective-equilibrium/eval/

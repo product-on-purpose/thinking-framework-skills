@@ -1,6 +1,6 @@
 {
   "name": "thinking-framework-skills",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "An evidence-graded library of agent-executable thinking-method skills (premortem, problem restatement, and more). Each skill is reduced to its working mechanism, graded honestly on how strong its evidence actually is, and produces a concrete artifact rather than prose. Use to reframe a problem, challenge assumptions, generate options, stress-test a decision, or audit reasoning.",
   "standard": "0.8",
   "tier": "advanced",
@@ -457,6 +457,41 @@
       {
         "name": "think-analysis-of-competing-hypotheses",
         "path": "skills/think-analysis-of-competing-hypotheses/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
+      },
+      {
+        "name": "think-five-whys",
+        "path": "skills/think-five-whys/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
+      },
+      {
+        "name": "think-eisenhower-moscow-pareto",
+        "path": "skills/think-eisenhower-moscow-pareto/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
+      },
+      {
+        "name": "think-complexity-domain-sort",
+        "path": "skills/think-complexity-domain-sort/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
+      },
+      {
+        "name": "think-reflective-equilibrium",
+        "path": "skills/think-reflective-equilibrium/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
+      },
+      {
+        "name": "think-qualitative-comparative-analysis",
+        "path": "skills/think-qualitative-comparative-analysis/SKILL.md",
         "version": "0.1.0",
         "tier": "universal",
         "status": "active"
