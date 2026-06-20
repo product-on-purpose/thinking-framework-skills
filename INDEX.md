@@ -95,10 +95,10 @@
 
 ## Documentation and governance
 
-- [`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md) - the Advanced Skill Library Standard (normative).
+- [`STANDARD.md`](STANDARD.md) - the Advanced Skill Library Standard (normative).
 - [`README.md`](README.md) - overview, positioning, quickstart.
 - [`CHANGELOG.md`](CHANGELOG.md) - full technical history; [`RELEASE-NOTES.md`](RELEASE-NOTES.md) - curated, user-facing notes.
 - [`docs/`](docs/) - Diataxis docs (reference, how-to, explanation).
-- [`docs/internal/`](docs/internal/) - internal authoring guides, release plans, and specs.
+- [`docs/internal/decisions/`](docs/internal/decisions/) - ADRs; [`docs/internal/backlog/`](docs/internal/backlog/) - backlog; [`docs/internal/STATUS.md`](docs/internal/STATUS.md) - live tracker.
 - [`agents/_chain-permitted.yaml`](agents/_chain-permitted.yaml) - the chain contract; [`templates/`](templates/) - scaffolder templates.
 - [`scripts/`](scripts/) - the Node validation spine (conformance checks, generators, gate, evaluate).
