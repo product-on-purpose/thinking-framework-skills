@@ -53,8 +53,28 @@ node scripts/check.mjs
 
 Expected: `Tier: advanced` with `0 error(s), 0 warning(s)`. `check.mjs` finds the toolkit via `AGENT_SKILLS_TOOLKIT`, a sibling `../agent-skills-toolkit`, or a local `./.agent-skills-toolkit` checkout (the path CI uses).
 
+## The check.mjs gate: thirteen layers
+
+`scripts/check.mjs` is the repo's own conformance gate - distinct from the toolkit's G1-G7 Gold requirements. The toolkit's G2 requires self-hosting CI that runs the Standard's validators; `check.mjs` is that CI, and it does more than G2 requires. Its thirteen layers are:
+
+1. **Structural** (`agent-skills-toolkit` `evaluate.mjs`) - the toolkit's portable validators; the plugin must pass at `advanced` tier with 0 errors / 0 warnings.
+2. **Eval cases** (`scripts/eval-cases.mjs`) - every `skills/*/eval/cases.md` is well-formed and name-safe.
+3. **Registry** (`scripts/check-registry.mjs`) - schema, generated-view drift, referential integrity, IP/attribution lint, eval-coupling, tier consistency, registry cross-check.
+4. **Engine drift** (`scripts/gen-engine.mjs --check`) - the shared applicator engine copy is byte-identical.
+5. **AGENTS.md drift** (`scripts/gen-agents.mjs --check`) - the Skills + Recipes tables in the agent guide are in sync with the catalog.
+6. **Counts** (`scripts/check-counts.mjs`) - the four hand-authored count surfaces in `README.md` match the registry, and every shipped skill's `metadata.family` is a valid slug.
+7. **Example coverage** (`scripts/check-example-coverage.mjs`) - every shipped skill has a worked example or a grandfathered baseline entry; the grandfather set can only shrink.
+8. **Catalog drift** (`scripts/gen-catalog.mjs --check`) - the machine-readable agent-discovery surface (`llms.txt`, `llms-full.txt`, `catalog.json`, `evaluated.json`) is byte-identical to a fresh generation.
+9. **Contested-lens contract** (`scripts/check-contested.mjs`) - every `caveatFirst` registry entry leads with its evidence caveat on every surface, and the marker agrees across the registry, SKILL.md frontmatter, and `skill.meta.yml`.
+10. **Mermaid validity** (`scripts/check-mermaid.mjs`) - every mermaid block in repo docs and committed site content is syntactically valid.
+11. **Canonical links** (`scripts/check-canonical-links.mjs`) - every internal link in repo docs resolves without redirect hops.
+12. **Repo-markdown links** (`scripts/check-repo-links.mjs`) - every relative link in repo-facing markdown resolves to a file or anchor that exists.
+13. **Changelog consistency** (`scripts/check-changelog.mjs`) - `CHANGELOG.md` and `RELEASE-NOTES.md` agree on the most recent version.
+
+**These thirteen layers are not the same as the Standard's G1-G7 Gold requirements.** The G1-G7 list (in [`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)) is the toolkit's frozen tier specification: what a plugin must satisfy to reach Gold. Layer 1 of `check.mjs` runs those validators (satisfying G2). Layers 2-13 are repo-specific guards added on top of the Standard's floor: they enforce repo invariants (registry integrity, count drift, changelog consistency, link health) that the Standard does not specify and that would otherwise require human review on every PR. The two lists address different questions: G1-G7 asks "does this plugin meet the Standard?", and the thirteen `check.mjs` layers ask "is this specific repo internally consistent?"
+
 ## See also
 
-- [`docs/architecture.md`](architecture.md) - how the skills become the generated docs site.
+- [`docs/architecture.md`](architecture.md) - how the skills become the generated docs site, and the full conformance-gate description.
 - [`docs/contributing.md`](contributing.md) - the selection bar and authoring loop for new skills.
 - [agent-skills-toolkit / STANDARD.md](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md) - the full Standard, including the frozen Gold criteria (Section 2.6).

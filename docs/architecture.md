@@ -97,7 +97,7 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 
 ## The conformance gate
 
-`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs nine layers in order, and any failure is a red build:
+`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs thirteen layers in order, and any failure is a red build:
 
 1. **Structural** - the `agent-skills-toolkit` validators (`evaluate.mjs`), pinned to a known-good ref, asserting the plugin meets the `advanced` tier with 0 errors / 0 warnings.
 2. **Eval cases** (`scripts/eval-cases.mjs`) - every `skills/*/eval/cases.md` is well-formed and name-safe (no case may reference a framework that does not exist).
@@ -108,8 +108,12 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 7. **Example coverage** (`scripts/check-example-coverage.mjs`) - every shipped skill has a worked example (a Showcase appearance or a sample) or is grandfathered in `scripts/example-coverage-baseline.txt`; a newly shipped skill with no example reds the build, so the example layer cannot fall behind the catalog. The grandfather set can only shrink.
 8. **Catalog drift** (`scripts/gen-catalog.mjs --check`) - the machine-readable agent-discovery surface (`llms.txt`, `llms-full.txt`, `catalog.json`, `evaluated.json`) is byte-identical to a fresh generation.
 9. **Contested-lens contract** (`scripts/check-contested.mjs`) - every contested lens (a `caveatFirst` registry entry) leads with its evidence caveat across `SKILL.md` / `TEMPLATE` / `EXAMPLE` / sample / eval-cases per its posture (`run_caveat_first` or `warn_redirect`), a branded lens carries its trademark attribution on every surface, and the marker agrees across the registry, the SKILL.md frontmatter, and the `skill.meta.yml` sidecar. The deterministic core is `scripts/lib/contested-lib.mjs` (unit-tested, both postures negative-tested).
+10. **Mermaid validity** (`scripts/check-mermaid.mjs`) - every mermaid block in repo docs and committed site content is syntactically valid, so a broken diagram cannot silently ship.
+11. **Canonical links** (`scripts/check-canonical-links.mjs`) - every internal link in the repo docs resolves without redirect hops, so stale paths surface immediately.
+12. **Repo-markdown links** (`scripts/check-repo-links.mjs`) - every relative link in repo-facing markdown resolves to a file or anchor that actually exists.
+13. **Changelog consistency** (`scripts/check-changelog.mjs`) - `CHANGELOG.md` and `RELEASE-NOTES.md` agree on the most recent version, so a version bump cannot update one file and forget the other.
 
-The docs site adds two build-time guards run after `astro build` (family Astro site standard, clause 14.11): `scripts/check-rendered-links.mjs` (no browser-broken internal links) and `scripts/check-route-parity.mjs` (no silently dropped published route, against the committed `scripts/route-manifest.txt`).
+The docs site adds three build-time guards run after `astro build` (family Astro site standard, clause 14.11): `scripts/check-mermaid.mjs` (generated-content mermaid validation), `scripts/check-rendered-links.mjs` (no browser-broken internal links), and `scripts/check-route-parity.mjs` (no silently dropped published route, against the committed `scripts/route-manifest.txt`).
 
 ## The research-framework engine: how the catalog grows
 

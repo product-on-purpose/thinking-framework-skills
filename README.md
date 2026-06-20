@@ -422,7 +422,7 @@ This plugin is built to the [agent-skills-toolkit](https://github.com/product-on
 
 Two Gold checks are **not applicable** here, and the library says so rather than papering over it: **hook documentation** and **chain/hook eval coverage** apply only to plugins that ship hooks or chained components. This library ships neither - its recipes are workflow chains of independent skills, not runtime chain contracts - so those checks pass vacuously. Every skill still carries its own `eval/cases.md`.
 
-> Full breakdown, check by check: [`docs/conformance.md`](docs/conformance.md). The Standard itself: [agent-skills-toolkit / STANDARD.md](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md).
+> Full breakdown, check by check: [`docs/conformance.md`](docs/conformance.md) (also the canonical list of all `check.mjs` gate layers and how they relate to the Standard's G1-G7 Gold requirements). The Standard itself: [agent-skills-toolkit / STANDARD.md](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

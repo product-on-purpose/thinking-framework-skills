@@ -3,7 +3,7 @@
 // contributor or CI runs to validate the plugin against the agent-skills-toolkit
 // Standard: `node scripts/check.mjs` (or `npm run check`).
 //
-// It runs nine layers:
+// It runs thirteen layers:
 //   1. the toolkit's portable STRUCTURAL validators (the toolkit is the source of truth;
 //      vendoring them here would drift),
 //   2. the repo-local static eval-case validator (scripts/eval-cases.mjs, SP1): every
@@ -31,6 +31,16 @@
 //      SKILL.md / TEMPLATE / EXAMPLE / sample / eval-cases per its posture, branded lenses carry
 //      the trademark attribution on every surface, and the marker agrees across the registry, the
 //      SKILL.md frontmatter, and the skill.meta.yml sidecar.
+//  10. the mermaid structural-validity check (scripts/check-mermaid.mjs): every mermaid block
+//      in repo docs and committed site content is syntactically valid so a broken diagram cannot
+//      silently ship.
+//  11. the canonical-link check (scripts/check-canonical-links.mjs): every internal link in
+//      the repo docs resolves without redirect hops, so stale paths surface immediately.
+//  12. the repo-markdown relative-link check (scripts/check-repo-links.mjs): every relative
+//      link in repo-facing markdown resolves to a file or anchor that actually exists.
+//  13. the changelog version-consistency check (scripts/check-changelog.mjs): CHANGELOG.md
+//      and RELEASE-NOTES.md agree on the most recent version, preventing a version bump that
+//      updates one file but forgets the other.
 //
 // To reproduce a CI failure locally, clone the public toolkit next to this repo:
 //   git clone https://github.com/product-on-purpose/agent-skills-toolkit.git ../agent-skills-toolkit
@@ -107,5 +117,17 @@ const catalog = spawnSync('node', [resolve(ROOT, 'scripts', 'gen-catalog.mjs'), 
 console.log('\nRunning contested-lens caveat-first contract check (scripts/check-contested.mjs)\n');
 const contested = spawnSync('node', [resolve(ROOT, 'scripts', 'check-contested.mjs'), ROOT], { stdio: 'inherit' });
 
+console.log('\nRunning mermaid structural-validity check (scripts/check-mermaid.mjs)\n');
+const mermaid = spawnSync('node', [resolve(ROOT, 'scripts', 'check-mermaid.mjs'), 'README.md', 'AGENTS.md', 'docs', 'site/src/content/docs'], { cwd: ROOT, stdio: 'inherit' });
+
+console.log('\nRunning canonical-link (no redirect-hop) check (scripts/check-canonical-links.mjs)\n');
+const canonical = spawnSync('node', [resolve(ROOT, 'scripts', 'check-canonical-links.mjs')], { stdio: 'inherit' });
+
+console.log('\nRunning repo-markdown relative-link check (scripts/check-repo-links.mjs)\n');
+const repoLinks = spawnSync('node', [resolve(ROOT, 'scripts', 'check-repo-links.mjs')], { stdio: 'inherit' });
+
+console.log('\nRunning changelog version-consistency check (scripts/check-changelog.mjs)\n');
+const changelog = spawnSync('node', [resolve(ROOT, 'scripts', 'check-changelog.mjs')], { stdio: 'inherit' });
+
 // Fail if any layer failed; all run so contributors see all problems at once.
-process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1) || (agents.status ?? 1) || (counts.status ?? 1) || (coverage.status ?? 1) || (catalog.status ?? 1) || (contested.status ?? 1));
+process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1) || (agents.status ?? 1) || (counts.status ?? 1) || (coverage.status ?? 1) || (catalog.status ?? 1) || (contested.status ?? 1) || (mermaid.status ?? 1) || (canonical.status ?? 1) || (repoLinks.status ?? 1) || (changelog.status ?? 1));
