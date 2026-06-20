@@ -99,7 +99,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Double-crux | find the single belief whose change would flip each side of a disagreement | C | `[excl]` |
 | Consider the unknowns | before committing to a judgment, explicitly list the relevant variables you cannot observe and weigh the gap they leave | M | `[shipped]` |
 | Ideological Turing Test | state an opposing view well enough that its holders cannot tell you are not one of them | C | `[fold]` -> Red Team / Blue Team |
-| Analysis of Competing Hypotheses (ACH) | score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence | X | `[excl]` |
+| Analysis of Competing Hypotheses (ACH) | score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence | X | `[shipped]` |
 
 ## 5. Risk, failure, and resilience
 
@@ -168,7 +168,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Wardley Mapping | value chain vs evolution | C | `[flag]` (branded) |
 | Blue Ocean tools | strategy canvas / four actions | V | `[flag]` (branded) |
 | Porter's Five Forces | competitive-structure scan | V | `[flag]` (branded) |
-| SWOT | strengths / weaknesses / opportunities / threats | X | `[excl]` |
+| SWOT | strengths / weaknesses / opportunities / threats | X | `[shipped]` |
 
 ## 9. Synthesis and reasoning clarity
 

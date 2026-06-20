@@ -53,7 +53,7 @@ A rejected framework ships as a contested-lens skill iff it passes ALL of:
 
 ## The mechanism: caveat-first, as a checked contract
 
-Caveat-first is **enforced by a validator**, not left to authoring discipline (resolves DS-01):
+Caveat-first is **enforced by a validator**, not left to authoring discipline (resolves DS-01). Note the boundary (hardened after the Phase 1 adversarial review): `check-contested.mjs` is a **structural** gate. It guarantees the caveat *leads* and is evidence-bearing (a citation year / tier / study language, not a bare keyword, not an endorsement, not a decoy hidden in a code fence or comment), that a warn-redirect routes to a **real shipped non-contested** skill and ships no tabular artifact, and that the marker agrees across registry / frontmatter / sidecar. It cannot judge semantic honesty itself - whether a caveat *faithfully* represents the deficiency. That is the job of the mandated adversarial evidence-honesty pass (see Definition of done), which is a required, recorded review artifact, not optional. The two layers are complementary: structure here, meaning there.
 
 - **Registry:** `excl`/`flag` -> `shipped` at its unchanged low tier; a `caveat_first: true` marker, a `posture: run_caveat_first | warn_redirect`, and `recommendation_policy: explicit_request_only` in `skill.meta.yml` (the schema location is fixed in Phase 1).
 - **A new `scripts/check-contested.mjs` validator, wired into `check.mjs`,** identifies contested skills by the marker and asserts the contract per posture:

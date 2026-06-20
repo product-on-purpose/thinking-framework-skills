@@ -1,6 +1,6 @@
 # Thinking Framework Skills
 
-> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 56 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 56 ship as skills.
+> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 58 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 58 ship as skills.
 
 Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) (the invokable skills, tools, and recipes) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) (all 135 evaluated methods). Full text: [llms-full.txt](https://thinking-framework-skills.productonpurpose.com/llms-full.txt) inlines every component for one-fetch ingestion.
 
@@ -34,6 +34,7 @@ Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurp
 - [think-problem-restatement](https://thinking-framework-skills.productonpurpose.com/frameworks/think-problem-restatement/): rewrite the problem several ways, pick a better frame
 
 ### Assumption and belief challenge
+- [think-analysis-of-competing-hypotheses](https://thinking-framework-skills.productonpurpose.com/frameworks/think-analysis-of-competing-hypotheses/): score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence
 - [think-argument-mapping](https://thinking-framework-skills.productonpurpose.com/frameworks/think-argument-mapping/): diagram claim, reasons, co-premises, objections
 - [think-authentic-dissent](https://thinking-framework-skills.productonpurpose.com/frameworks/think-authentic-dissent/): engineer for genuine minority dissent (not role-played)
 - [think-consider-the-unknowns](https://thinking-framework-skills.productonpurpose.com/frameworks/think-consider-the-unknowns/): before committing to a judgment, explicitly list the relevant variables you cannot observe and weigh the gap they leave
@@ -72,6 +73,7 @@ Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurp
 
 ### Strategy and opportunity
 - [think-scenario-planning](https://thinking-framework-skills.productonpurpose.com/frameworks/think-scenario-planning/): construct a set of divergent, internally consistent external futures (2x2 critical-uncertainty axes), then robustness-test strategy across them
+- [think-swot](https://thinking-framework-skills.productonpurpose.com/frameworks/think-swot/): strengths / weaknesses / opportunities / threats
 
 ### Synthesis and reasoning clarity
 - [think-affinity-mapping](https://thinking-framework-skills.productonpurpose.com/frameworks/think-affinity-mapping/): cluster many notes into emergent themes (bottom-up)
@@ -112,4 +114,4 @@ Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurp
 
 ## Evaluated, not shipped
 
-We evaluated 135 methods; 56 ship as skills. The other 79 are documented with the reasoning in the Framework Library. See [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) and the [Framework Library](https://thinking-framework-skills.productonpurpose.com/library/).
+We evaluated 135 methods; 58 ship as skills. The other 77 are documented with the reasoning in the Framework Library. See [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) and the [Framework Library](https://thinking-framework-skills.productonpurpose.com/library/).

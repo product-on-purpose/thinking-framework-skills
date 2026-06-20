@@ -446,6 +446,20 @@
         "version": "0.1.0",
         "tier": "universal",
         "status": "active"
+      },
+      {
+        "name": "think-swot",
+        "path": "skills/think-swot/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
+      },
+      {
+        "name": "think-analysis-of-competing-hypotheses",
+        "path": "skills/think-analysis-of-competing-hypotheses/SKILL.md",
+        "version": "0.1.0",
+        "tier": "universal",
+        "status": "active"
       }
     ],
     "subagents": [

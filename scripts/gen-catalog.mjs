@@ -183,6 +183,11 @@ for (const c of lib.components.skills) {
       when_to_use: useWhen(fm.description),
       artifact,
       status: c.status || null,
+      // Contested-lens posture marker (v0.11.0): so an agent reading the catalog sees that a
+      // famous-but-weak lens is caveat-first + explicit-request-only, not an endorsed default.
+      caveat_first: reg.caveatFirst === true,
+      posture: reg.posture || null,
+      recommendation_policy: reg.recommendationPolicy || null,
       aliases: Array.isArray(reg.aliases) ? reg.aliases : [],
       in_recipes: inRecipes.get(name) || [],
       likely_companions,
@@ -302,6 +307,7 @@ function renderLlmsFullTxt(cat, ev) {
     F.push(`- Name: ${e.name}`);
     if (e.family) F.push(`- Family: ${e.family}`);
     if (e.evidence_tier) F.push(`- Evidence tier: ${e.evidence_tier}`);
+    if (e.caveat_first) F.push(`- Contested lens: ${e.posture === 'warn_redirect' ? 'warn-and-redirect' : 'run-caveat-first'}, explicit-request-only (leads with its evidence caveat)`);
     if (e.mechanism) F.push(`- Mechanism: ${e.mechanism}`);
     if (e.when_to_use) F.push(`- When to use: ${e.when_to_use}`);
     if (e.artifact) F.push(`- Produces: ${e.artifact}`);

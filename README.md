@@ -13,7 +13,7 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square" alt="License: Apache-2.0"></a>
   <img src="https://img.shields.io/badge/version-0.10.0-blue?style=flat-square" alt="Version 0.10.0">
   <a href="#-conformance-what-advanced-gold-tier-means"><img src="https://img.shields.io/badge/tier-advanced%20(Gold)-B8860B?style=flat-square" alt="Conformance tier: advanced (Gold)"></a>
-  <a href="#-the-catalog"><img src="https://img.shields.io/badge/frameworks-56-brightgreen?style=flat-square" alt="Frameworks: 56"></a>
+  <a href="#-the-catalog"><img src="https://img.shields.io/badge/frameworks-58-brightgreen?style=flat-square" alt="Frameworks: 58"></a>
   <a href="#-tools-meta-skills"><img src="https://img.shields.io/badge/tools-4-brightgreen?style=flat-square" alt="Tools: 4"></a>
   <a href="#-recipes"><img src="https://img.shields.io/badge/recipes-9-brightgreen?style=flat-square" alt="Recipes: 9"></a>
   <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/spec-agentskills.io-orange?style=flat-square" alt="Agent Skills Spec"></a>
@@ -77,7 +77,7 @@ Three things make it different from a list of mental models:
 /plugin install thinking-framework-skills@product-on-purpose
 ```
 
-All 56 frameworks (plus the 4 tools and 9 recipes) become available immediately, invocable by name (for example `/think-premortem`).
+All 58 frameworks (plus the 4 tools and 9 recipes) become available immediately, invocable by name (for example `/think-premortem`).
 
 **Cross-agent (Cursor, Copilot, Cline, and others via the open [skills CLI](https://github.com/vercel-labs/skills)):**
 
@@ -124,7 +124,7 @@ This one does the opposite, and that honesty is the product:
 
 ## 🗺️ The library at a glance
 
-56 frameworks across 12 cognitive-operation families, arranged as a thinking lifecycle. (Four [tools](#-tools-meta-skills) and nine [recipes](#-recipes) ride on top.) You rarely run all twelve; the Framework Advisor picks the few that fit your situation.
+58 frameworks across 12 cognitive-operation families (56 core plus 2 contested lenses), arranged as a thinking lifecycle. (Four [tools](#-tools-meta-skills) and nine [recipes](#-recipes) ride on top.) You rarely run all twelve; the Framework Advisor picks the few that fit your situation.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1','fontFamily':'system-ui, sans-serif'}}}%%
@@ -139,10 +139,10 @@ flowchart TB
     DI["2. Divergent Ideation (6) - generate options"]:::gen
     PM["3. Perspective & Multi-Lens (2) - see it from other angles"]:::gen
     SC["4. Systems & Consequences (8) - trace consequences"]:::analyze
-    AB["5. Assumption & Belief Challenge (4) - challenge assumptions"]:::analyze
+    AB["5. Assumption & Belief Challenge (5) - challenge assumptions"]:::analyze
     RC["6. Reasoning Clarity (5) - clarify the reasoning"]:::analyze
     DO["7. Decision & Option Evaluation (10) - decide between options"]:::decide
-    SO["8. Strategy & Opportunity (1) - test strategy against alternative futures"]:::decide
+    SO["8. Strategy & Opportunity (2) - test strategy against alternative futures"]:::decide
     EV["9. Ethics & Values Deliberation (3) - weigh the moral trade-off"]:::decide
     RR["10. Risk & Resilience (4) - anticipate what could go wrong"]:::decide
     SY["11. Synthesis (4) - turn inputs into a message"]:::reflect
@@ -181,7 +181,7 @@ A strong-evidence core anchors the library; everything else is honestly labeled 
 
 ## 📚 The catalog
 
-All 56 frameworks, by family. The `Tier` column is the [evidence grade](#-the-evidence-model) defined just above. **Each name links to its full page** - mechanism, numbered procedure, worked example, and graded sources - on the live site. (The routers and applicators are listed under [Tools](#-tools-meta-skills); the chains under [Recipes](#-recipes).)
+All 58 frameworks, by family. **Two are contested lenses** (SWOT, ACH): famous-but-weak methods graded honestly and shipped caveat-first, explicit-request-only, marked *Contested lens* in their rows. The `Tier` column is the [evidence grade](#-the-evidence-model) defined just above. **Each name links to its full page** - mechanism, numbered procedure, worked example, and graded sources - on the live site. (The routers and applicators are listed under [Tools](#-tools-meta-skills); the chains under [Recipes](#-recipes).)
 
 ### Problem Framing - frame the real problem (5)
 
@@ -224,7 +224,7 @@ All 56 frameworks, by family. The `Tier` column is the [evidence grade](#-the-ev
 | [**Iceberg Model**](https://thinking-framework-skills.productonpurpose.com/frameworks/think-iceberg-model/) | `P` | Move from events down to the patterns, structures, and mental models that produce them |
 | [**Theory of Constraints**](https://thinking-framework-skills.productonpurpose.com/frameworks/think-theory-of-constraints/) | `P` | Find the single binding constraint capping throughput and attach its exploit / subordinate / elevate decisions (the five focusing steps) |
 
-### Assumption & Belief Challenge - challenge assumptions (4)
+### Assumption & Belief Challenge - challenge assumptions (5)
 
 | Skill | Tier | What it does |
 |---|---|---|
@@ -232,6 +232,7 @@ All 56 frameworks, by family. The `Tier` column is the [evidence grade](#-the-ev
 | [**Consider the Unknowns**](https://thinking-framework-skills.productonpurpose.com/frameworks/think-consider-the-unknowns/) | `M` | Before committing to a judgment, explicitly list the relevant variables you cannot observe and weigh the gap they leave |
 | [**Ladder of Inference Check**](https://thinking-framework-skills.productonpurpose.com/frameworks/think-ladder-of-inference-check/) | `P` | Trace how you climbed from raw data to conclusion to catch where interpretation crept in |
 | [**Red Team Light**](https://thinking-framework-skills.productonpurpose.com/frameworks/think-red-team-light/) | `P` | A lightweight adversarial pass that attacks a plan to surface its weak points |
+| [**Analysis of Competing Hypotheses (ACH)**](https://thinking-framework-skills.productonpurpose.com/frameworks/think-analysis-of-competing-hypotheses/) | `X` | *Contested lens (warn-and-redirect, explicit-request-only).* Controlled trials found ACH raises confidence without accuracy, so it does not build the matrix as if valid; it leads with that evidence and routes to a better-grounded move |
 
 ### Reasoning Clarity - clarify the reasoning (5)
 
@@ -258,11 +259,12 @@ All 56 frameworks, by family. The `Tier` column is the [evidence grade](#-the-ev
 | [**One-Way vs Two-Way Door**](https://thinking-framework-skills.productonpurpose.com/frameworks/think-one-way-vs-two-way-door/) | `P` | Classify a decision by reversibility and match the deliberation cost to it |
 | [**Expected-Value Decision Tree**](https://thinking-framework-skills.productonpurpose.com/frameworks/think-expected-value-decision-tree/) | `P` | Price the uncertainty: a tree of choice and chance nodes, rolled back to an expected value per option, with a what-flips-it note |
 
-### Strategy & Opportunity - test strategy against alternative futures (1)
+### Strategy & Opportunity - test strategy against alternative futures (2)
 
 | Skill | Tier | What it does |
 |---|---|---|
 | [**Scenario Planning**](https://thinking-framework-skills.productonpurpose.com/frameworks/think-scenario-planning/) | `P` | Construct a set of divergent, internally consistent external futures (2x2 critical-uncertainty axes), then robustness-test strategy across them |
+| [**SWOT**](https://thinking-framework-skills.productonpurpose.com/frameworks/think-swot/) | `X` | *Contested lens (caveat-first, explicit-request-only).* Leads with SWOT's weak evidence (Hill and Westbrook 1997), then forces the discipline a bare grid lacks, namely evidence-tagged and prioritized factors plus a TOWS matching step into options |
 
 ### Ethics & Values Deliberation - weigh the moral trade-off (3)
 
@@ -316,7 +318,7 @@ Four skills are **tools**, not thinking methods: they operate *over* the library
 | [**Random Frameworks**](https://thinking-framework-skills.productonpurpose.com/tools/think-random-frameworks/) | **Applicator**. Draw three frameworks at random and apply each regardless of fit, to break a frozen or fixated framing. Use it when the obvious lenses are not working. |
 | [**Research Framework**](https://thinking-framework-skills.productonpurpose.com/tools/think-research-framework/) | **Engine**. Research a candidate method, grade its evidence conservatively, and propose a catalog entry for review. This is how the library grows; it never auto-admits. |
 
-**Frameworks, tools, and recipes, in one line:** a *framework* is a single graded thinking method (the 56 in the catalog above); a *tool* helps you choose or apply frameworks (the 4 here); a *recipe* is a fixed chain of frameworks for a recurring job (the 9 below).
+**Frameworks, tools, and recipes, in one line:** a *framework* is a single graded thinking method (the 58 in the catalog above); a *tool* helps you choose or apply frameworks (the 4 here); a *recipe* is a fixed chain of frameworks for a recurring job (the 9 below).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -430,7 +432,7 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 |  |  |
 |---|---|
 | **Current version** | [v0.10.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.10.0) |
-| **Frameworks** | 56, across 12 cognitive-operation families |
+| **Frameworks** | 58, across 12 cognitive-operation families (56 core + 2 contested lenses) |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 9 (skill chains shipped as workflow components) |
 | **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) - 0 errors / 0 warnings, self-hosting CI |
@@ -444,7 +446,7 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ```
 thinking-framework-skills/
-├── skills/                  # 56 frameworks + 4 tools (the source of truth)
+├── skills/                  # 58 frameworks + 4 tools (the source of truth)
 ├── frameworks/              # registry.mjs (the catalog) + per-method dossiers
 │   └── think-<method>/      #   SKILL.md, evidence/dossier.md, references/, eval/cases.md, skill.meta.yml
 ├── _workflows/              # Recipe definitions (multi-skill chains) as workflow components
@@ -463,7 +465,7 @@ thinking-framework-skills/
 
 | Path | What's in it |
 |---|---|
-| [`skills/`](skills/) | All 56 frameworks + 4 tools, each a self-contained unit (the site renders from these) |
+| [`skills/`](skills/) | All 58 frameworks + 4 tools, each a self-contained unit (the site renders from these) |
 | [`frameworks/`](frameworks/) | `registry.mjs` (the single-source-of-truth catalog of 135 evaluated methods) + per-method dossiers |
 | [`_workflows/`](_workflows/) | The 9 recipes as workflow components - ordered skill chains with handoffs |
 | [`scripts/`](scripts/) | Generators (site, manifests, name-safety set) and [`check.mjs`](scripts/check.mjs), the conformance gate |

@@ -1,0 +1,80 @@
+# Rich sidecar for the think-swot skill (contested lens, run-caveat-first).
+# A hand-authored summary of evidence/dossier.md (the source of truth).
+
+identity:
+  id: thinking-framework-skills.swot
+  slug: swot
+  name: think-swot
+  display_name: SWOT
+  version: 0.1.0
+  status: draft
+  maturity: alpha
+
+classification:
+  primary_family: strategy-and-opportunity
+  secondary_families: [decision-and-option-evaluation]
+  thinking_modes: [evaluative, convergent]
+  problem_contexts: [strategy, high-stakes]
+  use_cases:
+    - run an explicitly-requested SWOT honestly, leading with its weak evidence
+    - turn a situation snapshot into named strategic options via TOWS matching
+  poor_fit_cases:
+    - producing a long unprioritized four-box factor dump (the documented failure mode)
+    - rigorous situation decomposition (use issue-tree)
+    - exploring divergent external futures (use scenario-planning)
+
+interface:
+  required_inputs:
+    - a decision or situation to assess
+  optional_inputs:
+    - known facts that can tag factors as evidence rather than assumption
+  primary_artifact_type: swot-tows-option-set
+  output_formats: [markdown-table]
+
+execution:
+  mode: inline
+  subagent_suitable: false
+  recipe_suitable: false
+  likely_companions:
+    - thinking-framework-skills.issue-tree
+    - thinking-framework-skills.what-would-have-to-be-true
+
+relationships:
+  often_follows: []
+  often_precedes:
+    - thinking-framework-skills.what-would-have-to-be-true
+  complements:
+    - thinking-framework-skills.scenario-planning
+  overlaps_with:
+    - thinking-framework-skills.issue-tree
+  variants: []
+
+quality:
+  trigger_eval_status: pending
+  output_eval_status: pending
+  known_failure_modes:
+    - dumping a long unprioritized list and calling it analysis (the documented failure mode)
+    - omitting the TOWS matching step, leaving four lists with no options
+    - inventing quantified claims about SWOT's effectiveness
+
+evidence:
+  evidence_tier: "X"
+  confidence: low that the grid improves decisions; the added discipline carries the value
+  transferred_evidence: true
+  lineage:
+    derived_from: [SOFT (Stewart, SRI), SWOT, TOWS (Weihrich 1982)]
+  source_dossier: evidence/dossier.md
+  attribution_required: false
+  trademark: none
+
+# Contested-lens posture markers (v0.11.0). Read by scripts/check-contested.mjs (the caveat-first
+# contract), scripts/gen-site.mjs (the caution admonition + badge), and scripts/gen-catalog.mjs.
+caveat_first: true
+posture: run_caveat_first
+recommendation_policy: explicit_request_only
+
+implementation:
+  skill_path: skills/think-swot/SKILL.md
+  references_path: skills/think-swot/references/
+  evidence_path: skills/think-swot/evidence/dossier.md
+  evals_path: skills/think-swot/eval/

@@ -33,7 +33,7 @@ Two engines drive the plan. **Engine 1 (job diagnosis)** decides *which* framewo
 
 ## Engine 1 - diagnose the cognitive job (routing)
 
-Classify the situation by the *thinking move it needs*, by evidence from the input, not by topic. ("Should we launch X" is not automatically a decide job - if the problem is not framed or options are not generated yet, the dominant job is reframe or diverge.) Name the **dominant** job: the one that unblocks the most right now. Most situations need a dominant job plus a natural follow-on (reframe -> diverge; diverge -> converge; decide -> stress-test). Sequence those; do not list one framework per row. When two frameworks do the same job, **prefer the higher-tier one** unless the input specifically calls for the other (for diverge, lead with `think-brainwriting` (S) before `think-scamper` (P); reach for SCAMPER only when the job is transforming an existing idea, not generating volume).
+Classify the situation by the *thinking move it needs*, by evidence from the input, not by topic. ("Should we launch X" is not automatically a decide job - if the problem is not framed or options are not generated yet, the dominant job is reframe or diverge.) Name the **dominant** job: the one that unblocks the most right now. Most situations need a dominant job plus a natural follow-on (reframe -> diverge; diverge -> converge; decide -> stress-test). Sequence those; do not list one framework per row. When two frameworks do the same job, **prefer the higher-tier one** unless the input specifically calls for the other (for diverge, lead with `think-brainwriting` (S) before `think-scamper` (P); reach for SCAMPER only when the job is transforming an existing idea, not generating volume). **Contested lenses are explicit-request-only.** A skill flagged `recommendation_policy: explicit_request_only` in `references/recommendable.json` (a famous-but-weak lens like `think-swot` or `think-analysis-of-competing-hypotheses`, graded X/C/P and shipped caveat-first) is **never Step 1 for a generic strategy, people, or prioritization prompt**. Recommend it only when the user names that lens, or when no stronger shipped skill fits; and when you do, surface its caveat with it (it is graded low for a reason). For a generic "do a SWOT-ish situation read" the dominant job is reframe/decompose, so route to `think-issue-tree`, not the contested lens.
 
 | Cognitive job (catalog family) | Telltale signals | Strongest fitting skills | Tier |
 |---|---|---|---|
@@ -90,6 +90,7 @@ Required: user-provided content (a situation, decision, problem, notes, transcri
 5. **No framework-overload:** respect Engine 2. If tempted past the calibrated number, cut and move the rest to "what NOT to use."
 6. **Framework-unworthy (recommend zero):** if the decision is low-stakes *and* already reversible *and* the user has effectively decided, recommend **no framework** - give the one-line verdict and reason, and stop. Subtraction to zero is a first-class outcome, not a failure to plan.
 7. **Name safety:** recommend a skill or recipe **only if its exact name is in `references/recommendable.json`**. If nothing listed fits, describe the next step in plain language. Never invent or approximate a name.
+8. **Contested lenses are explicit-request-only:** never make a skill flagged `recommendation_policy: explicit_request_only` the dominant job or Step 1 for a generic prompt. Recommend it only when the user names that lens or no stronger shipped skill fits, and always surface its caveat with it. A generic strategy/people/prioritization prompt routes to the stronger shipped skill, not the contested lens.
 
 ## Instructions
 
@@ -118,6 +119,7 @@ Use the template in `references/TEMPLATE.md`. The deliverable is the structured 
 7. **Recommend, never run.** The Thinking Plan is the artifact; hand off with filled invocations.
 8. **Defer is half the value.** Always populate "what NOT to use, and why."
 9. **No ceremony.** Do not recommend a framework whose input is already settled (reversibility the user has stated, options they have already compared, a probability with no confusion). A framework applied to a resolved question adds ceremony, not insight.
+10. **Contested lenses only on request.** Never lead with an explicit-request-only contested lens for a generic prompt; route to the stronger shipped skill, and surface the caveat whenever a named lens does surface.
 
 ## Quality Checklist
 
@@ -129,6 +131,7 @@ Before finalizing, verify:
 - [ ] Stakes x reversibility is read, and the number of frameworks respects that heft (no over-stacking).
 - [ ] If the decision is framework-unworthy (reversible + low-stakes + already decided), the plan says so and stops - no manufactured recommendation.
 - [ ] Every recommended name exists in `references/recommendable.json`; no invented names; plain-language used where nothing fits.
+- [ ] No explicit-request-only contested lens is Step 1 for a generic prompt; any contested lens that surfaces was named by the user (or nothing stronger fit) and carries its caveat.
 - [ ] Each step has: job, why-this-over-neighbor, evidence tier (honest), expected artifact, a filled invocation, and a stop signal.
 - [ ] "What NOT to use, and why" has 2-4 entries, including anything the calibrator cut.
 - [ ] No tier inflation anywhere; the routing is not claimed as S/validated.

@@ -41,7 +41,7 @@ export function validateEntry(e, schema) {
     if (!allowedKeys.has(k)) fail(`schema: ${at} has unknown field "${k}".`);
   }
   // enums
-  for (const k of ['family', 'tier', 'status', 'verdict']) {
+  for (const k of ['family', 'tier', 'status', 'verdict', 'posture', 'recommendationPolicy']) {
     const allowed = enumOf(k);
     if (allowed && e[k] !== undefined && !allowed.includes(e[k])) {
       fail(`schema: ${at} field "${k}" = ${JSON.stringify(e[k])} is not one of ${allowed.join('/')}.`);
@@ -85,6 +85,11 @@ export function validateEntry(e, schema) {
   if (e.branded === true) {
     if (!e.attribution) fail(`schema/IP: ${at} is branded but has no attribution.`);
     if (!e.trademark) fail(`schema/IP: ${at} is branded but has no trademark.`);
+  }
+  if (e.caveatFirst === true) {
+    if (!e.posture) fail(`schema: ${at} is caveatFirst but has no posture.`);
+    if (!e.recommendationPolicy) fail(`schema: ${at} is caveatFirst but has no recommendationPolicy.`);
+    if (!e.evalCases) fail(`schema: ${at} is caveatFirst but has no evalCases.`);
   }
   return problems;
 }

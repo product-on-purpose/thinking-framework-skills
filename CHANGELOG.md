@@ -4,6 +4,13 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+- **Contested lenses: the caveat-first contract + the first two skills.** Famous-but-weak frameworks can now ship as honest, low-tier, caveat-first skills. A new `caveatFirst` + `posture` + `recommendationPolicy` marker in `frameworks/registry.mjs` (schema-validated) drives a new 9th conformance-gate layer, `scripts/check-contested.mjs` (pure core in `scripts/lib/contested-lib.mjs`, both postures negative-tested in `tests/contested-lib.test.mjs`), which enforces that the deficiency LEADS the SKILL.md and the artifact across `SKILL.md` / `TEMPLATE` / `EXAMPLE` / sample / eval-cases, that a branded lens carries its trademark attribution on every surface, and that the marker agrees across the registry, the SKILL.md frontmatter, and the `skill.meta.yml` sidecar. Two exemplars ship, one per posture: **`think-swot`** (tier X, run-caveat-first - leads with Hill & Westbrook 1997, then forces the discipline a bare grid lacks plus a TOWS matching step) and **`think-analysis-of-competing-hypotheses`** (tier X, warn-and-redirect - leads with the controlled trials and routes to an evidence-based move without reproducing the disconfirmation matrix). Catalog 56 -> 58 (56 core + 2 contested lenses).
+- **`gen-site.mjs`** renders a "use with caution" admonition + a contested-lens note on a caveat-first framework page; **`gen-catalog.mjs`** carries `caveat_first` / `posture` / `recommendation_policy` into `catalog.json`, `llms-full.txt`, and the evaluated set so an agent reading the catalog sees the posture.
+
+### Changed
+- **The advisor is now policy-aware (DS-02).** `gen-recommendable.mjs` carries each skill's `recommendation_policy` + `caveat_first`; `check-registry.mjs`'s shipped == recommendable invariant is policy-aware (a contested lens stays in the corpus but must be flagged `explicit_request_only`); and `think-framework-advisor` will never make a contested lens Step 1 for a generic prompt - it routes a generic "do a SWOT-ish read" to `think-issue-tree` and surfaces the caveat whenever a named lens does appear.
+
 ## [0.10.0] - 2026-06-19
 
 **Find it by example, and make it discoverable by agents.** A worked example for every framework (the samples corpus, coverage now 56/56), a cross-library Showcase (tfs decides, pm-skills delivers), the agent-discovery index switched on, both behavioral evals refreshed across the full 56-skill catalog, and `red-team-light` re-graded P -> M. No new frameworks; the catalog stays 56 / 4 tools / 9 recipes.
