@@ -39,3 +39,24 @@ test('rewrites a repo-relative reference definition but preserves external ones'
   assert.equal(rewriteLinks('[a]: docs/x.md', OPTS), '[a]: https://github.com/product-on-purpose/thinking-framework-skills/blob/main/docs/x.md');
   assert.equal(rewriteLinks('[0.11.0]: https://github.com/x/compare/a...b', OPTS), '[0.11.0]: https://github.com/x/compare/a...b');
 });
+
+import { extractReleaseTimeline, transformChangelog } from '../scripts/lib/changelog-lib.mjs';
+
+test('extractReleaseTimeline builds a mermaid timeline from versions + themes', () => {
+  const md = ['# Release notes', '', '## v0.11.0', '', '**Contested lenses: shipped honestly.** body', '', '## v0.10.0', '', '**Learn by example.** body'].join('\n');
+  const out = extractReleaseTimeline(md);
+  assert.match(out, /^```mermaid\ntimeline\n {4}title Release history\n/);
+  assert.match(out, /v0\.11\.0 : Contested lenses - shipped honestly\./);
+  assert.match(out, /v0\.10\.0 : Learn by example\./);
+  assert.ok(out.trim().endsWith('```'));
+});
+
+test('extractReleaseTimeline returns empty string when no versions parse', () => {
+  assert.equal(extractReleaseTimeline('# Release notes\n\nnothing here'), '');
+});
+
+test('transformChangelog strips the leading H1 and rewrites links', () => {
+  const out = transformChangelog('# Changelog\n\nsee [a](docs/x.md)', OPTS);
+  assert.ok(!out.startsWith('# Changelog'));
+  assert.match(out, /blob\/main\/docs\/x\.md/);
+});

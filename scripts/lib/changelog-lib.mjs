@@ -44,3 +44,30 @@ export function rewriteLinks(md, opts) {
     });
   }).join('\n');
 }
+
+// Build a mermaid timeline from "## vX.Y.Z" headings + the first following bold
+// theme line. Colons are the timeline separator, so they are replaced in labels.
+export function extractReleaseTimeline(releaseNotesMd) {
+  const lines = releaseNotesMd.split('\n');
+  const entries = [];
+  for (let i = 0; i < lines.length; i++) {
+    const h = lines[i].match(/^##\s+v?(\d+\.\d+\.\d+)\s*$/);
+    if (!h) continue;
+    let theme = '';
+    for (let j = i + 1; j < lines.length && j < i + 8; j++) {
+      if (/^##\s/.test(lines[j])) break;
+      const t = lines[j].match(/^\*\*(.+?)\*\*/);
+      if (t) { theme = t[1]; break; }
+    }
+    entries.push({ version: h[1], theme });
+  }
+  if (!entries.length) return '';
+  const sanitize = (s) => s.replace(/[`*_]/g, '').replace(/:/g, ' -').replace(/\s+/g, ' ').trim().slice(0, 60);
+  const rows = entries.map((e) => `    v${e.version} : ${sanitize(e.theme) || 'Release'}`);
+  return ['```mermaid', 'timeline', '    title Release history', ...rows, '```'].join('\n');
+}
+
+// Strip the leading H1 (Starlight renders the frontmatter title), then rewrite links.
+export function transformChangelog(md, opts) {
+  return rewriteLinks(md.replace(/^#\s+.*\r?\n+/, ''), opts);
+}
