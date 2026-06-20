@@ -2,6 +2,21 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.11.0
+
+**Contested lenses: we now run the famous-but-weak frameworks, and tell you the truth about them.** The library is built on honest evidence grading, so for years it refused to ship famous methods the research does not support (SWOT, Five Whys, ACH, and friends) and instead published a why-not dossier. People kept asking for them by name. v0.11.0 adds a better answer than a flat "no": **56 evidence-graded core skills, plus 7 contested lenses we grade honestly and hand you caveat-first.**
+
+### For everyone
+
+- **Seven famous frameworks, run honestly.** SWOT, Five Whys, Eisenhower / MoSCoW / Pareto, a descriptively-named Cynefin sort, Reflective Equilibrium, Analysis of Competing Hypotheses, and QCA now run when you ask for them by name. Each one **leads with its weak evidence**, then either produces the artifact with the discipline it usually lacks (a SWOT that prunes, tags, and matches into options; a Five Whys that stops honestly when the problem is multi-cause) or, for the methods testing found actively harmful (ACH, QCA), warns you and routes you to a better-grounded move instead of reproducing the discredited artifact.
+- **They never get in the way.** A contested lens is **explicit-request-only**: the Framework Advisor will never reach for one on a generic prompt. A trigger eval confirms it - 0 false-fires, every generic prompt routed to the stronger core skill.
+- **Honest framing, not catalog padding.** The headline is still the 56 evidence-graded core skills. The 7 contested lenses are counted and reported as their own cohort, clearly marked, so "honest grading" stays honest.
+
+### For contributors
+
+- A new conformance-gate layer (`check-contested.mjs`, the 9th) makes "caveat-first" a **checked contract**, not an authoring style: the deficiency must lead the skill and every artifact, a branded lens must carry its trademark attribution, and tier X may now ship *only* as a contested lens.
+- `Cynefin` ships under a descriptive name (`think-complexity-domain-sort`) to keep the trademark out of the invocation; the old `/library/cynefin/` URL redirects.
+
 ## v0.10.0
 
 **Find it by example, and let agents find it at all.** A worked example for every framework, a cross-library Showcase that hands off to pm-skills, the agent-discovery index switched on, and the behavioral-eval numbers refreshed across the full 56-skill catalog. No new frameworks; the catalog stays 56.
