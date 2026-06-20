@@ -17,7 +17,7 @@ They grade the evidence behind each method's mechanism: S strong research, M mod
 
 ## How do I pick the right framework?
 
-Start with the [Framework Advisor](../../frameworks/think-framework-advisor/). Describe your situation in plain language and it returns a short plan: the one or two frameworks worth running, in order, and what to skip.
+Start with the [Framework Advisor](../../tools/think-framework-advisor/). Describe your situation in plain language and it returns a short plan: the one or two frameworks worth running, in order, and what to skip.
 
 ## Can I use these without an AI agent?
 
