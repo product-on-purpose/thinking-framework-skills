@@ -62,7 +62,7 @@ quality:
 evidence:
   evidence_tier: "C"
   confidence: low that the bounded procedure improves judgments; the revision ledger and honest stopping carry the value
-  transferred_evidence: true
+  transferred_evidence: false
   lineage:
     derived_from: [Goodman 1955, Rawls 1971, Daniels 1979 (wide variant)]
   source_dossier: evidence/dossier.md

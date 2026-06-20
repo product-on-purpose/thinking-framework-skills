@@ -1,6 +1,6 @@
 # Evidence Dossier: Complexity Domain Sort (contested lens)
 
-> Single source of truth for the `complexity-domain-sort` skill. The SKILL.md, sidecar, and evals derive from this. The full catalog dossier (why this branded sort is documented but not shipped as a core skill) lives at `frameworks/cynefin/dossier.md`; this is the skill-facing grounding.
+> Single source of truth for the `complexity-domain-sort` skill. The SKILL.md, sidecar, and evals derive from this. The full catalog dossier (the Cynefin evidence record, the basis for shipping this caveat-first) lives at `frameworks/complexity-domain-sort/dossier.md`; this is the skill-facing grounding.
 
 | | |
 |---|---|

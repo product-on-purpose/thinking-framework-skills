@@ -29,7 +29,7 @@ Reflective equilibrium is justification by mutual adjustment across three tiers:
 
 ## 4. Transferred-evidence flag
 
-Evidence is from human philosophy (and idealized in-silico models), not AI-augmented use. Transferred, not AI-validated. For an LLM whose "considered judgments" are training-distribution intuitions, the Brandt/Singer input-credibility objection bites harder, not softer. The honest AI value is narrow: forcing an explicit revision ledger and honest stopping turns a method that can rubber-stamp its starting intuitions into an auditable artifact, with the deficiency stated up front.
+There is NO transferred human-subject outcome evidence to flag: no controlled study of reflective equilibrium as an intervention exists, for humans or agents, and the only empirical-adjacent work simulates an idealized formal model (testing the model, not people). The grade is a clean C (philosophical centrality plus in-silico simulation), not a transferred-and-capped split. For an LLM whose "considered judgments" are training-distribution intuitions, the Brandt/Singer input-credibility objection bites harder, not softer. The honest AI value is narrow: forcing an explicit revision ledger and honest stopping turns a method that can rubber-stamp its starting intuitions into an auditable artifact, with the deficiency stated up front.
 
 ## 5. When it works / when it fails
 

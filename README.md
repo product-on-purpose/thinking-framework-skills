@@ -470,7 +470,7 @@ thinking-framework-skills/
 
 | Path | What's in it |
 |---|---|
-| [`skills/`](skills/) | All 58 frameworks + 4 tools, each a self-contained unit (the site renders from these) |
+| [`skills/`](skills/) | All 63 frameworks + 4 tools, each a self-contained unit (the site renders from these) |
 | [`frameworks/`](frameworks/) | `registry.mjs` (the single-source-of-truth catalog of 135 evaluated methods) + per-method dossiers |
 | [`_workflows/`](_workflows/) | The 9 recipes as workflow components - ordered skill chains with handoffs |
 | [`scripts/`](scripts/) | Generators (site, manifests, name-safety set) and [`check.mjs`](scripts/check.mjs), the conformance gate |
