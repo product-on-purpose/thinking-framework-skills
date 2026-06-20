@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+- **Changelog on the docs site.** Two generated pages now render under a new "Changelog" sidebar group: a curated "What's new" (from `RELEASE-NOTES.md`, opening with a release-history mermaid timeline) and the full "Changelog" (from `CHANGELOG.md`). They are produced by `scripts/gen-site.mjs` from the repo-root source files via a new zero-dependency `scripts/lib/changelog-lib.mjs` (markdown-aware link rewriting to GitHub blob URLs / on-site self-links, plus release-timeline extraction; unit-tested in `tests/changelog-lib.test.mjs`). The pages are a generated view (gitignored, rebuilt each build); the root `CHANGELOG.md` / `RELEASE-NOTES.md` stay the source of truth. First of the v0.12.0 docs effort (build phase; see `docs/internal/specs/2026-06-20-changelog-docs-audit-diagrams.md`).
+
 ### Changed
 - **Resolved the two long-deferred registry follow-ups** (open since the SP3 adversarial review). #2 (metadata sourcing) and #3 (family taxonomies) are decided as *keep the current design*, with the rationale and the catalog-to-skill family mapping now documented in `docs/architecture.md`: the advisor/site surfaces stay per-skill-sourced with a registry cross-check (rather than fully registry-generated, which would lose the compound grade), and the registry's 13-family catalog taxonomy stays deliberately separate from the coarser 12-slug skill taxonomy (unifying them would reshuffle user-facing groupings for no correctness gain). No behavior change; documentation + the `check-counts.mjs` note updated.
 

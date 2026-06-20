@@ -1,6 +1,6 @@
 # Spec: changelog on the site + documentation audit-fixes + mermaid diagrams + CI guards
 
-**Status:** approved in principle (brainstormed 2026-06-20), **revised after codex adversarial review 2026-06-20** (9 findings, all accepted; full review in `_agent-context/2026-06-20-spec-codex-review.md`). Approved 2026-06-20; release decided as **v0.12.0** (two-phase: build into `[Unreleased]`, then cut). Execution plans (sequenced, via writing-plans): `docs/internal/plans/2026-06-20-{changelog-site, ci-guards-gate, docs-audit-fixes, mermaid-diagrams, v0.12.0-release}.md` (Plan 1 written). Audit record: `_local/audit/2026-06-20_docs-audit.md` (local).
+**Status:** approved in principle (brainstormed 2026-06-20), **revised after codex adversarial review 2026-06-20** (9 findings, all accepted; full review in `_agent-context/2026-06-20-spec-codex-review.md`). Approved 2026-06-20; release decided as **v0.12.0** (two-phase: build into `[Unreleased]`, then cut). Execution plans (sequenced, via writing-plans): `docs/internal/plans/2026-06-20-{changelog-site, ci-guards-gate, docs-audit-fixes, mermaid-diagrams, v0.12.0-release}.md`. Plan 1 (changelog-site) implemented + PR'd from `feat/changelog-site` (subagent-driven; per-task + whole-branch reviews clean; gate 0 errors). Audit record: `_local/audit/2026-06-20_docs-audit.md` (local).
 **One line:** add a generated, SSOT-derived changelog to the docs site (a curated "What's new" + the full changelog), act on a full documentation audit (staleness, gaps, duplication), add nine mermaid diagrams across the GitHub-rendered repo docs and the astro-mermaid site, and lock the lot in with four new CI guards so the same drift cannot recur.
 
 ## Problem
@@ -114,7 +114,7 @@ Rationale: this clears the repo's release bar (v0.8.0 / v0.9.0 / v0.10.0 were al
 1. Workstream D first (it fixes the layer count) - but D2 requires B1 (link fixes) in the same change.
 2. B5 reconciliation text + diagram #1 after D (they cite the final count).
 3. A (changelog) before the `route-manifest.txt` refresh and before D4's version lint can be exercised end to end.
-4. The `CHANGELOG.md [Unreleased]` entry last in the build phase, so it describes the whole landed change (and is itself then rendered by the Full changelog page). `RELEASE-NOTES.md` untouched until the capstone.
+4. Each plan ships as its own PR and adds its own `CHANGELOG.md [Unreleased]` bullet(s) as it lands (so a merged feature is always recorded in the canonical changelog, and the Full changelog page renders it immediately). The bullets accumulate under `[Unreleased]`; the capstone promotes them to `[0.12.0]`. `RELEASE-NOTES.md` is untouched until the capstone.
 5. Run `npm run gen` + `cd site && npm run build` + `node scripts/check.mjs` + the site guards before claiming the build phase done.
 6. Capstone (final, gated, user go): cut v0.12.0 - promote `[Unreleased]` -> `[0.12.0]`, bump `package.json` + `library.json`, add the `RELEASE-NOTES.md` v0.12.0 entry, tag, GitHub release, marketplace re-pin (see Release contract).
 
