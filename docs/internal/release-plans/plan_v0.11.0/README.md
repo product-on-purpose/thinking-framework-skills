@@ -1,102 +1,97 @@
 # plan_v0.11.0 - Contested lenses (the famous-but-weak frameworks, caveat-first)
 
-**Status:** planned, build-ready (not started). Intended for a fresh session to execute agentically.
-**Theme:** ship the distinct-but-weak rejected frameworks (SWOT, MBTI, OODA, Cynefin, ...) as honest, low-tier, caveat-first skills. The plugin helps a user through a lens they asked for while teaching its deficiency, instead of a flat refusal. The honest-grading brand made stronger, not diluted.
-**Spec (the contract):** `docs/internal/specs/2026-06-19-contested-lenses.md`. Read it first.
-**Version:** minor, **v0.11.0** (new skills). Catalog ~56 -> ~74 shipped.
+**Status:** approved in principle; **revised after codex adversarial review** (`_agent-context/v0.11.0-spec-codex-review.md`). NOT build-ready until Phase 0 finalizes the contract (membership, the marker, the advisor policy, the site rendering, the eval-reporting posture). For a fresh session to execute agentically.
+**Theme:** ship the small set of rejected frameworks that are genuinely *agent-runnable but weak* (SWOT and a few peers) as honest, low-tier, caveat-first skills; handle the famous-but-unrunnable instruments (MBTI and friends) with a single cautionary redirect. Honest-grading made stronger, not diluted.
+**Spec (the contract):** `docs/internal/specs/2026-06-19-contested-lenses.md`. Read it first - it was tightened by the review and the buildable set is much smaller than the first draft implied (~5-12, SWOT the worked example).
+**Version:** minor, **v0.11.0**. Catalog 56 core -> 56 core + N contested (reported as separate cohorts, not a single "74").
 
-This plan is written to be run by a new session via dynamic agentic Workflows, with `codex:codex-rescue` adversarial reviews at the brand-critical gates. The phases are ordered to **de-risk before scaling**: prove the caveat-first construction on one hand-authored exemplar and get it adversarially reviewed before any batch fan-out.
+De-risk before scale: prove the caveat-first contract (the validator + one exemplar) and get it adversarially reviewed before any batch fan-out. The review confirmed this ordering is right; it also found the contract itself was under-built (no validator, no advisor policy, missing registration steps) - all folded in below.
 
-## Guardrails (read before any phase)
+## Guardrails
 
-- **Do not start building skills until Phase 0 finalizes membership and Phase 1's exemplar passes codex review.** The brand-critical risk is a caveat that overclaims or launders; one bad exemplar would replicate across the batch.
-- **The honest tier never changes.** A contested lens keeps its current low grade (X / V / C / A / P). `check-registry.mjs` enforces registry tier == SKILL.md frontmatter evidence-tier; do not "round up."
-- **Caveat-first is the whole feature.** Every SKILL.md leads with the deficiency; every `references/TEMPLATE.md` pre-prints a leading caveat block; every produced artifact opens with it. A lens you can run without seeing its weakness is a failed build.
-- **Reuse the dossier.** Each framework's critique already exists as its Framework Library why-not page (`frameworks/<slug>/dossier.md` or the registry `dossierPath`). Consume it; do not re-research from scratch.
-- **No em-dashes / en-dashes anywhere** (the PreToolUse hook enforces it on Edit/Write; it does NOT catch `fs.writeFileSync` from a node script, so keep script-written content dash-clean and scan after).
+- **Do not build any skill until Phase 0 produces the final list AND Phase 1's validator + exemplar pass codex review.** The brand risk is a caveat that overclaims or launders, replicated by a batch.
+- **Caveat-first is a CHECKED contract, not a style** - `scripts/check-contested.mjs` (new, Phase 1) enforces caveat placement; a build that puts the caveat late or omits it from the template is a red gate.
+- **The honest low tier never changes** (`check-registry` enforces registry tier == frontmatter evidence-tier). `caveat_first` is a posture marker, not a second tier.
+- **Three-test admission** (Phase 0): distinct AND agent-runnable (procedure + reusable artifact + a caveated mode that does not reproduce the falsified claim) AND in-charter. Anything failing any test stays documented-only or goes to the cautionary applicator. SWOT is the model.
+- **No em-dashes / en-dashes** (the hook does not catch `fs.writeFileSync` from a node script - keep script-written content clean and scan after).
 
-## Phase 0 - Finalize membership (deterministic + one classification pass)
+## Phase 0 - Finalize the contract (membership + the decisions, not "discovered")
 
-Goal: the exact list of contested lenses to build, each with its dossier (the caveat source).
+Goal: the final qualifying list AND the contract decisions Phase 1 will implement.
 
-1. For every `excl`/`flag` framework, read its registry `reasoning`. Classify **distinct-but-weak** (no shipped skill performs its core move; rejected on evidence/efficacy/branding) vs **overlap-with-shipped** (the reasoning names a shipped skill as the home of the move). The working split is in the spec; the heuristic is rough, so the borderline excl entries (eisenhower-moscow-pareto, note-and-vote, sensemaking-matrix, insight-statement-generation, concept-knowledge-theory, estimate-talk-estimate, scaled-participation-formats, analysis-of-competing-hypotheses, reflective-equilibrium, qualitative-comparative-analysis) get a per-framework call.
-2. **Codex review (light):** hand codex the candidate list + each one's reasoning and ask it to challenge the distinctness call - is any "distinct" lens actually a near-twin of a shipped skill (which would re-introduce routing ambiguity)? Resolve disputes by dropping the contested entry to documented-only.
-3. Output: `plan_v0.11.0/membership.md` - the final list (~18-22), each with slug, current tier, dossierPath, branded?(TM), and the one-line deficiency the caveat must lead with.
+1. **Three-bucket classification, per framework, from the registry's own reasoning** (not a heuristic): `distinct-runnable-weak` (ships as a contested-lens skill) / `overlap-with-shipped` (documented-only) / `out-of-charter-or-not-agent-runnable` (documented-only or the cautionary applicator). Record a one-line pass/fail on each of the three tests for every excl/flag entry. Expect the ships-as-skill set to be small (~5-12). SWOT passes; MBTI/DISC/Enneagram/learning-styles/strong-interest/belbin/cliftonstrengths fail (instrument / overlap); porters/jtbd/blue-ocean/ice-rice-wsjf fail (pm-domain); dot-voting/note-and-vote/scaled-participation fail (human-only); ooda fails (agent-architecture).
+2. **IP screen** for any branded survivor: pick a descriptive slug/name (no `think-mbti`/`think-cynefin`/`think-porters-five-forces`); keep the branded term as an attributed alias in caveat prose, or exclude if the trademarked name is inseparable from the skill.
+3. **Decide the contract** (these were "open questions"; resolve them now, not while authoring): the exact `skill.meta.yml` marker (`quality.caveat_first` + `quality.recommendation_policy: explicit_request_only`); how `gen-site.mjs` renders the "use with caution" admonition + non-green badge; how `gen-recommendable.mjs` + `check-registry.mjs` become policy-aware so a contested lens is in the corpus but never a default recommendation; the eval-reporting posture (core-56 and contested reported as separate cohorts).
+4. **Codex review (light):** challenge the distinctness + runnability calls - is any "ships" candidate actually a near-twin of a shipped skill or not agent-runnable? Drop disputed ones.
+5. Output: `plan_v0.11.0/membership.md` (final list + per-framework three-test record + chosen descriptive names + dossierPath) and a short `contract.md` (the marker schema, the advisor policy, the rendering, the eval posture).
 
-## Phase 1 - Infra + the exemplar (the de-risking gate; one PR, codex-reviewed)
+## Phase 1 - Build the contract + the exemplar (the de-risking gate; one PR, codex-reviewed)
 
-Goal: establish the contested-lens posture and prove it on ONE hand-authored skill before any batch.
+Goal: the enforcement + posture infra, proven on ONE skill, before any batch.
 
-1. **The `skill.meta.yml` marker:** add `quality.caveat_first: true` (final name TBD here). Decide how `gen-site.mjs` renders the "use with caution" treatment (a badge variant + a leading admonition on the framework page); decide how the advisor (`gen-recommendable.mjs`) carries the marker so it can surface the caveat.
-2. **The generators + gate accept the new posture:** `excl/flag -> shipped` at low tier; `check-counts.mjs` accepts the higher shipped total; `check-registry.mjs` still passes (tier consistency, IP lint for branded ones, eval-coupling). Update `check-counts` FAMILIES / surfaces as needed.
-3. **Hand-author ONE exemplar end to end:** `think-swot` (distinct, famous, tier X, well-documented deficiency). Full caveat-first anatomy: SKILL.md (deficiency leads), `references/TEMPLATE.md` (pre-printed caveat block), `references/EXAMPLE.md`, `skill.meta.yml` (marker), `eval/cases.md` (Output checks include "leads with the caveat, does not overclaim"); registry `swot: excl/X -> shipped/X`; a caveat-first sample under `samples/`. Regenerate everything; gate 0/0; build + guards.
-4. **Codex adversarial review of the exemplar + infra:** does the caveat honestly represent SWOT's deficiency (Hill & Westbrook 1997) without overclaiming or laundering? Does the artifact lead with it? Does the site "use with caution" treatment read honestly? Have codex WRITE findings to `_agent-context/` + confirm the file exists; fall back to inline review if not retrievable. Resolve.
-5. Merge Phase 1 as its own PR. **This is the template + the proven posture the batch copies.**
+1. **`scripts/check-contested.mjs`** (new gate layer, wired into `check.mjs` - the gate becomes 9 layers): identifies contested skills by the marker; asserts the leading-caveat contract on SKILL.md / TEMPLATE / EXAMPLE / sample / eval-cases, and (branded) the attribution + trademark in the leading caveat block. Negative-test it (a late caveat must red the gate).
+2. **Advisor policy plumbing:** `skill.meta.yml` marker schema; `gen-recommendable.mjs` carries `recommendation_policy` + `caveat_first`; `check-registry.mjs` shipped==recommendable becomes policy-aware; the advisor SKILL.md + its eval cases enforce explicit-request-only for contested lenses.
+3. **Generators:** `gen-site.mjs` renders the "use with caution" admonition + badge from the marker; `gen-catalog.mjs` carries the marker.
+4. **Hand-author ONE exemplar end to end: SWOT** (distinct, agent-runnable, tier X). Full caveat-first anatomy passing `check-contested`: SKILL.md (deficiency leads), TEMPLATE (pre-printed caveat block), EXAMPLE, `skill.meta.yml` (markers), `eval/cases.md` (caveat output-check); **register it in `library.json`**; registry `swot: excl/X -> shipped/X`; update `scripts/route-manifest.txt` for `/frameworks/think-swot/`; a caveat-first sample at `site/src/content/docs/samples/swot.md`. Regenerate everything; gate 0/0 (incl. check-contested); build + link/route guards.
+5. **The cautionary applicator** (for the famous-but-unrunnable instruments): a single, non-recommendable, explicit-request-only skill that, when a user names a debunked instrument (MBTI, ...), states the limits and redirects to an evidence-based alternative. Build it here as part of the posture (it is the honest answer for the failed-the-gate famous names).
+6. **Codex adversarial review of the validator + exemplar + applicator** before any batch: is the SWOT caveat honest (Hill & Westbrook 1997) and leading? Does the validator actually bite? Does the applicator redirect honestly without administering the instrument? Write findings to `_agent-context/` + confirm; inline-fallback. Resolve. Merge Phase 1 as its own PR.
 
-## Phase 2 - Batch-build the rest (agentic Workflow)
+## Phase 2 - Batch-build the remaining survivors (agentic Workflow)
 
-Goal: author the remaining ~17-21 contested lenses from the exemplar pattern.
-
-- A `Workflow` over the Phase 0 list (minus the exemplar), in serial groups of ~4-5 (the burst-throttle rule; a >20-way fan-out trips a server-side limit). One `general-purpose` subagent per lens, primed with, and only with:
-  - the **exemplar** `think-swot` skill (the caveat-first format to match),
-  - the framework's **dossier** (the deficiency source - do not re-research),
-  - the registry **reasoning** + its tier + branded?(TM),
-  - the **caveat-first rules** (deficiency leads SKILL.md; TEMPLATE pre-prints the caveat; the artifact opens with it; branded -> descriptive name + attribution + TM),
-  - `docs/internal/CONTENT-STYLE.md` (voice, no-dash, links) and the eval-cases requirement (Output checks include the caveat check).
-  - Each subagent writes ONLY its own `skills/think-<slug>/` anatomy + a caveat-first `samples/<slug>.md`. The registry status changes are applied CENTRALLY after the batch (avoid a write race on registry.mjs).
-- Workflow gotchas: the result is wrapped under `.result` in the task output file (the notification truncates - parse the output file); `agentType: 'general-purpose'` so the agent can Write; `resumeFromRunId` recovers any rate-limited stragglers from cache.
+- A `Workflow` over the Phase 0 list minus SWOT, serial groups of ~4-5 (throttle). One `general-purpose` subagent per lens, primed with: the **SWOT exemplar** (the caveat-first format that passes `check-contested`), the framework's **dossier** (caveat source), the registry reasoning + tier + branded?(descriptive name from Phase 0), the **caveat-first + IP rules**, `CONTENT-STYLE.md`, and the eval-cases caveat requirement. Each writes ONLY its own `skills/think-<slug>/` anatomy + a caveat-first `site/src/content/docs/samples/<slug>.md`. Registry + `library.json` + route-manifest edits are applied CENTRALLY (Phase 3) to avoid write races.
+- Gotchas: Workflow result is under `.result` in the task `.output` file (the notification truncates); `agentType: 'general-purpose'` to Write; `resumeFromRunId` recovers rate-limited stragglers.
 
 ## Phase 3 - Integrate + regenerate + gate
 
-- Apply all `excl/flag -> shipped` registry status changes centrally (a surgical text-replace keeps the other entries byte-identical; the em-dash hook does not catch a node script).
-- Regenerate every derived surface: `gen-registry`, `gen-recommendable`, `gen-site`, `gen-agents`, `gen-catalog`; then `gen-manifest` + `gen-index` (at the cut).
-- Sweep the **count surfaces** (not all gated): README's four surfaces + the prose, `docs/architecture.md` (shipped count + the new contested posture + add to the generators if needed), `docs/getting-started.md`, `docs/README.md`, the catalog-table headers, the gen-site family intros. (This session found architecture.md prose drift the gate does not catch - sweep it deliberately.)
-- Example coverage: each new shipped skill has its caveat-first sample (or grandfather it, with reason). `check-example-coverage.mjs --update`.
-- Gate green: `node scripts/check.mjs` 0/0 (8 layers); `gen-recommendable.mjs --check` (separate CI job); `npm test`; `npm --prefix site run build` + `check-rendered-links.mjs` (STRICT) + `check-route-parity.mjs`.
+1. **Register every new skill in `library.json`** (path, version, tier, status) - BEFORE the generators (PC-01; `gen-catalog` throws if library skill count != registry shipped count).
+2. Apply all `excl/flag -> shipped` registry status changes centrally (surgical text-replace keeps other entries byte-identical).
+3. **Update `scripts/route-manifest.txt`** for the new `/frameworks/think-<slug>/` routes (PC-02): build -> `node scripts/check-route-parity.mjs --update` (or hand-add) -> then `gen-catalog`.
+4. Regenerate: `gen-registry`, `gen-recommendable` (policy-aware), `gen-site`, `gen-agents`, `gen-catalog`; `gen-manifest` + `gen-index` at the cut.
+5. **Example coverage:** each new skill has its caveat-first sample at `site/src/content/docs/samples/<slug>.md` (PC-03). Do NOT `--update` to grandfather; a deferral needs a written exception.
+6. Sweep the **un-gated count/prose surfaces** (the review and this session both flag these): README's four count surfaces + prose, `docs/architecture.md` (shipped count + the new contested posture + the check-contested gate layer + the cautionary applicator), `docs/getting-started.md`, `docs/README.md`, catalog headers, gen-site family intros. Keep the **cohort framing** ("56 core + N contested"), not a merged 74.
+7. Gate green: `node scripts/check.mjs` 0/0 (9 layers incl. check-contested); `gen-recommendable.mjs --check`; `npm test`; site build + `check-rendered-links.mjs` (STRICT) + `check-route-parity.mjs`.
 
-## Phase 4 - Evals (the caveat-enforcing measurement)
+## Phase 4 - Evals (the caveat-enforcing measurement, with release thresholds)
 
-- Run the existing harness (`scripts/eval/`) on the new skills, both evals:
-  - **Trigger:** confirms routing stays clean - the distinct lenses route to themselves; **0 false-fires must hold** (a contested lens must not over-grab a situation meant for a stronger shipped skill). Batch serial groups of ~4 (throttle); `resumeFromRunId` for stragglers.
-  - **Output:** the per-skill "Output checks" include **"leads with the caveat and does not overclaim"** - so the output eval *enforces* the caveat-first design. The misses (if any) are the precise skills to tighten.
-- Write dated scorecards under `docs/internal/eval-results/`; stamp `trigger_eval_status` / `output_eval_status`. Report the contested subset's numbers distinctly in the scorecard (so the graded-skills headline stays legible), but they are honestly-graded skills, so they are part of the run.
+- Run both evals on the new skills (`scripts/eval/`), serial groups of ~4; `resumeFromRunId` for stragglers.
+- **Release-blocking thresholds (PC-04):** **0 false-fires is hard-blocking**; no contested lens may route a generic strategy/people/prioritization prompt away from a stronger shipped skill (verify the advisor explicit-only policy holds in the trigger eval); **every caveat output-check must pass** (the output eval enforces the caveat-first design); the core-56 routing/output numbers must not regress.
+- **Report cohorts separately** (core-56 vs contested) in the scorecard; the public headline stays the core-56 numbers. Stamp the meta; write dated scorecards.
 
 ## Phase 5 - Adversarial review (codex, brand-critical)
 
-- `codex:codex-rescue` reviews the built batch for: (1) **evidence-honesty** - does each caveat honestly represent the framework's deficiency per its dossier, with no laundering, no overclaim, no false endorsement? (2) **distinctness** - does any lens compete with a shipped skill in routing? (3) **IP** - branded ones attributed + TM-flagged? (4) **caveat-first construction** - does every artifact lead with the deficiency? (5) any famous framework whose deficiency is *understated*.
-- Retrievability lesson: instruct codex to WRITE findings to `_agent-context/v0.11.0-codex-review.md` and confirm the file exists; if it does not (the known codex-rescue sandbox limitation), do the review **inline and deterministically** instead (do not claim a codex review happened if no findings landed). Resolve all blockers/majors.
-- Consider a parallel **reviewer Workflow** (one reviewer per built skill) as this session used for the 44-page content - it catches dishonest or overclaiming caveats that structural checks and spot-reads miss.
+- `codex:codex-rescue` (and/or a per-skill reviewer Workflow) reviews the batch for: evidence-honesty (each caveat honestly represents the deficiency per its dossier, no laundering/overclaim/false-endorsement, no famous deficiency understated); distinctness (none competes with a shipped skill in routing); IP (branded -> descriptive name + attribution/TM in the artifact, not only the registry); caveat-first construction (every artifact leads with the deficiency, passing `check-contested`).
+- Write findings to `_agent-context/v0.11.0-batch-review.md` + confirm; inline-fallback if not retrievable (do not claim a review that produced no findings). Resolve blockers/majors.
 
 ## Phase 6 - Release cut v0.11.0
 
-Per `docs/internal/release-process.md` (the v0.10.0 cut in `plan_v0.10.0` is the worked precedent):
-1. CHANGELOG `[Unreleased]` -> `[0.11.0]` + a milestone line + fresh `[Unreleased]`; compare-link footer.
-2. Version 0.10.0 -> 0.11.0 (`library.json` + `package.json`); regen manifests + INDEX (the diff is version + the new roster - confirm only the contested lenses changed, not unexpected drift).
-3. RELEASE-NOTES v0.11.0 - lead with the **brand framing**: "every skill is evidence-graded, including the famous-but-weak ones we now hand you caveat-first." For-everyone + for-builders.
-4. README: version badge + project-status + current-version + a release-history row; sweep the shipped count (~74) across the four count surfaces.
-5. Reconcile `release-plans/README.md` (this row Planned -> Shipped) and this plan's status.
-6. **Codex review of the cut** (counts/version consistency across all surfaces, CHANGELOG/RELEASE-NOTES accuracy, the new-count sweep) - inline-fallback if not retrievable.
-7. Gated steps (human authorizes): tag `v0.11.0` on the merge commit + push + GitHub release; **marketplace re-pin** on `product-on-purpose/agent-plugins` (use a git worktree off `origin/main`; update the tfs `sha` + `version` + bump `metadata.version`; `validate-registry.mjs` with `GITHUB_TOKEN`). Verify the deploy + footer.
+Per `release-process.md` (the v0.10.0 cut in `plan_v0.10.0` is the worked precedent):
+1. CHANGELOG `[Unreleased]` -> `[0.11.0]` + milestone + fresh `[Unreleased]`; footer.
+2. Version 0.10.0 -> 0.11.0 (`library.json` + `package.json`); regen manifests + INDEX (diff = version + the new roster only).
+3. RELEASE-NOTES v0.11.0 - lead with the honest **cohort framing**: "56 evidence-graded core skills, plus N contested explicit-request lenses we grade honestly and hand you caveat-first," and the cautionary applicator for the famous-but-unrunnable.
+4. README: version badge + status + current-version + history row; sweep the count surfaces with cohort framing (not a merged 74).
+5. Reconcile `release-plans/README.md` (this row Planned -> Shipped) + this plan's status.
+6. **Codex review of the cut** (count/version consistency, CHANGELOG/RELEASE-NOTES accuracy, cohort framing, the count-surface sweep); inline-fallback.
+7. Gated (human authorizes): tag `v0.11.0` + push + GitHub release; **marketplace re-pin** on `product-on-purpose/agent-plugins` (git worktree off `origin/main`; tfs `sha`+`version`, bump `metadata.version`; `validate-registry.mjs` with `GITHUB_TOKEN`). Verify the deploy + footer.
 
-## Reusable lessons carried in (from the 2026-06-19 session)
+## Reusable lessons carried in (2026-06-19 session)
 
-- **Batch agentic fan-outs into serial groups of ~4-5**; a >20-way Opus fan-out trips a server-side burst throttle ("not your usage limit"). `resumeFromRunId` recovers stragglers from cache.
-- **Workflow output is wrapped** (`{summary, logs, result}`) in the task `.output` file; the notification truncates - read the file and parse `.result`.
-- **codex:codex-rescue results are often not retrievable** (encrypted rollout / sandbox); have codex write findings to a repo file AND confirm it exists, or do the review inline. Never claim a review that produced no retrievable findings.
-- **A reviewer Workflow catches what structural checks miss** - it found fabricated arithmetic on a page that passed sections/dashes/links/build. Run an adversarial verify on the built artifacts (here: dishonest/overclaiming caveats).
-- **Prose-doc drift is not gated.** architecture.md had a stale gate-layer count (6, actually 8) and method count (105, actually 135) despite the count gate. Sweep the hand-authored docs by hand on a count change.
-- **gen-manifest is not per-PR**; it catches up the roster at the cut. **recommendable-drift is a separate CI job** (`gen-recommendable --check`). The native-manifest diff at the cut should be version + the new roster only.
-- **Showcase/sample link rules:** sibling showcase links use `../<slug>/` (a page is served at `/showcase/<slug>/`); samples link `../../frameworks/think-<slug>/` and `../../showcase/`.
-- **IP lint:** branded -> attribution + trademark required; descriptive naming.
+- Batch agentic fan-outs into serial groups of ~4-5 (a >20-way Opus fan-out trips a server-side burst throttle); `resumeFromRunId` recovers stragglers; Workflow output is under `.result` in the task `.output` file (notification truncates).
+- **codex:codex-rescue results are often not retrievable** - have codex write findings to a repo file AND confirm it; else review inline. Never claim a review that produced no findings. (This very plan was fixed by a codex review that DID land a file - it is worth the attempt.)
+- A per-page/per-skill reviewer Workflow catches dishonest/overclaiming content that structural checks + spot-reads miss.
+- Prose-doc drift is not gated (architecture.md had a stale 6-layer / 105-method count); sweep hand-authored docs by hand on a count change.
+- `gen-manifest` is not per-PR (catches up at the cut); `recommendable-drift` is a separate CI job; the native-manifest diff at the cut is version + roster only.
+- The generators read `library.json`, not `skills/` or the registry alone; `gen-catalog` throws on a library/registry shipped-count mismatch; it validates URLs against `route-manifest.txt`. Register + route-manifest BEFORE regenerating.
+- Samples live at `site/src/content/docs/samples/<slug>.md`; the coverage ratchet scans `showcase/` + `samples/`; `--update` grandfathers (avoid for new skills).
+- IP lint enforces branded -> attribution + trademark in the REGISTRY only; skill/artifact-level IP and descriptive naming need the new `check-contested` validator.
 
 ## Continuation prompt (paste into the new session)
 
 ```
-Build plan_v0.11.0: ship the distinct-but-weak rejected frameworks as honest, low-tier, CAVEAT-FIRST skills (the "contested lenses"). Repo: E:/Projects/product-on-purpose/thinking-framework-skills. Read FIRST: docs/internal/specs/2026-06-19-contested-lenses.md (the contract) and docs/internal/release-plans/plan_v0.11.0/README.md (this plan). This is an agentic build via dynamic Workflows with codex:codex-rescue adversarial reviews at the brand-critical gates.
+Build plan_v0.11.0: ship the rejected frameworks that are genuinely AGENT-RUNNABLE BUT WEAK (SWOT and a few peers) as honest, low-tier, CAVEAT-FIRST skills, and handle the famous-but-unrunnable instruments (MBTI etc.) with a single cautionary redirect. Repo: E:/Projects/product-on-purpose/thinking-framework-skills. Read FIRST: docs/internal/specs/2026-06-19-contested-lenses.md (the contract, revised after a codex review) and docs/internal/release-plans/plan_v0.11.0/README.md (this plan). The codex findings are in _agent-context/v0.11.0-spec-codex-review.md.
 
-Hard rules: caveat-first is the whole feature (deficiency leads the SKILL.md AND the artifact; reuse each framework's existing why-not dossier as the caveat source). The honest low tier never changes. No em-dashes. Distinct-only (anything that overlaps a shipped skill stays documented-only - it would degrade routing).
+CRITICAL corrections from the review (do not regress): the buildable set is SMALL (~5-12, not ~18-22) - a framework ships only if it passes a THREE-TEST gate: distinct (registry's own verdict) AND agent-runnable (procedure + reusable artifact + a caveated mode that does not reproduce the falsified claim) AND in-charter (not pm-domain, not human-only facilitation, not agent-architecture). MBTI/DISC/Enneagram/learning-styles/cliftonstrengths/belbin FAIL (instrument/overlap) -> cautionary applicator, not skills. Porters/JTBD/blue-ocean/ICE-RICE-WSJF FAIL (pm-domain). dot-voting/note-and-vote/scaled-participation FAIL (human-only). ooda FAILS (agent-architecture). SWOT is the exemplar.
 
-Order (de-risk before scaling): Phase 0 finalize membership (per-framework distinctness call + a light codex challenge) -> Phase 1 infra + ONE hand-authored exemplar (think-swot) + codex review of it BEFORE any batch (this is the template the batch copies) -> Phase 2 batched authoring Workflow (serial groups of ~4-5, one general-purpose subagent per lens, primed with the exemplar + the dossier + the caveat-first rules; registry changes applied centrally) -> Phase 3 integrate + regen all generators + sweep the count surfaces (incl. the un-gated prose docs) + example coverage + gate 0/0 -> Phase 4 run both evals (the output eval ENFORCES the caveat; trigger must hold 0 false-fires) -> Phase 5 codex evidence-honesty + distinctness + IP review of the batch (write findings to a file + confirm, or inline) -> Phase 6 cut v0.11.0 per release-process.md (CHANGELOG/version/manifests/RELEASE-NOTES/README/reconcile), codex-review the cut, then the gated tag + push + GitHub release + agent-plugins marketplace re-pin (worktree off origin/main).
+Caveat-first must be a CHECKED contract: build scripts/check-contested.mjs (new 9th gate layer) before any batch. The advisor must NOT auto-recommend weak lenses: make gen-recommendable + check-registry policy-aware (recommendation_policy: explicit_request_only). Branded survivors get DESCRIPTIVE names (no think-mbti) + artifact-level attribution. Register every new skill in library.json AND update scripts/route-manifest.txt BEFORE regenerating (gen-catalog throws otherwise). Samples go to site/src/content/docs/samples/<slug>.md; do not --update the coverage baseline. Eval thresholds: 0 false-fires hard-block, no contested lens routes a generic prompt away from a shipped skill, every caveat output-check passes; report core-56 and contested as SEPARATE cohorts (do not headline a merged 74).
 
-Do NOT start building skills until Phase 0 membership is final and Phase 1's exemplar passes codex review. Gate mechanics: node scripts/check.mjs (8 layers) + gen-recommendable.mjs --check (separate) + npm test + site build + rendered-links (STRICT_ANCHORS=1) + route-parity. Throttle: batch ~4-5; resumeFromRunId recovers stragglers; Workflow output is under .result in the task .output file.
+Order: Phase 0 finalize membership + the contract decisions (codex challenge) -> Phase 1 build the validator + advisor policy + ONE codex-reviewed exemplar (SWOT) + the cautionary applicator, BEFORE any batch -> Phase 2 batched authoring Workflow (serial groups ~4-5) -> Phase 3 register in library.json + route-manifest + regen all + sweep un-gated prose counts + caveat-first samples + gate 0/0 (9 layers) -> Phase 4 evals with the thresholds above -> Phase 5 codex evidence-honesty/IP/distinctness review (write-to-file or inline) -> Phase 6 cut v0.11.0 (cohort framing) + codex-review the cut + gated tag/push/release + agent-plugins re-pin (worktree off origin/main). Do NOT build until Phase 0 is final and Phase 1's exemplar + validator pass codex review.
 ```
