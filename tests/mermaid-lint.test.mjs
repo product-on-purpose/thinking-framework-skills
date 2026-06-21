@@ -36,3 +36,13 @@ test('unclosed fence is flagged', () => {
 test('non-mermaid fenced code is ignored', () => {
   assert.deepEqual(lintMermaidBlocks('```js\nconst x = 1;\n```'), []);
 });
+test('block-beta still recognized with [ in first-token split', () => {
+  assert.deepEqual(lintMermaidBlocks('```mermaid\nblock-beta\n  A B\n```'), []);
+});
+test('graph LR still recognized with [ in first-token split', () => {
+  assert.deepEqual(lintMermaidBlocks('```mermaid\ngraph LR\n  A-->B\n```'), []);
+});
+test('type extraction not broken when content line contains [', () => {
+  // flowchart with a node like A[label] - the type token is still "flowchart"
+  assert.deepEqual(lintMermaidBlocks('```mermaid\nflowchart TD\n  A[label] --> B\n```'), []);
+});

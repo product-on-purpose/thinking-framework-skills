@@ -39,7 +39,7 @@ export function lintMermaidBlocks(text) {
     if (firstContent === undefined) {
       findings.push({ line: fenceLine, message: 'empty mermaid block (no diagram content)' });
     } else {
-      const token = firstContent.trim().split(/[\s({:;]/)[0];
+      const token = firstContent.trim().split(/[\s({:;[]/)[0];
       if (!DIAGRAM_TYPES.has(token)) {
         findings.push({ line: fenceLine, message: `unrecognized mermaid diagram type "${token}"` });
       }
