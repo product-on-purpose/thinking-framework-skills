@@ -1,6 +1,6 @@
 ---
 title: Does this actually work?
-description: We measured it. The catalog routes the right framework for a situation (99% top-1, zero false-fires across 673 cases) and the skills produce artifacts that meet their own bar (99% of 389 checks). Here are the numbers, and what they do and do not prove.
+description: We measured it. The 56 evidence-graded core skills route the right framework for a situation (99% top-1, zero false-fires across 673 cases) and produce artifacts that meet their own bar (99% of 389 checks). The 7 contested lenses were evaluated separately. Here are the numbers, and what they do and do not prove.
 ---
 
 import { Card, CardGrid, Aside, Badge } from '@astrojs/starlight/components';
@@ -22,9 +22,9 @@ These are thinking *aids*, not magic. The evidence that any given method improve
   </Card>
 </CardGrid>
 
-## Trigger eval: the catalog routes cleanly
+## Trigger eval: the core skills route cleanly
 
-Every trigger and anti-case from the shipped skills' own `eval/cases.md` was pooled into a blind answer key. Blind router agents - which never see which skill authored a case or the expected answer - routed each situation against the public advisor catalog, exactly as the live advisor does. A deterministic scorer graded routed-versus-expected.
+Every trigger and anti-case from the **56 evidence-graded core skills'** own `eval/cases.md` was pooled into a blind answer key. Blind router agents - which never see which skill authored a case or the expected answer - routed each situation against the public advisor catalog, exactly as the live advisor does. A deterministic scorer graded routed-versus-expected.
 
 <CardGrid>
   <Card title="0 false-fires" icon="approve-check">
@@ -35,27 +35,42 @@ Every trigger and anti-case from the shipped skills' own `eval/cases.md` was poo
   </Card>
 </CardGrid>
 
-The headline: **673 cases, zero false-fires, 99% top-1 routing.** The catalog discriminates - the descriptions and anti-triggers send a situation to the right framework.
+The headline: **673 cases, zero false-fires, 99% top-1 routing** across the 56 core skills. The catalog discriminates - the descriptions and anti-triggers send a situation to the right framework.
 
 ## Output eval: the artifacts hit their own bar
 
-A separate measurement. For each skill, a producer agent runs it on a real prompt and emits the full artifact; a *separate* judge agent grades that artifact against the skill's own "output checks," check by check, so nothing grades itself.
+A separate measurement. For each of the **56 core skills**, a producer agent runs it on a real prompt and emits the full artifact; a *separate* judge agent grades that artifact against the skill's own "output checks," check by check, so nothing grades itself.
 
 <CardGrid>
   <Card title="99% of checks passed" icon="approve-check">
-    **386 of 389** individual output checks passed across freshly produced artifacts. **53 of 56** skills satisfied every single check.
+    **386 of 389** individual output checks passed across freshly produced artifacts. **53 of 56** core skills satisfied every single check.
   </Card>
   <Card title="The misses were specific" icon="information">
     The three misses were specific: two skills dropped the evidence caveat when run cold, and one filled unknown payoff cells with illustrative numbers instead of flagging them. Precise, fixable gaps, not a vague score - and all three were then tightened by construction (the caveat and a payoff-provenance line now ship from the template), verified by a targeted re-run. The eval is non-deterministic, so the exact skills vary run to run, but the pattern - the evidence caveat is the single easiest element to drop - is stable.
   </Card>
 </CardGrid>
 
+## Contested-lens cohort (added v0.11.0)
+
+The catalog is **63 skills total: 56 evidence-graded core skills + 7 contested lenses**. The contested lenses are famous frameworks with weak or mixed empirical evidence (SWOT, BCG Matrix, and similar). They were added in v0.11.0 and evaluated as a separate cohort on 2026-06-19; the scorecards live in [`docs/internal/eval-results/`](https://github.com/product-on-purpose/thinking-framework-skills/tree/main/docs/internal/eval-results) (`2026-06-19-contested-trigger-eval.*` and `2026-06-19-contested-output-eval.*`).
+
+<CardGrid>
+  <Card title="Trigger: 100%, 0 false-fires" icon="approve-check">
+    No contested lens grabbed a generic prompt. Every generic situation failed to trigger a contested lens - exactly how explicit-request-only is meant to behave, it routed elsewhere. A contested lens fires only when the user names it directly.
+  </Card>
+  <Card title="Output: 100%, 40/40 checks" icon="approve-check">
+    All 40 caveat + artifact checks passed across the 7 contested lenses. Each skill leads with the caveat-first contract before running the framework, and the artifact structure meets its own quality bar.
+  </Card>
+</CardGrid>
+
+The public headline stays the **core-56 numbers** (the evidence-graded baseline). The contested cohort is reported separately because the two sets answer different questions: the core-56 numbers reflect what the catalog does by default; the contested-cohort numbers confirm that the explicit-request-only gate works and the caveats hold.
+
 ## What this does **not** prove
 
 <Aside type="note" title="The limits, stated plainly">
 - The evals measure **routing** and **artifact quality**, not real-world **decision outcomes**. A premortem that surfaces five sharp risks is a good artifact; whether it made your launch succeed is a different, harder question the dossiers are honest about.
 - They are **model-executed and non-deterministic** - a snapshot, not a fixed property. One skill failed a check in a pilot and passed it in the full run. They are a measurement, not a gate.
-- The full runs above were measured **2026-06-17 across all 56 shipped skills** (673 routing cases, 389 output checks). Re-running after each catalog change keeps these numbers live rather than frozen; the previous run was 2026-06-10 across the 47 skills shipped then.
+- The core-56 full run was measured **2026-06-17** (673 routing cases, 389 output checks). The 7 contested lenses were measured separately on **2026-06-19** (82 routing cases, 40 output checks). Re-running after each catalog change keeps these numbers live rather than frozen; the previous core run was 2026-06-10 across the 47 skills shipped then.
 </Aside>
 
 ## Check it yourself
@@ -65,7 +80,7 @@ A separate measurement. For each skill, a producer agent runs it on a real promp
     How the blind routers, answer keys, and scorers work is documented in the harness ([`scripts/eval/`](https://github.com/product-on-purpose/thinking-framework-skills/tree/main/scripts/eval)). It runs without an API key and is reproducible.
   </Card>
   <Card title="The raw results" icon="document">
-    The full per-skill scorecards and machine records live in the repo ([`docs/internal/eval-results/`](https://github.com/product-on-purpose/thinking-framework-skills/tree/main/docs/internal/eval-results)) - every number above traces to a `.json` you can audit.
+    The full per-skill scorecards and machine records live in the repo ([`docs/internal/eval-results/`](https://github.com/product-on-purpose/thinking-framework-skills/tree/main/docs/internal/eval-results)) - every number above traces to a scorecard file you can audit.
   </Card>
   <Card title="The evidence behind each method" icon="approve-check">
     Separately from behavior, every framework carries a graded dossier. Trace any claim to its source in [the bibliography](../../evidence/bibliography/).

@@ -29,7 +29,11 @@ Because a method run in the wrong situation misleads, and naming where it breaks
 
 ## Why is there no Six Thinking Hats / SWOT / [popular method]?
 
-A library that grades honestly has to say no: a method earns its place by adding a distinct, durable cognitive move, or it stays out. Some popular names are rituals on top of a move we already ship, and some (like SWOT) sit on weak or contradictory evidence. See [Why not Six Thinking Hats, SWOT, ...](../why-not/) for the per-method reasons.
+A library that grades honestly has to say no: a method earns its place by adding a distinct, durable cognitive move, or it stays out. Some popular names are rituals on top of a move we already ship. Others, like SWOT and Five Whys, do ship - but as contested lenses (explicit-request-only, caveat-first, graded low) rather than as default recommendations, because the evidence is weak. Methods like Six Thinking Hats are documented but not shipped in any form, because the durable move is already covered by a shipped skill. See [Why not Six Thinking Hats, SWOT, ...](../why-not/) for the per-method reasons.
+
+## Why do you now ship SWOT / Five Whys if the evidence is weak?
+
+They ship as **contested lenses**, a separate cohort with a different contract. A contested lens is explicit-request-only: the [Framework Advisor](../../tools/think-framework-advisor/) never reaches for one on a generic prompt, and it never appears as a default recommendation. The evidence grade is honest and low, and the skill is written **caveat-first**: the deficiency leads every surface the skill touches, including the output artifact, so you cannot miss the limitation. The headline of this library is still the 56 evidence-graded core skills; the 7 contested lenses are there for teams who explicitly need to engage with those frameworks, with an honest account of the evidence attached. See [Why not ...](../why-not/) for the per-method reasoning behind each one.
 
 ## How do recipes work? How do I compose skills?
 

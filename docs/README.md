@@ -9,7 +9,7 @@ It is not the learning experience. The rendered guide for end users (quick-facts
 - [getting-started.md](./getting-started.md) - install the plugin, run your first framework, and the cross-agent / clone paths.
 - [architecture.md](./architecture.md) - how a skill is laid out, how `library.json` and the `_workflows` recipes feed `scripts/gen-site.mjs`, and why the skills (not the site) are canonical.
 - [contributing.md](./contributing.md) - how to propose or change a skill, plus the evals and checks a change has to pass.
-- [concepts.md](./concepts.md) - the vocabulary: cognitive-operation families, recipes, IDs (`thinking-framework-skills.<method>`), and the evidence tiers (S/M/P/V/A/C/X).
+- [concepts.md](./concepts.md) - the vocabulary: cognitive-operation families, recipes, IDs (`thinking-framework-skills.<method>`), the evidence tiers (S/M/P/V/A/C/X) including compound grades, plus the tool/meta-skill and contested-lens definitions.
 - [conformance.md](./conformance.md) - what advanced (Gold) tier means, the G1-G7 checks, and how this plugin meets (or vacuously passes) each.
 - [internal/](./internal/) - **internal** specs, plans, research, the [authoring loop](./internal/AUTHORING.md), and the [release process](./internal/release-process.md). Working notes, not polished docs; expect churn.
 

@@ -3,7 +3,7 @@
 // gen-registry.mjs - generate the drift-checked views of frameworks/registry.mjs.
 //
 // One source (frameworks/registry.mjs), two generated views:
-//   1. docs/internal/research/framework-catalog.md  - the 11 family tables, spliced
+//   1. docs/internal/research/framework-catalog.md  - the 13 family tables, spliced
 //      between BEGIN/END markers (the hand-authored preamble + postamble are kept).
 //   2. site/src/content/docs/about/why-not.md        - the public "what we leave out"
 //      index, spliced below a marker (SP9). Only the deliberately-not-shipped set
@@ -106,6 +106,13 @@ function whyNotEntryLine(e) {
 
 function renderWhyNotRegion() {
   const L = [];
+  // Count shipped contested lenses (status shipped + caveatFirst) so readers understand
+  // why some famous methods (SWOT, Five Whys, ...) are absent from the lists below.
+  const contestedCount = registry.frameworks.filter((e) => e.status === 'shipped' && e.caveatFirst).length;
+  if (contestedCount > 0) {
+    L.push(`> **Note:** ${contestedCount} famous-but-weak methods (including SWOT and Five Whys) now ship as contested lenses - caveat-first, explicit-request-only skills. They are not in the lists below; see the [frameworks catalog](../../frameworks/) for their pages.`);
+    L.push('');
+  }
   for (const g of WHYNOT_GROUPS) {
     const rows = registry.frameworks.filter((e) => e.status === g.status);
     if (!rows.length) continue;

@@ -9,7 +9,9 @@ Each skill is built around four commitments, not just a prompt:
 1. **Mechanism over ritual.** The skill implements the durable cognitive move, named descriptively, not a trademarked brand.
 2. **Honest evidence grading.** Every skill carries an evidence tier and an `evidence/dossier.md` that says what the research does and does not support, and flags where evidence is transferred from human studies rather than validated for AI use.
 3. **Artifact, not prose.** Every skill emits a concrete, reusable artifact (a risk register, an option matrix, a perspective review).
-4. **Explicit "when not to use."** Each skill states where it misleads, to guard against cargo-cult execution.
+4. **Explicit "When NOT to Use."** Each skill states where it misleads, to guard against cargo-cult execution.
+
+The canonical statement of all four commitments is in [Philosophy](https://thinking-framework-skills.productonpurpose.com/about/philosophy/) on the docs site.
 
 ## Skills
 
@@ -86,7 +88,7 @@ Each skill is built around four commitments, not just a prompt:
 
 ## Recipes
 
-Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **advanced (Gold)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`).
+Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **advanced (Gold)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`). For machine consumption, the generated agent-discovery surfaces live at the site root: `llms.txt` (index), `llms-full.txt` (full inline catalog), `catalog.json` (invokable components), and `evaluated.json` (all 135 evaluated methods).
 
 <!-- BEGIN GENERATED RECIPES (scripts/gen-agents.mjs from _workflows/) - do not hand-edit below this line -->
 | Recipe | Chain |
@@ -119,5 +121,5 @@ skills/<name>/
 
 - Skill IDs are namespace-dot: `thinking-framework-skills.<method>`. Installable skill names carry the `think-` prefix (`think-<method>`), declared as `prefix` in `library.json`.
 - Skills target the open Agent Skills (`agentskills.io`) `SKILL.md` format, so they are portable across agents.
-- Plugin and skill standards align to `agent-skills-toolkit` (Bronze/Universal tier today).
+- Plugin and skill standards align to `agent-skills-toolkit` (advanced / Gold tier).
 - No em-dashes or en-dashes anywhere in this repo's prose.

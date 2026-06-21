@@ -1,11 +1,13 @@
 ---
 title: Why not Six Thinking Hats, SWOT, ...
-description: The popular methods this library deliberately leaves out, and the reason for each - mechanism over ritual, the overlap ceiling, branded-and-documented, and excluded X-tier evidence.
+description: The popular methods this library evaluated and did not ship as core skills - mechanism over ritual, the overlap ceiling, branded-and-documented, and excluded X-tier evidence. Some famous-but-weak methods (SWOT, Five Whys, and others) now ship as contested lenses and are not in these lists.
 ---
 
-A library that grades honestly has to be willing to say no. Most "thinking tools" collections grow by addition: every named method gets a card. This one keeps a selection bar, so a method earns its place or it does not ship. The list below is generated from the framework registry, so it can never drift from the verdicts: each method appears under the reason it is not a standalone skill here.
+A library that grades honestly has to be willing to say no. Most "thinking tools" collections grow by addition: every named method gets a card. This one keeps a selection bar, so a method earns its place or it does not ship. The lists below document methods evaluated and not shipped as core skills. Note that some famous-but-weak methods - including SWOT and Five Whys - now ship as contested lenses (explicit-request-only, caveat-first, graded low); those are marked in the generated note below and are not in the exclusion lists. The list below is generated from the framework registry, so it can never drift from the verdicts: each method appears under the reason it is not a core standalone skill here.
 
 <!-- BEGIN GENERATED (scripts/gen-registry.mjs from frameworks/registry.mjs) - do not hand-edit below this line -->
+
+> **Note:** 7 famous-but-weak methods (including SWOT and Five Whys) now ship as contested lenses - caveat-first, explicit-request-only skills. They are not in the lists below; see the [frameworks catalog](../../frameworks/) for their pages.
 
 ## Folded into a shipped skill
 

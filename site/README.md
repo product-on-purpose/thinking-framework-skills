@@ -27,7 +27,7 @@ npm run preview  # serve the built dist/
 
 ## What is hand-authored vs generated
 
-- **Hand-authored** (committed under `src/content/docs/`): the landing page (`index.mdx`) and the `start/` learning layer (getting-started, the evidence model, how-to-read-a-page).
+- **Hand-authored** (committed under `src/content/docs/`): the landing page (`index.mdx`), `start/` (getting-started, evidence model, how-to-read-a-page, does-this-work), `learn/` (build-with-the-library, composing, learning tracks), `about/` (FAQ, philosophy, contributing, why-not), `explore/` (the framework chooser), `samples/` (worked-example corpus), `showcase/` (real-world application stories), and `changelog/` (the human-readable release log).
 - **Generated** (gitignored; produced by `gen-site.mjs`): `frameworks/` (one layered page per skill), `families/` (one page per domain), `recipes/`, and `evidence/` (the aggregated bibliography). Do not hand-edit these; edit the skill and regenerate.
 
 ## Per-framework page layers (progressive disclosure)
@@ -40,4 +40,14 @@ GitHub Pages via `.github/workflows/deploy-pages.yml` (manual `workflow_dispatch
 
 ## Status
 
-Phases **S0 (scaffold)** and **S1 (generated framework/family/recipe pages + bibliography)** are in place. Remaining (per the plan): **S2** the rest of the learning layer (domain intros, FAQ, philosophy, learning tracks), **S3** the multi-lens exploration (by job / by tier / the chooser) and mermaid visualizations, **S4** launch polish.
+The site ships as of v0.11.0. All planned content layers are live:
+
+- **S0 + S1 (scaffold + generated pages):** frameworks (63 skills, 7 contested lenses), families (13), recipes (9), bibliography - generated and drift-gated.
+- **Learning layer:** getting-started, evidence model, how-to-read-a-page, does-this-work, build-with-the-library, composing skills, learning tracks.
+- **About / philosophy:** FAQ, philosophy, contributing, why-not index.
+- **Explore:** framework chooser (by job, by tier, explore lenses).
+- **Samples + Showcase:** worked-example corpus (63 skill samples), real-world application stories.
+- **Changelog:** human-readable release log; the changelog pages are generated from the root `CHANGELOG.md` + `RELEASE-NOTES.md`.
+- **Machine-readable surfaces at the site root:** `llms.txt`, `llms-full.txt`, `catalog.json` (76 entries: 63 skills, 4 tools, 9 recipes), `evaluated.json` (135 evaluated methods) - all generated + drift-gated.
+
+Deploy is via GitHub Pages (`deploy-pages.yml`), triggered on push to `main`.
