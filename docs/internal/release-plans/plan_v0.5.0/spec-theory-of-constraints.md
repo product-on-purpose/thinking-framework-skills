@@ -1,7 +1,7 @@
 # Spec + plan: the `think-theory-of-constraints` skill (Build, tier P)
 
 > **STATUS: SPEC (build pending).** Part of the v0.5.0 catalog-expansion tranche. Source of truth for
-> the research is [`frameworks/_proposed/theory-of-constraints/dossier.md`](../../../../frameworks/_proposed/theory-of-constraints/dossier.md);
+> the research is [`skills/think-theory-of-constraints/SKILL.md`](../../../../skills/think-theory-of-constraints/SKILL.md) (skill shipped; the proposed dossier was merged into the skill);
 > this spec turns that BUILD / tier-P verdict into a shippable skill. Build template mirrored:
 > `skills/think-stocks-and-flows-reasoning/` (the nearest family sibling, six-file shape) - and the
 > Fishbone registry entry as the model for a freshly-admitted, dossier-promoted entry. Do NOT edit

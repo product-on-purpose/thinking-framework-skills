@@ -52,7 +52,7 @@ jobs:
 
       # Link/route integrity guards (clause 14.11) on the DEPLOY build, so the artifact that ships
       # is guarded, not only the PR build. Gated on the build step's outcome; a guard failure stops
-      # the upload and deploy. Same two guards as the PR `site-build` job in ci.yml.
+      # the upload and deploy. Same three guards as the PR `site-build` job in ci.yml.
       - name: Check rendered links in dist (clause 14.11a)
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: node ../scripts/check-rendered-links.mjs dist
@@ -62,6 +62,10 @@ jobs:
       - name: Check route parity against the committed manifest (clause 14.11b)
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: node ../scripts/check-route-parity.mjs dist
+
+      - name: Check mermaid diagrams in generated site content
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: node ../scripts/check-mermaid.mjs src/content/docs
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5

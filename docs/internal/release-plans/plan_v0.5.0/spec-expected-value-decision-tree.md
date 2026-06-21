@@ -2,7 +2,7 @@
 
 > **STATUS: SPEC (build pending).** Research verdict: **BUILD at governing tier P** (a deliberate
 > downgrade from the catalog's M prior). Source of truth for the research is
-> [`frameworks/_proposed/expected-value-decision-tree/dossier.md`](../../../../frameworks/_proposed/expected-value-decision-tree/dossier.md).
+> [`skills/think-expected-value-decision-tree/SKILL.md`](../../../../skills/think-expected-value-decision-tree/SKILL.md) (skill shipped; the proposed dossier was merged into the skill).
 > File shapes mirror the shipped nearest-neighbor skill `skills/think-decision-option-review/` (same
 > family, same author template). This document has two parts: **Part A - Spec** (the contract: the move,
 > the artifact, the rubric-compliant description, the procedure, the when-NOT walls, the distinctness

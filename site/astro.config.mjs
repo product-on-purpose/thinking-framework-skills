@@ -5,6 +5,7 @@ import mermaid from 'astro-mermaid';
 // consumed here and by scripts/check-rendered-links.mjs so the build and the link guard
 // can never disagree (a wrong base passes the check while the live site 404s).
 import { BASE } from '../scripts/site-base.mjs';
+import { REDIRECTS } from '../scripts/site-redirects.mjs';
 
 // Stack mirrors the proven pm-skills site (Astro + Starlight + astro-mermaid,
 // deployed to GitHub Pages). The site is a GENERATED VIEW of the skills library:
@@ -47,13 +48,8 @@ export default defineConfig({
   // emits the DESTINATION verbatim. With BASE empty (root), `${BASE}/tools/...` is already the
   // correct root-absolute destination. BASE is the single source (scripts/site-base.mjs), so the
   // redirect cannot drift from the real base.
-  redirects: {
-    '/frameworks/think-framework-advisor/': `${BASE}/tools/think-framework-advisor/`,
-    // Cynefin ships as a contested lens under its descriptive name (think-complexity-domain-sort,
-    // keeping the trademark out of the invocation per IP-01). Its Framework Library dossier moved
-    // from /library/cynefin/ to /library/complexity-domain-sort/; this keeps the old URL alive.
-    '/library/cynefin/': `${BASE}/library/complexity-domain-sort/`,
-  },
+  // Single source: scripts/site-redirects.mjs (mirrors how scripts/site-base.mjs owns BASE).
+  redirects: REDIRECTS,
   integrations: [
     // astro-mermaid MUST come before starlight (integration-order rule).
     // Client-side render; only loads the mermaid bundle on pages with diagrams.

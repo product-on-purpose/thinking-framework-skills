@@ -1,7 +1,7 @@
 # Spec + plan: the `think-scenario-planning` skill (Scenario planning, 2x2)
 
 > **STATUS: SPEC (build pending).** Part of the v0.5.0 catalog tranche. The research verdict is
-> **Build at tier P**, from [`frameworks/_proposed/scenario-planning/dossier.md`](../../../../frameworks/_proposed/scenario-planning/dossier.md)
+> **Build at tier P**, from [`skills/think-scenario-planning/SKILL.md`](../../../../skills/think-scenario-planning/SKILL.md) (skill shipped; the proposed dossier was merged into the skill)
 > (the research, and the source of truth for this spec). This document has two parts: **Part A** is
 > the build spec (the durable move, the SKILL.md description, the procedure, the when-NOT-to-use wall,
 > the distinctness statement, the evidence grade, and acceptance criteria); **Part B** is the
