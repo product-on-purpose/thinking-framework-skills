@@ -23,7 +23,7 @@ Every skill carries an `evidence-tier` and an `evidence/dossier.md` that is the 
 
 Grade honestly against the seven-tier model: **S** strong research, **M** moderate, **P** practitioner, **V** vendor/commercial, **A** anecdotal, **C** conceptually plausible but under-tested, **X** poor or contradictory (excluded). A truthful "P, useful anyway, and here is when not to use it" is more valuable than an inflated "S." Methods that grade X do not ship; they are documented as deliberate exclusions instead.
 
-**Contested lenses.** A low-tier famous-but-weak method may ship only as a **contested lens** under the caveat-first contract (`check-contested.mjs`): the deficiency must lead every surface the skill touches (it is not a footnote); the skill is explicit-request-only and never reached for by the advisor on a generic prompt; branded lenses carry attribution to the originating work. The 9-layer gate enforces this contract at CI time. A method that cannot meet the caveat-first contract does not ship here in any form.
+**Contested lenses.** A low-tier famous-but-weak method may ship only as a **contested lens** under the caveat-first contract (`check-contested.mjs`): the deficiency must lead every surface the skill touches (it is not a footnote); the skill is explicit-request-only and never reached for by the advisor on a generic prompt; branded lenses carry attribution to the originating work. The 13-layer gate enforces this contract at CI time. A method that cannot meet the caveat-first contract does not ship here in any form.
 
 ## How to propose and add one
 

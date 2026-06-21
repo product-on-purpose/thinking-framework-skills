@@ -47,7 +47,7 @@ The site ships as of v0.11.0. All planned content layers are live:
 - **About / philosophy:** FAQ, philosophy, contributing, why-not index.
 - **Explore:** framework chooser (by job, by tier, explore lenses).
 - **Samples + Showcase:** worked-example corpus (63 skill samples), real-world application stories.
-- **Changelog:** human-readable release log auto-generated from the registry.
-- **Machine-readable surfaces at the site root:** `llms.txt`, `llms-full.txt`, `catalog.json` (63 invokable entries), `evaluated.json` (135 evaluated methods) - all generated + drift-gated.
+- **Changelog:** human-readable release log; the changelog pages are generated from the root `CHANGELOG.md` + `RELEASE-NOTES.md`.
+- **Machine-readable surfaces at the site root:** `llms.txt`, `llms-full.txt`, `catalog.json` (76 entries: 63 skills, 4 tools, 9 recipes), `evaluated.json` (135 evaluated methods) - all generated + drift-gated.
 
 Deploy is via GitHub Pages (`deploy-pages.yml`), triggered on push to `main`.

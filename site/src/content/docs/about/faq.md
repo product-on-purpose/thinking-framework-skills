@@ -29,7 +29,7 @@ Because a method run in the wrong situation misleads, and naming where it breaks
 
 ## Why is there no Six Thinking Hats / SWOT / [popular method]?
 
-A library that grades honestly has to say no: a method earns its place by adding a distinct, durable cognitive move, or it stays out. Some popular names are rituals on top of a move we already ship, and some (like SWOT) sit on weak or contradictory evidence. See [Why not Six Thinking Hats, SWOT, ...](../why-not/) for the per-method reasons.
+A library that grades honestly has to say no: a method earns its place by adding a distinct, durable cognitive move, or it stays out. Some popular names are rituals on top of a move we already ship. Others, like SWOT and Five Whys, do ship - but as contested lenses (explicit-request-only, caveat-first, graded low) rather than as default recommendations, because the evidence is weak. Methods like Six Thinking Hats are documented but not shipped in any form, because the durable move is already covered by a shipped skill. See [Why not Six Thinking Hats, SWOT, ...](../why-not/) for the per-method reasons.
 
 ## Why do you now ship SWOT / Five Whys if the evidence is weak?
 

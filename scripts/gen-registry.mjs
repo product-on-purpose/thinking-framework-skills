@@ -3,7 +3,7 @@
 // gen-registry.mjs - generate the drift-checked views of frameworks/registry.mjs.
 //
 // One source (frameworks/registry.mjs), two generated views:
-//   1. docs/internal/research/framework-catalog.md  - the 11 family tables, spliced
+//   1. docs/internal/research/framework-catalog.md  - the 13 family tables, spliced
 //      between BEGIN/END markers (the hand-authored preamble + postamble are kept).
 //   2. site/src/content/docs/about/why-not.md        - the public "what we leave out"
 //      index, spliced below a marker (SP9). Only the deliberately-not-shipped set
