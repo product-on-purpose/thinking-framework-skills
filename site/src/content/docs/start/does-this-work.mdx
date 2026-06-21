@@ -56,7 +56,7 @@ The catalog is **63 skills total: 56 evidence-graded core skills + 7 contested l
 
 <CardGrid>
   <Card title="Trigger: 100%, 0 false-fires" icon="approve-check">
-    No contested lens grabbed a generic prompt. Every generic situation routed to the stronger core skill instead - exactly how explicit-request-only is meant to behave. A contested lens fires only when the user names it directly.
+    No contested lens grabbed a generic prompt. Every generic situation failed to trigger a contested lens - exactly how explicit-request-only is meant to behave, it routed elsewhere. A contested lens fires only when the user names it directly.
   </Card>
   <Card title="Output: 100%, 40/40 checks" icon="approve-check">
     All 40 caveat + artifact checks passed across the 7 contested lenses. Each skill leads with the caveat-first contract before running the framework, and the artifact structure meets its own quality bar.
@@ -70,7 +70,7 @@ The public headline stays the **core-56 numbers** (the evidence-graded baseline)
 <Aside type="note" title="The limits, stated plainly">
 - The evals measure **routing** and **artifact quality**, not real-world **decision outcomes**. A premortem that surfaces five sharp risks is a good artifact; whether it made your launch succeed is a different, harder question the dossiers are honest about.
 - They are **model-executed and non-deterministic** - a snapshot, not a fixed property. One skill failed a check in a pilot and passed it in the full run. They are a measurement, not a gate.
-- The core-56 full run was measured **2026-06-17** (673 routing cases, 389 output checks). The 7 contested lenses were measured separately on **2026-06-19** (40 output checks). Re-running after each catalog change keeps these numbers live rather than frozen; the previous core run was 2026-06-10 across the 47 skills shipped then.
+- The core-56 full run was measured **2026-06-17** (673 routing cases, 389 output checks). The 7 contested lenses were measured separately on **2026-06-19** (82 routing cases, 40 output checks). Re-running after each catalog change keeps these numbers live rather than frozen; the previous core run was 2026-06-10 across the 47 skills shipped then.
 </Aside>
 
 ## Check it yourself
