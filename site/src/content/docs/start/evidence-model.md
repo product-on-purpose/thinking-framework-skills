@@ -19,6 +19,10 @@ The promise of this library is **honest grading**. The field of "thinking tools"
 
 A "P, useful anyway, here is when not to use it" is more trustworthy than a dressed-up "S". A practitioner-tier framework is still worth running; it is just labeled honestly.
 
+## Compound grades
+
+Some methods span two adjacent tiers and carry a compound grade such as `M/P` or `S/M`. The format is **governing tier / secondary tier**: the first letter is the ceiling the strongest evidence reaches; the second letter is the tier most of the evidence sits at. When you see a compound grade, read the dossier to understand which part of the mechanism the stronger evidence covers and where the weaker support kicks in.
+
 ## What the grade does and does not promise
 
 - The tier reflects the evidence for the framework's **mechanism**, and the page's dossier says explicitly what the research shows and what it does **not**. For example, the premortem reliably surfaces more and more-specific risks (well supported), but is **not** proven to improve final outcomes (a common overclaim).
