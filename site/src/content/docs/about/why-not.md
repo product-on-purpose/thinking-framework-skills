@@ -7,6 +7,8 @@ A library that grades honestly has to be willing to say no. Most "thinking tools
 
 <!-- BEGIN GENERATED (scripts/gen-registry.mjs from frameworks/registry.mjs) - do not hand-edit below this line -->
 
+> **Note:** 7 famous-but-weak methods (including SWOT and Five Whys) now ship as contested lenses - caveat-first, explicit-request-only skills. They are not in the lists below; see the [frameworks catalog](../../frameworks/) for their pages.
+
 ## Folded into a shipped skill
 
 The durable cognitive move already ships inside another skill, named descriptively. A second card would add a name, not a capability, so we ship the move and fold the ritual in.

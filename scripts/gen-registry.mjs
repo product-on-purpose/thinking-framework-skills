@@ -106,6 +106,13 @@ function whyNotEntryLine(e) {
 
 function renderWhyNotRegion() {
   const L = [];
+  // Count shipped contested lenses (status shipped + caveatFirst) so readers understand
+  // why some famous methods (SWOT, Five Whys, ...) are absent from the lists below.
+  const contestedCount = registry.frameworks.filter((e) => e.status === 'shipped' && e.caveatFirst).length;
+  if (contestedCount > 0) {
+    L.push(`> **Note:** ${contestedCount} famous-but-weak methods (including SWOT and Five Whys) now ship as contested lenses - caveat-first, explicit-request-only skills. They are not in the lists below; see the [frameworks catalog](../../frameworks/) for their pages.`);
+    L.push('');
+  }
   for (const g of WHYNOT_GROUPS) {
     const rows = registry.frameworks.filter((e) => e.status === g.status);
     if (!rows.length) continue;
