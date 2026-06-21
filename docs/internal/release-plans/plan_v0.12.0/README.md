@@ -13,9 +13,9 @@ De-risk by sequencing: each phase ships as its own PR, recorded in `CHANGELOG.md
 |---|---|---|---|---|
 | 1. Site changelog | `plans/2026-06-20-changelog-site.md` | #86 | **Merged** | "What's new" (with a release timeline) + the full changelog on the site, generated from the SSOT |
 | 2. CI guards + gate (9 -> 13) | `plans/2026-06-20-ci-guards-gate.md` | #87 | **Merged** | keeps the docs/site correct as the library grows: no broken diagrams, redirect-hop links, or stale version numbers |
-| 3. Docs audit-fixes | `plans/2026-06-20-docs-audit-fixes.md` | - | Pending | accurate, non-contradictory docs (trust page at 63, contested-lens FAQ, compound grades, builder surfaces) |
-| 4. Mermaid diagrams (9) | `plans/2026-06-20-mermaid-diagrams.md` | - | Pending | comprehension: the eval harness, recipe handoff, decision stack, gate, tier landscape made visual |
-| 5. v0.12.0 cut | `plans/2026-06-20-v0.12.0-release.md` | - | Pending | the whole effort published as one coherent versioned release |
+| 3. Docs audit-fixes | `plans/2026-06-20-docs-audit-fixes.md` | #88 | **Merged** | accurate, non-contradictory docs (trust page at 63, contested-lens FAQ, compound grades, builder surfaces) |
+| 4. Mermaid diagrams (8) | `plans/2026-06-20-mermaid-diagrams.md` | #89 | **Merged** | comprehension: the eval harness, recipe handoff, decision stack, gate, tier landscape made visual |
+| 5. v0.12.0 cut | `plans/2026-06-20-v0.12.0-release.md` | this commit | **Shipped** | the whole effort published as one coherent versioned release |
 
 Sequence: 1 -> 2 -> (3 || 4) -> 5. Plan 4's conformance-gate diagram cites Plan 2's settled 13-layer count, so 4 follows 2.
 
