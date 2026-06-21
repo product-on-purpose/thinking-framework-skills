@@ -14,3 +14,27 @@ test('flags a relative link to a missing file, ignores external + existing', () 
   rmSync(TMP, { recursive: true, force: true });
   assert.deepEqual(broken.map((x) => x.href), ['./missing.md']);
 });
+
+test('link inside a fenced code block is ignored', () => {
+  const body = '```\nsee [missing](./missing.md)\n```';
+  const broken = findBrokenRepoLinks(join(process.cwd(), 'from.md'), body, process.cwd());
+  assert.deepEqual(broken, []);
+});
+
+test('link inside a single-backtick inline code span is ignored', () => {
+  const body = 'text `[missing](./missing.md)` more text';
+  const broken = findBrokenRepoLinks(join(process.cwd(), 'from.md'), body, process.cwd());
+  assert.deepEqual(broken, []);
+});
+
+test('link inside a 4-backtick inline code span is ignored', () => {
+  const body = 'text ````[missing](./missing.md)```` more text';
+  const broken = findBrokenRepoLinks(join(process.cwd(), 'from.md'), body, process.cwd());
+  assert.deepEqual(broken, []);
+});
+
+test('image link is ignored (not checked as a file link)', () => {
+  const body = '![alt](./missing.md)';
+  const broken = findBrokenRepoLinks(join(process.cwd(), 'from.md'), body, process.cwd());
+  assert.deepEqual(broken, []);
+});

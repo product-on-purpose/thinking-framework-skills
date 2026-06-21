@@ -2,20 +2,16 @@
 // check-mermaid.mjs - validate every ```mermaid block in the given files/dirs.
 // Usage: node scripts/check-mermaid.mjs <path> [<path>...]   (dirs walked for .md/.mdx)
 // Exit 0 = all valid; 1 = one or more issues. Zero-dependency, UTF-8.
-import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, extname, resolve } from 'node:path';
+import { readFileSync, statSync } from 'node:fs';
+import { extname, resolve } from 'node:path';
 import { lintMermaidBlocks } from './lib/mermaid-lint.mjs';
+import { walk } from './lib/walk.mjs';
 
 function collect(paths, acc = []) {
   for (const p of paths) {
     let st; try { st = statSync(p); } catch { continue; }
     if (st.isDirectory()) {
-      for (const e of readdirSync(p, { withFileTypes: true })) {
-        if (e.name === 'node_modules' || e.name.startsWith('.')) continue;
-        const full = join(p, e.name);
-        if (e.isDirectory()) collect([full], acc);
-        else if (e.isFile() && ['.md', '.mdx'].includes(extname(e.name))) acc.push(full);
-      }
+      acc.push(...walk(p, { exts: ['.md', '.mdx'] }));
     } else if (st.isFile() && ['.md', '.mdx'].includes(extname(p))) {
       acc.push(p);
     }

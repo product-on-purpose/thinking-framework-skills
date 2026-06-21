@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+- **CI-guard hardening (post-v0.12.0 follow-up).** A shared `scripts/lib/walk.mjs` now backs the three source-scanning guards (DRY); the canonical-link guard additionally scans `.astro` components and `site/intros/` sources for absolute redirect-hops (closing the scope gap from v0.12.0); `mermaid-lint` and `check-repo-links` gained edge-case robustness (the diagram-type token split, an empty-slug guard, and 4+ backtick inline spans) with new tests. Closes #91, #92, #93, #94. Build phase; no version change.
+
 ## [0.12.0] - 2026-06-20
 
 **Docs platform: a changelog on the site, an audit acted on, comprehension diagrams, and a self-maintaining gate.** No new skills; the catalog stays 56 core + 7 contested. The site gains a generated changelog (a curated "What's new" with a release timeline, plus the full history), the documentation audit is acted on (the trust page now reflects the 63-skill catalog, the contested lenses are explained, compound grades are defined), eight mermaid diagrams clarify the dense pipelines, and four new CI guards take the conformance gate from 9 to 13 layers so the docs stay correct as the library grows.
