@@ -18,6 +18,16 @@ The flagship is [stress test decision](../../recipes/stress-test-decision/), whi
 3. Premortem yields the **top risks with tripwires and kill criteria**.
 4. Reference Class Forecasting yields the **outside-view estimate range**.
 
+Each handoff passes forward only the compressed artifact - named, so you know what crosses the boundary:
+
+```mermaid
+flowchart LR
+  A["decision-option-review"] -->|"recommended option"| B["what-would-have-to-be-true"]
+  B -->|"killer assumptions"| C["premortem"]
+  C -->|"risk register"| D["reference-class-forecasting"]
+  D -->|"base-rate range"| E["calibrated go / no-go"]
+```
+
 The output is a decision brief: the recommended option, the conditions it depends on, its top risks with pre-decided responses, and an honest base-rate estimate. The other recipes (reframe, expand options, audit reasoning) follow the same pattern with different moves. Browse them all at the [recipes index](../../recipes/).
 
 ## Composing your own
