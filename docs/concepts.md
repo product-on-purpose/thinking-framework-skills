@@ -4,7 +4,28 @@ Orientation for a reader of this repo. Four ideas hold the library together. Thi
 
 ## 1. Honest evidence grading
 
-The field of thinking tools is a small empirical core wrapped in a large practitioner ring and a weak outer ring. Most collections flatten that into uniform confidence. This one labels which is which, on every skill and every claim. Each skill carries one of seven tiers:
+The field of thinking tools is a small empirical core wrapped in a large practitioner ring and a weak outer ring. Most collections flatten that into uniform confidence. This one labels which is which, on every skill and every claim. The structure is a small core of rigorous evidence surrounded by larger rings of practitioner experience and conceptual work:
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1'}}}%%
+flowchart TB
+  subgraph core["Empirical core (small)"]
+    S["S - strong"]
+    M["M - moderate"]
+  end
+  subgraph ring["Practitioner ring (larger)"]
+    P["P - practitioner"]
+    V["V - vendor"]
+    Aa["A - anecdotal"]
+  end
+  subgraph outer["Conceptual / excluded (outer)"]
+    Cc["C - conceptual"]
+    X["X - excluded (ships only as a contested lens)"]
+  end
+  core --> ring --> outer
+```
+
+Each skill carries one of seven tiers:
 
 | Tier | Meaning |
 |---|---|
@@ -14,7 +35,7 @@ The field of thinking tools is a small empirical core wrapped in a large practit
 | V | Vendor / commercial - originates from a consultancy or branded methodology. |
 | A | Anecdotal - case reports and testimonials. |
 | C | Conceptually plausible, under-tested - reasonable, not yet demonstrated. |
-| X | Poor or contradictory - the evidence cuts against it (excluded, documented). |
+| X | Poor or contradictory - the evidence cuts against it (excluded, documented). An X-tier method may still ship caveat-first as a contested lens (explicit-request-only), which is the only exception to exclusion. |
 
 A "P, useful anyway, here is when not to use it" is more trustworthy than a dressed-up "S". The grade reflects the evidence for the framework's mechanism, and most of that evidence comes from human-subject studies rather than tests of an AI agent running the method, so pages flag transferred evidence where it applies. Honest grading is the product, not a footer disclaimer. Full version: [The evidence model](https://thinking-framework-skills.productonpurpose.com/start/evidence-model/).
 

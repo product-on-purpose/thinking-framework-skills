@@ -101,6 +101,26 @@ You get a ranked **risk register**: for each top risk, a leading signal, a mitig
 
 **Not sure which framework you need?** Start with the **[Framework Advisor](https://thinking-framework-skills.productonpurpose.com/tools/think-framework-advisor/)**: describe your situation in plain language and it returns a prioritized *Thinking Plan* of which skills to run, in order, and what to skip. It is the front door to everything else.
 
+How the Framework Advisor fits into your workflow:
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1'}}}%%
+flowchart LR
+  sit["Your situation<br/>(a prompt)"]:::in --> adv{"Framework Advisor<br/>(the front door)"}:::router
+  adv --> plan["Thinking Plan<br/>(prioritized, evidence-graded)"]:::plan
+  plan --> s1["run skill 1"]:::skill
+  plan --> s2["run skill 2"]:::skill
+  s1 --> art["Artifact(s):<br/>risk register, option matrix,<br/>argument map"]:::art
+  s2 --> art
+  sit -. "or apply directly" .-> top3["think-top3 /<br/>think-random-frameworks"]:::skill
+  top3 --> art
+  classDef in fill:#dcfce7,stroke:#86efac,color:#166534;
+  classDef router fill:#ddd6fe,stroke:#a78bfa,color:#4c1d95;
+  classDef plan fill:#fef9c3,stroke:#fde047,color:#854d0e;
+  classDef skill fill:#eef2ff,stroke:#c7d2fe,color:#3730a3;
+  classDef art fill:#e0f2fe,stroke:#7dd3fc,color:#075985;
+```
+
 > 📖 Full walkthrough: [`docs/getting-started.md`](docs/getting-started.md) · Explore the whole library: the [**live site**](https://thinking-framework-skills.productonpurpose.com/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

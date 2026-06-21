@@ -15,6 +15,18 @@ For anyone facing a consequential, hard-to-reverse choice who wants to commit on
 
 3. **[One-Way vs Two-Way Door](../../frameworks/think-one-way-vs-two-way-door/)** - Before you spend more deliberation, triage how reversible the recommended choice is. Test reversibility against named dimensions - money, time, trust, legal, foreclosed future options - and match the rigor and sign-off to the verdict. The artifact is a **reversibility classification plus a matched deliberation level**. A two-way door licenses you to decide fast and stop here. A one-way door earns the heavier rigor of the next two steps; it routes the choice forward rather than picking it.
 
+When only one option is live, the Decision Option Review step is skipped - go straight from what-would-have-to-be-true to the reversibility check.
+
+```mermaid
+flowchart TD
+  WWHTBT["what-would-have-to-be-true"] --> DOR["decision-option-review"]
+  DOR --> door{"one-way or two-way door?"}
+  door -->|"two-way (reversible)"| go["decide and move"]
+  door -->|"one-way (irreversible)"| PM["premortem"]
+  PM --> RCF["reference-class-forecasting"]
+  RCF --> go
+```
+
 4. **[Premortem](../../frameworks/think-premortem/)** - For a one-way door, stress-test the chosen plan before committing. Assume it is some horizon out and the plan has already failed badly, reason backward to the likely causes, then convert each top cause into a tripwire, a mitigation, an owner, and a kill criterion. The artifact is a ranked **risk register**. The ledger's killer conditions and the matrix's soft scores are prime places failure hides, so feed them in as candidate causes.
 
 5. **[Reference Class Forecasting](../../frameworks/think-reference-class-forecasting/)** - Finally, reality-check the forecast your decision rests on. Replace the inside view built from your own plan's details with the outside view: define a class of genuinely comparable past cases, take the base-rate distribution of how they actually turned out, and anchor the estimate there, adjusting only cautiously for real specifics. The artifact is a **reference-class estimate**, stated as a range. The honest constraint: it needs real base-rate data - inventing a distribution is worse than admitting uncertainty. If no comparable class exists, say so and lean on the premortem instead.
