@@ -86,7 +86,7 @@ Each skill is built around four commitments, not just a prompt:
 
 ## Recipes
 
-Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **advanced (Gold)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`).
+Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **advanced (Gold)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`). For machine consumption, the generated agent-discovery surfaces live at the site root: `llms.txt` (index), `llms-full.txt` (full inline catalog), `catalog.json` (invokable components), and `evaluated.json` (all 135 evaluated methods).
 
 <!-- BEGIN GENERATED RECIPES (scripts/gen-agents.mjs from _workflows/) - do not hand-edit below this line -->
 | Recipe | Chain |
@@ -119,5 +119,5 @@ skills/<name>/
 
 - Skill IDs are namespace-dot: `thinking-framework-skills.<method>`. Installable skill names carry the `think-` prefix (`think-<method>`), declared as `prefix` in `library.json`.
 - Skills target the open Agent Skills (`agentskills.io`) `SKILL.md` format, so they are portable across agents.
-- Plugin and skill standards align to `agent-skills-toolkit` (Bronze/Universal tier today).
+- Plugin and skill standards align to `agent-skills-toolkit` (advanced / Gold tier).
 - No em-dashes or en-dashes anywhere in this repo's prose.
