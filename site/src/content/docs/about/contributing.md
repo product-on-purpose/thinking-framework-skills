@@ -20,6 +20,8 @@ A "practitioner tier, useful anyway, here is when not to use it" method is welco
 
 Clearing the four commitments is necessary, not sufficient. A new method must also be **distinct**: it cannot substantially duplicate a framework already in the [catalog](../../frameworks/). If the move is mostly a mode, a timebox, or a rename of an existing skill, it ships as a mode of that skill or not at all. The catalog records these decisions explicitly - subsumed methods are marked as folds, and near-duplicates note the skill they overlap with - so an absence reads as a deliberate call, not an oversight.
 
+**Contested lenses.** A low-tier famous-but-weak method may ship only as a **contested lens** under the caveat-first contract (`check-contested.mjs`): the deficiency must lead every surface the skill touches (it is not a footnote); the skill is explicit-request-only and never recommended by the advisor on a generic prompt; branded lenses carry attribution to the originating work. The gate enforces this contract on every CI run. A method that cannot meet the caveat-first contract does not ship here in any form.
+
 ## How to propose one
 
 Open an issue on the repository describing:
