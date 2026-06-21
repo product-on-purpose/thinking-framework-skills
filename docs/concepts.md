@@ -4,7 +4,28 @@ Orientation for a reader of this repo. Four ideas hold the library together. Thi
 
 ## 1. Honest evidence grading
 
-The field of thinking tools is a small empirical core wrapped in a large practitioner ring and a weak outer ring. Most collections flatten that into uniform confidence. This one labels which is which, on every skill and every claim. Each skill carries one of seven tiers:
+The field of thinking tools is a small empirical core wrapped in a large practitioner ring and a weak outer ring. Most collections flatten that into uniform confidence. This one labels which is which, on every skill and every claim. The structure is a small core of rigorous evidence surrounded by larger rings of practitioner experience and conceptual work:
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1'}}}%%
+flowchart TB
+  subgraph core["Empirical core (small)"]
+    S["S - strong"]
+    M["M - moderate"]
+  end
+  subgraph ring["Practitioner ring (larger)"]
+    P["P - practitioner"]
+    V["V - vendor"]
+    Aa["A - anecdotal"]
+  end
+  subgraph outer["Conceptual / excluded (outer)"]
+    Cc["C - conceptual"]
+    X["X - excluded (ships only as a contested lens)"]
+  end
+  core --> ring --> outer
+```
+
+Each skill carries one of seven tiers:
 
 | Tier | Meaning |
 |---|---|

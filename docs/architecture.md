@@ -20,6 +20,19 @@ There are **63 shipped frameworks** across **12 cognitive-operation families** (
 
 A **contested lens** is a famous-but-weak framework (graded X/C/P) the library ships *caveat-first*: the deficiency leads the SKILL.md and the artifact, the advisor never auto-recommends it (`recommendation_policy: explicit_request_only`), and a `caveatFirst` + `posture` marker in `frameworks/registry.mjs` is enforced by `scripts/check-contested.mjs`. Two postures: `run_caveat_first` (lead with the deficiency, then still produce the weak artifact) and `warn_redirect` (own the famous name, warn, and route to an evidence-based alternative without reproducing the discredited artifact).
 
+The registry and shipped skills maintain a bidirectional integrity contract:
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1'}}}%%
+flowchart LR
+  reg["registry entry<br/>status: shipped<br/>(tier, family, verdict)"]:::reg
+  skl["skills/think-SLUG/<br/>SKILL.md (evidence-tier)"]:::skl
+  reg <-->|"must match, both directions<br/>(CI fails on either orphan)"| skl
+  reg -. "governing tier is one of<br/>the SKILL.md evidence-tiers" .-> skl
+  classDef reg fill:#eef2ff,stroke:#c7d2fe,color:#3730a3;
+  classDef skl fill:#e0f2fe,stroke:#7dd3fc,color:#075985;
+```
+
 ### Metadata sourcing: cross-check, not full generation (registry follow-up #2, resolved: keep)
 
 The advisor's `recommendable.{json,md}` and the site framework pages derive each skill's tier / family / description from its `SKILL.md` (and `skill.meta.yml`), and the registry **cross-checks** that the shipped-slug set matches and that each shipped entry's governing tier is one of the grades in its `SKILL.md` evidence-tier. That cross-check closes the drift loop without making the registry the literal source of those surfaces. The stronger move - *generating* the advisor/site metadata from the registry so there is one byte-level source - is deliberately **not** taken: the registry stores a single governing grade, so generating `recommendable.json` from it would lose the per-skill compound grade (e.g. `M/P`) unless the registry schema grew to store it, and the cross-check already prevents divergence. The decision is to keep the per-skill source plus the registry cross-check.
