@@ -1,6 +1,6 @@
 # plan_v0.12.0 - Docs platform: site changelog, CI guards, audit-fixes, diagrams
 
-**Status:** **IN FLIGHT (2026-06-20).** Plan 1 (site changelog) MERGED as PR #86; Plan 2 (CI guards + gate 9 -> 13) MERGED as PR #87. Plans 3 (docs audit-fixes), 4 (mermaid diagrams), and 5 (the v0.12.0 cut) pending. Build phase accumulates in `CHANGELOG.md [Unreleased]`; the version stays `0.11.0` until the Phase-5 cut.
+**Status:** **SHIPPED 2026-06-20 (v0.12.0).** All 5 phases complete: Plan 1 (site changelog, #86), Plan 2 (CI guards + gate 9 -> 13, #87), Plan 3 (docs audit-fixes + this release plan, #88), Plan 4 (8 mermaid diagrams, #89), and Plan 5 (the v0.12.0 cut). No new skills; the catalog stays 56 core + 7 contested.
 **Theme:** make the docs site more legible, accurate, and self-maintaining - a generated changelog, a documentation audit acted on, clarifying diagrams, all locked in by new CI guards so the same drift cannot recur. Grew out of a user request (add a changelog, audit the docs, add mermaid diagrams) plus the CI guards adopted to keep the result honest.
 **Spec:** `docs/internal/specs/2026-06-20-changelog-docs-audit-diagrams.md` (the four workstreams A/B/C/D, the codex adversarial review and its 9 resolved findings, and the Release contract). Audit record: `_local/audit/2026-06-20_docs-audit.md` (local). Codex spec review: `_agent-context/2026-06-20-spec-codex-review.md` (local).
 **Version:** minor, **v0.12.0**. No new skills; the catalog stays 56 core + 7 contested. The headline is the docs platform + the gate generation (9 -> 13 layers).
@@ -13,9 +13,9 @@ De-risk by sequencing: each phase ships as its own PR, recorded in `CHANGELOG.md
 |---|---|---|---|---|
 | 1. Site changelog | `plans/2026-06-20-changelog-site.md` | #86 | **Merged** | "What's new" (with a release timeline) + the full changelog on the site, generated from the SSOT |
 | 2. CI guards + gate (9 -> 13) | `plans/2026-06-20-ci-guards-gate.md` | #87 | **Merged** | keeps the docs/site correct as the library grows: no broken diagrams, redirect-hop links, or stale version numbers |
-| 3. Docs audit-fixes | `plans/2026-06-20-docs-audit-fixes.md` | - | Pending | accurate, non-contradictory docs (trust page at 63, contested-lens FAQ, compound grades, builder surfaces) |
-| 4. Mermaid diagrams (9) | `plans/2026-06-20-mermaid-diagrams.md` | - | Pending | comprehension: the eval harness, recipe handoff, decision stack, gate, tier landscape made visual |
-| 5. v0.12.0 cut | `plans/2026-06-20-v0.12.0-release.md` | - | Pending | the whole effort published as one coherent versioned release |
+| 3. Docs audit-fixes | `plans/2026-06-20-docs-audit-fixes.md` | #88 | **Merged** | accurate, non-contradictory docs (trust page at 63, contested-lens FAQ, compound grades, builder surfaces) |
+| 4. Mermaid diagrams (8) | `plans/2026-06-20-mermaid-diagrams.md` | #89 | **Merged** | comprehension: the eval harness, recipe handoff, decision stack, gate, tier landscape made visual |
+| 5. v0.12.0 cut | `plans/2026-06-20-v0.12.0-release.md` | this commit | **Shipped** | the whole effort published as one coherent versioned release |
 
 Sequence: 1 -> 2 -> (3 || 4) -> 5. Plan 4's conformance-gate diagram cites Plan 2's settled 13-layer count, so 4 follows 2.
 
