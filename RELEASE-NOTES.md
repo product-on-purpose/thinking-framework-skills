@@ -2,6 +2,21 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.12.0
+
+**A changelog on the site, clearer docs, and a gate that keeps them that way.** No new skills - this release makes the library easier to read and keeps it honest as it grows. The catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For everyone
+
+- **A changelog on the site.** A new [What's new](https://thinking-framework-skills.productonpurpose.com/changelog/whats-new/) page gives the curated highlights for each release, opening with a visual release timeline, and a full [Changelog](https://thinking-framework-skills.productonpurpose.com/changelog/full/) page carries the complete history. Both are generated from the source files, so they never drift.
+- **More accurate docs.** The "Does this actually work?" trust page now reflects the full 63-skill catalog (the 56 evidence-graded core skills plus the 7 contested lenses, reported as separate cohorts). A new FAQ explains why famous-but-weak methods like SWOT and Five Whys now ship as contested lenses, and the evidence model now defines the compound grades (like M/P) you see across the catalog.
+- **Eight diagrams that make the dense parts visual.** The blind eval harness (how "nothing grades itself"), the recipe handoff, the decision stack, the conformance gate, and the evidence-tier landscape are now diagrams, not just prose.
+
+### For builders and contributors
+
+- **Four new CI guards keep the docs correct as the library grows** (the conformance gate goes from 9 to 13 layers): broken or unrenderable mermaid diagrams, internal links that lean on a compatibility redirect, broken relative links in the repo docs, and release-version drift are now all caught automatically.
+- **The machine-readable discovery surfaces are linked for builders**: `llms.txt`, `llms-full.txt`, `catalog.json`, and `evaluated.json`.
+
 ## v0.11.0
 
 **Contested lenses: we now run the famous-but-weak frameworks, and tell you the truth about them.** The library is built on honest evidence grading, so for years it refused to ship famous methods the research does not support (SWOT, Five Whys, ACH, and friends) and instead published a why-not dossier. People kept asking for them by name. v0.11.0 adds a better answer than a flat "no": **56 evidence-graded core skills, plus 7 contested lenses we grade honestly and hand you caveat-first.**

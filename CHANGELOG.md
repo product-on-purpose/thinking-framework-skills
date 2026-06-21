@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-06-20
+
+**Docs platform: a changelog on the site, an audit acted on, comprehension diagrams, and a self-maintaining gate.** No new skills; the catalog stays 56 core + 7 contested. The site gains a generated changelog (a curated "What's new" with a release timeline, plus the full history), the documentation audit is acted on (the trust page now reflects the 63-skill catalog, the contested lenses are explained, compound grades are defined), eight mermaid diagrams clarify the dense pipelines, and four new CI guards take the conformance gate from 9 to 13 layers so the docs stay correct as the library grows.
+
 ### Added
 - **Eight comprehension diagrams** across the docs - the conformance gate, the advisor-to-artifact flow, the registry/skills integrity contract, and the evidence-tier landscape (repo docs, GitHub-native mermaid); the blind eval harness, the recipe handoff, the four-layer page model, and the decision stack (site, astro-mermaid).
 - **Changelog on the docs site.** Two generated pages now render under a new "Changelog" sidebar group: a curated "What's new" (from `RELEASE-NOTES.md`, opening with a release-history mermaid timeline) and the full "Changelog" (from `CHANGELOG.md`). They are produced by `scripts/gen-site.mjs` from the repo-root source files via a new zero-dependency `scripts/lib/changelog-lib.mjs` (markdown-aware link rewriting to GitHub blob URLs / on-site self-links, plus release-timeline extraction; unit-tested in `tests/changelog-lib.test.mjs`). The pages are a generated view (gitignored, rebuilt each build); the root `CHANGELOG.md` / `RELEASE-NOTES.md` stay the source of truth. First of the v0.12.0 docs effort (build phase; see `docs/internal/specs/2026-06-20-changelog-docs-audit-diagrams.md`).
@@ -241,7 +245,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.11.0...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.8.0...v0.9.0
