@@ -28,11 +28,11 @@ Each skill implements a durable cognitive move and is named for what the move do
 
 Every skill emits a named, structured, reusable deliverable: a ranked risk register, a weighted option matrix, an assumption ledger, an argument map. The artifact is the point, not a feeling that you thought carefully. The agent makes the mechanism cheap to run and enforces the structure; the output is something you can carry into the next decision.
 
-## 4. The "when NOT to use" commitment
+## 4. Explicit "When NOT to Use"
 
 Every skill states explicitly where its method misleads or wastes effort. This guards against cargo-cult execution, running a framework because it is there rather than because the move fits the problem. A skill that knows its own limits is more useful than one that claims to fit everything.
 
-These four are the authoring commitments behind every skill. The full argument, including the empirical-core anchor skills, is in [Philosophy](https://thinking-framework-skills.productonpurpose.com/about/philosophy/). To author a skill that meets all four, see [./internal/AUTHORING.md](./internal/AUTHORING.md); the skills themselves live in [../skills/](../skills/) and are the source of truth the docs site is generated from.
+These four are the authoring commitments behind every skill. The canonical statement is in [Philosophy](https://thinking-framework-skills.productonpurpose.com/about/philosophy/) (see the "four commitments" section); the full argument, including the empirical-core anchor skills, is there too. To author a skill that meets all four, see [./internal/AUTHORING.md](./internal/AUTHORING.md); the skills themselves live in [../skills/](../skills/) and are the source of truth the docs site is generated from.
 
 ## 5. Additional vocabulary
 

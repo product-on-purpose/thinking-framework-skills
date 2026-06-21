@@ -9,7 +9,9 @@ Each skill is built around four commitments, not just a prompt:
 1. **Mechanism over ritual.** The skill implements the durable cognitive move, named descriptively, not a trademarked brand.
 2. **Honest evidence grading.** Every skill carries an evidence tier and an `evidence/dossier.md` that says what the research does and does not support, and flags where evidence is transferred from human studies rather than validated for AI use.
 3. **Artifact, not prose.** Every skill emits a concrete, reusable artifact (a risk register, an option matrix, a perspective review).
-4. **Explicit "when not to use."** Each skill states where it misleads, to guard against cargo-cult execution.
+4. **Explicit "When NOT to Use."** Each skill states where it misleads, to guard against cargo-cult execution.
+
+The canonical statement of all four commitments is in [Philosophy](https://thinking-framework-skills.productonpurpose.com/about/philosophy/) on the docs site.
 
 ## Skills
 

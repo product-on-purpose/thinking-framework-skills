@@ -16,6 +16,8 @@ Every skill here meets all four. A proposal that cannot meet one of them is not 
 
 A "practitioner tier, useful anyway, here is when not to use it" method is welcome. A dressed-up method that overclaims its evidence is not.
 
+The canonical statement of all four commitments lives in [Philosophy](../../about/philosophy/).
+
 ## The overlap ceiling
 
 Clearing the four commitments is necessary, not sufficient. A new method must also be **distinct**: it cannot substantially duplicate a framework already in the [catalog](../../frameworks/). If the move is mostly a mode, a timebox, or a rename of an existing skill, it ships as a mode of that skill or not at all. The catalog records these decisions explicitly - subsumed methods are marked as folds, and near-duplicates note the skill they overlap with - so an absence reads as a deliberate call, not an oversight.
