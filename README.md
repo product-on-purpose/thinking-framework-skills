@@ -112,7 +112,7 @@ flowchart LR
   plan --> s2["run skill 2"]:::skill
   s1 --> art["Artifact(s):<br/>risk register, option matrix,<br/>argument map"]:::art
   s2 --> art
-  adv -. "or apply directly" .-> top3["think-top3 /<br/>think-random-frameworks"]:::skill
+  sit -. "or apply directly" .-> top3["think-top3 /<br/>think-random-frameworks"]:::skill
   top3 --> art
   classDef in fill:#dcfce7,stroke:#86efac,color:#166534;
   classDef router fill:#ddd6fe,stroke:#a78bfa,color:#4c1d95;

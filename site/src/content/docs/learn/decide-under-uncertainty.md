@@ -15,6 +15,8 @@ For anyone facing a consequential, hard-to-reverse choice who wants to commit on
 
 3. **[One-Way vs Two-Way Door](../../frameworks/think-one-way-vs-two-way-door/)** - Before you spend more deliberation, triage how reversible the recommended choice is. Test reversibility against named dimensions - money, time, trust, legal, foreclosed future options - and match the rigor and sign-off to the verdict. The artifact is a **reversibility classification plus a matched deliberation level**. A two-way door licenses you to decide fast and stop here. A one-way door earns the heavier rigor of the next two steps; it routes the choice forward rather than picking it.
 
+When only one option is live, the Decision Option Review step is skipped - go straight from what-would-have-to-be-true to the reversibility check.
+
 ```mermaid
 flowchart TD
   WWHTBT["what-would-have-to-be-true"] --> DOR["decision-option-review"]

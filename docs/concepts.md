@@ -35,7 +35,7 @@ Each skill carries one of seven tiers:
 | V | Vendor / commercial - originates from a consultancy or branded methodology. |
 | A | Anecdotal - case reports and testimonials. |
 | C | Conceptually plausible, under-tested - reasonable, not yet demonstrated. |
-| X | Poor or contradictory - the evidence cuts against it (excluded, documented). |
+| X | Poor or contradictory - the evidence cuts against it (excluded, documented). An X-tier method may still ship caveat-first as a contested lens (explicit-request-only), which is the only exception to exclusion. |
 
 A "P, useful anyway, here is when not to use it" is more trustworthy than a dressed-up "S". The grade reflects the evidence for the framework's mechanism, and most of that evidence comes from human-subject studies rather than tests of an AI agent running the method, so pages flag transferred evidence where it applies. Honest grading is the product, not a footer disclaimer. Full version: [The evidence model](https://thinking-framework-skills.productonpurpose.com/start/evidence-model/).
 
