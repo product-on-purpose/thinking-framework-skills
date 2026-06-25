@@ -1,0 +1,5 @@
+{ "cases": [
+  { "id": "t1", "prompt": "a clear premortem situation", "expected": "premortem", "type": "trigger", "source": "premortem" },
+  { "id": "a1", "prompt": "a generic no-tool prompt", "expected": "none", "type": "anti", "source": "premortem" },
+  { "id": "a2", "prompt": "names a specific alternative", "expected": "swot", "type": "anti", "source": "premortem" }
+] }

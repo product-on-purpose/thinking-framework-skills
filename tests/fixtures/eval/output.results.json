@@ -1,0 +1,4 @@
+{ "results": [
+  { "skill": "premortem", "artifactChars": 1234, "passed": 2, "total": 2, "perCheck": [{ "check": "c1", "pass": true }, { "check": "c2", "pass": true }] },
+  { "skill": "swot", "artifactChars": 999, "passed": 1, "total": 2, "perCheck": [{ "check": "d1", "pass": true }, { "check": "d2", "pass": false, "reason": "missing caveat" }] }
+] }

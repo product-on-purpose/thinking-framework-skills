@@ -1,0 +1,31 @@
+{
+  "generated": "TRIGGER eval",
+  "cases": 3,
+  "totals": {
+    "trigger": 1,
+    "anti": 2,
+    "antiNamed": 1,
+    "unrouted": 0,
+    "triggerTop1": 1,
+    "triggerTop3": 1,
+    "antiNoFire": 2,
+    "antiRightAlt": 1,
+    "triggerTop1Pct": 100,
+    "antiNoFirePct": 100,
+    "antiRightAltPct": 100,
+    "falseFires": 0
+  },
+  "perSkill": {
+    "premortem": {
+      "trig": 1,
+      "trigHit": 1,
+      "trigSoft": 1,
+      "anti": 2,
+      "antiNoFire": 2,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
+      "miss": [],
+      "fire": []
+    }
+  }
+}
