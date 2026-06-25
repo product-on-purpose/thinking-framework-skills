@@ -1,0 +1,5 @@
+{ "routes": [
+  { "id": "t1", "top1": "premortem", "top3": ["premortem", "red-team-light", "swot"] },
+  { "id": "a1", "top1": "none", "top3": ["none"] },
+  { "id": "a2", "top1": "swot", "top3": ["swot", "premortem"] }
+] }

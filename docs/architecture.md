@@ -110,7 +110,7 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 
 ## The conformance gate
 
-`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs thirteen layers in order, and any failure is a red build:
+`scripts/check.mjs` is the single required gate (a status check on `main`); CI runs it on every PR. It runs fourteen layers in order, and any failure is a red build:
 
 1. **Structural** - the `agent-skills-toolkit` validators (`evaluate.mjs`), pinned to a known-good ref, asserting the plugin meets the `advanced` tier with 0 errors / 0 warnings.
 2. **Eval cases** (`scripts/eval-cases.mjs`) - every `skills/*/eval/cases.md` is well-formed and name-safe (no case may reference a framework that does not exist).
@@ -125,6 +125,7 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 11. **Canonical links** (`scripts/check-canonical-links.mjs`) - every internal link in the repo docs resolves without redirect hops, so stale paths surface immediately.
 12. **Repo-markdown links** (`scripts/check-repo-links.mjs`) - every relative link in repo-facing markdown resolves to a file or anchor that actually exists.
 13. **Changelog consistency** (`scripts/check-changelog.mjs`) - `CHANGELOG.md` and `RELEASE-NOTES.md` agree on the most recent version, so a version bump cannot update one file and forget the other.
+14. **Eval-results pairing + shape check** (`scripts/check-eval-results.mjs`) - every behavioral-eval scorecard under `docs/internal/eval-results/` is a paired `.md` + `.json` with a valid totals contract.
 
 The docs site adds three build-time guards run after `astro build` (family Astro site standard, clause 14.11): `scripts/check-mermaid.mjs` (generated-content mermaid validation), `scripts/check-rendered-links.mjs` (no browser-broken internal links), and `scripts/check-route-parity.mjs` (no silently dropped published route, against the committed `scripts/route-manifest.txt`).
 

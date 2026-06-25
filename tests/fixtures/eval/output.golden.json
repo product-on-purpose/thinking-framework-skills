@@ -1,0 +1,25 @@
+{
+  "generated": "OUTPUT eval",
+  "skills": 2,
+  "totals": {
+    "checks": 4,
+    "passed": 3,
+    "passPct": 75,
+    "perfectSkills": 1,
+    "failedChecks": 1
+  },
+  "perSkill": {
+    "premortem": {
+      "passed": 2,
+      "total": 2,
+      "fails": []
+    },
+    "swot": {
+      "passed": 1,
+      "total": 2,
+      "fails": [
+        "d2"
+      ]
+    }
+  }
+}

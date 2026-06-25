@@ -53,9 +53,9 @@ node scripts/check.mjs
 
 Expected: `Tier: advanced` with `0 error(s), 0 warning(s)`. `check.mjs` finds the toolkit via `AGENT_SKILLS_TOOLKIT`, a sibling `../agent-skills-toolkit`, or a local `./.agent-skills-toolkit` checkout (the path CI uses).
 
-## The check.mjs gate: thirteen layers
+## The check.mjs gate: fourteen layers
 
-`scripts/check.mjs` is the repo's own conformance gate - distinct from the toolkit's G1-G7 Gold requirements. The toolkit's G2 requires self-hosting CI that runs the Standard's validators; `check.mjs` is that CI, and it does more than G2 requires. Its thirteen layers are:
+`scripts/check.mjs` is the repo's own conformance gate - distinct from the toolkit's G1-G7 Gold requirements. The toolkit's G2 requires self-hosting CI that runs the Standard's validators; `check.mjs` is that CI, and it does more than G2 requires. Its fourteen layers are:
 
 1. **Structural** (`agent-skills-toolkit` `evaluate.mjs`) - the toolkit's portable validators; the plugin must pass at `advanced` tier with 0 errors / 0 warnings.
 2. **Eval cases** (`scripts/eval-cases.mjs`) - every `skills/*/eval/cases.md` is well-formed and name-safe.
@@ -70,6 +70,7 @@ Expected: `Tier: advanced` with `0 error(s), 0 warning(s)`. `check.mjs` finds th
 11. **Canonical links** (`scripts/check-canonical-links.mjs`) - every internal link in repo docs resolves without redirect hops.
 12. **Repo-markdown links** (`scripts/check-repo-links.mjs`) - every relative link in repo-facing markdown resolves to a file or anchor that exists.
 13. **Changelog consistency** (`scripts/check-changelog.mjs`) - `CHANGELOG.md` and `RELEASE-NOTES.md` agree on the most recent version.
+14. **Eval-results pairing + shape check** (`scripts/check-eval-results.mjs`) - every behavioral-eval scorecard under `docs/internal/eval-results/` is a paired `.md` + `.json` with a valid totals contract.
 
 The gate structure combines the toolkit's G1-G7 Standard requirements with the repo's own layers:
 
@@ -79,7 +80,7 @@ flowchart TD
   pr["PR / push to main"]:::trig --> gate["scripts/check.mjs<br/>(the single required gate)"]:::gate
   gate --> L1["Layer 1 Structural<br/>toolkit evaluate.mjs: the G1-G7 Gold checks"]:::tk
   gate --> L29["Layers 2-9 repo invariants<br/>eval-cases, registry, engine, AGENTS,<br/>counts, example-coverage, catalog, contested"]:::repo
-  gate --> L1013["Layers 10-13 the v0.12.0 guards<br/>mermaid, canonical-link, repo-links, changelog"]:::repo
+  gate --> L1014["Layers 10-14 the v0.12.0+ guards<br/>mermaid, canonical-link, repo-links, changelog, eval-pairing"]:::repo
   build["site build (PR + deploy)"]:::trig --> guards["3 build-time guards<br/>rendered-links, route-parity, generated-mermaid"]:::bld
   classDef trig fill:#dcfce7,stroke:#86efac,color:#166534;
   classDef gate fill:#ddd6fe,stroke:#a78bfa,color:#4c1d95;
@@ -88,7 +89,7 @@ flowchart TD
   classDef bld fill:#e0f2fe,stroke:#7dd3fc,color:#075985;
 ```
 
-**These thirteen layers are not the same as the Standard's G1-G7 Gold requirements.** The G1-G7 list (in [`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)) is the toolkit's frozen tier specification: what a plugin must satisfy to reach Gold. Layer 1 of `check.mjs` runs those validators (satisfying G2). Layers 2-13 are repo-specific guards added on top of the Standard's floor: they enforce repo invariants (registry integrity, count drift, changelog consistency, link health) that the Standard does not specify and that would otherwise require human review on every PR. The two lists address different questions: G1-G7 asks "does this plugin meet the Standard?", and the thirteen `check.mjs` layers ask "is this specific repo internally consistent?"
+**These fourteen layers are not the same as the Standard's G1-G7 Gold requirements.** The G1-G7 list (in [`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)) is the toolkit's frozen tier specification: what a plugin must satisfy to reach Gold. Layer 1 of `check.mjs` runs those validators (satisfying G2). Layers 2-14 are repo-specific guards added on top of the Standard's floor: they enforce repo invariants (registry integrity, count drift, changelog consistency, link health, scorecard pairing) that the Standard does not specify and that would otherwise require human review on every PR. The two lists address different questions: G1-G7 asks "does this plugin meet the Standard?", and the fourteen `check.mjs` layers ask "is this specific repo internally consistent?"
 
 ## See also
 
