@@ -11,7 +11,7 @@ import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export function stampField(yamlText, field, date) {
-  const re = new RegExp(`(${field}:[ \\t]*)[^\\n\\r]*`);
+  const re = new RegExp(`^([ \\t]*${field}:[ \\t]*)[^\\n\\r]*`, 'm');
   return re.test(yamlText) ? yamlText.replace(re, `$1measured-${date}`) : yamlText;
 }
 
@@ -30,7 +30,10 @@ export async function stampMeta(date, which, root) {
 }
 
 // CLI main-guard: only run when invoked directly, never on import (review m4).
-const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+// Platform-aware comparison: on Windows the drive letter can differ in case between
+// process.argv[1] and import.meta.url, so a strict === would silently return false.
+const samePath = (a, b) => (process.platform === 'win32' ? a.toLowerCase() === b.toLowerCase() : a === b);
+const invokedDirectly = !!process.argv[1] && samePath(resolve(process.argv[1]), fileURLToPath(import.meta.url));
 if (invokedDirectly) {
   const date = process.argv[2];
   const which = process.argv[3] || 'trigger';

@@ -15,7 +15,10 @@ test('stampField is a no-op when the field is absent', () => {
 });
 
 test('importing stamp-meta.mjs has no side effect (no throw, no argv parse)', async () => {
-  // If the module ran its CLI on import it would call process.exit(2) on bad argv.
+  // This guards the regression that matters: if the main-guard were removed, importing the
+  // module would run the CLI and process.exit(2) on the test runner's argv, killing the suite.
+  // It does not isolate the guard from an argv mismatch; direct-invocation behaviour (CLI runs
+  // + exits 2 on bad argv) is verified manually, not here.
   const mod = await import('../scripts/eval/stamp-meta.mjs');
   assert.equal(typeof mod.stampMeta, 'function');
 });
