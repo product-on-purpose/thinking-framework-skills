@@ -10,7 +10,7 @@
 // At least one of --trigger / --output is required. Explicit paths only (no auto-discovery).
 
 import { readFileSync, writeFileSync } from 'node:fs';
-import { resolve, dirname, join } from 'node:path';
+import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scoreTrigger, scoreOutput } from './score-lib.mjs';
 import { stampMeta } from './stamp-meta.mjs';
