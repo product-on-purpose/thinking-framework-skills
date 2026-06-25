@@ -3,7 +3,7 @@
 // contributor or CI runs to validate the plugin against the agent-skills-toolkit
 // Standard: `node scripts/check.mjs` (or `npm run check`).
 //
-// It runs thirteen layers:
+// It runs fourteen layers:
 //   1. the toolkit's portable STRUCTURAL validators (the toolkit is the source of truth;
 //      vendoring them here would drift),
 //   2. the repo-local static eval-case validator (scripts/eval-cases.mjs, SP1): every
@@ -41,6 +41,10 @@
 //  13. the changelog version-consistency check (scripts/check-changelog.mjs): CHANGELOG.md
 //      and RELEASE-NOTES.md agree on the most recent version, preventing a version bump that
 //      updates one file but forgets the other.
+//  14. the eval-results pairing + shape check (scripts/check-eval-results.mjs): every
+//      behavioral-eval scorecard under docs/internal/eval-results/ is committed as a paired
+//      .md + .json, and each trigger/output scorecard JSON carries its totals contract, so a
+//      dropped sidecar (e.g. the 2026-06-19 contested-output gap) cannot recur.
 //
 // To reproduce a CI failure locally, clone the public toolkit next to this repo:
 //   git clone https://github.com/product-on-purpose/agent-skills-toolkit.git ../agent-skills-toolkit
@@ -129,5 +133,8 @@ const repoLinks = spawnSync('node', [resolve(ROOT, 'scripts', 'check-repo-links.
 console.log('\nRunning changelog version-consistency check (scripts/check-changelog.mjs)\n');
 const changelog = spawnSync('node', [resolve(ROOT, 'scripts', 'check-changelog.mjs')], { stdio: 'inherit' });
 
+console.log('\nRunning eval-results pairing + shape check (scripts/check-eval-results.mjs)\n');
+const evalResults = spawnSync('node', [resolve(ROOT, 'scripts', 'check-eval-results.mjs'), ROOT], { stdio: 'inherit' });
+
 // Fail if any layer failed; all run so contributors see all problems at once.
-process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1) || (agents.status ?? 1) || (counts.status ?? 1) || (coverage.status ?? 1) || (catalog.status ?? 1) || (contested.status ?? 1) || (mermaid.status ?? 1) || (canonical.status ?? 1) || (repoLinks.status ?? 1) || (changelog.status ?? 1));
+process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1) || (agents.status ?? 1) || (counts.status ?? 1) || (coverage.status ?? 1) || (catalog.status ?? 1) || (contested.status ?? 1) || (mermaid.status ?? 1) || (canonical.status ?? 1) || (repoLinks.status ?? 1) || (changelog.status ?? 1) || (evalResults.status ?? 1));
