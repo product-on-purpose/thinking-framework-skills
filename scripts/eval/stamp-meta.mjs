@@ -10,24 +10,34 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const date = process.argv[2];
-const which = process.argv[3] || 'trigger';
-if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '') || !['trigger', 'output'].includes(which)) {
-  console.error('Usage: node scripts/eval/stamp-meta.mjs <YYYY-MM-DD> [trigger|output]'); process.exit(2);
+export function stampField(yamlText, field, date) {
+  const re = new RegExp(`(${field}:[ \\t]*)[^\\n\\r]*`);
+  return re.test(yamlText) ? yamlText.replace(re, `$1measured-${date}`) : yamlText;
 }
-const field = which + '_eval_status';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const reg = (await import('file://' + join(ROOT, 'frameworks', 'registry.mjs').replace(/\\/g, '/'))).default;
-
-let stamped = 0, skipped = 0;
-const re = new RegExp(`(${field}:[ \\t]*)[^\\n\\r]*`);
-for (const f of reg.frameworks.filter((e) => e.status === 'shipped')) {
-  const p = join(ROOT, 'skills', 'think-' + f.slug, 'skill.meta.yml');
-  if (!existsSync(p)) { skipped++; continue; }
-  const s = readFileSync(p, 'utf8');
-  if (!re.test(s)) { skipped++; continue; }
-  const next = s.replace(re, `$1measured-${date}`);
-  if (next !== s) { writeFileSync(p, next); stamped++; } else skipped++;
+export async function stampMeta(date, which, root) {
+  const field = which + '_eval_status';
+  const reg = (await import('file://' + join(root, 'frameworks', 'registry.mjs').replace(/\\/g, '/'))).default;
+  let stamped = 0, skipped = 0;
+  for (const f of reg.frameworks.filter((e) => e.status === 'shipped')) {
+    const p = join(root, 'skills', 'think-' + f.slug, 'skill.meta.yml');
+    if (!existsSync(p)) { skipped++; continue; }
+    const s = readFileSync(p, 'utf8');
+    const next = stampField(s, field, date);
+    if (next !== s) { writeFileSync(p, next, 'utf8'); stamped++; } else skipped++;
+  }
+  return { stamped, skipped };
 }
-console.log(`stamp-meta: ${field} -> measured-${date} on ${stamped} skill(s) (skipped ${skipped}).`);
+
+// CLI main-guard: only run when invoked directly, never on import (review m4).
+const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (invokedDirectly) {
+  const date = process.argv[2];
+  const which = process.argv[3] || 'trigger';
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '') || !['trigger', 'output'].includes(which)) {
+    console.error('Usage: node scripts/eval/stamp-meta.mjs <YYYY-MM-DD> [trigger|output]'); process.exit(2);
+  }
+  const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+  const { stamped, skipped } = await stampMeta(date, which, ROOT);
+  console.log(`stamp-meta: ${which}_eval_status -> measured-${date} on ${stamped} skill(s) (skipped ${skipped}).`);
+}
