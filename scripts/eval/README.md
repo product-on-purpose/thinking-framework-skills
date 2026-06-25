@@ -29,11 +29,11 @@ The router agents never see which skill authored a case or what the expected ans
 
 2. **Route the blind prompts** with the router workflow (via the Workflow tool, `scriptPath: scripts/eval/route.workflow.mjs`), passing `args = {blindPath, count, batchSize}`. It shards the prompts into batches, fans out blind router agents (serial groups, throttle-safe), and returns `{routes:[{id,top1,top3}]}`.
 
-3. **Score.**
+3. **Score (ad-hoc inspection only).**
    ```
    node scripts/eval/score.mjs <full-cases.json> <routed.json>
    ```
-   Prints the markdown scorecard (overall + per-skill top1 / top3 / anti, and the misses), and writes `scorecard.json` next to the routed file. Commit the scorecard under `docs/internal/eval-results/<date>-trigger-eval.{md,json}`.
+   Prints the markdown scorecard and writes `scorecard.json` next to the routed file. To commit the run, use `finalize.mjs` instead (see below).
 
 ## Running the output eval (three steps)
 
@@ -45,15 +45,25 @@ The output eval measures **artifact quality**: run each skill and check whether 
    ```
    Prints `{ summary, cases:[{skill, prompt, checks:[...]}] }`. Save it; the workflow reads it.
 2. **Produce, then judge** (via the Workflow tool, `scriptPath: scripts/eval/output.workflow.mjs`, `args = {casesPath, skills}`). For each skill: a PRODUCE agent invokes the skill on its trigger prompt and emits the full artifact; a **separate** JUDGE agent grades that artifact against the skill's output checks (so the producer never grades itself). Throttle-safe serial groups. Returns `{results:[{skill, perCheck, passed, total}]}`.
-3. **Score.**
+3. **Score (ad-hoc inspection only).**
    ```
    node scripts/eval/score-output.mjs <results.json>
    ```
-   Prints the per-skill + overall check-pass scorecard and every failed check with the judge's reason; writes `output-scorecard.json`. Commit under `docs/internal/eval-results/<date>-output-eval.{md,json}`.
+   Prints the per-skill + overall check-pass scorecard and every failed check with the judge's reason; writes `output-scorecard.json`. To commit the run, use `finalize.mjs` instead (see below).
 
-After either eval, stamp the per-skill placeholder: `node scripts/eval/stamp-meta.mjs <YYYY-MM-DD> [trigger|output]`.
+## Finalizing a run (one command, guaranteed paired artifacts)
+
+`score.mjs` / `score-output.mjs` still print a scorecard for ad-hoc inspection, but to COMMIT a run use `finalize.mjs` - it writes BOTH the `.md` and the `.json` straight into `docs/internal/eval-results/` (so the `.json` sidecar can never be dropped) and stamps each shipped skill's `skill.meta.yml`:
+
+    node scripts/eval/finalize.mjs <YYYY-MM-DD> \
+      --trigger <routed.json> <cases.json> \
+      --output <results.json>
+
+Add `--prefix contested` for a cohort run (writes `<date>-contested-<kind>-eval.*`). A full run is now: extract -> the route + output Workflows -> `finalize` (4 commands; 3 once the combined run Workflow lands). The committed scorecards are guarded: `scripts/check-eval-results.mjs` (a `check.mjs` layer) reds CI if any scorecard is missing its `.md`/`.json` twin or malformed.
 
 ## Status / roadmap
 
 - **Trigger eval**: implemented (routing accuracy). First full run under `docs/internal/eval-results/`.
 - **Output eval**: implemented (artifact quality, produce -> judge). First full run under `docs/internal/eval-results/`.
+- **Finalize-driven flow**: implemented. `finalize.mjs` is the canonical commit path; `score.mjs` / `score-output.mjs` are now ad-hoc inspection tools only.
+- **Scorecard pairing guard**: `check-eval-results.mjs` lands in a later task and will red CI if any committed scorecard is missing its `.md`/`.json` twin or is malformed.
