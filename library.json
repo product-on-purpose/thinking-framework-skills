@@ -1,6 +1,6 @@
 {
   "name": "thinking-framework-skills",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "An evidence-graded library of agent-executable thinking-method skills (premortem, problem restatement, and more). Each skill is reduced to its working mechanism, graded honestly on how strong its evidence actually is, and produces a concrete artifact rather than prose. Use to reframe a problem, challenge assumptions, generate options, stress-test a decision, or audit reasoning.",
   "standard": "0.8",
   "tier": "advanced",

@@ -11,7 +11,7 @@ Every method is reduced to its working mechanism, graded honestly on how strong 
 <p>
   <img src="https://img.shields.io/badge/status-active-success?style=flat-square" alt="Status: Active">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square" alt="License: Apache-2.0"></a>
-  <img src="https://img.shields.io/badge/version-0.12.0-blue?style=flat-square" alt="Version 0.12.0">
+  <img src="https://img.shields.io/badge/version-0.13.0-blue?style=flat-square" alt="Version 0.13.0">
   <a href="#-conformance-what-advanced-gold-tier-means"><img src="https://img.shields.io/badge/tier-advanced%20(Gold)-B8860B?style=flat-square" alt="Conformance tier: advanced (Gold)"></a>
   <a href="#-the-catalog"><img src="https://img.shields.io/badge/frameworks-63-brightgreen?style=flat-square" alt="Frameworks: 63"></a>
   <a href="#-tools-meta-skills"><img src="https://img.shields.io/badge/tools-4-brightgreen?style=flat-square" alt="Tools: 4"></a>
@@ -450,13 +450,13 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ## 📊 Project status
 
-`v0.12.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
+`v0.13.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
 
 ### At a glance
 
 |  |  |
 |---|---|
-| **Current version** | [v0.12.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.12.0) |
+| **Current version** | [v0.13.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.13.0) |
 | **Frameworks** | 63, across 12 cognitive-operation families (56 core + 7 contested lenses) |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 9 (skill chains shipped as workflow components) |
@@ -506,6 +506,7 @@ Full detail in [`CHANGELOG.md`](CHANGELOG.md); curated highlights in [`RELEASE-N
 
 | Version | Highlights |
 |---|---|
+| [**0.13.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.13.0) | Eval-harness orchestration: a finalize step that writes both scorecard artifacts in one go, a new 14th conformance-gate layer enforcing that every eval scorecard stays a paired `.md` + `.json` (closing #95), plus the v0.12.0 CI-guard hardening follow-ups. No new skills; catalog stays 56 core + 7 contested. |
 | [**0.12.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.12.0) | Docs platform: a changelog on the site (What's new + full history), the documentation audit acted on (trust page at 63 skills, a contested-lens FAQ, compound grades defined), eight comprehension diagrams, and four new CI guards taking the conformance gate from 9 to 13 layers. No new skills; catalog stays 56 core + 7 contested. |
 | [**0.11.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.11.0) | Contested lenses: seven famous-but-weak frameworks (SWOT, ACH, Five Whys, Eisenhower/MoSCoW/Pareto, a descriptively-named Cynefin sort, Reflective Equilibrium, QCA) ship as low-tier, caveat-first, explicit-request-only skills, enforced by a new 9th gate layer (`check-contested.mjs`); catalog 56 -> 63 (56 core + 7 contested, separate cohorts). Trigger eval 0 false-fires, output 100%. |
 | [**0.10.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.10.0) | Learn-by-example depth + agent discovery: a worked example for every framework (the samples shelf, coverage 56/56), a cross-library Showcase that hands off to pm-skills (tfs decides, pm-skills delivers), `llms.txt` linked + `llms-full.txt` added, both behavioral evals refreshed across the full 56-skill catalog, and `red-team-light` re-graded P -> M. No new frameworks; catalog stays 56. |
