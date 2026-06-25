@@ -1,0 +1,48 @@
+{
+  "generated": "OUTPUT eval",
+  "skills": 7,
+  "totals": {
+    "checks": 40,
+    "passed": 40,
+    "passPct": 100,
+    "perfectSkills": 7,
+    "failedChecks": 0
+  },
+  "perSkill": {
+    "analysis-of-competing-hypotheses": {
+      "passed": 5,
+      "total": 5,
+      "fails": []
+    },
+    "complexity-domain-sort": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "eisenhower-moscow-pareto": {
+      "passed": 5,
+      "total": 5,
+      "fails": []
+    },
+    "five-whys": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "qualitative-comparative-analysis": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "reflective-equilibrium": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    },
+    "swot": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    }
+  }
+}
