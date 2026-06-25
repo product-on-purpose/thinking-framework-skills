@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-06-25
+
+**Eval-harness orchestration: paired scorecards by construction, plus the v0.12.0 CI-guard hardening.** No new skills; the catalog stays 56 core + 7 contested. The behavioral eval harness becomes finalize-driven - `scripts/eval/finalize.mjs` writes both scorecard artifacts (`.md` + `.json`) in one step and stamps `skill.meta.yml` - and a new 14th conformance-gate layer (`scripts/check-eval-results.mjs`) enforces that every scorecard stays a paired `.md` + `.json` with a valid totals contract, fixing the missing contested-output `.json` (#95) at its root. The CI-guard hardening follow-ups from v0.12.0 also land (#91-94). The conformance gate goes 13 -> 14 layers.
+
 ### Added
 - **Eval-harness orchestration.** `scripts/eval/finalize.mjs` writes both scorecard artifacts (`.md` + `.json`) into `docs/internal/eval-results/` in one step and stamps `skill.meta.yml`; scoring extracted into a pure, golden-tested `scripts/eval/score-lib.mjs`.
 - **Conformance gate layer 14.** `scripts/check-eval-results.mjs` asserts every behavioral-eval scorecard is a paired `.md` + `.json` with a valid totals contract (gate 13 -> 14 layers).
@@ -255,7 +259,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.12.0...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.13.0...HEAD
+[0.13.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.9.0...v0.10.0

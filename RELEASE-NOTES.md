@@ -2,6 +2,16 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.13.0
+
+**The eval harness now guarantees its own honesty record.** No new skills - this release hardens the machinery behind the "Does this actually work?" trust numbers, so the published scorecards cannot silently drift. The catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For builders and contributors
+
+- **Committing an eval run is now one step.** `scripts/eval/finalize.mjs` writes both the human-readable (`.md`) and machine-readable (`.json`) scorecard into `docs/internal/eval-results/` and stamps each skill's eval status, so the machine-readable sidecar that backs the trust page can no longer be dropped by hand.
+- **A new conformance-gate layer enforces it** (the gate goes from 13 to 14 layers): every behavioral-eval scorecard must be a paired `.md` + `.json` with a valid contract. This closes the one gap where a contested-cohort scorecard had shipped `.md`-only.
+- **The CI-guard hardening from v0.12.0 lands too**: a shared directory-walk helper behind the source-scanning guards, the canonical-link guard extended to `.astro` components and intro sources, and edge-case robustness in the mermaid and repo-link guards.
+
 ## v0.12.0
 
 **A changelog on the site, clearer docs, and a gate that keeps them that way.** No new skills - this release makes the library easier to read and keeps it honest as it grows. The catalog stays 56 evidence-graded core skills plus 7 contested lenses.
