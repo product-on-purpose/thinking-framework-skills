@@ -4,6 +4,13 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+- **Eval-harness orchestration.** `scripts/eval/finalize.mjs` writes both scorecard artifacts (`.md` + `.json`) into `docs/internal/eval-results/` in one step and stamps `skill.meta.yml`; scoring extracted into a pure, golden-tested `scripts/eval/score-lib.mjs`.
+- **Conformance gate layer 14.** `scripts/check-eval-results.mjs` asserts every behavioral-eval scorecard is a paired `.md` + `.json` with a valid totals contract (gate 13 -> 14 layers).
+
+### Fixed
+- Regenerated the missing 2026-06-19 contested-output eval `.json` sidecar through the scorer (was committed `.md`-only), so every scorecard now pairs.
+
 ### Changed
 - **CI-guard hardening (post-v0.12.0 follow-up).** A shared `scripts/lib/walk.mjs` now backs the three source-scanning guards (DRY); the canonical-link guard additionally scans `.astro` components and `site/intros/` sources for absolute redirect-hops (closing the scope gap from v0.12.0); `mermaid-lint` and `check-repo-links` gained edge-case robustness (the diagram-type token split, an empty-slug guard, and 4+ backtick inline spans) with new tests. Closes #91, #92, #93, #94. Build phase; no version change.
 

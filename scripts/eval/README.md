@@ -66,4 +66,4 @@ Add `--prefix contested` for a cohort run (writes `<date>-contested-<kind>-eval.
 - **Trigger eval**: implemented (routing accuracy). First full run under `docs/internal/eval-results/`.
 - **Output eval**: implemented (artifact quality, produce -> judge). First full run under `docs/internal/eval-results/`.
 - **Finalize-driven flow**: implemented. `finalize.mjs` is the canonical commit path; `score.mjs` / `score-output.mjs` are now ad-hoc inspection tools only.
-- **Scorecard pairing guard**: `check-eval-results.mjs` lands in a later task and will red CI if any committed scorecard is missing its `.md`/`.json` twin or is malformed.
+- **Scorecard pairing guard**: implemented - `check-eval-results.mjs` is the 14th `check.mjs` layer; reds CI if any committed scorecard is missing its `.md`/`.json` twin or is malformed.
