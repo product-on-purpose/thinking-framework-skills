@@ -48,8 +48,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-19
-  output_eval_status: measured-2026-06-19
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - presenting a single chain as the cause when the problem is multi-causal (the documented failure mode)
     - terminating at a person ("operator error") in a socio-technical failure (the Bad Apple blame trap)

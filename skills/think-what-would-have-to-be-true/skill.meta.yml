@@ -52,8 +52,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - listing conditions but never prioritizing or testing them
     - generating agreeable, easy-to-meet conditions instead of the risky load-bearing ones

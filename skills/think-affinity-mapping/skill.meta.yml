@@ -56,8 +56,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - naming themes before clustering, so predefined buckets get confirmed instead of discovered
     - confident labels laundering thin or incoherent clusters as findings

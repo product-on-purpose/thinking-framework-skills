@@ -49,8 +49,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - confusing the stock with a flow
     - assuming a falling inflow means a falling stock; ignoring the outflow

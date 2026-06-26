@@ -61,8 +61,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - discarding available probabilities to run a probability-free criterion (should use an expected-value tree instead)
     - an unstable or padded option set silently steering the pick (IIA violation, Chernoff 1954)

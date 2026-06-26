@@ -65,8 +65,8 @@ relationships:
     - disagreeing-perspective second estimate (modern variant)
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - running it on an easy question, where a forced contrarian second estimate adds error the average bakes in
     - running it on an unbounded order-of-magnitude unknown, where the gains vanish (fermi's regime)

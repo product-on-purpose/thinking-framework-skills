@@ -56,8 +56,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - MECE-clean tree decomposed along an irrelevant axis (tidy but useless)
     - leaves left too coarse to answer, or with no named data/owner/judgment
