@@ -52,8 +52,8 @@ relationships:
     - "contrast: devil's advocacy (role-played, weaker per Nemeth)"
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - treating role-played or AI-generated dissent as authentic
     - assigning a devil's advocate and assuming it delivers the benefit

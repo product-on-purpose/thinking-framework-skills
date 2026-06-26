@@ -57,8 +57,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - stopping at the event or pattern level, never reaching structures
     - restating structures as "mental models" instead of surfacing real beliefs

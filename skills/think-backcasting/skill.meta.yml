@@ -57,8 +57,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - relabeling a forward to-do list as a backcast (no backward direction, no preconditions named)
     - building a clean path to an unvalidated or wrong goal

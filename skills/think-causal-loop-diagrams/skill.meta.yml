@@ -51,8 +51,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - manufacturing a loop where the structure is actually open / linear
     - leaving links unsigned, so the R/B label is not derivable from polarity

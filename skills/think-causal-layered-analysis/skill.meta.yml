@@ -67,8 +67,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-17
-  output_eval_status: measured-2026-06-17
+  trigger_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-06-25
   known_failure_modes:
     - over-complicating a simple or single-cause issue by forcing a civilizational myth layer
     - skipping the upward reconstruction, collapsing CLA into a four-box depth diagram (a heavier iceberg)

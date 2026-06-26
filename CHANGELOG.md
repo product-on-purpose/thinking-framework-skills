@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+- **Unified behavioral eval re-run across all 63 skills (2026-06-25).** The trigger and output evals were re-run in one pass over the whole catalog (56 core + 7 contested) and finalized through `scripts/eval/finalize.mjs`, replacing the previously-separate core-56 (2026-06-17) and contested-7 (2026-06-19) cohorts with a single answer key. Results: trigger 99% top-1 (373/376), 100% top-3, **0 false-fires** (379/379) across 755 cases; output 100% of checks (428/429), 62/63 skills perfect. The trust page (`start/does-this-work`) now reports the unified run; all 63 skills re-stamped. Scorecards under `docs/internal/eval-results/2026-06-25-{trigger,output}-eval.{md,json}`. Closes #96. No skill or code changes; behavioral measurement only.
+
 ## [0.13.0] - 2026-06-25
 
 **Eval-harness orchestration: paired scorecards by construction, plus the v0.12.0 CI-guard hardening.** No new skills; the catalog stays 56 core + 7 contested. The behavioral eval harness becomes finalize-driven - `scripts/eval/finalize.mjs` writes both scorecard artifacts (`.md` + `.json`) in one step and stamps `skill.meta.yml` - and a new 14th conformance-gate layer (`scripts/check-eval-results.mjs`) enforces that every scorecard stays a paired `.md` + `.json` with a valid totals contract, fixing the missing contested-output `.json` (#95) at its root. The CI-guard hardening follow-ups from v0.12.0 also land (#91-94). The conformance gate goes 13 -> 14 layers.
