@@ -1,6 +1,6 @@
 <a id="readme-top"></a>
 
-# Thinking Framework Skills
+# [Thinking Framework Skills](https://github.com/product-on-purpose/thinking-framework-skills)
 
 **An evidence-graded library of agent-executable thinking-method skills.**
 
