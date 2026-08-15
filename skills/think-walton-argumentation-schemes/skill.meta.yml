@@ -1,5 +1,5 @@
 # Rich sidecar for the think-walton-argumentation-schemes skill.
-# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# Schema note: this file's SHAPE may still reconcile with agent-skills-toolkit conventions. That is a schema question, not this skill's lifecycle status (see identity.status).
 # A hand-authored summary of evidence/dossier.md (the source of truth).
 #
 # Naming: id = thinking-framework-skills.walton-argumentation-schemes;
@@ -12,8 +12,8 @@ identity:
   name: think-walton-argumentation-schemes
   display_name: Argumentation Schemes with Critical Questions
   version: 0.1.0
-  status: draft        # draft | experimental | active | deprecated | archived
-  maturity: alpha
+  status: active        # draft | experimental | active | deprecated | archived
+  maturity: measured
 
 classification:
   primary_family: reasoning-clarity

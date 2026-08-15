@@ -21,8 +21,12 @@
 //                  the grade the skill (and the advisor + site) publish.
 //   8. Recommendable - the shipped registry slugs match the advisor's recommendable set,
 //                  and every contested lens (caveatFirst) carries explicit_request_only.
+//   9. Lifecycle truth (SPEC-01) - every skill that ships on disk describes itself as shipped
+//                  (identity.status active/deprecated/archived, never draft/experimental), and
+//                  a skill with both eval stamps at measured-* carries maturity: measured.
 //
-// Zero-dependency; reuses scripts/lib/cases-lib.mjs (the SP1 source) for eval coupling.
+// Zero-dependency; reuses scripts/lib/cases-lib.mjs (the SP1 source) for eval coupling and
+// scripts/lib/lifecycle-lib.mjs (unit-tested separately) for section 9.
 // =============================================================================
 
 import { spawnSync } from 'node:child_process';
@@ -32,6 +36,7 @@ import { fileURLToPath } from 'node:url';
 import registry from '../frameworks/registry.mjs';
 import { validateCasesDoc, findUnknownThinkNames } from './lib/cases-lib.mjs';
 import { validateEntry } from './lib/registry-entry-lib.mjs';
+import { checkLifecycle } from './lib/lifecycle-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..'); // cwd-independent; the script and registry share a checkout
@@ -224,6 +229,21 @@ try {
   fail(`recommendable: could not cross-check recommendable.json (${err.message}).`);
 }
 
+// --- 9. Lifecycle metadata truth (SPEC-01) ---------------------------------
+// Scope is every skill DIRECTORY, not every registry entry, deliberately: the four meta-skills
+// carry no registry entry but they ship just as hard, and before this check they were the
+// easiest place for a stale lifecycle field to hide. The rules themselves live in
+// scripts/lib/lifecycle-lib.mjs so they can be unit-tested without a real tree.
+for (const dir of readdirSync(resolve(ROOT, 'skills'))) {
+  if (!dir.startsWith('think-')) continue;
+  const sidecarPath = resolve(ROOT, 'skills', dir, 'skill.meta.yml');
+  if (!existsSync(sidecarPath)) {
+    fail(`lifecycle: skills/${dir}/ has no skill.meta.yml.`);
+    continue;
+  }
+  for (const p of checkLifecycle(dir, readFileSync(sidecarPath, 'utf8'))) fail(p);
+}
+
 // --- report -----------------------------------------------------------------
 if (problems.length) {
   console.error(`Registry conformance: ${problems.length} problem(s):\n`);
@@ -231,5 +251,5 @@ if (problems.length) {
   console.error('\nFix frameworks/registry.mjs (or regenerate views) and re-run.');
   process.exit(1);
 }
-console.log(`Registry conformance: OK (${fw.length} frameworks, ${shipped.size} shipped, schema + drift + referential + IP + eval + tier + recommendable).`);
+console.log(`Registry conformance: OK (${fw.length} frameworks, ${shipped.size} shipped, schema + drift + referential + IP + eval + tier + recommendable + lifecycle).`);
 process.exit(0);

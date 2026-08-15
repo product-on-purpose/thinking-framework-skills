@@ -7,8 +7,8 @@ identity:
   name: think-qualitative-comparative-analysis
   display_name: Qualitative Comparative Analysis (QCA)
   version: 0.1.0
-  status: draft
-  maturity: alpha
+  status: active
+  maturity: measured
 
 classification:
   primary_family: systems-and-consequences

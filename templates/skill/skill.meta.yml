@@ -1,5 +1,5 @@
 # Rich sidecar for the think-REPLACE-method skill.
-# DRAFT shape; reconciles with agent-skills-toolkit conventions later.
+# Schema note: this file's SHAPE may still reconcile with agent-skills-toolkit conventions. That is a schema question, not this skill's lifecycle status (see identity.status).
 # A hand-authored summary of evidence/dossier.md (the source of truth).
 #
 # Naming: id = thinking-framework-skills.<method>; slug = bare method;
@@ -11,8 +11,8 @@ identity:
   name: think-REPLACE-method
   display_name: REPLACE
   version: 0.1.0
-  status: draft        # draft | experimental | active | deprecated | archived
-  maturity: alpha
+  status: draft        # skill lifecycle: draft | experimental | active | deprecated | archived (promote to active when the skill ships)
+  maturity: alpha      # alpha (unmeasured) -> measured (both eval stamps present); the gate enforces this
 
 classification:
   primary_family: REPLACE-family

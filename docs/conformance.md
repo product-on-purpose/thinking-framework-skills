@@ -1,6 +1,8 @@
 # Conformance: how this plugin reaches advanced (Gold) tier
 
-`thinking-framework-skills` is built to the [agent-skills-toolkit](https://github.com/product-on-purpose/agent-skills-toolkit) **Advanced Skill Library Standard** ([`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)). This page is the check-by-check breakdown behind the one-line claim in the README: *validates at advanced (Gold), 0 errors / 0 warnings.*
+`thinking-framework-skills` is built to the [agent-skills-toolkit](https://github.com/product-on-purpose/agent-skills-toolkit) **Advanced Skill Library Standard** ([`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)). This page is the check-by-check breakdown behind the one-line claim in the README: *validates at advanced (Gold), 0 errors / 0 warnings, against Standard 0.8.*
+
+**Which Standard version, and why it is stated.** `library.json` declares `"standard": "0.8"`, and CI pins the exact toolkit commit it grades against. The Standard is a living document that grows faster than this library re-pins, so every tier claim here is relative to 0.8 and says so. Re-pinning is treated as a release-sized decision (it can add whole check families at once), not as something that happens silently between commits. If you grade this repo with a newer toolkit than the pinned one, expect findings the pinned run does not report; that is the pin working as intended, not a regression.
 
 If you only want to verify it yourself, skip to [Reproduce it locally](#reproduce-it-locally).
 
@@ -59,7 +61,7 @@ Expected: `Tier: advanced` with `0 error(s), 0 warning(s)`. `check.mjs` finds th
 
 1. **Structural** (`agent-skills-toolkit` `evaluate.mjs`) - the toolkit's portable validators; the plugin must pass at `advanced` tier with 0 errors / 0 warnings.
 2. **Eval cases** (`scripts/eval-cases.mjs`) - every `skills/*/eval/cases.md` is well-formed and name-safe.
-3. **Registry** (`scripts/check-registry.mjs`) - schema, generated-view drift, referential integrity, IP/attribution lint, eval-coupling, tier consistency, registry cross-check.
+3. **Registry** (`scripts/check-registry.mjs`) - schema, generated-view drift, referential integrity, IP/attribution lint, eval-coupling, tier consistency, registry cross-check, and lifecycle-metadata truth (every skill on disk says `status: active`, and a skill with both eval stamps measured says `maturity: measured`; the rules are a pure lib in `scripts/lib/lifecycle-lib.mjs` so the guard is unit-tested rather than only exercised against the real tree).
 4. **Engine drift** (`scripts/gen-engine.mjs --check`) - the shared applicator engine copy is byte-identical.
 5. **AGENTS.md drift** (`scripts/gen-agents.mjs --check`) - the Skills + Recipes tables in the agent guide are in sync with the catalog.
 6. **Counts** (`scripts/check-counts.mjs`) - the four hand-authored count surfaces in `README.md` match the registry, and every shipped skill's `metadata.family` is a valid slug.

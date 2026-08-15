@@ -1,5 +1,5 @@
 # Rich sidecar for the think-belief-update-routine skill.
-# DRAFT: shape mirrors the other shipped skills' sidecars (e.g. think-decision-journal).
+# Schema note: shape mirrors the other shipped skills' sidecars (e.g. think-decision-journal).
 # Evidence fields are a hand-authored summary of evidence/dossier.md (the source of
 # truth), not generated from it.
 #
@@ -14,8 +14,8 @@ identity:
   name: think-belief-update-routine   # installable name (matches the skill directory)
   display_name: Belief-Update Routine
   version: 0.1.0
-  status: draft        # draft | experimental | active | deprecated | archived
-  maturity: alpha
+  status: active        # draft | experimental | active | deprecated | archived
+  maturity: measured
 
 classification:
   primary_family: meta-thinking-and-reflection

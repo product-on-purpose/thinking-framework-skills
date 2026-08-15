@@ -1,5 +1,5 @@
 # Rich sidecar for the think-premortem skill.
-# DRAFT: shape is provisional and will be reconciled with agent-skills-toolkit
+# Schema note: this file's SHAPE may still be reconciled with agent-skills-toolkit
 # conventions once 2-3 skills exist. Evidence fields are a hand-authored summary
 # of evidence/dossier.md (the source of truth), not generated from it.
 #
@@ -13,8 +13,8 @@ identity:
   name: think-premortem        # installable name (matches the skill directory)
   display_name: Premortem
   version: 0.1.0
-  status: draft        # draft | experimental | active | deprecated | archived
-  maturity: alpha
+  status: active        # draft | experimental | active | deprecated | archived
+  maturity: measured
 
 classification:
   primary_family: risk-and-resilience
@@ -77,4 +77,4 @@ implementation:
   skill_path: skills/think-premortem/SKILL.md
   references_path: skills/think-premortem/references/
   evidence_path: skills/think-premortem/evidence/dossier.md
-  evals_path: skills/think-premortem/eval/   # to be created in week 2
+  evals_path: skills/think-premortem/eval/

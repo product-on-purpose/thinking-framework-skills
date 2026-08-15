@@ -1,4 +1,4 @@
-# Rich sidecar for the think-far-analogy-ideation skill. DRAFT shape.
+# Rich sidecar for the think-far-analogy-ideation skill. Schema note: this file's SHAPE may still evolve; that is a schema question, not this skill's lifecycle status.
 # A hand-authored summary of evidence/dossier.md (the source of truth).
 
 identity:
@@ -7,8 +7,8 @@ identity:
   name: think-far-analogy-ideation
   display_name: Far-Analogy Ideation
   version: 0.1.0
-  status: draft
-  maturity: alpha
+  status: active
+  maturity: measured
 
 classification:
   primary_family: divergent-ideation

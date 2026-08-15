@@ -9,8 +9,10 @@
 //   2. the repo-local static eval-case validator (scripts/eval-cases.mjs, SP1): every
 //      skills/*/eval/cases.md must be well-formed and name-safe,
 //   3. the registry conformance check (scripts/check-registry.mjs, SP3): frameworks/
-//      registry.mjs validates against its schema, its generated views are not stale, and
-//      its referential / IP / eval-coupling invariants hold,
+//      registry.mjs validates against its schema, its generated views are not stale,
+//      its referential / IP / eval-coupling invariants hold, and (SPEC-01) every skill on
+//      disk describes its own lifecycle truthfully - shipped implies identity.status active,
+//      and both eval stamps at measured-* implies maturity: measured,
 //   4. the shared applicator engine-copy drift check (scripts/gen-engine.mjs --check, SP7/SP8):
 //      the byte-identical engine.md copy stays in sync, and
 //   5. the AGENTS.md table drift check (scripts/gen-agents.mjs --check): the generated

@@ -1,5 +1,5 @@
 # Rich sidecar for the think-research-framework skill.
-# DRAFT shape (see skills/think-framework-advisor/skill.meta.yml). This is the library's
+# Schema note: shape follows (see skills/think-framework-advisor/skill.meta.yml). This is the library's
 # meta/engine skill: a thin front door that delegates to the think-research-framework subagent.
 # It is NOT a thinking method and carries no framework registry entry (it is exempt in
 # scripts/check-registry.mjs and excluded from the recommendable corpus, like the advisor).
@@ -10,8 +10,8 @@ identity:
   name: think-research-framework        # installable name (matches the skill directory)
   display_name: Research Framework
   version: 0.1.0
-  status: draft        # draft | experimental | active | deprecated | archived
-  maturity: alpha
+  status: active        # draft | experimental | active | deprecated | archived
+  maturity: alpha        # unmeasured by design: the meta-skills sit outside the behavioral eval run (see quality.*_eval_status)
 
 classification:
   primary_family: meta-thinking-and-reflection

@@ -16,10 +16,12 @@ The version lives in **two files that must match**: `library.json` and `package.
 
 ## The gate must be green first
 
-A release may only be cut from a state where the full gate passes. Run, from the repo root, against the pinned toolkit (`.agent-skills-toolkit`, the CI ref - clone it next to the repo as a worktree if absent):
+A release may only be cut from a state where the full gate passes. Run, from the repo root, **against the toolkit ref pinned in `.github/workflows/ci.yml`** (`.agent-skills-toolkit` - clone it next to the repo as a worktree if absent):
+
+> **Grade against the pinned ref, not whatever toolkit you happen to have.** This repo pins Standard 0.8 (`library.json` `"standard"`), and the Standard grows faster than the pin moves. A newer toolkit checkout will report whole check families the pinned run does not (G7-G10 arrived at Standard 0.10, U13 at 0.12, U14 at 0.13), so grading against an unpinned sibling checkout produces a scary number that has nothing to do with what CI will say. If you see findings you do not recognise, check `git -C ../agent-skills-toolkit log -1` before investigating anything else.
 
 ```
-node scripts/check.mjs          # advanced tier, 0 errors / 0 warnings (structural + eval-cases + registry + engine drift)
+node scripts/check.mjs          # advanced tier, 0 errors / 0 warnings AT STANDARD 0.8 (structural + eval-cases + registry + engine drift)
 npm test                        # the node --test suites
 npm --prefix site run build     # gen-site + astro build
 node scripts/check-rendered-links.mjs site/dist   # no browser-broken internal links
@@ -27,6 +29,16 @@ node scripts/check-route-parity.mjs site/dist     # no dropped published route
 ```
 
 These are the same checks CI runs (`.github/workflows/ci.yml`: `check`, `recommendable-drift`, `site-build`, `guard-tests`). If any is red, fix before cutting.
+
+### Standard re-pin review (once per release, a decision not a task)
+
+Because the tier claim is scoped to a Standard version, the pin is a thing to look at deliberately rather than drift past. At each cut, spend two minutes on:
+
+1. `git -C ../agent-skills-toolkit log --oneline -5` and the `STANDARD.md` version header: how far ahead is the Standard?
+2. Is anything in the gap **gating** rather than warning? A check that graduates from `warn` to `error` at a future version is a scheduled cliff, not a surprise.
+3. Decide: hold the pin, or re-pin and budget the debt. **Record the decision** in the release's CHANGELOG entry either way, so the next cutter inherits a reason rather than a mystery.
+
+**Current posture (decided 2026-08-14):** hold at Standard 0.8. Revisit at Standard 0.15, when the `S3` workflow mirror graduates from warn to error (toolkit ADR 0047) and this repo's nine undeclared `_workflows/` recipes would become nine gating errors. Declaring those recipes as real components is the fix, and it is worth doing for product reasons before it is forced for conformance reasons.
 
 ## Cut steps (to the gated line)
 
