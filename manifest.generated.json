@@ -342,10 +342,64 @@
   ],
   "commands": [
     {
+      "name": "think-audit-reasoning",
+      "path": "commands/think-audit-reasoning.md",
+      "description": "Check whether a conclusion is sound before trusting it, by sorting evidence from inference, reconstructing the inferential climb, and reviewing through separated lenses.",
+      "mapsTo": "think-audit-reasoning"
+    },
+    {
+      "name": "think-expand-options",
+      "path": "commands/think-expand-options.md",
+      "description": "Break past the obvious option set by reframing the problem, transforming the seed with SCAMPER, and reversing its foundational assumptions, then shortlisting candidates.",
+      "mapsTo": "think-expand-options"
+    },
+    {
+      "name": "think-first-principles",
+      "path": "commands/think-first-principles.md",
+      "description": "Reason from fundamentals by decomposing a problem to its irreducible level, then stripping the inherited assumptions, so you rebuild from what is actually necessary rather than from convention or analogy.",
+      "mapsTo": "think-first-principles"
+    },
+    {
+      "name": "think-idea-quality-audit",
+      "path": "commands/think-idea-quality-audit.md",
+      "description": "Decide which of a batch of candidate ideas are worth committing to, by scoring them on explicit quality dimensions and then adversarially stress-testing the strongest few.",
+      "mapsTo": "think-idea-quality-audit"
+    },
+    {
+      "name": "think-issue-position-argument-mapping",
+      "path": "commands/think-issue-position-argument-mapping.md",
+      "description": "Turn a tangled multi-question deliberation or transcript into an inspectable typed map by chaining shipped moves, surfacing the open issues, attaching rival positions to each, and running a pro/con pass on each position, so a sprawling debate becomes a navigable structure.",
+      "mapsTo": "think-issue-position-argument-mapping"
+    },
+    {
+      "name": "think-kepner-tregoe",
+      "path": "commands/think-kepner-tregoe.md",
+      "description": "Run the Kepner-Tregoe rational process as a chain of shipped moves, taking a bounded operational problem through cause-finding, then a weighted choice among options, then a forward risk pass, so a fix is de-risked end to end.",
+      "mapsTo": "think-kepner-tregoe"
+    },
+    {
+      "name": "think-pdca-a3",
+      "path": "commands/think-pdca-a3.md",
+      "description": "Run the Plan-Do-Check-Act improvement loop as a chain of shipped moves, taking a performance gap through root-cause and countermeasure choice, then a structured review of actual versus expected, then a standardize-or-iterate decision.",
+      "mapsTo": "think-pdca-a3"
+    },
+    {
+      "name": "think-reframe-problem",
+      "path": "commands/think-reframe-problem.md",
+      "description": "Make sure you are solving the right problem before generating solutions, by restating it, sorting evidence from inference, and reviewing it through separated lenses.",
+      "mapsTo": "think-reframe-problem"
+    },
+    {
       "name": "think-research-framework",
       "path": "commands/think-research-framework.md",
       "description": "Research a thinking framework and produce its evidence-graded dossier plus a schema-valid proposed registry entry, or discover candidate methods in a family. Use to vet a method before building it into a skill, reproduce the evidence-and-overlap vetting, or shortlist new candidates.",
       "mapsTo": "think-research-framework"
+    },
+    {
+      "name": "think-stress-test-decision",
+      "path": "commands/think-stress-test-decision.md",
+      "description": "Pressure-test a consequential decision before committing, by comparing options, surfacing the conditions that must hold, imagining failure, and sanity-checking the estimate against base rates.",
+      "mapsTo": "think-stress-test-decision"
     }
   ]
 }

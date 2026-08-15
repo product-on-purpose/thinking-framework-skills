@@ -50,24 +50,15 @@ Shipped on `fix/lifecycle-metadata-truth` (`2057be1`): all 67 sidecars promoted 
 - **The nine recipes in `_workflows/` are undeclared and uninvokable.** `library.json` has no `components.workflows` key and `manifest.generated.json` carries only skills and commands, so the README line "Recipes | 9 (skill chains shipped as workflow components)" has no runtime behind it. Toolkit ADR 0047 makes this a gating `S3` error at Standard 0.15. Fix for product reasons first.
 - **The front door is unmeasured.** `skills/think-framework-advisor/skill.meta.yml` reads `trigger_eval_status: authored` / `output_eval_status: authored`. The published 99% / 100% figures cover the 63 catalog skills; the four meta-skills sit outside that run. Raised as ADV-1 on 2026-07-11 and absent from every roadmap until now.
 
-## Blocked: runnable recipes, phase 1b (2026-08-15, #107)
+## Resolved: runnable recipes, phase 1b (2026-08-15, #107)
 
-**The nine recipe commands are built, tested and pushed, and cannot merge until the Standard pin moves.** Branch `feat/recipe-commands-blocked-on-repin` (`e7c11da`). This is a blocker on the pin, not on the code.
+**Was blocked, now shipped.** The nine recipe commands could not pass at the old pin: `S7` reported nine findings of the form `maps-to "think-audit-reasoning" but no skill or workflow by that name exists on disk` for files that were on disk. The pinned `command-contract.mjs` line 10 said `// ctx.workflows arrives in a later phase` and never built `ctx.workflows`, so no workflow-mapped command could resolve, and `maps-to` is mandatory so there was no way to write one that passed.
 
-At the CI-pinned Standard 0.8 the gate drops to `Tier: universal` with nine errors of the form:
+Resolved by moving the toolkit pin forward (PR #110) rather than by working around the check. The workarounds considered and rejected: dropping `maps-to`, pointing it at a skill, or suppressing `S7` would each have traded a true statement for a passing gate. The finding was a false negative in an old validator; the honest fix was to move the pin.
 
-> `[error] S7: commands/think-audit-reasoning.md maps-to "think-audit-reasoning" but no skill or workflow by that name exists on disk (Standard sec 3.2).`
+**Recorded because the sequence is the lesson:** the decision to hold the pin at Standard 0.8 was taken when its only visible cost was carrying warnings. Building phase 1b revealed a second cost that nobody could have predicted from the outside, and the decision was revisited on that evidence rather than defended. If a held pin ever blocks a feature again, re-measure before assuming the hold still nets out.
 
-The file *is* on disk at `_workflows/think-audit-reasoning.md`. This is the exact defect toolkit ADR 0047 part 1 was written to fix, and the ADR quotes this message verbatim as its motivating example. The cause is visible in the pinned `command-contract.mjs` line 10: `// ctx.workflows arrives in a later phase`. The loader never built `ctx.workflows`, so a workflow-mapped command can never resolve, and omitting `maps-to` is not an escape because it is mandatory.
-
-Measured both ways: pinned 0.8 gives `universal`, 9 errors. The current toolkit gives **0 `S7` errors** and is otherwise identical to before the change.
-
-**What unblocks it:** the C1-8 decision to hold the pin at Standard 0.8. That posture was chosen when its only visible cost was carrying warnings; it now also blocks the highest-value user-facing item on the roadmap. Re-pinning to any toolkit containing ADR 0047 part 1 makes the branch mergeable as-is, with no code change.
-
-**Do not work around it.** Dropping `maps-to`, pointing it at a skill, or suppressing `S7` would all trade a true statement for a passing gate. The finding is a false negative in an old validator, and the honest fix is to move the pin.
-
-Footprint recorded for when it does land (guardrail 6): +1,802 chars of always-loaded description across nine commands against the 33,233-char baseline, +5.42%, roughly 450 tokens per session. The routing re-run is still owed and is maintainer-gated.
-
+Footprint recorded (guardrail 6): +1,802 chars of always-loaded description across nine commands against the 33,233-char baseline, +5.42%, roughly 450 tokens per session. **Still owed:** the routing re-run, which is a live behavioural eval and is maintainer-gated.
 ## From the conformance-claim correction (2026-08-15)
 
 - **Open: the tier claim is still hand-maintained, which is how it went stale for three minor versions.** The `0 errors / 0 warnings` claim was true at v0.10.0 and wrong from v0.11.0 onward, and nothing caught it because no check compares the published numbers against an actual evaluator run. CI already clones the pinned toolkit and runs `evaluate.mjs`, so the counts are available in the one place that could assert them. A guard that parses the evaluator summary and diffs it against the README claim would move this from "remember to update it" to "cannot be wrong", which is the C1 pattern (see the lifecycle guard). Not built yet; the manual fix is in place. **This is the highest-value remaining item in the truth category.**
