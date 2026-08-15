@@ -15,6 +15,17 @@
 // the job of the mandated adversarial evidence-honesty pass (spec "Definition of done"). The two
 // layers are complementary: structure here, meaning there.
 //
+// NAMED RESIDUALS (2026-07-11 red team; these are where the structural layer deliberately stops,
+// so the human pass knows exactly what it owns rather than inheriting an unmarked boundary):
+//   - RT-3b, the whitespace-aligned pseudo-matrix. A grid of the discredited artifact rendered with
+//     spaces instead of pipes or HTML is structurally indistinguishable from formatted prose, and a
+//     detector strict enough to catch it would false-positive on aligned lists. A warn_redirect
+//     surface that renders ANY grid of the discredited matrix is a review catch, not a gate catch.
+//     Carried as a { todo: true } test in tests/contested-lib.redteam.test.mjs so it stays visible.
+//   - RT-1's soft tail. The blatant rehabilitation register is denied outright (see DISHONEST); the
+//     subtler "concede, then sell" shape is surfaced through the ADVISORY channel (opts.warnings)
+//     rather than failed, because honest phrasing sits close to it. Review owns the judgment call.
+//
 // Pure + side-effect-free (no fs, no process) so tests/contested-lib.test.mjs can negative-test
 // both postures and the bypass classes. The CLI (scripts/check-contested.mjs) reads the real files
 // + registry and calls checkContestedEntry per entry. Sibling to cases-lib.mjs / registry-entry-lib.mjs.
@@ -27,11 +38,35 @@ const CAVEAT_BLOCK = /caveat/i;
 const REDIRECT_HEADING = /instead|redirect|evidence-based|use this/i;
 // A think-<slug> invocation token (used to confirm a warn-redirect names a real alternative).
 const THINK_TOKEN = /\bthink-[a-z0-9-]+\b/g;
-// An evidence signal a real caveat carries: a citation year, an explicit tier, or study language.
+// An evidence signal a real caveat carries: an explicit tier, study language, or a CITED year.
 // "We ran out of caveats, enjoy the grid" and a one-word "ok" both lack this and are rejected.
-const EVIDENCE_TOKEN = /\b(19|20)\d{2}\b|\btier\b|\b(controlled|randomi[sz]ed|trial|trials|study|studies|evidence|undertested|untested|cargo[- ]cult)\b/i;
+//
+// RT-2 (red team 2026-07-11): a BARE year is deliberately not enough. "SWOT has been a boardroom
+// staple since 1965" cites nothing, yet the old single-alternation token accepted it, so a caveat
+// could look evidence-bearing while resting on a popularity date. A year now counts only when it
+// is citation-shaped: inside parentheses, attached to "et al", or following a surname.
+const STUDY_TOKEN = /\btier\b|\b(controlled|randomi[sz]ed|trial|trials|study|studies|evidence|undertested|untested|cargo[- ]cult)\b/i;
+const CITED_YEAR = /\([^)]*\b(?:19|20)\d{2}\b[^)]*\)|\bet al\.?,?\s*(?:19|20)\d{2}\b|\b[A-Z][A-Za-z'-]+(?:\s+(?:and|&)\s+[A-Z][A-Za-z'-]+)?,?\s+(?:19|20)\d{2}\b/;
+function hasEvidenceSignal(text) {
+  const t = text || '';
+  return STUDY_TOKEN.test(t) || CITED_YEAR.test(t);
+}
 // Endorsement / dismissal language a caveat must NOT contain (it would invert the caveat's purpose).
-const DISHONEST = /\breliably improves\b|\bbest[- ]in[- ]class\b|\bgold[- ]standard\b|\bproven\b|\bno caveats?\b|\bcaveat[- ]free\b|nothing to worry|none worth|not affiliated/i;
+//
+// The second half of this alternation is the SOFT-endorsement register proven exploitable by the
+// 2026-07-11 red team (RT-1 in-caveat rehabilitation, RT-4 soft-endorsement preamble). The original
+// list only caught hard claims ("reliably improves", "proven"), so a caveat or preamble could sell
+// the method fluently without tripping a single phrase.
+const DISHONEST = /\breliably improves\b|\bbest[- ]in[- ]class\b|\bgold[- ]standard\b|\bproven\b|\bno caveats?\b|\bcaveat[- ]free\b|nothing to worry|none worth|not affiliated|\bmost powerful\b|\bworld[- ]class\b|\bindustry standard\b|\bstood the test of time\b|\btime[- ]tested\b|\bwidely trusted\b|\bwidely adopted\b|\bindispensable\b|\bbeloved\b|\brarely disappoints\b|\bgenuine classic\b|\bmost popular\b/i;
+
+// RT-1 residual: a caveat can concede the deficiency and then rehabilitate the method in the same
+// breath, inside the very block the gate certifies as honest. The blatant register is caught by
+// DISHONEST above; this pairing is the softer shape. It is advisory (a WARNING, never a failure)
+// because the honest phrasing "the value here is the discipline this skill adds" is genuinely close
+// to it, and a hard rule here would false-block real caveats. See the SCOPE NOTE: structure here,
+// meaning in the mandated adversarial evidence-honesty pass.
+const CONCESSIVE = /\b(nominally|on paper|technically|admittedly|granted|some (?:academics|critics|researchers|scholars))\b/i;
+const REHABILITATION = /\b(becomes?|remains?|is still|turns into)\b[^.]{0,60}\b(powerful|trusted|classic|standard|essential|reliable|invaluable|formidable)\b|\bone of the (?:most|best|finest)\b|\bswear by\b/i;
 
 function frontmatter(md) {
   const m = (md || '').match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -136,9 +171,23 @@ function thinkTokensExcept(text, slug) {
   const self = `think-${slug}`;
   return [...new Set((text || '').match(THINK_TOKEN) || [])].filter((t) => t !== self);
 }
-function hasMarkdownTable(text) {
+// Does this surface reproduce the discredited tabular artifact in ANY renderable form?
+//
+// RT-3 (red team 2026-07-11): the original check understood pipe-markdown only, so a warn_redirect
+// lens could reproduce the full ACH disconfirmation matrix as an HTML <table> and pass a rule the
+// guard actively enforces (there was even a negative test for the pipe case). Markdown renderers
+// pass raw HTML through, so an HTML table is exactly as much a reproduced matrix as a pipe one.
+//
+// RT-3b is the documented residual and is NOT chased here: a whitespace-aligned grid is
+// structurally indistinguishable from formatted prose, and a detector strict enough to catch it
+// would false-positive on aligned lists. That one is a human-review catch, by design.
+function hasTabularArtifact(text) {
+  const t = text || '';
   // a header row of pipes immediately followed by a separator row ( |---|---| )
-  return /^\s*\|.*\|\s*$\r?\n\s*\|?[\s:|-]*-[\s:|-]*\|?\s*$/m.test(text || '');
+  if (/^\s*\|.*\|\s*$\r?\n\s*\|?[\s:|-]*-[\s:|-]*\|?\s*$/m.test(t)) return true;
+  // an HTML table, with or without its wrapper (rows and cells are enough to render a grid)
+  if (/<table[\s>]/i.test(t) || /<t[rdh][\s>]/i.test(t)) return true;
+  return false;
 }
 // The distinctive owner token a branded artifact must carry (the mark itself, before any
 // "(owner / ...)" detail): "Cynefin (The Cynefin Co. ...)" -> "Cynefin".
@@ -164,6 +213,10 @@ export function checkContestedEntry(entry, files, opts = {}) {
   const slug = entry.slug;
   const at = `contested ${slug}`;
   const fail = (m) => problems.push(`${at}: ${m}`);
+  // Advisory channel. Callers that pass opts.warnings receive non-blocking findings (currently the
+  // RT-1 contrastive-rehabilitation heuristic); callers that do not are entirely unaffected, so
+  // this stays a pure additive change to the signature.
+  const warn = (m) => { if (Array.isArray(opts.warnings)) opts.warnings.push(`${at}: ${m}`); };
   const validAlternatives = opts.validAlternatives || null;
 
   const posture = entry.posture;
@@ -192,12 +245,18 @@ export function checkContestedEntry(entry, files, opts = {}) {
   if (!info.found) {
     fail(`SKILL.md first section ${JSON.stringify(info.heading || '(none)')} must be the evidence caveat - the deficiency must lead, before "When to Use" / "Instructions".`);
   } else {
-    if (info.contentLines > 6) fail(`SKILL.md buries the caveat under a ${info.contentLines}-line preamble - the deficiency must lead (keep any framing under the caveat to a short intro).`);
+    // Ratcheted 6 -> 3 (RT-4 / audit C-05): six lines was room enough for a full soft-endorsement
+    // pitch before the caveat landed, proven with passing text. Three is the observed maximum across
+    // the seven shipped lenses, so this is a ratchet from reality, not an arbitrary tightening.
+    if (info.contentLines > 3) fail(`SKILL.md buries the caveat under a ${info.contentLines}-line preamble - the deficiency must lead (keep any framing under the caveat to a short intro of at most 3 lines).`);
     if (DISHONEST.test(info.preText || '')) fail('SKILL.md preamble before the caveat contains endorsement/dismissal language - the framing must not sell the method before the caveat lands.');
     const sec = leadingCaveatSection(body) || '';
     if (sec.length < 80) fail('SKILL.md leading caveat section is too thin to be a real caveat (under 80 chars).');
-    if (!EVIDENCE_TOKEN.test(sec)) fail('SKILL.md leading caveat must carry an evidence signal (a citation year, the tier, or study/evidence language), not just the word "caveat".');
-    if (DISHONEST.test(sec)) fail('SKILL.md leading caveat contains endorsement/dismissal language (e.g. "reliably improves", "proven", "no caveats") - the deficiency must lead honestly.');
+    if (!hasEvidenceSignal(sec)) fail('SKILL.md leading caveat must carry an evidence signal (a CITED year, the tier, or study/evidence language), not just the word "caveat" or a bare popularity date.');
+    if (DISHONEST.test(sec)) fail('SKILL.md leading caveat contains endorsement/dismissal language (e.g. "reliably improves", "proven", "widely trusted") - the deficiency must lead honestly.');
+    if (CONCESSIVE.test(sec) && REHABILITATION.test(sec)) {
+      warn('SKILL.md leading caveat concedes the deficiency and then rehabilitates the method in the same section - check it leads with the deficiency rather than selling past it (advisory; RT-1).');
+    }
   }
 
   // 2. The artifact surfaces open with an evidence-bearing caveat block (not a negating weasel block).
@@ -205,7 +264,7 @@ export function checkContestedEntry(entry, files, opts = {}) {
     if (!text) continue;
     const block = leadingCaveatBlock(text);
     if (!block) { fail(`${label} must open with a caveat block (a "> ...caveat..." line or ":::caution" near the top).`); continue; }
-    if (!EVIDENCE_TOKEN.test(block)) fail(`${label} caveat block must carry an evidence signal (a citation year, the tier, or study language), not just the word "caveat".`);
+    if (!hasEvidenceSignal(block)) fail(`${label} caveat block must carry an evidence signal (a CITED year, the tier, or study language), not just the word "caveat" or a bare popularity date.`);
     if (DISHONEST.test(block)) fail(`${label} caveat block contains endorsement/dismissal language - it must lead with the real deficiency.`);
   }
 
@@ -234,7 +293,7 @@ export function checkContestedEntry(entry, files, opts = {}) {
     if (template && thinkTokensExcept(template, slug).length === 0) fail('warn_redirect references/TEMPLATE.md must route to an evidence-based alternative (a think-<slug> skill), not reproduce the discredited artifact.');
     if (example && thinkTokensExcept(example, slug).length === 0) fail('warn_redirect references/EXAMPLE.md must route to an evidence-based alternative (a think-<slug> skill).');
     for (const [label, text] of [['references/TEMPLATE.md', template], ['references/EXAMPLE.md', example], ['site sample', sample]]) {
-      if (text && hasMarkdownTable(text)) fail(`warn_redirect ${label} contains a markdown table - a warn-redirect skill must not reproduce the discredited tabular artifact; its deliverable is the prose redirect brief.`);
+      if (text && hasTabularArtifact(text)) fail(`warn_redirect ${label} reproduces a tabular artifact (markdown pipe table or HTML table) - a warn-redirect skill must not reproduce the discredited tabular artifact; its deliverable is the prose redirect brief.`);
     }
   }
 

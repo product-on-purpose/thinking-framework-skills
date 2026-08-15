@@ -50,6 +50,14 @@ Shipped on `fix/lifecycle-metadata-truth` (`2057be1`): all 67 sidecars promoted 
 - **The nine recipes in `_workflows/` are undeclared and uninvokable.** `library.json` has no `components.workflows` key and `manifest.generated.json` carries only skills and commands, so the README line "Recipes | 9 (skill chains shipped as workflow components)" has no runtime behind it. Toolkit ADR 0047 makes this a gating `S3` error at Standard 0.15. Fix for product reasons first.
 - **The front door is unmeasured.** `skills/think-framework-advisor/skill.meta.yml` reads `trigger_eval_status: authored` / `output_eval_status: authored`. The published 99% / 100% figures cover the 63 catalog skills; the four meta-skills sit outside that run. Raised as ADV-1 on 2026-07-11 and absent from every roadmap until now.
 
+## From the contested-guard hardening (2026-08-15, #103)
+
+Shipped: preamble ratchet 6 to 3, soft-endorsement denylist, citation-shaped evidence token, HTML-table detection, and an advisory channel for the RT-1 residual. These were deliberately left.
+
+- **RT-3b, the whitespace-aligned pseudo-matrix: a permanent structural residual, not a deferral.** A grid of the discredited artifact rendered with spaces rather than pipes or HTML is structurally indistinguishable from formatted prose, and any detector strict enough to catch it would false-positive on aligned lists and code-ish content. This is not waiting on effort or a better idea; it is the point where the structural layer correctly stops. It is named in the SCOPE NOTE of `scripts/lib/contested-lib.mjs` and carried as a `{ todo: true }` test so it stays visible, and it belongs to the mandated adversarial evidence-honesty pass. **Do not "fix" it with a stricter regex.**
+- **RT-1's soft tail is advisory by design.** The blatant rehabilitation register is denied outright; the subtler "concede, then sell" shape raises a non-blocking warning instead of failing, because the honest phrasing ("the value here is the discipline this skill adds") sits genuinely close to the dishonest one. Promoting it to a hard failure would false-block real caveats. If the advisory ever fires on a shipped lens, that is a review prompt, not a bug.
+- **The advisory channel is opt-in and currently has exactly one producer.** `checkContestedEntry` pushes into `opts.warnings` only when a caller supplies the array, so the signature change is additive. If a second advisory is added later, keep that property: callers that do not opt in must see identical behaviour.
+
 ## Pre-existing (predates this effort)
 
 - **GA4 content-vs-acquisition decision.** Parked, waiting on the analytics signal (see `docs/internal/MEASUREMENT.md` and the content-plan). Tracked separately.
