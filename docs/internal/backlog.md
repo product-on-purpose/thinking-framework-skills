@@ -30,6 +30,26 @@ Shipped as PR #98 (`f12f532`, rides `[Unreleased]`): `finalize.mjs` (one step wr
 - **Task 8 - combined-run Workflow (`scripts/eval/eval.workflow.mjs`).** Would run routing + produce/judge in one Workflow call so the operator flow is 3 commands instead of 4. Pure convenience; the provenance fix does not depend on it, and its smoke-test is a live model-executed run. No issue (low priority).
 - **Minors (fine-to-defer, from the per-task + whole-branch reviews).** No positive/negative TRIGGER-eval shape unit test in `tests/check-eval-results.test.mjs` (the OUTPUT path is unit-tested; the trigger path is covered only by the real-tree runner, though both share the same `REQUIRED_TOTALS` loop); `finalize.mjs` `main` has no try/catch (a failure still exits non-zero, just less cleanly); `tests/finalize.test.mjs` does not assert the JSON trailing newline. All triaged fine-to-defer by the final review; none block. (The one Minor worth fixing now, an unused import, was cleaned up in the branch.)
 
+## From the lifecycle-metadata truth effort (2026-08-14)
+
+Shipped on `fix/lifecycle-metadata-truth` (`2057be1`): all 67 sidecars promoted to `status: active`, 63 to `maturity: measured`, a new lifecycle-truth section in `check-registry.mjs` backed by a unit-tested `scripts/lib/lifecycle-lib.mjs`, the stale 34-skill corpus count removed from both `engine.md` copies, and the conformance claim scoped to Standard 0.8. These were deferred or decided.
+
+### Deferred
+
+- **`library.json` homepage + native manifest regeneration (audit finding A-03).** `homepage` still points at the GitHub repo rather than the live site. The fix is one line, but it must ship together with regenerated `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `manifest.generated.json` and `INDEX.md`, and regenerating those requires the **CI-pinned** toolkit ref. The local sibling checkout is ahead of the pin, so doing it with what was to hand would have produced a diff CI disagrees with. Do it as the first step of the next release cut, where the pinned regeneration already happens (release-process step 3).
+- **Research-agent description rewrite (finding B-03).** The paired "Tool constraints (hard limits)" hardening is safe to do any time; the description rewrite changes a routing surface and should be measured, so it waits behind an eval run.
+
+### Decided (no further action expected)
+
+- **Standard pin held at 0.8.** The Standard is at 0.13; graded against a current toolkit this repo returns convergent with 1 error and 128 warnings (71 `G8` folder-README, 39 `G9` source-docblock, 7 `U5` description-score, 6 `G7` docs-frontmatter, 5 `G10` Diataxis, 1 `G4` INDEX drift). None of it is a defect this repo introduced; it is the Standard growing past a pin that has not moved. Rather than burn that debt now, the claim was scoped instead: README and `docs/conformance.md` state "advanced (Gold) ... **against Standard 0.8**" and say plainly that a newer toolkit reports more. Revisit at Standard 0.15, when the `S3` workflow mirror gates (see the release-process re-pin review).
+- **Component `version` frozen at `0.1.0`.** Documented in `AUTHORING.md` step 7. The library-level version carries all semver meaning; a per-component bump ritual would be manual upkeep with no consumer.
+- **All 67 sidecars covered by the lifecycle guard, including the four meta-skills.** The `META_SKILLS` exemption in `check-registry.mjs` is narrow by design: it exempts tools from "does this have a registry entry", not from lifecycle truth. The four tools now read `status: active` with `maturity: alpha`, which is honest, because they genuinely sit outside the behavioral eval run.
+
+### Known open (raised 2026-08-14, not yet actioned)
+
+- **The nine recipes in `_workflows/` are undeclared and uninvokable.** `library.json` has no `components.workflows` key and `manifest.generated.json` carries only skills and commands, so the README line "Recipes | 9 (skill chains shipped as workflow components)" has no runtime behind it. Toolkit ADR 0047 makes this a gating `S3` error at Standard 0.15. Fix for product reasons first.
+- **The front door is unmeasured.** `skills/think-framework-advisor/skill.meta.yml` reads `trigger_eval_status: authored` / `output_eval_status: authored`. The published 99% / 100% figures cover the 63 catalog skills; the four meta-skills sit outside that run. Raised as ADV-1 on 2026-07-11 and absent from every roadmap until now.
+
 ## Pre-existing (predates this effort)
 
 - **GA4 content-vs-acquisition decision.** Parked, waiting on the analytics signal (see `docs/internal/MEASUREMENT.md` and the content-plan). Tracked separately.
