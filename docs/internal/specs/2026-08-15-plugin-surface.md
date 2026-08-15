@@ -43,17 +43,21 @@ Verified 2026-08-15 against the shipped toolkit, not the ADR's proposal text.
 
 ## Phase 1a: declare the workflows
 
-1. Add `components.workflows` to `library.json` with one entry per `_workflows/*.md`, excluding `README.md` and `_`-prefixed files.
-2. Regenerate the native manifests for both agent targets, against the **CI-pinned** toolkit ref.
-3. Add a repo-local drift assertion so this cannot rot between re-pins: a `_workflows/*.md` on disk that is undeclared, or a declared workflow with no file, fails `check-registry.mjs` (or a sibling layer). **Rationale for duplicating a toolkit check:** the toolkit's version does not gate until the repo re-pins at 0.15, which may be months away; the repo-local one gates today. This mirrors how `check-counts` guards surfaces the toolkit does not.
+1. Add `components.workflows` to `library.json` with one entry per `_workflows/*.md`, excluding `README.md` and `_`-prefixed files. Match the sibling shape: `{ name, path, version, tier: "convergent", status }`.
+2. Add a repo-local drift assertion so this cannot rot between re-pins: a `_workflows/*.md` on disk that is undeclared, or a declared workflow with no file, fails `check-registry.mjs`. **Rationale for duplicating a toolkit check:** the toolkit's mirror is capped at `warn` until the repo pins Standard 0.15, which may be months away; the repo-local one gates today. Same argument that justifies `check-counts` guarding surfaces the toolkit does not.
+
+> **Corrected 2026-08-15, mid-implementation.** An earlier draft of this spec required regenerating the native manifests so they "reflect the new component type". **That is not achievable and never was.** Verified by reading both generators: neither the pinned 0.8 `gen-manifest.mjs` nor the current v1.13.0 one has any concept of workflows, so `manifest.generated.json` and the two native `plugin.json` files carry `skills` and `commands` only. ADR 0047 added the `S3` mirror as a *check* that reads `library.json` directly; it did not add manifest emission.
+>
+> Measured proof that `library.json` alone is sufficient, run against the current toolkit: **undeclared, 9 `S3` findings (137 warnings total); declared, 0 (128 total).** Regenerating the manifests produced an empty diff. An implementer following the old criterion would have chased a regeneration that does nothing.
 
 ### Acceptance criteria (1a)
 
-- [ ] `library.json` declares exactly the nine `_workflows/` recipes, no more, no fewer.
-- [ ] `manifest.generated.json` and both native manifests reflect the new component type after regeneration against the pinned ref.
-- [ ] Deleting a declaration, or adding an undeclared `_workflows/x.md`, reds the local gate with an actionable message naming the file. **Demonstrated red, both directions, before the fix is called done.**
-- [ ] `node scripts/check.mjs` green; `npm test` green.
-- [ ] README wording reconciled: today's "shipped as workflow components" is true of 1a but says nothing about runnability, so it must not imply the latter until 1b lands.
+- [ ] `library.json` declares exactly the nine `_workflows/` recipes, no more, no fewer, with the `README.md` and `_`-prefix exclusions honored.
+- [ ] The 9 `S3` workflow findings the current toolkit reports are gone, measured before and after. (They are capped at `warn` under the 0.8 pin, so this is pre-emptive: it closes the cliff before the repo re-pins rather than after.)
+- [ ] A repo-local assertion fails, **today**, in both directions: a declared workflow with no file, and a file with no declaration. **Demonstrated red in both directions before the item is called done.**
+- [ ] `node scripts/check.mjs` green at the pinned ref; `npm test` green.
+- [ ] **No** native-manifest change is expected. If a regeneration produces a diff, something else drifted and that is the finding.
+- [ ] README wording reconciled: today's "shipped as workflow components" becomes true of 1a but says nothing about runnability, so it must not imply the latter until 1b lands.
 
 ## Phase 1b: make the recipes runnable
 

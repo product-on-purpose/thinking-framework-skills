@@ -24,6 +24,9 @@
 //   9. Lifecycle truth (SPEC-01) - every skill that ships on disk describes itself as shipped
 //                  (identity.status active/deprecated/archived, never draft/experimental), and
 //                  a skill with both eval stamps at measured-* carries maturity: measured.
+//  10. Workflows mirror (SPEC-09) - library.json components.workflows and _workflows/ describe
+//                  the same set, both directions. The toolkit's equivalent (ADR 0047, S3) is capped
+//                  at warn until Standard 0.15; this repo pins 0.8, so this local copy gates today.
 //
 // Zero-dependency; reuses scripts/lib/cases-lib.mjs (the SP1 source) for eval coupling and
 // scripts/lib/lifecycle-lib.mjs (unit-tested separately) for section 9.
@@ -37,6 +40,7 @@ import registry from '../frameworks/registry.mjs';
 import { validateCasesDoc, findUnknownThinkNames } from './lib/cases-lib.mjs';
 import { validateEntry } from './lib/registry-entry-lib.mjs';
 import { checkLifecycle } from './lib/lifecycle-lib.mjs';
+import { checkWorkflowMirror, checkWorkflowEntryShape, isWorkflowFile, workflowName } from './lib/workflow-mirror-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..'); // cwd-independent; the script and registry share a checkout
@@ -244,6 +248,22 @@ for (const dir of readdirSync(resolve(ROOT, 'skills'))) {
   for (const p of checkLifecycle(dir, readFileSync(sidecarPath, 'utf8'))) fail(p);
 }
 
+// --- 10. Workflows mirror (SPEC-09 phase 1a) --------------------------------
+// library.json's declared workflows and _workflows/ must describe the same set, both directions.
+// The toolkit enforces this too (ADR 0047, S3), but caps the finding at "warn" until a consumer
+// pins Standard 0.15 - and this repo pins 0.8, so the toolkit's version will not gate here for as
+// long as that holds. This gates today. Rules live in scripts/lib/workflow-mirror-lib.mjs.
+{
+  const lib = JSON.parse(readFileSync(resolve(ROOT, 'library.json'), 'utf8'));
+  const declaredEntries = lib?.components?.workflows ?? [];
+  for (const p of checkWorkflowEntryShape(declaredEntries)) fail(p);
+  const declared = declaredEntries.filter((e) => e && typeof e.name === 'string').map((e) => e.name);
+  const onDisk = readdirSync(resolve(ROOT, '_workflows'))
+    .filter((f) => isWorkflowFile(f))
+    .map((f) => workflowName(f));
+  for (const p of checkWorkflowMirror(declared, onDisk)) fail(p);
+}
+
 // --- report -----------------------------------------------------------------
 if (problems.length) {
   console.error(`Registry conformance: ${problems.length} problem(s):\n`);
@@ -251,5 +271,5 @@ if (problems.length) {
   console.error('\nFix frameworks/registry.mjs (or regenerate views) and re-run.');
   process.exit(1);
 }
-console.log(`Registry conformance: OK (${fw.length} frameworks, ${shipped.size} shipped, schema + drift + referential + IP + eval + tier + recommendable + lifecycle).`);
+console.log(`Registry conformance: OK (${fw.length} frameworks, ${shipped.size} shipped, schema + drift + referential + IP + eval + tier + recommendable + lifecycle + workflows).`);
 process.exit(0);
