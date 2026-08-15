@@ -1,5 +1,5 @@
 # Rich sidecar for the think-top3 skill.
-# DRAFT shape (see skills/think-premortem/skill.meta.yml). This is a meta/applicator skill over
+# Schema note: shape follows (see skills/think-premortem/skill.meta.yml). This is a meta/applicator skill over
 # the recommendable corpus, not a framework method, so it carries no registry entry (it is exempt
 # in scripts/check-registry.mjs and excluded from the recommendable set, like the advisor).
 # The select-apply-synthesize logic lives in the shared references/engine.md (mode: RANK).
@@ -10,8 +10,8 @@ identity:
   name: think-top3        # installable name (matches the skill directory)
   display_name: Top 3
   version: 0.1.0
-  status: experimental    # draft | experimental | active | deprecated | archived
-  maturity: alpha
+  status: active    # draft | experimental | active | deprecated | archived
+  maturity: alpha        # unmeasured by design: the meta-skills sit outside the behavioral eval run (see quality.*_eval_status)
 
 classification:
   primary_family: meta-thinking-and-reflection

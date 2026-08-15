@@ -1,5 +1,5 @@
 # Rich sidecar for the think-framework-advisor skill.
-# DRAFT shape (see skills/think-premortem/skill.meta.yml). Evidence fields are a
+# Schema note: shape follows (see skills/think-premortem/skill.meta.yml). Evidence fields are a
 # hand-authored summary of evidence/dossier.md (the source of truth), not generated.
 #
 # This is the library's meta/router skill: the only skill that recommends OTHER skills.
@@ -12,8 +12,8 @@ identity:
   name: think-framework-advisor        # installable name (matches the skill directory)
   display_name: Framework Advisor
   version: 0.1.0
-  status: draft        # draft | experimental | active | deprecated | archived
-  maturity: alpha
+  status: active        # draft | experimental | active | deprecated | archived
+  maturity: alpha        # unmeasured by design: the meta-skills sit outside the behavioral eval run (see quality.*_eval_status)
 
 classification:
   primary_family: meta-thinking-and-reflection

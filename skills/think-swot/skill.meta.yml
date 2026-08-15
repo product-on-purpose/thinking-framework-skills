@@ -7,8 +7,8 @@ identity:
   name: think-swot
   display_name: SWOT
   version: 0.1.0
-  status: draft
-  maturity: alpha
+  status: active
+  maturity: measured
 
 classification:
   primary_family: strategy-and-opportunity

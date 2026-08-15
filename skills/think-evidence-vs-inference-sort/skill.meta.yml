@@ -1,5 +1,5 @@
 # Rich sidecar for the think-evidence-vs-inference-sort skill.
-# DRAFT shape. A hand-authored summary of evidence/dossier.md (the source of truth).
+# Schema note: this file's SHAPE may still evolve; that is a schema question, not this skill's lifecycle status. A hand-authored summary of evidence/dossier.md (the source of truth).
 
 identity:
   id: thinking-framework-skills.evidence-vs-inference-sort
@@ -7,8 +7,8 @@ identity:
   name: think-evidence-vs-inference-sort
   display_name: Evidence vs Inference Sort
   version: 0.1.0
-  status: draft
-  maturity: alpha
+  status: active
+  maturity: measured
 
 classification:
   primary_family: reasoning-clarity

@@ -433,7 +433,9 @@ This plugin is built to the [agent-skills-toolkit](https://github.com/product-on
 | 🥈 | **Convergent (Silver)** | The plugin declares its agent targets and emits each higher-order component (commands, workflows, chain contracts) correctly for both Claude Code and Codex, with a manifest that matches what is on disk. |
 | 🥉 | **Universal (Bronze)** | The skills are portable - valid frontmatter, an `AGENTS.md`, a manifest, references one level deep - so the identical files run on any agentskills.io-compatible agent. |
 
-`thinking-framework-skills` validates at **advanced (Gold) with 0 errors and 0 warnings** against the pinned toolkit. Concretely, it earns Gold through:
+`thinking-framework-skills` validates at **advanced (Gold) with 0 errors and 0 warnings against Standard 0.8**, the version it pins (`library.json` declares `"standard": "0.8"`; [`.github/workflows/ci.yml`](.github/workflows/ci.yml) pins the exact toolkit commit CI grades against).
+
+The Standard itself moves faster than this library re-pins, and that is a deliberate choice rather than an oversight: re-pinning is a release-sized decision here, so the tier claim above always names the Standard version it holds at rather than implying the newest one. Graded against a newer Standard, the result will differ until the next re-pin. Concretely, it earns Gold through:
 
 - **Self-hosting CI that passes.** Every pull request runs [`scripts/check.mjs`](scripts/check.mjs) (the Standard's validators) via [`.github/workflows/ci.yml`](.github/workflows/ci.yml), and `check` is a required status check on `main`. The same one command reproduces the result locally.
 - **Generated INDEX and manifests.** [`INDEX.md`](INDEX.md), `.claude-plugin/plugin.json`, the Codex manifest, and `manifest.generated.json` are all generated from the authored [`library.json`](library.json) and drift-checked; a hand-edit is a CI error.

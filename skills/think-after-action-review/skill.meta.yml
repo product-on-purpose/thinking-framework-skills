@@ -1,4 +1,4 @@
-# Rich sidecar for the think-after-action-review skill. DRAFT shape.
+# Rich sidecar for the think-after-action-review skill. Schema note: this file's SHAPE may still evolve; that is a schema question, not this skill's lifecycle status.
 # A hand-authored summary of evidence/dossier.md (the source of truth).
 
 identity:
@@ -7,8 +7,8 @@ identity:
   name: think-after-action-review
   display_name: After Action Review
   version: 0.1.0
-  status: draft
-  maturity: alpha
+  status: active
+  maturity: measured
 
 classification:
   primary_family: meta-thinking-and-reflection

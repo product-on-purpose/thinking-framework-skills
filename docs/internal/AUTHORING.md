@@ -28,7 +28,7 @@ skills/think-<method>/
   references/TEMPLATE.md   # the artifact structure
   references/EXAMPLE.md    # a worked example (use the shared Northwind scenario)
   evidence/dossier.md      # graded evidence; the single source of truth
-  skill.meta.yml           # rich sidecar (draft)
+  skill.meta.yml           # rich sidecar (scaffolds at status: draft; promote on ship, see step 7)
 ```
 
 **Shared example scenario (for cross-skill coherence):** use **Northwind**, a B2B SaaS weighing a self-serve free-tier launch, as the recurring scenario across `EXAMPLE.md` files where it fits, so the library reads as one product (a lightweight version of pm-skills' "threads").
@@ -44,6 +44,10 @@ skills/think-<method>/
 5. **Write `SKILL.md`** from the dossier: `think-<method>` name (must match the directory), a description that leads with an action verb + a "Use when ..." trigger clause (under 1024 chars, no first person - it is the activation trigger), the four commitments, a bounded procedure, and a quality checklist drawn from the dossier's failure modes.
 6. **Write `references/TEMPLATE.md` and `references/EXAMPLE.md`** (the artifact structure, and a worked example on the Northwind scenario).
 7. **Fill `skill.meta.yml`** (id, family, relationships, failure modes) from the dossier.
+
+   **Lifecycle fields, and the one rule the gate enforces.** `identity.status` is the *skill's* lifecycle and `identity.maturity` is its *measurement* state; do not conflate them, and do not use either to describe how settled the sidecar schema is (that belongs in the header comment). Scaffold at `status: draft` / `maturity: alpha`, promote to `status: active` when the skill ships, and to `maturity: measured` once both `quality.*_eval_status` fields read `measured-*`. A shipped-but-unmeasured skill stays `alpha` and says so, which is exactly how the four meta-skills describe themselves. Gate layer 3 enforces both rules (`scripts/lib/lifecycle-lib.mjs`), so a shipped skill cannot ship calling itself a draft.
+
+   **Component `version` is intentionally frozen at `0.1.0`** in both `library.json` and the sidecar, and reserved for future per-component compatibility signalling. The library-level version in `library.json` carries all semver meaning today. Do not bump component versions per release; there is no consumer for it, and a per-skill bump ritual would be manual upkeep with no reader.
 8. **Register** the skill in both sources of truth. Add the component to `library.json` (`name: think-<method>`, `path: skills/think-<method>/SKILL.md`), and add or update its entry in `frameworks/registry.mjs` (`status: 'shipped'`, the governing `tier`, `family`, `verdict`, `reasoning`, and - for a branded method - `attribution` + `trademark`). Then regenerate the views: `npm run gen:registry` (catalog + why-not) and `npm run gen:recommendable` (the advisor corpus). CI enforces shipped-entry <-> skill-dir parity both ways and tier consistency, so a skill without a matching entry (or a tier that disagrees with the SKILL.md `evidence-tier`) fails the gate.
 9. **Validate to zero errors at the conformance gate:**
    ```

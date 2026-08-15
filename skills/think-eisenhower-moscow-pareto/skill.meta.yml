@@ -7,8 +7,8 @@ identity:
   name: think-eisenhower-moscow-pareto
   display_name: Eisenhower / MoSCoW / Pareto
   version: 0.1.0
-  status: draft
-  maturity: alpha
+  status: active
+  maturity: measured
 
 classification:
   primary_family: decision-and-option-evaluation

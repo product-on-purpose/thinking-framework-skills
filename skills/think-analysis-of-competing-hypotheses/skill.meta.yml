@@ -7,8 +7,8 @@ identity:
   name: think-analysis-of-competing-hypotheses
   display_name: Analysis of Competing Hypotheses (ACH)
   version: 0.1.0
-  status: draft
-  maturity: alpha
+  status: active
+  maturity: measured
 
 classification:
   primary_family: assumption-and-belief-challenge

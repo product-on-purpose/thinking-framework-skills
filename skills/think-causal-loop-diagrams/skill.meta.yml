@@ -1,4 +1,4 @@
-# Rich sidecar for the think-causal-loop-diagrams skill. DRAFT shape.
+# Rich sidecar for the think-causal-loop-diagrams skill. Schema note: this file's SHAPE may still evolve; that is a schema question, not this skill's lifecycle status.
 # A hand-authored summary of evidence/dossier.md (the source of truth).
 
 identity:
@@ -7,8 +7,8 @@ identity:
   name: think-causal-loop-diagrams
   display_name: Causal Loop Diagrams
   version: 0.1.0
-  status: draft
-  maturity: alpha
+  status: active
+  maturity: measured
 
 classification:
   primary_family: systems-and-consequences
