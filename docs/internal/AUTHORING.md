@@ -51,7 +51,7 @@ skills/think-<method>/
 8. **Register** the skill in both sources of truth. Add the component to `library.json` (`name: think-<method>`, `path: skills/think-<method>/SKILL.md`), and add or update its entry in `frameworks/registry.mjs` (`status: 'shipped'`, the governing `tier`, `family`, `verdict`, `reasoning`, and - for a branded method - `attribution` + `trademark`). Then regenerate the views: `npm run gen:registry` (catalog + why-not) and `npm run gen:recommendable` (the advisor corpus). CI enforces shipped-entry <-> skill-dir parity both ways and tier consistency, so a skill without a matching entry (or a tier that disagrees with the SKILL.md `evidence-tier`) fails the gate.
 9. **Validate to zero errors at the conformance gate:**
    ```
-   node scripts/check.mjs        # advanced tier at Standard 0.8, 0 errors (7 known U5 warnings on the contested lenses)
+   node scripts/check.mjs        # advanced tier at Standard 0.8, 0 errors (128 non-gating warnings, see docs/conformance.md)
    npm test                      # the node --test suites
    ```
    The gate resolves the `agent-skills-toolkit` at the CI-pinned ref (clone it next to this repo, or as a `.agent-skills-toolkit` worktree). Require `advanced`, `0 error(s), 0 warning(s)` across every layer. For a site-affecting change also run `npm --prefix site run build` and the link/route guards (`scripts/check-rendered-links.mjs`, `scripts/check-route-parity.mjs`). Fix anything flagged.

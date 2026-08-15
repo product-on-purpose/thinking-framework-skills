@@ -4,7 +4,7 @@
 > drift-checked (G4). Edit the source, not this file. Overview and positioning are
 > in [`README.md`](README.md); agent guidance is in [`AGENTS.md`](AGENTS.md).
 
-**Tier:** Gold (advanced). Standard 0.8. Version 0.13.0. Self-validating: `node scripts/check.mjs`.
+**Tier:** Gold (advanced). Standard 0.8. Version 0.13.0. Self-validating: `npx agent-skills-toolkit .`.
 
 ## Components
 
@@ -95,10 +95,8 @@
 
 ## Documentation and governance
 
-- [`STANDARD.md`](STANDARD.md) - the Advanced Skill Library Standard (normative).
 - [`README.md`](README.md) - overview, positioning, quickstart.
 - [`CHANGELOG.md`](CHANGELOG.md) - full technical history; [`RELEASE-NOTES.md`](RELEASE-NOTES.md) - curated, user-facing notes.
 - [`docs/`](docs/) - Diataxis docs (reference, how-to, explanation).
-- [`docs/internal/decisions/`](docs/internal/decisions/) - ADRs; [`docs/internal/backlog/`](docs/internal/backlog/) - backlog; [`docs/internal/STATUS.md`](docs/internal/STATUS.md) - live tracker.
 - [`agents/_chain-permitted.yaml`](agents/_chain-permitted.yaml) - the chain contract; [`templates/`](templates/) - scaffolder templates.
 - [`scripts/`](scripts/) - the Node validation spine (conformance checks, generators, gate, evaluate).

@@ -21,7 +21,7 @@ A release may only be cut from a state where the full gate passes. Run, from the
 > **Grade against the pinned ref, not whatever toolkit you happen to have.** This repo pins Standard 0.8 (`library.json` `"standard"`), and the Standard grows faster than the pin moves. A newer toolkit checkout will report whole check families the pinned run does not (G7-G10 arrived at Standard 0.10, U13 at 0.12, U14 at 0.13), so grading against an unpinned sibling checkout produces a scary number that has nothing to do with what CI will say. If you see findings you do not recognise, check `git -C ../agent-skills-toolkit log -1` before investigating anything else.
 
 ```
-node scripts/check.mjs          # advanced tier AT STANDARD 0.8, 0 errors (7 known U5 warnings, the contested lenses)
+node scripts/check.mjs          # advanced tier AT STANDARD 0.8, 0 errors (128 non-gating warnings)
 npm test                        # the node --test suites
 npm --prefix site run build     # gen-site + astro build
 node scripts/check-rendered-links.mjs site/dist   # no browser-broken internal links

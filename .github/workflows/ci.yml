@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           repository: product-on-purpose/agent-skills-toolkit
-          ref: 2f480d159fc0b36734538fda2215bfeac1d553a0
+          ref: 93da438812c2eeedf51daf790379246d6d6acff0
           path: .agent-skills-toolkit
 
       - name: Setup Node (pinned via .nvmrc)

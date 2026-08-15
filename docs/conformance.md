@@ -1,12 +1,24 @@
 # Conformance: how this plugin reaches advanced (Gold) tier
 
-`thinking-framework-skills` is built to the [agent-skills-toolkit](https://github.com/product-on-purpose/agent-skills-toolkit) **Advanced Skill Library Standard** ([`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)). This page is the check-by-check breakdown behind the one-line claim in the README: *validates at advanced (Gold), 0 errors / 7 warnings, against Standard 0.8.*
+`thinking-framework-skills` is built to the [agent-skills-toolkit](https://github.com/product-on-purpose/agent-skills-toolkit) **Advanced Skill Library Standard** ([`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)). This page is the check-by-check breakdown behind the one-line claim in the README: *validates at advanced (Gold), 0 errors, against Standard 0.8.*
 
-**The seven warnings, named.** They are all `U5` (description quality) on the seven contested lenses, and they exist because those descriptions lead with an evidence caveat rather than a trigger phrase, which a heuristic tuned for discoverability marks down. This is a real tension, not an oversight: the caveat-first contract (gate layer 9) requires the deficiency to lead, and `U5` rewards leading with what the skill does and when to use it. The library keeps the caveat and carries the warnings, because rewording seven descriptions to score better than the evidence warrants is exactly the laundering this project exists to refuse. If a future Standard offers a way to declare that tension explicitly, taking it upstream is preferable to either side quietly winning.
+**Two dials, and confusing them is the easiest mistake to make here.**
 
-**Provenance of that count.** It was `0 errors / 0 warnings` through v0.10.0 and became `0 errors / 7 warnings` when the contested lenses shipped in v0.11.0. The claim was not updated at the time and read `0 / 0` until 2026-08-15, when grading against the pinned ref caught it. Reproduce either number with the commands in [Reproduce it locally](#reproduce-it-locally).
+| Dial | Where | What it controls |
+|---|---|---|
+| **Pinned toolkit** | `.github/workflows/ci.yml` `ref:` | *Which validator runs.* Deliberately newer than the declared Standard |
+| **Declared Standard** | `library.json` `"standard"` | *Which version of the rules the library holds itself to.* Currently `0.8` |
 
-**Which Standard version, and why it is stated.** `library.json` declares `"standard": "0.8"`, and CI pins the exact toolkit commit it grades against. The Standard is a living document that grows faster than this library re-pins, so every tier claim here is relative to 0.8 and says so. Re-pinning is treated as a release-sized decision (it can add whole check families at once), not as something that happens silently between commits. If you grade this repo with a newer toolkit than the pinned one, expect findings the pinned run does not report; that is the pin working as intended, not a regression.
+Running a newer validator against an older declared Standard is supported by design. Findings from rules introduced after the declared version are held at `warn` by a version ceiling instead of counted as failures, so a consumer can take validator bug-fixes without being forced to adopt every new requirement in the same step. That is exactly what this repo does.
+
+**The current run: 0 errors, 128 warnings.** The error count is the number that gates, and it is zero.
+
+- **121 are post-0.8 documentation requirements** (`G7` docs frontmatter, `G8` folder READMEs, `G9` source docblocks, `G10` Diataxis coverage), introduced at Standard 0.10 and later. They are real work not yet done, held at `warn` by the ceiling. **Measured:** declaring `0.13` instead of `0.8` converts them into **121 errors** and drops the tier to convergent, which is precisely why adopting a newer Standard is a project with its own release, not a one-line bump.
+- **7 are `U5`** (description quality) on the seven contested lenses. They exist because those descriptions lead with an evidence caveat rather than a trigger phrase, which a heuristic tuned for discoverability marks down. This is a real tension, not an oversight: the caveat-first contract (gate layer 10) requires the deficiency to lead, and `U5` rewards leading with what the skill does and when to use it. The library keeps the caveat and carries the warnings, because rewording seven descriptions to score better than the evidence warrants is exactly the laundering this project exists to refuse. If a future Standard offers a way to declare that tension explicitly, taking it upstream is preferable to either side quietly winning.
+
+**Provenance of the count**, so a reader can tell drift from change: `0 errors / 0 warnings` through v0.10.0; `0 errors / 7 warnings` from v0.11.0 when the contested lenses shipped; `0 errors / 128 warnings` from v0.13.x when the toolkit pin moved forward to pick up the workflow-component fix. The published claim was not updated at the v0.11.0 step and read `0 / 0` until 2026-08-15, when grading against the pinned ref caught it.
+
+**Why the pin moved.** The previous pin predated agent-skills-toolkit ADR 0047, whose validator could not resolve a command mapped to a workflow: it reported `maps-to "x" but no skill or workflow by that name exists on disk` for files that were on disk. That made the nine recipe commands unshippable. Moving the pin was the honest fix; suppressing the check would have traded a true statement for a passing gate.
 
 If you only want to verify it yourself, skip to [Reproduce it locally](#reproduce-it-locally).
 
