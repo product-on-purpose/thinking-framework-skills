@@ -14,6 +14,7 @@
     "gen": "node scripts/gen-site.mjs",
     "gen:recommendable": "node scripts/gen-recommendable.mjs",
     "gen:registry": "node scripts/gen-registry.mjs",
-    "gen:catalog": "node scripts/gen-catalog.mjs"
+    "gen:catalog": "node scripts/gen-catalog.mjs",
+    "gen:recipe-commands": "node scripts/gen-recipe-commands.mjs"
   }
 }

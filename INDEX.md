@@ -82,9 +82,18 @@
 
 - [`think-research-framework`](agents/think-research-framework.md) - Researches a named thinking method, grades its evidence honestly on the seven-tier model, assesses overlap against the shipped catalog, drafts its learning dossier, and emits a schema-valid proposed registry entry for human review. Use for bounded framework research or a "discover N candidates in family X" brief. Triggers on "research framework", "grade this method", "evidence dossier", "discover candidates".
 
-### Commands (1)
+### Commands (10)
 
+- [`/think-audit-reasoning`](commands/think-audit-reasoning.md) - Check whether a conclusion is sound before trusting it, by sorting evidence from inference, reconstructing the inferential climb, and reviewing through separated lenses.
+- [`/think-expand-options`](commands/think-expand-options.md) - Break past the obvious option set by reframing the problem, transforming the seed with SCAMPER, and reversing its foundational assumptions, then shortlisting candidates.
+- [`/think-first-principles`](commands/think-first-principles.md) - Reason from fundamentals by decomposing a problem to its irreducible level, then stripping the inherited assumptions, so you rebuild from what is actually necessary rather than from convention or analogy.
+- [`/think-idea-quality-audit`](commands/think-idea-quality-audit.md) - Decide which of a batch of candidate ideas are worth committing to, by scoring them on explicit quality dimensions and then adversarially stress-testing the strongest few.
+- [`/think-issue-position-argument-mapping`](commands/think-issue-position-argument-mapping.md) - Turn a tangled multi-question deliberation or transcript into an inspectable typed map by chaining shipped moves, surfacing the open issues, attaching rival positions to each, and running a pro/con pass on each position, so a sprawling debate becomes a navigable structure.
+- [`/think-kepner-tregoe`](commands/think-kepner-tregoe.md) - Run the Kepner-Tregoe rational process as a chain of shipped moves, taking a bounded operational problem through cause-finding, then a weighted choice among options, then a forward risk pass, so a fix is de-risked end to end.
+- [`/think-pdca-a3`](commands/think-pdca-a3.md) - Run the Plan-Do-Check-Act improvement loop as a chain of shipped moves, taking a performance gap through root-cause and countermeasure choice, then a structured review of actual versus expected, then a standardize-or-iterate decision.
+- [`/think-reframe-problem`](commands/think-reframe-problem.md) - Make sure you are solving the right problem before generating solutions, by restating it, sorting evidence from inference, and reviewing it through separated lenses.
 - [`/think-research-framework`](commands/think-research-framework.md) - Research a thinking framework and produce its evidence-graded dossier plus a schema-valid proposed registry entry, or discover candidate methods in a family. Use to vet a method before building it into a skill, reproduce the evidence-and-overlap vetting, or shortlist new candidates.
+- [`/think-stress-test-decision`](commands/think-stress-test-decision.md) - Pressure-test a consequential decision before committing, by comparing options, surfacing the conditions that must hold, imagining failure, and sanity-checking the estimate against base rates.
 
 ## Manifests
 

@@ -573,6 +573,69 @@
     ],
     "commands": [
       {
+        "name": "think-audit-reasoning",
+        "path": "commands/think-audit-reasoning.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
+      },
+      {
+        "name": "think-expand-options",
+        "path": "commands/think-expand-options.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
+      },
+      {
+        "name": "think-first-principles",
+        "path": "commands/think-first-principles.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
+      },
+      {
+        "name": "think-idea-quality-audit",
+        "path": "commands/think-idea-quality-audit.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
+      },
+      {
+        "name": "think-issue-position-argument-mapping",
+        "path": "commands/think-issue-position-argument-mapping.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
+      },
+      {
+        "name": "think-kepner-tregoe",
+        "path": "commands/think-kepner-tregoe.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
+      },
+      {
+        "name": "think-pdca-a3",
+        "path": "commands/think-pdca-a3.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
+      },
+      {
+        "name": "think-reframe-problem",
+        "path": "commands/think-reframe-problem.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
+      },
+      {
+        "name": "think-stress-test-decision",
+        "path": "commands/think-stress-test-decision.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
+      },
+      {
         "name": "think-research-framework",
         "path": "commands/think-research-framework.md",
         "version": "0.1.0",
