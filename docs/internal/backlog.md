@@ -50,6 +50,12 @@ Shipped on `fix/lifecycle-metadata-truth` (`2057be1`): all 67 sidecars promoted 
 - **The nine recipes in `_workflows/` are undeclared and uninvokable.** `library.json` has no `components.workflows` key and `manifest.generated.json` carries only skills and commands, so the README line "Recipes | 9 (skill chains shipped as workflow components)" has no runtime behind it. Toolkit ADR 0047 makes this a gating `S3` error at Standard 0.15. Fix for product reasons first.
 - **The front door is unmeasured.** `skills/think-framework-advisor/skill.meta.yml` reads `trigger_eval_status: authored` / `output_eval_status: authored`. The published 99% / 100% figures cover the 63 catalog skills; the four meta-skills sit outside that run. Raised as ADV-1 on 2026-07-11 and absent from every roadmap until now.
 
+## From the conformance-claim correction (2026-08-15)
+
+- **Open: the tier claim is still hand-maintained, which is how it went stale for three minor versions.** The `0 errors / 0 warnings` claim was true at v0.10.0 and wrong from v0.11.0 onward, and nothing caught it because no check compares the published numbers against an actual evaluator run. CI already clones the pinned toolkit and runs `evaluate.mjs`, so the counts are available in the one place that could assert them. A guard that parses the evaluator summary and diffs it against the README claim would move this from "remember to update it" to "cannot be wrong", which is the C1 pattern (see the lifecycle guard). Not built yet; the manual fix is in place. **This is the highest-value remaining item in the truth category.**
+- **Decided: keep the caveat-first descriptions and carry the seven `U5` warnings.** Rewording them to score better would launder exactly the weakness the contested-lens contract exists to surface. If a future Standard offers a way to declare the tension explicitly, take it upstream rather than letting either side quietly win.
+- **Note for whoever grades this repo locally:** clone the CI-pinned ref into `.agent-skills-toolkit/` (gitignored, the same path CI uses) and run `npm ci` there. A sibling `../agent-skills-toolkit` checkout is almost certainly ahead of the pin and will report whole check families the pinned run does not.
+
 ## From the contested-guard hardening (2026-08-15, #103)
 
 Shipped: preamble ratchet 6 to 3, soft-endorsement denylist, citation-shaped evidence token, HTML-table detection, and an advisory channel for the RT-1 residual. These were deliberately left.
