@@ -433,7 +433,9 @@ This plugin is built to the [agent-skills-toolkit](https://github.com/product-on
 | 🥈 | **Convergent (Silver)** | The plugin declares its agent targets and emits each higher-order component (commands, workflows, chain contracts) correctly for both Claude Code and Codex, with a manifest that matches what is on disk. |
 | 🥉 | **Universal (Bronze)** | The skills are portable - valid frontmatter, an `AGENTS.md`, a manifest, references one level deep - so the identical files run on any agentskills.io-compatible agent. |
 
-`thinking-framework-skills` validates at **advanced (Gold) with 0 errors and 0 warnings against Standard 0.8**, the version it pins (`library.json` declares `"standard": "0.8"`; [`.github/workflows/ci.yml`](.github/workflows/ci.yml) pins the exact toolkit commit CI grades against).
+`thinking-framework-skills` validates at **advanced (Gold) with 0 errors and 7 warnings against Standard 0.8**, the version it pins (`library.json` declares `"standard": "0.8"`; [`.github/workflows/ci.yml`](.github/workflows/ci.yml) pins the exact toolkit commit CI grades against).
+
+**What the seven warnings are, because a number without an explanation is not a disclosure.** All seven are `U5` (description quality) on the seven [contested lenses](#-the-catalog), and they score low for the reason those skills exist: their descriptions lead with an evidence caveat instead of a trigger phrase, which is what a heuristic tuned for discoverability penalizes. That is the honesty contract doing its job and a generic quality metric disagreeing with it. The library keeps the caveat and carries the warnings rather than rewording seven descriptions to score better than they deserve. (This count was `0 errors, 0 warnings` through v0.10.0 and changed when the contested lenses shipped in v0.11.0.)
 
 The Standard itself moves faster than this library re-pins, and that is a deliberate choice rather than an oversight: re-pinning is a release-sized decision here, so the tier claim above always names the Standard version it holds at rather than implying the newest one. Graded against a newer Standard, the result will differ until the next re-pin. Concretely, it earns Gold through:
 
@@ -462,7 +464,7 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 | **Frameworks** | 63, across 12 cognitive-operation families (56 core + 7 contested lenses) |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 9 (skill chains shipped as workflow components) |
-| **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) - 0 errors / 0 warnings, self-hosting CI |
+| **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) at Standard 0.8 - 0 errors / 7 warnings (all U5, the caveat-first contested lenses), self-hosting CI |
 | **Evidence** | 11 skills at `S` / `S-M` tier; every skill graded and sourced |
 | **Spec** | [agentskills.io](https://agentskills.io/specification) |
 | **License** | [Apache-2.0](LICENSE) |

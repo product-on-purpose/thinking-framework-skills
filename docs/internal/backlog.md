@@ -50,6 +50,38 @@ Shipped on `fix/lifecycle-metadata-truth` (`2057be1`): all 67 sidecars promoted 
 - **The nine recipes in `_workflows/` are undeclared and uninvokable.** `library.json` has no `components.workflows` key and `manifest.generated.json` carries only skills and commands, so the README line "Recipes | 9 (skill chains shipped as workflow components)" has no runtime behind it. Toolkit ADR 0047 makes this a gating `S3` error at Standard 0.15. Fix for product reasons first.
 - **The front door is unmeasured.** `skills/think-framework-advisor/skill.meta.yml` reads `trigger_eval_status: authored` / `output_eval_status: authored`. The published 99% / 100% figures cover the 63 catalog skills; the four meta-skills sit outside that run. Raised as ADV-1 on 2026-07-11 and absent from every roadmap until now.
 
+## Blocked: runnable recipes, phase 1b (2026-08-15, #107)
+
+**The nine recipe commands are built, tested and pushed, and cannot merge until the Standard pin moves.** Branch `feat/recipe-commands-blocked-on-repin` (`e7c11da`). This is a blocker on the pin, not on the code.
+
+At the CI-pinned Standard 0.8 the gate drops to `Tier: universal` with nine errors of the form:
+
+> `[error] S7: commands/think-audit-reasoning.md maps-to "think-audit-reasoning" but no skill or workflow by that name exists on disk (Standard sec 3.2).`
+
+The file *is* on disk at `_workflows/think-audit-reasoning.md`. This is the exact defect toolkit ADR 0047 part 1 was written to fix, and the ADR quotes this message verbatim as its motivating example. The cause is visible in the pinned `command-contract.mjs` line 10: `// ctx.workflows arrives in a later phase`. The loader never built `ctx.workflows`, so a workflow-mapped command can never resolve, and omitting `maps-to` is not an escape because it is mandatory.
+
+Measured both ways: pinned 0.8 gives `universal`, 9 errors. The current toolkit gives **0 `S7` errors** and is otherwise identical to before the change.
+
+**What unblocks it:** the C1-8 decision to hold the pin at Standard 0.8. That posture was chosen when its only visible cost was carrying warnings; it now also blocks the highest-value user-facing item on the roadmap. Re-pinning to any toolkit containing ADR 0047 part 1 makes the branch mergeable as-is, with no code change.
+
+**Do not work around it.** Dropping `maps-to`, pointing it at a skill, or suppressing `S7` would all trade a true statement for a passing gate. The finding is a false negative in an old validator, and the honest fix is to move the pin.
+
+Footprint recorded for when it does land (guardrail 6): +1,802 chars of always-loaded description across nine commands against the 33,233-char baseline, +5.42%, roughly 450 tokens per session. The routing re-run is still owed and is maintainer-gated.
+
+## From the conformance-claim correction (2026-08-15)
+
+- **Open: the tier claim is still hand-maintained, which is how it went stale for three minor versions.** The `0 errors / 0 warnings` claim was true at v0.10.0 and wrong from v0.11.0 onward, and nothing caught it because no check compares the published numbers against an actual evaluator run. CI already clones the pinned toolkit and runs `evaluate.mjs`, so the counts are available in the one place that could assert them. A guard that parses the evaluator summary and diffs it against the README claim would move this from "remember to update it" to "cannot be wrong", which is the C1 pattern (see the lifecycle guard). Not built yet; the manual fix is in place. **This is the highest-value remaining item in the truth category.**
+- **Decided: keep the caveat-first descriptions and carry the seven `U5` warnings.** Rewording them to score better would launder exactly the weakness the contested-lens contract exists to surface. If a future Standard offers a way to declare the tension explicitly, take it upstream rather than letting either side quietly win.
+- **Note for whoever grades this repo locally:** clone the CI-pinned ref into `.agent-skills-toolkit/` (gitignored, the same path CI uses) and run `npm ci` there. A sibling `../agent-skills-toolkit` checkout is almost certainly ahead of the pin and will report whole check families the pinned run does not.
+
+## From the contested-guard hardening (2026-08-15, #103)
+
+Shipped: preamble ratchet 6 to 3, soft-endorsement denylist, citation-shaped evidence token, HTML-table detection, and an advisory channel for the RT-1 residual. These were deliberately left.
+
+- **RT-3b, the whitespace-aligned pseudo-matrix: a permanent structural residual, not a deferral.** A grid of the discredited artifact rendered with spaces rather than pipes or HTML is structurally indistinguishable from formatted prose, and any detector strict enough to catch it would false-positive on aligned lists and code-ish content. This is not waiting on effort or a better idea; it is the point where the structural layer correctly stops. It is named in the SCOPE NOTE of `scripts/lib/contested-lib.mjs` and carried as a `{ todo: true }` test so it stays visible, and it belongs to the mandated adversarial evidence-honesty pass. **Do not "fix" it with a stricter regex.**
+- **RT-1's soft tail is advisory by design.** The blatant rehabilitation register is denied outright; the subtler "concede, then sell" shape raises a non-blocking warning instead of failing, because the honest phrasing ("the value here is the discipline this skill adds") sits genuinely close to the dishonest one. Promoting it to a hard failure would false-block real caveats. If the advisory ever fires on a shipped lens, that is a review prompt, not a bug.
+- **The advisory channel is opt-in and currently has exactly one producer.** `checkContestedEntry` pushes into `opts.warnings` only when a caller supplies the array, so the signature change is additive. If a second advisory is added later, keep that property: callers that do not opt in must see identical behaviour.
+
 ## Pre-existing (predates this effort)
 
 - **GA4 content-vs-acquisition decision.** Parked, waiting on the analytics signal (see `docs/internal/MEASUREMENT.md` and the content-plan). Tracked separately.

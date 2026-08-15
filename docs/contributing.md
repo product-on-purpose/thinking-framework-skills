@@ -25,6 +25,8 @@ Grade honestly against the seven-tier model: **S** strong research, **M** modera
 
 **Contested lenses.** A low-tier famous-but-weak method may ship only as a **contested lens** under the caveat-first contract (`check-contested.mjs`): the deficiency must lead every surface the skill touches (it is not a footnote); the skill is explicit-request-only and never reached for by the advisor on a generic prompt; branded lenses carry attribution to the originating work. The 14-layer gate enforces this contract at CI time. A method that cannot meet the caveat-first contract does not ship here in any form.
 
+**The caveat must not rehabilitate the method.** This is the review rule the gate cannot fully enforce, so it is stated here as a contributor obligation rather than left implicit. A caveat that concedes the deficiency and then sells the method in the same breath ("nominally tier X, but used properly it becomes one of the most powerful tools available") is *worse* than no caveat, because the dishonesty sits inside the block a reader trusts as the honest part. The gate denies the blatant register outright and raises a non-blocking advisory on the softer "concede, then sell" shape, but the judgment call is a human one. Write the caveat so a reader who stops after it comes away with the deficiency, not the pitch. The recognised limits of the structural layer are named in the SCOPE NOTE at the top of [`scripts/lib/contested-lib.mjs`](../scripts/lib/contested-lib.mjs).
+
 ## How to propose and add one
 
 1. Confirm the method clears the selection bar above. Sanity-check it against the catalog for overlap and prior decisions.

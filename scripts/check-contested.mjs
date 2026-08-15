@@ -30,6 +30,10 @@ const validAlternatives = new Set(
 );
 
 const problems = [];
+// Advisory findings: surfaced to the operator, never gate-failing. Currently the RT-1
+// contrastive-rehabilitation heuristic, which is deliberately soft because the honest phrasing
+// ("the value here is the discipline this skill adds") sits close to the dishonest one.
+const warnings = [];
 
 for (const e of contested) {
   const dir = resolve(ROOT, 'skills', `think-${e.slug}`);
@@ -43,7 +47,7 @@ for (const e of contested) {
   };
   // Each lens may legitimately reference itself; exclude only the self-slug from its alternatives.
   const alternatives = new Set([...validAlternatives].filter((t) => t !== `think-${e.slug}`));
-  problems.push(...checkContestedEntry(e, files, { validAlternatives: alternatives }));
+  problems.push(...checkContestedEntry(e, files, { validAlternatives: alternatives, warnings }));
 }
 
 // Drift the other way: a skill that declares caveat-first in its frontmatter but is NOT a
@@ -58,11 +62,19 @@ for (const dir of readdirSync(resolve(ROOT, 'skills'))) {
   }
 }
 
+// Advisory findings print whether or not the gate passes, and never change the exit code. They
+// exist to give the mandated adversarial evidence-honesty pass a concrete place to look.
+if (warnings.length) {
+  console.warn(`Contested-lens advisory: ${warnings.length} finding(s) for human review (not gate-failing):\n`);
+  for (const w of warnings) console.warn(`  ! ${w}`);
+  console.warn('');
+}
+
 if (problems.length) {
   console.error(`Contested-lens conformance: ${problems.length} problem(s):\n`);
   for (const p of problems) console.error(`  - ${p}`);
   console.error('\nThe caveat-first contract (scripts/lib/contested-lib.mjs) is not satisfied. See docs/internal/specs/2026-06-19-contested-lenses.md.');
   process.exit(1);
 }
-console.log(`Contested-lens conformance: OK (${contested.length} contested lens(es): caveat-first contract + posture + branded attribution + cross-marker consistency).`);
+console.log(`Contested-lens conformance: OK (${contested.length} contested lens(es): caveat-first contract + posture + branded attribution + cross-marker consistency)${warnings.length ? `, ${warnings.length} advisory finding(s) above` : ''}.`);
 process.exit(0);
