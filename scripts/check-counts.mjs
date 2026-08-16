@@ -25,6 +25,8 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { checkCountSurface } from './lib/count-surface-lib.mjs';
+import { isWorkflowFile } from './lib/workflow-mirror-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -65,7 +67,12 @@ const problems = [];
 // ---- canonical counts -------------------------------------------------------
 const shippedEntries = reg.frameworks.filter((f) => f.status === 'shipped');
 const shippedTotal = shippedEntries.length;
-const recipeCount = readdirSync(join(ROOT, '_workflows')).filter((f) => f.endsWith('.md')).length;
+// Count recipes through the SHARED predicate, not a bare .md filter. The Standard excludes a
+// folder README.md and _-prefixed control files from _workflows/ (toolkit ADR 0047), and the
+// workflow mirror in check-registry.mjs already honours that. A bare .md count disagreed with it
+// the moment a folder README appeared - which Standard G8 (folder-readme) actively wants - and
+// would then demand a recipes badge one higher than the number of recipes that exist.
+const recipeCount = readdirSync(join(ROOT, '_workflows')).filter((f) => isWorkflowFile(f)).length;
 const toolCount = TOOLS.length;
 const totalMethods = reg.frameworks.length; // every registry entry (shipped + documented-not-shipped + recipe)
 
@@ -79,13 +86,13 @@ for (const e of shippedEntries) {
 
 // ---- README surfaces --------------------------------------------------------
 const readme = readFileSync(join(ROOT, 'README.md'), 'utf8');
+// Matching lives in scripts/lib/count-surface-lib.mjs so both failure modes are unit-tested: a
+// wrong number, and the subtler MISSING match that silently drops a surface from coverage when
+// someone rewords the prose the pattern was written against.
 function expect(label, re, want, opts = {}) {
-  const matches = [...readme.matchAll(re)];
-  if (!matches.length) { if (!opts.optional) problems.push(`${label}: expected a match for ${re} in README.md, found none`); return; }
-  for (const mm of matches) {
-    const got = Number(mm[opts.group ?? 1]);
-    if (got !== want) problems.push(`${label}: README shows ${got}, canonical is ${want} (at "${mm[0].slice(0, 60).replace(/\n/g, ' ')}")`);
-  }
+  problems.push(...checkCountSurface({
+    text: readme, label, pattern: re, want, where: 'README.md', group: opts.group, optional: opts.optional,
+  }));
 }
 
 // badges

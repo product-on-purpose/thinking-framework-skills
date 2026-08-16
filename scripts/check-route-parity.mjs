@@ -35,6 +35,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { toRoutes, parseBaseline, compareRoutes, isEmptyBuild } from './lib/route-parity-lib.mjs';
 
 // ROOT is the repo root (this script lives in scripts/), so defaults resolve cwd-independently.
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -68,7 +69,7 @@ const current = routesIn(DIST);
 // A built site is never empty; an existing-but-empty dist (a crashed build that emptied outDir)
 // would make every baseline route count as removed and fail loudly anyway, which is the intended
 // signal. Surface it explicitly so the failure reads as "build broke" not "you deleted everything".
-if (current.length === 0 && !UPDATE) {
+if (isEmptyBuild(current) && !UPDATE) {
   console.error(`route-parity: ${DIST} exists but has no .html routes - the build likely failed and emptied outDir. Failing (a built site is never empty).`);
   process.exit(1);
 }

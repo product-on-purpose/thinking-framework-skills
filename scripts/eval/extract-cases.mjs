@@ -47,15 +47,18 @@ for (const slug of slugs) {
   const md = readFileSync(p, 'utf8');
   perSkill[slug] = { trigger: 0, anti: 0 };
 
+  // A bullet with no quoted prompt is silently unusable as a case. Say so (audit D-06): dropping
+  // it quietly shrinks the corpus a published accuracy number is computed over, and the run still
+  // reports success. extract-output.mjs already logs its equivalent skips; this matches it.
   for (const b of bullets(section(md, /Should trigger/i))) {
     const prompt = firstQuoted(b);
-    if (!prompt) continue;
+    if (!prompt) { console.error(`(skip ${slug}: a "Should trigger" bullet has no quoted prompt)`); continue; }
     cases.push({ id: `c${++id}`, prompt, expected: slug, type: 'trigger', source: slug });
     perSkill[slug].trigger++;
   }
   for (const b of bullets(section(md, /Should NOT trigger/i))) {
     const prompt = firstQuoted(b);
-    if (!prompt) continue;
+    if (!prompt) { console.error(`(skip ${slug}: a "Should NOT trigger" bullet has no quoted prompt)`); continue; }
     // strip the prompt span before looking for the named tool, so a think- inside the prompt is not mistaken for the answer
     const after = b.slice(b.indexOf(`"${prompt}"`) + prompt.length + 2);
     const named = namedSkill(after);

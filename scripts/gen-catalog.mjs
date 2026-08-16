@@ -370,7 +370,9 @@ if (isMain) {
       console.error(`stale: ${stale.join(', ')} - run: node scripts/gen-catalog.mjs`);
       process.exit(1);
     }
-    console.log('catalog + llms.txt are up to date.');
+    // Tally, not just "up to date" (audit D-06). Several generated files all being byte-identical
+    // to an empty or truncated generation would read exactly the same as a healthy run.
+    console.log(`gen-catalog: OK (${FILES.length} generated file(s) up to date: ${FILES.map(([f]) => f).join(', ')}).`);
   } else {
     for (const [f, content] of FILES) writeFileSync(join(OUT_DIR, f), content, 'utf8');
     console.log(`Wrote ${catalog.counts.total} invokable entries + ${evaluated.counts.total} evaluated methods to ${OUT_DIR}`);

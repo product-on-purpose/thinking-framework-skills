@@ -146,7 +146,8 @@ if (process.argv.includes('--check')) {
     console.error(`stale: ${stale.join(', ')} - run: node scripts/gen-recommendable.mjs`);
     process.exit(1);
   }
-  console.log('recommendable set is up to date.');
+  // Tally, not just OK (audit D-06): an empty corpus would otherwise report success.
+  console.log(`gen-recommendable: OK (${skills.length} skill(s) + ${recipes.length} recipe(s) in the corpus; recommendable.json + .md up to date).`);
   process.exit(0);
 }
 

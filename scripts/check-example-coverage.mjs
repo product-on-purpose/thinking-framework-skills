@@ -17,6 +17,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { extractReferencedSlugs, computeCoverage } from './lib/example-coverage-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -39,14 +40,14 @@ function scan(dir) {
     if (e.isDirectory()) { scan(join(dir, e.name)); continue; }
     if (!e.name.endsWith('.md') && !e.name.endsWith('.mdx')) continue;
     const text = readFileSync(join(dir, e.name), 'utf8');
-    for (const m of text.matchAll(/think-([a-z0-9-]+)/g)) referenced.add(m[1]);
+    for (const s of extractReferencedSlugs(text)) referenced.add(s);
   }
 }
 scan(SHOWCASE_DIR);
 scan(SAMPLES_DIR);
 
 const covered = (s) => referenced.has(s);
-const uncovered = shipped.filter((s) => !covered(s));
+let uncovered = shipped.filter((s) => !covered(s));
 
 if (UPDATE) {
   writeFileSync(BASELINE, uncovered.length ? uncovered.join('\n') + '\n' : '', 'utf8');
@@ -58,10 +59,9 @@ const baseline = existsSync(BASELINE)
   ? new Set(readFileSync(BASELINE, 'utf8').split(/\r?\n/).map((s) => s.trim()).filter(Boolean))
   : new Set();
 
-const shippedSet = new Set(shipped);
-const missing = uncovered.filter((s) => !baseline.has(s));            // FAIL: new skill, no example, not grandfathered
-const nowCovered = [...baseline].filter((s) => shippedSet.has(s) && covered(s)); // advisory: baseline can shrink
-const stale = [...baseline].filter((s) => !shippedSet.has(s));        // advisory: baseline entry no longer shipped
+// Set arithmetic lives in scripts/lib/example-coverage-lib.mjs so the failure and advisory paths
+// are unit-tested rather than only exercised by a real tree that happens to be clean.
+const { missing, nowCovered, stale } = computeCoverage({ shipped, referenced, baseline });
 
 if (nowCovered.length) console.log(`example-coverage: NOTE - ${nowCovered.length} grandfathered skill(s) now have an example (${nowCovered.join(', ')}); run --update to tighten the baseline.`);
 if (stale.length) console.log(`example-coverage: NOTE - ${stale.length} baseline entr(ies) no longer shipped (${stale.join(', ')}); run --update to clean.`);

@@ -136,7 +136,11 @@ if (CHECK) {
     console.error('gen-agents: AGENTS.md is out of date. Regenerate: node scripts/gen-agents.mjs');
     process.exit(1);
   }
-  console.log('gen-agents: OK (AGENTS.md tables in sync).');
+  // Tally, not just OK (audit D-06): a generator that processed zero rows and a generator that
+  // processed every row both printed the same word, so a silent no-op read as success.
+  const shippedCount = registry.frameworks.filter((e) => e.status === 'shipped').length;
+  const recipeRows = registry.frameworks.filter((e) => e.status === 'recipe').length;
+  console.log(`gen-agents: OK (AGENTS.md tables in sync: ${shippedCount} skill row(s) + ${recipeRows} recipe row(s)).`);
 } else {
   writeFileSync(AGENTS, next, 'utf8');
   console.log('gen-agents: wrote AGENTS.md (Skills + Recipes tables).');
