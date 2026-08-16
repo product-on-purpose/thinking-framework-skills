@@ -35,6 +35,10 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version-file: '.nvmrc'
+          # Cache the toolkit's deps, not this repo's: the npm ci below runs in
+          # .agent-skills-toolkit, so that is the lockfile the cache key must follow.
+          cache: 'npm'
+          cache-dependency-path: .agent-skills-toolkit/package-lock.json
 
       - name: Install toolkit dependencies
         run: npm ci
@@ -81,6 +85,11 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version-file: '.nvmrc'
+          # This job's defaults.run.working-directory is site/, so the npm ci below installs
+          # site/package-lock.json. The cache key must name that lockfile explicitly; the
+          # action does not inherit the job's working-directory when resolving it.
+          cache: 'npm'
+          cache-dependency-path: site/package-lock.json
 
       - name: Install dependencies
         run: npm ci
