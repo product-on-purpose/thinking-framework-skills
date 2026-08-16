@@ -20,7 +20,9 @@ if (check) {
     console.error('gen-engine: skills/think-random-frameworks/references/engine.md is stale - run `node scripts/gen-engine.mjs`.');
     process.exit(1);
   }
-  console.log('gen-engine: OK (engine copy in sync).');
+  // Tally, not just OK (audit D-06). A byte-identical copy of an EMPTY source would also be
+  // "in sync", so report the size actually compared.
+  console.log(`gen-engine: OK (engine copy in sync; ${src.length} bytes compared).`);
   process.exit(0);
 }
 

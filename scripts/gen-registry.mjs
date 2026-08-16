@@ -157,7 +157,8 @@ if (CHECK) {
     console.error(`stale (run: node scripts/gen-registry.mjs):\n  ${stale.join('\n  ')}`);
     process.exit(1);
   }
-  console.log('generated registry views are up to date.');
+  // Tally, not just OK (audit D-06).
+  console.log(`gen-registry: OK (${targets.length} generated view(s) up to date from ${registry.frameworks.length} registry entries).`);
 } else {
   for (const t of targets) writeFileSync(t.path, t.out, 'utf8');
   console.log(`wrote:\n  ${targets.map((t) => t.label).join('\n  ')}`);
