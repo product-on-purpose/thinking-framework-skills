@@ -59,6 +59,21 @@ Resolved by moving the toolkit pin forward (PR #110) rather than by working arou
 **Recorded because the sequence is the lesson:** the decision to hold the pin at Standard 0.8 was taken when its only visible cost was carrying warnings. Building phase 1b revealed a second cost that nobody could have predicted from the outside, and the decision was revisited on that evidence rather than defended. If a held pin ever blocks a feature again, re-measure before assuming the hold still nets out.
 
 Footprint recorded (guardrail 6): +1,802 chars of always-loaded description across nine commands against the 33,233-char baseline, +5.42%, roughly 450 tokens per session. **Still owed:** the routing re-run, which is a live behavioural eval and is maintainer-gated.
+## Open: six site/ vulnerabilities needing major-version bumps (2026-08-15, #106)
+
+`npm audit fix` took `site/` from **10 vulnerabilities (7 high) to 6 (2 high)** without a breaking change, and the site still builds (268 pages). The remaining six all require **major** bumps and were deliberately not taken autonomously:
+
+| Package | Severity | Fix requires |
+|---|---|---|
+| `astro` | high | `astro@7` (major) |
+| `sharp` | high | `sharp@0.35` (major) |
+| `@astrojs/mdx`, `@astrojs/starlight`, `astro-expressive-code` | moderate | `@astrojs/starlight@0.41.7` (major) |
+| `esbuild` | low | `astro@7` (major) |
+
+These are **build-time dependencies of the docs site**, not anything shipped to a plugin consumer, so the exposure is a developer machine and CI rather than a user. That is why the honest move is to schedule the Astro 7 / Starlight upgrade as its own piece of work with the site build verified page by page, rather than to run `npm audit fix --force` and discover the breakage in a 268-page rebuild.
+
+**Do not run `--force` casually here.** The site is a generated view of `skills/`, so a broken build is a broken product surface, and the route-parity guard will (correctly) fail loudly if a major bump changes output paths.
+
 ## From the conformance-claim correction (2026-08-15)
 
 - **Open: the tier claim is still hand-maintained, which is how it went stale for three minor versions.** The `0 errors / 0 warnings` claim was true at v0.10.0 and wrong from v0.11.0 onward, and nothing caught it because no check compares the published numbers against an actual evaluator run. CI already clones the pinned toolkit and runs `evaluate.mjs`, so the counts are available in the one place that could assert them. A guard that parses the evaluator summary and diffs it against the README claim would move this from "remember to update it" to "cannot be wrong", which is the C1 pattern (see the lifecycle guard). Not built yet; the manual fix is in place. **This is the highest-value remaining item in the truth category.**
