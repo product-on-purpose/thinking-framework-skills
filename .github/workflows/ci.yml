@@ -7,6 +7,15 @@ name: Conformance gate
 #
 # The validators live in the public agent-skills-toolkit (the source of truth for the
 # checks). We pin a ref for reproducibility; bump it deliberately to adopt toolkit changes.
+#
+# WHAT THIS WORKFLOW DOES NOT RUN, and why: the BEHAVIORAL evals (trigger routing and output
+# quality) are deliberately offline. They execute real skills against a live model, so they cost
+# real tokens, are non-deterministic run to run, and produce the numbers published on the trust
+# page - none of which belongs on a per-PR gate. They are run by hand on behaviour-affecting
+# releases and their scorecards are committed under docs/internal/eval-results/, where the
+# eval-results layer of `check.mjs` DOES gate their shape and pairing. So CI enforces that a
+# published measurement is well-formed; a human decides when to re-measure.
+# See scripts/eval/README.md for the operator flow.
 
 on:
   pull_request:

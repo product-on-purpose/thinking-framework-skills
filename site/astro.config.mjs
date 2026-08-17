@@ -93,6 +93,7 @@ export default defineConfig({
             'start/does-this-work',
             'start/evidence-model',
             'start/how-to-read-a-page',
+            'start/troubleshooting',
           ],
         },
         {
