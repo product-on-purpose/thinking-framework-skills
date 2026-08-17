@@ -48,7 +48,17 @@ skills/think-<method>/
    **Lifecycle fields, and the one rule the gate enforces.** `identity.status` is the *skill's* lifecycle and `identity.maturity` is its *measurement* state; do not conflate them, and do not use either to describe how settled the sidecar schema is (that belongs in the header comment). Scaffold at `status: draft` / `maturity: alpha`, promote to `status: active` when the skill ships, and to `maturity: measured` once both `quality.*_eval_status` fields read `measured-*`. A shipped-but-unmeasured skill stays `alpha` and says so, which is exactly how the four meta-skills describe themselves. Gate layer 3 enforces both rules (`scripts/lib/lifecycle-lib.mjs`), so a shipped skill cannot ship calling itself a draft.
 
    **Component `version` is intentionally frozen at `0.1.0`** in both `library.json` and the sidecar, and reserved for future per-component compatibility signalling. The library-level version in `library.json` carries all semver meaning today. Do not bump component versions per release; there is no consumer for it, and a per-skill bump ritual would be manual upkeep with no reader.
-8. **Register** the skill in both sources of truth. Add the component to `library.json` (`name: think-<method>`, `path: skills/think-<method>/SKILL.md`), and add or update its entry in `frameworks/registry.mjs` (`status: 'shipped'`, the governing `tier`, `family`, `verdict`, `reasoning`, and - for a branded method - `attribution` + `trademark`). Then regenerate the views: `npm run gen:registry` (catalog + why-not) and `npm run gen:recommendable` (the advisor corpus). CI enforces shipped-entry <-> skill-dir parity both ways and tier consistency, so a skill without a matching entry (or a tier that disagrees with the SKILL.md `evidence-tier`) fails the gate.
+8. **Register** the skill in both sources of truth. Add the component to `library.json` (`name: think-<method>`, `path: skills/think-<method>/SKILL.md`), and add or update its entry in `frameworks/registry.mjs` (`status: 'shipped'`, the governing `tier`, `family`, `verdict`, `reasoning`, and - for a branded method - `attribution` + `trademark`). Then regenerate **every** generated view, not just the first two. Omitting one is the most common way a new skill fails the gate on a layer whose name means nothing to you yet:
+
+   ```
+   npm run gen:registry          # catalog + why-not views
+   npm run gen:recommendable     # the advisor corpus
+   npm run gen:catalog           # catalog.json, evaluated.json, llms.txt, llms-full.txt
+   npm run gen:recipe-commands   # one command per recipe (only if you touched _workflows/)
+   node scripts/gen-agents.mjs   # the AGENTS.md roster tables
+   ```
+
+   CI enforces shipped-entry <-> skill-dir parity both ways and tier consistency, so a skill without a matching entry (or a tier that disagrees with the SKILL.md `evidence-tier`) fails the gate. Each generator also takes `--check`, which is exactly what CI runs; if you are unsure whether you missed one, run the gate rather than guessing.
 9. **Validate to zero errors at the conformance gate:**
    ```
    node scripts/check.mjs        # advanced tier at Standard 0.8, 0 errors (128 non-gating warnings, see docs/conformance.md)

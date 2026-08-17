@@ -50,8 +50,24 @@ A [premortem](../../frameworks/think-premortem/) <Badge text="Evidence: S/M" var
 
 </Steps>
 
+### What a good result looks like
+
+So you can tell a real run from a vague one, here is the shape of the output, truncated from the [full worked example](/frameworks/think-premortem/#deep-dive-worked-example):
+
+> **Decision:** Launch a self-serve free tier in 6 weeks to accelerate top-of-funnel growth.
+> **Horizon:** 6 months after launch. **Reversibility:** one-way door in practice.
+
+| # | Cause of failure | Likelihood | Impact | Leading signal / tripwire | Mitigation | Kill criterion |
+|---|---|---|---|---|---|---|
+| 1 | Free tier cannibalizes paid: customers downgrade rather than convert | H | H | Net new paid MRR growth slows in the first 4 weeks while free sign-ups rise | Gate the top 3 value features behind paid; instrument the free-to-paid funnel before launch | Paid net-new MRR drops below the pre-launch trend for 2 consecutive weeks |
+| 2 | Support and infra cost from unqualified free users exceeds plan | H | M | Support tickets per 100 free users above threshold by week 2 | Hard usage caps; self-serve onboarding; a cost-per-free-user budget set before launch | Cost per free user exceeds 1.5x model for 3 weeks with no path to fix |
+
+Note what makes it usable: every row commits to something observable *before* the failure, and to a condition that would make you stop. A list of worries with neither is not a premortem.
+
 <Aside type="tip" title="That artifact is the point">
 The deliverable is the register of what could go wrong and what you will do about each, not a vague feeling of caution. Every skill in the library ends in a concrete artifact like this.
+
+If you got an essay instead of a table, see [troubleshooting](/start/troubleshooting/).
 </Aside>
 
 ## How to read a framework page

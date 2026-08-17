@@ -11,6 +11,7 @@ It is not the learning experience. The rendered guide for end users (quick-facts
 - [contributing.md](./contributing.md) - how to propose or change a skill, plus the evals and checks a change has to pass.
 - [concepts.md](./concepts.md) - the vocabulary: cognitive-operation families, recipes, IDs (`thinking-framework-skills.<method>`), the evidence tiers (S/M/P/V/A/C/X) including compound grades, plus the tool/meta-skill and contested-lens definitions.
 - [conformance.md](./conformance.md) - what advanced (Gold) tier means, the G1-G7 checks, and how this plugin meets (or vacuously passes) each.
+- [troubleshooting.md](./troubleshooting.md) - what to do when a skill does not fire, the output is prose instead of an artifact, or a gate layer fails. Keyed to the actual error text so you can search for what you saw.
 - [internal/](./internal/) - **internal** specs, plans, research, the [authoring loop](./internal/AUTHORING.md), and the [release process](./internal/release-process.md). Working notes, not polished docs; expect churn.
 
 ## Self-documenting code

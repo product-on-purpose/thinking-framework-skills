@@ -263,6 +263,7 @@
 /start/evidence-model/index.html
 /start/getting-started/index.html
 /start/how-to-read-a-page/index.html
+/start/troubleshooting/index.html
 /tools/index.html
 /tools/think-framework-advisor/index.html
 /tools/think-random-frameworks/index.html

@@ -76,3 +76,19 @@ One compact worked example per framework: a realistic situation, the prompt, and
 
 - [Speculative Harms and Anti-Goals](./speculative-harms-anti-goals/)
 
+## Contested lenses
+
+Seven famous methods whose evidence is weaker than their reputation. They ship, because refusing to implement a method people will use anyway just sends them somewhere less honest, but they ship **caveat-first and by explicit request only**: the Framework Advisor will not reach for one on a generic prompt, and each sample leads with what the evidence actually shows before it shows you anything else.
+
+These samples are worth reading precisely *because* they are the awkward cases. A library that only demonstrates its strongest methods is showing you a highlight reel.
+
+- [SWOT](./swot/) - `X` tier
+- [Analysis of Competing Hypotheses (ACH)](./analysis-of-competing-hypotheses/) - `X` tier
+- [Five Whys](./five-whys/) - `X` tier
+- [Eisenhower / MoSCoW / Pareto](./eisenhower-moscow-pareto/) - `P` tier
+- [Complexity Domain Sort](./complexity-domain-sort/) - `C` tier
+- [Reflective Equilibrium](./reflective-equilibrium/) - `C` tier
+- [Qualitative Comparative Analysis (QCA)](./qualitative-comparative-analysis/) - `P` tier
+
+Why these grades, and what "contested" commits the skill to: see [the evidence model](/start/evidence-model/) and [explore by evidence](/explore/by-evidence/).
+
