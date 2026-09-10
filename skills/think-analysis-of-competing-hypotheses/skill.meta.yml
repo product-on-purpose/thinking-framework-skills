@@ -49,7 +49,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-25
+  trigger_eval_status: measured-2026-09-10
   output_eval_status: measured-2026-06-25
   known_failure_modes:
     - producing the disconfirmation matrix as if valid (the move the trials condemned)

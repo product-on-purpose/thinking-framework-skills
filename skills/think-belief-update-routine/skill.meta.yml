@@ -61,7 +61,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-25
+  trigger_eval_status: measured-2026-09-10
   output_eval_status: measured-2026-06-25
   known_failure_modes:
     - collapsing into a decision-journal (capturing one decision at commit time) or violating the journal's do-not-edit rule

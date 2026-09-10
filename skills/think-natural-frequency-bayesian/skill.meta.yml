@@ -51,7 +51,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-25
+  trigger_eval_status: measured-2026-09-10
   output_eval_status: measured-2026-06-25
   known_failure_modes:
     - inventing the base rate or hit rates when they are unknown

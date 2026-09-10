@@ -63,7 +63,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-06-25
+  trigger_eval_status: measured-2026-09-10
   output_eval_status: measured-2026-06-25
   known_failure_modes:
     - mis-typing the scheme, which corrupts every downstream critical question (Feng and Hirst 2011 - even the five most common schemes machine-separate at only 63-91%)

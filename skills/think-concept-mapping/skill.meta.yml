@@ -57,7 +57,7 @@ relationships:
     - excluded: free-association mind-mapping (Buzan), X-tier, no labeled relationships
 
 quality:
-  trigger_eval_status: measured-2026-06-25
+  trigger_eval_status: measured-2026-09-10
   output_eval_status: measured-2026-06-25
   known_failure_modes:
     - leaving links unlabeled (collapses into excluded mind-mapping)

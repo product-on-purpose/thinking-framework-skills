@@ -53,7 +53,7 @@ relationships:
     - "branded lineage: Six Thinking Hats (de Bono, trademarked)"
 
 quality:
-  trigger_eval_status: measured-2026-06-25
+  trigger_eval_status: measured-2026-09-10
   output_eval_status: measured-2026-06-25
   known_failure_modes:
     - lenses blur together (the failure the method exists to prevent)
