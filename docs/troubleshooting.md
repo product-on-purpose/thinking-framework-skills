@@ -62,9 +62,9 @@ node scripts/check.mjs
 
 `.agent-skills-toolkit/` is gitignored. If you skip `npm ci` you will get `Cannot find package 'yaml'` instead.
 
-### The gate reports 128 warnings
+### The gate reports more than a hundred warnings
 
-Expected, and not a failure. **Errors gate; warnings do not.** The pinned toolkit is deliberately newer than the Standard version this library declares (`library.json` `"standard"`), so findings from rules introduced after that version are held at `warn` by a version ceiling. See [`conformance.md`](conformance.md) for the full breakdown of what those warnings are.
+Expected, and not a failure. **Errors gate; warnings do not.** The pinned toolkit is deliberately newer than the Standard version this library declares (`library.json` `"standard"`), so findings from rules introduced after that version are held at `warn` by a version ceiling. See [`conformance.md`](conformance.md) for the current count, the breakdown by rule, and the provenance of both. The exact figure moves whenever a doc page ships, which is why it is stated in one place rather than repeated here.
 
 If you see **errors**, read on.
 
@@ -109,6 +109,10 @@ node scripts/check-example-coverage.mjs --update   # and say why in the PR
 ### `Contested-lens conformance: N problem(s)`
 
 A contested lens broke the caveat-first contract. The message names the surface and the rule. The most common: the caveat is not the first `##` section, the caveat carries no evidence signal, or the preamble before it exceeds 3 lines. See [`contributing.md`](contributing.md) for the contributor obligation these rules encode.
+
+### `check-changelog: CHANGELOG.md [Unreleased] has N "### Added" sections`
+
+Two or more PRs each prepended their own block, so one release now carries the same change type more than once. Keep a Changelog wants one section per type per release. Merge them into a single section, keeping the bullets in the order they already appear - the order is the merge history and is worth preserving. This fires on any of the six types and on released blocks as well as `[Unreleased]`.
 
 ### `check-eval-results: N problem(s)`
 

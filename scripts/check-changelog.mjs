@@ -1,9 +1,14 @@
 #!/usr/bin/env node
-// check-changelog.mjs - release-doc consistency (D4). Asserts CHANGELOG.md parses to
-// >=1 released version, has [Unreleased], and that the top RELEASED version equals
-// package.json, library.json, and the top RELEASE-NOTES version. [Unreleased] is exempt,
-// so build-phase PRs (which only touch [Unreleased]) stay green. No git tags (avoids the
-// actions/checkout shallow-fetch foot-gun). Zero-dependency, UTF-8. check.mjs layer.
+// check-changelog.mjs - release-doc consistency (D4). Two assertions:
+//   1. VERSION. CHANGELOG.md parses to >=1 released version, has [Unreleased], and the top
+//      RELEASED version equals package.json, library.json, and the top RELEASE-NOTES version.
+//      [Unreleased] is exempt, so build-phase PRs (which only touch [Unreleased]) stay green.
+//   2. SHAPE. No version block repeats a Keep a Changelog change type. Each PR prepending its
+//      own "### Added" block is how [Unreleased] accumulated four Added / four Changed / three
+//      Fixed / two Security sections across the seven v0.14.0-cycle merges without the gate
+//      noticing: assertion 1 only ever compared version numbers.
+// No git tags (avoids the actions/checkout shallow-fetch foot-gun). Zero-dependency, UTF-8.
+// The pure part is exported and unit-tested in tests/check-changelog.test.mjs. check.mjs layer.
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -26,6 +31,56 @@ export function topReleaseNotesVersion(md) {
   return m ? m[1] : null;
 }
 
+// Keep a Changelog's six change types. The rule is scoped to these on purpose: a repeated
+// non-type h3 is a formatting choice, while a repeated TYPE is the prepend defect.
+const CHANGE_TYPES = new Set(['Added', 'Changed', 'Deprecated', 'Removed', 'Fixed', 'Security']);
+
+// Report every change type used more than once inside one "## [version]" block, in
+// first-appearance order. Fence-aware, so a heading quoted in a code sample does not count.
+export function duplicateSections(md) {
+  const dupes = [];
+  let version = null;
+  let counts = null;   // Map<type, n> for the block being read
+  let order = null;    // types in first-appearance order, so output is stable
+  let inFence = false;
+  let fenceChar = '';
+  const flush = () => {
+    if (!order) return;
+    for (const type of order) {
+      const count = counts.get(type);
+      if (count > 1) dupes.push({ version, type, count });
+    }
+  };
+  for (const line of md.split('\n')) {
+    const fence = line.match(/^\s*(```+|~~~+)/);
+    if (fence) {
+      const ch = fence[1][0];
+      if (!inFence) { inFence = true; fenceChar = ch; }
+      else if (ch === fenceChar) { inFence = false; fenceChar = ''; }
+      continue;
+    }
+    if (inFence) continue;
+
+    const h2 = line.match(/^##\s+(.+?)\s*$/);
+    if (h2) {
+      flush();
+      const bracketed = h2[1].match(/^\[([^\]]+)\]/);
+      version = norm(bracketed ? bracketed[1] : h2[1].replace(/\s*-\s*\d{4}-\d{2}-\d{2}$/, ''));
+      counts = new Map();
+      order = [];
+      continue;
+    }
+
+    const h3 = line.match(/^###\s+(.+?)\s*$/);
+    if (h3 && counts && CHANGE_TYPES.has(h3[1])) {
+      if (!counts.has(h3[1])) order.push(h3[1]);
+      counts.set(h3[1], (counts.get(h3[1]) || 0) + 1);
+    }
+  }
+  flush();
+  return dupes;
+}
+
 // Run as a script (not when imported by tests)
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const changelog = read('CHANGELOG.md');
@@ -39,6 +94,12 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const all = { 'package.json': pkg, 'library.json': lib, 'CHANGELOG top released': cl, 'RELEASE-NOTES top': rn };
   const distinct = [...new Set(Object.values(all).map((v) => (v == null ? v : norm(v))))];
   if (distinct.length > 1) errors.push(`version mismatch: ${JSON.stringify(all)}`);
+  for (const d of duplicateSections(changelog)) {
+    errors.push(
+      `CHANGELOG.md [${d.version}] has ${d.count} "### ${d.type}" sections; Keep a Changelog wants ` +
+      `one per change type per release. Merge them into one, preserving bullet order.`,
+    );
+  }
   if (errors.length) { for (const e of errors) console.error(`check-changelog: ${e}`); process.exit(1); }
-  console.log(`check-changelog: OK (all at ${pkg}; [Unreleased] present).`);
+  console.log(`check-changelog: OK (all at ${pkg}; [Unreleased] present; no duplicated change-type sections).`);
 }

@@ -43,9 +43,11 @@
 //      the repo docs resolves without redirect hops, so stale paths surface immediately.
 //  13. the repo-markdown relative-link check (scripts/check-repo-links.mjs): every relative
 //      link in repo-facing markdown resolves to a file or anchor that actually exists.
-//  14. the changelog version-consistency check (scripts/check-changelog.mjs): CHANGELOG.md
-//      and RELEASE-NOTES.md agree on the most recent version, preventing a version bump that
-//      updates one file but forgets the other.
+//  14. the changelog consistency check (scripts/check-changelog.mjs): CHANGELOG.md and
+//      RELEASE-NOTES.md agree on the most recent version, preventing a version bump that
+//      updates one file but forgets the other, and no version block repeats a Keep a
+//      Changelog change type, so PRs that each prepend their own "### Added" cannot
+//      accumulate duplicate sections unnoticed.
 //  15. the eval-results pairing + shape check (scripts/check-eval-results.mjs): every
 //      behavioral-eval scorecard under docs/internal/eval-results/ is committed as a paired
 //      .md + .json, and each trigger/output scorecard JSON carries its totals contract, so a
@@ -138,7 +140,7 @@ const canonical = spawnSync('node', [resolve(ROOT, 'scripts', 'check-canonical-l
 console.log('\nRunning repo-markdown relative-link check (scripts/check-repo-links.mjs)\n');
 const repoLinks = spawnSync('node', [resolve(ROOT, 'scripts', 'check-repo-links.mjs')], { stdio: 'inherit' });
 
-console.log('\nRunning changelog version-consistency check (scripts/check-changelog.mjs)\n');
+console.log('\nRunning changelog consistency check (scripts/check-changelog.mjs)\n');
 const changelog = spawnSync('node', [resolve(ROOT, 'scripts', 'check-changelog.mjs')], { stdio: 'inherit' });
 
 console.log('\nRunning eval-results pairing + shape check (scripts/check-eval-results.mjs)\n');
