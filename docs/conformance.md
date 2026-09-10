@@ -64,9 +64,10 @@ The defining move of Gold is **G2**: the plugin does not just claim conformance,
 git clone https://github.com/product-on-purpose/thinking-framework-skills.git
 cd thinking-framework-skills
 
-# 2. Clone the toolkit AT THE REF CI PINS (.github/workflows/ci.yml), and install it
+# 2. Clone the toolkit AT THE REF CI PINS, and install it. The ref lives in one place:
+#    the `ref:` value in .github/workflows/ci.yml. Do not copy it into a second file.
 git clone https://github.com/product-on-purpose/agent-skills-toolkit.git .agent-skills-toolkit
-git -C .agent-skills-toolkit checkout 93da438
+git -C .agent-skills-toolkit checkout <the ref from ci.yml>
 npm --prefix .agent-skills-toolkit ci
 
 # 3. Run the gate (the same command CI runs)
