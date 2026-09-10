@@ -38,7 +38,11 @@ Because the tier claim is scoped to a Standard version, the pin is a thing to lo
 2. Is anything in the gap **gating** rather than warning? A check that graduates from `warn` to `error` at a future version is a scheduled cliff, not a surprise.
 3. Decide: hold the pin, or re-pin and budget the debt. **Record the decision** in the release's CHANGELOG entry either way, so the next cutter inherits a reason rather than a mystery.
 
-**Current posture (decided 2026-08-14):** hold at Standard 0.8. Revisit at Standard 0.15, when the `S3` workflow mirror graduates from warn to error (toolkit ADR 0047) and this repo's nine undeclared `_workflows/` recipes would become nine gating errors. Declaring those recipes as real components is the fix, and it is worth doing for product reasons before it is forced for conformance reasons.
+**Current posture (reviewed at the v0.14.0 cut, 2026-09-10; originally decided 2026-08-14):** hold both dials - CI pinned at toolkit `93da438`, `library.json` declaring `0.8`.
+
+The original revisit trigger is **retired**. It named Standard 0.15, where the `S3` workflow mirror graduates from warn to error, because this repo had nine undeclared `_workflows/` recipes that would have become nine gating errors. #109 declared them and the pinned run now reports zero `S3` findings, so that cliff no longer exists.
+
+The next revisit is whichever comes first: **a toolkit fix this repo actually needs that sits past the pin** (that is what moved the pin in #110 - ADR 0047 made the recipe commands unshippable until it did), or **the scheduled Standard-debt burn-down**. Toolkit `main` was 142 commits and three Standard minors ahead (0.13 -> 0.16) at the v0.14.0 cut with nothing in the gap blocking a feature here. Keep the debt measured rather than guessed: at the pin declaring `0.8` the repo returns advanced / 0 errors / 129 warnings, and declaring `0.13` against the same toolkit returns convergent / 123 errors.
 
 ## Cut steps (to the gated line)
 
