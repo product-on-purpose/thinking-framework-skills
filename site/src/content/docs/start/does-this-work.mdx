@@ -1,6 +1,6 @@
 ---
 title: Does this actually work?
-description: We measured it. A single fresh run across all 63 skills routes the right framework for a situation (99% top-1, zero false-fires across 755 cases) and produces artifacts that meet their own bar (100% of 429 checks). Here are the numbers, and what they do and do not prove.
+description: We measured it, then re-measured it. Routing across all 63 skills sends a situation to the right framework (100% top-1, zero false-fires across 755 cases, re-run 2026-09-10 and reproducing the earlier result) and the artifacts meet their own bar (100% of 429 checks). Here are the numbers, and what they do and do not prove.
 ---
 
 import { Card, CardGrid, Aside, Badge } from '@astrojs/starlight/components';
@@ -30,12 +30,14 @@ Every trigger and anti-case from all **63 skills'** own `eval/cases.md` was pool
   <Card title="0 false-fires" icon="approve-check">
     Across **379 anti-cases** (deliberately wrong-tool or no-tool situations), no skill wrongly grabbed one. **100%.** This is the metric that matters most: skills that do not over-trigger.
   </Card>
-  <Card title="99% top-1, 100% top-3" icon="approve-check">
-    Of **376 "should fire" situations**, 373 routed to the intended framework on the first pick; all 376 had it in the top 3. The 3 first-pick misses are near-twins, each with the intended skill still in the top 3.
+  <Card title="100% top-1, 100% top-3" icon="approve-check">
+    Of **376 "should fire" situations**, all 376 routed to the intended framework on the first pick in the 2026-09-10 re-run. The earlier run scored 373 of 376; the three misses were near-twins that still carried the intended skill in the top 3. Treat the difference as run-to-run variance, not progress - see below.
   </Card>
 </CardGrid>
 
-The headline: **755 cases, zero false-fires, 99% top-1 routing** across all 63 skills. The catalog discriminates - the descriptions and anti-triggers send a situation to the right framework.
+The headline: **755 cases, zero false-fires, 100% top-1 routing** across all 63 skills. The catalog discriminates - the descriptions and anti-triggers send a situation to the right framework.
+
+**This run is a reproduction, and that is the point of showing it.** The trigger eval was re-run on 2026-09-10 against a byte-identical catalog and case set - the routing corpus has not changed since 2026-06-19 - so nothing about the library moved between the two runs. What changed: top-1 went 373/376 to 376/376, and right-alternative went 123/128 to 122/128. That is **run-to-run variance in a model-executed measurement**, not the catalog improving, and reading it as improvement would be a mistake. The number that matters held exactly: **zero false-fires, both times.**
 
 ## Output eval: the artifacts hit their own bar
 
@@ -88,7 +90,8 @@ A behavioral score is not an evidence claim. A contested lens can route correctl
 <Aside type="note" title="The limits, stated plainly">
 - The evals measure **routing** and **artifact quality**, not real-world **decision outcomes**. A premortem that surfaces five sharp risks is a good artifact; whether it made your launch succeed is a different, harder question the dossiers are honest about.
 - They are **model-executed and non-deterministic** - a snapshot, not a fixed property. One skill failed a check in a pilot and passed it in the full run. They are a measurement, not a gate.
-- This unified run across all 63 skills was measured **2026-06-25** (755 routing cases, 429 output checks). Re-running after each catalog change keeps these numbers live rather than frozen; the previous runs scored the 56 core skills (2026-06-17) and the 7 contested lenses (2026-06-19) as separate cohorts, now superseded by this single pass.
+- **The two evals carry two dates, and are not blended.** The trigger eval was re-run **2026-09-10** (755 routing cases, on `claude-opus-5`); the output eval still reports the **2026-06-25** run (429 checks) and has not been re-run since. Both superseded the earlier split cohorts (56 core skills 2026-06-17, 7 contested lenses 2026-06-19).
+- **The earlier runs did not record which model produced them**, so the 2026-09-10 trigger figures are a reproduction of the *measurement*, not a controlled comparison against a known baseline model. Recording the model and fingerprinting the case set on every run is open work; this run records its model, the ones before it did not.
 </Aside>
 
 ## Check it yourself
