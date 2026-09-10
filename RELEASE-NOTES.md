@@ -2,6 +2,26 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.14.0
+
+**Nine recipes you can actually run.** The library has advertised nine skill chains since v0.11.0 - stress-test a decision, expand your options, audit a piece of reasoning - and until now "running" one meant opening a markdown file and executing four skills by hand, carrying the artifact between them yourself. Each is now a single command. No new frameworks; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For everyone
+
+- **`/think-stress-test-decision`, and eight more.** Every [recipe](https://thinking-framework-skills.productonpurpose.com/recipes/) now runs as one invocation, executing the whole chain with its documented handoff so the compressed artifact moves between steps for you instead of via your clipboard.
+- **A troubleshooting page, in the words you would actually see.** The plugin installed but the command does not appear; the skill fired but gave you prose instead of an artifact; the recommendation felt wrong. There is now [a page for that](https://thinking-framework-skills.productonpurpose.com/start/troubleshooting/), and every entry opens with the **verbatim output**, harvested from the tools rather than paraphrased, so you can search for the string in front of you.
+- **Both quickstarts show what success looks like.** A real (truncated) risk register from the premortem, so you can tell a good run from a vague one - which is also what made "I got an essay" hard to self-diagnose.
+- **The seven contested lenses are reachable by name.** They all existed and none was linked from the samples index, so browsing for SWOT dead-ended. A library that only demonstrates its strongest methods is showing a highlight reel.
+
+### For builders and contributors
+
+- **The recipe commands are generated, never authored.** A new conformance-gate layer regenerates all nine and fails on any byte of drift, so a hand-edited command cannot claim to run a chain it no longer matches. The recipe body is carried verbatim, because the numbered handoff lines *are* the authored value. The gate goes 14 -> 15 layers.
+- **The library's description of itself is true now.** All 67 skill sidecars described a shipped, twice-evaluated, Gold-tier skill as an unshipped draft, and both copies of the applicator engine told the model the catalog held 34 skills when it holds 63. Both are now gate-asserted rather than hand-maintained, so neither can drift back.
+- **Five reproduced contested-guard bypasses are closed.** The caveat-first contract is this library's flagship claim; an adversarial pass found five structural ways around the code enforcing it. All five are closed or named as documented residuals, verified red before the fix, with **all seven shipped lenses passing unchanged** - the criterion that guards against over-tightening.
+- **The guards now guard themselves.** The three gate layers with no tests of their own gained 38, and every generator reports a tally instead of a bare "OK", so a run that processed zero files stops reading as success. The suite goes 137 to 235.
+- **Security and supply chain.** The Framework Advisor no longer tells the model that pasted text is authoritative - it is evidence to analyse, not instructions to follow. `site/` dependency vulnerabilities went from 10 to 6 with no breaking change; the remainder need major framework bumps and are scheduled rather than forced.
+- **The conformance claim names its Standard version**, and the numbers behind it are now stated once with their provenance rather than copied onto six pages, where they twice went stale. The pin and the declared Standard are documented as two separate dials, because conflating them is the easy mistake.
+
 ## v0.13.0
 
 **The eval harness now guarantees its own honesty record.** No new skills - this release hardens the machinery behind the "Does this actually work?" trust numbers, so the published scorecards cannot silently drift. The catalog stays 56 evidence-graded core skills plus 7 contested lenses.
