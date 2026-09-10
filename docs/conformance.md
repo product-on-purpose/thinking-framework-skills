@@ -11,12 +11,12 @@
 
 Running a newer validator against an older declared Standard is supported by design. Findings from rules introduced after the declared version are held at `warn` by a version ceiling instead of counted as failures, so a consumer can take validator bug-fixes without being forced to adopt every new requirement in the same step. That is exactly what this repo does.
 
-**The current run: 0 errors, 128 warnings.** The error count is the number that gates, and it is zero.
+**The current run: 0 errors, 129 warnings.** The error count is the number that gates, and it is zero.
 
-- **121 are post-0.8 documentation requirements** (`G7` docs frontmatter, `G8` folder READMEs, `G9` source docblocks, `G10` Diataxis coverage), introduced at Standard 0.10 and later. They are real work not yet done, held at `warn` by the ceiling. **Measured:** declaring `0.13` instead of `0.8` converts them into **121 errors** and drops the tier to convergent, which is precisely why adopting a newer Standard is a project with its own release, not a one-line bump.
+- **122 are post-0.8 documentation requirements**, introduced at Standard 0.10 and later: 71 `G8` (folder READMEs), 39 `G9` (source docblocks), 7 `G7` (docs frontmatter), and 5 `G10` (Diataxis coverage). They are real work not yet done, held at `warn` by the ceiling. **Measured, not estimated:** declaring `0.13` instead of `0.8` returns **convergent, 123 errors, 7 warnings**, which is precisely why adopting a newer Standard is a project with its own release rather than a one-line bump.
 - **7 are `U5`** (description quality) on the seven contested lenses. They exist because those descriptions lead with an evidence caveat rather than a trigger phrase, which a heuristic tuned for discoverability marks down. This is a real tension, not an oversight: the caveat-first contract (gate layer 10) requires the deficiency to lead, and `U5` rewards leading with what the skill does and when to use it. The library keeps the caveat and carries the warnings, because rewording seven descriptions to score better than the evidence warrants is exactly the laundering this project exists to refuse. If a future Standard offers a way to declare that tension explicitly, taking it upstream is preferable to either side quietly winning.
 
-**Provenance of the count**, so a reader can tell drift from change: `0 errors / 0 warnings` through v0.10.0; `0 errors / 7 warnings` from v0.11.0 when the contested lenses shipped; `0 errors / 128 warnings` from v0.13.x when the toolkit pin moved forward to pick up the workflow-component fix. The published claim was not updated at the v0.11.0 step and read `0 / 0` until 2026-08-15, when grading against the pinned ref caught it.
+**Provenance of the count**, so a reader can tell drift from change: `0 errors / 0 warnings` through v0.10.0; `0 errors / 7 warnings` from v0.11.0 when the contested lenses shipped; `0 errors / 128 warnings` from v0.13.x when the toolkit pin moved forward to pick up the workflow-component fix; `0 errors / 129 warnings` once `docs/troubleshooting.md` shipped without taxonomy frontmatter, adding one more `G7`. The published claim was not updated at the v0.11.0 step and read `0 / 0` until 2026-08-15, when grading against the pinned ref caught it.
 
 **Why the pin moved.** The previous pin predated agent-skills-toolkit ADR 0047, whose validator could not resolve a command mapped to a workflow: it reported `maps-to "x" but no skill or workflow by that name exists on disk` for files that were on disk. That made the nine recipe commands unshippable. Moving the pin was the honest fix; suppressing the check would have traded a true statement for a passing gate.
 
@@ -60,35 +60,41 @@ The defining move of Gold is **G2**: the plugin does not just claim conformance,
 ## Reproduce it locally
 
 ```bash
-# 1. Clone this repo and the toolkit side by side
+# 1. Clone this repo
 git clone https://github.com/product-on-purpose/thinking-framework-skills.git
-git clone https://github.com/product-on-purpose/agent-skills-toolkit.git
-
-# 2. From the plugin, run the gate (same command CI runs)
 cd thinking-framework-skills
+
+# 2. Clone the toolkit AT THE REF CI PINS, and install it. The ref lives in one place:
+#    the `ref:` value in .github/workflows/ci.yml. Do not copy it into a second file.
+git clone https://github.com/product-on-purpose/agent-skills-toolkit.git .agent-skills-toolkit
+git -C .agent-skills-toolkit checkout <the ref from ci.yml>
+npm --prefix .agent-skills-toolkit ci
+
+# 3. Run the gate (the same command CI runs)
 node scripts/check.mjs
 ```
 
-Expected: `Tier: advanced` with `0 error(s), 0 warning(s)`. `check.mjs` finds the toolkit via `AGENT_SKILLS_TOOLKIT`, a sibling `../agent-skills-toolkit`, or a local `./.agent-skills-toolkit` checkout (the path CI uses).
+Expected: `Tier: advanced` with `0 error(s), 129 warning(s)`, and an exit code of 0. The ref matters: grading against the toolkit's `main` reports check families the pinned run does not, which is confusing rather than informative. `check.mjs` finds the toolkit via `AGENT_SKILLS_TOOLKIT`, a sibling `../agent-skills-toolkit`, or a local `./.agent-skills-toolkit` checkout (the path CI uses).
 
-## The check.mjs gate: fourteen layers
+## The check.mjs gate: fifteen layers
 
-`scripts/check.mjs` is the repo's own conformance gate - distinct from the toolkit's G1-G7 Gold requirements. The toolkit's G2 requires self-hosting CI that runs the Standard's validators; `check.mjs` is that CI, and it does more than G2 requires. Its fourteen layers are:
+`scripts/check.mjs` is the repo's own conformance gate - distinct from the toolkit's G1-G7 Gold requirements. The toolkit's G2 requires self-hosting CI that runs the Standard's validators; `check.mjs` is that CI, and it does more than G2 requires. Its fifteen layers are:
 
 1. **Structural** (`agent-skills-toolkit` `evaluate.mjs`) - the toolkit's portable validators; the plugin must pass at `advanced` tier with 0 errors. Seven `U5` warnings on the contested lenses are accepted and explained at the top of this page.
 2. **Eval cases** (`scripts/eval-cases.mjs`) - every `skills/*/eval/cases.md` is well-formed and name-safe.
 3. **Registry** (`scripts/check-registry.mjs`) - schema, generated-view drift, referential integrity, IP/attribution lint, eval-coupling, tier consistency, registry cross-check, lifecycle-metadata truth (every skill on disk says `status: active`, and a skill with both eval stamps measured says `maturity: measured`), and the workflows mirror (`library.json` `components.workflows` and `_workflows/` describe the same set, both directions). Both rule sets are pure libs (`scripts/lib/lifecycle-lib.mjs`, `scripts/lib/workflow-mirror-lib.mjs`) so the guards are unit-tested rather than only exercised against the real tree.
 4. **Engine drift** (`scripts/gen-engine.mjs --check`) - the shared applicator engine copy is byte-identical.
-5. **AGENTS.md drift** (`scripts/gen-agents.mjs --check`) - the Skills + Recipes tables in the agent guide are in sync with the catalog.
-6. **Counts** (`scripts/check-counts.mjs`) - the four hand-authored count surfaces in `README.md` match the registry, and every shipped skill's `metadata.family` is a valid slug.
-7. **Example coverage** (`scripts/check-example-coverage.mjs`) - every shipped skill has a worked example or a grandfathered baseline entry; the grandfather set can only shrink.
-8. **Catalog drift** (`scripts/gen-catalog.mjs --check`) - the machine-readable agent-discovery surface (`llms.txt`, `llms-full.txt`, `catalog.json`, `evaluated.json`) is byte-identical to a fresh generation.
-9. **Contested-lens contract** (`scripts/check-contested.mjs`) - every `caveatFirst` registry entry leads with its evidence caveat on every surface, and the marker agrees across the registry, SKILL.md frontmatter, and `skill.meta.yml`.
-10. **Mermaid validity** (`scripts/check-mermaid.mjs`) - every mermaid block in repo docs and committed site content is syntactically valid.
-11. **Canonical links** (`scripts/check-canonical-links.mjs`) - every internal link in repo docs resolves without redirect hops.
-12. **Repo-markdown links** (`scripts/check-repo-links.mjs`) - every relative link in repo-facing markdown resolves to a file or anchor that exists.
-13. **Changelog consistency** (`scripts/check-changelog.mjs`) - `CHANGELOG.md` and `RELEASE-NOTES.md` agree on the most recent version.
-14. **Eval-results pairing + shape check** (`scripts/check-eval-results.mjs`) - every behavioral-eval scorecard under `docs/internal/eval-results/` is a paired `.md` + `.json` with a valid totals contract.
+5. **Recipe-command drift** (`scripts/gen-recipe-commands.mjs --check`) - every `commands/think-<recipe>.md` is regenerated byte-identically from its `_workflows/` source, so a hand-edited recipe command cannot drift from the chain it claims to run.
+6. **AGENTS.md drift** (`scripts/gen-agents.mjs --check`) - the Skills + Recipes tables in the agent guide are in sync with the catalog.
+7. **Counts** (`scripts/check-counts.mjs`) - the four hand-authored count surfaces in `README.md` match the registry, and every shipped skill's `metadata.family` is a valid slug.
+8. **Example coverage** (`scripts/check-example-coverage.mjs`) - every shipped skill has a worked example or a grandfathered baseline entry; the grandfather set can only shrink.
+9. **Catalog drift** (`scripts/gen-catalog.mjs --check`) - the machine-readable agent-discovery surface (`llms.txt`, `llms-full.txt`, `catalog.json`, `evaluated.json`) is byte-identical to a fresh generation.
+10. **Contested-lens contract** (`scripts/check-contested.mjs`) - every `caveatFirst` registry entry leads with its evidence caveat on every surface, and the marker agrees across the registry, SKILL.md frontmatter, and `skill.meta.yml`.
+11. **Mermaid validity** (`scripts/check-mermaid.mjs`) - every mermaid block in repo docs and committed site content is syntactically valid.
+12. **Canonical links** (`scripts/check-canonical-links.mjs`) - every internal link in repo docs resolves without redirect hops.
+13. **Repo-markdown links** (`scripts/check-repo-links.mjs`) - every relative link in repo-facing markdown resolves to a file or anchor that exists.
+14. **Changelog consistency** (`scripts/check-changelog.mjs`) - `CHANGELOG.md` and `RELEASE-NOTES.md` agree on the most recent version, and no version block repeats a Keep a Changelog change type.
+15. **Eval-results pairing + shape check** (`scripts/check-eval-results.mjs`) - every behavioral-eval scorecard under `docs/internal/eval-results/` is a paired `.md` + `.json` with a valid totals contract.
 
 The gate structure combines the toolkit's G1-G7 Standard requirements with the repo's own layers:
 
@@ -97,8 +103,8 @@ The gate structure combines the toolkit's G1-G7 Standard requirements with the r
 flowchart TD
   pr["PR / push to main"]:::trig --> gate["scripts/check.mjs<br/>(the single required gate)"]:::gate
   gate --> L1["Layer 1 Structural<br/>toolkit evaluate.mjs: the G1-G7 Gold checks"]:::tk
-  gate --> L29["Layers 2-9 repo invariants<br/>eval-cases, registry, engine, AGENTS,<br/>counts, example-coverage, catalog, contested"]:::repo
-  gate --> L1014["Layers 10-14 the v0.12.0+ guards<br/>mermaid, canonical-link, repo-links, changelog, eval-pairing"]:::repo
+  gate --> L210["Layers 2-10 repo invariants<br/>eval-cases, registry, engine, recipe-commands, AGENTS,<br/>counts, example-coverage, catalog, contested"]:::repo
+  gate --> L1115["Layers 11-15 the v0.12.0+ guards<br/>mermaid, canonical-link, repo-links, changelog, eval-pairing"]:::repo
   build["site build (PR + deploy)"]:::trig --> guards["3 build-time guards<br/>rendered-links, route-parity, generated-mermaid"]:::bld
   classDef trig fill:#dcfce7,stroke:#86efac,color:#166534;
   classDef gate fill:#ddd6fe,stroke:#a78bfa,color:#4c1d95;
@@ -107,7 +113,7 @@ flowchart TD
   classDef bld fill:#e0f2fe,stroke:#7dd3fc,color:#075985;
 ```
 
-**These fourteen layers are not the same as the Standard's G1-G7 Gold requirements.** The G1-G7 list (in [`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)) is the toolkit's frozen tier specification: what a plugin must satisfy to reach Gold. Layer 1 of `check.mjs` runs those validators (satisfying G2). Layers 2-14 are repo-specific guards added on top of the Standard's floor: they enforce repo invariants (registry integrity, count drift, changelog consistency, link health, scorecard pairing) that the Standard does not specify and that would otherwise require human review on every PR. The two lists address different questions: G1-G7 asks "does this plugin meet the Standard?", and the fourteen `check.mjs` layers ask "is this specific repo internally consistent?"
+**These fifteen layers are not the same as the Standard's G1-G7 Gold requirements.** The G1-G7 list (in [`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)) is the toolkit's frozen tier specification: what a plugin must satisfy to reach Gold. Layer 1 of `check.mjs` runs those validators (satisfying G2). Layers 2-15 are repo-specific guards added on top of the Standard's floor: they enforce repo invariants (registry integrity, count drift, changelog consistency, link health, scorecard pairing) that the Standard does not specify and that would otherwise require human review on every PR. The two lists address different questions: G1-G7 asks "does this plugin meet the Standard?", and the fifteen `check.mjs` layers ask "is this specific repo internally consistent?"
 
 ## See also
 
