@@ -11,7 +11,7 @@ identity:
   display_name: Top 3
   version: 0.1.0
   status: active    # draft | experimental | active | deprecated | archived
-  maturity: alpha        # trigger IS measured (skill-selection eval, the roster corpus); output is not, and maturity requires both (see quality.*_eval_status)
+  maturity: measured     # both halves measured 2026-09-10: trigger by the skill-selection eval (roster corpus), output by the meta-skills output eval
 
 classification:
   primary_family: meta-thinking-and-reflection
@@ -54,7 +54,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-09-10
-  output_eval_status: authored
+  output_eval_status: measured-2026-09-10
   known_failure_modes:
     - manufacturing three frameworks on a problem that needs one or none
     - stopping at recommendation instead of applying each framework

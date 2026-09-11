@@ -17,6 +17,19 @@ import { stampMeta } from './stamp-meta.mjs';
 
 const OUT_DIR = 'docs/internal/eval-results';
 
+// Which skills a finalize run may stamp, parsed from argv.
+//   undefined -> the historical default (every shipped framework)
+//   []        -> stamp nothing (--no-stamp)
+//   [slugs]   -> exactly these (--stamp a,b,c)
+// --no-stamp wins over --stamp: given both, take the safer reading.
+export function stampTargetsFromArgv(argv) {
+  const a = argv || [];
+  if (a.includes('--no-stamp')) return [];
+  const i = a.indexOf('--stamp');
+  if (i === -1) return undefined;
+  return String(a[i + 1] || '').split(',').map((s) => s.trim()).filter(Boolean);
+}
+
 export function buildArtifacts({ date, prefix, trigger, output }) {
   const base = (kind) => `${OUT_DIR}/${date}${prefix ? '-' + prefix : ''}-${kind}-eval`;
   const arts = [];
@@ -27,7 +40,7 @@ export function buildArtifacts({ date, prefix, trigger, output }) {
     arts.push({ path: `${base('trigger')}.json`, content: JSON.stringify(json, null, 2) + '\n' });
   }
   if (output) {
-    const { md, json } = scoreOutput(output.rawResults);
+    const { md, json } = scoreOutput(output.rawResults, { provenance: output.provenance });
     arts.push({ path: `${base('output')}.md`, content: md });
     arts.push({ path: `${base('output')}.json`, content: JSON.stringify(json, null, 2) + '\n' });
   }
@@ -56,11 +69,14 @@ if (invokedDirectly) {
   if (trig) { const [routed, cases] = trig; opts.trigger = { routedRaw: readJson(routed), cases: readJson(cases).cases }; }
   const out = flag('--output');
   if (out) opts.output = { rawResults: readJson(out[0]) };
+  const prov = flag('--provenance');
+  if (prov && opts.output) opts.output.provenance = readJson(prov[0]);
   if (!opts.trigger && !opts.output) { console.error('finalize: supply --trigger and/or --output'); process.exit(2); }
 
   const arts = buildArtifacts(opts);
   for (const a of arts) writeFileSync(resolve(ROOT, a.path), a.content, 'utf8');
-  if (opts.trigger) await stampMeta(date, 'trigger', ROOT);
-  if (opts.output) await stampMeta(date, 'output', ROOT);
+  const stampSlugs = stampTargetsFromArgv(argv);
+  if (opts.trigger) await stampMeta(date, 'trigger', ROOT, stampSlugs);
+  if (opts.output) await stampMeta(date, 'output', ROOT, stampSlugs);
   console.log('finalize: wrote\n  ' + arts.map((a) => a.path).join('\n  '));
 }
