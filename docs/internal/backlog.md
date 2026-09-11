@@ -73,7 +73,7 @@ Resolved by moving the toolkit pin forward (PR #110) rather than by working arou
 
 **Recorded because the sequence is the lesson:** the decision to hold the pin at Standard 0.8 was taken when its only visible cost was carrying warnings. Building phase 1b revealed a second cost that nobody could have predicted from the outside, and the decision was revisited on that evidence rather than defended. If a held pin ever blocks a feature again, re-measure before assuming the hold still nets out.
 
-Footprint recorded (guardrail 6): +1,802 chars of always-loaded description across nine commands against the 33,233-char baseline, +5.42%, roughly 450 tokens per session. **Still owed:** the routing re-run, which is a live behavioural eval and is maintainer-gated.
+Footprint recorded (guardrail 6): +1,802 chars of always-loaded description across nine commands against the 33,233-char baseline, +5.42%, roughly 450 tokens per session. **Was still owed at the time:** the routing re-run. **Both halves are now paid (2026-09-10).** The framework-routing re-run reproduced (#119), and the interference question it could not answer was settled by the new skill-selection eval: across 794 cases the ten commands took the top pick twice (0.25%). Guardrail 6 now names the skill-selection instrument rather than the framework one.
 ## Open: six site/ vulnerabilities needing major-version bumps (2026-08-15, #106)
 
 `npm audit fix` took `site/` from **10 vulnerabilities (7 high) to 6 (2 high)** without a breaking change, and the site still builds (268 pages). The remaining six all require **major** bumps and were deliberately not taken autonomously:

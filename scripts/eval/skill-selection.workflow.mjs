@@ -33,6 +33,11 @@
 // Commands are kind-qualified (`command:<slug>`) so a command pick is a distinct string
 // from a skill pick; that is what makes guardrail-6 interference countable at scoring time.
 // Score with scripts/eval/score-selection.mjs. See scripts/eval/README.md.
+//
+// The router agents deliberately INHERIT the session model rather than pinning a cheaper
+// tier: the whole value of running both evals on the same day is that `provenance.model`
+// matches the framework eval's, so the two corpora can be compared with the model held
+// constant. A cheaper router would confound the one variable this design isolates.
 
 export const meta = {
   name: 'tfs-skill-selection-eval-router',
