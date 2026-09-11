@@ -106,5 +106,6 @@ Add `--prefix contested` for a cohort run (writes `<date>-contested-<kind>-eval.
 - **Trigger eval**: implemented (routing accuracy). First full run under `docs/internal/eval-results/`.
 - **Output eval**: implemented (artifact quality, produce -> judge). First full run under `docs/internal/eval-results/`.
 - **Finalize-driven flow**: implemented. `finalize.mjs` is the canonical commit path; `score.mjs` / `score-output.mjs` are now ad-hoc inspection tools only.
+- **Meta-skill coverage**: 3 of 4 fully measured (trigger + output, 2026-09-10). `think-research-framework` is output-unmeasurable by the generic produce-then-judge harness - it dispatches to a subagent with web search and its SKILL.md forbids inline research - so it keeps `maturity: alpha` with the gap recorded in `docs/internal/backlog.md`.
 - **Skill-selection eval**: implemented - the sibling instrument that routes against the installed roster (67 skills + 10 commands) instead of the framework catalog. It is the only instrument that can measure the four meta-skills, and the only one that can answer guardrail 6's command-interference question.
 - **Scorecard pairing guard**: implemented - `check-eval-results.mjs` is the 14th `check.mjs` layer; reds CI if any committed scorecard is missing its `.md`/`.json` twin or is malformed.

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { buildArtifacts } from '../scripts/eval/finalize.mjs';
+import { buildArtifacts, stampTargetsFromArgv } from '../scripts/eval/finalize.mjs';
 
 const FX = join(dirname(fileURLToPath(import.meta.url)), 'fixtures', 'eval');
 const readJson = (f) => JSON.parse(readFileSync(join(FX, f), 'utf8'));
@@ -68,5 +68,53 @@ test('buildArtifacts without a kind still emits a plain TRIGGER eval', () => {
   });
   const json = JSON.parse(arts.find((a) => a.path.endsWith('.json')).content);
   assert.equal(json.generated, 'TRIGGER eval');
+  assert.ok(!('provenance' in json));
+});
+
+// --- scoped stamping on the OUTPUT path ----------------------------------------------
+// Same bug-class the trigger path already closed: finalize stamped every shipped framework
+// unconditionally, so finalizing a 3-skill meta run would re-date 63 sidecars it never
+// measured - and could not reach the meta-skills, none of which is a registry entry.
+
+test('stampTargetsFromArgv: --stamp names exactly the skills a run measured', () => {
+  assert.deepEqual(
+    stampTargetsFromArgv(['2026-09-10', '--output', 'r.json', '--stamp', 'framework-advisor,top3']),
+    ['framework-advisor', 'top3'],
+  );
+});
+
+test('stampTargetsFromArgv: --no-stamp stamps nothing at all', () => {
+  assert.deepEqual(stampTargetsFromArgv(['2026-09-10', '--output', 'r.json', '--no-stamp']), []);
+});
+
+test('stampTargetsFromArgv: no flag keeps the old behavior (all shipped frameworks)', () => {
+  assert.equal(stampTargetsFromArgv(['2026-09-10', '--output', 'r.json']), undefined);
+});
+
+test('stampTargetsFromArgv: --no-stamp wins over --stamp, the safer of the two', () => {
+  assert.deepEqual(stampTargetsFromArgv(['--stamp', 'a,b', '--no-stamp']), []);
+});
+
+test('stampTargetsFromArgv: whitespace and empty entries are dropped', () => {
+  assert.deepEqual(stampTargetsFromArgv(['--stamp', ' a , ,b ']), ['a', 'b']);
+});
+
+test('buildArtifacts: the output scorer records provenance when supplied', () => {
+  const arts = buildArtifacts({
+    date: '2026-09-10',
+    prefix: 'meta-skills',
+    output: {
+      rawResults: readJson('output.results.json'),
+      provenance: { model: 'claude-opus-5', scope: '3 of 4 meta-skills' },
+    },
+  });
+  const json = JSON.parse(arts.find((a) => a.path.endsWith('.json')).content);
+  assert.equal(json.generated, 'OUTPUT eval');
+  assert.deepEqual(json.provenance, { model: 'claude-opus-5', scope: '3 of 4 meta-skills' });
+});
+
+test('buildArtifacts: an output run without provenance is unchanged (history stays valid)', () => {
+  const arts = buildArtifacts({ date: '2026-06-25', output: { rawResults: readJson('output.results.json') } });
+  const json = JSON.parse(arts.find((a) => a.path.endsWith('.json')).content);
   assert.ok(!('provenance' in json));
 });

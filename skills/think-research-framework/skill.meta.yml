@@ -11,7 +11,7 @@ identity:
   display_name: Research Framework
   version: 0.1.0
   status: active        # draft | experimental | active | deprecated | archived
-  maturity: alpha        # trigger IS measured (skill-selection eval, the roster corpus); output is not, and maturity requires both (see quality.*_eval_status)
+  maturity: alpha        # trigger measured 2026-09-10 (skill-selection eval); output NOT measurable by the generic produce-then-judge harness - this skill dispatches to a subagent with web search and its own SKILL.md forbids inline research, so the harness would grade a procedure violation. See docs/internal/backlog.md
 
 classification:
   primary_family: meta-thinking-and-reflection

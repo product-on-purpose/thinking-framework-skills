@@ -79,7 +79,7 @@ export function scoreTrigger(cases, routedRaw, opts = {}) {
   return { md, json };
 }
 
-export function scoreOutput(rawResults) {
+export function scoreOutput(rawResults, opts = {}) {
   const results = (rawResults.results || rawResults).slice().sort((a, b) => a.skill.localeCompare(b.skill));
   const tPassed = results.reduce((a, r) => a + r.passed, 0);
   const tTotal = results.reduce((a, r) => a + r.total, 0);
@@ -107,5 +107,6 @@ export function scoreOutput(rawResults) {
     totals: { checks: tTotal, passed: tPassed, passPct: tTotal ? +(100 * tPassed / tTotal).toFixed(1) : null, perfectSkills: perfect, failedChecks: fails.length },
     perSkill: Object.fromEntries(results.map((r) => [r.skill, { passed: r.passed, total: r.total, fails: (r.perCheck || []).filter((c) => !c.pass).map((c) => c.check) }])),
   };
+  if (opts.provenance) json.provenance = opts.provenance;
   return { md, json };
 }
