@@ -12,7 +12,7 @@ identity:
   display_name: Random Frameworks
   version: 0.1.0
   status: active    # draft | experimental | active | deprecated | archived
-  maturity: alpha        # unmeasured by design: the meta-skills sit outside the behavioral eval run (see quality.*_eval_status)
+  maturity: alpha        # trigger IS measured (skill-selection eval, the roster corpus); output is not, and maturity requires both (see quality.*_eval_status)
 
 classification:
   primary_family: meta-thinking-and-reflection
@@ -54,7 +54,7 @@ relationships:
   variants: [think-top3]
 
 quality:
-  trigger_eval_status: authored   # see eval/cases.md
+  trigger_eval_status: measured-2026-09-10
   output_eval_status: authored
   known_failure_modes:
     - quietly fitting the draw to the topic instead of staying random

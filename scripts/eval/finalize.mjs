@@ -21,7 +21,8 @@ export function buildArtifacts({ date, prefix, trigger, output }) {
   const base = (kind) => `${OUT_DIR}/${date}${prefix ? '-' + prefix : ''}-${kind}-eval`;
   const arts = [];
   if (trigger) {
-    const { md, json } = scoreTrigger(trigger.cases, trigger.routedRaw);
+    const { md, json } = scoreTrigger(trigger.cases, trigger.routedRaw,
+      { generated: trigger.generated, title: trigger.title, provenance: trigger.provenance });
     arts.push({ path: `${base('trigger')}.md`, content: md });
     arts.push({ path: `${base('trigger')}.json`, content: JSON.stringify(json, null, 2) + '\n' });
   }

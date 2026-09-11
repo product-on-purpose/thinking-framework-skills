@@ -15,12 +15,24 @@ export function stampField(yamlText, field, date) {
   return re.test(yamlText) ? yamlText.replace(re, `$1measured-${date}`) : yamlText;
 }
 
-export async function stampMeta(date, which, root) {
+// Which skills a run is entitled to stamp. An ABSENT list means "every shipped
+// framework" (the framework-routing eval's scope). An explicit list means exactly those,
+// which is how the skill-selection eval stamps the 4 meta-skills - none of which is a
+// registry entry - without touching the 63 frameworks it never measured. An explicit
+// EMPTY list stamps nothing: fail-safe, so a miscomputed target set cannot fall back to all.
+export function resolveStampTargets(frameworks, slugs) {
+  if (slugs === undefined || slugs === null) {
+    return (frameworks || []).filter((e) => e.status === 'shipped').map((e) => e.slug);
+  }
+  return [...slugs];
+}
+
+export async function stampMeta(date, which, root, slugs) {
   const field = which + '_eval_status';
   const reg = (await import('file://' + join(root, 'frameworks', 'registry.mjs').replace(/\\/g, '/'))).default;
   let stamped = 0, skipped = 0;
-  for (const f of reg.frameworks.filter((e) => e.status === 'shipped')) {
-    const p = join(root, 'skills', 'think-' + f.slug, 'skill.meta.yml');
+  for (const slug of resolveStampTargets(reg.frameworks, slugs)) {
+    const p = join(root, 'skills', 'think-' + slug, 'skill.meta.yml');
     if (!existsSync(p)) { skipped++; continue; }
     const s = readFileSync(p, 'utf8');
     const next = stampField(s, field, date);

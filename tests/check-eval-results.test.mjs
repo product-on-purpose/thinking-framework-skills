@@ -34,3 +34,46 @@ test('an advisor-routing json (no `generated`) is paired-checked but NOT shape-c
     { name: '2026-06-03-advisor-routing.json', parsed: { eval: 'advisor-routing', routing_accuracy: { pct: 0.58 } } },
   ]);
 });
+
+// --- SKILL-SELECTION eval (the roster corpus) ----------------------------------------
+// A distinct `generated` kind rather than reusing 'TRIGGER eval': the two evals answer
+// different questions over different corpora, and a reader holding two scorecards must be
+// able to tell which is which from the artifact alone. That is the same confusion the
+// trust page's two-dates treatment exists to prevent.
+
+const selJson = (over = {}) => ({
+  name: '2026-09-10-skill-selection-trigger-eval.json',
+  parsed: {
+    generated: 'SKILL-SELECTION eval',
+    totals: { triggerTop1Pct: 82.4, falseFires: 0 },
+    provenance: { model: 'claude-opus-5', corpus: 'roster' },
+    ...over,
+  },
+});
+const selMd = { name: '2026-09-10-skill-selection-trigger-eval.md' };
+
+test('a valid skill-selection scorecard passes', () => {
+  ok([selMd, selJson()]);
+});
+
+test('a skill-selection scorecard missing a totals key reds', () => {
+  hasProblem([selMd, selJson({ totals: { triggerTop1Pct: 82.4 } })], /missing totals\.falseFires/);
+});
+
+test('a skill-selection scorecard with no provenance reds', () => {
+  // The defect: an unattributed number. The 2026-06-25 baseline did not record its model,
+  // so the 2026-09-10 re-run could only be called a reproduction of the measurement.
+  hasProblem([selMd, selJson({ provenance: undefined })], /missing provenance\.model/);
+});
+
+test('a skill-selection scorecard missing provenance.corpus reds', () => {
+  // Which corpus produced the number is the whole distinction between the two evals.
+  hasProblem([selMd, selJson({ provenance: { model: 'claude-opus-5' } })], /missing provenance\.corpus/);
+});
+
+test('a TRIGGER eval scorecard still needs no provenance (the older runs carry none)', () => {
+  ok([
+    { name: '2026-06-25-trigger-eval.md' },
+    { name: '2026-06-25-trigger-eval.json', parsed: { generated: 'TRIGGER eval', totals: { triggerTop1Pct: 99.2, falseFires: 0 } } },
+  ]);
+});
