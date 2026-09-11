@@ -26,6 +26,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { checkCountSurface } from './lib/count-surface-lib.mjs';
+import { WARNING_SURFACES, COUNT_FILE } from './lib/warning-count-lib.mjs';
 import { isWorkflowFile } from './lib/workflow-mirror-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -140,6 +141,27 @@ for (const [rel, checks] of EXTRA_DOC_CHECKS) {
     for (const mm of matches) {
       const got = Number(mm[1]);
       if (got !== want) problems.push(`${rel}: ${what} shows ${got}, canonical is ${want}`);
+    }
+  }
+}
+
+// ---- the gate's own warning count ------------------------------------------
+// The published figure is a hand-copied number, and it has gone stale three times. The
+// canonical value lives in docs/internal/gate-warning-count.txt; check.mjs separately
+// proves that file still matches a live evaluator run, so together the two comparisons
+// mean the published number cannot be wrong without the gate saying so.
+const countPath = join(ROOT, ...COUNT_FILE.split('/'));
+if (!existsSync(countPath)) {
+  problems.push(`${COUNT_FILE} is missing - it is the canonical gate warning count`);
+} else {
+  const raw = readFileSync(countPath, 'utf8').trim();
+  const canonicalWarnings = Number(raw);
+  if (!Number.isInteger(canonicalWarnings)) {
+    problems.push(`${COUNT_FILE} must hold a single integer, found ${JSON.stringify(raw)}`);
+  } else {
+    for (const s of WARNING_SURFACES) {
+      const text = readFileSync(join(ROOT, ...s.where.split('/')), 'utf8');
+      problems.push(...checkCountSurface({ text, label: s.label, pattern: s.pattern, want: canonicalWarnings, where: s.where }));
     }
   }
 }

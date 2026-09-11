@@ -63,7 +63,8 @@
 // probes the MAIN repo root, so a toolkit next to the main checkout is still found.
 
 import { spawnSync, execSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { parseEvaluatorTotals, COUNT_FILE } from './lib/warning-count-lib.mjs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -102,7 +103,38 @@ if (!toolkit) {
 
 const evaluator = resolve(toolkit, 'scripts', 'evaluate.mjs');
 console.log(`Running conformance gate via ${evaluator}\n`);
-const structural = spawnSync('node', [evaluator, '.'], { cwd: ROOT, stdio: 'inherit' });
+// Captured rather than inherited so the headline warning count can be READ from the run and
+// compared with the committed figure. Output is echoed verbatim, so the console is unchanged.
+const structural = spawnSync('node', [evaluator, '.'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
+if (structural.stdout) process.stdout.write(structural.stdout);
+if (structural.stderr) process.stderr.write(structural.stderr);
+
+// The gate's own warning count, asserted instead of re-typed. check-counts.mjs separately
+// proves the published prose matches this same committed number; this half proves the
+// committed number still matches a live run. It has drifted three times without either.
+const liveTotals = parseEvaluatorTotals(structural.stdout || '') || parseEvaluatorTotals(structural.stderr || '');
+const countPath = resolve(ROOT, ...COUNT_FILE.split('/'));
+let warningCountProblem = null;
+if (!liveTotals) {
+  warningCountProblem = 'could not read the evaluator totals line; the warning-count assertion did not run';
+} else if (!existsSync(countPath)) {
+  warningCountProblem = `${COUNT_FILE} is missing (canonical gate warning count)`;
+} else {
+  const committed = Number(readFileSync(countPath, 'utf8').trim());
+  if (committed !== liveTotals.warnings) {
+    warningCountProblem =
+      `the run reports ${liveTotals.warnings} warning(s) but ${COUNT_FILE} says ${committed}. ` +
+      'Either fix the new warning, or update that file AND the prose surfaces it governs ' +
+      '(check-counts.mjs names them).';
+  }
+}
+if (warningCountProblem) {
+  console.error(`
+check: warning-count drift - ${warningCountProblem}`);
+} else {
+  console.log(`
+check: warning count ${liveTotals.warnings} matches ${COUNT_FILE}.`);
+}
 
 console.log('\nRunning static eval-case validator (scripts/eval-cases.mjs)\n');
 const evalCases = spawnSync('node', [resolve(ROOT, 'scripts', 'eval-cases.mjs'), ROOT], { stdio: 'inherit' });
@@ -147,4 +179,5 @@ console.log('\nRunning eval-results pairing + shape check (scripts/check-eval-re
 const evalResults = spawnSync('node', [resolve(ROOT, 'scripts', 'check-eval-results.mjs'), ROOT], { stdio: 'inherit' });
 
 // Fail if any layer failed; all run so contributors see all problems at once.
-process.exit((structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1) || (recipeCmds.status ?? 1) || (agents.status ?? 1) || (counts.status ?? 1) || (coverage.status ?? 1) || (catalog.status ?? 1) || (contested.status ?? 1) || (mermaid.status ?? 1) || (canonical.status ?? 1) || (repoLinks.status ?? 1) || (changelog.status ?? 1) || (evalResults.status ?? 1));
+// warningCountProblem rides with layer 1: it is a property of that same evaluator run.
+process.exit((warningCountProblem ? 1 : 0) || (structural.status ?? 1) || (evalCases.status ?? 1) || (registry.status ?? 1) || (engine.status ?? 1) || (recipeCmds.status ?? 1) || (agents.status ?? 1) || (counts.status ?? 1) || (coverage.status ?? 1) || (catalog.status ?? 1) || (contested.status ?? 1) || (mermaid.status ?? 1) || (canonical.status ?? 1) || (repoLinks.status ?? 1) || (changelog.status ?? 1) || (evalResults.status ?? 1));

@@ -1,4 +1,17 @@
-// skill-selection.workflow.mjs - the blind router for the SKILL-SELECTION eval.
+// =============================================================================
+// skill-selection.workflow.mjs - the blind router for the skill-selection eval.
+//
+// what-it-is:   the Workflow-tool script that asks blind agents which INSTALLED tool they
+//               would invoke for each eval-case situation.
+// what-it-does: shards the blind prompts into batches, fans out router agents in throttle-safe
+//               serial groups against the roster corpus, and returns {routes:[{id,top1,top3}]}.
+// why:          the sibling of route.workflow.mjs, and deliberately different in three ways: it
+//               routes against the installed roster rather than recommendable.json, its persona
+//               is an agent choosing a tool rather than "the routing core of an advisor" (an
+//               advisor persona structurally never selects itself), and it shows name +
+//               description only. That is what makes the meta-skills measurable.
+// used-by:      the Workflow tool (scriptPath); scored by scripts/eval/score-selection.mjs
+//
 // Run via the Workflow tool:
 //   Workflow({ scriptPath: "scripts/eval/skill-selection.workflow.mjs",
 //              args: { blindPath, rosterPath, count, batchSize } })
@@ -38,6 +51,7 @@
 // tier: the whole value of running both evals on the same day is that `provenance.model`
 // matches the framework eval's, so the two corpora can be compared with the model held
 // constant. A cheaper router would confound the one variable this design isolates.
+// =============================================================================
 
 export const meta = {
   name: 'tfs-skill-selection-eval-router',

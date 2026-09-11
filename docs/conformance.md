@@ -18,6 +18,14 @@ Running a newer validator against an older declared Standard is supported by des
 
 **Provenance of the count**, so a reader can tell drift from change: `0 errors / 0 warnings` through v0.10.0; `0 errors / 7 warnings` from v0.11.0 when the contested lenses shipped; `0 errors / 128 warnings` from v0.13.x when the toolkit pin moved forward to pick up the workflow-component fix; `0 errors / 129 warnings` once `docs/troubleshooting.md` shipped without taxonomy frontmatter, adding one more `G7`. The published claim was not updated at the v0.11.0 step and read `0 / 0` until 2026-08-15, when grading against the pinned ref caught it.
 
+**The count is asserted, not re-typed (since 2026-09-11).** It had gone stale three times - at v0.11.0 when the contested lenses shipped, when `docs/troubleshooting.md` shipped without taxonomy frontmatter, and again when the skill-selection eval added four source files with no header docblock. A number hand-copied onto several pages goes stale on all but one of them, and CI already runs the evaluator, so the figure is now proved rather than promised. Two comparisons do it:
+
+1. `scripts/check.mjs` reads the headline `N error(s), M warning(s).` line from the live evaluator run and fails if it disagrees with `docs/internal/gate-warning-count.txt` - the single canonical number.
+2. `scripts/check-counts.mjs` asserts every present-tense published claim against that same file (`scripts/lib/warning-count-lib.mjs` names the surfaces).
+
+So a commit that adds a warning reds the gate and forces an explicit choice: fix the warning, or move the canonical number and the prose together. The historical sentences above are deliberately **not** asserted - they are dated records and keep their original numbers.
+
+
 **Why the pin moved.** The previous pin predated agent-skills-toolkit ADR 0047, whose validator could not resolve a command mapped to a workflow: it reported `maps-to "x" but no skill or workflow by that name exists on disk` for files that were on disk. That made the nine recipe commands unshippable. Moving the pin was the honest fix; suppressing the check would have traded a true statement for a passing gate.
 
 If you only want to verify it yourself, skip to [Reproduce it locally](#reproduce-it-locally).

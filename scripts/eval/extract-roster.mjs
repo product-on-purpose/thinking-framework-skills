@@ -1,5 +1,17 @@
 #!/usr/bin/env node
-// extract-roster.mjs - emit the roster an agent actually sees, for the SKILL-SELECTION eval.
+// =============================================================================
+// extract-roster.mjs - emit the tool roster an agent actually sees.
+//
+// what-it-is:   the CLI that turns manifest.generated.json into the router corpus for the
+//               skill-selection eval.
+// what-it-does: prints every installed skill and command as {id, kind, description}; with
+//               --corpus, just that array. Exits 1 if any entry lacks a description.
+// why:          the roster must be the INSTALLED surface (what an installer loads), not SKILL.md
+//               frontmatter (what authors write), and must carry name + description ONLY -
+//               the whole of what an agent weighs. Leaking the advisor's enriched fields
+//               would quietly turn this back into the framework-routing eval.
+// used-by:      scripts/eval/skill-selection.workflow.mjs (reads the emitted corpus);
+//               scripts/eval/score-selection.mjs
 //
 // Source of truth is manifest.generated.json (what an installer loads), NOT skills/*/SKILL.md
 // frontmatter (what authors write). The gate keeps the two in agreement; deriving from the
@@ -14,6 +26,7 @@
 //   node scripts/eval/extract-roster.mjs            # full roster JSON (with metadata) to stdout
 //   node scripts/eval/extract-roster.mjs --corpus   # just the {id, kind, description} array
 // Exit: 0 clean; 1 if the manifest has entries an agent could not act on.
+// =============================================================================
 
 import { readFileSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
