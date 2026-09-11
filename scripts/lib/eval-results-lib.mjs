@@ -5,7 +5,16 @@
 
 const REQUIRED_TOTALS = {
   'TRIGGER eval': ['triggerTop1Pct', 'falseFires'],
+  'SKILL-SELECTION eval': ['triggerTop1Pct', 'falseFires'],
   'OUTPUT eval': ['passPct', 'failedChecks'],
+};
+
+// Provenance is required only for eval kinds introduced after this repo learned that an
+// unattributed number cannot be reproduced, only re-measured. The older TRIGGER/OUTPUT
+// scorecards genuinely carry none, and demanding it retroactively would red the gate on
+// committed history rather than improve anything.
+const REQUIRED_PROVENANCE = {
+  'SKILL-SELECTION eval': ['model', 'corpus'],
 };
 
 export function checkEvalResults(entries) {
@@ -30,6 +39,12 @@ export function checkEvalResults(entries) {
       if (required) {
         for (const k of required) {
           if (!p.totals || !(k in p.totals)) problems.push(`${base}.json (${p.generated}) missing totals.${k}`);
+        }
+      }
+      const requiredProv = REQUIRED_PROVENANCE[p.generated];
+      if (requiredProv) {
+        for (const k of requiredProv) {
+          if (!p.provenance || !(k in p.provenance)) problems.push(`${base}.json (${p.generated}) missing provenance.${k}`);
         }
       }
     }

@@ -20,7 +20,7 @@
 - "Facilitate our team offsite agenda." (group facilitation / human-social - a thin family; redirect, do not force a `think-` pick)
 - "What's the capital of France?" (factual lookup - refuse)
 - "Write me a Python script to parse this CSV." (coding - refuse)
-- "We're stuck on this problem. Which of your thinking tools would actually help, and in what order?" (**insufficient-signal gate**: a routing request with no problem, stakes, or reversibility stated - under the advisor's own ~40-word / no-signal threshold, so the correct move is exactly ONE clarifying question, not a full Thinking Plan and not a refusal)
+- [gate] "We're stuck on this problem. Which of your thinking tools would actually help, and in what order?" (**insufficient-signal gate**: a routing request with no problem, stakes, or reversibility stated - under the advisor's own ~40-word / no-signal threshold, so the correct move is exactly ONE clarifying question, not a full Thinking Plan and not a refusal)
 - "Run a SWOT analysis on our pricing change." (the user named a contested lens - route directly to `think-swot`, which leads with its own evidence caveat; the advisor is not needed)
 
 ## Output checks (a good Thinking Plan must)

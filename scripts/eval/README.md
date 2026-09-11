@@ -18,6 +18,46 @@ The number measures the **catalog's discriminability** - whether the skill descr
 
 The router agents never see which skill authored a case or what the expected answer is. They only route `prompt -> best-fit framework` against the catalog, exactly as the live advisor would. The deterministic scorer (`score.mjs`) holds the answer key and grades afterward. This removes the failure mode where an agent "defends" the skill under test, and means the score reflects the catalog, not an agent agreeing with itself.
 
+## The skill-selection eval (a different question, a different corpus)
+
+The trigger eval above routes against `skills/think-framework-advisor/references/recommendable.json` - the **63 shipped frameworks**, enriched with `anti_triggers` / `not_use` / `overlaps`. That corpus is the advisor's list of things to *recommend*. It correctly contains no meta-skills.
+
+Which means a blind router reading it **can never return `think-framework-advisor` as a pick**. The four meta-skills (`framework-advisor`, `top3`, `random-frameworks`, `research-framework`) are not failing that eval - they are invisible to it. Running it over their cases would publish "the front door triggers 0% of the time", a number measuring only the advisor's absence from its own corpus.
+
+So there are two questions, and until now only one had an instrument:
+
+| Question | Corpus | Instrument |
+|---|---|---|
+| Which of the 63 **frameworks** fits this situation? | `recommendable.json` (enriched) | `route.workflow.mjs` |
+| Which **installed tool** would an agent invoke? | `manifest.generated.json` - 67 skills + 10 commands, name + description only | `skill-selection.workflow.mjs` |
+
+The second is the question the meta-skills' trigger contracts actually make, and it is also the only one that can see **guardrail 6**: the nine recipe commands added always-loaded description surface, but the trigger eval routes against a corpus the commands never touched, so it cannot detect command interference at all.
+
+Three properties make it the right instrument rather than a second copy of the first:
+
+- **The roster is the installed surface.** It comes from `manifest.generated.json` (what an installer loads), not `SKILL.md` frontmatter (what authors write), and each entry is reduced to `name` + `description` - the whole of what an agent sees. Passing the enriched fields would quietly turn it back into the framework eval.
+- **The persona is an agent choosing a tool**, not "the routing core of an advisor". An advisor persona structurally never selects itself, which would bake in the exact blindness being removed.
+- **Commands are kind-qualified** (`command:<slug>`), so a command pick is a distinct string from a skill pick and strict-equality scoring surfaces interference for free. The one genuine collision - `think-research-framework` ships as both a skill and a command - is normalized, because there the two ids are the same capability.
+
+### Gate cases
+
+A "Should NOT trigger" bullet tagged `[gate]` before its quoted prompt means: the authoring skill **is** the right tool, but its correct behavior is not a normal run (the advisor's insufficient-signal case, where the right move is exactly one clarifying question). That is an output-level contract a routing eval cannot judge in either direction. Such a case is emitted as `type: "gate"`, **excluded from every figure**, and reported in the scorecard - never scored as an anti-case, where a correct pick would read as a false fire.
+
+### Running it
+
+```
+node scripts/eval/extract-roster.mjs --corpus > roster.json     # the 77-tool corpus
+node scripts/eval/extract-cases.mjs --roster > cases.json        # answer key, roster resolution
+# write a blind copy ([{id,prompt}] only), then:
+#   Workflow scriptPath: scripts/eval/skill-selection.workflow.mjs
+#            args: {blindPath, rosterPath, count, batchSize}
+node scripts/eval/score-selection.mjs <YYYY-MM-DD> cases.json routed.json --model <id>
+```
+
+`score-selection.mjs` reuses `finalize.buildArtifacts` (so the paired `.md`/`.json` cannot drift) and adds what this eval owns: provenance (model, corpus, sampling, gate exclusions), the guardrail-6 command-pick tally, and stamping **only** the skills the run measured. That last point matters: `finalize.mjs`'s default walks the 63 registry frameworks, so finalizing a selection run through it would re-stamp 63 sidecars off a run that never looked at them.
+
+Scorecards land as `<date>-skill-selection-trigger-eval.{md,json}` with `generated: "SKILL-SELECTION eval"` - a distinct kind, so a reader holding both scorecards can tell which question each answers. Gate layer 15 requires `provenance.model` and `provenance.corpus` for this kind (the older trigger runs genuinely carry none, which is why their numbers can only be re-measured, not reproduced).
+
 ## Running it (three steps)
 
 1. **Extract the answer key + the blind prompts.**
@@ -66,4 +106,5 @@ Add `--prefix contested` for a cohort run (writes `<date>-contested-<kind>-eval.
 - **Trigger eval**: implemented (routing accuracy). First full run under `docs/internal/eval-results/`.
 - **Output eval**: implemented (artifact quality, produce -> judge). First full run under `docs/internal/eval-results/`.
 - **Finalize-driven flow**: implemented. `finalize.mjs` is the canonical commit path; `score.mjs` / `score-output.mjs` are now ad-hoc inspection tools only.
+- **Skill-selection eval**: implemented - the sibling instrument that routes against the installed roster (67 skills + 10 commands) instead of the framework catalog. It is the only instrument that can measure the four meta-skills, and the only one that can answer guardrail 6's command-interference question.
 - **Scorecard pairing guard**: implemented - `check-eval-results.mjs` is the 14th `check.mjs` layer; reds CI if any committed scorecard is missing its `.md`/`.json` twin or is malformed.

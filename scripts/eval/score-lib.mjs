@@ -3,13 +3,18 @@
 // the routed/results inputs, not in scoring them. The score.mjs / score-output.mjs CLIs
 // and finalize.mjs are the only callers. See scripts/eval/README.md.
 
-export function scoreTrigger(cases, routedRaw) {
+export function scoreTrigger(cases, routedRaw, opts = {}) {
+  // `gate` cases are excluded from scoring in BOTH directions: the authoring skill is the
+  // right tool, only its behavior differs (e.g. ask one clarifying question), which is an
+  // OUTPUT contract a routing eval cannot judge. Counting one as an anti-case would report
+  // correct behavior as a false fire. The caller reports how many were excluded.
+  const scored = (cases || []).filter((c) => c.type !== 'gate');
   const routes = routedRaw.routes || routedRaw;
   const byId = new Map(routes.map((r) => [r.id, r]));
   const per = {};
   const ensure = (s) => (per[s] ||= { trig: 0, trigHit: 0, trigSoft: 0, anti: 0, antiNoFire: 0, antiNamed: 0, antiNamedHit: 0, miss: [], fire: [] });
   let unrouted = 0;
-  for (const c of cases) {
+  for (const c of scored) {
     const r = byId.get(c.id);
     const top1 = r ? r.top1 : undefined;
     const top3 = (r && r.top3) || [];
@@ -37,8 +42,8 @@ export function scoreTrigger(cases, routedRaw) {
   const tAnti = sum('anti'), tNoFire = sum('antiNoFire'), tNamed = sum('antiNamed'), tNamedHit = sum('antiNamedHit');
   const pct = (n, d) => d ? (100 * n / d).toFixed(0) + '%' : 'n/a';
 
-  let md = `# Trigger eval scorecard\n\n`;
-  md += `Cases: ${cases.length} (${tTrig} trigger, ${tAnti} anti; ${tNamed} of the anti cases name a specific alternative) across ${skills.length} skills. Unrouted: ${unrouted}.\n\n`;
+  let md = `# ${opts.title || 'Trigger eval'} scorecard\n\n`;
+  md += `Cases: ${scored.length} (${tTrig} trigger, ${tAnti} anti; ${tNamed} of the anti cases name a specific alternative) across ${skills.length} skills. Unrouted: ${unrouted}.\n\n`;
   md += `- **Trigger accuracy (top1): ${pct(tTrigHit, tTrig)}** (${tTrigHit}/${tTrig}); soft (in top3): ${pct(tTrigSoft, tTrig)}.\n`;
   md += `- **Anti no-false-fire: ${pct(tNoFire, tAnti)}** (${tNoFire}/${tAnti}) - the skill did NOT grab a wrong-tool / no-tool situation. This is the metric that matters.\n`;
   md += `- Anti right-alternative: ${pct(tNamedHit, tNamed)} (${tNamedHit}/${tNamed}) - of the anti cases naming a specific alternative, how many routed there (the rest mostly answered "none" on a genuinely trivial prompt, still not a false-fire).\n\n`;
@@ -61,7 +66,7 @@ export function scoreTrigger(cases, routedRaw) {
   }
 
   const json = {
-    generated: 'TRIGGER eval', cases: cases.length,
+    generated: opts.generated || 'TRIGGER eval', cases: scored.length,
     totals: { trigger: tTrig, anti: tAnti, antiNamed: tNamed, unrouted,
       triggerTop1: tTrigHit, triggerTop3: tTrigSoft, antiNoFire: tNoFire, antiRightAlt: tNamedHit,
       triggerTop1Pct: tTrig ? +(100 * tTrigHit / tTrig).toFixed(1) : null,
@@ -70,6 +75,7 @@ export function scoreTrigger(cases, routedRaw) {
       falseFires: fires.length },
     perSkill: Object.fromEntries(skills.map((s) => [s, per[s]])),
   };
+  if (opts.provenance) json.provenance = opts.provenance;
   return { md, json };
 }
 
