@@ -1,5 +1,18 @@
 #!/usr/bin/env node
-// score-selection.mjs - finalize a SKILL-SELECTION eval run into committed scorecards.
+// =============================================================================
+// score-selection.mjs - finalize a skill-selection run into committed scorecards.
+//
+// what-it-is:   the commit path for the SKILL-SELECTION eval, the sibling of finalize.mjs.
+// what-it-does: scores a routed run, writes the paired .md + .json under
+//               docs/internal/eval-results/, records provenance (model, corpus, sampling,
+//               gate exclusions) and the guardrail-6 command-pick tally, and stamps ONLY
+//               the skills the run actually measured.
+// why:          it reuses finalize.buildArtifacts so the paired artifacts cannot drift - the exact
+//               failure finalize.mjs was introduced to end - while owning what this eval adds.
+//               The scoped stamping matters: finalize's default walks the 63 registry
+//               frameworks, so finalizing a meta-skill run through it would re-date 63
+//               sidecars the run never looked at.
+// used-by:      run by hand after the skill-selection workflow; see scripts/eval/README.md
 //
 // The sibling of finalize.mjs for the roster corpus. It deliberately REUSES
 // finalize.buildArtifacts (so the paired .md/.json can never drift - the exact failure
@@ -18,6 +31,7 @@
 // Usage:
 //   node scripts/eval/score-selection.mjs <YYYY-MM-DD> <cases.json> <routed.json> \
 //        --model <id> [--sampling <text>] [--stamp a,b,c | --no-stamp] [--dry-run]
+// =============================================================================
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';

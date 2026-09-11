@@ -1,5 +1,18 @@
-// selection-lib.mjs - pure helpers for the SKILL-SELECTION eval, the sibling of the
-// framework-routing TRIGGER eval.
+// =============================================================================
+// selection-lib.mjs - the pure rules behind the skill-selection eval.
+//
+// what-it-is:   the corpus half of the SKILL-SELECTION behavioral eval: the installed roster
+//               an agent actually sees, plus how a case resolves against it.
+// what-it-does: builds the roster from the plugin manifest (skills bare, commands
+//               kind-qualified `command:<slug>`), reports skill/command name collisions,
+//               resolves an anti-case's named alternative against a supplied corpus, and
+//               tallies how often a command took the top pick away from a skill.
+// why:          framework routing and skill selection are different questions. The trigger eval
+//               routes against the advisor's 63-framework corpus, which contains no meta-skills,
+//               so it can never return `framework-advisor` and cannot see command interference
+//               at all. This is the corpus half of the instrument that can.
+// used-by:      scripts/eval/extract-roster.mjs; scripts/eval/extract-cases.mjs (--roster);
+//               scripts/eval/score-selection.mjs; tests/selection-lib.test.mjs
 //
 // The two evals answer different questions and the difference is the whole point:
 //
@@ -22,6 +35,7 @@
 //      without touching the scorer, which compares picks by strict equality.
 //
 // Sibling to cases-lib.mjs / score-lib.mjs: pure, no fs, no process exit. Callers own IO.
+// =============================================================================
 
 const COMMAND_PREFIX = 'command:';
 
