@@ -52,7 +52,7 @@ When asked to run QCA, follow these steps:
 Route to the shipped, better-grounded move the job actually needs:
 
 - For a set of comparable past cases, get an outcome distribution as a base rate instead of coded configurations: `think-reference-class-forecasting`.
-- For a causal account of one case, do within-case process tracing in prose: for each candidate condition, ask what evidence would be necessary or sufficient if it were the driver, and weigh the actual record against that. (Process tracing is a method, not a shipped skill here; run it by hand, not as a `think-` invocation.)
+- For a causal account of one case, that is within-case territory and this library ships the skill for it: `think-process-tracing` (tier P). It does exactly the move QCA cannot at this scale - for each candidate condition, assign the evidence test *before* grading the record (hoop, smoking gun, straw-in-the-wind, doubly decisive), then weigh by diagnosticity rather than by count.
 
 ## Output Format
 
