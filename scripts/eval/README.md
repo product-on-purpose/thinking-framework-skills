@@ -147,8 +147,20 @@ node scripts/eval/extract-output.mjs research-framework > rf-cases.json
 #            args: {casesPath, agentPath, skill}
 node scripts/eval/resolve-dispatch-checks.mjs rf-wf.json rf-cases.json --out rf-results.json
 node scripts/eval/finalize.mjs <YYYY-MM-DD> --output rf-results.json \
-  --prefix research-framework --stamp think-research-framework
+  --prefix research-framework --stamp research-framework
 ```
+
+**`--stamp` takes BARE slugs, not `think-` prefixed ones.** `stampMeta` builds the path as
+`skills/think-<slug>/skill.meta.yml`, so `--stamp think-research-framework` resolves to
+`skills/think-think-research-framework/` - which does not exist, and the function **silently counts
+it as `skipped`** rather than failing. The result is the worst shape available: a committed scorecard
+that says `measured` beside a sidecar that still says `authored`, with nothing red. Check the
+`stamped` count in the output, not just the exit code.
+
+`maturity` is NOT stamped by any script - it carries a hand-written justification comment, so it is a
+deliberate manual edit. The lifecycle guard in `check-registry.mjs` will red the gate if both eval
+stamps read `measured-*` while `maturity` does not say `measured`, so the gate catches a forgotten
+edit; it cannot catch a wrong reason, which is why the comment is written by hand.
 
 It emits the standard `OUTPUT` scorecard kind deliberately, rather than inventing a new one: gate
 layer 15 validates scorecard shapes per kind, so a new kind would red CI until
