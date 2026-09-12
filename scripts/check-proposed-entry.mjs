@@ -1,17 +1,26 @@
 #!/usr/bin/env node
-// check-proposed-entry.mjs - SP5 C3. Validate ONE proposed framework registry entry against
-// frameworks/registry.schema.json BEFORE it is shown to a human, so a malformed proposal can
-// never be pasted into frameworks/registry.mjs. Zero-dependency; reuses the same schema-driven
-// single-entry logic as the full CI pass via scripts/lib/registry-entry-lib.mjs.
+// =============================================================================
+// check-proposed-entry.mjs - validate ONE proposed framework-registry entry before review.
+//
+// what-it-is:   the CLI for SP5 C3, the proposed-entry pre-validator used by the
+//               think-research-framework research subagent.
+// what-it-does: validates a single proposed frameworks/registry.mjs entry (a JSON file path,
+//               or `-` for stdin) against frameworks/registry.schema.json, reusing the same
+//               schema-driven single-entry logic as the full CI pass
+//               (scripts/lib/registry-entry-lib.mjs). Cross-entry and filesystem invariants
+//               (slug uniqueness, foldInto resolving to a shipped slug, family membership,
+//               dossier/skill existence, source-url shape) are out of scope here and are
+//               enforced later by scripts/check-registry.mjs once the entry is pasted in.
+// why:          the research subagent proposes entries but never writes frameworks/registry.mjs
+//               itself (a human pastes it in); this lets the subagent catch a malformed
+//               proposal itself, before it is ever shown to the human who has to review it.
+// used-by:      agents/think-research-framework.md (the research subagent's one allowed bash
+//               command, run against a scratch JSON file)
 //
 // Usage:
 //   node scripts/check-proposed-entry.mjs path/to/entry.json
 //   cat entry.json | node scripts/check-proposed-entry.mjs -
-//
-// The input is a single JSON object (the proposed entry). Cross-entry and filesystem invariants
-// (slug uniqueness, foldInto resolves to a shipped slug, family in the list, dossier/skill
-// existence, source-url shape) are out of scope here and are enforced by scripts/check-registry.mjs
-// once the entry is pasted in.
+// =============================================================================
 
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';

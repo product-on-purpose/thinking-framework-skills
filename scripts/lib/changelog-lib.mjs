@@ -1,7 +1,20 @@
-// changelog-lib.mjs - Pure transforms for the generated site changelog pages (Workstream A).
-// Zero-dependency, UTF-8, LF. Consumed by scripts/gen-site.mjs; tested in
-// tests/changelog-lib.test.mjs. The repo-root CHANGELOG.md / RELEASE-NOTES.md
-// are the source of truth; these helpers only re-point their links for the site.
+// =============================================================================
+// changelog-lib.mjs - pure transforms for the generated site changelog pages (Workstream A).
+//
+// what-it-is:   the pure text-transform layer behind the site's rendered changelog pages.
+// what-it-does: rewrites relative markdown links in CHANGELOG.md / RELEASE-NOTES.md to point at
+//               their site or repo-blob destinations (fence- and ref-def-aware, images and
+//               external/anchor links left untouched), builds a mermaid release timeline from the
+//               "## vX.Y.Z" headings plus each version's bold theme line, and strips the leading
+//               H1 so Starlight's own frontmatter title is not duplicated.
+// why:          the repo-root CHANGELOG.md / RELEASE-NOTES.md are the source of truth and must
+//               stay readable as plain markdown on GitHub; this file is what lets the site render
+//               the same files with working in-site links and a generated timeline instead of a
+//               forked, hand-maintained copy that could drift from the real history.
+// used-by:      scripts/gen-site.mjs (npm run gen); tests/changelog-lib.test.mjs
+// =============================================================================
+//
+// Zero-dependency, UTF-8, LF.
 
 const EXTERNAL = /^(https?:|mailto:|tel:|ftp:|\/\/|#)/i;
 

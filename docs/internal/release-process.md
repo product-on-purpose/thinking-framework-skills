@@ -42,7 +42,7 @@ Because the tier claim is scoped to a Standard version, the pin is a thing to lo
 
 The original revisit trigger is **retired**. It named Standard 0.15, where the `S3` workflow mirror graduates from warn to error, because this repo had nine undeclared `_workflows/` recipes that would have become nine gating errors. #109 declared them and the pinned run now reports zero `S3` findings, so that cliff no longer exists.
 
-The next revisit is whichever comes first: **a toolkit fix this repo actually needs that sits past the pin** (that is what moved the pin in #110 - ADR 0047 made the recipe commands unshippable until it did), or **the scheduled Standard-debt burn-down**. Toolkit `main` was 142 commits and three Standard minors ahead (0.13 -> 0.16) at the v0.14.0 cut with nothing in the gap blocking a feature here. Keep the debt measured rather than guessed: at the pin declaring `0.8` the repo returns advanced / 0 errors / 129 warnings, and declaring `0.13` against the same toolkit returns convergent / 123 errors.
+The next revisit is whichever comes first: **a toolkit fix this repo actually needs that sits past the pin** (that is what moved the pin in #110 - ADR 0047 made the recipe commands unshippable until it did), or **the scheduled Standard-debt burn-down**. Toolkit `main` was 142 commits and three Standard minors ahead (0.13 -> 0.16) at the v0.14.0 cut with nothing in the gap blocking a feature here. Keep the debt measured rather than guessed: at the pin declaring `0.8` the repo returns advanced / 0 errors / 90 warnings, and declaring `0.13` against the same toolkit returns convergent / 84 errors.
 
 ## Cut steps (to the gated line)
 

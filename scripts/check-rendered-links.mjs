@@ -1,4 +1,20 @@
+// =============================================================================
 // check-rendered-links.mjs - assert the built site has zero browser-broken internal links.
+//
+// what-it-is:   the site's rendered-link guard - clause 14.11(a) of the family Astro site
+//               standard, run against a built site/dist/ directory.
+// what-it-does: resolves every intra-site href (relative, or /base-absolute) on every built
+//               page against that page's REAL served URL - accounting for Starlight serving
+//               a page one path level deeper than its source file - and asserts the target
+//               exists in dist; also validates #anchors against the target page's element
+//               ids (advisory unless STRICT_ANCHORS=1).
+// why:          a filesystem-correct relative link can still 404 in the browser once
+//               Starlight serves it a level deeper (the trailing-slash class), and a
+//               host-root link missing the base path silently lands on the bare github.io
+//               domain ("Site not found"); this is the guard that catches both before they ship.
+// used-by:      .github/workflows/ci.yml (site-build job); .github/workflows/deploy-pages.yml;
+//               tests/check-rendered-links.test.mjs (spawns it against synthetic dist fixtures)
+// =============================================================================
 //
 // Clause 14.11(a) of the family Astro site standard: the rendered-link check with anchor
 // resolution. A Starlight page builds to `slug/index.html` and is served one URL level deeper

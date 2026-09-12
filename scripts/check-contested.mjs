@@ -1,14 +1,25 @@
 #!/usr/bin/env node
-// check-contested.mjs - the 9th conformance layer (v0.11.0, resolves DS-01). Enforces the
-// caveat-first CONTRACT for every contested lens (a framework with caveatFirst: true in
-// frameworks/registry.mjs): the deficiency must LEAD the SKILL.md and the artifact, the posture
-// (run_caveat_first / warn_redirect) is honored across SKILL.md / TEMPLATE / EXAMPLE / sample /
-// eval-cases, branded lenses carry the trademark attribution on every surface, and the marker
-// agrees across the registry, the SKILL.md frontmatter, and the skill.meta.yml sidecar.
+// =============================================================================
+// check-contested.mjs - the caveat-first conformance layer for contested lenses (v0.11.0).
 //
-// Wired into scripts/check.mjs. Standalone Node script: exits 0 on pass, 1 on any problem, prints
-// findings to stderr. The deterministic core lives in scripts/lib/contested-lib.mjs (pure +
-// unit-tested in tests/contested-lib.test.mjs, which negative-tests both postures).
+// what-it-is:   a standalone conformance check script (check.mjs layer 10, resolves DS-01).
+// what-it-does: for every contested lens (a framework with caveatFirst: true in
+//               frameworks/registry.mjs), enforces the caveat-first CONTRACT: the deficiency
+//               must LEAD the SKILL.md and the artifact, the posture (run_caveat_first /
+//               warn_redirect) is honored across SKILL.md / TEMPLATE / EXAMPLE / sample /
+//               eval-cases, branded lenses carry the trademark attribution on every surface,
+//               and the caveat-first marker agrees across the registry, the SKILL.md
+//               frontmatter, and the skill.meta.yml sidecar. Also flags the reverse drift: a
+//               skill that declares caveat-first in its frontmatter without a matching entry.
+// why:          a famous-but-weak framework that ships without its deficiency leading every
+//               surface would mislead a reader into treating a controlled-evidence method as
+//               sound; this makes a late caveat, a missing posture, or a dropped attribution a
+//               red gate instead of a silent quality regression.
+// used-by:      scripts/check.mjs (layer 10, spawned with ROOT as argv[2])
+// =============================================================================
+// Standalone Node script: exits 0 on pass, 1 on any problem, prints findings to stderr. The
+// deterministic core lives in scripts/lib/contested-lib.mjs (pure + unit-tested in
+// tests/contested-lib.test.mjs, which negative-tests both postures).
 
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';

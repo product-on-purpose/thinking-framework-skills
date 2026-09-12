@@ -1,22 +1,26 @@
 #!/usr/bin/env node
-// gen-catalog.mjs - generate the public, machine-readable catalog + the llms.txt
-// convention index, so other agents can discover, route to, and chain the library's
-// skills.
+// =============================================================================
+// gen-catalog.mjs - generate the public catalog + llms.txt discovery surface.
 //
-// OUTPUT (into site/public/, copied verbatim by Astro to the site root):
-//   site/public/llms.txt        (the llmstxt.org index: invokable surface + key docs)
-//   site/public/catalog.json    (the invokable components: skills + tools + recipes)
-//   site/public/evaluated.json  (every evaluated registry method; the not-shipped ones in context)
-//
-// SOURCES OF TRUTH (joined, never invented): frameworks/registry.mjs + library.json +
-// each SKILL.md frontmatter + each skill.meta.yml + _workflows/*.md. Every emitted URL
-// is validated against scripts/route-manifest.txt (the live-route set) so a renamed or
-// missing page fails the generator rather than shipping a dead link.
-//
-// Usage:  node scripts/gen-catalog.mjs          (write the three files)
-//         node scripts/gen-catalog.mjs --check   (exit 1 if any committed file is stale; for CI)
+// what-it-is:   the generator and importable module for the machine-readable catalog and the
+//               llms.txt convention index, so other agents can discover, route to, and chain
+//               the library's skills.
+// what-it-does: writes four files into site/public/ (copied verbatim by Astro to the site
+//               root): llms.txt, llms-full.txt, catalog.json, evaluated.json, joining
+//               frameworks/registry.mjs + library.json + each SKILL.md frontmatter + each
+//               skill.meta.yml + _workflows/*.md as sources of truth. With no flag it writes
+//               the four files; `--check` regenerates in memory and exits 1 if any committed
+//               file is stale. Also exports catalog / evaluated / llmsTxt / llmsFullTxt as a
+//               module (writes are guarded behind an isMain check) so a test can assert on
+//               the built objects without touching disk.
+// why:          every emitted URL is validated against scripts/route-manifest.txt (the live-
+//               route set), so a renamed or missing page fails the generator at build time
+//               rather than shipping a dead link to an agent that trusts the catalog.
+// used-by:      scripts/check.mjs (--check); npm run gen:catalog; tests/gen-catalog.test.mjs
+//               (imports catalog / evaluated / llmsTxt)
 //
 // No dependencies. UTF-8 in/out (Windows cp1252 would otherwise corrupt output).
+// =============================================================================
 
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';

@@ -1,12 +1,20 @@
 #!/usr/bin/env node
-// check-counts.mjs - verify the hand-authored count surfaces (README.md plus the
-// repo-facing docs/getting-started.md and docs/README.md) against the
-// machine-readable sources, so catalog-count drift fails the gate instead of slipping
-// through to a human/Codex catch three steps later. The README is the last hand-authored
-// denormalization of data that lives in the registry (shipped count + per-family), in
-// _workflows/ (recipes), and in the META_SKILLS set (tools). This script is the authority
-// for those counts; the four surfaces it checks are the badges, the mermaid lifecycle map,
-// the catalog table headers, and the project-status table.
+// =============================================================================
+// check-counts.mjs - verify hand-authored count surfaces against the machine-readable sources.
+//
+// what-it-is:   a standalone conformance check script (check.mjs layer 7).
+// what-it-does: checks the four README.md count surfaces (badges, mermaid lifecycle map,
+//               catalog table headers, project-status table) plus the repo-facing
+//               docs/getting-started.md and docs/README.md against the registry (shipped
+//               count + per-family), _workflows/ (recipes), and the META_SKILLS set (tools);
+//               validates every shipped skill's metadata.family against the 12 canonical
+//               skill-family slugs; and checks the gate's own published warning count against
+//               docs/internal/gate-warning-count.txt.
+// why:          the README is the last hand-authored denormalization of data that otherwise
+//               lives in the registry, so without this check catalog-count drift slips through
+//               to a human/Codex catch three steps later instead of failing the gate outright.
+// used-by:      scripts/check.mjs (layer 7)
+// =============================================================================
 //
 // FAMILY TAXONOMY NOTE (registry follow-up #3, RESOLVED - keep separate, mapping documented in
 // docs/architecture.md "Two family taxonomies"): the per-family counts use each skill's
@@ -26,7 +34,10 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { checkCountSurface } from './lib/count-surface-lib.mjs';
-import { WARNING_SURFACES, COUNT_FILE } from './lib/warning-count-lib.mjs';
+import {
+  WARNING_SURFACES, COUNT_FILE,
+  POST_08_SURFACES, ERRORS_AT_013_SURFACES, COMPOSITION_FILE, postStandard08,
+} from './lib/warning-count-lib.mjs';
 import { isWorkflowFile } from './lib/workflow-mirror-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -162,6 +173,46 @@ if (!existsSync(countPath)) {
     for (const s of WARNING_SURFACES) {
       const text = readFileSync(join(ROOT, ...s.where.split('/')), 'utf8');
       problems.push(...checkCountSurface({ text, label: s.label, pattern: s.pattern, want: canonicalWarnings, where: s.where }));
+    }
+  }
+}
+
+// ---- the figures published BESIDE the total --------------------------------
+// The third fix (PR #122) asserted only the headline warning count. The post-0.8 subtotal, the
+// per-requirement breakdown and the Standard-0.13 counterfactual were published in six further
+// live places and asserted in none - so the G9 docblock sweep would have left six freshly false
+// sentences sitting behind a green gate. Same drift class, same remedy.
+const compositionPath = join(ROOT, ...COMPOSITION_FILE.split('/'));
+if (!existsSync(compositionPath)) {
+  problems.push(`${COMPOSITION_FILE} is missing - it is the canonical warning breakdown and 0.13 counterfactual`);
+} else {
+  let composition = null;
+  try {
+    composition = JSON.parse(readFileSync(compositionPath, 'utf8'));
+  } catch (err) {
+    problems.push(`${COMPOSITION_FILE} is not valid JSON (${err.message})`);
+  }
+
+  if (composition) {
+    const byReq = composition.byRequirement;
+    if (!byReq || typeof byReq !== 'object' || !Object.keys(byReq).length) {
+      problems.push(`${COMPOSITION_FILE}: byRequirement must be a non-empty object mapping requirement id -> count`);
+    } else {
+      const canonicalPost08 = postStandard08(byReq);
+      for (const s of POST_08_SURFACES) {
+        const text = readFileSync(join(ROOT, ...s.where.split('/')), 'utf8');
+        problems.push(...checkCountSurface({ text, label: s.label, pattern: s.pattern, want: canonicalPost08, where: s.where }));
+      }
+    }
+
+    const errs013 = composition.errorsAtStandard013;
+    if (!Number.isInteger(errs013)) {
+      problems.push(`${COMPOSITION_FILE}: errorsAtStandard013 must be an integer (re-measure it at the cut; do not derive it from the warning count)`);
+    } else {
+      for (const s of ERRORS_AT_013_SURFACES) {
+        const text = readFileSync(join(ROOT, ...s.where.split('/')), 'utf8');
+        problems.push(...checkCountSurface({ text, label: s.label, pattern: s.pattern, want: errs013, where: s.where }));
+      }
     }
   }
 }

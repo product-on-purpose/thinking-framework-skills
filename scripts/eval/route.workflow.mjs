@@ -1,14 +1,30 @@
-// route.workflow.mjs - the blind router for the behavioral TRIGGER eval. Run via the
-// Workflow tool: Workflow({ scriptPath: "scripts/eval/route.workflow.mjs", args: { blindPath, count, batchSize } }).
+// =============================================================================
+// route.workflow.mjs - the blind router for the behavioral TRIGGER eval.
+//
+// what-it-is:   the Workflow-tool script that drives the TRIGGER half of the behavioral
+//               eval harness (the OUTPUT half is output.workflow.mjs; the sibling that
+//               routes against the installed roster instead is
+//               skill-selection.workflow.mjs).
+// what-it-does: shards eval-case situations into batches, fans out BLIND router agents
+//               (never told which skill authored a case or what the expected answer is)
+//               in throttle-safe serial groups of 5 against the advisor's framework
+//               catalog (recommendable.json), and returns { count, routed, routes:[{id,
+//               top1, top3}] }.
+// why:          if a router could see which skill authored a case, it could "defend" the
+//               skill under test and the score would reflect self-agreement, not the
+//               catalog's real discriminability. The blind/answer-key split (scoring
+//               happens separately, in score.mjs) is what makes the trigger numbers
+//               trustworthy.
+// used-by:      the Workflow tool (scriptPath); scored by scripts/eval/score.mjs and
+//               scripts/eval/finalize.mjs; documented in scripts/eval/README.md
+// =============================================================================
+//
+// Run via the Workflow tool: Workflow({ scriptPath: "scripts/eval/route.workflow.mjs", args: { blindPath, count, batchSize } }).
 //
 //   blindPath : absolute path to a JSON array of {id, prompt} situations (ids c1..cN),
 //               the BLIND copy (no answer key) written from scripts/eval/extract-cases.mjs.
 //   count     : N (the number of situations).
 //   batchSize : situations per router agent (default 25).
-//
-// It shards the ids into batches, fans out blind router agents in throttle-safe serial
-// groups, and returns { count, routed, routes:[{id, top1, top3}] }. Score with
-// scripts/eval/score.mjs against the full (answer-key) cases file. See scripts/eval/README.md.
 
 export const meta = {
   name: 'tfs-trigger-eval-router',

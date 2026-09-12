@@ -1,8 +1,23 @@
 #!/usr/bin/env node
-// stamp-meta.mjs - after an eval run, stamp each shipped skill's skill.meta.yml
-// `quality.<which>_eval_status` from "not-run" to "measured-<date>", so the per-skill
-// placeholder reflects reality and points at the dated scorecard under
-// docs/internal/eval-results/<date>-<which>-eval.{md,json}.
+// =============================================================================
+// stamp-meta.mjs - stamp skill.meta.yml eval-status fields after an eval run.
+//
+// what-it-is:   the sidecar-stamping step that closes out an eval run.
+// what-it-does: exports stampField (a pure regex replace of one YAML field), resolveStampTargets
+//               (all shipped frameworks, or an explicit slug list), and stampMeta (walks
+//               those targets rewriting each shipped skill's skill.meta.yml
+//               `quality.<which>_eval_status` from "not-run" to "measured-<date>"), plus a
+//               CLI main-guard so importing it has no side effect. Each stamp points at the
+//               dated scorecard under docs/internal/eval-results/<date>-<which>-eval.{md,json}.
+// why:          without this, a scorecard could be committed while the per-skill
+//               placeholder still read "not-run", silently detaching the measurement from
+//               the metadata that claims it. The explicit-slug form (vs. an absent list
+//               meaning "every shipped framework") exists so a partial run - e.g. the
+//               skill-selection eval's 4 meta-skills, none of which is a registry entry -
+//               stamps exactly what it measured and nothing else.
+// used-by:      scripts/eval/finalize.mjs; scripts/eval/score-selection.mjs;
+//               tests/stamp-meta.test.mjs; run standalone as a CLI (see Usage below).
+// =============================================================================
 //
 // Usage: node scripts/eval/stamp-meta.mjs <YYYY-MM-DD> [trigger|output]   (default trigger)
 

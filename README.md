@@ -436,14 +436,14 @@ This plugin is built to the [agent-skills-toolkit](https://github.com/product-on
 
 `thinking-framework-skills` validates at **advanced (Gold) with 0 errors against Standard 0.8**, the version it declares (`library.json` sets `"standard": "0.8"`). [`.github/workflows/ci.yml`](.github/workflows/ci.yml) pins the exact toolkit commit CI grades with, and that commit is deliberately **newer** than the declared Standard.
 
-**Two dials, and the difference matters.** The *pinned toolkit* is which validator runs. The *declared Standard* is which version of the rules the library holds itself to. Running a newer validator against an older declared Standard is supported by design: findings from rules introduced after 0.8 are held at `warn` rather than counted as failures. That is why the run reports **0 errors and 129 warnings**, not 129 failures.
+**Two dials, and the difference matters.** The *pinned toolkit* is which validator runs. The *declared Standard* is which version of the rules the library holds itself to. Running a newer validator against an older declared Standard is supported by design: findings from rules introduced after 0.8 are held at `warn` rather than counted as failures. That is why the run reports **0 errors and 90 warnings**, not 90 failures.
 
 **What those warnings are, because a number without an explanation is not a disclosure.**
 
-- **122 are post-0.8 documentation requirements** (`G8` folder READMEs, `G9` source docblocks, `G7` docs frontmatter, `G10` Diataxis coverage), introduced at Standard 0.10 and later. They are real work the library has not done, held at `warn` by the declared-version ceiling. Measured: declaring 0.13 instead returns convergent with 123 errors, which is why adopting it is a deliberate project rather than a version bump.
+- **83 are post-0.8 documentation requirements** (`G8` folder READMEs, `G7` docs frontmatter, `G10` Diataxis coverage), introduced at Standard 0.10 and later. They are real work the library has not done, held at `warn` by the declared-version ceiling. Measured: declaring 0.13 instead returns convergent with 84 errors, which is why adopting it is a deliberate project rather than a version bump.
 - **7 are `U5`** (description quality) on the seven [contested lenses](#-the-catalog), and they score low for the reason those skills exist: their descriptions lead with an evidence caveat instead of a trigger phrase, which a heuristic tuned for discoverability penalizes. The library keeps the caveat and carries the warnings rather than rewording seven descriptions to score better than they deserve.
 
-The error count is the number that gates, and it is zero. (For the record: the run was `0 errors, 0 warnings` through v0.10.0, became `0 errors, 7 warnings` when the contested lenses shipped in v0.11.0, and became `0 errors, 128 warnings` when the toolkit pin moved forward in v0.13.x, and became `0 errors, 129 warnings` when the troubleshooting page shipped without taxonomy frontmatter.)
+The error count is the number that gates, and it is zero. (For the record: the run was `0 errors, 0 warnings` through v0.10.0, became `0 errors, 7 warnings` when the contested lenses shipped in v0.11.0, and became `0 errors, 128 warnings` when the toolkit pin moved forward in v0.13.x, became `0 errors, 129 warnings` when the troubleshooting page shipped without taxonomy frontmatter, and became `0 errors, 90 warnings` when the `G9` docblock sweep paid off all 39 source-docblock warnings.)
 
 The Standard itself moves faster than this library re-pins, and that is a deliberate choice rather than an oversight: re-pinning is a release-sized decision here, so the tier claim above always names the Standard version it holds at rather than implying the newest one. Graded against a newer Standard, the result will differ until the next re-pin. Concretely, it earns Gold through:
 
@@ -472,7 +472,7 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 | **Frameworks** | 63, across 12 cognitive-operation families (56 core + 7 contested lenses) |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 9 (skill chains shipped as workflow components) |
-| **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) at Standard 0.8 - **0 errors**, 129 non-gating warnings (122 post-0.8 docs rules held at warn, 7 caveat-first lenses), self-hosting CI |
+| **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) at Standard 0.8 - **0 errors**, 90 non-gating warnings (83 post-0.8 docs rules held at warn, 7 caveat-first lenses), self-hosting CI |
 | **Evidence** | 11 skills at `S` / `S-M` tier; every skill graded and sourced |
 | **Spec** | [agentskills.io](https://agentskills.io/specification) |
 | **License** | [Apache-2.0](LICENSE) |

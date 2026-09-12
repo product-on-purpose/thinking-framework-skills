@@ -1,9 +1,20 @@
 #!/usr/bin/env node
-// Conformance gate (Standard G2: self-hosting CI). This is the single command a
-// contributor or CI runs to validate the plugin against the agent-skills-toolkit
-// Standard: `node scripts/check.mjs` (or `npm run check`).
+// =============================================================================
+// check.mjs - the repo's single CI conformance gate (Standard G2: self-hosting CI).
 //
-// It runs fifteen layers:
+// what-it-is:   the one command a contributor or CI runs to validate the plugin against
+//               the agent-skills-toolkit Standard.
+// what-it-does: spawns the toolkit's portable structural validators, then fourteen
+//               repo-local checks in sequence (see the fifteen-layer list below), and
+//               exits non-zero if any layer fails or the tracked warning count regresses.
+// why:          this is the ONE command CI and a contributor both run; without a single
+//               gate, layers could be skipped or run out of order by hand, letting the
+//               exact regressions each layer exists to catch (a stale generated file, a
+//               caveat that stopped leading, a dead link, an unbumped changelog) drift
+//               back into main unnoticed.
+// used-by:      npm run check; .github/workflows/ci.yml
+//
+// `node scripts/check.mjs` (or `npm run check`) runs fifteen layers:
 //   1. the toolkit's portable STRUCTURAL validators (the toolkit is the source of truth;
 //      vendoring them here would drift),
 //   2. the repo-local static eval-case validator (scripts/eval-cases.mjs, SP1): every
@@ -61,9 +72,13 @@
 // .github/workflows/ci.yml), so the same command runs unchanged. Toolkit resolution is
 // worktree-portable: when run from a linked worktree (cwd under .claude/worktrees/), it also
 // probes the MAIN repo root, so a toolkit next to the main checkout is still found.
+// =============================================================================
 
 import { spawnSync, execSync } from 'node:child_process';
-import { parseEvaluatorTotals, COUNT_FILE } from './lib/warning-count-lib.mjs';
+import {
+  parseEvaluatorTotals, COUNT_FILE,
+  parseEvaluatorComposition, diffComposition, COMPOSITION_FILE,
+} from './lib/warning-count-lib.mjs';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -128,12 +143,50 @@ if (!liveTotals) {
       '(check-counts.mjs names them).';
   }
 }
+// The same run also carries the BREAKDOWN, and the breakdown is published beside the total in
+// six places. Asserting only the total let the G9 sweep take `39 G9` to zero while every page
+// went on naming 39 source-docblock warnings - so the per-requirement tally is asserted too,
+// in both directions: a family appearing is drift, and a family DISAPPEARING is drift as well.
+const compositionPath = resolve(ROOT, ...COMPOSITION_FILE.split('/'));
+if (!warningCountProblem) {
+  const live = parseEvaluatorComposition(structural.stdout || '');
+  if (!Object.keys(live).length) {
+    warningCountProblem = 'could not parse any `[warn] <REQ>:` lines from the run; the composition assertion did not run';
+  } else if (!existsSync(compositionPath)) {
+    warningCountProblem = `${COMPOSITION_FILE} is missing (canonical warning breakdown)`;
+  } else {
+    let committedComposition = null;
+    try {
+      committedComposition = JSON.parse(readFileSync(compositionPath, 'utf8')).byRequirement;
+    } catch (err) {
+      warningCountProblem = `${COMPOSITION_FILE} is not valid JSON (${err.message})`;
+    }
+    if (committedComposition) {
+      const drift = diffComposition(live, committedComposition);
+      const liveSum = Object.values(live).reduce((n, v) => n + v, 0);
+      if (liveSum !== liveTotals.warnings) {
+        // A mismatch here means the evaluator's own output is internally inconsistent, or the
+        // warn-line parser has fallen behind its format. Either way the composition figure
+        // cannot be trusted, and saying so beats publishing it.
+        drift.push(`the per-requirement tally sums to ${liveSum} but the totals line says ${liveTotals.warnings} warning(s) - the warn-line parser may no longer match the evaluator's format`);
+      }
+      if (drift.length) {
+        warningCountProblem =
+          `the warning breakdown does not match ${COMPOSITION_FILE}:\n    - ${drift.join('\n    - ')}\n` +
+          '  Update that file AND the prose surfaces it governs (check-counts.mjs names them).';
+      }
+    }
+  }
+}
+
 if (warningCountProblem) {
   console.error(`
 check: warning-count drift - ${warningCountProblem}`);
 } else {
+  const live = parseEvaluatorComposition(structural.stdout || '');
+  const shape = Object.entries(live).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => `${v} ${k}`).join(', ');
   console.log(`
-check: warning count ${liveTotals.warnings} matches ${COUNT_FILE}.`);
+check: warning count ${liveTotals.warnings} matches ${COUNT_FILE}, and its composition (${shape}) matches ${COMPOSITION_FILE}.`);
 }
 
 console.log('\nRunning static eval-case validator (scripts/eval-cases.mjs)\n');

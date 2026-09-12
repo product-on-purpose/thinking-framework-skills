@@ -1,7 +1,20 @@
-// eval-results-lib.mjs - pure checks over docs/internal/eval-results/. Two scopes
-// (review M3): (1) PAIRING over every .md/.json (schema-agnostic, so the older
-// advisor-routing files pass); (2) SHAPE/contract ONLY over .json that carry a
-// `generated` eval-kind field (auto-excludes advisor-routing, whose schema differs).
+// =============================================================================
+// eval-results-lib.mjs - pure checks over docs/internal/eval-results/.
+//
+// what-it-is:   the pure validation rules for the eval-results scorecard directory.
+// what-it-does: runs two scopes (review M3) over the directory listing it is handed: (1) PAIRING -
+//               every .md has a matching .json and vice versa, checked over every entry regardless
+//               of schema, so the older advisor-routing files still pass; (2) SHAPE/contract -
+//               only .json files that carry a `generated` eval-kind field are checked for the
+//               required totals.* keys for that kind, and (for kinds introduced after
+//               provenance was required) the required provenance.* keys.
+// why:          a scorecard with no sibling doc (or vice versa) is an eval result nobody can find
+//               the write-up for, and a scorecard missing its required totals/provenance can't be
+//               trusted or reproduced later; this keeps the gate schema-agnostic so it can't red
+//               committed history that predates the provenance requirement.
+// used-by:      scripts/check-eval-results.mjs (run by scripts/check.mjs / npm run check);
+//               tests/check-eval-results.test.mjs
+// =============================================================================
 
 const REQUIRED_TOTALS = {
   'TRIGGER eval': ['triggerTop1Pct', 'falseFires'],

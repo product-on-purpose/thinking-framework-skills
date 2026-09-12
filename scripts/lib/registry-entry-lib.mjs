@@ -1,11 +1,16 @@
+// =============================================================================
 // registry-entry-lib.mjs - pure, zero-dependency single-entry validation of a framework
 // registry entry against frameworks/registry.schema.json.
 //
-// Extracted from scripts/check-registry.mjs (the per-entry schema loop) so the SAME rules are
-// reused by (a) the full-registry CI pass and (b) scripts/check-proposed-entry.mjs, the SP5 C3
-// gate that validates a freshly-drafted entry BEFORE it is shown to a human. Sibling to
-// cases-lib.mjs, the established shared-validator precedent. The JSON Schema stays the single
-// source of truth: enums, required, types, and minLength are read from it, never re-declared.
+// what-it-is:   the shared schema validator for a single framework registry entry.
+// what-it-does: validates one entry object's required fields, unknown-key rejection, enums,
+//               types, non-empty minLength strings, slug kebab-case, ISO evalDate, nested
+//               sources[]/aliases[] item shape, and the schema conditionals (fold ->
+//               foldInto, shipped -> evalCases, branded -> attribution + trademark).
+// why:          extracted from check-registry.mjs's per-entry loop so the full-registry CI pass
+//               and the pre-human SP5 C3 gate (check-proposed-entry.mjs) share one rule set
+//               instead of two copies that could silently drift apart.
+// used-by:      scripts/check-proposed-entry.mjs; scripts/check-registry.mjs; tests/check-proposed-entry.test.mjs
 //
 // SCOPE: single-object schema conformance only - required fields, no unknown keys, enums, types
 // plus non-empty minLength strings, slug kebab shape, evalDate ISO, the nested shape of sources[]
@@ -14,6 +19,10 @@
 // http shape and all cross-entry / filesystem invariants (slug uniqueness, foldInto resolves to a
 // shipped slug, family in the list, dossier/skill existence) - those need the full registry and run
 // only in scripts/check-registry.mjs.
+//
+// Sibling to cases-lib.mjs, the established shared-validator precedent. The JSON Schema stays the
+// single source of truth: enums, required, types, and minLength are read from it, never re-declared.
+// =============================================================================
 
 // Validate ONE entry object against the registry schema. Returns string[] of problems
 // ([] = valid). Pure: no module state, no fs, no process side effects. `schema` is the parsed

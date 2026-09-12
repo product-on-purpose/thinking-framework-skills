@@ -1,18 +1,24 @@
 #!/usr/bin/env node
-// check-example-coverage.mjs - a ratchet so the example layer cannot fall behind the
-// catalog the way docs/getting-started.md drifted to a stale "31 frameworks". Every NEW
-// shipped skill must ship at least one worked example (a Showcase appearance or a sample).
+// =============================================================================
+// check-example-coverage.mjs - a ratchet so the example layer cannot fall behind the catalog.
 //
-// "Covered" = the skill's slug is referenced in any site/src/content/docs/showcase/*.md
-// (as a framework link `frameworks/think-<slug>/` or a `/think-<slug>` prompt invocation),
-// or appears under a future site/src/content/docs/samples/ corpus. The currently-uncovered
-// shipped skills are grandfathered in scripts/example-coverage-baseline.txt. The gate FAILS
-// only when a shipped skill is uncovered AND not in the baseline - i.e. a skill was added
-// without an example. The uncovered set can only shrink: when a grandfathered skill gains
-// an example, run --update to drop it from the baseline.
+// what-it-is:   the CLI for the example-coverage ratchet gate (scripts/check.mjs layer 8).
+// what-it-does: for every shipped skill, checks whether its slug is referenced in any
+//               site/src/content/docs/showcase/*.md (a framework link `frameworks/think-<slug>/`
+//               or a `/think-<slug>` prompt invocation) or a future
+//               site/src/content/docs/samples/ corpus. A shipped skill that is uncovered AND
+//               not grandfathered in scripts/example-coverage-baseline.txt fails the gate;
+//               `--update` rewrites the baseline to the current uncovered set instead of
+//               failing, so the grandfathered set can only shrink over time.
+// why:          docs/getting-started.md once drifted to a stale "31 frameworks" because
+//               nothing tied the example layer to the catalog; this ratchet keeps a newly
+//               shipped skill from merging with zero worked example, while grandfathering the
+//               pre-existing gap so old skills don't retroactively red CI.
+// used-by:      scripts/check.mjs (gate layer 8, via `npm run check`)
 //
 // Usage:  node scripts/check-example-coverage.mjs            (exit 1 if a new skill lacks an example)
 //         node scripts/check-example-coverage.mjs --update   (rewrite the baseline to the current uncovered set)
+// =============================================================================
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';

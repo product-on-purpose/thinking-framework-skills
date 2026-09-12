@@ -1,10 +1,27 @@
 #!/usr/bin/env node
-// One-shot retro-fix for #95 (the missing contested-output .json sidecar). The raw run
-// results were scratch and are gone, but the committed .md has zero failed checks for all
-// 7 skills, so the scorer INPUT is information-complete: rebuild it from the .md table,
-// re-emit the .json via the real scorer, and VERIFY the regenerated body matches the
-// committed .md (after stripping its hand-added cohort HTML comment and normalizing
-// newlines - review M1). Writes the .json next to the .md. Run once, commit the .json.
+// =============================================================================
+// reconstruct-contested-output.mjs - one-shot retro-fix for #95 (missing output-eval json).
+//
+// what-it-is:   a one-shot retrofit script, not part of the regular eval pipeline
+//               (compare scripts/eval/finalize.mjs, which the pipeline uses on every
+//               run).
+// what-it-does: parses the committed 2026-06-19-contested-output-eval.md table (7 skill
+//               rows) back into scorer input (perCheck arrays synthesized as all-pass,
+//               since the .md already shows zero failed checks), re-emits the .json
+//               sidecar through the real scorer (scoreOutput), and aborts instead of
+//               writing unless the regenerated body byte-matches the committed .md (after
+//               stripping the hand-added cohort HTML comment and normalizing line
+//               endings).
+// why:          issue #95 - the contested-output eval's raw run results were scratch and
+//               lost, leaving a published .md scorecard with no .json sidecar, which the
+//               14th gate layer (scripts/check-eval-results.mjs) now requires every
+//               scorecard to have. Verifying the round-trip against the already-committed
+//               .md before writing means the reconstructed sidecar can't silently diverge
+//               from numbers already public.
+// used-by:      run once directly (`node scripts/eval/reconstruct-contested-output.mjs`);
+//               no automated caller - see .superpowers/sdd/task-5-brief.md and
+//               docs/internal/backlog.md (#95)
+// =============================================================================
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';

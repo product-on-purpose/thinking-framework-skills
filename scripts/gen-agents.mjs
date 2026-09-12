@@ -2,11 +2,19 @@
 // =============================================================================
 // gen-agents.mjs - generate the drift-checked tables in AGENTS.md.
 //
-// AGENTS.md is the contributor/agent guide. Its Skills and Recipes tables are a
-// view of the same sources everything else is generated from, so they used to
-// drift every time the catalog grew (a hand-maintained denormalized roster). This
-// regenerates them, and a `--check` byte-compare in the conformance gate fails CI
-// if the committed AGENTS.md ever falls out of sync.
+// what-it-is:   the generator for the Skills and Recipes tables inside AGENTS.md, the
+//               contributor/agent guide.
+// what-it-does: rebuilds two generated blocks between BEGIN/END markers in AGENTS.md -
+//               SKILLS (one row per shipped framework, plus the advisor meta-router row and
+//               the count line) and RECIPES (one row per _workflows/think-<slug>.md). With no
+//               flag it writes AGENTS.md; `--check` regenerates in memory and byte-compares,
+//               exiting 1 on drift.
+// why:          the tables are a view of the same sources everything else is generated from,
+//               so hand-maintaining them let the roster silently go stale every time the
+//               catalog grew (it had drifted to a wrong count since v0.3.0, fixed in v0.6.0
+//               #51); generating plus a `--check` gate layer makes that drift impossible.
+// used-by:      scripts/check.mjs (--check); run by hand via `node scripts/gen-agents.mjs`
+//               (no npm script)
 //
 // Two generated blocks, both in AGENTS.md:
 //   1. SKILLS - one row per shipped framework (Skill | Family | Evidence | Artifact)
@@ -16,10 +24,8 @@
 //   2. RECIPES - one row per _workflows/think-<slug>.md (Recipe | Chain), the chain
 //      being the workflow's step list with the think- prefix stripped.
 //
-// Run `node scripts/gen-agents.mjs` to write; `--check` regenerates in memory and
-// byte-compares (exit 1 on drift). Zero-dependency, explicit UTF-8, LF newlines -
-// the gen-registry.mjs / gen-recommendable.mjs convention (.gitattributes pins LF so
-// the byte compare is identical on every platform).
+// Zero-dependency, explicit UTF-8, LF newlines - the gen-registry.mjs / gen-recommendable.mjs
+// convention (.gitattributes pins LF so the byte compare is identical on every platform).
 // =============================================================================
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';

@@ -1,18 +1,24 @@
 #!/usr/bin/env node
+// =============================================================================
 // eval-cases.mjs - static validator for skills/*/eval/cases.md (SP1, the free eval layer).
 //
-// The behavioral eval cases were authored long before any runner ("No runner yet... wire in
-// later"). This is the deterministic layer that makes them a first-class ENFORCED artifact: every
-// skill's cases.md must be well-formed (the four authored sections with minimum bullets, no
-// placeholder text), and every framework named inside a cases.md must actually exist - mechanizing
-// the advisor's "never invent a framework name." The model-judged behavioral layer (does a skill
-// actually trigger; does an output satisfy the checks) is separate and agent-executed; see
-// docs/internal/release-plans/plan_v0.3.0/spec-sp1-advisor-credibility.md.
-//
-// Wired into scripts/check.mjs so it runs inside the required conformance gate on every PR.
-//
-// Usage:  node scripts/eval-cases.mjs [rootDir]   (default: repo root; --check accepted as an alias)
-// Exit:   0 = all cases well-formed and name-safe; 1 = one or more problems; 2 = bad invocation.
+// what-it-is:   the deterministic (non-model) half of the eval-cases contract: a CLI that
+//               walks every skill's eval/cases.md.
+// what-it-does: checks each cases.md is well-formed (the four authored sections with minimum
+//               bullets, no placeholder text) and that every framework named inside one
+//               actually exists, mechanizing the advisor's "never invent a framework name."
+//               Usage: node scripts/eval-cases.mjs [rootDir] (default: repo root; --check
+//               accepted as an alias). Exit 0 = all cases well-formed and name-safe; 1 = one
+//               or more problems; 2 = bad invocation.
+// why:          the behavioral eval cases were authored long before any runner ("No runner
+//               yet... wire in later"); this is what makes them a first-class ENFORCED
+//               artifact instead of prose nobody checks. The model-judged behavioral layer
+//               (does a skill actually trigger; does an output satisfy the checks) is
+//               separate and agent-executed; see
+//               docs/internal/release-plans/plan_v0.3.0/spec-sp1-advisor-credibility.md.
+// used-by:      scripts/check.mjs (spawned as a subprocess, SP1 layer); tests/eval-cases.test.mjs
+//               (spawns it against fixture trees)
+// =============================================================================
 
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
