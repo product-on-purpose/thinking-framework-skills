@@ -1,10 +1,24 @@
+// =============================================================================
 // cases-lib.mjs - deterministic parsing + validation of eval/cases.md and SKILL.md sections.
 //
-// Shared by scripts/eval-cases.mjs (the static eval-case validator wired into the conformance
-// gate) and scripts/gen-recommendable.mjs (the advisor corpus enrichment: anti_triggers /
-// not_use / overlaps). Section-based markdown parsing matched to the authored shape of
-// skills/*/eval/cases.md (Should trigger / Should NOT trigger / Output checks / Value vs ...)
-// and skills/*/SKILL.md (When NOT to Use). No dependencies; callers pass UTF-8 text.
+// what-it-is:   the shared markdown-section parser and validator for skills/*/eval/cases.md and
+//               skills/*/SKILL.md.
+// what-it-does: extracts named `## ...` section bodies, parses their top-level `- ` bullets,
+//               derives the anti-triggers / not-use / overlaps signals the advisor corpus needs,
+//               and validates that a cases.md carries the required sections with minimum bullet
+//               counts and no placeholder (TODO/TBD/FIXME) text.
+// why:          eval/cases.md and SKILL.md are hand-authored prose, not structured data, but three
+//               separate scripts need to read them the same way; a shared parser keeps the
+//               required-section rules and extraction logic in one place instead of each caller
+//               re-implementing its own and silently drifting from what the docs actually promise.
+// used-by:      scripts/eval-cases.mjs (run by scripts/check.mjs / npm run check);
+//               scripts/gen-recommendable.mjs (npm run gen:recommendable);
+//               scripts/check-registry.mjs (npm run check:registry); tests/cases-lib.test.mjs
+// =============================================================================
+//
+// Section-based markdown parsing matched to the authored shape of skills/*/eval/cases.md
+// (Should trigger / Should NOT trigger / Output checks / Value vs ...) and skills/*/SKILL.md
+// (When NOT to Use). No dependencies; callers pass UTF-8 text.
 
 // Return the lines beneath the first `## <heading...>` (case-insensitive prefix match) up to the
 // next h1/h2, trimmed. "" if the heading is absent. Prefix match tolerates trailing parentheticals

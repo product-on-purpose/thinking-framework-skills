@@ -1,9 +1,20 @@
 #!/usr/bin/env node
-// check-canonical-links.mjs - fail any committed hand-authored site page whose internal
-// link targets a redirect SOURCE (a redirect-hop). Internal links should point at the
-// canonical destination, not lean on a compat redirect meant for external bookmarks.
-// Reads the single-source redirect map (scripts/site-redirects.mjs). check.mjs layer.
-// Also checks absolute links in .astro components and site/intros/ .md files.
+// =============================================================================
+// check-canonical-links.mjs - fail any committed page whose internal link targets a redirect source.
+//
+// what-it-is:   a standalone conformance check script (check.mjs layer 12).
+// what-it-does: walks committed hand-authored site pages (site/src/content/docs, skipping
+//               generated trees) plus .astro components and site/intros/ .md files, resolves
+//               each internal markdown/JSX link against the served URL, and flags any link
+//               that resolves to a redirect SOURCE (scripts/site-redirects.mjs) rather than
+//               its canonical destination. Only absolute links are checkable in the non-page
+//               files, since relative links there are page-depth-ambiguous.
+// why:          internal links should point straight at the canonical destination, not lean
+//               on a compat redirect meant for external bookmarks; a redirect-hop link rots
+//               silently the moment that redirect is ever retired.
+// used-by:      scripts/check.mjs (layer 12); tests/check-canonical-links.test.mjs (imports
+//               servedPath, findRedirectHopLinks, findAbsoluteRedirectHops)
+// =============================================================================
 // Zero-dependency, UTF-8.
 import { readFileSync, statSync } from 'node:fs';
 import { extname, relative } from 'node:path';

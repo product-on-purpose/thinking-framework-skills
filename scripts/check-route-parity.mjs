@@ -1,5 +1,18 @@
 #!/usr/bin/env node
+// =============================================================================
 // check-route-parity.mjs - guard against silently removing a published route.
+//
+// what-it-is:   the site's route-parity guard - clause 14.11(b) of the family Astro site
+//               standard, run against a built site/dist/ directory.
+// what-it-does: compares the current built route set (every *.html under dist) against a
+//               committed baseline (scripts/route-manifest.txt); fails if any baseline route
+//               is missing from the current build. Added routes are allowed; checks presence
+//               only, not page content. Also writes the baseline via --update.
+// why:          a removed or renamed URL is a "Site not found" for any existing external
+//               link or bookmark; this is the guard that turns that silent breakage into a
+//               CI failure instead of a support ticket.
+// used-by:      .github/workflows/ci.yml (site-build job); .github/workflows/deploy-pages.yml
+// =============================================================================
 //
 // Clause 14.11(b) of the family Astro site standard. Compares the current built route set (every
 // *.html under site/dist/) against a committed baseline (scripts/route-manifest.txt). FAILS if any

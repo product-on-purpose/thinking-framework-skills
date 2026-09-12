@@ -1,6 +1,17 @@
-// scripts/lib/walk.mjs - shared recursive directory walker (zero-dep). Returns absolute
-// file paths under `dir` whose extension is in `exts` (or all files if `exts` omitted),
-// skipping node_modules, dotfile entries, and any name in `skipNames`.
+// =============================================================================
+// walk.mjs - shared recursive directory walker (zero-dep).
+//
+// what-it-is:   the one recursive directory walker shared by every file-scanning check in this
+//               repo.
+// what-it-does: returns absolute file paths under `dir` whose extension is in `exts` (or all
+//               files when `exts` is omitted), skipping node_modules, dotfile entries, and any
+//               name listed in `skipNames`.
+// why:          keeps node_modules/dotfile skipping and extension filtering identical across
+//               every check that walks the tree, instead of each one reimplementing its own
+//               recursion with its own edge cases.
+// used-by:      scripts/check-canonical-links.mjs; scripts/check-mermaid.mjs; scripts/check-repo-links.mjs;
+//               tests/walk.test.mjs
+// =============================================================================
 import { readdirSync } from 'node:fs';
 import { join, extname } from 'node:path';
 export function walk(dir, { exts, skipNames = [] } = {}) {

@@ -1,8 +1,24 @@
 #!/usr/bin/env node
-// check-repo-links.mjs - assert every RELATIVE markdown link in the repo-browser docs
-// resolves to a real file. The site has its own rendered-link guard; this is its repo-side
-// analog (README, AGENTS, INDEX, CHANGELOG, RELEASE-NOTES, docs/**). #anchors are advisory.
-// Zero-dependency, UTF-8. check.mjs layer.
+// =============================================================================
+// check-repo-links.mjs - assert every RELATIVE markdown link in the repo-browser docs resolves
+//                         to a real file.
+//
+// what-it-is:   the repo-side analog of the site's rendered-link guard - a check.mjs gate
+//               over hand-authored root docs.
+// what-it-does: exports findBrokenRepoLinks (fenced/inline-code aware, skips images and
+//               external links) and, run directly, walks README.md, AGENTS.md, CHANGELOG.md,
+//               RELEASE-NOTES.md, and docs/**, resolving every relative markdown link against
+//               the filesystem; #anchors are advisory only.
+// why:          GitHub renders these docs directly with no build step, so a broken relative
+//               link 404s for anyone reading them there; this catches it before merge.
+// used-by:      scripts/check.mjs (required gate); tests/check-repo-links.test.mjs (imports
+//               findBrokenRepoLinks)
+//
+// The site has its own rendered-link guard; this is its repo-side analog (README, AGENTS,
+// INDEX, CHANGELOG, RELEASE-NOTES, docs/**). #anchors are advisory. Zero-dependency, UTF-8.
+// check.mjs layer.
+// =============================================================================
+
 import { readFileSync, existsSync } from 'node:fs';
 import { extname, dirname, resolve, relative } from 'node:path';
 import { walk } from './lib/walk.mjs';

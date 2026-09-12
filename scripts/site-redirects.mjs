@@ -1,7 +1,16 @@
-// scripts/site-redirects.mjs - single source for the site's redirect map (clause 14.7,
-// mirroring scripts/site-base.mjs). site/astro.config.mjs and scripts/check-canonical-links.mjs
-// both import this, so the compat redirects and the no-redirect-hop guard can never disagree.
-// Keys are redirect SOURCE paths (root-absolute, trailing slash); values are destinations.
+// =============================================================================
+// site-redirects.mjs - single source for the site's redirect map (clause 14.7).
+//
+// what-it-is:   the REDIRECTS map for old published URLs that moved.
+// what-it-does: exports REDIRECTS (source path -> destination, both root-absolute); keys are
+//               redirect SOURCE paths (root-absolute, trailing slash), values are destinations
+//               built against BASE from scripts/site-base.mjs.
+// why:          mirrors scripts/site-base.mjs so the compat redirects and the no-redirect-hop
+//               guard can never disagree - astro.config.mjs and check-canonical-links.mjs both
+//               import this same map instead of each keeping its own copy.
+// used-by:      site/astro.config.mjs; scripts/check-canonical-links.mjs;
+//               tests/check-canonical-links.test.mjs
+// =============================================================================
 import { BASE } from './site-base.mjs';
 
 export const REDIRECTS = {

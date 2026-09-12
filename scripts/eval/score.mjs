@@ -1,6 +1,19 @@
 #!/usr/bin/env node
-// score.mjs - score a TRIGGER eval run. Joins the blind router output against the answer
-// key from extract-cases.mjs and reports per-skill + overall accuracy.
+// =============================================================================
+// score.mjs - CLI: score one TRIGGER eval run into a scorecard.
+//
+// what-it-is:   the ad-hoc CLI wrapper around scoreTrigger, for inspecting a run before
+//               committing it.
+// what-it-does: joins the blind router's output (routed.json) against the answer key
+//               (cases.json from extract-cases.mjs), prints the markdown scorecard to
+//               stdout and the totals to stderr, and writes the companion .json to a
+//               scratch sibling of the routed file.
+// why:          lets an operator eyeball a run's per-skill accuracy without going through
+//               finalize.mjs, the canonical commit path (writes both artifacts straight
+//               into docs/internal/eval-results/ and stamps skill.meta.yml); this CLI
+//               predates finalize and is kept only for that ad-hoc inspection.
+// used-by:      run by hand per scripts/eval/README.md; not imported by other scripts.
+// =============================================================================
 //
 // Metrics (top1 = the router's single best-fit pick):
 //   TRIGGER (expected = the authoring skill): top1 == expected (soft: expected in top3).

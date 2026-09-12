@@ -2,6 +2,20 @@
 // =============================================================================
 // gen-registry.mjs - generate the drift-checked views of frameworks/registry.mjs.
 //
+// what-it-is:   the CLI that renders frameworks/registry.mjs into its two generated views.
+// what-it-does: splices the 13 family tables into docs/internal/research/framework-catalog.md
+//               and the public "what we leave out" index into
+//               site/src/content/docs/about/why-not.md, both between BEGIN/END markers so
+//               hand-authored preamble/postamble survive. With no flag it writes both files;
+//               with --check it regenerates in memory and byte-compares, exiting 1 on drift.
+// why:          frameworks/registry.mjs is the single source of truth for every evaluated
+//               method; without this generator the catalog and the public why-not index could
+//               be hand-edited out of sync with the registry, so a framework's real status
+//               would silently diverge from what the docs claim.
+// used-by:      npm run gen:registry (package.json); scripts/check-registry.mjs (spawns
+//               `node scripts/gen-registry.mjs --check` as its drift check)
+// =============================================================================
+//
 // One source (frameworks/registry.mjs), two generated views:
 //   1. docs/internal/research/framework-catalog.md  - the 13 family tables, spliced
 //      between BEGIN/END markers (the hand-authored preamble + postamble are kept).
@@ -9,10 +23,9 @@
 //      index, spliced below a marker (SP9). Only the deliberately-not-shipped set
 //      (fold / flag / excl / pm); candidates are "not yet", recipes ship.
 //
-// Run `node scripts/gen-registry.mjs` to write; `--check` regenerates in memory and
-// byte-compares (exit 1 on drift). Zero-dependency, explicit UTF-8, LF newlines - the
-// gen-recommendable.mjs convention (Windows cp1252 + autocrlf would otherwise corrupt
-// output; .gitattributes pins LF so the byte compare is identical on every platform).
+// Zero-dependency, explicit UTF-8, LF newlines - the gen-recommendable.mjs convention
+// (Windows cp1252 + autocrlf would otherwise corrupt output; .gitattributes pins LF so
+// the byte compare is identical on every platform).
 // =============================================================================
 
 import { readFileSync, writeFileSync } from 'node:fs';

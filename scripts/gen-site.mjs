@@ -1,12 +1,22 @@
 #!/usr/bin/env node
+// =============================================================================
 // gen-site.mjs - generate the Astro Starlight site content from the skills library.
 //
-// The site is a GENERATED VIEW: the skills are the source of truth. This reads
-// library.json + each skill's SKILL.md / evidence/dossier.md / references/EXAMPLE.md /
-// skill.meta.yml + the _workflows recipes, and emits Starlight pages under
-// site/src/content/docs/{frameworks,families,recipes,evidence}. Run via `npm run gen`
-// (or it runs automatically before `astro build`). Generated pages are gitignored;
-// edit the skill and regenerate, never hand-edit the output.
+// what-it-is:   the CLI that builds the Astro Starlight site's content collection.
+// what-it-does: reads library.json plus each skill's SKILL.md / evidence/dossier.md /
+//               references/EXAMPLE.md / skill.meta.yml, the _workflows recipes, and
+//               frameworks/registry.mjs, then emits Starlight pages under
+//               site/src/content/docs/{frameworks,families,recipes,evidence,library,tools,
+//               changelog} plus the explore lenses/map/chooser data.
+// why:          the site is a GENERATED VIEW, not a second place to author content - the
+//               skills are the source of truth. Generating rather than hand-authoring pages
+//               keeps the site from drifting out of sync with what a skill actually says.
+// used-by:      npm run gen (root package.json); site/package.json's gen/dev/build scripts
+//               (`node ../scripts/gen-site.mjs`); CI job site-build (.github/workflows/ci.yml);
+//               deploy-pages.yml
+// =============================================================================
+//
+// Generated pages are gitignored; edit the skill and regenerate, never hand-edit the output.
 //
 // No dependencies. UTF-8 in/out (Windows cp1252 would corrupt otherwise).
 

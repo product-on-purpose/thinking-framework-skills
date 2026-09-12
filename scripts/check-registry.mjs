@@ -2,6 +2,20 @@
 // =============================================================================
 // check-registry.mjs - the strong CI around frameworks/registry.mjs (SP3 C3).
 //
+// what-it-is:   the registry conformance guard - the required `check` gate's CI check over
+//               the frameworks catalog.
+// what-it-does: runs ten check families in order (schema, drift, referential integrity,
+//               completeness, IP lint, eval coupling, tier consistency, recommendable
+//               cross-check, lifecycle truth, workflows mirror - each detailed in the comment
+//               below), collects every problem found, prints them, and exits 1 if any.
+// why:          frameworks/registry.mjs is the catalog's single source of truth; a bad entry
+//               (a broken slug, a missing skill dir, a stale evidence tier, a drifted
+//               generated view) would otherwise reach the shipped site or advisor silently
+//               instead of failing CI.
+// used-by:      scripts/check.mjs (required gate, spawns this as a subprocess); npm run
+//               check:registry
+// =============================================================================
+//
 // Runs in the required `check` gate (invoked from scripts/check.mjs after the
 // toolkit evaluator + the SP1 eval-case validator). Collects ALL problems and
 // prints them, exits 1 if any. Checks, in order:

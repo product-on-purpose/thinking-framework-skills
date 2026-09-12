@@ -1,11 +1,21 @@
 #!/usr/bin/env node
+// =============================================================================
 // gen-recommendable.mjs - generate the name-safety "recommendable set" for think-framework-advisor.
 //
-// WHY THIS EXISTS: the advisor is a router; its one unacceptable failure is naming a skill
-// that does not exist. This script derives the set of valid, recommendable component names
-// from the registration source of truth (library.json) joined with each skill's own SKILL.md
-// frontmatter (family, evidence-tier, id, description) and the workflow recipes (_workflows/*.md).
-// Re-run it whenever skills or recipes are added/removed so the advisor's name set never drifts.
+// what-it-is:   the CLI that derives think-framework-advisor's recommendable name set.
+// what-it-does: joins library.json (the registration source of truth) with each skill's own
+//               SKILL.md frontmatter (family, evidence-tier, id, description) and the workflow
+//               recipes (_workflows/*.md) to emit recommendable.json (machine) and
+//               recommendable.md (human table) into the advisor skill's references/. With no
+//               flag it writes both files; with --check it regenerates in memory and
+//               byte-compares, exiting 1 on drift.
+// why:          the advisor is a router; its one unacceptable failure is naming a skill that
+//               does not exist. Deriving this set from the registration source of truth, rather
+//               than hand-maintaining it, keeps the advisor's name set from silently drifting
+//               whenever skills or recipes are added, renamed, or removed.
+// used-by:      npm run gen:recommendable (package.json); CI job recommendable-drift
+//               (.github/workflows/ci.yml, `node scripts/gen-recommendable.mjs --check`)
+// =============================================================================
 //
 // OUTPUT (written into the advisor skill so it travels with it):
 //   skills/think-framework-advisor/references/recommendable.json   (machine: the authoritative set)

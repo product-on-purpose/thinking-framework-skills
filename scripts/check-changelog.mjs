@@ -1,14 +1,21 @@
 #!/usr/bin/env node
-// check-changelog.mjs - release-doc consistency (D4). Two assertions:
-//   1. VERSION. CHANGELOG.md parses to >=1 released version, has [Unreleased], and the top
-//      RELEASED version equals package.json, library.json, and the top RELEASE-NOTES version.
-//      [Unreleased] is exempt, so build-phase PRs (which only touch [Unreleased]) stay green.
-//   2. SHAPE. No version block repeats a Keep a Changelog change type. Each PR prepending its
-//      own "### Added" block is how [Unreleased] accumulated four Added / four Changed / three
-//      Fixed / two Security sections across the seven v0.14.0-cycle merges without the gate
-//      noticing: assertion 1 only ever compared version numbers.
+// =============================================================================
+// check-changelog.mjs - release-doc version + changelog-shape consistency (D4).
+//
+// what-it-is:   a standalone conformance check script (check.mjs layer 14).
+// what-it-does: two assertions. (1) VERSION: CHANGELOG.md parses to >=1 released version, has
+//               an [Unreleased] section, and the top RELEASED version equals package.json,
+//               library.json, and the top RELEASE-NOTES version ([Unreleased] is exempt, so
+//               build-phase PRs that only touch it stay green). (2) SHAPE: no version block
+//               repeats a Keep a Changelog change type.
+// why:          each PR prepending its own "### Added" block is how [Unreleased] accumulated
+//               four Added / four Changed / three Fixed / two Security sections across the
+//               seven v0.14.0-cycle merges without the gate noticing - assertion 1 only ever
+//               compared version numbers, never section shape.
+// used-by:      scripts/check.mjs (layer 14); tests/check-changelog.test.mjs (imports
+//               topReleasedVersion, topReleaseNotesVersion, duplicateSections)
+// =============================================================================
 // No git tags (avoids the actions/checkout shallow-fetch foot-gun). Zero-dependency, UTF-8.
-// The pure part is exported and unit-tested in tests/check-changelog.test.mjs. check.mjs layer.
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

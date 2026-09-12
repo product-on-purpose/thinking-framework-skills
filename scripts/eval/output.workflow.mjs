@@ -1,15 +1,26 @@
-// output.workflow.mjs - the produce->judge runner for the behavioral OUTPUT eval. Run via
-// the Workflow tool: Workflow({ scriptPath: "scripts/eval/output.workflow.mjs", args: { casesPath, skills } }).
+// =============================================================================
+// output.workflow.mjs - the produce-then-judge runner for the behavioral OUTPUT eval.
+//
+// what-it-is:   the Workflow-tool script that drives the OUTPUT half of the behavioral
+//               eval harness (the TRIGGER half is route.workflow.mjs).
+// what-it-does: for each skill, pipelines a PRODUCE agent (runs the skill on its trigger
+//               prompt, emits the full artifact) into a SEPARATE JUDGE agent (grades that
+//               artifact against the skill's own output checks) in throttle-safe serial
+//               groups of 4. Returns { results:[{skill, artifactChars, perCheck, passed,
+//               total}] }.
+// why:          the producer must never grade its own work - self-grading would let a
+//               skill's own framing paper over a weak artifact. A separate judge is what
+//               makes the output-check pass rate (e.g. 99%, 311/315 checks in the first
+//               full run) mean something rather than an agent agreeing with itself.
+// used-by:      the Workflow tool (scriptPath); aggregated by
+//               scripts/eval/score-output.mjs and scripts/eval/finalize.mjs; documented
+//               in scripts/eval/README.md
+// =============================================================================
+//
+// Run via the Workflow tool: Workflow({ scriptPath: "scripts/eval/output.workflow.mjs", args: { casesPath, skills } }).
 //
 //   casesPath : absolute path to the {cases:[{skill,prompt,checks}]} from extract-output.mjs.
 //   skills    : array of skill slugs to evaluate.
-//
-// For each skill it runs two stages, pipelined and in throttle-safe serial groups:
-//   PRODUCE - an agent invokes the skill on its trigger prompt and emits the full artifact.
-//   JUDGE   - a SEPARATE agent grades that artifact against the skill's own output checks
-//             (so the producer never grades itself). Returns per-check pass/fail.
-// Returns { results:[{skill, artifactChars, perCheck, passed, total}] }. Aggregate with
-// scripts/eval/score-output.mjs. See scripts/eval/README.md.
 
 export const meta = {
   name: 'tfs-output-eval',

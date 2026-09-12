@@ -1,7 +1,23 @@
-// score-lib.mjs - pure scoring of behavioral eval runs. Both functions are a pure
-// function of their input (no fs, no randomness): the non-determinism lives in PRODUCING
-// the routed/results inputs, not in scoring them. The score.mjs / score-output.mjs CLIs
-// and finalize.mjs are the only callers. See scripts/eval/README.md.
+// =============================================================================
+// score-lib.mjs - pure scoring of behavioral eval runs.
+//
+// what-it-is:   the scoring core shared by both behavioral evals (trigger routing and
+//               output quality).
+// what-it-does: exports scoreTrigger (joins routed picks against the trigger/anti-case
+//               answer key from extract-cases.mjs) and scoreOutput (aggregates per-skill
+//               judge results from output.workflow.mjs), each rendering a markdown
+//               scorecard plus a companion JSON summary.
+// why:          both functions are a pure function of their input (no fs, no randomness) -
+//               the eval's non-determinism lives in PRODUCING the routed/results inputs,
+//               not in scoring them - so factoring scoring out here is what makes a
+//               golden-file regression test possible and keeps score.mjs, score-output.mjs,
+//               and finalize.mjs from re-implementing the same math three ways.
+// used-by:      scripts/eval/finalize.mjs; scripts/eval/reconstruct-contested-output.mjs;
+//               scripts/eval/score-output.mjs; scripts/eval/score.mjs;
+//               tests/score-lib.test.mjs
+//
+// See scripts/eval/README.md for the full harness flow.
+// =============================================================================
 
 export function scoreTrigger(cases, routedRaw, opts = {}) {
   // `gate` cases are excluded from scoring in BOTH directions: the authoring skill is the

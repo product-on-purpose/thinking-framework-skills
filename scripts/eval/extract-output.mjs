@@ -1,9 +1,23 @@
 #!/usr/bin/env node
+// =============================================================================
 // extract-output.mjs - the input for the behavioral OUTPUT eval (artifact quality).
-// For each skill, pulls one triggering prompt (the first "Should trigger" case) and the
-// skill's own "Output checks" checklist from eval/cases.md. The output-eval workflow then
-// runs the skill on the prompt to produce its artifact, and a separate judge scores that
-// artifact against these checks. See scripts/eval/README.md.
+//
+// what-it-is:   the CLI that extracts, per skill, the one prompt and the checklist the
+//               OUTPUT eval judges an artifact against.
+// what-it-does: for each skill, pulls one triggering prompt (the first "Should trigger"
+//               case) and the skill's own "Output checks" checklist from eval/cases.md,
+//               skipping and logging any skill missing either. Prints
+//               { summary, cases:[{skill, prompt, checks:[...]}] } to stdout.
+// why:          the produce -> judge split needs a fixed, skill-authored checklist to
+//               grade against, pulled once here, so a judge agent scores the skill's
+//               own stated bar rather than a criterion invented per run.
+// used-by:      run manually per scripts/eval/README.md (`node scripts/eval/extract-output.mjs`);
+//               its output feeds output.workflow.mjs (the produce -> judge harness) and,
+//               downstream, score-output.mjs / finalize.mjs.
+// =============================================================================
+//
+// The output-eval workflow then runs the skill on the prompt to produce its artifact,
+// and a separate judge scores that artifact against these checks. See scripts/eval/README.md.
 //
 // Usage:
 //   node scripts/eval/extract-output.mjs                 # all shipped skills

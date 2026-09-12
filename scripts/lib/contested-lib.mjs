@@ -1,11 +1,26 @@
+// =============================================================================
 // contested-lib.mjs - pure, zero-dependency validation of ONE contested-lens skill against the
-// caveat-first CONTRACT (v0.11.0, resolves DS-01). A contested lens is a famous-but-weak
-// framework shipped at its honest low tier where the deficiency must LEAD the SKILL.md and the
-// artifact. Two postures:
-//   - run_caveat_first: lead with the deficiency, then still produce the (weak) artifact.
-//   - warn_redirect: a method tested and found harmful; own the famous name, lead with the
-//     controlled-evidence caveat, route to an evidence-based alternative, and do NOT reproduce
-//     the discredited artifact as if valid.
+// caveat-first CONTRACT (v0.11.0, resolves DS-01).
+//
+// what-it-is:   the structural conformance rules for a contested-lens skill - a famous-but-weak
+//               framework shipped at its honest low tier, where the deficiency must LEAD the
+//               SKILL.md and the artifact.
+// what-it-does: validates one contested entry against its posture. run_caveat_first must lead
+//               with the deficiency and still produce the (weak) artifact; warn_redirect must own
+//               the famous name, lead with the controlled-evidence caveat, route to a real
+//               evidence-based alternative, and never reproduce the discredited artifact as if
+//               valid. Checks that the leading caveat is evidence-bearing (not a bare keyword, a
+//               decoy in a fence/comment, or an endorsement), that a warn_redirect names a real
+//               shipped non-contested alternative and ships no tabular artifact, and that the
+//               posture marker agrees across registry / SKILL.md frontmatter / skill.meta.yml.
+// why:          a famous-but-weak framework sold without its caveat misleads whoever trusts it;
+//               this is the structural half of the contract described in the SCOPE NOTE below -
+//               it closes the bypasses (fence decoys, keyword-only caveats, matrix reproduction)
+//               a 2026-07-11 red team found exploitable, leaving only semantic honesty to the
+//               mandated adversarial evidence-honesty pass.
+// used-by:      scripts/check-contested.mjs (run by scripts/check.mjs / npm run check);
+//               tests/contested-lib.test.mjs; tests/contested-lib.redteam.test.mjs
+// =============================================================================
 //
 // SCOPE NOTE (read this): this is a STRUCTURAL gate. It enforces that the caveat LEADS and is
 // evidence-bearing (not a bare keyword, not an endorsement, not a decoy hidden in a code fence),

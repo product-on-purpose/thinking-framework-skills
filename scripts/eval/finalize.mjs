@@ -1,8 +1,24 @@
 #!/usr/bin/env node
-// finalize.mjs - the one deterministic step that turns raw eval run outputs into the
-// committed scorecards. Writes BOTH the .md and the .json for each kind directly into
-// docs/internal/eval-results/ (no scratch sibling, no manual copy: the file that used to
-// get dropped is never produced as a loose intermediate), then stamps skill.meta.yml.
+// =============================================================================
+// finalize.mjs - the one deterministic step that turns raw eval run outputs into
+// committed scorecards.
+//
+// what-it-is:   the canonical commit path for both the TRIGGER and OUTPUT behavioral
+//               evals (and, via score-selection.mjs, the skill-selection eval too).
+// what-it-does: writes BOTH the .md and the .json for each kind directly into
+//               docs/internal/eval-results/ (no scratch sibling, no manual copy: the
+//               file that used to get dropped is never produced as a loose
+//               intermediate), then stamps each measured skill's skill.meta.yml.
+// why:          a run that produces only a .md, only a .json, or writes to a scratch
+//               path a human forgets to copy, is the exact failure this replaces;
+//               routing every commit through one function makes the pairing
+//               structurally impossible to drop (score-selection.mjs reuses
+//               buildArtifacts rather than re-implementing it, for the same reason).
+// used-by:      run manually per scripts/eval/README.md (`node scripts/eval/finalize.mjs
+//               <date> --trigger ... --output ...`); scripts/eval/score-selection.mjs
+//               (imports buildArtifacts); tests/finalize.test.mjs (imports
+//               buildArtifacts, stampTargetsFromArgv).
+// =============================================================================
 //
 // Usage:
 //   node scripts/eval/finalize.mjs <YYYY-MM-DD> [--prefix <name>] \

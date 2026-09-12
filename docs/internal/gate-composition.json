@@ -1,0 +1,11 @@
+{
+  "_comment": "Canonical composition of the conformance gate's non-gating warnings, plus the Standard-0.13 counterfactual. The headline warning TOTAL lives in gate-warning-count.txt (one number, one place); this file holds the breakdown that prose quotes alongside it. scripts/check.mjs asserts byRequirement against a live evaluator run and asserts that it sums to that total, so the breakdown cannot drift from reality. scripts/check-counts.mjs asserts the published prose against this file. See scripts/lib/warning-count-lib.mjs for why these are asserted rather than re-typed.",
+  "byRequirement": {
+    "G7": 7,
+    "G8": 71,
+    "G10": 5,
+    "U5": 7
+  },
+  "_errorsAtStandard013_comment": "MEASURED BY HAND, not asserted against a live run: it is a counterfactual that requires temporarily declaring 0.13 in library.json, which CI must not do. Re-measure it at each release cut (release-process.md, Standard re-pin review) rather than arithmetic-ing it from the warning count. Last measured 2026-09-11 at toolkit 93da438: convergent, 84 errors, 7 warnings.",
+  "errorsAtStandard013": 84
+}

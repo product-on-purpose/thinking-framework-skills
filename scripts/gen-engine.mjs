@@ -1,8 +1,21 @@
 #!/usr/bin/env node
-// gen-engine.mjs - the shared applicator engine has ONE authored source
-// (skills/think-top3/references/engine.md). think-random-frameworks ships a byte-identical
-// copy so each skill is self-contained. This copies it and, with --check, fails if the copy is
-// stale (a drift guard, wired into scripts/check.mjs). Reads/writes UTF-8 explicitly.
+// =============================================================================
+// gen-engine.mjs - copy the shared applicator engine to its second skill.
+//
+// what-it-is:   the drift guard and copier for the shared applicator engine document.
+// what-it-does: copies skills/think-top3/references/engine.md (the one authored source) to
+//               skills/think-random-frameworks/references/engine.md; with --check, byte-
+//               compares instead of writing (a missing destination counts as drift) and
+//               exits 1 on mismatch, logging the byte count compared either way. Reads and
+//               writes UTF-8 explicitly.
+// why:          each skill must stand alone for installers, so the engine ships as a copy
+//               rather than a cross-skill reference; a copy with no guard would let the two
+//               skills' applicator instructions silently fork apart (CHANGELOG 0.4.0,
+//               SP7/SP8, #42).
+// used-by:      scripts/check.mjs (--check); run by hand via `node scripts/gen-engine.mjs`
+//               (no npm script); its byte-identical-copy contract is asserted by
+//               tests/engine-no-hardcoded-count.test.mjs
+// =============================================================================
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

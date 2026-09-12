@@ -1,5 +1,25 @@
 #!/usr/bin/env node
+// =============================================================================
 // extract-cases.mjs - the deterministic answer-key for the behavioral TRIGGER eval.
+//
+// what-it-is:   the CLI that builds pooled routing cases (and, with --roster, the
+//               skill-selection cases) from every skill's eval/cases.md.
+// what-it-does: turns each "Should trigger" bullet into a trigger case (expected =
+//               the authoring skill), resolves each "Should NOT trigger" bullet's
+//               named alternative (or "none") against the chosen corpus, and emits
+//               [gate] bullets as excluded-from-scoring gate cases. Prints
+//               { summary, cases } as JSON to stdout.
+// why:          router agents must judge cases BLIND, never knowing which skill
+//               authored one, so the score reflects the catalog's discriminability
+//               and not an agent defending itself. This file is the one place that
+//               resolves the answer key, so the blind copies handed to routers can
+//               never see it.
+// used-by:      run manually per scripts/eval/README.md (`node scripts/eval/extract-cases.mjs`
+//               [--roster] [slugs...]); its output feeds route.workflow.mjs /
+//               skill-selection.workflow.mjs (the blind prompts) and score.mjs /
+//               finalize.mjs (the answer key).
+// =============================================================================
+//
 // Parses each skill's eval/cases.md into pooled routing cases so that router agents can
 // judge them BLIND (without seeing which skill authored a case, removing the bias of an
 // agent "defending" its own skill). The harness scores routed-vs-expected afterward.

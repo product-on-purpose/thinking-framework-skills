@@ -1,10 +1,22 @@
 #!/usr/bin/env node
-// check-eval-results.mjs - gate layer 14. Asserts every behavioral-eval scorecard under
-// docs/internal/eval-results/ is a paired .md + .json, and every trigger/output scorecard
-// JSON carries its totals contract. See scripts/lib/eval-results-lib.mjs.
+// =============================================================================
+// check-eval-results.mjs - CLI for the eval-results scorecard pairing + shape gate.
+//
+// what-it-is:   the CLI for gate layer 15, the eval-results pairing + shape check.
+// what-it-does: walks docs/internal/eval-results/ and asserts every scorecard is a paired
+//               .md + .json (neither committed alone), and that every trigger/output
+//               scorecard JSON carries its totals contract; the rules themselves live in
+//               scripts/lib/eval-results-lib.mjs so they stay unit-testable without spawning
+//               this CLI.
+// why:          a scorecard has shipped without its sidecar before (the 2026-06-19
+//               contested-output gap), silently losing half the eval's evidence; this gate
+//               turns a dropped sidecar or malformed totals block into a CI failure instead
+//               of a merged silence.
+// used-by:      scripts/check.mjs (gate layer 15, run via `npm run check`)
 //
 // Usage: node scripts/check-eval-results.mjs [rootDir]   (default: repo root)
 // Exit: 0 = clean; 1 = one or more problems.
+// =============================================================================
 
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';

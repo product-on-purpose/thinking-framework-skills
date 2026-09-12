@@ -1,9 +1,14 @@
-// scripts/lib/mermaid-lint.mjs
-// Pure STRUCTURAL validator for mermaid code blocks (zero-dep). It catches the
-// common breakage - an unclosed fence, an empty block, or an unrecognized
-// diagram type - without a full semantic parse (semantic correctness of authored
-// diagrams is verified at authoring time via the Mermaid MCP; this is the ongoing
-// regression gate). Used by scripts/check-mermaid.mjs; tested in tests/.
+// =============================================================================
+// mermaid-lint.mjs - pure structural validator for mermaid code blocks (zero-dep).
+//
+// what-it-is:   the structural half of mermaid diagram validation in this repo.
+// what-it-does: scans embedded ```mermaid fences for an unclosed fence, an empty block, or an
+//               unrecognized diagram type, without a full semantic parse.
+// why:          semantic correctness of authored diagrams is checked once, by a human, at
+//               authoring time via the Mermaid MCP; this is the ongoing regression gate that
+//               catches a diagram silently breaking (a stray edit, a bad merge) afterward.
+// used-by:      scripts/check-mermaid.mjs; tests/mermaid-lint.test.mjs
+// =============================================================================
 
 const DIAGRAM_TYPES = new Set([
   'graph', 'flowchart', 'sequenceDiagram', 'stateDiagram-v2', 'stateDiagram',
