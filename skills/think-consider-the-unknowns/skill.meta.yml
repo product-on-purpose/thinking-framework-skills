@@ -65,7 +65,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-09-10
-  output_eval_status: measured-2026-06-25
+  output_eval_status: measured-2026-09-12
   known_failure_modes:
     - listing present claims or known counterarguments instead of absent variables
     - cataloging resolvable unknowns instead of just resolving them (procrastination with a worksheet)
