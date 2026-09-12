@@ -27,7 +27,7 @@ The nine recipe commands plus `think-research-framework` are always-loaded descr
 A gate case is one where the authoring skill IS the right tool but its correct behavior is not a normal run (e.g. ask exactly one clarifying question). That is an output-level contract a routing eval cannot judge in either direction, so it is excluded rather than scored. Counting one as an anti-case would report correct behavior as a false fire.
 
 - **Trigger accuracy (top1): 99%** (391/393); soft (in top3): 100%.
-- **Anti no-false-fire: 100%** (399/400) - the skill did NOT grab a wrong-tool / no-tool situation. This is the metric that matters.
+- **Anti no-false-fire: 99.7%** (399/400) - the skill did NOT grab a wrong-tool / no-tool situation. This is the metric that matters, and on this corpus it is **not** a clean sweep: one anti case drew a false fire (listed below). *(Figure corrected 2026-09-11: this line read `100% (399/400)`. The scorer rounded 99.75% up with `.toFixed(0)`; the paired `.json` always carried the correct `antiNoFirePct: 99.8` and `falseFires: 1`. The measurement is unchanged - the rendering overstated it. See `formatPct` in `scripts/eval/score-lib.mjs`.)*
 - Anti right-alternative: 89% (126/141) - of the anti cases naming a specific alternative, how many routed there (the rest mostly answered "none" on a genuinely trivial prompt, still not a false-fire).
 
 | Skill | trigger top1 | top3 | anti no-fire | anti right-alt |

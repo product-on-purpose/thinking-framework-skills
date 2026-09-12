@@ -2,7 +2,14 @@
 
 Skills evaluated: 63. Output checks: 429.
 
-**Overall: 100% of checks passed** (428/429). Skills passing every check: 62/63.
+**Overall: 99.7% of checks passed** (428/429). Skills passing every check: 62/63.
+
+> **Figure corrected 2026-09-11.** This line read `100% of checks passed (428/429)`. The scorer's
+> percentage formatter used `.toFixed(0)`, which rounded 99.767% up to a flat `100%`; the paired
+> `.json` always carried the correct `passPct: 99.8`. The measurement is unchanged - only the
+> rendering was wrong - but the overstated figure was copied onto the public trust page, so it is
+> corrected here at the source too. The formatter now reserves `100%` for an exact pass and floors
+> everything else (`scripts/eval/score-lib.mjs` `formatPct`).
 
 | Skill | checks passed | artifact chars |
 |---|---|---|

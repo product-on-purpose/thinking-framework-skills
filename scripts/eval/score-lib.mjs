@@ -19,6 +19,33 @@
 // See scripts/eval/README.md for the full harness flow.
 // =============================================================================
 
+/**
+ * Format a pass ratio as a percentage that NEVER overstates.
+ *
+ * `100%` is reserved for n === d. Anything short of that FLOORS to one decimal, so 399/400 reads
+ * 99.7% and never 100%.
+ *
+ * This existed as `(100*n/d).toFixed(0)` in two places and rounded any ratio at or above 99.5% up
+ * to a flat `100%`. It put "Overall: 100% of checks passed (428/429)" into the committed
+ * 2026-06-25 output scorecard and "Anti no-false-fire: 100% (399/400)" into the 2026-09-10
+ * skill-selection scorecard - and from the first of those, onto the public trust page, where it
+ * read "100% of checks passed" two cards above the card admitting the miss. That is the one
+ * rounding direction a library whose entire pitch is honest measurement cannot take, and a
+ * generator that takes it will re-introduce the claim on every future run.
+ *
+ * Floor rather than round, deliberately: for a pass rate, rounding down understates and rounding
+ * up overstates, and only one of those is a lie in the direction that matters here.
+ */
+export function formatPct(n, d) {
+  if (!d) return 'n/a';
+  if (n === d) return '100%';
+  // Floor to one decimal, then drop a trailing `.0` so a clean ratio still reads `75%` rather than
+  // `75.0%`. The decimal appears exactly when there is one to report, which is also the only case
+  // where dropping it could have overstated.
+  const floored = Math.floor((100 * n / d) * 10) / 10;
+  return Number.isInteger(floored) ? `${floored}%` : `${floored.toFixed(1)}%`;
+}
+
 export function scoreTrigger(cases, routedRaw, opts = {}) {
   // `gate` cases are excluded from scoring in BOTH directions: the authoring skill is the
   // right tool, only its behavior differs (e.g. ask one clarifying question), which is an
@@ -56,7 +83,7 @@ export function scoreTrigger(cases, routedRaw, opts = {}) {
   const sum = (k) => skills.reduce((a, s) => a + per[s][k], 0);
   const tTrig = sum('trig'), tTrigHit = sum('trigHit'), tTrigSoft = sum('trigSoft');
   const tAnti = sum('anti'), tNoFire = sum('antiNoFire'), tNamed = sum('antiNamed'), tNamedHit = sum('antiNamedHit');
-  const pct = (n, d) => d ? (100 * n / d).toFixed(0) + '%' : 'n/a';
+  const pct = formatPct;
 
   let md = `# ${opts.title || 'Trigger eval'} scorecard\n\n`;
   md += `Cases: ${scored.length} (${tTrig} trigger, ${tAnti} anti; ${tNamed} of the anti cases name a specific alternative) across ${skills.length} skills. Unrouted: ${unrouted}.\n\n`;
@@ -100,7 +127,7 @@ export function scoreOutput(rawResults, opts = {}) {
   const tPassed = results.reduce((a, r) => a + r.passed, 0);
   const tTotal = results.reduce((a, r) => a + r.total, 0);
   const perfect = results.filter((r) => r.passed === r.total).length;
-  const pct = (n, d) => d ? (100 * n / d).toFixed(0) + '%' : 'n/a';
+  const pct = formatPct;
 
   let md = `# Output eval scorecard\n\n`;
   md += `Skills evaluated: ${results.length}. Output checks: ${tTotal}.\n\n`;
