@@ -91,6 +91,71 @@ The output eval measures **artifact quality**: run each skill and check whether 
    ```
    Prints the per-skill + overall check-pass scorecard and every failed check with the judge's reason; writes `output-scorecard.json`. To commit the run, use `finalize.mjs` instead (see below).
 
+## The dispatch output eval (a dispatcher cannot be measured by the generic runner)
+
+`output.workflow.mjs` asks a producer to read `SKILL.md` plus `references/TEMPLATE.md` and emit the
+artifact inline. For `think-research-framework` that is measuring the skill doing the opposite of
+its documented procedure, for three independent reasons - each sufficient on its own:
+
+- its `SKILL.md` says, in those words, *"do not run the research inline in this context"*, because
+  the honesty discipline lives in the subagent;
+- it ships **no `references/` directory**, so there is no `TEMPLATE.md` for the produce prompt to
+  read - it is a dispatcher, not an artifact-emitting method;
+- its output checks demand 3 to 6 real sources with a traceable primary for every statistic, and an
+  inline producer is never told to research anything. A judge passing fabricated citations returns a
+  number that **rewards** the single failure this library exists to prevent.
+
+So the instrument changes rather than the skill.
+
+| | generic output eval | dispatch output eval |
+|---|---|---|
+| producer | an agent reading `SKILL.md` + `TEMPLATE.md` | the **shipped subagent prompt**, read off disk and injected verbatim |
+| isolation | none | a git worktree, so the agent's real Write scope stays real |
+| captured | one `artifact` string | `dossier`, `proposedEntry` (an object), `verdict`, `sources` |
+| who decides each check | the judge | the judge, **except** schema validity, which a validator decides |
+
+### The two-decider split, and why it needs its own lib
+
+One of the research engine's own checks is *"emit a proposed registry entry that passes
+`scripts/check-proposed-entry.mjs`"*. That is a decidable fact, and the producer is instructed to
+self-validate until it passes - so asking a model judge to grade it would be grading the producer's
+claim about itself against a check a machine can settle. The judge therefore grades the other checks
+and never sees that one; `resolve-dispatch-checks.mjs` runs the named validator as a real subprocess
+and splices the verdict back in.
+
+Splitting one checklist between two deciders creates a failure mode the generic harness does not
+have: **an off-by-one in the merge attributes a grade to the wrong check while `passed/total` still
+looks correct**. That is a corrupted scorecard whose corruption is invisible downstream. So the merge
+is a pure function - `scripts/lib/dispatch-checks-lib.mjs` `spliceChecks()` - which walks the
+authoritative checklist once and throws rather than merging on any mismatch (a leftover grade, a
+missing grade, a run with nothing deterministic to resolve). Its tests are mismatch-first.
+
+### A noted substitution, recorded rather than glossed
+
+The producer is **not** the host's registered subagent type. This library is normally not installed
+as a plugin in the session that runs its own eval, so there is no `think-research-framework`
+`agentType` to dispatch to. The harness reads `agents/think-research-framework.md` and injects its
+body verbatim instead. That is strictly *more* reproducible - it measures the file in the repo rather
+than whatever an installed copy happens to hold - but it is a substitution, and the scorecard
+provenance says so.
+
+### Running it
+
+```
+node scripts/eval/extract-output.mjs research-framework > rf-cases.json
+#   Workflow scriptPath: scripts/eval/dispatch-output.workflow.mjs
+#            args: {casesPath, agentPath, skill}
+node scripts/eval/resolve-dispatch-checks.mjs rf-wf.json rf-cases.json --out rf-results.json
+node scripts/eval/finalize.mjs <YYYY-MM-DD> --output rf-results.json \
+  --prefix research-framework --stamp think-research-framework
+```
+
+It emits the standard `OUTPUT` scorecard kind deliberately, rather than inventing a new one: gate
+layer 15 validates scorecard shapes per kind, so a new kind would red CI until
+`eval-results-lib.mjs` learned it. The `--stamp` is scoped for the same reason the selection eval's
+is - `finalize.mjs`'s default walks the 63 registry frameworks and would re-date every one of them
+off a run that measured a single tool.
+
 ## Finalizing a run (one command, guaranteed paired artifacts)
 
 `score.mjs` / `score-output.mjs` still print a scorecard for ad-hoc inspection, but to COMMIT a run use `finalize.mjs` - it writes BOTH the `.md` and the `.json` straight into `docs/internal/eval-results/` (so the `.json` sidecar can never be dropped) and stamps each shipped skill's `skill.meta.yml`:
@@ -106,6 +171,7 @@ Add `--prefix contested` for a cohort run (writes `<date>-contested-<kind>-eval.
 - **Trigger eval**: implemented (routing accuracy). First full run under `docs/internal/eval-results/`.
 - **Output eval**: implemented (artifact quality, produce -> judge). First full run under `docs/internal/eval-results/`.
 - **Finalize-driven flow**: implemented. `finalize.mjs` is the canonical commit path; `score.mjs` / `score-output.mjs` are now ad-hoc inspection tools only.
-- **Meta-skill coverage**: 3 of 4 fully measured (trigger + output, 2026-09-10). `think-research-framework` is output-unmeasurable by the generic produce-then-judge harness - it dispatches to a subagent with web search and its SKILL.md forbids inline research - so it keeps `maturity: alpha` with the gap recorded in `docs/internal/backlog.md`.
+- **Meta-skill coverage**: 3 of 4 fully measured (trigger + output, 2026-09-10). `think-research-framework` is output-unmeasurable by the *generic* produce-then-judge harness - it dispatches to a subagent with web search and its SKILL.md forbids inline research. The **dispatch output eval** above is the instrument that can measure it (built 2026-09-11); until it has been run and scored, the skill keeps `maturity: alpha` with the gap recorded in `docs/internal/backlog.md`.
+- **Dispatch output eval**: implemented - a faithful-dispatch producer in an isolated worktree, a judge that grades only what a model may decide, and a deterministic validator pass for the one check a model must not decide.
 - **Skill-selection eval**: implemented - the sibling instrument that routes against the installed roster (67 skills + 10 commands) instead of the framework catalog. It is the only instrument that can measure the four meta-skills, and the only one that can answer guardrail 6's command-interference question.
 - **Scorecard pairing guard**: implemented - `check-eval-results.mjs` is the 14th `check.mjs` layer; reds CI if any committed scorecard is missing its `.md`/`.json` twin or is malformed.
