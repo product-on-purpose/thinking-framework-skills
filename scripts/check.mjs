@@ -109,7 +109,9 @@ const toolkit = candidates.find((p) => p && existsSync(resolve(p, 'scripts', 'ev
 if (!toolkit) {
   console.error(
     'Conformance gate: agent-skills-toolkit (the validators) not found.\n' +
-    'Clone it next to this repo, or set AGENT_SKILLS_TOOLKIT:\n' +
+    'Fix it in one command, at the ref CI grades against:\n' +
+    '  npm run setup\n' +
+    'Or do it by hand (but then you must pin the ref yourself - see .github/workflows/ci.yml):\n' +
     `  git clone ${REPO}.git ../agent-skills-toolkit\n` +
     'Looked in:\n  ' + candidates.join('\n  '),
   );

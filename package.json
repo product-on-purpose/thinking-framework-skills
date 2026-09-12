@@ -8,6 +8,7 @@
   "homepage": "https://thinking-framework-skills.productonpurpose.com/",
   "repository": "https://github.com/product-on-purpose/thinking-framework-skills",
   "scripts": {
+    "setup": "node scripts/setup-toolkit.mjs",
     "check": "node scripts/check.mjs",
     "check:registry": "node scripts/check-registry.mjs",
     "test": "node --test \"tests/**/*.test.mjs\"",
