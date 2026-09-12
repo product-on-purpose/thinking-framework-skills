@@ -19,12 +19,24 @@
 //               scripts/eval/finalize.mjs; documented in scripts/eval/README.md
 // =============================================================================
 //
-// Run via the Workflow tool: Workflow({ scriptPath: "scripts/eval/route.workflow.mjs", args: { blindPath, count, batchSize } }).
+// Run via the Workflow tool: Workflow({ scriptPath: "scripts/eval/route.workflow.mjs", args: { blindPath, count, batchSize, corpusPath } }).
 //
-//   blindPath : absolute path to a JSON array of {id, prompt} situations (ids c1..cN),
-//               the BLIND copy (no answer key) written from scripts/eval/extract-cases.mjs.
-//   count     : N (the number of situations).
-//   batchSize : situations per router agent (default 25).
+//   blindPath  : absolute path to a JSON array of {id, prompt} situations (ids c1..cN),
+//                the BLIND copy (no answer key) written from scripts/eval/extract-cases.mjs.
+//   count      : N (the number of situations).
+//   batchSize  : situations per router agent (default 25).
+//   corpusPath : the catalog to route against (default: the shipped recommendable.json).
+//                Overridable ONLY so a controlled experiment can vary the corpus while holding
+//                everything else fixed - see the note below. A run against a non-default corpus
+//                must never be finalized as a scorecard: it would stamp 63 sidecars off a
+//                catalog that does not ship.
+//
+// THE ROUTER PROMPT IS DELIBERATELY CORPUS-AGNOSTIC. It says each entry has a name and
+// description and that SOME entries also carry anti_triggers / not_use / overlaps, rather than
+// asserting all five fields are present. That phrasing is true of the enriched shipped catalog and
+// of a stripped variant alike, which is what makes a single-variable A/B possible at all: if the
+// prompt advertised fields the corpus lacked, the router would hunt for them or invent them, and
+// the prompt itself would become a second variable in an experiment designed to have one.
 
 export const meta = {
   name: 'tfs-trigger-eval-router',
@@ -36,7 +48,8 @@ const A = typeof args === 'string' ? JSON.parse(args) : (args || {})
 const blindPath = A.blindPath
 const count = A.count
 const batchSize = A.batchSize || 25
-if (!blindPath || !count) throw new Error('route.workflow.mjs requires args { blindPath, count, batchSize? }')
+const corpusPath = A.corpusPath || 'skills/think-framework-advisor/references/recommendable.json'
+if (!blindPath || !count) throw new Error('route.workflow.mjs requires args { blindPath, count, batchSize?, corpusPath? }')
 
 const ROUTE_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['routes'],
@@ -60,7 +73,7 @@ function routePrompt(startN, endN) {
 
 Read these two files (use the Read tool):
 - ${blindPath} - a JSON array of {id, prompt} situations.
-- skills/think-framework-advisor/references/recommendable.json - the catalog of frameworks. Each has name, description, anti_triggers, not_use, overlaps. The framework SLUG is its \`name\` with the \`think-\` prefix removed (e.g. name "think-premortem" -> slug "premortem").
+- ${corpusPath} - the catalog of frameworks. Each entry has a \`name\` and a \`description\`; some entries also carry \`anti_triggers\`, \`not_use\` and \`overlaps\`. Judge on whatever fields are present and do not assume a field exists. The framework SLUG is its \`name\` with the \`think-\` prefix removed (e.g. name "think-premortem" -> slug "premortem").
 
 Process ONLY the situations whose id is c${startN} through c${endN} inclusive. For each, judge fit purely on the match between the situation and each framework's mechanism + its when-NOT / anti-trigger notes:
 - top1: the single best-fit framework slug, OR the literal "none" if the situation is trivial, unrelated, already-decided, after-the-fact when the tool is for before (or vice versa), or genuinely better handled without any thinking framework. Do NOT force a fit - many situations are deliberately wrong-tool or no-tool, and "none" is often the right answer.
@@ -80,7 +93,7 @@ phase('Route')
 const ranges = chunkRanges(count, batchSize)
 const GROUP = 5
 const groups = groupz(ranges, GROUP)
-log(`Routing ${count} blind eval situations in ${ranges.length} batches (<=${batchSize} each), ${groups.length} serial groups of <=${GROUP} (throttle-safe), against the advisor catalog.`)
+log(`Routing ${count} blind eval situations in ${ranges.length} batches (<=${batchSize} each), ${groups.length} serial groups of <=${GROUP} (throttle-safe), against ${corpusPath}.`)
 
 const parts = []
 for (let g = 0; g < groups.length; g++) {
@@ -95,4 +108,4 @@ for (let g = 0; g < groups.length; g++) {
 
 const routes = parts.flat()
 log(`Routing complete: ${routes.length}/${count} situations routed.`)
-return { count, routed: routes.length, routes }
+return { count, routed: routes.length, corpusPath, routes }
