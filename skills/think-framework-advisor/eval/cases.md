@@ -31,7 +31,7 @@
 - [ ] Read stakes x reversibility and let it cap the plan: the number of frameworks respects the heft table (no over-stacking).
 - [ ] Recommend 1-4 frameworks **in sequence**, each named ONLY from `recommendable.json`, each with: job, why-this-over-its-nearest-neighbor, honest evidence tier, expected artifact, a filled (placeholder-free) invocation, and a stop signal.
 - [ ] Never make an explicit-request-only contested lens (e.g. `think-swot`, `think-analysis-of-competing-hypotheses`) Step 1 for a generic prompt; route a generic "do a SWOT-ish read" to `think-issue-tree`. A contested lens appears only when the user named it, and then with its caveat.
-- [ ] Include a non-empty "what NOT to use, and why," including anything the calibrator cut, and decline a recipe whose precondition is not met.
+- [ ] Include a non-empty "what NOT to use, and why," including anything the calibrator cut. Every decline must rest on a precondition that is **actually** unmet, verifiable against that skill's or recipe's own steps - a decline whose stated reason is false about the thing being declined fails this check, however well it reads.
 - [ ] Never invent a framework name; use plain language where nothing listed fits.
 - [ ] Never inflate a tier; never present the routing itself as S/validated (the dossier grades routing as C).
 - [ ] Be the Thinking Plan artifact (ledger, summary, mirror, diagnosis, sequence, what-not-to-use, evidence map), not a prose essay.

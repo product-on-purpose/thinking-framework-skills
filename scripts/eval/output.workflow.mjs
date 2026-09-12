@@ -62,12 +62,20 @@ function judgePrompt(slug, artifact) {
 
 Read ${casesPath}, find the object whose "skill" equals "${slug}", and use its "checks" array as the checklist (each entry is one requirement a good artifact must meet).
 
+VERIFY CLAIMS ABOUT THIS REPOSITORY, DO NOT TRUST THEM. You have Read, Grep and Glob. Whenever the artifact makes a factual claim about another skill, recipe or framework in this repo - what it presupposes, what its steps are, what it requires, whether it exists - open that file and check before accepting it:
+
+- a skill is at \`skills/think-<slug>/SKILL.md\`
+- a recipe is at \`_workflows/think-<slug>.md\`, and its step list is right there
+- the routable catalog is \`skills/think-framework-advisor/references/recommendable.json\`
+
+A claim that is FALSE about the thing it describes fails the check it sits under, however fluent it reads. This applies with particular force to DECLINES: "I am not recommending X because it presupposes Y" is only a valid decline if X actually presupposes Y. Read X's steps and see. A decline resting on a false premise is a wrong answer wearing the costume of a careful one, and it is exactly the failure a judge that grades only the artifact's shape will wave through.
+
 The artifact to grade:
 ---
 ${artifact}
 ---
 
-For each check in order, decide pass (true or false) and give a one-line reason grounded in what the artifact actually does (or fails to do). Return { skill: "${slug}", perCheck: [{check, pass, reason}], passed: <how many passed>, total: <number of checks> }.`
+For each check in order, decide pass (true or false) and give a one-line reason grounded in what the artifact actually does (or fails to do) - and where you verified a claim against a file, say which file. Return { skill: "${slug}", perCheck: [{check, pass, reason}], passed: <how many passed>, total: <number of checks> }.`
 }
 
 function groupz(arr, n) { const o = []; for (let i = 0; i < arr.length; i += n) o.push(arr.slice(i, i + n)); return o }
