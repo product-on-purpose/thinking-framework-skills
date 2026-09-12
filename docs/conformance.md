@@ -76,14 +76,23 @@ The defining move of Gold is **G2**: the plugin does not just claim conformance,
 git clone https://github.com/product-on-purpose/thinking-framework-skills.git
 cd thinking-framework-skills
 
-# 2. Clone the toolkit AT THE REF CI PINS, and install it. The ref lives in one place:
-#    the `ref:` value in .github/workflows/ci.yml. Do not copy it into a second file.
+# 2. Put the validators on disk at the ref CI grades against
+npm run setup
+
+# 3. Run the gate (the same command CI runs)
+npm run check
+```
+
+`npm run setup` reads the pinned ref out of `.github/workflows/ci.yml` - the single place it
+lives - then clones (or fetches) `.agent-skills-toolkit` at exactly that commit and installs its
+dependencies. It refuses rather than clobbers: if that path already holds something that is not a
+checkout of the toolkit, it stops and says so. Doing it by hand is still fine, but then pinning the
+ref is your job:
+
+```bash
 git clone https://github.com/product-on-purpose/agent-skills-toolkit.git .agent-skills-toolkit
 git -C .agent-skills-toolkit checkout <the ref from ci.yml>
 npm --prefix .agent-skills-toolkit ci
-
-# 3. Run the gate (the same command CI runs)
-node scripts/check.mjs
 ```
 
 Expected: `Tier: advanced` with `0 error(s), 90 warning(s)`, and an exit code of 0. The ref matters: grading against the toolkit's `main` reports check families the pinned run does not, which is confusing rather than informative. `check.mjs` finds the toolkit via `AGENT_SKILLS_TOOLKIT`, a sibling `../agent-skills-toolkit`, or a local `./.agent-skills-toolkit` checkout (the path CI uses).

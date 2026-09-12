@@ -35,7 +35,23 @@ Grade honestly against the seven-tier model: **S** strong research, **M** modera
 4. Use the shared **Northwind** scenario in your worked example where it fits, so the library reads as one product.
 5. Register the method in both sources of truth (the `library.json` component and a `status: shipped` entry in `frameworks/registry.mjs`), then regenerate **all** the views - `npm run gen:registry`, `npm run gen:recommendable`, `npm run gen:catalog`, and `node scripts/gen-agents.mjs` (plus `npm run gen:recipe-commands` if you touched `_workflows/`). Missing one is the most common first-PR failure. Then validate to zero errors at the conformance gate (`node scripts/check.mjs`; the 15-layer gate - see [`docs/conformance.md`](./conformance.md) for the full layer list, and [`docs/troubleshooting.md`](./troubleshooting.md) when it fails). Commit on a branch and open a PR. CI re-runs the same gate plus the site link/route guards.
 
-**Setting up the gate locally.** `check.mjs` runs the Standard's validators rather than holding a copy, so it needs an `agent-skills-toolkit` checkout at the ref CI pins (see `.github/workflows/ci.yml`). Clone it to `.agent-skills-toolkit/` (gitignored) and run `npm ci` inside it. Grading against some other toolkit checkout will report check families CI does not, which is confusing rather than informative. Scaffolding for a new skill lives in [`templates/skill/`](../templates/skill/).
+**Setting up the gate locally.** First time in a fresh clone: **`npm run setup`**, then `npm run check`. `check.mjs` runs the Standard's validators rather than holding a copy, so it needs an `agent-skills-toolkit` checkout at the ref CI pins; `npm run setup` reads that ref out of `.github/workflows/ci.yml` (the single place it lives), clones the toolkit to `.agent-skills-toolkit/` (gitignored) at exactly that commit, and installs its dependencies. Doing it by hand works too - see [`docs/conformance.md`](./conformance.md#reproduce-it-locally) - but then pinning the ref is on you, and grading against some other toolkit checkout will report check families CI does not, which is confusing rather than informative. Scaffolding for a new skill lives in [`templates/skill/`](../templates/skill/).
+
+### Which command to run, and when
+
+| Command | What it does | Run after |
+|---|---|---|
+| `npm run setup` | clones/pins the validator toolkit at the CI-pinned ref | a fresh clone, or when the pin moves |
+| `npm run check` | the full 15-layer conformance gate | every change, before opening a PR |
+| `npm test` | the guard and pure-lib unit suites | any change under `scripts/` or `tests/` |
+| `npm run gen:registry` | the catalog + why-not views from the registry | editing `frameworks/registry.mjs` |
+| `npm run gen:recommendable` | the advisor's routing corpus | editing a `SKILL.md` description, `eval/cases.md`, or a `skill.meta.yml` |
+| `npm run gen:catalog` | `llms.txt`, `llms-full.txt`, `catalog.json`, `evaluated.json` | any skill or recipe change |
+| `node scripts/gen-agents.mjs` | the generated tables in `AGENTS.md` | any skill or recipe change |
+| `npm run gen:recipe-commands` | one invokable slash command per recipe | editing `_workflows/` |
+| `npm run gen` | the docs-site content under `site/` | site-affecting changes |
+
+Every generator also takes `--check`, which regenerates in memory and byte-compares instead of writing - that is the form the gate runs, so a hand-edited generated file reds CI. When the gate fails, [`docs/troubleshooting.md`](./troubleshooting.md) is keyed to the verbatim error text.
 
 ## Conventions
 

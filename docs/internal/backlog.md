@@ -37,7 +37,7 @@ Shipped on `fix/lifecycle-metadata-truth` (`2057be1`): all 67 sidecars promoted 
 ### Deferred
 
 - **`library.json` homepage + native manifest regeneration (audit finding A-03).** `homepage` still points at the GitHub repo rather than the live site. The fix is one line, but it must ship together with regenerated `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `manifest.generated.json` and `INDEX.md`, and regenerating those requires the **CI-pinned** toolkit ref. The local sibling checkout is ahead of the pin, so doing it with what was to hand would have produced a diff CI disagrees with. Do it as the first step of the next release cut, where the pinned regeneration already happens (release-process step 3).
-- **Research-agent description rewrite (finding B-03).** The paired "Tool constraints (hard limits)" hardening is safe to do any time; the description rewrite changes a routing surface and should be measured, so it waits behind an eval run.
+- **Research-agent description rewrite (finding B-03).** **Half done 2026-09-11:** the paired "Tool constraints (hard limits)" section landed (C4-6) - Write bounded to three destinations, Bash bounded to the single validator command, the registry prohibition restated. The description rewrite itself is still open: it changes a routing surface, so it waits behind a measurement. It is now *measurable* - `scripts/eval/skill-selection.workflow.mjs` routes against the installed roster, which is where a subagent description competes - so the blocker is a decision to spend a run, not a missing instrument.
 
 ### Decided (no further action expected)
 
