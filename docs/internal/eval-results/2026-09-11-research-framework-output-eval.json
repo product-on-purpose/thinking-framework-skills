@@ -1,0 +1,28 @@
+{
+  "generated": "OUTPUT eval",
+  "skills": 1,
+  "totals": {
+    "checks": 6,
+    "passed": 6,
+    "passPct": 100,
+    "perfectSkills": 1,
+    "failedChecks": 0
+  },
+  "perSkill": {
+    "research-framework": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    }
+  },
+  "provenance": {
+    "model": "claude-opus-5",
+    "corpus": "the skill's own trigger prompt from eval/cases.md (steelmanning, build-or-fold) and its own 6 output checks",
+    "harness": "scripts/eval/dispatch-output.workflow.mjs - the DISPATCH output eval, not the generic produce-then-judge runner",
+    "producer": "the shipped subagent prompt, read from agents/think-research-framework.md and injected verbatim. NOT the host's registered subagent type: this library is not installed as a plugin in the session that ran its own eval, so no think-research-framework agentType existed to dispatch to. Injecting the shipped file is more reproducible - it measures the repo's file rather than an installed copy - but it IS a substitution and is recorded as one.",
+    "isolation": "git worktree, so the producer's documented Write scope into frameworks/_proposed/ stayed real without dirtying the main tree. Worktree pruned after the run; the produced dossier is preserved under gitignored _local/_eval-artifacts/.",
+    "checkDecision": "5 of 6 checks judged by a separate model judge; the 6th ('emit a proposed registry entry that passes scripts/check-proposed-entry.mjs') decided DETERMINISTICALLY by running that validator as a subprocess, because the producer is instructed to self-validate until it passes and a model judge would have been grading the producer's claim about itself.",
+    "webResearch": "live WebSearch by the producer. 6 named sources with DOIs or arXiv ids; no effect size quoted, with the reason stated in the dossier's own numeric self-check.",
+    "comparability": "FIRST measurement of this skill's output half - there is no prior run to compare against. It was previously output_eval_status: authored because the generic harness could not measure a dispatcher without measuring a procedure violation."
+  }
+}

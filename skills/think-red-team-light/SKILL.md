@@ -54,7 +54,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **P** (flagged). Adversarial review (red teaming, from military/intelligence/security practice) surfaces objections cooperative review misses. But Nemeth et al. (2001) found role-played dissent does not replicate the reasoning gains of authentic dissent, and an AI red team is constructed dissent, so it is a blind-spot finder, not a substitute for a real dissenter. Evidence is transferred from human contexts, not AI-validated. Full grading: `evidence/dossier.md`.
+Tier **M** (transferred, flagged). Adversarial review (red teaming, from military/intelligence/security practice) surfaces objections cooperative review misses, and the skill's core operation - suspend the first agreeable framing and construct the strongest contrary case - is the "consider the opposite" move shown in controlled human debiasing studies to reduce biased assimilation, anchoring and overconfidence (Lord, Lepper & Preston 1984; Mussweiler, Strack & Pfeiffer 2000; Hirt & Markman 1995). The steelman / rank-by-force / rebuttal-test / verdict structure is artifact craft layered on that same evidenced move, not a different untested one, so the M-tier evidence is this skill's own rather than a cousin's. Re-graded P -> M (transferred) 2026-06-19. **Still flagged:** Nemeth et al. (2001) found role-played dissent does not replicate the reasoning gains of authentic dissent, and an AI red team is constructed dissent, so it is a blind-spot finder, not a substitute for a real dissenter. All the evidence is human-subject and transferred, not AI-validated, which is why the grade is M and not S. Full grading: `evidence/dossier.md`.
 
 ## Examples
 

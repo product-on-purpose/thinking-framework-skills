@@ -11,7 +11,7 @@ identity:
   display_name: Research Framework
   version: 0.1.0
   status: active        # draft | experimental | active | deprecated | archived
-  maturity: alpha        # trigger measured 2026-09-10 (skill-selection eval); output NOT measurable by the generic produce-then-judge harness - this skill dispatches to a subagent with web search and its own SKILL.md forbids inline research, so the harness would grade a procedure violation. See docs/internal/backlog.md
+  maturity: measured     # both halves measured: trigger 2026-09-10 (skill-selection eval, roster corpus); output 2026-09-11 by the DISPATCH output eval, which the generic produce-then-judge harness could never do - this skill dispatches to a subagent and its own SKILL.md forbids inline research, so the generic harness would have graded a procedure violation. The dispatch harness injects the shipped subagent prompt and runs it in an isolated worktree with live web search; 5 of 6 checks model-judged, the 6th (schema-valid proposed entry) decided by running check-proposed-entry.mjs. 6/6. See docs/internal/eval-results/2026-09-11-research-framework-output-eval.md
 
 classification:
   primary_family: meta-thinking-and-reflection
@@ -53,7 +53,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-09-10
-  output_eval_status: authored
+  output_eval_status: measured-2026-09-11
   known_failure_modes:
     - inflating a grade, or emitting the optimistic half of a split tier instead of the conservative one
     - passing an untraceable statistic through into the dossier or the tier
