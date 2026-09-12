@@ -11,7 +11,7 @@ Most thinking-tool collections ask you to take their value on faith. This librar
 These are thinking *aids*, not magic. The evidence that any given method improves a real-world decision is graded honestly on every framework page, and is often weaker than the method is usually sold on (see [the evidence model](../evidence-model/)). What the two evals below measure is narrower and more checkable: does the right framework fire for a situation, and does a framework, once run, produce the artifact it promises. They do **not** measure whether the artifact made your decision turn out better.
 </Aside>
 
-## The two questions a library like this must answer
+## The three questions a library like this must answer
 
 <CardGrid>
   <Card title="Does the right tool fire?" icon="random">
@@ -19,6 +19,9 @@ These are thinking *aids*, not magic. The evidence that any given method improve
   </Card>
   <Card title="Is the output any good?" icon="document">
     When a framework runs, does it produce a structured artifact that meets its own quality checklist, not a wall of prose? Measured by the **output eval**.
+  </Card>
+  <Card title="Does the front door get found?" icon="rocket">
+    Before any of that: out of every skill an agent has installed, does it reach for *this* library's entry point at all? A catalog that routes perfectly is worthless if nothing ever opens it. Measured by the **skill-selection eval**, which is a different question against a different corpus - and is reported separately below, never blended with the other two.
   </Card>
 </CardGrid>
 
@@ -70,6 +73,33 @@ sequenceDiagram
   </Card>
 </CardGrid>
 
+## Skill-selection eval: does the front door get found?
+
+The two evals above both assume you have already arrived. They ask *which framework fits* and *is the artifact good* - and both route against the advisor's catalog of 63 frameworks. Neither can tell you whether an agent with 77 tools installed reaches for this library in the first place.
+
+That took a different instrument, because the first one was structurally blind to it: the framework catalog contains no meta-skills (correctly - it is the advisor's list of things to *recommend*), so a router reading it can never return `think-framework-advisor` as a pick. The four entry-point tools were not failing that eval. They were invisible to it.
+
+<Aside type="caution" title="Read this number separately from the two above">
+This eval routes against the **installed roster** - 67 skills plus 10 commands, each reduced to the name and description an agent actually sees - not against the enriched 63-framework catalog. Different corpus, different question, different case count. The figures are **not comparable** with the trigger eval's and are deliberately not combined into a single headline.
+</Aside>
+
+<CardGrid>
+  <Card title="16 of 17 for the front door" icon="approve-check">
+    Across the four entry-point tools' own trigger cases, **16 of 17** routed to the intended tool on the first pick (**94.1%**), with **zero false fires** among them. The single miss is one advisor case - *"Should we launch a free tier? I'm nervous we're committing because it's the obvious move"* - which reads to a router as a decision to pressure-test rather than a request for routing. A defensible miss, and still a miss.
+  </Card>
+  <Card title="One false fire across the whole roster" icon="warning">
+    Over all **794 cases**: 391 of 393 top-1 (99.4%), and **399 of 400** anti-cases drew no false fire - which is **not** a clean sweep. `think-pairwise-comparison` grabbed *"I have twenty candidates to rank by forced pairwise comparison"*, an anti-case whose own prompt names the tool. Debatable on the merits; counted anyway.
+  </Card>
+</CardGrid>
+
+**Why that second card exists.** The trigger eval's zero-false-fire result is real and holds at 379 of 379. It would be easy to let that number stand for the whole library and leave this one out. But the two evals ask different questions of different corpora, and on *this* corpus the answer is 399 of 400, not 400 of 400. Quoting only the friendlier figure is the exact move a page like this exists not to make.
+
+**The added commands did not steal selections.** v0.14.0 shipped nine always-loaded recipe commands, which raised a fair worry that more description surface would degrade routing. In this corpus they compete directly against all 67 skills: across 794 cases, commands took the top pick **twice** (0.25%), and appeared somewhere in the top 3 84 times. Visible to a router, and simply not winning.
+
+**All four entry-point tools now have both halves measured.** Their artifacts were graded too: the three that a generic produce-then-judge harness can measure scored **20 of 20** checks (2026-09-11), and the fourth - the research engine, which dispatches to a subagent and whose own instructions forbid running research inline - needed a purpose-built dispatch harness and scored **6 of 6**, one of those decided by running a schema validator rather than by a model judge.
+
+**What it does not prove.** Seventeen trigger cases is a small N, they are self-authored, and this is one run on one model. It is a first baseline for a question that had no instrument at all until 2026-09-10, not a settled property.
+
 ## The 7 contested lenses are folded into these numbers
 
 The catalog is **63 skills total: 56 evidence-graded core skills + 7 contested lenses**. The contested lenses are famous frameworks with weak or mixed empirical evidence (SWOT, Five Whys, and similar), added in v0.11.0 and shipped caveat-first as explicit-request-only skills. Earlier runs scored them as a separate cohort; this 2026-06-25 run pools all 63 skills into one answer key, so the numbers above already include them.
@@ -90,7 +120,7 @@ A behavioral score is not an evidence claim. A contested lens can route correctl
 <Aside type="note" title="The limits, stated plainly">
 - The evals measure **routing** and **artifact quality**, not real-world **decision outcomes**. A premortem that surfaces five sharp risks is a good artifact; whether it made your launch succeed is a different, harder question the dossiers are honest about.
 - They are **model-executed and non-deterministic** - a snapshot, not a fixed property. One skill failed a check in a pilot and passed it in the full run. They are a measurement, not a gate.
-- **The two evals carry two dates, and are not blended.** The trigger eval was re-run **2026-09-10** (755 routing cases, on `claude-opus-5`); the output eval still reports the **2026-06-25** run (429 checks) and has not been re-run since. Both superseded the earlier split cohorts (56 core skills 2026-06-17, 7 contested lenses 2026-06-19).
+- **The evals carry different dates and are not blended.** Framework routing was re-run **2026-09-10** (755 cases); skill selection was measured **2026-09-10** against a different corpus (794 cases); the meta-skills' artifacts were re-graded **2026-09-11**. Each is reported under its own date and corpus above, and none is combined with another into a single headline. The 2026-09-10 runs superseded the earlier split cohorts (56 core skills 2026-06-17, 7 contested lenses 2026-06-19).
 - **The earlier runs did not record which model produced them**, so the 2026-09-10 trigger figures are a reproduction of the *measurement*, not a controlled comparison against a known baseline model. Recording the model and fingerprinting the case set on every run is open work; this run records its model, the ones before it did not.
 </Aside>
 
