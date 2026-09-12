@@ -1,0 +1,35 @@
+{
+  "generated": "OUTPUT eval",
+  "skills": 3,
+  "totals": {
+    "checks": 20,
+    "passed": 20,
+    "passPct": 100,
+    "perfectSkills": 3,
+    "failedChecks": 0
+  },
+  "perSkill": {
+    "framework-advisor": {
+      "passed": 10,
+      "total": 10,
+      "fails": []
+    },
+    "random-frameworks": {
+      "passed": 5,
+      "total": 5,
+      "fails": []
+    },
+    "top3": {
+      "passed": 5,
+      "total": 5,
+      "fails": []
+    }
+  },
+  "provenance": {
+    "model": "claude-opus-5",
+    "corpus": "the 3 measurable meta-skills (framework-advisor, top3, random-frameworks), 20 checks, extracted by scripts/eval/extract-output.mjs",
+    "judge": "verifying judge - scripts/eval/output.workflow.mjs after PR #126, which instructs the judge to open the file behind any claim the artifact makes about another skill, recipe or framework in this repo and to fail the check if the claim is false",
+    "comparability": "NOT a reproduction of the 2026-09-10 meta-skills run. Two things moved: the advisor's 'what NOT to use' check was tightened to require that a decline's stated precondition is actually unmet, and the judge gained the ability (and the instruction) to verify such claims against _workflows/ and skills/. A change in the number cannot be attributed to the skills alone; a DROP is the expected shape if the 2026-09-10 pass on that check was a false pass, which the run itself recorded evidence for.",
+    "motivating_defect": "In the 2026-09-10 run the advisor declined the think-stress-test-decision recipe claiming it presupposes an option comparison the user has not done. That recipe's step 1 IS think-decision-option-review. Two independent judges flagged it; the check passed anyway."
+  }
+}

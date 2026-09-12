@@ -55,7 +55,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-09-10
-  output_eval_status: measured-2026-09-10
+  output_eval_status: measured-2026-09-11
   known_failure_modes:
     - quietly fitting the draw to the topic instead of staying random
     - swapping out a poor-fit framework instead of applying it as a fixation-breaker
