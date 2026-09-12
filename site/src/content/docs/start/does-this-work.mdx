@@ -1,6 +1,6 @@
 ---
 title: Does this actually work?
-description: We measured it, then re-measured it. Routing across all 63 skills sends a situation to the right framework (100% top-1, zero false-fires across 755 cases, re-run 2026-09-10 and reproducing the earlier result) and the artifacts meet their own bar (100% of 429 checks). Here are the numbers, and what they do and do not prove.
+description: We measured it, then re-measured it. Routing across all 63 skills sends a situation to the right framework (100% top-1, zero false-fires across 755 cases, re-run 2026-09-10 and reproducing the earlier result) and the artifacts meet their own bar (428 of 429 checks, 99.8%). Here are the numbers, and what they do and do not prove.
 ---
 
 import { Card, CardGrid, Aside, Badge } from '@astrojs/starlight/components';
@@ -62,8 +62,8 @@ sequenceDiagram
 ```
 
 <CardGrid>
-  <Card title="100% of checks passed" icon="approve-check">
-    **428 of 429** individual output checks passed across freshly produced artifacts. **62 of 63** skills satisfied every single check.
+  <Card title="428 of 429 checks passed" icon="approve-check">
+    **99.8%** of individual output checks passed across freshly produced artifacts. **62 of 63** skills satisfied every single check - one skill missed one check, and the next card says which.
   </Card>
   <Card title="The miss was specific" icon="information">
     The single miss was specific: one skill asserted tentativeness about its own output but dropped the method-level evidence caveat (that its grounding is conceptual and transferred, not directly tested). A precise, fixable gap, not a vague score. The eval is non-deterministic, so the exact skill varies run to run, but the pattern - the evidence caveat is the single easiest element to drop - is stable.
