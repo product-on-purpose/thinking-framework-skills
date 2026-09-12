@@ -1,6 +1,6 @@
 ---
 title: Does this actually work?
-description: We measured it, then re-measured it. Routing across all 63 skills sends a situation to the right framework (100% top-1, zero false-fires across 755 cases, re-run 2026-09-10 and reproducing the earlier result) and the artifacts meet their own bar (428 of 429 checks, 99.8%). Here are the numbers, and what they do and do not prove.
+description: We measured it, then re-measured it. Routing across all 63 skills sends a situation to the right framework (100% top-1, zero false-fires across 755 cases, re-run 2026-09-10 and reproducing the earlier result) and the artifacts mostly meet their own bar (424 of 429 checks, 98.8%, re-measured 2026-09-12 under a stricter judge). Here are the numbers, and what they do and do not prove.
 ---
 
 import { Card, CardGrid, Aside, Badge } from '@astrojs/starlight/components';
@@ -65,13 +65,19 @@ sequenceDiagram
 ```
 
 <CardGrid>
-  <Card title="428 of 429 checks passed" icon="approve-check">
-    **99.8%** of individual output checks passed across freshly produced artifacts. **62 of 63** skills satisfied every single check - one skill missed one check, and the next card says which.
+  <Card title="424 of 429 checks passed" icon="approve-check">
+    **98.8%** of individual output checks passed across freshly produced artifacts, re-measured **2026-09-12**. **58 of 63** skills satisfied every single check. The previous run scored 428 of 429 with 62 of 63 perfect - so this is **lower**, and the next card is about why that is not a story of decline.
   </Card>
-  <Card title="The miss was specific" icon="information">
-    The single miss was specific: one skill asserted tentativeness about its own output but dropped the method-level evidence caveat (that its grounding is conceptual and transferred, not directly tested). A precise, fixable gap, not a vague score. The eval is non-deterministic, so the exact skill varies run to run, but the pattern - the evidence caveat is the single easiest element to drop - is stable.
+  <Card title="The number went down because the judge got stricter" icon="information">
+    Two things changed since the earlier run: the skills themselves moved across three releases, **and** the grader was rewritten to stop taking artifacts at their word. It now opens the file behind any claim an artifact makes about another skill and fails the check if the claim is false. Neither cause can be separated from the other, so this is a **re-measurement under a stricter instrument**, not the same measurement repeated.
   </Card>
 </CardGrid>
+
+**What the stricter judge actually caught, since that is the useful part.** One of the five failures is a defect the old grader could not have seen: `think-qualitative-comparative-analysis` sent a one-case job away with the claim that process tracing "is a method, not a shipped skill here; run it by hand" - and `think-process-tracing` ships, at tier P. A confident sentence about another skill is indistinguishable from a true one unless you go and look. It is fixed now; it had been wrong for three months, and no number caught it before.
+
+The other four are equally specific rather than vague: an affinity-mapping artifact that narrates clustering-before-naming while its own appendix shows items grouped in contiguous theme blocks; a negotiation map with a section headed "this map will not emit one" that then emits exactly that; a calibration scorecard leaving two of four required recordings blank by its own admission; and a pyramid-principle argument that fails exhaustiveness on the very question the claim turns on.
+
+**A higher number under a blinder grader would be worth less.** That is the whole reason to re-run against a stricter one and publish what comes back.
 
 ## Skill-selection eval: does the front door get found?
 
@@ -102,7 +108,7 @@ This eval routes against the **installed roster** - 67 skills plus 10 commands, 
 
 ## The 7 contested lenses are folded into these numbers
 
-The catalog is **63 skills total: 56 evidence-graded core skills + 7 contested lenses**. The contested lenses are famous frameworks with weak or mixed empirical evidence (SWOT, Five Whys, and similar), added in v0.11.0 and shipped caveat-first as explicit-request-only skills. Earlier runs scored them as a separate cohort; this 2026-06-25 run pools all 63 skills into one answer key, so the numbers above already include them.
+The catalog is **63 skills total: 56 evidence-graded core skills + 7 contested lenses**. The contested lenses are famous frameworks with weak or mixed empirical evidence (SWOT, Five Whys, and similar), added in v0.11.0 and shipped caveat-first as explicit-request-only skills. Earlier runs scored them as a separate cohort; every run since 2026-06-25, including the 2026-09-12 one above, pools all 63 skills into one answer key, so the numbers above already include them.
 
 <CardGrid>
   <Card title="They never grab a generic prompt" icon="approve-check">
@@ -120,7 +126,8 @@ A behavioral score is not an evidence claim. A contested lens can route correctl
 <Aside type="note" title="The limits, stated plainly">
 - The evals measure **routing** and **artifact quality**, not real-world **decision outcomes**. A premortem that surfaces five sharp risks is a good artifact; whether it made your launch succeed is a different, harder question the dossiers are honest about.
 - They are **model-executed and non-deterministic** - a snapshot, not a fixed property. One skill failed a check in a pilot and passed it in the full run. They are a measurement, not a gate.
-- **The evals carry different dates and are not blended.** Framework routing was re-run **2026-09-10** (755 cases); skill selection was measured **2026-09-10** against a different corpus (794 cases); the meta-skills' artifacts were re-graded **2026-09-11**. Each is reported under its own date and corpus above, and none is combined with another into a single headline. The 2026-09-10 runs superseded the earlier split cohorts (56 core skills 2026-06-17, 7 contested lenses 2026-06-19).
+- **The evals carry different dates and are not blended.** Framework routing was re-run **2026-09-10** (755 cases); skill selection was measured **2026-09-10** against a different corpus (794 cases); the meta-skills' artifacts were re-graded **2026-09-11**; all 63 skills' artifacts were re-graded **2026-09-12** (429 checks). Each is reported under its own date and corpus above, and none is combined with another into a single headline. These superseded the earlier split cohorts (56 core skills 2026-06-17, 7 contested lenses 2026-06-19).
+- **The output figure is not comparable with the run before it, and we say so rather than charting a trend.** 428/429 (2026-06-25) and 424/429 (2026-09-12) were produced by *different graders* as well as against different skills. Two moving variables means the difference is not attributable, in either direction. Anyone drawing a line between those two points is reading noise and an instrument change as a trend.
 - **The earlier runs did not record which model produced them**, so the 2026-09-10 trigger figures are a reproduction of the *measurement*, not a controlled comparison against a known baseline model. Recording the model and fingerprinting the case set on every run is open work; this run records its model, the ones before it did not.
 </Aside>
 
