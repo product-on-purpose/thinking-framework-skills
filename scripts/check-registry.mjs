@@ -32,7 +32,11 @@
 //                  cases doc (SP1 validateCasesDoc), and names no unknown think-* skills.
 //   7. Tier consistency - each shipped entry's governing tier is one of the grades in its
 //                  SKILL.md evidence-tier, so the catalog grade cannot silently diverge from
-//                  the grade the skill (and the advisor + site) publish.
+//                  the grade the skill (and the advisor + site) publish. 7b: tier X ships only
+//                  as a contested lens. 7c: the SKILL.md ## Evidence PROSE must agree with the
+//                  frontmatter, and a declared governing grade must be the one the registry
+//                  carries - 7 and 7b never read the prose, which is exactly where
+//                  think-red-team-light hid a P-vs-M disagreement for three months.
 //   8. Recommendable - the shipped registry slugs match the advisor's recommendable set,
 //                  and every contested lens (caveatFirst) carries explicit_request_only.
 //   9. Lifecycle truth (SPEC-01) - every skill that ships on disk describes itself as shipped
@@ -54,6 +58,7 @@ import registry from '../frameworks/registry.mjs';
 import { validateCasesDoc, findUnknownThinkNames } from './lib/cases-lib.mjs';
 import { validateEntry } from './lib/registry-entry-lib.mjs';
 import { checkLifecycle } from './lib/lifecycle-lib.mjs';
+import { checkTierConsistency } from './lib/tier-lib.mjs';
 import { checkWorkflowMirror, checkWorkflowEntryShape, isWorkflowFile, workflowName } from './lib/workflow-mirror-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -222,6 +227,25 @@ for (const e of fw) {
   }
 }
 
+// --- 7c. Tier PROSE truth ---------------------------------------------------
+// 7 and 7b compare the registry against the frontmatter. Neither reads the ## Evidence section -
+// and that is exactly where the defect hid: `think-red-team-light` published tier P in its
+// user-facing prose while its metadata said M, for three months, and the site rendered the
+// metadata. The evidence tier is the single claim this library stakes its identity on, and it was
+// the last published figure with no assertion behind it.
+//
+// Rules live in scripts/lib/tier-lib.mjs and were MEASURED across all 63 shipped skills before
+// being encoded, not assumed - the first draft of this rule was wrong, and the measurement is what
+// caught it. That file also records the one invariant deliberately NOT asserted (that a split
+// read's registry grade must be the conservative half), because five shipped skills violate it
+// today and a guard that reds its own tree teaches people to ignore guards.
+for (const e of fw) {
+  if (e.status !== 'shipped') continue;
+  const skillMd = resolve(ROOT, 'skills', `think-${e.slug}`, 'SKILL.md');
+  if (!existsSync(skillMd)) continue; // missing dir already flagged by the referential check
+  for (const p of checkTierConsistency(e.slug, readFileSync(skillMd, 'utf8'), e.tier)) fail(p);
+}
+
 // --- 8. Recommendable cross-check (policy-aware, DS-02) ---------------------
 // The advisor's recommendable set must be exactly the registry's shipped frameworks: a
 // contested lens stays IN the corpus (so the advisor can surface it when the user names it),
@@ -261,6 +285,7 @@ for (const dir of readdirSync(resolve(ROOT, 'skills'))) {
   }
   for (const p of checkLifecycle(dir, readFileSync(sidecarPath, 'utf8'))) fail(p);
 }
+
 
 // --- 10. Workflows mirror (SPEC-09 phase 1a) --------------------------------
 // library.json's declared workflows and _workflows/ must describe the same set, both directions.
