@@ -17,7 +17,7 @@
 - "Brainstorm a wide list of growth strategies for next year, nothing decided." (ideation)
 - "Build me a scorecard comparing four vendor proposals so I can pick one." (decision comparison)
 - "PostgreSQL or MySQL for an internal logging tool? Quick reversible call." (trivial)
-- "Imagine our launch failed six months from now; map everything that caused it." (near-miss: premortem, failure causes not success conditions)
+- "Imagine our launch failed six months from now; map everything that caused it." (near-miss: think-premortem, failure causes not success conditions)
 - "Summarize this finished strategy deck; the decision is already made." (summarization)
 
 ## Output checks (a good output must)
