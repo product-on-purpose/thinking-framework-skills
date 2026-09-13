@@ -14,10 +14,10 @@
 ## Should NOT trigger (wrong tool / near-miss)
 
 - "Break down 'why is free-tier activation low?' into a structured tree of sub-questions to investigate." (near-miss: top-down decomposition from a question - that is an issue-tree, not bottom-up clustering of existing items)
-- "I need fresh feature ideas for next quarter. Generate a bunch of options for me." (near-miss: idea generation - affinity mapping organizes items that already exist, it does not create them; use brainwriting first)
+- "I need fresh feature ideas for next quarter. Generate a bunch of options for me." (near-miss: idea generation - affinity mapping organizes items that already exist, it does not create them; use think-brainwriting first)
 - "I have three customer quotes. What do they tell me?" (too few items - reason about them directly; the clustering ceremony adds overhead without insight)
 - "Sort each of these tickets into our fixed severity taxonomy: P0, P1, P2, P3." (coding into authoritative predefined buckets, not discovering emergent themes)
-- "We're about to launch the free tier next week. Stress-test it and tell me how it could fail." (risk tool - premortem, not synthesis)
+- "We're about to launch the free tier next week. Stress-test it and tell me how it could fail." (risk tool - think-premortem, not synthesis)
 - "Write a project status update summarizing what the team shipped this sprint." (unrelated)
 
 ## Output checks (a good output must)

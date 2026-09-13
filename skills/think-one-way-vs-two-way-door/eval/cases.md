@@ -13,7 +13,7 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "We've already agreed this acquisition is huge and irreversible. Now stress-test the plan for what could go wrong." (near-miss: triage is done, the decision is known high-stakes and under analysis - use premortem)
+- "We've already agreed this acquisition is huge and irreversible. Now stress-test the plan for what could go wrong." (near-miss: triage is done, the decision is known high-stakes and under analysis - use think-premortem)
 - "We're down to three CI/CD vendors and keep going in circles. Lay out the tradeoffs against what matters and recommend one." (near-miss against the overlapping neighbor: this is comparing options against criteria - use `think-decision-option-review`, not a reversibility triage)
 - "Score these three onboarding-redesign approaches on the criteria that matter and tell me which to pick." (option comparison, not triage; this skill never recommends an option)
 - "Should I rename my staging environment? One-line config I revert anytime - just confirm." (no meaningful reversibility question; over-processing to classify it)

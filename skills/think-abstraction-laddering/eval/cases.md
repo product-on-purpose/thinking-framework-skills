@@ -14,7 +14,7 @@
 ## Should NOT trigger (wrong tool / near-miss)
 
 - "This problem is fuzzy and I want a few genuinely different ways to frame it - shift the stakeholder, invert it, bound what it is and isn't - then pick one to work on." (near-miss: this is `think-problem-restatement`; it generates several framing moves and converges, while laddering only moves up and down the altitude axis.)
-- "We agree the problem is 'reduce checkout abandonment at the payment step' and that's the right level. Now break it into its component sub-problems so we can assign owners." (decomposition into all parts -> issue tree, not a single vertical chain.)
+- "We agree the problem is 'reduce checkout abandonment at the payment step' and that's the right level. Now break it into its component sub-problems so we can assign owners." (decomposition into all parts -> think-issue-tree, not a single vertical chain.)
 - "We've settled on the right problem. Now give me a bunch of creative solution ideas for it." (ideation, not altitude.)
 - "We have three framings on the table and need to pick which one to fund." (decision/option comparison, not laddering.)
 - "Summarize what the team shipped this sprint for a status update." (unrelated.)

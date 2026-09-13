@@ -23,7 +23,7 @@
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
-import { validateCasesDoc, findUnknownThinkNames } from './lib/cases-lib.mjs';
+import { validateCasesDoc, findUnknownThinkNames, findProseNamedRedirects } from './lib/cases-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_ROOT = resolve(HERE, '..');
@@ -63,6 +63,14 @@ for (const name of skillNames.sort()) {
   for (const p of validateCasesDoc(text)) problems.push(`${name}: ${p}`);
   for (const u of findUnknownThinkNames(text, known)) {
     problems.push(`${name}: cases.md references unknown framework "${u}"`);
+  }
+  for (const r of findProseNamedRedirects(text, name, known)) {
+    problems.push(
+      `${name}: cases.md anti-case names "${r.prose}" in prose, so the answer key silently ` +
+      `records expected:none instead of "${r.named}". Write the slug (${r.named}) if it is the ` +
+      `redirect, or say the method is "declined" if it is named only to refuse it. Bullet: ` +
+      `${r.bullet.slice(0, 100)}`,
+    );
   }
 }
 

@@ -30,7 +30,7 @@
 //
 // Usage:
 //   node scripts/eval/score-selection.mjs <YYYY-MM-DD> <cases.json> <routed.json> \
-//        --model <id> [--sampling <text>] [--stamp a,b,c | --no-stamp] [--dry-run]
+//        --model <id> [--sampling <text>] [--stamp a,b,c | --no-stamp] [--note <text>] [--dry-run]
 // =============================================================================
 
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -50,7 +50,7 @@ const [date, casesPath, routedPath] = positional;
 const model = flag('--model');
 
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '') || !casesPath || !routedPath || !model) {
-  console.error('Usage: node scripts/eval/score-selection.mjs <YYYY-MM-DD> <cases.json> <routed.json> --model <id> [--sampling <text>] [--stamp a,b,c | --no-stamp] [--dry-run]');
+  console.error('Usage: node scripts/eval/score-selection.mjs <YYYY-MM-DD> <cases.json> <routed.json> --model <id> [--sampling <text>] [--stamp a,b,c | --no-stamp] [--note <text>] [--dry-run]');
   process.exit(2);
 }
 
@@ -76,6 +76,12 @@ const provenance = {
   commandPicks: { onTrigger: picks.onTrigger, onAnti: picks.onAnti, total: picks.total, collisionNormalized: picks.normalized },
 };
 
+// A scorecard that was re-scored from stored routes rather than produced by a fresh run has to
+// say so ON ITS FACE, or the date at the top silently claims more than the artifact earned.
+// Lands in the .json (so it is assertable) and at the TOP of the .md (so it is unmissable).
+const note = flag('--note');
+if (note) provenance.note = note;
+
 const arts = buildArtifacts({
   date,
   prefix: 'skill-selection',
@@ -86,6 +92,7 @@ const arts = buildArtifacts({
 // was, and whether a command stole a pick. Both go in the .md, not only the .json.
 // `null` means "omit this block"; '' is a real blank line and must survive.
 const blocks = [
+  note ? `> **Corrected scorecard.** ${note}` : null,
   '## What this scorecard measures (and what it does not)',
   `Corpus: the **installed roster** - ${roster.counts.skills} skills + ${roster.counts.commands} commands (\`manifest.generated.json\`), each presented to the router as name + description only, which is all an agent actually sees.`,
   'This is NOT the framework-routing eval. That one routes against `recommendable.json` (the 63 shipped frameworks) and answers "which framework fits this situation?". This one answers "which installed skill would an agent invoke?" - the question the meta-skills\' trigger contracts actually make, and the only one that can see command interference.',

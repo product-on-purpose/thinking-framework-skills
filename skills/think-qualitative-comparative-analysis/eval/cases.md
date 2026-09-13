@@ -15,7 +15,7 @@
 
 - "Given launches like ours, how often do they succeed?" (a base-rate question; route to think-reference-class-forecasting, not QCA)
 - "What's the base rate for a self-serve free tier landing, using our comparable past launches?" (route to think-reference-class-forecasting)
-- "Why did this one launch fail?" (single-case causal account; that is within-case process tracing in prose, not cross-case minimization)
+- "Why did this one launch fail?" (single-case causal account; that is within-case think-process-tracing, not cross-case minimization)
 - "Map how these reinforcing factors feed back on each other in our growth loop." (feedback structure; route to think-causal-loop-diagrams)
 - "Score these three launch options against our criteria and pick one." (option scoring; route to think-decision-option-review)
 - "Break this messy launch decision into its component sub-questions." (decomposition; route to think-issue-tree)

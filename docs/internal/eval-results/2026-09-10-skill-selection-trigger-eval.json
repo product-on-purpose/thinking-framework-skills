@@ -4,15 +4,15 @@
   "totals": {
     "trigger": 393,
     "anti": 400,
-    "antiNamed": 141,
+    "antiNamed": 157,
     "unrouted": 0,
     "triggerTop1": 391,
     "triggerTop3": 392,
     "antiNoFire": 399,
-    "antiRightAlt": 126,
+    "antiRightAlt": 142,
     "triggerTop1Pct": 99.5,
     "antiNoFirePct": 99.8,
-    "antiRightAltPct": 89.4,
+    "antiRightAltPct": 90.4,
     "falseFires": 1
   },
   "perSkill": {
@@ -22,8 +22,8 @@
       "trigSoft": 6,
       "anti": 5,
       "antiNoFire": 5,
-      "antiNamed": 1,
-      "antiNamedHit": 1,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
       "miss": [],
       "fire": []
     },
@@ -33,8 +33,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 0,
-      "antiNamedHit": 0,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
       "miss": [],
       "fire": []
     },
@@ -44,8 +44,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 0,
-      "antiNamedHit": 0,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
       "miss": [],
       "fire": []
     },
@@ -85,8 +85,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 0,
-      "antiNamedHit": 0,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
       "miss": [],
       "fire": []
     },
@@ -107,8 +107,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 0,
-      "antiNamedHit": 0,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
       "miss": [],
       "fire": []
     },
@@ -258,8 +258,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 2,
-      "antiNamedHit": 2,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
       "miss": [],
       "fire": []
     },
@@ -365,8 +365,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 0,
-      "antiNamedHit": 0,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
       "miss": [],
       "fire": []
     },
@@ -447,8 +447,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 0,
-      "antiNamedHit": 0,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
       "miss": [],
       "fire": []
     },
@@ -562,8 +562,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 1,
-      "antiNamedHit": 1,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
       "miss": [],
       "fire": []
     },
@@ -645,8 +645,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 5,
-      "antiNamedHit": 5,
+      "antiNamed": 6,
+      "antiNamedHit": 6,
       "miss": [],
       "fire": []
     },
@@ -686,8 +686,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 0,
-      "antiNamedHit": 0,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
       "miss": [],
       "fire": []
     },
@@ -697,8 +697,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 0,
-      "antiNamedHit": 0,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
       "miss": [],
       "fire": []
     },
@@ -874,8 +874,8 @@
       "trigSoft": 6,
       "anti": 6,
       "antiNoFire": 6,
-      "antiNamed": 0,
-      "antiNamedHit": 0,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
       "miss": [],
       "fire": []
     },
@@ -910,6 +910,7 @@
       "onAnti": 1,
       "total": 2,
       "collisionNormalized": 0
-    }
+    },
+    "note": "Re-scored 2026-09-13 against a CORRECTED answer key; the routes are byte-identical to the 2026-09-10 run and no router was re-invoked. Sixteen anti-cases named their redirect target in prose only (\"premortem\", \"process tracing\"), which `namedSkill()` cannot match, so the key recorded `expected: none` - asserting no tool was right about situations a shipped skill handles. The blind router had already picked the right redirect in 16 of 16, so the defect was discarding correct answers: antiRightAlt was reported as 126/141 (89.4%) and is in fact 142/157 (90.4%). No other figure moves; falseFires is unaffected by construction, since a false fire is a pick of the SOURCE skill."
   }
 }
