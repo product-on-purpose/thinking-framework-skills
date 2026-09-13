@@ -52,7 +52,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-09-10
+  trigger_eval_status: measured-2026-09-13
   output_eval_status: measured-2026-09-11
   known_failure_modes:
     - inflating a grade, or emitting the optimistic half of a split tier instead of the conservative one

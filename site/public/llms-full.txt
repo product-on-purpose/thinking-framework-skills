@@ -384,7 +384,7 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 - Evidence tier: P
 - Contested lens: warn-and-redirect, explicit-request-only (leads with its evidence caveat)
 - Mechanism: code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome
-- When to use: Handles a by-name request for QCA (Qualitative Comparative Analysis), the truth-table-and-Boolean-minimization method, honestly. At session scale the input almost never exists and the method certifies configurations from noise, so this skill does NOT build the truth table as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-reference-class-forecasting for a set of comparable cases, or process tracing in prose for one case). Use only when someone asks for QCA or a truth-table minimization by name.
+- When to use: Handles a by-name request for QCA (Qualitative Comparative Analysis), the truth-table-and-Boolean-minimization method, honestly. At session scale the input almost never exists and the method certifies configurations from noise, so this skill does NOT build the truth table as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-reference-class-forecasting for a set of comparable cases, or think-process-tracing for a single case). Use only when someone asks for QCA or a truth-table minimization by name.
 - Produces: honest-redirect-brief
 - Also known as: QCA, crisp-set QCA, fuzzy-set QCA, fsQCA, configurational analysis, truth-table analysis
 - Pairs with: think-reference-class-forecasting

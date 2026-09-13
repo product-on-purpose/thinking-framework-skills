@@ -61,7 +61,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-09-10
+  trigger_eval_status: measured-2026-09-13
   output_eval_status: measured-2026-09-12
   known_failure_modes:
     - discarding available probabilities to run a probability-free criterion (should use an expected-value tree instead)

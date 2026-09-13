@@ -53,7 +53,7 @@ relationships:
   variants: [think-random-frameworks]
 
 quality:
-  trigger_eval_status: measured-2026-09-10
+  trigger_eval_status: measured-2026-09-13
   output_eval_status: measured-2026-09-11
   known_failure_modes:
     - manufacturing three frameworks on a problem that needs one or none
