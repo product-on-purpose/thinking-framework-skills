@@ -65,7 +65,7 @@ relationships:
     - disagreeing-perspective second estimate (modern variant)
 
 quality:
-  trigger_eval_status: measured-2026-09-10
+  trigger_eval_status: measured-2026-09-13
   output_eval_status: measured-2026-09-12
   known_failure_modes:
     - running it on an easy question, where a forced contrarian second estimate adds error the average bakes in

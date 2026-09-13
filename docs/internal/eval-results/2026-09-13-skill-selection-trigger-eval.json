@@ -1,0 +1,914 @@
+{
+  "generated": "SKILL-SELECTION eval",
+  "cases": 793,
+  "totals": {
+    "trigger": 393,
+    "anti": 400,
+    "antiNamed": 157,
+    "unrouted": 0,
+    "triggerTop1": 392,
+    "triggerTop3": 392,
+    "antiNoFire": 399,
+    "antiRightAlt": 141,
+    "triggerTop1Pct": 99.7,
+    "antiNoFirePct": 99.8,
+    "antiRightAltPct": 89.8,
+    "falseFires": 1
+  },
+  "perSkill": {
+    "abstraction-laddering": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 5,
+      "antiNoFire": 5,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "affinity-mapping": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "after-action-review": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
+      "miss": [],
+      "fire": []
+    },
+    "analysis-of-competing-hypotheses": {
+      "trig": 5,
+      "trigHit": 5,
+      "trigSoft": 5,
+      "anti": 5,
+      "antiNoFire": 5,
+      "antiNamed": 3,
+      "antiNamedHit": 2,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c41",
+          "want": "evidence-vs-inference-sort",
+          "got": "process-tracing",
+          "prompt": "Which of these three explanations for the churn spike is right?"
+        }
+      ],
+      "fire": []
+    },
+    "argument-mapping": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "assumption-reversal": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
+      "miss": [],
+      "fire": []
+    },
+    "authentic-dissent": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "backcasting": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "belief-update-routine": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "boundary-critique": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 1,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c113",
+          "want": "decision-option-review",
+          "got": "none",
+          "prompt": "This is a purely technical config decision with one obvious owner and no"
+        },
+        {
+          "kind": "anti-soft",
+          "id": "c114",
+          "want": "decision-option-review",
+          "got": "none",
+          "prompt": "We know the boundary is disputed - now just tell us who's right and sett"
+        },
+        {
+          "kind": "anti-soft",
+          "id": "c115",
+          "want": "parallel-perspectives-review",
+          "got": "none",
+          "prompt": "Walk this proposal through each of our key stakeholders' eyes so everyon"
+        }
+      ],
+      "fire": []
+    },
+    "brainwriting": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "causal-layered-analysis": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 6,
+      "miss": [],
+      "fire": []
+    },
+    "causal-loop-diagrams": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "complexity-domain-sort": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 5,
+      "antiNamedHit": 3,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c163",
+          "want": "issue-tree",
+          "got": "top3",
+          "prompt": "Help me think through whether to launch a free tier."
+        },
+        {
+          "kind": "anti-soft",
+          "id": "c164",
+          "want": "red-team-light",
+          "got": "premortem",
+          "prompt": "What could go wrong if we ship this?"
+        }
+      ],
+      "fire": []
+    },
+    "concept-mapping": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "consider-the-unknowns": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 7,
+      "antiNoFire": 7,
+      "antiNamed": 4,
+      "antiNamedHit": 4,
+      "miss": [],
+      "fire": []
+    },
+    "contradiction-resolution": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 5,
+      "antiNoFire": 5,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "contradiction-tension-mapping": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 5,
+      "antiNamedHit": 5,
+      "miss": [],
+      "fire": []
+    },
+    "decision-journal": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "decision-option-review": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "dialectical-bootstrapping": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 7,
+      "antiNoFire": 7,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "eisenhower-moscow-pareto": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 6,
+      "miss": [],
+      "fire": []
+    },
+    "ethical-matrix": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 2,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c272",
+          "want": "parallel-perspectives-review",
+          "got": "none",
+          "prompt": "What would our small-business customers actually say about this change i"
+        },
+        {
+          "kind": "anti-soft",
+          "id": "c273",
+          "want": "scenario-planning",
+          "got": "none",
+          "prompt": "Just tell me if launching the free tier is the right strategic call."
+        }
+      ],
+      "fire": []
+    },
+    "evidence-vs-inference-sort": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "expected-value-decision-tree": {
+      "trig": 5,
+      "trigHit": 5,
+      "trigSoft": 5,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 2,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c294",
+          "want": "one-way-vs-two-way-door",
+          "got": "none",
+          "prompt": "Deploy the hotfix now or wait for the morning window? Pretty obvious, fu"
+        },
+        {
+          "kind": "anti-soft",
+          "id": "c296",
+          "want": "reference-class-forecasting",
+          "got": "none",
+          "prompt": "Just multiply some made-up odds by some made-up payoffs and give me a nu"
+        }
+      ],
+      "fire": []
+    },
+    "far-analogy-ideation": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "fermi-estimation": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 7,
+      "antiNoFire": 7,
+      "antiNamed": 5,
+      "antiNamedHit": 5,
+      "miss": [],
+      "fire": []
+    },
+    "five-whys": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 5,
+      "antiNamedHit": 4,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c331",
+          "want": "red-team-light",
+          "got": "premortem",
+          "prompt": "What could go wrong with this launch?"
+        }
+      ],
+      "fire": []
+    },
+    "frame-creation": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 4,
+      "miss": [],
+      "fire": []
+    },
+    "framework-advisor": {
+      "trig": 5,
+      "trigHit": 4,
+      "trigSoft": 4,
+      "anti": 7,
+      "antiNoFire": 7,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [
+        {
+          "kind": "trigger",
+          "id": "c351",
+          "want": "framework-advisor",
+          "got": "command:stress-test-decision",
+          "prompt": "Should we launch a free tier? I'm nervous we're committing because it's "
+        }
+      ],
+      "fire": []
+    },
+    "futures-wheel": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "iceberg-model": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
+      "miss": [],
+      "fire": []
+    },
+    "interest-based-negotiation": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
+      "miss": [],
+      "fire": []
+    },
+    "interval-calibration-check": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "issue-tree": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "ladder-of-inference-check": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "linear-model-aggregation": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "minimax-regret": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "morphological-analysis": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 5,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c467",
+          "want": "decision-option-review",
+          "got": "none",
+          "prompt": "Just tell me the single best pricing model for us."
+        }
+      ],
+      "fire": []
+    },
+    "natural-frequency-bayesian": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "one-way-vs-two-way-door": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "pairwise-comparison": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 5,
+      "antiNamed": 4,
+      "antiNamedHit": 4,
+      "miss": [],
+      "fire": [
+        {
+          "id": "c502",
+          "got": "pairwise-comparison",
+          "prompt": "I have twenty candidates to rank by forced pairwise comparison."
+        }
+      ]
+    },
+    "parallel-perspectives-review": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "premortem": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "problem-restatement": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "process-tracing": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "pyramid-principle": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "qualitative-comparative-analysis": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 6,
+      "miss": [],
+      "fire": []
+    },
+    "question-burst": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "random-frameworks": {
+      "trig": 4,
+      "trigHit": 4,
+      "trigSoft": 4,
+      "anti": 5,
+      "antiNoFire": 5,
+      "antiNamed": 5,
+      "antiNamedHit": 4,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c594",
+          "want": "far-analogy-ideation",
+          "got": "none",
+          "prompt": "Give me one random-stimulus prompt to spark ideas."
+        }
+      ],
+      "fire": []
+    },
+    "red-team-light": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
+      "miss": [],
+      "fire": []
+    },
+    "reference-class-forecasting": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
+      "miss": [],
+      "fire": []
+    },
+    "reflective-equilibrium": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 6,
+      "miss": [],
+      "fire": []
+    },
+    "research-framework": {
+      "trig": 4,
+      "trigHit": 4,
+      "trigSoft": 4,
+      "anti": 4,
+      "antiNoFire": 4,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "role-storming": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 6,
+      "antiNamedHit": 6,
+      "miss": [],
+      "fire": []
+    },
+    "scamper": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "scenario-planning": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "speculative-harms-anti-goals": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 7,
+      "antiNoFire": 7,
+      "antiNamed": 2,
+      "antiNamedHit": 2,
+      "miss": [],
+      "fire": []
+    },
+    "stocks-and-flows-reasoning": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    },
+    "swot": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 5,
+      "antiNamedHit": 3,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c708",
+          "want": "issue-tree",
+          "got": "top3",
+          "prompt": "Help me think through whether to launch a free tier."
+        },
+        {
+          "kind": "anti-soft",
+          "id": "c709",
+          "want": "red-team-light",
+          "got": "premortem",
+          "prompt": "What could go wrong if we expand into the EU?"
+        }
+      ],
+      "fire": []
+    },
+    "theory-of-constraints": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 5,
+      "antiNoFire": 5,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "three-horizons": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 4,
+      "miss": [],
+      "fire": []
+    },
+    "top3": {
+      "trig": 4,
+      "trigHit": 4,
+      "trigSoft": 4,
+      "anti": 5,
+      "antiNoFire": 5,
+      "antiNamed": 3,
+      "antiNamedHit": 3,
+      "miss": [],
+      "fire": []
+    },
+    "veil-of-ignorance-reasoning": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 7,
+      "antiNoFire": 7,
+      "antiNamed": 2,
+      "antiNamedHit": 1,
+      "miss": [
+        {
+          "kind": "anti-soft",
+          "id": "c752",
+          "want": "parallel-perspectives-review",
+          "got": "none",
+          "prompt": "Walk this pricing proposal through each affected customer segment's eyes"
+        }
+      ],
+      "fire": []
+    },
+    "walton-argumentation-schemes": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 4,
+      "antiNamedHit": 4,
+      "miss": [],
+      "fire": []
+    },
+    "what-would-have-to-be-true": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 1,
+      "antiNamedHit": 1,
+      "miss": [],
+      "fire": []
+    },
+    "woop": {
+      "trig": 6,
+      "trigHit": 6,
+      "trigSoft": 6,
+      "anti": 6,
+      "antiNoFire": 6,
+      "antiNamed": 0,
+      "antiNamedHit": 0,
+      "miss": [],
+      "fire": []
+    }
+  },
+  "provenance": {
+    "model": "claude-opus-5",
+    "corpus": "roster",
+    "rosterCounts": {
+      "skills": 67,
+      "commands": 10,
+      "total": 77
+    },
+    "rosterCollisions": [
+      "research-framework"
+    ],
+    "sampling": "complete corpus - every case from all 67 skills, no sampling",
+    "casesSupplied": 794,
+    "gateExcluded": 1,
+    "commandPicks": {
+      "onTrigger": 1,
+      "onAnti": 1,
+      "total": 2,
+      "collisionNormalized": 0
+    }
+  }
+}

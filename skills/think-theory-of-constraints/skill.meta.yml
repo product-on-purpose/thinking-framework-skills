@@ -60,7 +60,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-09-10
+  trigger_eval_status: measured-2026-09-13
   output_eval_status: measured-2026-09-12
   known_failure_modes:
     - inventing a single bottleneck when none binds, or the constraint is unstable or non-flow

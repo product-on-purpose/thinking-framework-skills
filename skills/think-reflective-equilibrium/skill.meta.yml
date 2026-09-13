@@ -52,7 +52,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-09-10
+  trigger_eval_status: measured-2026-09-13
   output_eval_status: measured-2026-09-12
   known_failure_modes:
     - declaring global coherence with no record of which commitment gave way (the documented failure mode)
