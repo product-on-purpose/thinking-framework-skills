@@ -23,6 +23,6 @@ Fill this in. The deliverable is NOT a truth table and NOT minimized configurati
 Pick the one that fits the job and say why:
 
 - A set of comparable past cases, and you want a base rate (an outcome distribution), not coded configurations: `think-reference-class-forecasting`.
-- One case, and you want a causal account: do within-case process tracing in prose - for each candidate condition, ask what evidence would be necessary or sufficient if it were the driver, and weigh the actual record against that. (Process tracing is a method, not a shipped skill; run it by hand.)
+- One case, and you want a causal account: that is within-case territory, and this library ships the skill for it - `think-process-tracing` (tier P). It assigns each candidate condition its evidence test *before* grading the record (hoop, smoking gun, straw-in-the-wind, doubly decisive), then weighs by diagnosticity rather than by count.
 
-- **Chosen move:** [skill or process tracing] - [why it fits this job]
+- **Chosen move:** [the shipped skill, by name] - [why it fits this job]

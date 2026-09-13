@@ -23,9 +23,9 @@ A completed run of `think-qualitative-comparative-analysis`, on the shared North
 ## The evidence-based move instead
 
 - A set of comparable past cases, and you want a base rate (an outcome distribution), not coded configurations: `think-reference-class-forecasting`.
-- One case, and you want a causal account: within-case process tracing in prose.
+- One case, and you want a causal account: `think-process-tracing` (tier P), which this library ships.
 
-- **Chosen move:** `think-reference-class-forecasting`. The honest question behind "which configuration is sufficient for a successful launch" is really "given launches like this, how often do they succeed, and what is the base rate for a self-serve free tier specifically?" Reference-class forecasting takes the comparable past launches as an outcome distribution and gives a defensible base rate, instead of pretending eight anecdotes can certify a sufficient causal configuration. If Northwind later wants to understand why one particular past launch failed, that is within-case process tracing in prose - for each suspected driver, ask what evidence would be necessary or sufficient and check the record - not a cross-case truth table.
+- **Chosen move:** `think-reference-class-forecasting`. The honest question behind "which configuration is sufficient for a successful launch" is really "given launches like this, how often do they succeed, and what is the base rate for a self-serve free tier specifically?" Reference-class forecasting takes the comparable past launches as an outcome distribution and gives a defensible base rate, instead of pretending eight anecdotes can certify a sufficient causal configuration. If Northwind later wants to understand why one particular past launch failed, that is `think-process-tracing` - each suspected driver gets its evidence test assigned before the record is graded, and diagnosticity decides - not a cross-case truth table.
 
 ---
 

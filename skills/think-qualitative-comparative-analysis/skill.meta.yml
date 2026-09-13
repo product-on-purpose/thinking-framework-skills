@@ -48,7 +48,7 @@ relationships:
 
 quality:
   trigger_eval_status: measured-2026-09-10
-  output_eval_status: measured-2026-09-12
+  output_eval_status: measured-2026-09-13
   known_failure_modes:
     - producing the truth table and minimized configurations as if valid at session scale (the move the simulations condemn)
     - citing methodological pedigree (textbooks, software, a methods community) as if it were outcome evidence
