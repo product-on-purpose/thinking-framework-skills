@@ -95,6 +95,23 @@ Shipped on `fix/lifecycle-metadata-truth` (`2057be1`): all 67 sidecars promoted 
   - **Its output check (line 69)** reads "redirects to a specific evidence-based shipped skill (`think-reference-class-forecasting`) **or to process tracing in prose** for one case" - which is arguably the root cause: the check itself sanctioned routing to prose rather than to the shipped skill, which is why the artifact's false decline passed as compliant behaviour for three months. **Editing a check inside the PR that measures it is how a number stops meaning anything**, so it waits for a later scored run, the same discipline the advisor's decline check got in #126.
   - Sequence to follow: tighten the check, re-score on a separate run, then rewrite the description and re-measure routing. Three steps, three runs, in that order.
 
+  **CLOSED 2026-09-13.** The sequence was followed exactly, and it found **four more surfaces than the two recorded here**:
+
+  | # | surface | PR |
+  |---|---|---|
+  | 1 | the output check (`SKILL.md:69`) + its `cases.md` mirror + the value-vs-baseline prose | #133 |
+  | 2 | `references/TEMPLATE.md` - the file `SKILL.md` step 5 tells the producer to follow | #136 |
+  | 3 | `references/EXAMPLE.md` - the worked example that models the behaviour | #136 |
+  | 4 | `evidence/dossier.md`, three clauses | #136 |
+  | 5 | the frontmatter `description` + `When NOT to Use` (the routing surfaces) | #137 |
+  | 6 | `skill.meta.yml` `often_precedes` / `complements`, which listed only half the redirect | #137 |
+
+  **The template was the one that mattered.** `SKILL.md` step 5 says "emit the honest redirect brief per `references/TEMPLATE.md`", and the template still said *"Process tracing is a method, not a shipped skill; run it by hand."* The skill re-scored **6/6** only because the producer overrode its own runtime instruction - and the finding came from the **judge's free text**, not from any check. Four fix passes had each corrected the surface they were looking at.
+
+  **Measurement outcome:** output **5/6 -> 6/6**; both routing corpora re-measured with every headline total unchanged (skill selection `triggerTop1` 392/393, `falseFires` 1; framework routing 376/376, 0 false fires), `antiRightAlt` -1 on each and inside a **measured** noise band, and **zero third-party pull** on either. The control run that established that band is written up at [`2026-09-13-skill-selection-noise-band.md`](experiments/2026-09-13-skill-selection-noise-band.md) - and it is the reusable part: this instrument disagrees with itself on ~2% of top-1 picks with nothing changed, so a ±1 delta is not a finding.
+
+  **The lesson worth carrying:** "fix the skill" meant six surfaces, and the count was not knowable by reading the two that were recorded. When a shipped fact changes (here: `think-process-tracing` started shipping), sweep every surface that could assert the old fact - frontmatter, body, checks, eval cases, templates, examples, dossier, sidecar - rather than the one the bug was reported against.
+
 - **No guard asserts a skill's published tier against its own frontmatter (found 2026-09-11).** `think-red-team-light` shipped `Tier **P**` in its `SKILL.md` Evidence prose while its frontmatter, registry entry and dossier all said `M`, for three months, on a user-facing surface. Nothing caught it; the research engine did, incidentally, while using that skill as a fold target.
   - **The rule a guard would need is not plain equality**, which is why this is specced rather than built. Three of the 66 skills legitimately differ: a compound frontmatter tier (`C/P`, `M/P`) may be stated in prose as its **conservative half** (`C`, `P`), because that is the governing grade. So the assertion is "the prose tier equals the frontmatter tier, or equals the conservative half of a compound frontmatter tier", plus a cross-check against `frameworks/registry.mjs`.
   - **Deliberately not built at the end of the session that derived the rule.** This repo's own history says guard code attracts real bypasses and deserves its own adversarial review pass (see the contested-guard hardening). A guard written to a rule discovered an hour earlier is exactly the shape that ships a false negative. The manual fix is in place; the guard is the next honest step.
