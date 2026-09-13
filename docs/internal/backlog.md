@@ -140,6 +140,29 @@ Shipped: preamble ratchet 6 to 3, soft-endorsement denylist, citation-shaped evi
 - **RT-1's soft tail is advisory by design.** The blatant rehabilitation register is denied outright; the subtler "concede, then sell" shape raises a non-blocking warning instead of failing, because the honest phrasing ("the value here is the discipline this skill adds") sits genuinely close to the dishonest one. Promoting it to a hard failure would false-block real caveats. If the advisory ever fires on a shipped lens, that is a review prompt, not a bug.
 - **The advisory channel is opt-in and currently has exactly one producer.** `checkContestedEntry` pushes into `opts.warnings` only when a caller supplies the array, so the signature change is additive. If a second advisory is added later, keep that property: callers that do not opt in must see identical behaviour.
 
+## From the tier-consistency guard (2026-09-13)
+
+- **OPEN, and it is a claim-level question for a human: five shipped skills publish the OPTIMISTIC half of a split evidence tier.** Found by measuring the tier invariant across all 63 shipped skills before encoding it as a guard - which is also how the *first* draft of the rule was caught being wrong.
+
+  The library's own stated non-negotiable, in `agents/think-research-framework.md`, is that a split honest read is capped at its conservative half: *"a method whose honest read is 'M/P, transferred' is tier P in the entry, never the optimistic half."* Eight shipped skills carry a split read. Three resolve it exactly as written, by declaring a governing grade in prose that the registry then carries:
+
+  | skill | honest read | conservative | registry | |
+  |---|---|---|---|---|
+  | `think-boundary-critique` | C/P | C | **C** | governing declared |
+  | `think-contradiction-resolution` | M/P | P | **P** | governing declared |
+  | `think-frame-creation` | C/P | C | **C** | governing declared |
+  | `think-causal-loop-diagrams` | M/P | P | **M** | *optimistic* |
+  | `think-concept-mapping` | M/P | P | **M** | *optimistic* |
+  | `think-fermi-estimation` | M/P | P | **M** | *optimistic* |
+  | `think-premortem` | S/M | M | **S** | *optimistic* |
+  | `think-problem-restatement` | M/P | P | **M** | *optimistic* |
+
+  `think-causal-loop-diagrams` is the sharp one: its prose reads *"Tier **M/P**, transferred-evidence"*, which is **verbatim the worked example** in the rule that says such a method is tier P.
+
+  **Not fixed here, deliberately.** Changing a published evidence tier is a substantive claim change on a public page, not a consistency cleanup, and it is the kind of decision this repo reserves for a maintainer. Three dispositions are available and they are not equivalent: (a) re-grade the five registry entries to the conservative half, which moves five public tier claims *downward* and is the option most consistent with the stated rule; (b) declare a governing grade in each skill's prose, as the other three already do, which keeps the grade and makes the reasoning explicit; (c) decide the rule binds only *new* entries from the research engine, and say so in the rule.
+
+  **The guard does not assert this.** `scripts/lib/tier-lib.mjs` encodes only the invariants that hold today, and records why: a guard that reds its own tree teaches people to ignore guards. Whichever disposition is chosen, the conservative rule becomes assertable afterwards and should be added then.
+
 ## Pre-existing (predates this effort)
 
 - **GA4 content-vs-acquisition decision.** Parked, waiting on the analytics signal (see `docs/internal/MEASUREMENT.md` and the content-plan). Tracked separately.
