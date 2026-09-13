@@ -40,9 +40,11 @@ execution:
 relationships:
   often_follows: []
   often_precedes:
-    - thinking-framework-skills.reference-class-forecasting
+    - thinking-framework-skills.reference-class-forecasting   # the redirect for a SET of comparable cases
+    - thinking-framework-skills.process-tracing               # the redirect for a SINGLE case
   complements:
     - thinking-framework-skills.reference-class-forecasting
+    - thinking-framework-skills.process-tracing
   overlaps_with: []
   variants: []
 
