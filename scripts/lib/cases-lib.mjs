@@ -103,3 +103,50 @@ export function findUnknownThinkNames(text, knownNames) {
   const matches = String(text).match(/\bthink-[a-z0-9-]+/g) || [];
   return [...new Set(matches.filter((m) => !known.has(m)))];
 }
+
+// The mirror of findUnknownThinkNames. That one mechanizes "never invent a framework name";
+// this one mechanizes "never name the real one WITHOUT its slug".
+//
+// The defect it exists to prevent shipped, silently, for months. An anti-case bullet is
+// `- "<prompt>" (<why it is the wrong tool, and what the right one is>)`, and the parenthetical
+// is the ANSWER KEY: extract-cases.mjs reads it with `/`?think-([a-z0-9-]+)`?/`, so a redirect
+// written in prose - "use premortem", "that is within-case process tracing" - matches nothing and
+// resolveExpected falls through to 'none'. The key then asserts that NO tool is right about a
+// situation a shipped skill handles, and the eval scores the router against that. Sixteen cases
+// across thirteen skills were in this state; re-scoring the stored 2026-09-10 routes against a
+// corrected key showed the blind router had already picked the right redirect in 16 of 16, so the
+// defect was purely destroying credit (antiRightAlt read 126/141 when it was 142/157).
+//
+// Two ways an author legitimately clears this, both of which the failure message names:
+//   1. redirecting -> write the slug (`think-premortem`), which is what makes it the answer key;
+//   2. NOT redirecting -> say the method is `declined`, the library's own word for a method it
+//      names in order to refuse (a contested lens under explicit_request_only, which must not
+//      fire on a prompt that only describes it). Then 'none' is correct and stays correct.
+//
+// A bullet naming its OWN skill is never flagged: resolveExpected returns 'none' for
+// `named === source` by design, so the prose cannot mislead the key there.
+export function findProseNamedRedirects(casesMd, sourceSkillName, knownNames) {
+  const known = knownNames instanceof Set ? knownNames : new Set(knownNames);
+  const source = String(sourceSkillName || '');
+  const out = [];
+
+  for (const bullet of parseBullets(extractSectionBody(String(casesMd), 'Should NOT trigger'))) {
+    // An explicit slug anywhere in the bullet means the author has already been unambiguous.
+    if (/\bthink-[a-z0-9-]+/.test(bullet)) continue;
+    const open = bullet.indexOf('(');
+    if (open === -1) continue;
+    const why = bullet.slice(open);
+    if (/\bdeclined\b/i.test(why)) continue; // named in order to refuse it, not to redirect to it
+
+    for (const name of known) {
+      if (name === source) continue;                  // self-mention cannot mislead the key
+      const prose = name.replace(/^think-/, '').replace(/-/g, ' ');
+      if (prose.length < 7) continue;                 // too short to match as prose without noise
+      if (new RegExp(`\\b${prose.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(why)) {
+        out.push({ bullet, named: name, prose });
+        break;
+      }
+    }
+  }
+  return out;
+}

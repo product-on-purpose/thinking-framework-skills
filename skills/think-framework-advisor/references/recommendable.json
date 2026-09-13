@@ -14,7 +14,7 @@
       "description": "Builds an abstraction ladder that moves a problem up (\"why / to what end?\") and down (\"how / what specifically?\") to locate the right altitude to work at, then marks one rung as the working level. Use when a problem is stated as a bare solution with an unstated purpose, as a vague aspiration with no concrete handle, when people are arguing past each other at different levels, or before committing effort at an altitude nobody chose on purpose.",
       "anti_triggers": [
         "\"This problem is fuzzy and I want a few genuinely different ways to frame it - shift the stakeholder, invert it, bound what it is and isn't - then pick one to work on.\" (near-miss: this is `think-problem-restatement`; it generates several framing moves and converges, while laddering only moves up and down the altitude axis.)",
-        "\"We agree the problem is 'reduce checkout abandonment at the payment step' and that's the right level. Now break it into its component sub-problems so we can assign owners.\" (decomposition into all parts -> issue tree, not a single vertical chain.)",
+        "\"We agree the problem is 'reduce checkout abandonment at the payment step' and that's the right level. Now break it into its component sub-problems so we can assign owners.\" (decomposition into all parts -> think-issue-tree, not a single vertical chain.)",
         "\"We've settled on the right problem. Now give me a bunch of creative solution ideas for it.\" (ideation, not altitude.)",
         "\"We have three framings on the table and need to pick which one to fund.\" (decision/option comparison, not laddering.)",
         "\"Summarize what the team shipped this sprint for a status update.\" (unrelated.)"
@@ -39,10 +39,10 @@
       "description": "Produces a clustered theme map that groups many raw notes, observations, quotes, or data points bottom-up into a small set of named, traceable themes (the KJ method). Use when a scattered pile of dozens to hundreds of existing items needs to become a few emergent themes, such as synthesizing user-research notes, support tickets, survey free-text, or retro stickies, and the right structure should emerge from the data rather than be imposed.",
       "anti_triggers": [
         "\"Break down 'why is free-tier activation low?' into a structured tree of sub-questions to investigate.\" (near-miss: top-down decomposition from a question - that is an issue-tree, not bottom-up clustering of existing items)",
-        "\"I need fresh feature ideas for next quarter. Generate a bunch of options for me.\" (near-miss: idea generation - affinity mapping organizes items that already exist, it does not create them; use brainwriting first)",
+        "\"I need fresh feature ideas for next quarter. Generate a bunch of options for me.\" (near-miss: idea generation - affinity mapping organizes items that already exist, it does not create them; use think-brainwriting first)",
         "\"I have three customer quotes. What do they tell me?\" (too few items - reason about them directly; the clustering ceremony adds overhead without insight)",
         "\"Sort each of these tickets into our fixed severity taxonomy: P0, P1, P2, P3.\" (coding into authoritative predefined buckets, not discovering emergent themes)",
-        "\"We're about to launch the free tier next week. Stress-test it and tell me how it could fail.\" (risk tool - premortem, not synthesis)",
+        "\"We're about to launch the free tier next week. Stress-test it and tell me how it could fail.\" (risk tool - think-premortem, not synthesis)",
         "\"Write a project status update summarizing what the team shipped this sprint.\" (unrelated)"
       ],
       "not_use": [
@@ -63,7 +63,7 @@
       "caveat_first": false,
       "description": "Produces a structured after-action review by comparing what was expected against what actually happened, diagnosing why the gaps occurred, and converting them into specific owned sustain-and-change actions. Use when a project, launch, sprint, or incident has finished and you want to turn the outcome into learning, not a status update.",
       "anti_triggers": [
-        "\"We're about to launch - imagine it failed and tell me why.\" (near-miss: premortem, before the event)",
+        "\"We're about to launch - imagine it failed and tell me why.\" (near-miss: think-premortem, before the event)",
         "\"Write the status update for what the team shipped this sprint.\" (status report, not learning)",
         "\"Summarize the incident timeline for the board.\" (summarization)",
         "\"Should we do A or B for the next launch?\" (decision)",
@@ -133,7 +133,7 @@
       "description": "Generates non-obvious ideas by surfacing the foundational assumptions a problem or solution rests on, negating each, and reframing from the reversed assumptions, then shortlisting, producing an assumptions-and-reversals sheet. Use when an option space feels stuck inside default constraints, or when you need to expose premises that are taken for granted.",
       "anti_triggers": [
         "\"We've narrowed to three pricing models and need to pick one. Score them and tell me which to commit to.\" (decision)",
-        "\"Imagine our launch failed six months from now - walk backward through what went wrong.\" (near-miss: premortem/inversion 'how to fail', not surfacing-and-reversing premises)",
+        "\"Imagine our launch failed six months from now - walk backward through what went wrong.\" (near-miss: think-premortem / inversion 'how to fail', not surfacing-and-reversing premises)",
         "\"Our device must meet FDA Class II via the 510(k) pathway, non-negotiable. Help us design within those fixed constraints.\" (binding constraints can't be reversed)",
         "\"Summarize this finalized go-to-market doc into a one-page brief.\" (summarization)",
         "\"Give me your top three recommendations for which growth channel to invest in.\" (recommendations)",
@@ -180,8 +180,8 @@
       "caveat_first": false,
       "description": "Produces a backcast path by fixing a vivid desired future state and reasoning backward through the milestones and preconditions required to reach it, ending at the next concrete step available now. Use when planning toward a transformative or long-horizon goal that forward planning anchors too low, when a chosen future needs a route mapped back to today, or when milestones and dependencies between now and the goal must be made explicit.",
       "anti_triggers": [
-        "\"We're about to launch the free tier. Imagine it's six months out and it failed badly - why did it fail and what do we watch for?\" (near-miss: premortem - works back from *failure* to causes, not from *success* to the path)",
-        "\"If we launch this free tier, what are the second- and third-order knock-on effects over time?\" (futures wheel - forward consequences radiating outward, not a goal-first backward route)",
+        "\"We're about to launch the free tier. Imagine it's six months out and it failed badly - why did it fail and what do we watch for?\" (near-miss: think-premortem - works back from *failure* to causes, not from *success* to the path)",
+        "\"If we launch this free tier, what are the second- and third-order knock-on effects over time?\" (think-futures-wheel - forward consequences radiating outward, not a goal-first backward route)",
         "\"I've decided to ship daily code reviews but I keep skipping them. Help me actually follow through.\" (WOOP - personal intention-action gap, not a route to a future)",
         "\"Should we even build a self-serve free tier, or double down on sales-led? Help me decide.\" (the goal is unsettled - decision/option evaluation first; backcasting assumes the endpoint)",
         "\"I need to rename a staging environment - just a quick config change. What's the next step?\" (near-term, trivial plan; forward planning is sufficient)",
@@ -493,7 +493,7 @@
         "\"The free-tier launch happened last quarter and the results are in. Help me write up what we expected versus what actually happened and what to change.\" (near-miss: the outcome is already known - that is an after-action review, `think-after-action-review`; a \"journal entry\" written now would back-fit the prediction)",
         "\"Should I rename my staging environment? One-line config change I can revert anytime.\" (trivial / fully reversible - not worth a journal entry)",
         "\"What would have to be true for the in-house build to be the right call?\" (near-miss: that is `think-what-would-have-to-be-true`, which surfaces conditions; the journal captures the whole decision plus a predicted outcome and confidence)",
-        "\"Stress-test this launch plan by imagining it has already failed and list the risks.\" (that is a premortem, a risk tool, not a contemporaneous decision record)",
+        "\"Stress-test this launch plan by imagining it has already failed and list the risks.\" (that is think-premortem, a risk tool, not a contemporaneous decision record)",
         "\"This decision is already locked by contract; just note it for the file.\" (no honest prediction or confidence to record - nothing to calibrate against)",
         "\"Write a project status update summarizing what the team shipped this sprint.\" (unrelated)"
       ],
@@ -680,8 +680,8 @@
       "caveat_first": false,
       "description": "Generates novel solution candidates by stating a problem's deep relational structure, mapping it to distant source domains (nature, other industries, games), and transferring the mechanism rather than surface features, then adapting. Use when near, obvious solutions are exhausted and you need genuinely original approaches.",
       "anti_triggers": [
-        "\"We have a seed idea - run it through Substitute/Combine/Adapt to vary it.\" (near-miss: SCAMPER transforms an existing seed; this transfers from distant domains)",
-        "\"Generate a broad set of ideas from several independent angles.\" (brainwriting; not specifically distant-analogy)",
+        "\"We have a seed idea - run it through Substitute/Combine/Adapt to vary it.\" (near-miss: think-scamper transforms an existing seed; this transfers from distant domains)",
+        "\"Generate a broad set of ideas from several independent angles.\" (think-brainwriting; not specifically distant-analogy)",
         "\"Pick the best of these five growth options.\" (decision)",
         "\"There's a standard, obvious fix for this - just apply it.\" (near solution exists; far analogy is overkill)",
         "\"Reframe what problem we're actually solving.\" (problem-restatement)",
@@ -814,7 +814,7 @@
         "\"The deploy failed because the cert expired at midnight. Renew it and we're done.\" (simple, linear, single cause - no iceberg needed)",
         "\"Brainstorm names for our new free tier.\" (ideation, not causal analysis)",
         "\"Summarize this 10-page incident report into a paragraph.\" (summarization)",
-        "\"We've decided to rebuild checkout in-house; this is the last gate before we commit budget. Surface what could blow up.\" (premortem: risk on a forward decision, not the causes of a recurring problem)"
+        "\"We've decided to rebuild checkout in-house; this is the last gate before we commit budget. Surface what could blow up.\" (think-premortem: risk on a forward decision, not the causes of a recurring problem)"
       ],
       "not_use": [
         "A simple, linear, single-cause problem. One event, one obvious cause, a known fix. Forcing four levels manufactures false depth; say it is a simple cause and stop.",
@@ -1053,7 +1053,7 @@
       "caveat_first": false,
       "description": "Produces a reversibility classification that triages a decision before any analysis - labeling it a reversible two-way door or a hard-to-reverse one-way door - and matches the deliberation and sign-off level to that verdict, so reversible calls are made fast and irreversible ones get real rigor. Use when it is unclear how much process a decision deserves, when a team is about to rubber-stamp something irreversible or convene a committee over something trivially reversible, or when a chronically slow org needs a defensible reason to move fast or slow down.",
       "anti_triggers": [
-        "\"We've already agreed this acquisition is huge and irreversible. Now stress-test the plan for what could go wrong.\" (near-miss: triage is done, the decision is known high-stakes and under analysis - use premortem)",
+        "\"We've already agreed this acquisition is huge and irreversible. Now stress-test the plan for what could go wrong.\" (near-miss: triage is done, the decision is known high-stakes and under analysis - use think-premortem)",
         "\"We're down to three CI/CD vendors and keep going in circles. Lay out the tradeoffs against what matters and recommend one.\" (near-miss against the overlapping neighbor: this is comparing options against criteria - use `think-decision-option-review`, not a reversibility triage)",
         "\"Score these three onboarding-redesign approaches on the criteria that matter and tell me which to pick.\" (option comparison, not triage; this skill never recommends an option)",
         "\"Should I rename my staging environment? One-line config I revert anytime - just confirm.\" (no meaningful reversibility question; over-processing to classify it)",
@@ -1239,7 +1239,7 @@
       "anti_triggers": [
         "\"Given launches like ours, how often do they succeed?\" (a base-rate question; route to think-reference-class-forecasting, not QCA)",
         "\"What's the base rate for a self-serve free tier landing, using our comparable past launches?\" (route to think-reference-class-forecasting)",
-        "\"Why did this one launch fail?\" (single-case causal account; that is within-case process tracing in prose, not cross-case minimization)",
+        "\"Why did this one launch fail?\" (single-case causal account; that is within-case think-process-tracing, not cross-case minimization)",
         "\"Map how these reinforcing factors feed back on each other in our growth loop.\" (feedback structure; route to think-causal-loop-diagrams)",
         "\"Score these three launch options against our criteria and pick one.\" (option scoring; route to think-decision-option-review)",
         "\"Break this messy launch decision into its component sub-questions.\" (decomposition; route to think-issue-tree)"
@@ -1286,7 +1286,7 @@
         "\"The free-tier launch flopped last quarter. Walk us through what went wrong and what we'd do differently.\" (postmortem)",
         "\"We're committing to the roadmap and need buy-in. Help me write the announcement that aligns the team, not more debate.\" (alignment, not critique)",
         "\"Give me a rounded view of this pricing decision from customer, sales, finance, and engineering angles.\" (near-miss: parallel perspectives, not single adversarial case)",
-        "\"Assume we launch and it fails 12 months from now; map all the ways it could go wrong over time.\" (premortem)",
+        "\"Assume we launch and it fails 12 months from now; map all the ways it could go wrong over time.\" (think-premortem)",
         "\"Just poke holes for fun - any objection, doesn't matter if real or strong.\" (performative contrarianism)",
         "\"Summarize the attached strategy doc into three bullets.\" (summarization)"
       ],
@@ -1310,7 +1310,7 @@
         "\"We're inventing a genuinely new category - no one has shipped anything like this. How should I size it?\" (near-miss: no comparable reference class exists)",
         "\"Give me one exact number for Q3 revenue for the press release - a single committed value, no ranges.\" (wants a point certainty)",
         "\"Walk me through the bottom-up engineering breakdown so I can assign tasks.\" (inside-view task breakdown)",
-        "\"Imagine this launch already failed - work backward and list what caused it.\" (premortem)",
+        "\"Imagine this launch already failed - work backward and list what caused it.\" (think-premortem)",
         "\"What's the current USD/EUR exchange rate?\" (factual lookup)"
       ],
       "not_use": [
@@ -1644,7 +1644,7 @@
         "\"Brainstorm a wide list of growth strategies for next year, nothing decided.\" (ideation)",
         "\"Build me a scorecard comparing four vendor proposals so I can pick one.\" (decision comparison)",
         "\"PostgreSQL or MySQL for an internal logging tool? Quick reversible call.\" (trivial)",
-        "\"Imagine our launch failed six months from now; map everything that caused it.\" (near-miss: premortem, failure causes not success conditions)",
+        "\"Imagine our launch failed six months from now; map everything that caused it.\" (near-miss: think-premortem, failure causes not success conditions)",
         "\"Summarize this finished strategy deck; the decision is already made.\" (summarization)"
       ],
       "not_use": [

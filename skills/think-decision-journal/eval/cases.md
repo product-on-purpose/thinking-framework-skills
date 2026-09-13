@@ -16,7 +16,7 @@
 - "The free-tier launch happened last quarter and the results are in. Help me write up what we expected versus what actually happened and what to change." (near-miss: the outcome is already known - that is an after-action review, `think-after-action-review`; a "journal entry" written now would back-fit the prediction)
 - "Should I rename my staging environment? One-line config change I can revert anytime." (trivial / fully reversible - not worth a journal entry)
 - "What would have to be true for the in-house build to be the right call?" (near-miss: that is `think-what-would-have-to-be-true`, which surfaces conditions; the journal captures the whole decision plus a predicted outcome and confidence)
-- "Stress-test this launch plan by imagining it has already failed and list the risks." (that is a premortem, a risk tool, not a contemporaneous decision record)
+- "Stress-test this launch plan by imagining it has already failed and list the risks." (that is think-premortem, a risk tool, not a contemporaneous decision record)
 - "This decision is already locked by contract; just note it for the file." (no honest prediction or confidence to record - nothing to calibrate against)
 - "Write a project status update summarizing what the team shipped this sprint." (unrelated)
 

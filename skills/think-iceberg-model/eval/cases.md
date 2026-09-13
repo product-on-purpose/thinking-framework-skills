@@ -18,7 +18,7 @@
 - "The deploy failed because the cert expired at midnight. Renew it and we're done." (simple, linear, single cause - no iceberg needed)
 - "Brainstorm names for our new free tier." (ideation, not causal analysis)
 - "Summarize this 10-page incident report into a paragraph." (summarization)
-- "We've decided to rebuild checkout in-house; this is the last gate before we commit budget. Surface what could blow up." (premortem: risk on a forward decision, not the causes of a recurring problem)
+- "We've decided to rebuild checkout in-house; this is the last gate before we commit budget. Surface what could blow up." (think-premortem: risk on a forward decision, not the causes of a recurring problem)
 
 ## Output checks (a good output must)
 

@@ -13,8 +13,8 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "We have a seed idea - run it through Substitute/Combine/Adapt to vary it." (near-miss: SCAMPER transforms an existing seed; this transfers from distant domains)
-- "Generate a broad set of ideas from several independent angles." (brainwriting; not specifically distant-analogy)
+- "We have a seed idea - run it through Substitute/Combine/Adapt to vary it." (near-miss: think-scamper transforms an existing seed; this transfers from distant domains)
+- "Generate a broad set of ideas from several independent angles." (think-brainwriting; not specifically distant-analogy)
 - "Pick the best of these five growth options." (decision)
 - "There's a standard, obvious fix for this - just apply it." (near solution exists; far analogy is overkill)
 - "Reframe what problem we're actually solving." (problem-restatement)

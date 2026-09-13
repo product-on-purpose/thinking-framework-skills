@@ -17,7 +17,7 @@
 - "We're inventing a genuinely new category - no one has shipped anything like this. How should I size it?" (near-miss: no comparable reference class exists)
 - "Give me one exact number for Q3 revenue for the press release - a single committed value, no ranges." (wants a point certainty)
 - "Walk me through the bottom-up engineering breakdown so I can assign tasks." (inside-view task breakdown)
-- "Imagine this launch already failed - work backward and list what caused it." (premortem)
+- "Imagine this launch already failed - work backward and list what caused it." (think-premortem)
 - "What's the current USD/EUR exchange rate?" (factual lookup)
 
 ## Output checks (a good output must)

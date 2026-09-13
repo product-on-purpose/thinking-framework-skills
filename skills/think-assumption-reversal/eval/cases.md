@@ -14,7 +14,7 @@
 ## Should NOT trigger (wrong tool / near-miss)
 
 - "We've narrowed to three pricing models and need to pick one. Score them and tell me which to commit to." (decision)
-- "Imagine our launch failed six months from now - walk backward through what went wrong." (near-miss: premortem/inversion 'how to fail', not surfacing-and-reversing premises)
+- "Imagine our launch failed six months from now - walk backward through what went wrong." (near-miss: think-premortem / inversion 'how to fail', not surfacing-and-reversing premises)
 - "Our device must meet FDA Class II via the 510(k) pathway, non-negotiable. Help us design within those fixed constraints." (binding constraints can't be reversed)
 - "Summarize this finalized go-to-market doc into a one-page brief." (summarization)
 - "Give me your top three recommendations for which growth channel to invest in." (recommendations)

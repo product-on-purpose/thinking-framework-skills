@@ -1,6 +1,8 @@
 # Skill-selection eval scorecard
 
-Cases: 793 (393 trigger, 400 anti; 141 of the anti cases name a specific alternative) across 67 skills. Unrouted: 0.
+Cases: 793 (393 trigger, 400 anti; 157 of the anti cases name a specific alternative) across 67 skills. Unrouted: 0.
+
+> **Corrected scorecard.** Re-scored 2026-09-13 against a CORRECTED answer key; the routes are byte-identical to the 2026-09-10 run and no router was re-invoked. Sixteen anti-cases named their redirect target in prose only ("premortem", "process tracing"), which `namedSkill()` cannot match, so the key recorded `expected: none` - asserting no tool was right about situations a shipped skill handles. The blind router had already picked the right redirect in 16 of 16, so the defect was discarding correct answers: antiRightAlt was reported as 126/141 (89.4%) and is in fact 142/157 (90.4%). No other figure moves; falseFires is unaffected by construction, since a false fire is a pick of the SOURCE skill.
 
 ## What this scorecard measures (and what it does not)
 
@@ -26,20 +28,20 @@ The nine recipe commands plus `think-research-framework` are always-loaded descr
 
 A gate case is one where the authoring skill IS the right tool but its correct behavior is not a normal run (e.g. ask exactly one clarifying question). That is an output-level contract a routing eval cannot judge in either direction, so it is excluded rather than scored. Counting one as an anti-case would report correct behavior as a false fire.
 
-- **Trigger accuracy (top1): 99%** (391/393); soft (in top3): 100%.
-- **Anti no-false-fire: 99.7%** (399/400) - the skill did NOT grab a wrong-tool / no-tool situation. This is the metric that matters, and on this corpus it is **not** a clean sweep: one anti case drew a false fire (listed below). *(Figure corrected 2026-09-11: this line read `100% (399/400)`. The scorer rounded 99.75% up with `.toFixed(0)`; the paired `.json` always carried the correct `antiNoFirePct: 99.8` and `falseFires: 1`. The measurement is unchanged - the rendering overstated it. See `formatPct` in `scripts/eval/score-lib.mjs`.)*
-- Anti right-alternative: 89% (126/141) - of the anti cases naming a specific alternative, how many routed there (the rest mostly answered "none" on a genuinely trivial prompt, still not a false-fire).
+- **Trigger accuracy (top1): 99.4%** (391/393); soft (in top3): 99.7%.
+- **Anti no-false-fire: 99.7%** (399/400) - the skill did NOT grab a wrong-tool / no-tool situation. This is the metric that matters.
+- Anti right-alternative: 90.4% (142/157) - of the anti cases naming a specific alternative, how many routed there (the rest mostly answered "none" on a genuinely trivial prompt, still not a false-fire).
 
 | Skill | trigger top1 | top3 | anti no-fire | anti right-alt |
 |---|---|---|---|---|
-| abstraction-laddering | 100% (6/6) | 100% | 100% | 100% (1/1) |
-| affinity-mapping | 100% (6/6) | 100% | 100% | n/a |
-| after-action-review | 100% (6/6) | 100% | 100% | n/a |
-| analysis-of-competing-hypotheses | 100% (5/5) | 100% | 100% | 67% (2/3) |
+| abstraction-laddering | 100% (6/6) | 100% | 100% | 100% (2/2) |
+| affinity-mapping | 100% (6/6) | 100% | 100% | 100% (2/2) |
+| after-action-review | 100% (6/6) | 100% | 100% | 100% (1/1) |
+| analysis-of-competing-hypotheses | 100% (5/5) | 100% | 100% | 66.6% (2/3) |
 | argument-mapping | 100% (6/6) | 100% | 100% | n/a |
-| assumption-reversal | 100% (6/6) | 100% | 100% | n/a |
+| assumption-reversal | 100% (6/6) | 100% | 100% | 100% (1/1) |
 | authentic-dissent | 100% (6/6) | 100% | 100% | n/a |
-| backcasting | 100% (6/6) | 100% | 100% | n/a |
+| backcasting | 100% (6/6) | 100% | 100% | 100% (2/2) |
 | belief-update-routine | 100% (6/6) | 100% | 100% | 100% (3/3) |
 | boundary-critique | 100% (6/6) | 100% | 100% | 50% (2/4) |
 | brainwriting | 100% (6/6) | 100% | 100% | n/a |
@@ -50,40 +52,40 @@ A gate case is one where the authoring skill IS the right tool but its correct b
 | consider-the-unknowns | 100% (6/6) | 100% | 100% | 100% (4/4) |
 | contradiction-resolution | 100% (6/6) | 100% | 100% | 100% (3/3) |
 | contradiction-tension-mapping | 100% (6/6) | 100% | 100% | 100% (5/5) |
-| decision-journal | 100% (6/6) | 100% | 100% | 100% (2/2) |
+| decision-journal | 100% (6/6) | 100% | 100% | 100% (3/3) |
 | decision-option-review | 100% (6/6) | 100% | 100% | n/a |
 | dialectical-bootstrapping | 100% (6/6) | 100% | 100% | 100% (2/2) |
 | eisenhower-moscow-pareto | 100% (6/6) | 100% | 100% | 100% (6/6) |
 | ethical-matrix | 100% (6/6) | 100% | 100% | 50% (2/4) |
 | evidence-vs-inference-sort | 100% (6/6) | 100% | 100% | n/a |
 | expected-value-decision-tree | 100% (5/5) | 100% | 100% | 50% (2/4) |
-| far-analogy-ideation | 100% (6/6) | 100% | 100% | n/a |
+| far-analogy-ideation | 100% (6/6) | 100% | 100% | 100% (2/2) |
 | fermi-estimation | 100% (6/6) | 100% | 100% | 100% (5/5) |
 | five-whys | 100% (6/6) | 100% | 100% | 80% (4/5) |
 | frame-creation | 100% (6/6) | 100% | 100% | 100% (4/4) |
 | framework-advisor | 80% (4/5) | 80% | 100% | 100% (3/3) |
 | futures-wheel | 100% (6/6) | 100% | 100% | n/a |
-| iceberg-model | 100% (6/6) | 100% | 100% | n/a |
+| iceberg-model | 100% (6/6) | 100% | 100% | 100% (1/1) |
 | interest-based-negotiation | 100% (6/6) | 100% | 100% | 100% (1/1) |
 | interval-calibration-check | 100% (6/6) | 100% | 100% | 100% (2/2) |
-| issue-tree | 83% (5/6) | 100% | 100% | n/a |
+| issue-tree | 83.3% (5/6) | 100% | 100% | n/a |
 | ladder-of-inference-check | 100% (6/6) | 100% | 100% | n/a |
 | linear-model-aggregation | 100% (6/6) | 100% | 100% | n/a |
 | minimax-regret | 100% (6/6) | 100% | 100% | 100% (3/3) |
-| morphological-analysis | 100% (6/6) | 100% | 100% | 83% (5/6) |
+| morphological-analysis | 100% (6/6) | 100% | 100% | 83.3% (5/6) |
 | natural-frequency-bayesian | 100% (6/6) | 100% | 100% | n/a |
-| one-way-vs-two-way-door | 100% (6/6) | 100% | 100% | 100% (1/1) |
-| pairwise-comparison | 100% (6/6) | 100% | 83% | 100% (4/4) |
+| one-way-vs-two-way-door | 100% (6/6) | 100% | 100% | 100% (2/2) |
+| pairwise-comparison | 100% (6/6) | 100% | 83.3% | 100% (4/4) |
 | parallel-perspectives-review | 100% (6/6) | 100% | 100% | n/a |
 | premortem | 100% (6/6) | 100% | 100% | n/a |
 | problem-restatement | 100% (6/6) | 100% | 100% | n/a |
 | process-tracing | 100% (6/6) | 100% | 100% | 100% (3/3) |
 | pyramid-principle | 100% (6/6) | 100% | 100% | 100% (2/2) |
-| qualitative-comparative-analysis | 100% (6/6) | 100% | 100% | 100% (5/5) |
+| qualitative-comparative-analysis | 100% (6/6) | 100% | 100% | 100% (6/6) |
 | question-burst | 100% (6/6) | 100% | 100% | n/a |
 | random-frameworks | 100% (4/4) | 100% | 100% | 80% (4/5) |
-| red-team-light | 100% (6/6) | 100% | 100% | n/a |
-| reference-class-forecasting | 100% (6/6) | 100% | 100% | n/a |
+| red-team-light | 100% (6/6) | 100% | 100% | 100% (1/1) |
+| reference-class-forecasting | 100% (6/6) | 100% | 100% | 100% (1/1) |
 | reflective-equilibrium | 100% (6/6) | 100% | 100% | 100% (6/6) |
 | research-framework | 100% (4/4) | 100% | 100% | 100% (2/2) |
 | role-storming | 100% (6/6) | 100% | 100% | 100% (6/6) |
@@ -97,7 +99,7 @@ A gate case is one where the authoring skill IS the right tool but its correct b
 | top3 | 100% (4/4) | 100% | 100% | 100% (3/3) |
 | veil-of-ignorance-reasoning | 100% (6/6) | 100% | 100% | 50% (1/2) |
 | walton-argumentation-schemes | 100% (6/6) | 100% | 100% | 100% (4/4) |
-| what-would-have-to-be-true | 100% (6/6) | 100% | 100% | n/a |
+| what-would-have-to-be-true | 100% (6/6) | 100% | 100% | 100% (1/1) |
 | woop | 100% (6/6) | 100% | 100% | n/a |
 
 ## False-fires (a skill grabbed a wrong-tool situation - the real failure mode): 1

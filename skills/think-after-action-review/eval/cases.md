@@ -13,7 +13,7 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "We're about to launch - imagine it failed and tell me why." (near-miss: premortem, before the event)
+- "We're about to launch - imagine it failed and tell me why." (near-miss: think-premortem, before the event)
 - "Write the status update for what the team shipped this sprint." (status report, not learning)
 - "Summarize the incident timeline for the board." (summarization)
 - "Should we do A or B for the next launch?" (decision)

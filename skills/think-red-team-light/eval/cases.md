@@ -16,7 +16,7 @@
 - "The free-tier launch flopped last quarter. Walk us through what went wrong and what we'd do differently." (postmortem)
 - "We're committing to the roadmap and need buy-in. Help me write the announcement that aligns the team, not more debate." (alignment, not critique)
 - "Give me a rounded view of this pricing decision from customer, sales, finance, and engineering angles." (near-miss: parallel perspectives, not single adversarial case)
-- "Assume we launch and it fails 12 months from now; map all the ways it could go wrong over time." (premortem)
+- "Assume we launch and it fails 12 months from now; map all the ways it could go wrong over time." (think-premortem)
 - "Just poke holes for fun - any objection, doesn't matter if real or strong." (performative contrarianism)
 - "Summarize the attached strategy doc into three bullets." (summarization)
 
