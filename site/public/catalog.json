@@ -1258,7 +1258,7 @@
       "family": "systems-and-consequences",
       "evidence_tier": "P",
       "mechanism": "code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome",
-      "when_to_use": "Handles a by-name request for QCA (Qualitative Comparative Analysis), the truth-table-and-Boolean-minimization method, honestly. At session scale the input almost never exists and the method certifies configurations from noise, so this skill does NOT build the truth table as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-reference-class-forecasting for a set of comparable cases, or process tracing in prose for one case). Use only when someone asks for QCA or a truth-table minimization by name.",
+      "when_to_use": "Handles a by-name request for QCA (Qualitative Comparative Analysis), the truth-table-and-Boolean-minimization method, honestly. At session scale the input almost never exists and the method certifies configurations from noise, so this skill does NOT build the truth table as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-reference-class-forecasting for a set of comparable cases, or think-process-tracing for a single case). Use only when someone asks for QCA or a truth-table minimization by name.",
       "artifact": "honest-redirect-brief",
       "status": "active",
       "caveat_first": true,

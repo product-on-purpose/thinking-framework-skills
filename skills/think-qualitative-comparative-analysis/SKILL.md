@@ -1,6 +1,6 @@
 ---
 name: think-qualitative-comparative-analysis
-description: Handles a by-name request for QCA (Qualitative Comparative Analysis), the truth-table-and-Boolean-minimization method, honestly. At session scale the input almost never exists and the method certifies configurations from noise, so this skill does NOT build the truth table as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-reference-class-forecasting for a set of comparable cases, or process tracing in prose for one case). Use only when someone asks for QCA or a truth-table minimization by name.
+description: Handles a by-name request for QCA (Qualitative Comparative Analysis), the truth-table-and-Boolean-minimization method, honestly. At session scale the input almost never exists and the method certifies configurations from noise, so this skill does NOT build the truth table as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-reference-class-forecasting for a set of comparable cases, or think-process-tracing for a single case). Use only when someone asks for QCA or a truth-table minimization by name.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.qualitative-comparative-analysis
@@ -35,7 +35,7 @@ The method fails three ways at session scale. The input (a real population of co
 
 - As a way to actually build a truth table and minimize configurations from a session-sized, loosely-coded case set (the regime where the simulations show QCA certifies noise as "sufficient").
 - When the user has not named QCA: route generic "which combination of factors drives this outcome" work straight to the evidence-based skills below.
-- For one case: that is within-case territory (process tracing), not cross-case minimization.
+- For one case: that is within-case territory and this library ships `think-process-tracing` for it, not cross-case minimization.
 
 ## Instructions
 
