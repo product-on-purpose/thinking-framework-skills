@@ -66,7 +66,7 @@ Before finalizing, verify:
 - [ ] Does not reproduce the discredited truth table or minimized configurations as a valid conclusion; redirects to an evidence-based alternative.
 - [ ] The real decision behind the request is named.
 - [ ] The input precondition is checked honestly (a real population of comparable, deeply-known cases almost never exists in a session).
-- [ ] The output redirects to a specific evidence-based shipped skill (`think-reference-class-forecasting`) or to process tracing in prose for one case.
+- [ ] The output redirects to a specific evidence-based shipped skill **by name**: `think-reference-class-forecasting` for a set of comparable cases, or `think-process-tracing` for a single case. Telling the user to hand-roll a method this library ships does not pass.
 - [ ] Methodological pedigree (textbooks, software, a methods community) is not cited as if it were outcome evidence.
 
 ## Evidence
