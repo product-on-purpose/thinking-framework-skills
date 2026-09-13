@@ -178,7 +178,19 @@ Shipped: preamble ratchet 6 to 3, soft-endorsement denylist, citation-shaped evi
 
   **Not fixed here, deliberately.** Changing a published evidence tier is a substantive claim change on a public page, not a consistency cleanup, and it is the kind of decision this repo reserves for a maintainer. Three dispositions are available and they are not equivalent: (a) re-grade the five registry entries to the conservative half, which moves five public tier claims *downward* and is the option most consistent with the stated rule; (b) declare a governing grade in each skill's prose, as the other three already do, which keeps the grade and makes the reasoning explicit; (c) decide the rule binds only *new* entries from the research engine, and say so in the rule.
 
-  **The guard does not assert this.** `scripts/lib/tier-lib.mjs` encodes only the invariants that hold today, and records why: a guard that reds its own tree teaches people to ignore guards. Whichever disposition is chosen, the conservative rule becomes assertable afterwards and should be added then.
+  **Recommendation: (a), re-grade the five registry entries to the conservative half.** It is the only disposition consistent with the rule the library states in its own subagent prompt, and `think-causal-loop-diagrams` is that rule's **own worked example** - "a method whose honest read is 'M/P, transferred' is tier P in the entry" describes it verbatim. (b) keeps five grades the stated rule says are too generous; (c) means writing down that the library's central honesty commitment applies only to entries added after a certain date, which is a real position but should be taken deliberately and in public, not by default.
+
+  **The guard does not assert this.** `scripts/lib/tier-lib.mjs` encodes only the invariants that hold today, and records why: a guard that reds its own tree teaches people to ignore guards. **The moment a disposition lands, the conservative rule becomes assertable** - add it to `tier-lib.mjs` then, with the five skills as its RED demonstration.
+
+## From the 2026-09-13 measurement pass
+
+- **OPEN: a scorecard can be committed while its stamps silently went nowhere, and nothing catches it.** Hit live on 2026-09-13. `score-selection.mjs --stamp` was passed 67 slugs read from the wrong field (the roster corpus carries `id`, not `slug`), so it received 67 literal `"undefined"` strings. It reported **`stamps trigger_eval_status -> measured-2026-09-13 on 0 skill(s) (skipped 0)`** and **wrote the scorecard anyway**, exit 0.
+
+  `check-eval-results.mjs` did not catch it, and correctly so under its current contract: the scorecard was perfectly well-formed and paired. The defect was that the *sidecars did not move*, which is a different assertion from the one that layer makes.
+
+  The failure mode is quiet in the worst way: a committed scorecard dated today beside 67 sidecars still claiming an older measurement date, with no error anywhere. It was caught only by reading the summary line, and only because the `--stamp`-takes-bare-slugs trap was already a recorded lesson.
+
+  **Two candidate fixes, the first probably sufficient:** (1) make `stampMeta` fail loudly rather than counting a nonexistent `skills/think-<slug>/` as a silent skip - a slug that resolves to no directory is always an operator error, never a legitimate no-op; (2) have `check-eval-results` assert that every skill a scorecard claims to measure carries a matching `*_eval_status` date. (1) is cheap and closes the observed hole; (2) is the stronger invariant but needs the scorecard to record which skills it measured.
 
 ## Pre-existing (predates this effort)
 
