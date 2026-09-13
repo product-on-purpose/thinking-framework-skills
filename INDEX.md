@@ -80,7 +80,7 @@
 
 ### Subagents (1, Claude-only)
 
-- [`think-research-framework`](agents/think-research-framework.md) - Researches a named thinking method, grades its evidence honestly on the seven-tier model, assesses overlap against the shipped catalog, drafts its learning dossier, and emits a schema-valid proposed registry entry for human review. Use for bounded framework research or a "discover N candidates in family X" brief. Triggers on "research framework", "grade this method", "evidence dossier", "discover candidates".
+- [`think-research-framework`](agents/think-research-framework.md) - Researches a named thinking method end to end and returns a verdict a human can act on - grades its evidence conservatively on the seven-tier model, proves or disproves distinctness against the shipped catalog, drafts its learning dossier, and emits a schema-valid proposed registry entry. Returns BUILD or FOLD, and folding is a success. Use when the question is whether a method deserves to ship, when an existing catalog judgment needs reproducing against current evidence, or when a family needs uncovered candidates shortlisted. Do NOT use to author a skill whose verdict is already settled, to run a framework on the user's own problem (use that skill, or think-framework-advisor), or for a product or domain question rather than an evaluation of a thinking method. Never writes the registry; a human admits the entry.
 
 ### Commands (10)
 
