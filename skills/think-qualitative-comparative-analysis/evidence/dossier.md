@@ -41,11 +41,11 @@ Nothing here is transferred evidence; there is simply no reasoning-outcome evide
 
 **Honest use:** as a research method, only when a real population of comparable, knowable cases exists (10 to 50), with case knowledge deep enough to defend every calibration, run under the published standards. In this library, only as a by-name request handled with the warn-and-redirect posture.
 
-**Fails / misleads when:** run at session scale - few cases, several conditions (limited diversity, so the minimized solution rides on counterfactual assumptions); casual coding (results swing on calibration thresholds, and random variables get certified as sufficient); the output is read as causal inference (the conservative and intermediate solutions failed the inverse-search benchmark); or applied to a single case (that is within-case territory, process tracing).
+**Fails / misleads when:** run at session scale - few cases, several conditions (limited diversity, so the minimized solution rides on counterfactual assumptions); casual coding (results swing on calibration thresholds, and random variables get certified as sufficient); the output is read as causal inference (the conservative and intermediate solutions failed the inverse-search benchmark); or applied to a single case (that is within-case territory, `think-process-tracing`).
 
 ## 6. Output artifact
 
-An **honest redirect brief**: the evidence caveat, the real decision behind the request, an honest input check, and the specific evidence-based move to run instead (`think-reference-class-forecasting` for a set of comparable past cases as a base rate; within-case process tracing in prose for one case). Explicitly NOT a truth table or minimized configurations with a "sufficient configuration" verdict.
+An **honest redirect brief**: the evidence caveat, the real decision behind the request, an honest input check, and the specific evidence-based move to run instead (`think-reference-class-forecasting` for a set of comparable past cases as a base rate; `think-process-tracing` for one case). Explicitly NOT a truth table or minimized configurations with a "sufficient configuration" verdict.
 
 ## 7. Sources
 
@@ -55,4 +55,4 @@ An **honest redirect brief**: the evidence caveat, the real decision behind the 
 4. Ragin (1987, 2008) and Rihoux and Ragin (2009) (the origin and the standard handbook).
 5. Hanckel and colleagues (2021), *BMC Public Health* 21:877 (conditional endorsement with the comparable-cases precondition).
 
-> **Verification status:** the simulation critiques and the established-practice grading are independently verified source by source. QCA is documented and warned, not endorsed as a session move; the better-grounded shipped move for a set of comparable cases is `think-reference-class-forecasting`, and the within-case sibling for one case is process tracing in prose.
+> **Verification status:** the simulation critiques and the established-practice grading are independently verified source by source. QCA is documented and warned, not endorsed as a session move; the better-grounded shipped move for a set of comparable cases is `think-reference-class-forecasting`, and the within-case sibling for one case is the shipped `think-process-tracing`.

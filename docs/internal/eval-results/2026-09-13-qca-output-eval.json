@@ -1,0 +1,18 @@
+{
+  "generated": "OUTPUT eval",
+  "skills": 1,
+  "totals": {
+    "checks": 6,
+    "passed": 6,
+    "passPct": 100,
+    "perfectSkills": 1,
+    "failedChecks": 0
+  },
+  "perSkill": {
+    "qualitative-comparative-analysis": {
+      "passed": 6,
+      "total": 6,
+      "fails": []
+    }
+  }
+}
