@@ -184,13 +184,20 @@ Shipped: preamble ratchet 6 to 3, soft-endorsement denylist, citation-shaped evi
 
 ## From the 2026-09-13 measurement pass
 
-- **OPEN: a scorecard can be committed while its stamps silently went nowhere, and nothing catches it.** Hit live on 2026-09-13. `score-selection.mjs --stamp` was passed 67 slugs read from the wrong field (the roster corpus carries `id`, not `slug`), so it received 67 literal `"undefined"` strings. It reported **`stamps trigger_eval_status -> measured-2026-09-13 on 0 skill(s) (skipped 0)`** and **wrote the scorecard anyway**, exit 0.
+- **CLOSED 2026-09-14 (#139): a scorecard could be committed while its stamps silently went nowhere.** Hit live on 2026-09-13. It reported **`stamps trigger_eval_status -> measured-2026-09-13 on 0 skill(s) (skipped 0)`**, **wrote the scorecard anyway**, and exited 0.
 
-  `check-eval-results.mjs` did not catch it, and correctly so under its current contract: the scorecard was perfectly well-formed and paired. The defect was that the *sidecars did not move*, which is a different assertion from the one that layer makes.
+  **The mechanism recorded here on 2026-09-13 was wrong, and the real one is more interesting.** This entry said the call "received 67 literal `"undefined"` strings". It did not. The slug list was built by mapping the roster corpus over `.slug` when that corpus carries `id`, so every element was `undefined` - and **`[undefined, ...].join(',')` renders undefined as an EMPTY STRING**, not `"undefined"`. The argument was therefore **66 bare commas**, which `filter(Boolean)` reduced to `[]`.
 
-  The failure mode is quiet in the worst way: a committed scorecard dated today beside 67 sidecars still claiming an older measurement date, with no error anywhere. It was caught only by reading the summary line, and only because the `--stamp`-takes-bare-slugs trap was already a recorded lesson.
+  That matters because it changes which guard was at fault. The nonexistent-directory path never ran. What ran was `resolveStampTargets`'s explicit-empty rule - whose own docblock calls it *"fail-safe, so a miscomputed target set cannot fall back to all."* **The fail-safe guarded exactly one direction.** It prevents over-stamping and silently permits under-stamping to zero, and the empty list *was* the miscomputed target set it claimed to protect against. The argument also never looked empty; it looked like a long list, which is why no truthiness check caught it.
 
-  **Two candidate fixes, the first probably sufficient:** (1) make `stampMeta` fail loudly rather than counting a nonexistent `skills/think-<slug>/` as a silent skip - a slug that resolves to no directory is always an operator error, never a legitimate no-op; (2) have `check-eval-results` assert that every skill a scorecard claims to measure carries a matching `*_eval_status` date. (1) is cheap and closes the observed hole; (2) is the stronger invariant but needs the scorecard to record which skills it measured.
+  `check-eval-results.mjs` did not catch it, and correctly so under its contract: the scorecard was well-formed and paired. The defect was that the *sidecars did not move*, a different assertion from the one that layer makes.
+
+  **Fixed in #139**, both holes, and validated *before* any write at both call sites - because a loud throw that fires after the artifact is on disk still leaves a committable scorecard whose stamps never landed:
+  - `stampMeta` throws on an explicitly empty target list ("stamp nothing" is expressed by not calling it, which is what `--no-stamp` now means at both call sites) and on any slug naming no `skills/think-<slug>/`, with all targets checked before the first write so a half-good list cannot half-stamp the tree.
+  - `score-selection.mjs` and `finalize.mjs` both resolve and validate targets before writing, exit 2, and name the `think-` prefix trap in the error text.
+  - Regression-tested on the real expression (`corpus.map(x => x.slug).join(',') === ',,'`), so the test fails if `join`'s undefined handling is ever what changes.
+
+  **Still open, deliberately not built:** having `check-eval-results` assert that every skill a scorecard claims to measure carries a matching `*_eval_status` date. That is the stronger invariant - it would catch the failure even from a caller that never used these two scripts - but it needs the scorecard to record *which* skills it measured, which no scorecard does today. Worth doing when a third commit path appears; the two that exist are now guarded at the source.
 
 ## Pre-existing (predates this effort)
 

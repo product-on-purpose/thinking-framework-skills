@@ -37,7 +37,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildArtifacts } from './finalize.mjs';
-import { stampMeta } from './stamp-meta.mjs';
+import { stampMeta, missingStampTargets } from './stamp-meta.mjs';
 import { buildRoster, tallyCommandPicks } from '../lib/selection-lib.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -130,11 +130,40 @@ for (const a of arts) {
 }
 
 const dry = argv.includes('--dry-run');
+
+// Resolve the stamp targets BEFORE writing anything. A scorecard whose stamps silently went
+// nowhere is the failure this ordering exists to prevent: on 2026-09-13 a miscomputed slug list
+// (mapped over `.slug` on a corpus that carries `id`) reduced to [], stamped zero sidecars, and
+// the scorecard was written anyway at exit 0 - leaving a run dated that day beside 67 sidecars
+// claiming an older date. stampMeta now throws on an empty list, but throwing AFTER the write
+// would still leave a committable artifact behind, so the check happens first.
+const wantsStamp = !argv.includes('--no-stamp');
+const stampSlugs = wantsStamp
+  ? (flag('--stamp') || META_SKILLS.join(',')).split(',').map((s) => s.trim()).filter(Boolean)
+  : [];
+if (wantsStamp && stampSlugs.length === 0) {
+  console.error(
+    `score-selection: --stamp resolved to zero targets, which is an operator error rather than an ` +
+    `intent (to stamp nothing, pass --no-stamp). No scorecard was written.`,
+  );
+  process.exit(2);
+}
+const missingTargets = wantsStamp ? missingStampTargets(ROOT, stampSlugs) : [];
+if (missingTargets.length) {
+  console.error(
+    `score-selection: ${missingTargets.length} of ${stampSlugs.length} --stamp target(s) name no ` +
+    `skills/think-<slug>/skill.meta.yml - ${missingTargets.slice(0, 8).join(', ')}` +
+    `${missingTargets.length > 8 ? ', ...' : ''}. Note --stamp takes BARE slugs (no think- prefix). ` +
+    `No scorecard was written.`,
+  );
+  process.exit(2);
+}
+
 if (!dry) for (const a of arts) writeFileSync(resolve(ROOT, a.path), a.content, 'utf8');
 
 let stampNote = 'skipped (--no-stamp)';
-if (!argv.includes('--no-stamp')) {
-  const slugs = (flag('--stamp') || META_SKILLS.join(',')).split(',').map((s) => s.trim()).filter(Boolean);
+if (wantsStamp) {
+  const slugs = stampSlugs;
   if (dry) {
     stampNote = `would stamp ${slugs.length}: ${slugs.join(', ')}`;
   } else {
