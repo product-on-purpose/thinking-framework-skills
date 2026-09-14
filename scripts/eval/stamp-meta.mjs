@@ -42,13 +42,58 @@ export function resolveStampTargets(frameworks, slugs) {
   return [...slugs];
 }
 
+// Which of `targets` name no `skills/think-<slug>/skill.meta.yml`. Exported so a caller can run
+// the check BEFORE it writes a scorecard: stampMeta throwing is loud, but throwing after the
+// artifact is on disk still leaves a committable scorecard whose stamps never landed, which is
+// the precise shape of the 2026-09-13 failure.
+export function missingStampTargets(root, targets) {
+  return (targets || []).filter((slug) => !existsSync(join(root, 'skills', 'think-' + slug, 'skill.meta.yml')));
+}
+
+// Two ways an operator can silently stamp NOTHING, both observed live on 2026-09-13, and both
+// now refused loudly. The run that found them committed a scorecard dated that day beside 67
+// sidecars still claiming an older measurement date, and reported it as
+// `on 0 skill(s) (skipped 0)` at exit 0.
+//
+//   1. An explicit target list that resolves to EMPTY. What actually happened: the slug list was
+//      built by mapping the roster corpus over `.slug`, but that corpus carries `id`. Every entry
+//      was `undefined`, and `[undefined, ...].join(',')` renders undefined as an EMPTY STRING -
+//      so the argument was 66 bare commas, which `filter(Boolean)` reduced to []. The
+//      "explicit empty list stamps nothing" rule then did exactly what it says.
+//      That rule is still right as a RESOLUTION rule - a miscomputed target set must never fall
+//      back to "all" - but it was guarding one direction only. It prevents over-stamping and
+//      silently permits under-stamping to zero. Stamping nothing is expressed by NOT CALLING
+//      this function (what `--no-stamp` means at both call sites), never by handing it [].
+//   2. A slug naming no `skills/think-<slug>/`. Always an operator error - a typo, a wrong
+//      field, a renamed skill - never a legitimate no-op.
+//
+// Both are validated BEFORE anything is written, so a bad target list cannot leave the tree
+// half-stamped.
 export async function stampMeta(date, which, root, slugs) {
   const field = which + '_eval_status';
   const reg = (await import('file://' + join(root, 'frameworks', 'registry.mjs').replace(/\\/g, '/'))).default;
+  const targets = resolveStampTargets(reg.frameworks, slugs);
+
+  if (targets.length === 0) {
+    throw new Error(
+      `stamp-meta: refusing to stamp ${field} for ${date}: the target list is empty. An empty ` +
+      `list is an operator error (a miscomputed slug set), not an intent - to stamp nothing, ` +
+      `do not call stampMeta at all. Nothing was written.`,
+    );
+  }
+
+  const paths = targets.map((slug) => [slug, join(root, 'skills', 'think-' + slug, 'skill.meta.yml')]);
+  const missing = missingStampTargets(root, targets);
+  if (missing.length) {
+    throw new Error(
+      `stamp-meta: refusing to stamp ${field} for ${date}: ${missing.length} of ${targets.length} ` +
+      `target(s) name no skills/think-<slug>/skill.meta.yml - ${missing.slice(0, 8).join(', ')}` +
+      `${missing.length > 8 ? ', ...' : ''}. Nothing was written.`,
+    );
+  }
+
   let stamped = 0, skipped = 0;
-  for (const slug of resolveStampTargets(reg.frameworks, slugs)) {
-    const p = join(root, 'skills', 'think-' + slug, 'skill.meta.yml');
-    if (!existsSync(p)) { skipped++; continue; }
+  for (const [, p] of paths) {
     const s = readFileSync(p, 'utf8');
     const next = stampField(s, field, date);
     if (next !== s) { writeFileSync(p, next, 'utf8'); stamped++; } else skipped++;

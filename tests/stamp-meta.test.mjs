@@ -1,6 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { stampField, resolveStampTargets } from '../scripts/eval/stamp-meta.mjs';
+import { readFileSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { stampField, resolveStampTargets, stampMeta, missingStampTargets } from '../scripts/eval/stamp-meta.mjs';
+
+const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 test('stampField rewrites only the target field, preserving the rest', () => {
   const yaml = 'quality:\n  trigger_eval_status: not-run\n  output_eval_status: not-run\n';
@@ -54,4 +59,55 @@ test('resolveStampTargets: an explicit EMPTY list stamps nothing, it does not me
   // Fail-safe, not fail-open: a caller that computed an empty target set by mistake must
   // stamp zero sidecars rather than silently stamping all 63.
   assert.deepEqual(resolveStampTargets(FRAMEWORKS, []), []);
+});
+
+// --- stamping nothing must be LOUD ----------------------------------------------------
+// The rule above is right as a RESOLUTION rule, and it guarded exactly one direction. It stops a
+// miscomputed target set from falling back to "all", and silently permits it to fall to ZERO.
+//
+// That happened, on 2026-09-13. A slug list was built by mapping the roster corpus over `.slug`,
+// but that corpus carries `id`. Every entry was `undefined` - and `[undefined, ...].join(',')`
+// renders undefined as an EMPTY STRING, so the argument was 66 bare commas, which
+// `filter(Boolean)` reduced to []. The run reported `on 0 skill(s) (skipped 0)`, wrote its
+// scorecard, and exited 0, leaving a scorecard dated that day beside 67 sidecars claiming an
+// older measurement date. Nothing in the gate caught it: the scorecard was perfectly well-formed.
+
+test('the exact 2026-09-13 mistake: mapping over a field the corpus does not have', () => {
+  // Not a re-telling of the bug - the actual expression, so the test fails if `join` ever
+  // stopped rendering undefined as ''. This is the step that made the failure invisible:
+  // the argument does not LOOK empty, it looks like a long list.
+  const corpus = [{ id: 'premortem' }, { id: 'swot' }, { id: 'issue-tree' }];
+  const arg = corpus.map((x) => x.slug).join(',');
+  assert.equal(arg, ',,', 'undefined joins to an empty string, not "undefined"');
+  assert.notEqual(arg, '', 'and the argument is NOT empty, which is why a truthiness check missed it');
+  assert.deepEqual(arg.split(',').map((s) => s.trim()).filter(Boolean), []);
+});
+
+test('missingStampTargets names the slugs that resolve to no skill directory', () => {
+  const missing = missingStampTargets(REPO_ROOT, ['premortem', 'definitely-not-a-skill', 'issue-tree']);
+  assert.deepEqual(missing, ['definitely-not-a-skill']);
+});
+
+test('missingStampTargets catches the think- prefix mistake', () => {
+  // `--stamp` takes BARE slugs; `think-premortem` resolves to skills/think-think-premortem/.
+  assert.deepEqual(missingStampTargets(REPO_ROOT, ['think-premortem']), ['think-premortem']);
+});
+
+test('stampMeta REFUSES an explicit empty target list instead of stamping nothing quietly', async () => {
+  await assert.rejects(
+    () => stampMeta('2026-09-14', 'trigger', REPO_ROOT, []),
+    /refusing to stamp[\s\S]*target list is empty/,
+  );
+});
+
+test('stampMeta refuses a target that names no skill directory, and writes NOTHING first', async () => {
+  // Validation happens before any write, so a list that is half-good cannot leave the tree
+  // half-stamped. `premortem` is real and would have been rewritten under the old ordering.
+  const before = readFileSync(join(REPO_ROOT, 'skills', 'think-premortem', 'skill.meta.yml'), 'utf8');
+  await assert.rejects(
+    () => stampMeta('2026-09-14', 'trigger', REPO_ROOT, ['premortem', 'definitely-not-a-skill']),
+    /name no skills\/think-<slug>/,
+  );
+  const after = readFileSync(join(REPO_ROOT, 'skills', 'think-premortem', 'skill.meta.yml'), 'utf8');
+  assert.equal(after, before, 'a refused stamp must not have written the valid targets first');
 });

@@ -29,7 +29,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scoreTrigger, scoreOutput } from './score-lib.mjs';
-import { stampMeta } from './stamp-meta.mjs';
+import { stampMeta, missingStampTargets } from './stamp-meta.mjs';
 
 const OUT_DIR = 'docs/internal/eval-results';
 
@@ -89,10 +89,32 @@ if (invokedDirectly) {
   if (prov && opts.output) opts.output.provenance = readJson(prov[0]);
   if (!opts.trigger && !opts.output) { console.error('finalize: supply --trigger and/or --output'); process.exit(2); }
 
+  // `--no-stamp` is expressed by NOT CALLING stampMeta, the same way score-selection.mjs does
+  // it. Handing stampMeta [] used to mean the same thing, which is exactly what let a
+  // miscomputed slug list stamp zero sidecars in silence (see its header); it now throws.
+  const stampSlugs = stampTargetsFromArgv(argv);
+  const noStamp = Array.isArray(stampSlugs) && stampSlugs.length === 0;
+
+  // Resolve targets BEFORE writing. stampMeta throws on a bad list, but throwing after the
+  // artifacts are on disk still leaves a committable scorecard whose stamps never landed -
+  // the precise shape of the 2026-09-13 failure this ordering exists to prevent.
+  if (!noStamp) {
+    // `null` means the default (every shipped framework, computed from the registry, so every
+    // slug resolves by construction); only an EXPLICIT list can name a directory that is not there.
+    const missing = missingStampTargets(ROOT, stampSlugs ?? []);
+    if (missing.length) {
+      console.error(
+        `finalize: ${missing.length} --stamp target(s) name no skills/think-<slug>/skill.meta.yml - ` +
+        `${missing.slice(0, 8).join(', ')}${missing.length > 8 ? ', ...' : ''}. Note --stamp takes ` +
+        `BARE slugs (no think- prefix). Nothing was written.`,
+      );
+      process.exit(2);
+    }
+  }
+
   const arts = buildArtifacts(opts);
   for (const a of arts) writeFileSync(resolve(ROOT, a.path), a.content, 'utf8');
-  const stampSlugs = stampTargetsFromArgv(argv);
-  if (opts.trigger) await stampMeta(date, 'trigger', ROOT, stampSlugs);
-  if (opts.output) await stampMeta(date, 'output', ROOT, stampSlugs);
+  if (opts.trigger && !noStamp) await stampMeta(date, 'trigger', ROOT, stampSlugs);
+  if (opts.output && !noStamp) await stampMeta(date, 'output', ROOT, stampSlugs);
   console.log('finalize: wrote\n  ' + arts.map((a) => a.path).join('\n  '));
 }
