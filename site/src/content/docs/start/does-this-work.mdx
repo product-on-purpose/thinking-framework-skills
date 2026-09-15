@@ -1,6 +1,6 @@
 ---
 title: Does this actually work?
-description: We measured it, then re-measured it. Routing across all 63 skills sends a situation to the right framework (100% top-1, zero false-fires across 755 cases, re-run 2026-09-10 and reproducing the earlier result) and the artifacts mostly meet their own bar (424 of 429 checks, 98.8%, re-measured 2026-09-12 under a stricter judge). Here are the numbers, and what they do and do not prove.
+description: We measured it, then re-measured it, then measured how much the instrument itself wobbles. Routing across all 63 skills sends a situation to the right framework (100% top-1, zero false-fires across 755 cases, holding across three runs) and the artifacts mostly meet their own bar (424 of 429 checks, 98.8%, re-measured 2026-09-12 under a stricter judge). Here are the numbers, what they do and do not prove, and which digits are noise.
 ---
 
 import { Card, CardGrid, Aside, Badge } from '@astrojs/starlight/components';
@@ -41,6 +41,8 @@ Every trigger and anti-case from all **63 skills'** own `eval/cases.md` was pool
 The headline: **755 cases, zero false-fires, 100% top-1 routing** across all 63 skills. The catalog discriminates - the descriptions and anti-triggers send a situation to the right framework.
 
 **This run is a reproduction, and that is the point of showing it.** The trigger eval was re-run on 2026-09-10 against a byte-identical catalog and case set - the routing corpus has not changed since 2026-06-19 - so nothing about the library moved between the two runs. What changed: top-1 went 373/376 to 376/376, and right-alternative went 123/128 to 122/128. That is **run-to-run variance in a model-executed measurement**, not the catalog improving, and reading it as improvement would be a mistake. The number that matters held exactly: **zero false-fires, both times.**
+
+**A third run on 2026-09-13 returned 376 of 376 and zero false-fires again.** The routing corpus had changed slightly by then - one skill's description was corrected - so this is not a fourth reproduction of an identical setup, and it is reported as what it is: the same headline figures against a catalog that moved by one entry. Worth noting that this corpus is the *steadier* of the two measured here; the skill-selection corpus below does not reproduce as cleanly, and that difference is itself a finding.
 
 ## Output eval: the artifacts hit their own bar
 
