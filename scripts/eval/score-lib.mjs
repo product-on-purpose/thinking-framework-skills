@@ -148,7 +148,18 @@ export function scoreOutput(rawResults, opts = {}) {
   const json = {
     generated: 'OUTPUT eval', skills: results.length,
     totals: { checks: tTotal, passed: tPassed, passPct: tTotal ? +(100 * tPassed / tTotal).toFixed(1) : null, perfectSkills: perfect, failedChecks: fails.length },
-    perSkill: Object.fromEntries(results.map((r) => [r.skill, { passed: r.passed, total: r.total, fails: (r.perCheck || []).filter((c) => !c.pass).map((c) => c.check) }])),
+    // artifactChars is carried through deliberately. The harness measures it on every run and the
+    // .md has always printed it, but the .json dropped it - so the one machine-readable record of
+    // how big each skill's deliverable actually is existed only as a rendered table. It is the
+    // signal the subagent-suitability question needs (a subagent earns its keep when the caller
+    // wants the deliverable without the derivation), and a measurement taken and then discarded is
+    // the cheapest kind of waste.
+    perSkill: Object.fromEntries(results.map((r) => [r.skill, {
+      passed: r.passed,
+      total: r.total,
+      ...(r.artifactChars == null ? {} : { artifactChars: r.artifactChars }),
+      fails: (r.perCheck || []).filter((c) => !c.pass).map((c) => c.check),
+    }])),
   };
   if (opts.provenance) json.provenance = opts.provenance;
   return { md, json };

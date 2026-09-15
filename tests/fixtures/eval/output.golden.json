@@ -12,11 +12,13 @@
     "premortem": {
       "passed": 2,
       "total": 2,
+      "artifactChars": 1234,
       "fails": []
     },
     "swot": {
       "passed": 1,
       "total": 2,
+      "artifactChars": 999,
       "fails": [
         "d2"
       ]

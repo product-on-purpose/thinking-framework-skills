@@ -133,3 +133,26 @@ test('formatPct: a rendered scorecard never claims 100% for a NEAR-miss', () => 
   assert.ok(!/100%/.test(md), `399/400 must never render as 100%:\n${md.slice(0, 300)}`);
   assert.match(md, /99\.7%/, 'it should report 99.75% floored to 99.7%');
 });
+
+// --- artifactChars survives into the .json --------------------------------------------
+// The harness measures how big each skill's deliverable is on every run, and the .md scorecard
+// has always printed it in a table - but the .json dropped it, so the only machine-readable record
+// of artifact size existed as rendered markdown. It is the signal the subagent-suitability
+// question turns on (a subagent earns its keep when the caller wants the deliverable without the
+// derivation), and it could not be read from any committed scorecard.
+
+test('scoreOutput carries artifactChars into perSkill', () => {
+  const { json } = scoreOutput([
+    { skill: 'a', artifactChars: 12494, perCheck: [{ check: 'c', pass: true, reason: 'r' }], passed: 1, total: 1 },
+  ]);
+  assert.equal(json.perSkill.a.artifactChars, 12494);
+});
+
+test('scoreOutput omits artifactChars rather than writing null when the run did not measure it', () => {
+  // The older committed scorecards carry no artifact size. Emitting `artifactChars: null` would
+  // make "not measured" indistinguishable from "measured as nothing" for anyone reading the field.
+  const { json } = scoreOutput([
+    { skill: 'a', perCheck: [{ check: 'c', pass: true, reason: 'r' }], passed: 1, total: 1 },
+  ]);
+  assert.ok(!('artifactChars' in json.perSkill.a), 'absent, not null');
+});
