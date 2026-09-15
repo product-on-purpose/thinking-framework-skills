@@ -34,7 +34,7 @@ Every trigger and anti-case from all **63 skills'** own `eval/cases.md` was pool
     Across **379 anti-cases** (deliberately wrong-tool or no-tool situations), no skill wrongly grabbed one. **100%.** This is the metric that matters most: skills that do not over-trigger.
   </Card>
   <Card title="100% top-1, 100% top-3" icon="approve-check">
-    Of **376 "should fire" situations**, all 376 routed to the intended framework on the first pick in the 2026-09-10 re-run. The earlier run scored 373 of 376; the three misses were near-twins that still carried the intended skill in the top 3. Treat the difference as run-to-run variance, not progress - see below.
+    Of **376 "should fire" situations**, all 376 routed to the intended framework on the first pick - on 2026-09-10, and again on 2026-09-13. The earlier run scored 373 of 376; the three misses were near-twins that still carried the intended skill in the top 3. Treat the difference as run-to-run variance, not progress - see below.
   </Card>
 </CardGrid>
 
@@ -94,17 +94,23 @@ This eval routes against the **installed roster** - 67 skills plus 10 commands, 
     Across the four entry-point tools' own trigger cases, **16 of 17** routed to the intended tool on the first pick (**94.1%**), with **zero false fires** among them. The single miss is one advisor case - *"Should we launch a free tier? I'm nervous we're committing because it's the obvious move"* - which reads to a router as a decision to pressure-test rather than a request for routing. A defensible miss, and still a miss.
   </Card>
   <Card title="One false fire across the whole roster" icon="warning">
-    Over all **794 cases**: 391 of 393 top-1 (99.4%), and **399 of 400** anti-cases drew no false fire - which is **not** a clean sweep. `think-pairwise-comparison` grabbed *"I have twenty candidates to rank by forced pairwise comparison"*, an anti-case whose own prompt names the tool. Debatable on the merits; counted anyway.
+    Over all **794 cases**: **392 of 393** top-1 (99.7%), and **399 of 400** anti-cases drew no false fire - which is **not** a clean sweep. `think-pairwise-comparison` grabbed *"I have twenty candidates to rank by forced pairwise comparison"*, an anti-case whose own prompt names the tool. Debatable on the merits; counted anyway.
   </Card>
 </CardGrid>
 
 **Why that second card exists.** The trigger eval's zero-false-fire result is real and holds at 379 of 379. It would be easy to let that number stand for the whole library and leave this one out. But the two evals ask different questions of different corpora, and on *this* corpus the answer is 399 of 400, not 400 of 400. Quoting only the friendlier figure is the exact move a page like this exists not to make.
 
+**Read the last digit as noise, because we measured how much noise there is.** This exact measurement - same 794 prompts, same roster, same model - has now been run three times: once on 2026-09-10 and twice on 2026-09-13. Top-1 came back **391, 392, 392**. On the two runs where *nothing whatsoever changed between them*, **15 of the 794 picks still disagreed**, one of them flipping from wrong to right.
+
+So this instrument reproduces to within about one case, and the final digit of that percentage is not a fact about the library. Earlier versions of this page published a single run's figure with no indication of that, which invited exactly the kind of trend-reading the number cannot support.
+
+What does **not** move across all three runs: **399 of 400** on the anti-cases, **one** false fire, and the *same* false fire each time. The front-door figure does not move either - **16 of 17** with zero false fires, three times identically. Those are the figures to hold this library to. A one-case difference in the top-1 count is not evidence of anything.
+
 **The added commands did not steal selections.** v0.14.0 shipped nine always-loaded recipe commands, which raised a fair worry that more description surface would degrade routing. In this corpus they compete directly against all 67 skills: across 794 cases, commands took the top pick **twice** (0.25%), and appeared somewhere in the top 3 84 times. Visible to a router, and simply not winning.
 
 **All four entry-point tools now have both halves measured.** Their artifacts were graded too: the three that a generic produce-then-judge harness can measure scored **20 of 20** checks (2026-09-11), and the fourth - the research engine, which dispatches to a subagent and whose own instructions forbid running research inline - needed a purpose-built dispatch harness and scored **6 of 6**, one of those decided by running a schema validator rather than by a model judge.
 
-**What it does not prove.** Seventeen trigger cases is a small N, they are self-authored, and this is one run on one model. It is a first baseline for a question that had no instrument at all until 2026-09-10, not a settled property.
+**What it does not prove.** Seventeen trigger cases is a small N, and they are self-authored. It is a first baseline for a question that had no instrument at all until 2026-09-10, not a settled property. It has now held identically across three runs on one model, which rules out *this instrument's* day-to-day variance as the explanation but says nothing about a different model or a wider case set.
 
 ## The 7 contested lenses are folded into these numbers
 
@@ -126,7 +132,7 @@ A behavioral score is not an evidence claim. A contested lens can route correctl
 <Aside type="note" title="The limits, stated plainly">
 - The evals measure **routing** and **artifact quality**, not real-world **decision outcomes**. A premortem that surfaces five sharp risks is a good artifact; whether it made your launch succeed is a different, harder question the dossiers are honest about.
 - They are **model-executed and non-deterministic** - a snapshot, not a fixed property. One skill failed a check in a pilot and passed it in the full run. They are a measurement, not a gate.
-- **The evals carry different dates and are not blended.** Framework routing was re-run **2026-09-10** (755 cases); skill selection was measured **2026-09-10** against a different corpus (794 cases); the meta-skills' artifacts were re-graded **2026-09-11**; all 63 skills' artifacts were re-graded **2026-09-12** (429 checks). Each is reported under its own date and corpus above, and none is combined with another into a single headline. These superseded the earlier split cohorts (56 core skills 2026-06-17, 7 contested lenses 2026-06-19).
+- **The evals carry different dates and are not blended.** Framework routing was re-run **2026-09-13** (755 cases), returning the same headline figures as 2026-09-10 - 376 of 376 top-1 and zero false fires; skill selection was re-run **2026-09-13** against a different corpus (794 cases); the meta-skills' artifacts were re-graded **2026-09-11**; all 63 skills' artifacts were re-graded **2026-09-12** (429 checks). Each is reported under its own date and corpus above, and none is combined with another into a single headline. These superseded the earlier split cohorts (56 core skills 2026-06-17, 7 contested lenses 2026-06-19).
 - **The output figure is not comparable with the run before it, and we say so rather than charting a trend.** 428/429 (2026-06-25) and 424/429 (2026-09-12) were produced by *different graders* as well as against different skills. Two moving variables means the difference is not attributable, in either direction. Anyone drawing a line between those two points is reading noise and an instrument change as a trend.
 - **The earlier runs did not record which model produced them**, so the 2026-09-10 trigger figures are a reproduction of the *measurement*, not a controlled comparison against a known baseline model. Recording the model and fingerprinting the case set on every run is open work; this run records its model, the ones before it did not.
 </Aside>
