@@ -4,7 +4,7 @@
 > drift-checked (G4). Edit the source, not this file. Overview and positioning are
 > in [`README.md`](README.md); agent guidance is in [`AGENTS.md`](AGENTS.md).
 
-**Tier:** Gold (advanced). Standard 0.8. Version 0.15.0. Self-validating: `npx agent-skills-toolkit .`.
+**Tier:** Gold (advanced). Standard 0.8. Version 0.16.0. Self-validating: `npx agent-skills-toolkit .`.
 
 ## Components
 
