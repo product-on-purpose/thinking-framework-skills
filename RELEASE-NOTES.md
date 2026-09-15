@@ -2,6 +2,25 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.16.0
+
+**Four things changed for you. The rest of this release went into making sure the numbers on the trust page can be believed.** No new frameworks; the catalog stays 56 evidence-graded core skills plus 7 contested lenses. That is an unglamorous description, and it is the accurate one - so here is what actually reaches you, and then what it cost to find.
+
+### For everyone
+
+- **Ask for QCA about a single case, and you now get sent to a skill that exists.** The library used to tell you that process tracing was something to hand-roll - while shipping `think-process-tracing` at tier P. v0.15.0 fixed that sentence in the skill's body. It turned out to be on **six** surfaces, including the template the skill actually follows when it writes your answer, so the skill was only producing the right output by overriding its own instructions. All six are fixed, and the one that mattered most was found by a grader reading the file, not by anyone reading the code.
+- **Five frameworks now publish a *lower* evidence tier than they did.** `think-premortem` goes from S to M; `think-causal-loop-diagrams`, `think-concept-mapping`, `think-fermi-estimation` and `think-problem-restatement` go from M to P. Nothing about the evidence changed. These are all methods whose honest read is split - "M/P, transferred", say - and the library's own rule is that a split grade is capped at its **weaker** half. Five entries had been publishing the stronger half. If a grade on a framework page looks more cautious than you remember, this is why.
+- **The trust page tells you which digit is noise.** It used to publish "391 of 393" from a single run. That measurement has now been run three times against the same cases and the same catalog, returning 391, 392, 392 - and on two runs where *nothing changed at all*, 15 of the 794 routing picks still came out differently. So the page now says the last digit is not a fact about the library, and names what *does* hold every time: one false fire, the same one, and 16 of 17 on the front door.
+- **The research subagent says when *not* to use it.** Its description was a list of trigger keywords. Keywords tell a host what to match; they do not tell it when to stay out of the way.
+
+### For builders and contributors
+
+- **An eval answer key was throwing away correct answers.** Sixteen test cases named the right redirect in plain prose - "(premortem)" - where the extractor only recognises `think-premortem`, so the key recorded "no tool is right" about situations a shipped skill handles. Because the router never sees the key, the cost could be measured for free by re-scoring stored runs: it had **already** answered 16 of 16 correctly. The key was destroying credit, not catching a miss.
+- **A run could write a scorecard while its metadata updates silently went nowhere.** That happened, on 2026-09-13: a stamping step reported "0 skills (skipped 0)", wrote its scorecard, and exited clean. Both the tool and the gate now refuse it - and the gate catches it from *any* caller, not just the two scripts that were fixed.
+- **Four new guards, each demonstrated failing first.** A redirect cannot vanish from an answer key; a published tier cannot diverge from the evidence behind it, or launder the weaker half of a split grade; a scorecard cannot claim a measurement its metadata does not carry; and a duplicated prompt cannot drift from the instrument it copies. Test suite 326 -> 369.
+- **A full eval pass is three commands instead of four.** One Workflow call runs both halves. Its prompts are verbatim copies of the single-half runners - a workflow script cannot import - so a test requires them byte-identical, because a prompt *is* the instrument and a drifted copy would emit a scorecard indistinguishable from a correct one.
+- **The internal backlog was audited, and it was lying in one direction.** Nine entries described work as pending that had already shipped; none went the other way. Two eval runs were nearly spent re-measuring numbers already on disk. It now warns, on its first screen, that an entry is a lead rather than a fact.
+
 ## v0.15.0
 
 **We re-measured everything, and one number went down.** No new frameworks; the catalog stays 56 evidence-graded core skills plus 7 contested lenses. What changed is that the library stopped taking its own word for things. Four measurement runs closed the last gaps in what it can see about itself - and they turned up four defects that no previous number had caught, including a false claim on the trust page and a skill telling you to hand-roll a method this library ships. All of it is published, including the figure that got worse.
