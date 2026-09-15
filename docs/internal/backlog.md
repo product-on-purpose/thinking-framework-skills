@@ -32,7 +32,9 @@ The four-workstream docs platform (site changelog, CI guards + gate 9 -> 13, doc
 Shipped as PR #98 (`f12f532`, rides `[Unreleased]`): `finalize.mjs` (one step writes both the `.md` and `.json` scorecard into `docs/internal/eval-results/` and stamps `skill.meta.yml`), the pure `score-lib.mjs` extraction, the 14th gate layer (eval-results pairing + shape), and the #95 retro-fix. These were deferred.
 
 - **Task 8 - combined-run Workflow (`scripts/eval/eval.workflow.mjs`).** Would run routing + produce/judge in one Workflow call so the operator flow is 3 commands instead of 4. Pure convenience; the provenance fix does not depend on it, and its smoke-test is a live model-executed run. No issue (low priority).
-- **Minors (fine-to-defer, from the per-task + whole-branch reviews).** No positive/negative TRIGGER-eval shape unit test in `tests/check-eval-results.test.mjs` (the OUTPUT path is unit-tested; the trigger path is covered only by the real-tree runner, though both share the same `REQUIRED_TOTALS` loop); `finalize.mjs` `main` has no try/catch (a failure still exits non-zero, just less cleanly); `tests/finalize.test.mjs` does not assert the JSON trailing newline. All triaged fine-to-defer by the final review; none block. (The one Minor worth fixing now, an unused import, was cleaned up in the branch.)
+- **CLOSED 2026-09-15 (#145). Minors (fine-to-defer, from the per-task + whole-branch reviews).** All three landed together: the negative TRIGGER-eval shape cases are now unit-tested (`tests/check-eval-results.test.mjs` had the positive case only, and the trigger path was otherwise covered solely by the real-tree runner); `finalize.mjs`'s CLI body is wrapped in a try/catch; and `tests/finalize.test.mjs` asserts every JSON artifact ends with exactly one trailing newline and still parses.
+
+  The try/catch earned its keep between being filed and being done: `stampMeta` now **throws** on an empty or unresolvable target list (#139), so the most likely failure in `finalize` is one an operator needs to *read* - naming the bad slug and saying nothing was written - rather than a stack trace to decode.
 
 ## From the lifecycle-metadata truth effort (2026-08-14)
 
@@ -211,7 +213,11 @@ Shipped: preamble ratchet 6 to 3, soft-endorsement denylist, citation-shaped evi
   - `score-selection.mjs` and `finalize.mjs` both resolve and validate targets before writing, exit 2, and name the `think-` prefix trap in the error text.
   - Regression-tested on the real expression (`corpus.map(x => x.slug).join(',') === ',,'`), so the test fails if `join`'s undefined handling is ever what changes.
 
-  **Still open, deliberately not built:** having `check-eval-results` assert that every skill a scorecard claims to measure carries a matching `*_eval_status` date. That is the stronger invariant - it would catch the failure even from a caller that never used these two scripts - but it needs the scorecard to record *which* skills it measured, which no scorecard does today. Worth doing when a third commit path appears; the two that exist are now guarded at the source.
+  **ALSO BUILT, 2026-09-15 (#145) - and the reason given for deferring it was wrong.** `check-eval-results` now asserts that every skill a scorecard claims to measure carries a matching `*_eval_status` date. This paragraph said it "needs the scorecard to record *which* skills it measured, which no scorecard does today". **Every scorecard already does**: `perSkill`'s keys are exactly that set. The blocker was imagined, and checking took one command.
+
+  The naive form of the rule would have red the gate on all committed history - a sidecar carries **one** date per field, so an older run is legitimately superseded. The rule that actually holds, measured across all **134** slug x field pairs before being encoded: *a sidecar's field must equal the date of the newest scorecard of that field's kind whose `perSkill` includes that skill.* `TRIGGER eval` and `SKILL-SELECTION eval` are different instruments but stamp the same field, so the newest of either governs. RED-demonstrated by reverting two sidecars to older dates.
+
+  This is now the stronger invariant the entry wanted: it guards the **result** rather than the two commit paths, so a third path - or a hand-edited sidecar - cannot reintroduce the failure.
 
 ## Pre-existing (predates this effort)
 
