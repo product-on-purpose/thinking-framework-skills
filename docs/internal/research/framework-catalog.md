@@ -70,7 +70,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 
 | Framework | Mechanism | Tier | Status |
 |---|---|---|---|
-| Problem Restatement | rewrite the problem several ways, pick a better frame | M | `[shipped]` |
+| Problem Restatement | rewrite the problem several ways, pick a better frame | P | `[shipped]` |
 | Abstraction Laddering | move up (why) and down (how) to the right altitude | P | `[shipped]` |
 | Contradiction Resolution (Ideal Final Result) | reframe a trade-off as a contradiction to dissolve (separation in time/space/scale/condition), anchored to an implementation-free Ideal Final Result | P | `[shipped]` |
 | Boundary Critique (Critical Systems Heuristics) | audit the boundary judgments that define a frame (who benefits / decides / has expertise / has standing), contrasting the 'is' boundary against the 'ought' boundary and naming the affected-but-excluded | C | `[shipped]` |
@@ -105,7 +105,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 
 | Framework | Mechanism | Tier | Status |
 |---|---|---|---|
-| Premortem | imagine the plan failed, work back to causes | S | `[shipped]` |
+| Premortem | imagine the plan failed, work back to causes | M | `[shipped]` |
 | Reference Class Forecasting | anchor an estimate on the base rate of comparable cases | S | `[shipped]` |
 | WOOP / MCII | wish-outcome-obstacle-plan with an if-then | S | `[shipped]` |
 | Backcasting | from a desired future, work back to the path | P | `[shipped]` |
@@ -121,7 +121,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Futures Wheel | map first/second/third-order consequences outward | P | `[shipped]` |
 | Iceberg Model | events -> patterns -> structures -> mental models | P | `[shipped]` |
 | Stocks and Flows reasoning | reason about accumulations and rates | S | `[shipped]` |
-| Causal Loop Diagrams | diagram reinforcing/balancing feedback loops | M | `[shipped]` |
+| Causal Loop Diagrams | diagram reinforcing/balancing feedback loops | P | `[shipped]` |
 | Second-Order Effects | lightweight 'and then what?' prompt | P | `[fold]` -> Futures Wheel |
 | Systems map / Leverage points | sketch elements/relationships; find intervention points | C | `[fold]` -> Iceberg Model |
 | Three Horizons | hold three overlapping change curves (declining present H1, contested transition H2, emerging desired future H3) on one time canvas, locate the actor, and read the transition dynamics | C | `[shipped]` |
@@ -144,7 +144,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Pairwise comparison | rank when you cannot score: judge items two at a time, tally the binary wins into a comparison matrix, and derive an order without an absolute scale | P | `[shipped]` |
 | Expected-value / decision-tree | price the uncertainty: a tree of choice and chance nodes, rolled back to an expected value per option, with a what-flips-it sensitivity note | P | `[shipped]` |
 | Minimax regret | minimize worst-case regret: build a regret (opportunity-loss) matrix over un-probabilized states and choose the option whose maximum regret is smallest | P | `[shipped]` |
-| Fermi estimation | structured order-of-magnitude estimate from decomposition | M | `[shipped]` |
+| Fermi estimation | structured order-of-magnitude estimate from decomposition | P | `[shipped]` |
 | Eisenhower / MoSCoW / Pareto | urgent-important triage; vital-few focus | P | `[shipped]` |
 | Kepner-Tregoe | the rational-process bundle - situation appraisal routes to problem analysis (cause), decision analysis (MUST/WANT choice), and potential problem analysis (forward risk) | P | `[recipe]` (ships as a workflow) |
 | Complexity Domain Sort | sort clear / complicated / complex / chaotic | C | `[shipped]` (branded) |
@@ -178,7 +178,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Affinity Mapping | cluster many notes into emergent themes (bottom-up) | P | `[shipped]` |
 | Pyramid Principle | answer-first governing thought + grouped support | P | `[shipped]` |
 | MECE decomposition | mutually-exclusive, collectively-exhaustive split | P | `[fold]` -> Issue Trees |
-| Concept Mapping | diagram concepts and labeled relationships | M | `[shipped]` |
+| Concept Mapping | diagram concepts and labeled relationships | P | `[shipped]` |
 | Dialectical synthesis | hold thesis/antithesis to a stronger synthesis | C | `[fold]` -> Red Team / Blue Team |
 | Contradiction / Tension Mapping (Polarity Mapping) | map an unsolvable polarity as both/and rather than smoothing it - name the two interdependent poles, the upside and downside of each, the greater purpose that makes managing both worthwhile, plus early-warning signs and action steps for staying in the productive zone | C | `[shipped]` (branded) |
 | Insight statement generation | turn observations into sharp, transferable insight statements (the why behind a finding) | P | `[excl]` |

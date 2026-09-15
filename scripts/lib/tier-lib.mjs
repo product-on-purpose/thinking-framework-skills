@@ -32,12 +32,21 @@
 //                                                        where it already lives.
 //   3. a declared governing grade == the registry     <- encoded here
 //
-// What is deliberately NOT encoded: "the registry grade must be the CONSERVATIVE half of a split
-// read". That is the library's stated non-negotiable, but five shipped skills violate it today
-// (causal-loop-diagrams, concept-mapping, fermi-estimation, premortem, problem-restatement all
-// carry the optimistic half with no governing declaration). Encoding an invariant the tree does
-// not satisfy would ship this guard red on the very tree it exists to protect, so the rule is
-// recorded in the backlog as a claim-level question for a human instead of asserted here.
+// A FOURTH invariant, added 2026-09-14 once it became true: for a SPLIT honest read, the
+// registry's single grade must be the CONSERVATIVE half. That is the library's stated
+// non-negotiable, in agents/think-research-framework.md:
+//
+//     "a method whose honest read is 'M/P, transferred' is tier P in the entry, never the
+//      optimistic half"
+//
+// It was deliberately NOT asserted when this file was written, because five shipped skills
+// violated it - causal-loop-diagrams, concept-mapping, fermi-estimation, premortem and
+// problem-restatement all carried the optimistic half, and causal-loop-diagrams read
+// "Tier **M/P**, transferred-evidence" verbatim, the rule's own worked example. Encoding an
+// invariant the tree does not satisfy ships a guard red on the tree it exists to protect, which
+// teaches people to ignore guards. So it was recorded as a claim-level question for a human
+// instead, the five were re-graded on a maintainer's decision, and the rule is asserted now.
+// The ORDER matters and is the reusable part: measure, report, decide, then encode.
 
 // Strongest to weakest. Conservative = weaker = HIGHER index. Never infer this from position in
 // a compound string: both "M/P" and "C/P" appear, and in "C/P" the conservative half is the FIRST.
@@ -119,6 +128,22 @@ export function checkTierConsistency(slug, skillMd, registryTier) {
       `tier: ${where} declares "Tier **${headline}** (governing...)" but the registry carries ` +
       `"${registryTier}". A governing grade is exactly what the registry is supposed to hold.`,
     );
+  }
+
+  // 4. A split honest read is capped at its conservative half. The library's central honesty
+  //    commitment, and the one an inflated grade would quietly break.
+  const members = tierParts(fmTier);
+  if (members.length > 1) {
+    const cap = conservativeTier(fmTier);
+    if (registryTier !== cap) {
+      problems.push(
+        `tier: ${where} publishes the OPTIMISTIC half of a split read - honest read "${fmTier}", ` +
+        `registry "${registryTier}", but a split read is capped at its conservative half "${cap}". ` +
+        `A method whose honest read is "${fmTier}" is tier ${cap} in the entry ` +
+        `(agents/think-research-framework.md). Laundering the weaker half out of a split grade is ` +
+        `the single failure this library exists to prevent.`,
+      );
+    }
   }
 
   return problems;
