@@ -21,7 +21,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkEvalResults } from './lib/eval-results-lib.mjs';
+import { checkEvalResults, checkStampsLanded } from './lib/eval-results-lib.mjs';
 
 const argRoot = process.argv.slice(2).find((a) => !a.startsWith('--'));
 const ROOT = resolve(argRoot || resolve(dirname(fileURLToPath(import.meta.url)), '..'));
@@ -37,11 +37,18 @@ const entries = readdirSync(dir)
     return { name, parsed };
   });
 
-const problems = checkEvalResults(entries);
+// Sidecar text for a slug, or null when there is no such skill directory (the referential
+// checks in check-registry.mjs own that case).
+const readSidecar = (slug) => {
+  const p = join(ROOT, 'skills', `think-${slug}`, 'skill.meta.yml');
+  return existsSync(p) ? readFileSync(p, 'utf8') : null;
+};
+
+const problems = [...checkEvalResults(entries), ...checkStampsLanded(entries, readSidecar)];
 if (problems.length) {
   console.error(`check-eval-results: ${problems.length} problem(s):`);
   for (const p of problems) console.error(`  - ${p}`);
   process.exit(1);
 }
-console.log(`check-eval-results: ${entries.length} file(s) - all scorecards paired and well-formed.`);
+console.log(`check-eval-results: ${entries.length} file(s) - all scorecards paired, well-formed, and their stamps landed.`);
 process.exit(0);

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { checkEvalResults } from '../scripts/lib/eval-results-lib.mjs';
+import { checkEvalResults, checkStampsLanded } from '../scripts/lib/eval-results-lib.mjs';
 
 const ok = (entries) => assert.deepEqual(checkEvalResults(entries), []);
 const hasProblem = (entries, re) => assert.ok(checkEvalResults(entries).some((p) => re.test(p)), `expected a problem matching ${re}`);
@@ -76,4 +76,113 @@ test('a TRIGGER eval scorecard still needs no provenance (the older runs carry n
     { name: '2026-06-25-trigger-eval.md' },
     { name: '2026-06-25-trigger-eval.json', parsed: { generated: 'TRIGGER eval', totals: { triggerTop1Pct: 99.2, falseFires: 0 } } },
   ]);
+});
+
+// --- the negative TRIGGER-eval shape case ----------------------------------------------
+// The positive case above has been covered since this gate shipped; the negative one was a
+// recorded Minor ("the trigger path is covered only by the real-tree runner"). Both kinds share
+// one REQUIRED_TOTALS loop, so this is about the TABLE being right for TRIGGER, not the loop.
+
+test('a TRIGGER eval scorecard missing totals.falseFires reds', () => {
+  hasProblem([
+    { name: '2026-06-25-trigger-eval.md' },
+    { name: '2026-06-25-trigger-eval.json', parsed: { generated: 'TRIGGER eval', totals: { triggerTop1Pct: 99.2 } } },
+  ], /missing totals\.falseFires/);
+});
+
+test('a TRIGGER eval scorecard missing totals.triggerTop1Pct reds', () => {
+  hasProblem([
+    { name: '2026-06-25-trigger-eval.md' },
+    { name: '2026-06-25-trigger-eval.json', parsed: { generated: 'TRIGGER eval', totals: { falseFires: 0 } } },
+  ], /missing totals\.triggerTop1Pct/);
+});
+
+// --- checkStampsLanded: the scorecard claims a measurement the sidecar must carry --------
+// Closes the hole #139 guarded only at the source. On 2026-09-13 a run reported
+// "on 0 skill(s) (skipped 0)", wrote its scorecard, and exited 0 - leaving a scorecard dated that
+// day beside 67 sidecars claiming an older date, with pairing and shape both perfectly happy.
+
+const sidecars = (map) => (slug) => (slug in map ? map[slug] : null);
+const card = (name, generated, slugs) => ({
+  name,
+  parsed: { generated, perSkill: Object.fromEntries(slugs.map((s) => [s, {}])) },
+});
+
+test('checkStampsLanded: a sidecar that never moved is caught', () => {
+  const problems = checkStampsLanded(
+    [card('2026-09-13-output-eval.json', 'OUTPUT eval', ['premortem'])],
+    sidecars({ premortem: 'quality:\n  output_eval_status: measured-2026-09-10\n' }),
+  );
+  assert.equal(problems.length, 1);
+  assert.match(problems[0], /expected measured-2026-09-13/);
+  assert.match(problems[0], /silently stamped nothing/);
+});
+
+test('checkStampsLanded: a matching sidecar is silent', () => {
+  assert.deepEqual(
+    checkStampsLanded(
+      [card('2026-09-13-output-eval.json', 'OUTPUT eval', ['premortem'])],
+      sidecars({ premortem: 'quality:\n  output_eval_status: measured-2026-09-13\n' }),
+    ),
+    [],
+  );
+});
+
+test('checkStampsLanded: an OLDER scorecard is superseded, not a failure', () => {
+  // The naive rule - every scorecard's date must match - would red on all committed history,
+  // because a sidecar carries ONE date per field. Only the newest run of a kind governs.
+  assert.deepEqual(
+    checkStampsLanded(
+      [
+        card('2026-06-25-output-eval.json', 'OUTPUT eval', ['premortem']),
+        card('2026-09-13-output-eval.json', 'OUTPUT eval', ['premortem']),
+      ],
+      sidecars({ premortem: 'quality:\n  output_eval_status: measured-2026-09-13\n' }),
+    ),
+    [],
+  );
+});
+
+test('checkStampsLanded: TRIGGER and SKILL-SELECTION both govern trigger_eval_status', () => {
+  // Different instruments, different corpora, same stamped field - so the newest of EITHER is
+  // what a sidecar's trigger date should reflect.
+  const problems = checkStampsLanded(
+    [
+      card('2026-09-13-trigger-eval.json', 'TRIGGER eval', ['premortem']),
+      card('2026-09-14-skill-selection-trigger-eval.json', 'SKILL-SELECTION eval', ['premortem']),
+    ],
+    sidecars({ premortem: 'quality:\n  trigger_eval_status: measured-2026-09-13\n' }),
+  );
+  assert.equal(problems.length, 1);
+  assert.match(problems[0], /expected measured-2026-09-14/);
+});
+
+test('checkStampsLanded: a slug with no skill directory is skipped, not double-reported', () => {
+  // check-registry.mjs owns "this slug has no directory"; reporting it here too would turn one
+  // defect into two failures pointing at different files.
+  assert.deepEqual(
+    checkStampsLanded([card('2026-09-13-output-eval.json', 'OUTPUT eval', ['gone'])], sidecars({})),
+    [],
+  );
+});
+
+test('checkStampsLanded: a scorecard with no recognised kind is ignored', () => {
+  // The older advisor-routing JSONs carry no `generated`, and must not be read as claiming
+  // a measurement of anything.
+  assert.deepEqual(
+    checkStampsLanded(
+      [{ name: '2026-06-12-advisor-routing.json', parsed: { perSkill: { premortem: {} } } }],
+      sidecars({ premortem: 'quality:\n  output_eval_status: measured-2020-01-01\n' }),
+    ),
+    [],
+  );
+});
+
+test('checkStampsLanded: an absent field is reported, not treated as a match', () => {
+  const problems = checkStampsLanded(
+    [card('2026-09-13-output-eval.json', 'OUTPUT eval', ['premortem'])],
+    sidecars({ premortem: 'quality:\n  trigger_eval_status: measured-2026-09-13\n' }),
+  );
+  assert.equal(problems.length, 1);
+  assert.match(problems[0], /\(absent\)/);
 });

@@ -69,52 +69,60 @@ export function buildArtifacts({ date, prefix, trigger, output }) {
 const samePath = (a, b) => (process.platform === 'win32' ? a.toLowerCase() === b.toLowerCase() : a === b);
 const invokedDirectly = !!process.argv[1] && samePath(resolve(process.argv[1]), fileURLToPath(import.meta.url));
 if (invokedDirectly) {
-  const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-  const argv = process.argv.slice(2);
-  const date = argv[0];
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) {
-    console.error('Usage: node scripts/eval/finalize.mjs <YYYY-MM-DD> [--prefix <name>] [--trigger <routed> <cases>] [--output <results>]');
-    process.exit(2);
-  }
-  const flag = (name) => { const i = argv.indexOf(name); return i === -1 ? null : argv.slice(i + 1); };
-  const prefix = (flag('--prefix') || [])[0];
-  const readJson = (p) => JSON.parse(readFileSync(resolve(ROOT, p), 'utf8'));
-
-  const opts = { date, prefix };
-  const trig = flag('--trigger');
-  if (trig) { const [routed, cases] = trig; opts.trigger = { routedRaw: readJson(routed), cases: readJson(cases).cases }; }
-  const out = flag('--output');
-  if (out) opts.output = { rawResults: readJson(out[0]) };
-  const prov = flag('--provenance');
-  if (prov && opts.output) opts.output.provenance = readJson(prov[0]);
-  if (!opts.trigger && !opts.output) { console.error('finalize: supply --trigger and/or --output'); process.exit(2); }
-
-  // `--no-stamp` is expressed by NOT CALLING stampMeta, the same way score-selection.mjs does
-  // it. Handing stampMeta [] used to mean the same thing, which is exactly what let a
-  // miscomputed slug list stamp zero sidecars in silence (see its header); it now throws.
-  const stampSlugs = stampTargetsFromArgv(argv);
-  const noStamp = Array.isArray(stampSlugs) && stampSlugs.length === 0;
-
-  // Resolve targets BEFORE writing. stampMeta throws on a bad list, but throwing after the
-  // artifacts are on disk still leaves a committable scorecard whose stamps never landed -
-  // the precise shape of the 2026-09-13 failure this ordering exists to prevent.
-  if (!noStamp) {
-    // `null` means the default (every shipped framework, computed from the registry, so every
-    // slug resolves by construction); only an EXPLICIT list can name a directory that is not there.
-    const missing = missingStampTargets(ROOT, stampSlugs ?? []);
-    if (missing.length) {
-      console.error(
-        `finalize: ${missing.length} --stamp target(s) name no skills/think-<slug>/skill.meta.yml - ` +
-        `${missing.slice(0, 8).join(', ')}${missing.length > 8 ? ', ...' : ''}. Note --stamp takes ` +
-        `BARE slugs (no think- prefix). Nothing was written.`,
-      );
+  try {
+    const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+    const argv = process.argv.slice(2);
+    const date = argv[0];
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) {
+      console.error('Usage: node scripts/eval/finalize.mjs <YYYY-MM-DD> [--prefix <name>] [--trigger <routed> <cases>] [--output <results>]');
       process.exit(2);
     }
-  }
+    const flag = (name) => { const i = argv.indexOf(name); return i === -1 ? null : argv.slice(i + 1); };
+    const prefix = (flag('--prefix') || [])[0];
+    const readJson = (p) => JSON.parse(readFileSync(resolve(ROOT, p), 'utf8'));
 
-  const arts = buildArtifacts(opts);
-  for (const a of arts) writeFileSync(resolve(ROOT, a.path), a.content, 'utf8');
-  if (opts.trigger && !noStamp) await stampMeta(date, 'trigger', ROOT, stampSlugs);
-  if (opts.output && !noStamp) await stampMeta(date, 'output', ROOT, stampSlugs);
-  console.log('finalize: wrote\n  ' + arts.map((a) => a.path).join('\n  '));
+    const opts = { date, prefix };
+    const trig = flag('--trigger');
+    if (trig) { const [routed, cases] = trig; opts.trigger = { routedRaw: readJson(routed), cases: readJson(cases).cases }; }
+    const out = flag('--output');
+    if (out) opts.output = { rawResults: readJson(out[0]) };
+    const prov = flag('--provenance');
+    if (prov && opts.output) opts.output.provenance = readJson(prov[0]);
+    if (!opts.trigger && !opts.output) { console.error('finalize: supply --trigger and/or --output'); process.exit(2); }
+
+    // `--no-stamp` is expressed by NOT CALLING stampMeta, the same way score-selection.mjs does
+    // it. Handing stampMeta [] used to mean the same thing, which is exactly what let a
+    // miscomputed slug list stamp zero sidecars in silence (see its header); it now throws.
+    const stampSlugs = stampTargetsFromArgv(argv);
+    const noStamp = Array.isArray(stampSlugs) && stampSlugs.length === 0;
+
+    // Resolve targets BEFORE writing. stampMeta throws on a bad list, but throwing after the
+    // artifacts are on disk still leaves a committable scorecard whose stamps never landed -
+    // the precise shape of the 2026-09-13 failure this ordering exists to prevent.
+    if (!noStamp) {
+      // `null` means the default (every shipped framework, computed from the registry, so every
+      // slug resolves by construction); only an EXPLICIT list can name a directory that is not there.
+      const missing = missingStampTargets(ROOT, stampSlugs ?? []);
+      if (missing.length) {
+        console.error(
+          `finalize: ${missing.length} --stamp target(s) name no skills/think-<slug>/skill.meta.yml - ` +
+          `${missing.slice(0, 8).join(', ')}${missing.length > 8 ? ', ...' : ''}. Note --stamp takes ` +
+          `BARE slugs (no think- prefix). Nothing was written.`,
+        );
+        process.exit(2);
+      }
+    }
+
+    const arts = buildArtifacts(opts);
+    for (const a of arts) writeFileSync(resolve(ROOT, a.path), a.content, 'utf8');
+    if (opts.trigger && !noStamp) await stampMeta(date, 'trigger', ROOT, stampSlugs);
+    if (opts.output && !noStamp) await stampMeta(date, 'output', ROOT, stampSlugs);
+    console.log('finalize: wrote\n  ' + arts.map((a) => a.path).join('\n  '));
+  } catch (err) {
+    // stampMeta throws on an empty or unresolvable target list (#139), and that is a
+    // message an operator needs to READ - naming the bad slug and saying nothing was
+    // written - not a stack trace they have to decode.
+    console.error(`finalize: ${err && err.message ? err.message : err}`);
+    process.exit(1);
+  }
 }

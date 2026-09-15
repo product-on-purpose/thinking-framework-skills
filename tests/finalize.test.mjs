@@ -118,3 +118,25 @@ test('buildArtifacts: an output run without provenance is unchanged (history sta
   const json = JSON.parse(arts.find((a) => a.path.endsWith('.json')).content);
   assert.ok(!('provenance' in json));
 });
+
+// --- the JSON artifact ends with a newline ---------------------------------------------
+// Recorded Minor from the eval-harness review. Not cosmetic: every scorecard .json is a
+// committed file, and a missing trailing newline makes `git diff` report "\ No newline at end of
+// file" and turns the next edit into a two-line change on one line. buildArtifacts appends it
+// deliberately (`JSON.stringify(...) + '\n'`); nothing asserted it stayed.
+
+test('every JSON artifact ends with exactly one trailing newline', () => {
+  const arts = buildArtifacts({
+    date: '2026-06-25',
+    trigger: { cases: readJson('trigger.cases.json').cases, routedRaw: readJson('trigger.routed.json') },
+    output: { rawResults: readJson('output.results.json') },
+  });
+  const jsons = arts.filter((a) => a.path.endsWith('.json'));
+  assert.equal(jsons.length, 2, 'expected a trigger and an output json');
+  for (const a of jsons) {
+    assert.ok(a.content.endsWith('\n'), `${a.path} must end with a newline`);
+    assert.ok(!a.content.endsWith('\n\n'), `${a.path} must not end with a blank line`);
+    // and it must still parse - the newline is outside the JSON value
+    assert.doesNotThrow(() => JSON.parse(a.content), `${a.path} must remain valid JSON`);
+  }
+});
