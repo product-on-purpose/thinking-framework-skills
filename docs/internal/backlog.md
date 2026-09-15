@@ -159,7 +159,11 @@ Shipped: preamble ratchet 6 to 3, soft-endorsement denylist, citation-shaped evi
 
 ## From the tier-consistency guard (2026-09-13)
 
-- **OPEN, and it is a claim-level question for a human: five shipped skills publish the OPTIMISTIC half of a split evidence tier.** Found by measuring the tier invariant across all 63 shipped skills before encoding it as a guard - which is also how the *first* draft of the rule was caught being wrong.
+- **CLOSED 2026-09-14 (#141): the five skills publishing the OPTIMISTIC half of a split evidence tier were re-graded to the conservative half, and the rule is now asserted.** The maintainer took disposition (a). `think-causal-loop-diagrams`, `think-concept-mapping`, `think-fermi-estimation` and `think-problem-restatement` go **M -> P**; `think-premortem` goes **S -> M**. Each now declares its governing grade in prose the way the three already-correct skills do, and `tier-lib.mjs` gained the conservative cap as a fourth invariant, RED-demonstrated by reverting `causal-loop-diagrams` to `M`.
+
+  **Frontmatter `evidence-tier` was deliberately left alone on all five.** It carries the *honest read*, which has not changed - the evidence is still split; only which half governs was wrong. That is also what kept both routing corpora still: `gen-recommendable` reads `tier` from the **frontmatter**, not the registry, so `recommendable.json` did not move by a byte and neither eval needed re-running. Worth remembering, because the instinct was to assume a tier change is a corpus change and buy two runs for it.
+
+  **The order is the reusable part: measure, report, decide, then encode.** The rule was left unasserted for a day precisely because the tree violated it, and a guard that reds its own tree teaches people to ignore guards. The original finding is kept below because the reasoning is what transfers.
 
   The library's own stated non-negotiable, in `agents/think-research-framework.md`, is that a split honest read is capped at its conservative half: *"a method whose honest read is 'M/P, transferred' is tier P in the entry, never the optimistic half."* Eight shipped skills carry a split read. Three resolve it exactly as written, by declaring a governing grade in prose that the registry then carries:
 

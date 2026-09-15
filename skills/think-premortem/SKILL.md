@@ -56,7 +56,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **S/M** (contested). Prospective hindsight reliably increases the number and specificity of causes surfaced and reduces overconfidence in a plan (Mitchell, Russo & Pennington 1989; Veinott, Klein & Wiggins 2010). It does **not** have strong evidence of improving final outcomes, and the often-quoted "30%" figure measures the *number of reasons generated*, not decision quality. The evidence is transferred from human studies and has not been validated for AI-augmented use. Full grading, sources, and caveats: `evidence/dossier.md`.
+Tier **M** (governing; honest read **S/M**, contested, capped at M). Prospective hindsight reliably increases the number and specificity of causes surfaced and reduces overconfidence in a plan (Mitchell, Russo & Pennington 1989; Veinott, Klein & Wiggins 2010). It does **not** have strong evidence of improving final outcomes, and the often-quoted "30%" figure measures the *number of reasons generated*, not decision quality. The evidence is transferred from human studies and has not been validated for AI-augmented use. Full grading, sources, and caveats: `evidence/dossier.md`.
 
 ## Examples
 

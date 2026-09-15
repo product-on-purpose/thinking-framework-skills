@@ -56,7 +56,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **M/P**. That how a problem is framed affects the quality and originality of solutions has moderate support (problem-finding research, Getzels & Csikszentmihalyi and successors; Nutt on decision failure from poor definition), and design practice treats a tight problem statement as upstream of better ideation (Stanford d.school; Wedell-Wedellsborg, HBR 2017). The specific "restate it several ways" technique is practitioner-grade, and evidence is transferred from human studies, not AI-validated. The popular Einstein "55 minutes" quote is apocryphal and is not used as support. Full grading and caveats: `evidence/dossier.md`.
+Tier **P** (governing; honest read **M/P**, capped at P). That how a problem is framed affects the quality and originality of solutions has moderate support (problem-finding research, Getzels & Csikszentmihalyi and successors; Nutt on decision failure from poor definition), and design practice treats a tight problem statement as upstream of better ideation (Stanford d.school; Wedell-Wedellsborg, HBR 2017). The specific "restate it several ways" technique is practitioner-grade, and evidence is transferred from human studies, not AI-validated. The popular Einstein "55 minutes" quote is apocryphal and is not used as support. Full grading and caveats: `evidence/dossier.md`.
 
 ## Examples
 
