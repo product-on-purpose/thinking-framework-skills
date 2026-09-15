@@ -176,14 +176,38 @@ off a run that measured a single tool.
       --trigger <routed.json> <cases.json> \
       --output <results.json>
 
-Add `--prefix contested` for a cohort run (writes `<date>-contested-<kind>-eval.*`). A full run is now: extract -> the route + output Workflows -> `finalize` (4 commands; 3 once the combined run Workflow lands). The committed scorecards are guarded: `scripts/check-eval-results.mjs` (a `check.mjs` layer) reds CI if any scorecard is missing its `.md`/`.json` twin or malformed.
+Add `--prefix contested` for a cohort run (writes `<date>-contested-<kind>-eval.*`).
+
+### A full pass: three commands
+
+`eval.workflow.mjs` runs both halves in one Workflow call, so a pass is **extract -> the combined Workflow -> `finalize`**:
+
+    node scripts/eval/extract-cases.mjs > cases.json     # + write the blind [{id,prompt}] copy
+    node scripts/eval/extract-output.mjs > out-cases.json
+
+    # Workflow scriptPath: scripts/eval/eval.workflow.mjs
+    #   args: { blindPath, count, casesPath, skills, batchSize?, corpusPath? }
+    #   returns { count, routed, corpusPath, routes, evaluated, of, results }
+
+    node scripts/eval/finalize.mjs <YYYY-MM-DD> \
+      --trigger <routed.json> <cases.json> \
+      --output <results.json>
+
+Each half of the return matches what the standalone runner emits, so `finalize` consumes them unchanged and the two paths cannot diverge in what they write.
+
+**Run the halves separately when you want them separate** - re-measuring only routing after a description change, say, or only the output half after a check is tightened. `route.workflow.mjs` and `output.workflow.mjs` stay the primary tools; the combined runner is for a full pass.
+
+Its prompts are **verbatim copies** of the two runners' (a Workflow script cannot import), and `tests/eval-workflow-prompts.test.mjs` asserts they stay byte-identical. A prompt is the instrument: #126 tightened the judge and moved the published output figure, and a copy that missed that edit would emit an identical-looking scorecard from a laxer judge. Edit a prompt in one place and the suite reds until both agree.
+
+The committed scorecards are guarded: `scripts/check-eval-results.mjs` (a `check.mjs` layer) reds CI if any scorecard is missing its `.md`/`.json` twin, is malformed, **or claims a measurement its skills' sidecars do not carry** - the last of those catches a stamping step that silently stamped nothing.
 
 ## Status / roadmap
 
 - **Trigger eval**: implemented (routing accuracy). First full run under `docs/internal/eval-results/`.
 - **Output eval**: implemented (artifact quality, produce -> judge). First full run under `docs/internal/eval-results/`.
 - **Finalize-driven flow**: implemented. `finalize.mjs` is the canonical commit path; `score.mjs` / `score-output.mjs` are now ad-hoc inspection tools only.
-- **Meta-skill coverage**: 3 of 4 fully measured (trigger + output, 2026-09-10). `think-research-framework` is output-unmeasurable by the *generic* produce-then-judge harness - it dispatches to a subagent with web search and its SKILL.md forbids inline research. The **dispatch output eval** above is the instrument that can measure it (built 2026-09-11); until it has been run and scored, the skill keeps `maturity: alpha` with the gap recorded in `docs/internal/backlog.md`.
+- **Meta-skill coverage**: **all 4 fully measured** (trigger + output). `think-research-framework` is output-unmeasurable by the *generic* produce-then-judge harness - it dispatches to a subagent with web search and its SKILL.md forbids inline research - so the **dispatch output eval** above was built for it and scored it **6/6 on 2026-09-11** (`docs/internal/eval-results/2026-09-11-research-framework-output-eval.*`). It reads `maturity: measured`; no tool in the library is `alpha` in `docs/internal/backlog.md`.
 - **Dispatch output eval**: implemented - a faithful-dispatch producer in an isolated worktree, a judge that grades only what a model may decide, and a deterministic validator pass for the one check a model must not decide.
 - **Skill-selection eval**: implemented - the sibling instrument that routes against the installed roster (67 skills + 10 commands) instead of the framework catalog. It is the only instrument that can measure the four meta-skills, and the only one that can answer guardrail 6's command-interference question.
+- **Combined run (Task 8)**: implemented - `eval.workflow.mjs` runs both halves in one Workflow call, making a full pass three commands. Its prompts are verbatim copies of the two single-half runners (a Workflow script cannot import) and `tests/eval-workflow-prompts.test.mjs` asserts they stay byte-identical, because a prompt is the instrument.
 - **Scorecard pairing guard**: implemented - `check-eval-results.mjs` is the 14th `check.mjs` layer; reds CI if any committed scorecard is missing its `.md`/`.json` twin or is malformed.
