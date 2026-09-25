@@ -96,6 +96,8 @@ Guardrail 6 requires a new surface to report a footprint delta **and** a routing
 
 2 to 3 subagents that preload specific skills and return only the artifact.
 
+> **Status 2026-09-24: built, as two RECIPE subagents rather than skill ones.** Phase 1 of this item found that `subagent_suitable` selects nothing and that the unit this spec's own rationale describes is a recipe; the maintainer took that option. `think-stress-test-decision` and `think-audit-reasoning` ship as subagents generated from their `_workflows/` source, each preloading exactly its chain and granted `Read, Glob, Grep` only. Selection, the corrected counts it rests on, the `pdca-a3` exclusion, and the preload verification: [`experiments/2026-09-15-subagent-suitability-inventory.md`](../experiments/2026-09-15-subagent-suitability-inventory.md#phase-2-decided-2026-09-24). The criterion: [`AUTHORING.md`](../AUTHORING.md#reasoning-subagents-when-a-recipe-becomes-one).
+
 - **Selection must be data-driven.** Every sidecar already carries `execution.subagent_suitable` and `execution.mode`, authored per skill and currently driving nothing. Inventory those fields first; if they turn out to be stale, fixing them is part of this phase rather than a reason to ignore them.
 - **Apply the C4-6 tool-constraint pattern from the start.** The one existing subagent grants six tools with instruction-level prohibitions only, and is being retrofitted with hard constraints. New subagents should not repeat that.
 
