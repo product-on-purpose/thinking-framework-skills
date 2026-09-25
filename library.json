@@ -569,6 +569,20 @@
         "version": "0.1.0",
         "tier": "convergent",
         "status": "active"
+      },
+      {
+        "name": "think-audit-reasoning",
+        "path": "agents/think-audit-reasoning.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
+      },
+      {
+        "name": "think-stress-test-decision",
+        "path": "agents/think-stress-test-decision.md",
+        "version": "0.1.0",
+        "tier": "convergent",
+        "status": "active"
       }
     ],
     "commands": [

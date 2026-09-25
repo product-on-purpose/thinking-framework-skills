@@ -54,7 +54,7 @@ skills/think-<method>/
    npm run gen:registry          # catalog + why-not views
    npm run gen:recommendable     # the advisor corpus
    npm run gen:catalog           # catalog.json, evaluated.json, llms.txt, llms-full.txt
-   npm run gen:recipe-commands   # one command per recipe (only if you touched _workflows/)
+   npm run gen:recipe-commands   # one command per recipe, plus the recipe subagents (only if you touched _workflows/)
    node scripts/gen-agents.mjs   # the AGENTS.md roster tables
    ```
 
@@ -100,11 +100,28 @@ generation overwrites the change and drifts from the source of truth.
 | `docs/internal/research/framework-catalog.md`, `site/.../about/why-not.md` | `scripts/gen-registry.mjs` | Generated *views* of `frameworks/registry.mjs`: the catalog family tables (between markers; narrative preserved) and the public why-not index. `--check` byte-compares. |
 | `INDEX.md` | agent-skills-toolkit `gen-index` | The repo-root index of components (regenerated at release time with the manifests). |
 | `skills/think-random-frameworks/references/engine.md` | `scripts/gen-engine.mjs` | The byte-identical copy of the shared applicator engine authored in `think-top3`. `--check` is a layer of the gate. |
+| `commands/think-<recipe>.md` (all nine) and `agents/think-<recipe>.md` (the allowlisted two) | `scripts/gen-recipe-commands.mjs` | Every runnable surface of a recipe, generated from its `_workflows/` source so the chain exists once. `--check` is a layer of the gate and also flags a generated agent whose recipe left the allowlist. |
 | `site/src/content/docs/{frameworks,tools,families,recipes,evidence,library,explore}/` | `scripts/gen-site.mjs` | The Starlight docs pages - a generated *view* of the skills + registry (frameworks, the `/tools/` meta-skills, the Framework Library, lenses, map, chooser). Gitignored and rebuilt each build. |
 
 The generator scripts (`scripts/gen-site.mjs`, `scripts/gen-recommendable.mjs`,
 `scripts/gen-registry.mjs`, `scripts/gen-engine.mjs`) document their own what / why / usage in
 their file headers; read those rather than a per-file sidecar.
+
+---
+
+## Reasoning subagents: when a recipe becomes one
+
+A subagent earns its place when the caller wants **the deliverable without the derivation**: running the thing inline would fill the conversation with working the caller will never read again. That is a property of the caller's need, not of how much a skill reads, and in this library it points at **recipes, not skills** - a single skill is situation-in, artifact-out and cheap to run inline, while a recipe drops every intermediate artifact into the caller's context when the caller wants the last one. Evidence: [`experiments/2026-09-15-subagent-suitability-inventory.md`](experiments/2026-09-15-subagent-suitability-inventory.md).
+
+A recipe qualifies only if all of these hold:
+
+1. **The chain finishes in one sitting.** Every numbered step names a skill. A step that happens in the world (`think-pdca-a3`'s "Do - run the change in the world") cannot be spanned by a delegate that returns once. Enforced: `renderAgent` throws on it.
+2. **The composite artifact stands alone.** The recipe's "Composite artifact:" line names something the caller acts on without the intermediates. Enforced: no parsable line, no agent.
+3. **There is a reason beyond size.** Length is a tie-break at most. `think-stress-test-decision` qualifies as the only 4-step chain; `think-audit-reasoning` qualifies because an auditor that shares the caller's context shares the assumptions it is meant to check.
+
+To add one: put the name and its rationale in `SUBAGENT_RECIPES` (`scripts/lib/recipe-agent-lib.mjs`), run `npm run gen:recipe-commands`, declare it in `library.json` `components.subagents`, and regenerate `INDEX.md` (the toolkit's `gen-index`). Never hand-edit a generated agent. The spec caps the set at 2 to 3; the test suite asserts it.
+
+The per-skill `execution.subagent_suitable` sidecar field predates this criterion and selects nothing. Do not author new values into it against this rule: the rule's unit is a recipe, and recipes have no sidecar.
 
 ---
 

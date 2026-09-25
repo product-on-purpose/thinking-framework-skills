@@ -225,6 +225,13 @@ Shipped: preamble ratchet 6 to 3, soft-endorsement denylist, citation-shaped evi
 
   This is now the stronger invariant the entry wanted: it guards the **result** rather than the two commit paths, so a third path - or a hand-edited sidecar - cannot reintroduce the failure.
 
+## From C3-3 phase 2: the recipe subagents (2026-09-24)
+
+`think-stress-test-decision` and `think-audit-reasoning` shipped as generated recipe subagents. Record: [`experiments/2026-09-15-subagent-suitability-inventory.md`](experiments/2026-09-15-subagent-suitability-inventory.md#phase-2-decided-2026-09-24). Deferred:
+
+- **Retire or re-scope `execution.subagent_suitable` in the 67 sidecars.** It selects nothing, and the criterion now written into `AUTHORING.md` has a recipe as its unit, which has no sidecar. The 2026-09-15 plan to *re-author* it once an output run supplies real artifact sizes is superseded: authoring values into a field whose question the library no longer asks repeats the original mistake with better data. The honest options are to delete the field, or to redefine it as "safe to preload into a recipe subagent" and derive it from `SUBAGENT_RECIPES`. Either touches all 67 sidecars and the toolkit's sidecar expectations, so it is its own change.
+- **No instrument measures the subagents' behaviour.** What was verified is a single headless run of each on Claude Code 2.1.282 (every preload landed, and the return was the composite artifact with no intermediates) - a smoke test, not a measurement. Two questions stay open and are both maintainer-gated spend: whether a host *auto-delegates* to them from their descriptions (no instrument here sees subagent descriptions; `manifest.generated.json` has no `agents` key, the same reason B-03 shipped unmeasured), and whether the delegated artifact is as good as the same chain run inline (the output eval produces skills, not recipes).
+
 ## Pre-existing (predates this effort)
 
 - **GA4 content-vs-acquisition decision.** Parked, waiting on the analytics signal (see `docs/internal/MEASUREMENT.md` and the content-plan). Tracked separately.

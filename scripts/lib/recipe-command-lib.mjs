@@ -18,22 +18,27 @@
 
 export const ARGUMENT_HINT = '[the decision, problem, or material to work through]';
 
-function frontmatterBlock(md) {
+export function frontmatterBlock(md) {
   const m = String(md || '').match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   return m ? { fm: m[1], body: m[2] } : { fm: '', body: String(md || '') };
 }
 
 /** Flat scalar out of the recipe frontmatter. Recipes author `description:` on one line. */
-function scalar(fm, key) {
+export function scalar(fm, key) {
   const m = fm.match(new RegExp(`^${key}:\\s*(.+?)\\s*$`, 'm'));
   return m ? m[1].replace(/^['"]|['"]$/g, '').trim() : null;
 }
 
+/** The chain's skill names, in order, from the authored steps list rather than from prose. */
+export function stepNames(fm) {
+  const m = String(fm || '').match(/^steps:\s*$([\s\S]*?)(?=^\S|\Z)/m);
+  if (!m) return [];
+  return (m[1].match(/^\s*-\s+\S+/gm) || []).map((l) => l.replace(/^\s*-\s+/, '').trim());
+}
+
 /** How many skills the chain runs, from the authored steps list rather than by counting prose. */
 export function stepCount(fm) {
-  const m = String(fm || '').match(/^steps:\s*$([\s\S]*?)(?=^\S|\Z)/m);
-  if (!m) return 0;
-  return (m[1].match(/^\s*-\s+\S+/gm) || []).length;
+  return stepNames(fm).length;
 }
 
 /**
