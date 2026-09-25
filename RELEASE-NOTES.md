@@ -2,6 +2,22 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.17.0
+
+**Two recipes can now be handed off whole.** No new frameworks; the catalog stays 56 evidence-graded core skills plus 7 contested lenses. What is new is a way to run a recipe without watching it.
+
+### For everyone
+
+- **Delegate a stress test or a reasoning audit, and get back only the result.** In Claude Code, `think-stress-test-decision` and `think-audit-reasoning` now also exist as subagents. Each runs its full chain of skills in its own context - option review, the conditions that must hold, a premortem and an outside-view estimate for the first; evidence sorting, the inference climb and a multi-lens review for the second - and returns just the decision brief or the reasoning audit. The intermediate matrices, ledgers and registers never land in your conversation. When you *do* want to see and steer each step, the `/think-stress-test-decision` and `/think-audit-reasoning` commands still run the same chain inline.
+- **The audit subagent reads your reasoning without your conversation, on purpose.** It starts with only the material you hand it. An auditor that has sat through the discussion shares the assumptions it is meant to be checking; one that has not can judge only what is on the page.
+- **Why two, and not all nine.** A recipe earns a subagent only if its chain can finish in one sitting and ends in something you can act on alone. `think-pdca-a3` cannot: its middle step is "run the change in the world", and a delegate that returns once cannot wait for that. The library now refuses to build that subagent rather than relying on someone remembering why not.
+
+### For builders and contributors
+
+- **Recipe subagents are generated, not written.** They come from the same `_workflows/` source as the commands, by the same `npm run gen:recipe-commands`, and the gate reds a hand-edit or a leftover one whose recipe was taken off the list. The rule for which recipes qualify is in `docs/internal/AUTHORING.md`.
+- **A silent failure worth knowing about.** If a subagent lists a skill to preload and Claude Code cannot find it, the only sign is one line in the debug log; the agent runs anyway, without it. These subagents were checked for exactly that before shipping, and each was run once end to end. That is a smoke test, not a measurement, and the release says so.
+- **A published number was wrong, and it changed the build.** The inventory behind this feature said recipes chain "3 to 7" skills. They chain 2 to 4: the count had included each recipe's own name. It was caught by re-measuring before building on it, and it is corrected in place.
+
 ## v0.16.0
 
 **Four things changed for you. The rest of this release went into making sure the numbers on the trust page can be believed.** No new frameworks; the catalog stays 56 evidence-graded core skills plus 7 contested lenses. That is an unglamorous description, and it is the accurate one - so here is what actually reaches you, and then what it cost to find.
