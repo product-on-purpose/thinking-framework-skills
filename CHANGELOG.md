@@ -4,6 +4,16 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.18.0] - 2026-10-14
+
+**Every eval figure can now say which model and which cases produced it, and one published figure turned out to be open-book.** No new skills; the catalog stays 56 core + 7 contested. Three roadmap items close: C1-4 (the manifest drift guard, #152), C2-1 (eval provenance, #153) and C2-2 (the routing feedback loop, #154). Agent discovery also learns about the three subagents (#151). The conformance gate stays at fifteen layers, and the test suite goes from 387 to 424.
+
+**The finding that matters most came from checking a spec's data flow before building it.** C2-2 proposed curing routing misses by adding "Should NOT trigger" cases. `gen-recommendable.mjs` copies those cases, word for word, into the router's catalog as `anti_triggers`. So every anti-case prompt was already in front of the router, and both anti-case figures were measured open-book. The trigger top-1 figure and the skill-selection eval are unaffected. The existing 2026-09-11 A/B bounds the inflation at one false fire and nine right-alternatives, on a single run. The trust page now says so beside the number (#155). How to fix the measurement is recorded as a maintainer decision in the backlog.
+
+**The routing corpus changed in one place, and the change is unmeasured.** `overlaps` now catches a sibling named by its bare slug, which adds 16 entries across 11 skills. Each of those names was already in the same entry's `not_use` text, so the router could already read it. The next measured trigger run is the one that would show any shift.
+
+**Standard re-pin review (release-process step 33): both dials held, and the gap was measured again.** The CI pin stays at toolkit `93da438`, and `library.json` keeps `"standard": "0.8"`. Toolkit `main` (`832c102`) is now **293 commits ahead** (it was 239 at v0.17.0) and is still at Standard 0.17. Graded against it in a scratch worktree, the repo at declared 0.8 returns **advanced / 0 errors / 90 warnings**, and the 90 findings match the pinned run line for line. Nothing in the gap gates here, and nothing in it is a fix this repo needs.
+
 ### Added
 
 - **Agent discovery now sees the subagents (#151).** Until now, `catalog.json`, `llms.txt` and `llms-full.txt` listed none of the three, so an agent reading them could not learn that a component could be delegated.
@@ -574,7 +584,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.17.0...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.0...HEAD
+[0.18.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.14.0...v0.15.0

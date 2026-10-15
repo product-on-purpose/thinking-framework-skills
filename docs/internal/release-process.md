@@ -38,7 +38,7 @@ Because the tier claim is scoped to a Standard version, the pin is a thing to lo
 2. Is anything in the gap **gating** rather than warning? A check that graduates from `warn` to `error` at a future version is a scheduled cliff, not a surprise.
 3. Decide: hold the pin, or re-pin and budget the debt. **Record the decision** in the release's CHANGELOG entry either way, so the next cutter inherits a reason rather than a mystery.
 
-**Current posture (reviewed at the v0.14.0 cut, 2026-09-10; originally decided 2026-08-14):** hold both dials - CI pinned at toolkit `93da438`, `library.json` declaring `0.8`.
+**Current posture (last reviewed at the v0.18.0 cut, 2026-10-14; originally decided 2026-08-14):** hold both dials - CI pinned at toolkit `93da438`, `library.json` declaring `0.8`. At v0.18.0, toolkit `main` was 293 commits ahead and at Standard 0.17, and grading against it returned the pinned run's 90 findings line for line.
 
 The original revisit trigger is **retired**. It named Standard 0.15, where the `S3` workflow mirror graduates from warn to error, because this repo had nine undeclared `_workflows/` recipes that would have become nine gating errors. #109 declared them and the pinned run now reports zero `S3` findings, so that cliff no longer exists.
 
@@ -75,4 +75,5 @@ These steps are safe to do on a release branch and land in the cutting PR. An ag
 
 - **Windows line endings.** `.gitattributes` pins LF repo-wide so the byte-exact drift guards compare identically; if a `git checkout` smudges a generated file to CRLF, regenerate to restore LF rather than committing the churn.
 - **Pinned toolkit.** The manifests and the gate are generated/validated by the toolkit at the CI-pinned ref. Bump that ref deliberately (in `ci.yml` and your local worktree) when adopting toolkit changes; do not let a drifted local sibling toolkit silently change manifest bytes.
+- **Grading against toolkit `main` for the re-pin review.** Check `main` out as a scratch worktree on a short path (`git -C ../agent-skills-toolkit -c core.longpaths=true worktree add --detach E:/tmp/ast-main origin/main`), because a deep path exceeds the Windows limit. The checkout then fails with "Filename too long" but leaves a partial tree behind, and the gate can still run against that tree and print a plausible total. Run `npm ci` in it, since toolkit `main` imports the `yaml` package and the pinned ref does not. Then run `AGENT_SKILLS_TOOLKIT=<worktree> node scripts/check.mjs` and diff its `[warn]` / `[error]` lines against the pinned run. CI already runs `npm ci` in its toolkit clone, so a re-pin needs no CI change for this.
 - **The version-only diff rule** (step 3) is the cheap guard that the manifests stayed in sync between releases; if the diff is larger, a skill was added/renamed without regenerating during normal development.

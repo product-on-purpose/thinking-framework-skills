@@ -2,6 +2,24 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.18.0
+
+**One number on the trust page came from an open-book test, and the page now says so.** No new frameworks; the catalog stays 56 evidence-graded core skills plus 7 contested lenses. This release is about the measurements. Every future eval result will say which model produced it and which test cases it ran. One existing result turned out to be easier to earn than it looked.
+
+### For everyone
+
+- **The "zero false-fires" figure was an open-book test.** The trust page reports how often a skill wrongly grabs a situation it should leave alone: zero times in 379. The router being tested had those very prompts in front of it. Its catalog is built partly from the test cases, each filed under the skill it must not pick. A run that already existed shows the size of the effect: with those hints removed, the router made one false fire in 379. The page now says this beside the number.
+- **The headline routing figure is unaffected.** The router picked the intended framework first for all 376 "should fire" situations. Those prompts never appear in the catalog, so that test was closed-book.
+- **The Framework Advisor reads 16 "use this instead" pointers as links.** They were already written in each skill's "When NOT to use" section, and the advisor could already read them there. Its catalog now also records them as structured links between 11 skills and their neighbours. No eval has measured this change yet.
+
+### For builders and contributors
+
+- **Every eval run must name its model, and every new scorecard records it.** Until now a run used whatever model the session was on, and the main scorecards did not say which. A run now refuses to start without a model. Its scorecard records the exact model version and a fingerprint of the test cases it ran, and the gate rejects a new scorecard without them. `npm run eval:freshness` lists the skills whose test cases changed after they were last measured.
+- **Every eval miss now ends in a decision.** `scripts/eval/list-misses.mjs` prints each miss in a scorecard. The first review found seven, and none needed a fix. In three, the router's pick is arguably better than the answer key. The other four are reasonable refusals of "just tell me" prompts.
+- **The fix this release refused to make.** The plan was to cure routing misses by adding "Should NOT trigger" test cases. Each new case would have printed its own answer into the catalog it is scored against. Checking the data flow first is what found the open-book problem. `AGENTS.md` now tells agents never to make that fix.
+- **Agent discovery sees the subagents.** Each entry in `catalog.json` now says whether a Claude Code subagent also runs it, and with which tools and preloaded skills. `llms.txt` and `llms-full.txt` gain a Subagents section.
+- **The last unguarded generated file is guarded.** `manifest.generated.json`, the roster the skill-selection eval reads, is now drift-checked locally field by field and in CI byte for byte. Test suite 387 -> 424.
+
 ## v0.17.0
 
 **Two recipes can now be handed off whole.** No new frameworks; the catalog stays 56 evidence-graded core skills plus 7 contested lenses. What is new is a way to run a recipe without watching it.

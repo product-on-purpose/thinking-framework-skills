@@ -462,16 +462,18 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ## 📊 Project status
 
-`v0.13.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
+`v0.18.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
 
 ### At a glance
 
 |  |  |
 |---|---|
-| **Current version** | [v0.13.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.13.0) |
+| **Current version** | [v0.18.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.0) |
 | **Frameworks** | 63, across 12 cognitive-operation families (56 core + 7 contested lenses) |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
-| **Recipes** | 9 (skill chains shipped as workflow components) |
+| **Recipes** | 9 (skill chains shipped as workflow components), each runnable as a slash command |
+| **Commands** | 10 (one per recipe, plus `/think-research-framework`) |
+| **Subagents** | 3 for Claude Code (the research engine and two recipes: `think-stress-test-decision`, `think-audit-reasoning`) |
 | **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) at Standard 0.8 - **0 errors**, 90 non-gating warnings (83 post-0.8 docs rules held at warn, 7 caveat-first lenses), self-hosting CI |
 | **Evidence** | 11 skills at `S` / `S-M` tier; every skill graded and sourced |
 | **Spec** | [agentskills.io](https://agentskills.io/specification) |
@@ -484,9 +486,11 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 ```
 thinking-framework-skills/
 ├── skills/                  # 63 frameworks + 4 tools (the source of truth)
-├── frameworks/              # registry.mjs (the catalog) + per-method dossiers
 │   └── think-<method>/      #   SKILL.md, evidence/dossier.md, references/, eval/cases.md, skill.meta.yml
+├── frameworks/              # registry.mjs (the catalog) + per-method dossiers
 ├── _workflows/              # Recipe definitions (multi-skill chains) as workflow components
+├── commands/                # Slash commands (generated from _workflows/, plus the research engine's)
+├── agents/                  # Claude Code subagents (two generated from _workflows/)
 ├── recipes/                 # Human-readable recipe write-ups
 ├── scripts/                 # gen-site, gen-manifest, gen-recommendable, and the check.mjs gate
 ├── site/                    # Astro Starlight docs site (a generated view of skills/)
@@ -518,6 +522,11 @@ Full detail in [`CHANGELOG.md`](CHANGELOG.md); curated highlights in [`RELEASE-N
 
 | Version | Highlights |
 |---|---|
+| [**0.18.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.0) | Eval provenance: every run names its model, and every new scorecard records the model and a fingerprint of its cases. The anti-case routing figures turn out to be open-book, and the trust page says so with the measured bound. `manifest.generated.json` is drift-checked, and `catalog.json` annotates the three subagents. No new skills; catalog stays 56 core + 7 contested. |
+| [**0.17.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.17.0) | Two recipes, `think-stress-test-decision` and `think-audit-reasoning`, also ship as Claude Code subagents that run the whole chain in their own context and return only the finished artifact. No new skills; catalog stays 56 core + 7 contested. |
+| [**0.16.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.16.0) | The instrument got trustworthy: five published tiers corrected to the weaker half of a split grade, run-to-run noise measured and published, and four new guards on answer keys, tiers and scorecards. No new skills; catalog stays 56 core + 7 contested. |
+| [**0.15.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.15.0) | Everything re-measured: all four entry-point tools measured, a front-door skill-selection eval published as its own question, and four defects found that no earlier number had caught. No new skills; catalog stays 56 core + 7 contested. |
+| [**0.14.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.14.0) | Runnable recipes: each of the nine skill chains now runs as a single generated slash command, drift-guarded by a new gate layer. No new skills; catalog stays 56 core + 7 contested. |
 | [**0.13.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.13.0) | Eval-harness orchestration: a finalize step that writes both scorecard artifacts in one go, a new 14th conformance-gate layer enforcing that every eval scorecard stays a paired `.md` + `.json` (closing #95), plus the v0.12.0 CI-guard hardening follow-ups. No new skills; catalog stays 56 core + 7 contested. |
 | [**0.12.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.12.0) | Docs platform: a changelog on the site (What's new + full history), the documentation audit acted on (trust page at 63 skills, a contested-lens FAQ, compound grades defined), eight comprehension diagrams, and four new CI guards taking the conformance gate from 9 to 13 layers. No new skills; catalog stays 56 core + 7 contested. |
 | [**0.11.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.11.0) | Contested lenses: seven famous-but-weak frameworks (SWOT, ACH, Five Whys, Eisenhower/MoSCoW/Pareto, a descriptively-named Cynefin sort, Reflective Equilibrium, QCA) ship as low-tier, caveat-first, explicit-request-only skills, enforced by a new 9th gate layer (`check-contested.mjs`); catalog 56 -> 63 (56 core + 7 contested, separate cohorts). Trigger eval 0 false-fires, output 100%. |
