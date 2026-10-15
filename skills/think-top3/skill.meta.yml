@@ -39,7 +39,6 @@ interface:
 
 execution:
   mode: inline                 # inline | forked
-  subagent_suitable: false
   recipe_suitable: false
   engine: references/engine.md   # shared applicator engine, RANK mode
   reads_corpus: skills/think-framework-advisor/references/recommendable.json

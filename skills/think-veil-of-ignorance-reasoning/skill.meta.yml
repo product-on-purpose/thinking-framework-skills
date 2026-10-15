@@ -44,7 +44,6 @@ interface:
 
 execution:
   mode: inline                 # inline | forked
-  subagent_suitable: false
   recipe_suitable: true
   likely_companions:
     - thinking-framework-skills.boundary-critique

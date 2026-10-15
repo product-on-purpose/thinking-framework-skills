@@ -39,7 +39,6 @@ interface:
 
 execution:
   mode: forked                 # inline | forked
-  subagent_suitable: true      # the role lives in the think-research-framework subagent
   recipe_suitable: false
   dispatches_to: think-research-framework   # the subagent, invoked via the Task tool at runtime
   likely_companions: []

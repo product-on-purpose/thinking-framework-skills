@@ -121,7 +121,7 @@ A recipe qualifies only if all of these hold:
 
 To add one: put the name and its rationale in `SUBAGENT_RECIPES` (`scripts/lib/recipe-agent-lib.mjs`), run `npm run gen:recipe-commands`, declare it in `library.json` `components.subagents`, and regenerate `INDEX.md` (the toolkit's `gen-index`). Never hand-edit a generated agent. The spec caps the set at 2 to 3; the test suite asserts it.
 
-The per-skill `execution.subagent_suitable` sidecar field predates this criterion and selects nothing. Do not author new values into it against this rule: the rule's unit is a recipe, and recipes have no sidecar.
+Sidecars once carried a per-skill `execution.subagent_suitable` field. It predated this criterion and selected nothing, so it was removed on 2026-10-15. Do not reintroduce a per-skill flag for this: the rule's unit is a recipe, and recipes have no sidecar.
 
 ---
 

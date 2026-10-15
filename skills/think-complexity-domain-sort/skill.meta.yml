@@ -34,7 +34,6 @@ interface:
 
 execution:
   mode: inline
-  subagent_suitable: false
   recipe_suitable: false
   likely_companions:
     - thinking-framework-skills.issue-tree

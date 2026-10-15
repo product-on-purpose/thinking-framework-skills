@@ -41,7 +41,6 @@ interface:
 
 execution:
   mode: inline                 # inline | forked
-  subagent_suitable: false
   recipe_suitable: false       # it is the entry point TO recipes, not a step in one
   recommends_from: references/recommendable.json   # name-safety set, generated
   likely_companions: []        # it hands off to all skills; none in particular

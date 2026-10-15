@@ -44,7 +44,6 @@ interface:
 
 execution:
   mode: inline                 # inline | forked
-  subagent_suitable: false
   recipe_suitable: false       # the theme-to-abductive-frame engine is a single integrated move, not a chain
   likely_companions:
     - thinking-framework-skills.problem-restatement

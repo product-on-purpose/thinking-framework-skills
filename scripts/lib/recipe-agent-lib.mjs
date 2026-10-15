@@ -13,8 +13,9 @@
 //
 // The selection criterion is written down in docs/internal/AUTHORING.md ("Reasoning subagents")
 // and the evidence behind it in docs/internal/experiments/2026-09-15-subagent-suitability-inventory.md.
-// Read those before adding a name here: the per-skill `subagent_suitable` field was authored
-// against no written rule and ended up selecting nothing, and this list must not repeat that.
+// Read those before adding a name here: the per-skill `subagent_suitable` sidecar field was
+// authored against no written rule and selected nothing (removed 2026-10-15), and this list
+// must not repeat that.
 // =============================================================================
 
 import { frontmatterBlock, scalar, stepNames, bodyAfterTitle } from './recipe-command-lib.mjs';

@@ -42,7 +42,6 @@ interface:
 
 execution:
   mode: inline                 # inline | forked
-  subagent_suitable: true
   recipe_suitable: true
   likely_companions:
     - thinking-framework-skills.brainwriting
