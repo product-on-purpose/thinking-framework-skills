@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Fixed
+
+- **`think-research-framework` dispatched to a subagent name that does not exist under a plugin install.** Its `SKILL.md` passed the bare `subagent_type` `think-research-framework`, but Claude Code registers plugin subagents under the plugin namespace. A headless run on Claude Code 2.1.300 with the plugin loaded confirmed it: the bare name failed with "Agent type not found", and `thinking-framework-skills:think-research-framework` resolved. The skill now names the namespaced type, and keeps the bare name for an agent installed outside the plugin. Found by the backlog's install check.
+
 ## [0.18.0] - 2026-10-14
 
 **Every eval figure can now say which model and which cases produced it, and one published figure turned out to be open-book.** No new skills; the catalog stays 56 core + 7 contested. Three roadmap items close: C1-4 (the manifest drift guard, #152), C2-1 (eval provenance, #153) and C2-2 (the routing feedback loop, #154). Agent discovery also learns about the three subagents (#151). The conformance gate stays at fifteen layers, and the test suite goes from 387 to 424.
