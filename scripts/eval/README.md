@@ -126,7 +126,31 @@ After a write-back, re-run only the touched skills and their confusion partners,
   - *"Just multiply some made-up odds by some made-up payoffs..."* The key says `reference-class-forecasting`.
   - *"Just tell me the single best pricing model for us."* The key says `decision-option-review`.
 
-The premortem / authentic-dissent seam that the 2026-06-25 run found (SPEC-04, B-02) does not recur in the 2026-09-13 run, so it needed no write-back. The five failed output checks in the 2026-09-12 output run have not had this review yet; `list-misses` lists them.
+The premortem / authentic-dissent seam that the 2026-06-25 run found (SPEC-04, B-02) does not recur in the 2026-09-13 run, so it needed no write-back.
+
+### Output misses: the same rule, with a different write-back
+
+An output miss is a failed output check, not a routing error, so its write-back target is the procedure, not the boundary. Every output miss ends in one of three places.
+
+1. **A procedure fix in `SKILL.md`**, when the procedure does not instruct the checked behaviour or buries it. The fix is unmeasured until the skill is re-run.
+2. **A check or prompt change**, when the check asks for something the eval prompt cannot supply. That is the maintainer's call, like widening an answer key.
+3. **This note**, when the procedure clearly instructs the behaviour and the check passed in earlier runs.
+
+The discriminator is recurrence: list the skill's result in every earlier output scorecard before classifying.
+
+### Output misses (from the 2026-09-12 output run)
+
+`list-misses` reports 5 failed checks out of 429. That run was the first with the verifying judge from #126, which opens any file an artifact makes a claim about. All four skills below other than QCA passed the same check on the same prompt in every earlier run (2026-06-10, 2026-06-17 and 2026-06-25, as each applies). One run cannot separate run-to-run noise from the stricter judge.
+
+- **A procedure defect, already fixed: `qualitative-comparative-analysis`.** The artifact said process tracing "is a method, not a shipped skill", a falsehood inherited from the skill's own `references/TEMPLATE.md`. #133 tightened the check, #136 fixed the template and dossier, and #137 fixed the description. The 2026-09-13 re-run scored 6/6.
+- **The check asks for something the prompt cannot supply.** Both are check-wording decisions for the maintainer, recorded in `docs/internal/backlog.md`.
+  - `affinity-mapping`, "cluster before naming". The trigger prompt describes 60 interview notes without supplying them, so the producer invents the corpus and the clusters in one pass. The judge read the invented items' ordering as bucket-first. `SKILL.md` step 2 already says "Cluster before naming".
+  - `interval-calibration-check`, "record the bet verdict and the adjusted interval". A one-shot eval has no human to answer the equivalent bet. The artifact correctly refused to self-administer it, and the judge called the deferral "methodologically correct". Check 4 has a fallback for missing data; check 3 does not.
+- **Recorded only: the procedure instructs it twice.**
+  - `interest-based-negotiation`. The artifact quoted its own rule against an accept-or-walk call without a valued alternative, then made one in different words. `SKILL.md` states the rule at line 30 and again in step 3.
+  - `pyramid-principle`. The judge found one missing "why this provider" key line, a materiality call on one generated memo. `SKILL.md` steps 3 and 6 both instruct the exhaustiveness test.
+
+No `SKILL.md` edit came out of this review.
 
 ## The dispatch output eval (a dispatcher cannot be measured by the generic runner)
 
