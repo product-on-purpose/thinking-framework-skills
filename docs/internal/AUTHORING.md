@@ -93,7 +93,7 @@ generation overwrites the change and drifts from the source of truth.
 
 | Generated artifact | Produced by | What it is |
 |---|---|---|
-| `manifest.generated.json` | agent-skills-toolkit `gen-manifest` | The resolved, denormalized roster (each skill's name, path, full description) a tool can read in one shot. It omits a `license` field; the root `LICENSE` (Apache-2.0) is authoritative. |
+| `manifest.generated.json` | agent-skills-toolkit `gen-manifest` | The resolved, denormalized roster (each skill's and command's name, path, full description) a tool can read in one shot; the skill-selection eval reads its roster from it. It omits a `license` field; the root `LICENSE` (Apache-2.0) is authoritative. Drift-checked twice: `check-registry` section 11 compares fields locally, and CI regenerates and diffs the bytes. Regenerate after any skill or command description edit, and at every version bump: `node .agent-skills-toolkit/scripts/generators/gen-manifest.mjs . --write --target=all`. |
 | `.claude-plugin/plugin.json` | agent-skills-toolkit `gen-manifest` | The Claude Code plugin manifest (identity only; skills are auto-discovered). The marketplace install entry point. |
 | `.codex-plugin/plugin.json` | agent-skills-toolkit `gen-manifest` | The Codex CLI manifest; adds `skills: "./skills/"` and an `interface` block. |
 | `skills/think-framework-advisor/references/recommendable.{json,md}` | `scripts/gen-recommendable.mjs` | The advisor's name-safety set + enrichment (anti-triggers, when-not, overlaps). CI runs `--check`, so a forgotten regenerate fails the build instead of shipping an advisor that names a nonexistent skill. Meta-skills (tools) are excluded. |

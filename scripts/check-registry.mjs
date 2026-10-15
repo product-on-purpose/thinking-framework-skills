@@ -45,6 +45,10 @@
 //  10. Workflows mirror (SPEC-09) - library.json components.workflows and _workflows/ describe
 //                  the same set, both directions. The toolkit's equivalent (ADR 0047, S3) is capped
 //                  at warn until Standard 0.15; this repo pins 0.8, so this local copy gates today.
+//  11. Manifest roster (SPEC-06, roadmap C1-4) - manifest.generated.json still names every on-disk
+//                  skill and command with its current path, description and maps-to, and carries
+//                  library.json's name / version / tier / standard. Field equality, no toolkit
+//                  needed; CI's regenerate-and-diff step is the byte-exact half.
 //
 // Zero-dependency; reuses scripts/lib/cases-lib.mjs (the SP1 source) for eval coupling and
 // scripts/lib/lifecycle-lib.mjs (unit-tested separately) for section 9.
@@ -60,6 +64,8 @@ import { validateEntry } from './lib/registry-entry-lib.mjs';
 import { checkLifecycle } from './lib/lifecycle-lib.mjs';
 import { checkTierConsistency } from './lib/tier-lib.mjs';
 import { checkWorkflowMirror, checkWorkflowEntryShape, isWorkflowFile, workflowName } from './lib/workflow-mirror-lib.mjs';
+import { checkManifestRoster, plainScalar } from './lib/manifest-roster-lib.mjs';
+import { frontmatterBlock } from './lib/recipe-command-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..'); // cwd-independent; the script and registry share a checkout
@@ -303,6 +309,35 @@ for (const dir of readdirSync(resolve(ROOT, 'skills'))) {
   for (const p of checkWorkflowMirror(declared, onDisk)) fail(p);
 }
 
+// --- 11. Manifest roster (SPEC-06, roadmap C1-4) -----------------------------
+// The roster is built the way the toolkit's gen-manifest builds it: every skills/<dir>/ holding a
+// SKILL.md (named by the directory), and every commands/*.md except README.md and `_`-prefixed
+// control files (named by the filename). Rules live in scripts/lib/manifest-roster-lib.mjs.
+{
+  const lib = JSON.parse(readFileSync(resolve(ROOT, 'library.json'), 'utf8'));
+  const fmOf = (rel) => frontmatterBlock(readFileSync(resolve(ROOT, rel), 'utf8')).fm;
+  const skills = readdirSync(resolve(ROOT, 'skills'))
+    .filter((d) => existsSync(resolve(ROOT, 'skills', d, 'SKILL.md')))
+    .map((d) => {
+      const path = `skills/${d}/SKILL.md`;
+      return { name: d, path, description: plainScalar(fmOf(path), 'description') };
+    });
+  const commands = readdirSync(resolve(ROOT, 'commands'))
+    .filter((f) => f.endsWith('.md') && !f.startsWith('_') && f !== 'README.md')
+    .map((f) => {
+      const path = `commands/${f}`;
+      const fm = fmOf(path);
+      return { name: f.replace(/\.md$/, ''), path, description: plainScalar(fm, 'description'), mapsTo: plainScalar(fm, 'maps-to') };
+    });
+  const manifestPath = resolve(ROOT, 'manifest.generated.json');
+  if (!existsSync(manifestPath)) {
+    fail('manifest: manifest.generated.json is missing.');
+  } else {
+    const expected = { spine: { name: lib.name, version: lib.version, tier: lib.tier, standard: lib.standard }, skills, commands };
+    for (const p of checkManifestRoster(JSON.parse(readFileSync(manifestPath, 'utf8')), expected)) fail(p);
+  }
+}
+
 // --- report -----------------------------------------------------------------
 if (problems.length) {
   console.error(`Registry conformance: ${problems.length} problem(s):\n`);
@@ -310,5 +345,5 @@ if (problems.length) {
   console.error('\nFix frameworks/registry.mjs (or regenerate views) and re-run.');
   process.exit(1);
 }
-console.log(`Registry conformance: OK (${fw.length} frameworks, ${shipped.size} shipped, schema + drift + referential + IP + eval + tier + recommendable + lifecycle + workflows).`);
+console.log(`Registry conformance: OK (${fw.length} frameworks, ${shipped.size} shipped, schema + drift + referential + IP + eval + tier + recommendable + lifecycle + workflows + manifest).`);
 process.exit(0);

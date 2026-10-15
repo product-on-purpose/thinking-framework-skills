@@ -4,6 +4,17 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+
+- **`manifest.generated.json` is drift-checked at last (roadmap C1-4, SPEC-06).** It was the one committed generated file that no guard covered. The README and `docs/conformance.md` (G4) both already claimed it was drift-checked, and that claim is now true.
+  - **Why it matters beyond tidiness:** the skill-selection eval reads its roster of skills and commands from this file (`scripts/eval/extract-cases.mjs`). A stale description would be measured as if users had it.
+  - **The local half** is `check-registry` section 11, backed by the pure lib `scripts/lib/manifest-roster-lib.mjs`. It compares fields, not bytes, and needs no toolkit. It checks every on-disk skill and command for its path, description and `maps-to`, plus `library.json`'s name, version, tier and standard.
+  - **The local half only compares a description it can read with certainty**, a plain one-line value. All 77 are of that kind today. A quoted or folded value is skipped, never guessed at, so a valid file cannot fail the gate.
+  - **The byte-exact half** is two new steps in the CI `check` job. They regenerate all three manifests with the pinned toolkit's `gen-manifest` and fail on any `git diff`, so the log shows the drift itself.
+  - The toolkit's own U8 check compares only the name and version of the two native manifests, which is why neither check existed before.
+  - Both halves were shown RED on real files: an edited `think-woop` description (local and CI halves) and an unregistered command file (local half).
+  - The `ci.yml` comment that called the advisor set "the ONE committed generated artifact" now says where each generated file is guarded.
+
 ## [0.17.0] - 2026-09-24
 
 **The marquee recipe and the reasoning audit can now be handed off whole.** No new skills; the catalog stays 56 core + 7 contested. `think-stress-test-decision` and `think-audit-reasoning` now also ship as Claude Code subagents: each runs its entire chain in its own context and hands back only the finished artifact, so the working never lands in the caller's conversation. That closes roadmap item C3-3, and it closes it smaller than it was written. The spec asked for subagents that preload *skills*; the phase-1 inventory (#148) showed the per-skill field meant to select them selects nothing, and that what a subagent actually buys you - the deliverable without the derivation - is a property of a *recipe*. Only two of nine recipes clear the bar, and the reasons are written down rather than remembered: `think-pdca-a3` contains a step that happens in the world, which a delegate returning once cannot wait across, and the six-way tie at three steps was broken on mechanism rather than on a size proxy. The subagents are generated from the same recipe source as the commands, so a chain still exists in exactly one place. Conformance gate stays fifteen layers; the test suite goes 371 -> 387.

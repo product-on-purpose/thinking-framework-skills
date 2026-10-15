@@ -58,12 +58,25 @@ jobs:
           AGENT_SKILLS_TOOLKIT: ${{ github.workspace }}/.agent-skills-toolkit
         run: node scripts/check.mjs
 
-  # Drift guard for the ONE committed generated artifact: the advisor's name-safety
-  # set (skills/think-framework-advisor/references/recommendable.{json,md}), produced
+      # Byte-exact half of the manifest drift guard (roadmap C1-4, SPEC-06). The toolkit's
+      # gen-manifest has no --check flag, so regenerate in place and let git show the drift.
+      # The local half (check-registry section 11) compares fields without the toolkit.
+      - name: Regenerate native + root manifests (drift check)
+        run: node .agent-skills-toolkit/scripts/generators/gen-manifest.mjs . --write --target=all
+
+      - name: Fail if any committed manifest drifted
+        run: git diff --exit-code -- manifest.generated.json .claude-plugin/plugin.json .codex-plugin/plugin.json
+
+  # Drift guard for the advisor's name-safety set
+  # (skills/think-framework-advisor/references/recommendable.{json,md}), produced
   # by scripts/gen-recommendable.mjs from library.json + SKILL.md frontmatter +
   # _workflows/*.md. The generator is zero-dependency, so this needs no install. If a
   # skill or recipe is added/renamed/removed without regenerating, --check exits 1 and
   # the build fails here instead of shipping an advisor that names a nonexistent skill.
+  # It is one of several committed generated files, each guarded somewhere: the three
+  # manifests by the regenerate-and-diff steps in the `check` job above, and the rest
+  # (catalog, llms files, AGENTS.md tables, recipe commands and subagents, engine copies,
+  # registry views) by their --check layers in scripts/check.mjs.
   recommendable-drift:
     runs-on: ubuntu-latest
     steps:

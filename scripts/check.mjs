@@ -23,7 +23,8 @@
 //      registry.mjs validates against its schema, its generated views are not stale,
 //      its referential / IP / eval-coupling invariants hold, and (SPEC-01) every skill on
 //      disk describes its own lifecycle truthfully - shipped implies identity.status active,
-//      and both eval stamps at measured-* implies maturity: measured,
+//      and both eval stamps at measured-* implies maturity: measured - and (SPEC-06)
+//      manifest.generated.json still lists every on-disk skill and command as it is now,
 //   4. the shared applicator engine-copy drift check (scripts/gen-engine.mjs --check, SP7/SP8):
 //      the byte-identical engine.md copy stays in sync, and
 //   5. the recipe-command drift check (scripts/gen-recipe-commands.mjs --check, SPEC-09 1b + 3):
