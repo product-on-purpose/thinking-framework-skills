@@ -21,17 +21,41 @@
 // =============================================================================
 //
 // Usage:
-//   node scripts/eval/finalize.mjs <YYYY-MM-DD> [--prefix <name>] \
+//   node scripts/eval/finalize.mjs <YYYY-MM-DD> --model <id> [--model-tier <tier>] [--prefix <name>] \
 //        [--trigger <routed.json> <cases.json>] [--output <results.json>]
 // At least one of --trigger / --output is required. Explicit paths only (no auto-discovery).
+// --model is the resolved model ID the run measured (e.g. claude-opus-5-5). The tier is read from
+// the run output (the workflows return modelTier); --model-tier is only for output that predates it.
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scoreTrigger, scoreOutput } from './score-lib.mjs';
 import { stampMeta, missingStampTargets } from './stamp-meta.mjs';
+import { resolveRunModel, runProvenance, withRunLine } from '../lib/fingerprint-lib.mjs';
 
 const OUT_DIR = 'docs/internal/eval-results';
+const USAGE = 'Usage: node scripts/eval/finalize.mjs <YYYY-MM-DD> --model <id> [--model-tier <tier>] [--prefix <name>] [--trigger <routed> <cases>] [--output <results>]';
+
+// With `run` (roadmap C2-1), a scorecard also records which model and which case set produced it:
+// in the .json under `provenance`, and as a `Run:` line under the .md title. Without `run` the
+// output is byte-identical to what it was before, which keeps the golden tests meaningful.
+function withRun(scored, run, date) {
+  if (!run) return scored;
+  const prov = runProvenance(run, Object.keys(scored.json.perSkill || {}));
+  return {
+    md: withRunLine(scored.md, date, prov),
+    json: { ...scored.json, provenance: { ...(scored.json.provenance || {}), ...prov } },
+  };
+}
+
+/** Reads skills/think-<slug>/eval/cases.md under `root`, or null when the skill has none. */
+export function casesReader(root) {
+  return (slug) => {
+    const p = resolve(root, 'skills', `think-${slug}`, 'eval', 'cases.md');
+    return existsSync(p) ? readFileSync(p, 'utf8') : null;
+  };
+}
 
 // Which skills a finalize run may stamp, parsed from argv.
 //   undefined -> the historical default (every shipped framework)
@@ -46,17 +70,17 @@ export function stampTargetsFromArgv(argv) {
   return String(a[i + 1] || '').split(',').map((s) => s.trim()).filter(Boolean);
 }
 
-export function buildArtifacts({ date, prefix, trigger, output }) {
+export function buildArtifacts({ date, prefix, trigger, output, run }) {
   const base = (kind) => `${OUT_DIR}/${date}${prefix ? '-' + prefix : ''}-${kind}-eval`;
   const arts = [];
   if (trigger) {
-    const { md, json } = scoreTrigger(trigger.cases, trigger.routedRaw,
-      { generated: trigger.generated, title: trigger.title, provenance: trigger.provenance });
+    const { md, json } = withRun(scoreTrigger(trigger.cases, trigger.routedRaw,
+      { generated: trigger.generated, title: trigger.title, provenance: trigger.provenance }), run, date);
     arts.push({ path: `${base('trigger')}.md`, content: md });
     arts.push({ path: `${base('trigger')}.json`, content: JSON.stringify(json, null, 2) + '\n' });
   }
   if (output) {
-    const { md, json } = scoreOutput(output.rawResults, { provenance: output.provenance });
+    const { md, json } = withRun(scoreOutput(output.rawResults, { provenance: output.provenance }), run, date);
     arts.push({ path: `${base('output')}.md`, content: md });
     arts.push({ path: `${base('output')}.json`, content: JSON.stringify(json, null, 2) + '\n' });
   }
@@ -74,7 +98,7 @@ if (invokedDirectly) {
     const argv = process.argv.slice(2);
     const date = argv[0];
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) {
-      console.error('Usage: node scripts/eval/finalize.mjs <YYYY-MM-DD> [--prefix <name>] [--trigger <routed> <cases>] [--output <results>]');
+      console.error(USAGE);
       process.exit(2);
     }
     const flag = (name) => { const i = argv.indexOf(name); return i === -1 ? null : argv.slice(i + 1); };
@@ -89,6 +113,19 @@ if (invokedDirectly) {
     const prov = flag('--provenance');
     if (prov && opts.output) opts.output.provenance = readJson(prov[0]);
     if (!opts.trigger && !opts.output) { console.error('finalize: supply --trigger and/or --output'); process.exit(2); }
+
+    // Which model produced this run (roadmap C2-1). Resolved before anything is written, so a
+    // scorecard can never land without saying what made it.
+    try {
+      const { model, modelTier } = resolveRunModel({
+        model: (flag('--model') || [])[0],
+        tierSources: [opts.trigger?.routedRaw?.modelTier, opts.output?.rawResults?.modelTier, (flag('--model-tier') || [])[0]],
+      });
+      opts.run = { model, modelTier, readCases: casesReader(ROOT) };
+    } catch (err) {
+      console.error(`finalize: ${err.message}\n${USAGE}`);
+      process.exit(2);
+    }
 
     // `--no-stamp` is expressed by NOT CALLING stampMeta, the same way score-selection.mjs does
     // it. Handing stampMeta [] used to mean the same thing, which is exactly what let a

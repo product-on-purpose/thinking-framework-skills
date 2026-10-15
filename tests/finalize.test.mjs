@@ -29,6 +29,32 @@ test('buildArtifacts emits a paired md+json per supplied kind, with canonical pa
   assert.ok('passPct' in json.totals);
 });
 
+test('with a run, both scorecards record model, tier and case fingerprints (roadmap C2-1)', () => {
+  const run = { model: 'claude-opus-5-5', modelTier: 'opus', readCases: (slug) => `cases for ${slug}` };
+  const arts = buildArtifacts({
+    date: '2026-10-14',
+    trigger: { cases: readJson('trigger.cases.json').cases, routedRaw: readJson('trigger.routed.json') },
+    output: { rawResults: readJson('output.results.json') },
+    run,
+  });
+  for (const kind of ['trigger', 'output']) {
+    const json = JSON.parse(arts.find((a) => a.path.endsWith(`${kind}-eval.json`)).content);
+    assert.equal(json.provenance.model, 'claude-opus-5-5');
+    assert.equal(json.provenance.modelTier, 'opus');
+    assert.match(json.provenance.casesSha, /^[0-9a-f]{12}$/);
+    assert.deepEqual(Object.keys(json.provenance.skillCasesSha), Object.keys(json.perSkill).sort(), 'one fingerprint per measured skill');
+    const md = arts.find((a) => a.path.endsWith(`${kind}-eval.md`)).content;
+    assert.match(md.split('\n')[2], /^Run: 2026-10-14 \| model: `claude-opus-5-5` \(tier `opus`\)/);
+  }
+});
+
+test('without a run, the scorecards are byte-identical to before (the goldens stay meaningful)', () => {
+  const opts = { date: '2026-06-24', output: { rawResults: readJson('output.results.json') } };
+  const json = JSON.parse(buildArtifacts(opts).find((a) => a.path.endsWith('.json')).content);
+  assert.ok(!('provenance' in json));
+  assert.ok(!buildArtifacts(opts).find((a) => a.path.endsWith('.md')).content.includes('Run: '));
+});
+
 test('prefix produces the cohort filename', () => {
   const arts = buildArtifacts({ date: '2026-06-19', prefix: 'contested', output: { rawResults: readJson('output.results.json') } });
   assert.deepEqual(arts.map((a) => a.path).sort(), [

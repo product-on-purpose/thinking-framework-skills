@@ -6,8 +6,10 @@
 //               every .md has a matching .json and vice versa, checked over every entry regardless
 //               of schema, so the older advisor-routing files still pass; (2) SHAPE/contract -
 //               only .json files that carry a `generated` eval-kind field are checked for the
-//               required totals.* keys for that kind, and (for kinds introduced after
-//               provenance was required) the required provenance.* keys.
+//               required totals.* keys for that kind, and the required provenance.* keys: per
+//               kind for kinds introduced after provenance was required, and for every eval kind
+//               dated on or after RUN_PROVENANCE_FROM (roadmap C2-1). Also exports the advisory
+//               checkFreshness used by `npm run eval:freshness`.
 // why:          a scorecard with no sibling doc (or vice versa) is an eval result nobody can find
 //               the write-up for, and a scorecard missing its required totals/provenance can't be
 //               trusted or reproduced later; this keeps the gate schema-agnostic so it can't red
@@ -29,6 +31,14 @@ const REQUIRED_TOTALS = {
 const REQUIRED_PROVENANCE = {
   'SKILL-SELECTION eval': ['model', 'corpus'],
 };
+
+// From this date, every behavioral scorecard must say which model and which case set produced it
+// (roadmap C2-1). finalize.mjs and score-selection.mjs write these keys by construction and refuse
+// to run without a model, so the rule costs a correct run nothing. Gated by the date in the
+// filename, so the committed history - which genuinely carries no model - stays valid; inventing
+// a model for it after the fact would be worse than its honest absence.
+export const RUN_PROVENANCE_FROM = '2026-10-14';
+const RUN_PROVENANCE = ['model', 'modelTier', 'casesSha'];
 
 // Which sidecar field a scorecard kind stamps. TRIGGER and SKILL-SELECTION are different
 // instruments against different corpora, but both measure triggering and both stamp the same
@@ -60,8 +70,9 @@ const STAMP_FIELD_FOR = {
 // `readSidecar(slug)` returns the sidecar text, or null when there is no such skill directory -
 // the referential checks in check-registry.mjs own that case, so it is skipped rather than
 // double-reported here.
-export function checkStampsLanded(entries, readSidecar) {
-  const newest = {}; // field -> slug -> { date, file }
+// field -> slug -> { date, file, parsed }: the newest scorecard of each field's kind per skill.
+function newestByField(entries) {
+  const newest = {};
   for (const e of entries || []) {
     const parsed = e && e.parsed;
     if (!parsed || !parsed.perSkill || typeof parsed.perSkill !== 'object') continue;
@@ -72,9 +83,14 @@ export function checkStampsLanded(entries, readSidecar) {
     newest[field] = newest[field] || {};
     for (const slug of Object.keys(parsed.perSkill)) {
       const cur = newest[field][slug];
-      if (!cur || date > cur.date) newest[field][slug] = { date, file: e.name };
+      if (!cur || date > cur.date) newest[field][slug] = { date, file: e.name, parsed };
     }
   }
+  return newest;
+}
+
+export function checkStampsLanded(entries, readSidecar) {
+  const newest = newestByField(entries);
 
   const problems = [];
   for (const field of Object.keys(newest).sort()) {
@@ -94,6 +110,26 @@ export function checkStampsLanded(entries, readSidecar) {
     }
   }
   return problems;
+}
+
+// Advisory re-eval queue (roadmap C2-1): which skills' eval/cases.md changed since the newest
+// scorecard that measured them? `currentSha` maps slug -> today's fingerprint (fingerprint-lib).
+// A scorecard that predates fingerprints cannot answer, so its skills are counted as
+// `unrecorded` rather than guessed at. Never a gate: the eval is deliberately offline, so this
+// gives visibility into what is stale, not a red build that demands a paid re-run.
+export function checkFreshness(entries, currentSha) {
+  const out = { changed: [], fresh: 0, unrecorded: 0 };
+  const newest = newestByField(entries);
+  for (const field of Object.keys(newest).sort()) {
+    for (const slug of Object.keys(newest[field]).sort()) {
+      const { file, parsed } = newest[field][slug];
+      const recorded = parsed.provenance?.skillCasesSha?.[slug];
+      if (recorded === undefined) { out.unrecorded++; continue; }
+      if (recorded === (currentSha[slug] ?? null)) { out.fresh++; continue; }
+      out.changed.push({ field, slug, file, recorded, current: currentSha[slug] ?? null });
+    }
+  }
+  return out;
 }
 
 export function checkEvalResults(entries) {
@@ -120,11 +156,13 @@ export function checkEvalResults(entries) {
           if (!p.totals || !(k in p.totals)) problems.push(`${base}.json (${p.generated}) missing totals.${k}`);
         }
       }
-      const requiredProv = REQUIRED_PROVENANCE[p.generated];
-      if (requiredProv) {
-        for (const k of requiredProv) {
-          if (!p.provenance || !(k in p.provenance)) problems.push(`${base}.json (${p.generated}) missing provenance.${k}`);
-        }
+      const date = (base.match(/^(\d{4}-\d{2}-\d{2})/) || [])[1];
+      const requiredProv = [
+        ...(REQUIRED_PROVENANCE[p.generated] || []),
+        ...(required && date && date >= RUN_PROVENANCE_FROM ? RUN_PROVENANCE : []),
+      ];
+      for (const k of new Set(requiredProv)) {
+        if (!p.provenance || !(k in p.provenance)) problems.push(`${base}.json (${p.generated}) missing provenance.${k}`);
       }
     }
   }

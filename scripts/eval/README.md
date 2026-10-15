@@ -50,8 +50,8 @@ node scripts/eval/extract-roster.mjs --corpus > roster.json     # the 77-tool co
 node scripts/eval/extract-cases.mjs --roster > cases.json        # answer key, roster resolution
 # write a blind copy ([{id,prompt}] only), then:
 #   Workflow scriptPath: scripts/eval/skill-selection.workflow.mjs
-#            args: {blindPath, rosterPath, count, batchSize}
-node scripts/eval/score-selection.mjs <YYYY-MM-DD> cases.json routed.json --model <id>
+#            args: {model, blindPath, rosterPath, count, batchSize}
+node scripts/eval/score-selection.mjs <YYYY-MM-DD> cases.json routed.json --model <resolved model id>
 ```
 
 `score-selection.mjs` reuses `finalize.buildArtifacts` (so the paired `.md`/`.json` cannot drift) and adds what this eval owns: provenance (model, corpus, sampling, gate exclusions), the guardrail-6 command-pick tally, and stamping **only** the skills the run measured. That last point matters: `finalize.mjs`'s default walks the 63 registry frameworks, so finalizing a selection run through it would re-stamp 63 sidecars off a run that never looked at them.
@@ -67,7 +67,7 @@ Scorecards land as `<date>-skill-selection-trigger-eval.{md,json}` with `generat
    ```
    Prints `{ summary, cases:[{id,prompt,expected,type,source}] }`. Save it (the full key), and write a blind copy (`[{id,prompt}]` only) for the router to read.
 
-2. **Route the blind prompts** with the router workflow (via the Workflow tool, `scriptPath: scripts/eval/route.workflow.mjs`), passing `args = {blindPath, count, batchSize}`. It shards the prompts into batches, fans out blind router agents (serial groups, throttle-safe), and returns `{routes:[{id,top1,top3}]}`.
+2. **Route the blind prompts** with the router workflow (via the Workflow tool, `scriptPath: scripts/eval/route.workflow.mjs`), passing `args = {model, blindPath, count, batchSize}`. It shards the prompts into batches, fans out blind router agents (serial groups, throttle-safe), and returns `{routes:[{id,top1,top3}]}`.
 
 3. **Score (ad-hoc inspection only).**
    ```
@@ -84,7 +84,7 @@ The output eval measures **artifact quality**: run each skill and check whether 
    node scripts/eval/extract-output.mjs              # all shipped skills (or pass slugs for a pilot)
    ```
    Prints `{ summary, cases:[{skill, prompt, checks:[...]}] }`. Save it; the workflow reads it.
-2. **Produce, then judge** (via the Workflow tool, `scriptPath: scripts/eval/output.workflow.mjs`, `args = {casesPath, skills}`). For each skill: a PRODUCE agent invokes the skill on its trigger prompt and emits the full artifact; a **separate** JUDGE agent grades that artifact against the skill's output checks (so the producer never grades itself). Throttle-safe serial groups. Returns `{results:[{skill, perCheck, passed, total}]}`.
+2. **Produce, then judge** (via the Workflow tool, `scriptPath: scripts/eval/output.workflow.mjs`, `args = {model, casesPath, skills}`). For each skill: a PRODUCE agent invokes the skill on its trigger prompt and emits the full artifact; a **separate** JUDGE agent grades that artifact against the skill's output checks (so the producer never grades itself). Throttle-safe serial groups. Returns `{results:[{skill, perCheck, passed, total}]}`.
 3. **Score (ad-hoc inspection only).**
    ```
    node scripts/eval/score-output.mjs <results.json>
@@ -144,9 +144,9 @@ provenance says so.
 ```
 node scripts/eval/extract-output.mjs research-framework > rf-cases.json
 #   Workflow scriptPath: scripts/eval/dispatch-output.workflow.mjs
-#            args: {casesPath, agentPath, skill}
+#            args: {model, casesPath, agentPath, skill}
 node scripts/eval/resolve-dispatch-checks.mjs rf-wf.json rf-cases.json --out rf-results.json
-node scripts/eval/finalize.mjs <YYYY-MM-DD> --output rf-results.json \
+node scripts/eval/finalize.mjs <YYYY-MM-DD> --model <resolved model id> --output rf-results.json \
   --prefix research-framework --stamp research-framework
 ```
 
@@ -172,7 +172,7 @@ off a run that measured a single tool.
 
 `score.mjs` / `score-output.mjs` still print a scorecard for ad-hoc inspection, but to COMMIT a run use `finalize.mjs` - it writes BOTH the `.md` and the `.json` straight into `docs/internal/eval-results/` (so the `.json` sidecar can never be dropped) and stamps each shipped skill's `skill.meta.yml`:
 
-    node scripts/eval/finalize.mjs <YYYY-MM-DD> \
+    node scripts/eval/finalize.mjs <YYYY-MM-DD> --model <resolved model id> \
       --trigger <routed.json> <cases.json> \
       --output <results.json>
 
@@ -186,10 +186,10 @@ Add `--prefix contested` for a cohort run (writes `<date>-contested-<kind>-eval.
     node scripts/eval/extract-output.mjs > out-cases.json
 
     # Workflow scriptPath: scripts/eval/eval.workflow.mjs
-    #   args: { blindPath, count, casesPath, skills, batchSize?, corpusPath? }
-    #   returns { count, routed, corpusPath, routes, evaluated, of, results }
+    #   args: { model, blindPath, count, casesPath, skills, batchSize?, corpusPath? }
+    #   returns { modelTier, count, routed, corpusPath, routes, evaluated, of, results }
 
-    node scripts/eval/finalize.mjs <YYYY-MM-DD> \
+    node scripts/eval/finalize.mjs <YYYY-MM-DD> --model <resolved model id> \
       --trigger <routed.json> <cases.json> \
       --output <results.json>
 
@@ -200,6 +200,23 @@ Each half of the return matches what the standalone runner emits, so `finalize` 
 Its prompts are **verbatim copies** of the two runners' (a Workflow script cannot import), and `tests/eval-workflow-prompts.test.mjs` asserts they stay byte-identical. A prompt is the instrument: #126 tightened the judge and moved the published output figure, and a copy that missed that edit would emit an identical-looking scorecard from a laxer judge. Edit a prompt in one place and the suite reds until both agree.
 
 The committed scorecards are guarded: `scripts/check-eval-results.mjs` (a `check.mjs` layer) reds CI if any scorecard is missing its `.md`/`.json` twin, is malformed, **or claims a measurement its skills' sidecars do not carry** - the last of those catches a stamping step that silently stamped nothing.
+
+## Reproducibility: which model, which cases (roadmap C2-1)
+
+A scorecard that records only a date can be re-measured but not reproduced. When the model behind a published figure changes, or a skill's cases are edited after it was measured, the figure moves and nothing says why. So every run now records both.
+
+- **The model is a run parameter, never inherited.** Every eval workflow requires `args.model` (`haiku`, `sonnet`, `opus` or `fable`), hands it to every `agent()` call, and refuses to start without it. The dispatch eval's file reader is the one exception: it stays `haiku`, because it only copies text. `tests/eval-workflow-model.test.mjs` runs each workflow against a stubbed runtime and asserts that no eval agent runs on any other model.
+- **The tier is recorded by construction; the version by the operator.** Each workflow returns `modelTier`, and `finalize.mjs` reads it from the run output. A tier alone cannot tell Opus 5 from Opus 5.5, so `finalize.mjs` and `score-selection.mjs` also require `--model <resolved model id>`, for example `claude-opus-5-5`. They refuse when the ID does not name the tier the run used, when two sources disagree on the tier, or when no source names one. `--model-tier` exists only for run output from before the workflows returned it.
+- **What lands in the scorecard.** The `.json` records `provenance.model`, `modelTier`, `casesSha` and `skillCasesSha`, and the `.md` carries a `Run:` line under its title. `skillCasesSha` holds one fingerprint per measured skill: sha256 of its `eval/cases.md`, line endings normalized, first 12 hex characters. `casesSha` is a fingerprint over those, so it means the same thing for every scorecard kind.
+- **One known gap, kept narrow on purpose.** The fingerprints are taken from the tree when `finalize` runs, not when the cases were extracted. An edit between those two steps would record cases the run never saw, so run extract, the Workflow and finalize together.
+- **The gate holds new scorecards to it.** Gate layer 15 requires `model`, `modelTier` and `casesSha` on every TRIGGER, OUTPUT and SKILL-SELECTION scorecard dated `2026-10-14` or later. Older scorecards genuinely carry none. They stay valid, and no model is guessed for them.
+- **Only like-for-like runs are comparable.** A run on a different model or tier starts a new baseline; compare it against the old figure only to describe the change, not to claim one.
+
+### Which skills need re-measuring?
+
+    npm run eval:freshness
+
+For every skill the committed scorecards measured, this compares the newest scorecard's recorded `eval/cases.md` fingerprint with the file as it is now, and lists the skills whose cases changed since they were measured: a re-eval queue. It is advisory and always exits 0, because the eval is offline and a re-run is paid spend. Skills last measured before fingerprints were recorded are counted as `measured before fingerprints were recorded` until the next run.
 
 ## Status / roadmap
 

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { checkEvalResults, checkStampsLanded } from '../scripts/lib/eval-results-lib.mjs';
+import { checkEvalResults, checkStampsLanded, checkFreshness, RUN_PROVENANCE_FROM } from '../scripts/lib/eval-results-lib.mjs';
 
 const ok = (entries) => assert.deepEqual(checkEvalResults(entries), []);
 const hasProblem = (entries, re) => assert.ok(checkEvalResults(entries).some((p) => re.test(p)), `expected a problem matching ${re}`);
@@ -185,4 +185,57 @@ test('checkStampsLanded: an absent field is reported, not treated as a match', (
   );
   assert.equal(problems.length, 1);
   assert.match(problems[0], /\(absent\)/);
+});
+
+// --- Run provenance (roadmap C2-1) -------------------------------------------------------
+// From RUN_PROVENANCE_FROM, every behavioral scorecard must say which model and which case set
+// produced it. Gated on the filename date so committed history, which honestly carries no model,
+// stays valid instead of being back-filled with a guess.
+const trig = (date, provenance) => [
+  { name: `${date}-trigger-eval.md` },
+  { name: `${date}-trigger-eval.json`, parsed: { generated: 'TRIGGER eval', totals: { triggerTop1Pct: 99, falseFires: 0 }, ...(provenance ? { provenance } : {}) } },
+];
+
+test('a trigger scorecard dated on or after the cutoff with no provenance reds, naming each missing key', () => {
+  const problems = checkEvalResults(trig(RUN_PROVENANCE_FROM));
+  for (const k of ['model', 'modelTier', 'casesSha']) {
+    assert.ok(problems.some((p) => p.includes(`missing provenance.${k}`)), `names ${k}`);
+  }
+});
+
+test('an output scorecard after the cutoff that names a model but no case fingerprint reds', () => {
+  hasProblem([
+    { name: '2026-11-01-output-eval.md' },
+    { name: '2026-11-01-output-eval.json', parsed: { generated: 'OUTPUT eval', totals: { passPct: 99, failedChecks: 1 }, provenance: { model: 'claude-opus-5-5', modelTier: 'opus' } } },
+  ], /missing provenance\.casesSha/);
+});
+
+test('a scorecard dated before the cutoff still passes with no provenance (history is not rewritten)', () => {
+  ok(trig('2026-09-13'));
+});
+
+test('a scorecard after the cutoff with full run provenance passes', () => {
+  ok(trig('2026-11-01', { model: 'claude-opus-5-5', modelTier: 'opus', casesSha: 'abcdef012345', skillCasesSha: {} }));
+});
+
+// --- Freshness (advisory) ----------------------------------------------------------------
+const fpCard = (name, generated, shas) => ({
+  name,
+  parsed: { generated, perSkill: Object.fromEntries(Object.keys(shas).map((s) => [s, {}])), provenance: { skillCasesSha: shas } },
+});
+
+test('checkFreshness lists exactly the skill whose cases changed since its newest scorecard', () => {
+  const entries = [
+    fpCard('2026-11-01-trigger-eval.json', 'TRIGGER eval', { premortem: 'aaaaaaaaaaaa', woop: 'bbbbbbbbbbbb' }),
+    card('2026-09-13-output-eval.json', 'OUTPUT eval', ['premortem']), // predates fingerprints
+  ];
+  const r = checkFreshness(entries, { premortem: 'aaaaaaaaaaaa', woop: 'cccccccccccc' });
+  assert.deepEqual(r.changed.map((c) => `${c.field}:${c.slug}`), ['trigger_eval_status:woop']);
+  assert.equal(r.fresh, 1);
+  assert.equal(r.unrecorded, 1, 'a scorecard without fingerprints is counted, not guessed at');
+});
+
+test('checkFreshness on an unchanged tree lists nothing', () => {
+  const entries = [fpCard('2026-11-01-trigger-eval.json', 'TRIGGER eval', { premortem: 'aaaaaaaaaaaa' })];
+  assert.deepEqual(checkFreshness(entries, { premortem: 'aaaaaaaaaaaa' }).changed, []);
 });

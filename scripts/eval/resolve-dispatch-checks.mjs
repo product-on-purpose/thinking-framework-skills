@@ -125,6 +125,8 @@ for (const res of wf.results || []) {
 }
 
 const payload = {
+  // Carried through so finalize.mjs records the tier the workflow actually ran (roadmap C2-1).
+  modelTier: wf.modelTier,
   evaluated: out.length,
   of: (wf.results || []).length,
   results: out,
@@ -133,7 +135,7 @@ const payload = {
 
 if (outPath) {
   writeFileSync(outPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
-  console.log(`\nWrote ${outPath} - feed it to: node scripts/eval/finalize.mjs <YYYY-MM-DD> --output ${outPath}`);
+  console.log(`\nWrote ${outPath} - feed it to: node scripts/eval/finalize.mjs <YYYY-MM-DD> --model <resolved model id> --output ${outPath}`);
 } else {
   console.log(`\n${JSON.stringify(payload, null, 2)}`);
 }

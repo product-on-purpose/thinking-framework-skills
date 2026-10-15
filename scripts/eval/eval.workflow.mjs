@@ -15,8 +15,10 @@
 //
 // Run via the Workflow tool:
 //   Workflow({ scriptPath: "scripts/eval/eval.workflow.mjs",
-//              args: { blindPath, count, casesPath, skills, batchSize?, corpusPath? } })
+//              args: { model, blindPath, count, casesPath, skills, batchSize?, corpusPath? } })
 //
+//   model      : REQUIRED. The tier every eval agent runs on (haiku | sonnet | opus | fable),
+//                returned as modelTier so finalize.mjs records what actually ran.
 //   blindPath  : absolute path to the blind [{id, prompt}] situations (no answer key).
 //   count      : N, the number of situations.
 //   casesPath  : absolute path to the {cases:[{skill,prompt,checks}]} from extract-output.mjs.
@@ -57,7 +59,16 @@ const corpusPath = A.corpusPath || 'skills/think-framework-advisor/references/re
 const casesPath = A.casesPath
 const skills = A.skills || []
 if (!blindPath || !count || !casesPath || !skills.length) {
-  throw new Error('eval.workflow.mjs requires args { blindPath, count, casesPath, skills:[...], batchSize?, corpusPath? }')
+  throw new Error('eval.workflow.mjs requires args { model, blindPath, count, casesPath, skills:[...], batchSize?, corpusPath? }')
+}
+
+// The model every eval agent below runs on (roadmap C2-1). Required, so a run's model is a
+// deliberate choice rather than whatever the session inherits, and returned as modelTier so
+// finalize.mjs records the tier that actually ran instead of one an operator retypes.
+const MODEL_TIERS = ['haiku', 'sonnet', 'opus', 'fable']
+const modelTier = A.model
+if (!MODEL_TIERS.includes(modelTier)) {
+  throw new Error(`eval.workflow.mjs requires args.model, one of ${MODEL_TIERS.join(' | ')} (got ${JSON.stringify(modelTier)}): the model the run measures, which the scorecard records.`)
 }
 
 const ROUTE_SCHEMA = {
@@ -150,7 +161,7 @@ log(`Routing ${count} blind eval situations in ${ranges.length} batches (<=${bat
 const parts = []
 for (let g = 0; g < routeGroups.length; g++) {
   const got = await parallel(routeGroups[g].map(([a, b]) => () =>
-    agent(routePrompt(a, b), { label: `route:c${a}-c${b}`, phase: 'Route', schema: ROUTE_SCHEMA })
+    agent(routePrompt(a, b), { label: `route:c${a}-c${b}`, phase: 'Route', schema: ROUTE_SCHEMA, model: modelTier })
       .then((r) => (r && r.routes) || [])
       .catch(() => [])
   ))
@@ -172,10 +183,10 @@ const results = []
 for (let g = 0; g < skillGroups.length; g++) {
   const part = await pipeline(
     skillGroups[g],
-    (slug) => agent(producePrompt(slug), { label: `produce:${slug}`, phase: 'Produce', schema: PRODUCE_SCHEMA }),
+    (slug) => agent(producePrompt(slug), { label: `produce:${slug}`, phase: 'Produce', schema: PRODUCE_SCHEMA, model: modelTier }),
     (prod, slug) => {
       if (!prod || !prod.artifact) return null
-      return agent(judgePrompt(slug, prod.artifact), { label: `judge:${slug}`, phase: 'Judge', schema: JUDGE_SCHEMA })
+      return agent(judgePrompt(slug, prod.artifact), { label: `judge:${slug}`, phase: 'Judge', schema: JUDGE_SCHEMA, model: modelTier })
         .then((j) => j && ({ skill: slug, artifactChars: prod.artifact.length, perCheck: j.perCheck, passed: j.passed, total: j.total }))
         .catch(() => null)
     }
@@ -187,6 +198,7 @@ for (let g = 0; g < skillGroups.length; g++) {
 // Both halves in one result, shaped so each half matches what the standalone runners return -
 // so finalize.mjs consumes them unchanged and the two paths cannot diverge in what they emit.
 return {
+  modelTier,
   count,
   routed: routes.length,
   corpusPath,

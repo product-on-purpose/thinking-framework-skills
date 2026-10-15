@@ -14,8 +14,10 @@
 //
 // Run via the Workflow tool:
 //   Workflow({ scriptPath: "scripts/eval/skill-selection.workflow.mjs",
-//              args: { blindPath, rosterPath, count, batchSize } })
+//              args: { model, blindPath, rosterPath, count, batchSize } })
 //
+//   model      : REQUIRED. The tier every eval agent runs on (haiku | sonnet | opus | fable),
+//                returned as modelTier so finalize.mjs records what actually ran.
 //   blindPath  : absolute path to a JSON array of {id, prompt} situations (ids c1..cN),
 //                the BLIND copy (no answer key) written from extract-cases.mjs --roster.
 //   rosterPath : absolute path to the roster corpus from extract-roster.mjs --corpus:
@@ -64,7 +66,16 @@ const blindPath = A.blindPath
 const rosterPath = A.rosterPath
 const count = A.count
 const batchSize = A.batchSize || 25
-if (!blindPath || !rosterPath || !count) throw new Error('skill-selection.workflow.mjs requires args { blindPath, rosterPath, count, batchSize? }')
+if (!blindPath || !rosterPath || !count) throw new Error('skill-selection.workflow.mjs requires args { model, blindPath, rosterPath, count, batchSize? }')
+
+// The model every eval agent below runs on (roadmap C2-1). Required, so a run's model is a
+// deliberate choice rather than whatever the session inherits, and returned as modelTier so
+// finalize.mjs records the tier that actually ran instead of one an operator retypes.
+const MODEL_TIERS = ['haiku', 'sonnet', 'opus', 'fable']
+const modelTier = A.model
+if (!MODEL_TIERS.includes(modelTier)) {
+  throw new Error(`skill-selection.workflow.mjs requires args.model, one of ${MODEL_TIERS.join(' | ')} (got ${JSON.stringify(modelTier)}): the model the run measures, which the scorecard records.`)
+}
 
 const SELECT_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['routes'],
@@ -118,7 +129,7 @@ log(`Selecting for ${count} blind situations in ${ranges.length} batches (<=${ba
 const parts = []
 for (let g = 0; g < groups.length; g++) {
   const got = await parallel(groups[g].map(([a, b]) => () =>
-    agent(selectPrompt(a, b), { label: `select:c${a}-c${b}`, phase: 'Select', schema: SELECT_SCHEMA })
+    agent(selectPrompt(a, b), { label: `select:c${a}-c${b}`, phase: 'Select', schema: SELECT_SCHEMA, model: modelTier })
       .then((r) => (r && r.routes) || [])
       .catch(() => [])
   ))
@@ -128,4 +139,4 @@ for (let g = 0; g < groups.length; g++) {
 
 const routes = parts.flat()
 log(`Selection complete: ${routes.length}/${count} situations selected.`)
-return { count, routed: routes.length, routes }
+return { modelTier, count, routed: routes.length, routes }

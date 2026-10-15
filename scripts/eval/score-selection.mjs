@@ -36,7 +36,8 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildArtifacts } from './finalize.mjs';
+import { buildArtifacts, casesReader } from './finalize.mjs';
+import { resolveRunModel } from '../lib/fingerprint-lib.mjs';
 import { stampMeta, missingStampTargets } from './stamp-meta.mjs';
 import { buildRoster, tallyCommandPicks } from '../lib/selection-lib.mjs';
 
@@ -49,8 +50,9 @@ const positional = argv.filter((a, i) => !a.startsWith('--') && !(i > 0 && argv[
 const [date, casesPath, routedPath] = positional;
 const model = flag('--model');
 
+const USAGE = 'Usage: node scripts/eval/score-selection.mjs <YYYY-MM-DD> <cases.json> <routed.json> --model <id> [--model-tier <tier>] [--sampling <text>] [--stamp a,b,c | --no-stamp] [--note <text>] [--dry-run]';
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '') || !casesPath || !routedPath || !model) {
-  console.error('Usage: node scripts/eval/score-selection.mjs <YYYY-MM-DD> <cases.json> <routed.json> --model <id> [--sampling <text>] [--stamp a,b,c | --no-stamp] [--note <text>] [--dry-run]');
+  console.error(USAGE);
   process.exit(2);
 }
 
@@ -59,6 +61,17 @@ const casesDoc = readJson(casesPath);
 const cases = casesDoc.cases || casesDoc;
 const routedRaw = readJson(routedPath);
 const routes = routedRaw.routes || routedRaw;
+
+// The tier the run actually used comes back from the workflow (roadmap C2-1); --model-tier is
+// only for routed output that predates it. Resolved before anything is written.
+let run;
+try {
+  const resolved = resolveRunModel({ model, tierSources: [routedRaw.modelTier, flag('--model-tier')] });
+  run = { ...resolved, readCases: casesReader(ROOT) };
+} catch (err) {
+  console.error(`score-selection: ${err.message}\n${USAGE}`);
+  process.exit(2);
+}
 
 const roster = buildRoster(JSON.parse(readFileSync(join(ROOT, 'manifest.generated.json'), 'utf8')));
 const collisionSet = new Set(roster.collisions);
@@ -86,6 +99,7 @@ const arts = buildArtifacts({
   date,
   prefix: 'skill-selection',
   trigger: { cases, routedRaw, generated: 'SKILL-SELECTION eval', title: 'Skill-selection eval', provenance },
+  run,
 });
 
 // The two things a reader of this scorecard must not have to reconstruct: what the corpus
@@ -96,7 +110,7 @@ const blocks = [
   '## What this scorecard measures (and what it does not)',
   `Corpus: the **installed roster** - ${roster.counts.skills} skills + ${roster.counts.commands} commands (\`manifest.generated.json\`), each presented to the router as name + description only, which is all an agent actually sees.`,
   'This is NOT the framework-routing eval. That one routes against `recommendable.json` (the 63 shipped frameworks) and answers "which framework fits this situation?". This one answers "which installed skill would an agent invoke?" - the question the meta-skills\' trigger contracts actually make, and the only one that can see command interference.',
-  `Model: \`${model}\`. Sampling: ${provenance.sampling}. Cases supplied: ${cases.length}.`,
+  `Sampling: ${provenance.sampling}. Cases supplied: ${cases.length}. (The model and the case fingerprint are on the \`Run:\` line under the title.)`,
   `### Command interference (guardrail 6): ${picks.total} command pick(s)`,
   'The nine recipe commands plus `think-research-framework` are always-loaded description surface. Guardrail 6 asks whether adding them degraded skill selection; the framework trigger eval **cannot** answer that, because it routes against a corpus the commands never touched. Here they compete directly.',
   picks.total === 0

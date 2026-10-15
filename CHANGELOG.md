@@ -20,6 +20,24 @@ All notable changes to this project are documented here. The format is based on 
   - The toolkit's own U8 check compares only the name and version of the two native manifests, which is why neither check existed before.
   - Both halves were shown RED on real files: an edited `think-woop` description (local and CI halves) and an unregistered command file (local half).
   - The `ci.yml` comment that called the advisor set "the ONE committed generated artifact" now says where each generated file is guarded.
+- **Every eval scorecard now records which model and which cases produced it (roadmap C2-1, SPEC-03) (#153).**
+  - **The problem:** until now, every run inherited whatever model the session was on. The main trigger and output scorecards recorded no model, and none recorded what case set it measured. When the Opus version behind the published figures changed, or a skill's cases were edited after a run, the figure could move and nothing said why.
+  - **The model is now a run parameter.** All five eval workflows require `args.model` (`haiku`, `sonnet`, `opus` or `fable`), hand it to every `agent()` call, and refuse to start without one. The one exception is the dispatch eval's file reader, which only copies text and stays `haiku`. Each workflow returns `modelTier`, so the recorded tier is the tier that ran.
+  - **The exact version is still required.** `finalize.mjs` and `score-selection.mjs` require `--model <resolved model id>`, because a tier cannot tell Opus 5 from Opus 5.5. They refuse an ID that names a different tier, sources that disagree, or a run with no tier at all.
+  - **Every scorecard written after this records** `provenance.model`, `modelTier`, `casesSha` and `skillCasesSha` in its `.json`, and a `Run:` line under the title of its `.md`.
+    - `skillCasesSha` holds one fingerprint per measured skill, taken over its `eval/cases.md`: sha256, line endings normalized so a Windows and a Linux checkout agree.
+    - `casesSha` is one fingerprint over those.
+  - **Gate layer 15 now requires** `model`, `modelTier` and `casesSha` on every TRIGGER, OUTPUT and SKILL-SELECTION scorecard dated `2026-10-14` or later. The 44 committed scorecards predate the rule and stay valid, with no model guessed for them.
+  - **`npm run eval:freshness` is new.** It is an advisory re-eval queue that lists the skills whose cases changed since the newest scorecard measured them. Today it reports all 134 skill-and-kind pairs as measured before fingerprints existed, which is the honest starting point.
+  - **Deliberate departures from SPEC-03:**
+    - **No fixed model.** SPEC-03 pinned `sonnet`. Every published figure was measured on an inherited Opus, so a fixed `sonnet` pin would silently have started a new baseline. Choosing the reference tier is the maintainer's decision, so the model is a required per-run choice instead.
+    - **Fingerprints live in the scorecard, not the sidecars.** SPEC-03 stamped them into all 67 sidecars. Keeping them in the scorecard records them once, beside the figures they qualify, with no duplicated state to drift.
+  - **Shown RED on the real tree:**
+    - a scorecard dated today with no provenance;
+    - `finalize` with no model, with no tier, and with an ID naming the wrong tier, each refused before writing anything;
+    - an edited `eval/cases.md`, which `eval:freshness` listed alone;
+    - a router agent with its model pin removed, which the stubbed-runtime test caught.
+  - **The workflow edits are verified short of a paid run:** compiled as the Workflow tool runs them, executed against a stubbed runtime, and prompt parity re-checked. They have not been run against a live model.
 
 ### Fixed
 

@@ -64,7 +64,8 @@
 //  15. the eval-results pairing + shape check (scripts/check-eval-results.mjs): every
 //      behavioral-eval scorecard under docs/internal/eval-results/ is committed as a paired
 //      .md + .json, and each trigger/output scorecard JSON carries its totals contract, so a
-//      dropped sidecar (e.g. the 2026-06-19 contested-output gap) cannot recur.
+//      dropped sidecar (e.g. the 2026-06-19 contested-output gap) cannot recur. From 2026-10-14
+//      (roadmap C2-1) each one must also record the model, tier and case fingerprint behind it.
 //
 // To reproduce a CI failure locally, clone the public toolkit next to this repo:
 //   git clone https://github.com/product-on-purpose/agent-skills-toolkit.git ../agent-skills-toolkit

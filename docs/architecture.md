@@ -130,7 +130,7 @@ Every generated page carries a do-not-hand-edit banner, and the site output is g
 12. **Canonical links** (`scripts/check-canonical-links.mjs`) - every internal link in the repo docs resolves without redirect hops, so stale paths surface immediately.
 13. **Repo-markdown links** (`scripts/check-repo-links.mjs`) - every relative link in repo-facing markdown resolves to a file or anchor that actually exists.
 14. **Changelog consistency** (`scripts/check-changelog.mjs`) - `CHANGELOG.md` and `RELEASE-NOTES.md` agree on the most recent version, so a version bump cannot update one file and forget the other, and no version block repeats a Keep a Changelog change type, so a run of PRs each prepending its own `### Added` block cannot accumulate unnoticed.
-15. **Eval-results pairing + shape check** (`scripts/check-eval-results.mjs`) - every behavioral-eval scorecard under `docs/internal/eval-results/` is a paired `.md` + `.json` with a valid totals contract.
+15. **Eval-results pairing + shape check** (`scripts/check-eval-results.mjs`) - every behavioral-eval scorecard under `docs/internal/eval-results/` is a paired `.md` + `.json` with a valid totals contract. A scorecard dated 2026-10-14 or later must also record `provenance.model`, `modelTier` and `casesSha` (see the Reproducibility section of `scripts/eval/README.md`); older scorecards carry none and stay valid.
 
 The docs site adds three build-time guards run after `astro build` (family Astro site standard, clause 14.11): `scripts/check-mermaid.mjs` (generated-content mermaid validation), `scripts/check-rendered-links.mjs` (no browser-broken internal links), and `scripts/check-route-parity.mjs` (no silently dropped published route, against the committed `scripts/route-manifest.txt`).
 

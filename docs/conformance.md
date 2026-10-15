@@ -115,7 +115,7 @@ Expected: `Tier: advanced` with `0 error(s), 90 warning(s)`, and an exit code of
 12. **Canonical links** (`scripts/check-canonical-links.mjs`) - every internal link in repo docs resolves without redirect hops.
 13. **Repo-markdown links** (`scripts/check-repo-links.mjs`) - every relative link in repo-facing markdown resolves to a file or anchor that exists.
 14. **Changelog consistency** (`scripts/check-changelog.mjs`) - `CHANGELOG.md` and `RELEASE-NOTES.md` agree on the most recent version, and no version block repeats a Keep a Changelog change type.
-15. **Eval-results pairing + shape check** (`scripts/check-eval-results.mjs`) - every behavioral-eval scorecard under `docs/internal/eval-results/` is a paired `.md` + `.json` with a valid totals contract.
+15. **Eval-results pairing + shape check** (`scripts/check-eval-results.mjs`) - every behavioral-eval scorecard under `docs/internal/eval-results/` is a paired `.md` + `.json` with a valid totals contract. A scorecard dated 2026-10-14 or later must also record `provenance.model`, `modelTier` and `casesSha`: which model and which case set produced it. Older scorecards carry none and stay valid.
 
 The gate structure combines the toolkit's G1-G7 Standard requirements with the repo's own layers:
 

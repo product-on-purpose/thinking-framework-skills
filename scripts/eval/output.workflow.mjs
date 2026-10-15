@@ -17,8 +17,10 @@
 //               in scripts/eval/README.md
 // =============================================================================
 //
-// Run via the Workflow tool: Workflow({ scriptPath: "scripts/eval/output.workflow.mjs", args: { casesPath, skills } }).
+// Run via the Workflow tool: Workflow({ scriptPath: "scripts/eval/output.workflow.mjs", args: { model, casesPath, skills } }).
 //
+//   model     : REQUIRED. The tier every eval agent runs on (haiku | sonnet | opus | fable),
+//               returned as modelTier so finalize.mjs records what actually ran.
 //   casesPath : absolute path to the {cases:[{skill,prompt,checks}]} from extract-output.mjs.
 //   skills    : array of skill slugs to evaluate.
 
@@ -34,7 +36,16 @@ export const meta = {
 const A = typeof args === 'string' ? JSON.parse(args) : (args || {})
 const casesPath = A.casesPath
 const skills = A.skills || []
-if (!casesPath || !skills.length) throw new Error('output.workflow.mjs requires args { casesPath, skills:[...] }')
+if (!casesPath || !skills.length) throw new Error('output.workflow.mjs requires args { model, casesPath, skills:[...] }')
+
+// The model every eval agent below runs on (roadmap C2-1). Required, so a run's model is a
+// deliberate choice rather than whatever the session inherits, and returned as modelTier so
+// finalize.mjs records the tier that actually ran instead of one an operator retypes.
+const MODEL_TIERS = ['haiku', 'sonnet', 'opus', 'fable']
+const modelTier = A.model
+if (!MODEL_TIERS.includes(modelTier)) {
+  throw new Error(`output.workflow.mjs requires args.model, one of ${MODEL_TIERS.join(' | ')} (got ${JSON.stringify(modelTier)}): the model the run measures, which the scorecard records.`)
+}
 
 const PRODUCE_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['skill', 'artifact'],
@@ -88,10 +99,10 @@ const results = []
 for (let g = 0; g < groups.length; g++) {
   const part = await pipeline(
     groups[g],
-    (slug) => agent(producePrompt(slug), { label: `produce:${slug}`, phase: 'Produce', schema: PRODUCE_SCHEMA }),
+    (slug) => agent(producePrompt(slug), { label: `produce:${slug}`, phase: 'Produce', schema: PRODUCE_SCHEMA, model: modelTier }),
     (prod, slug) => {
       if (!prod || !prod.artifact) return null
-      return agent(judgePrompt(slug, prod.artifact), { label: `judge:${slug}`, phase: 'Judge', schema: JUDGE_SCHEMA })
+      return agent(judgePrompt(slug, prod.artifact), { label: `judge:${slug}`, phase: 'Judge', schema: JUDGE_SCHEMA, model: modelTier })
         .then((j) => j && ({ skill: slug, artifactChars: prod.artifact.length, perCheck: j.perCheck, passed: j.passed, total: j.total }))
         .catch(() => null)
     }
@@ -100,4 +111,4 @@ for (let g = 0; g < groups.length; g++) {
   log(`Group ${g + 1}/${groups.length} done - ${results.length}/${skills.length} skills judged.`)
 }
 
-return { evaluated: results.length, of: skills.length, results }
+return { modelTier, evaluated: results.length, of: skills.length, results }

@@ -21,8 +21,10 @@
 //               its output; docs/internal/backlog.md records why it was needed
 //
 //   Workflow({ scriptPath: "scripts/eval/dispatch-output.workflow.mjs",
-//              args: { casesPath, agentPath, skill } })
+//              args: { model, casesPath, agentPath, skill } })
 //
+//   model     : REQUIRED. The tier every eval agent runs on (haiku | sonnet | opus | fable),
+//               returned as modelTier so finalize.mjs records what actually ran.
 //   casesPath : absolute path to {cases:[{skill,prompt,checks}]} from extract-output.mjs.
 //   agentPath : repo-relative path to the subagent file whose body becomes the producer's
 //               instructions (agents/think-research-framework.md).
@@ -49,7 +51,16 @@ const A = typeof args === 'string' ? JSON.parse(args) : (args || {})
 const casesPath = A.casesPath
 const agentPath = A.agentPath || 'agents/think-research-framework.md'
 const skill = A.skill || 'research-framework'
-if (!casesPath) throw new Error('dispatch-output.workflow.mjs requires args { casesPath, agentPath?, skill? }')
+if (!casesPath) throw new Error('dispatch-output.workflow.mjs requires args { model, casesPath, agentPath?, skill? }')
+
+// The model the producer and the judge run on (the file reader stays haiku: it only copies text) (roadmap C2-1). Required, so a run's model is a
+// deliberate choice rather than whatever the session inherits, and returned as modelTier so
+// finalize.mjs records the tier that actually ran instead of one an operator retypes.
+const MODEL_TIERS = ['haiku', 'sonnet', 'opus', 'fable']
+const modelTier = A.model
+if (!MODEL_TIERS.includes(modelTier)) {
+  throw new Error(`dispatch-output.workflow.mjs requires args.model, one of ${MODEL_TIERS.join(' | ')} (got ${JSON.stringify(modelTier)}): the model the run measures, which the scorecard records.`)
+}
 
 // The check the model does NOT get to decide. Matched on the validator's name so the split
 // survives a reworded check, and asserted by resolve-dispatch-checks.mjs on the way back.
@@ -189,6 +200,7 @@ const prod = await agent(producePrompt(src.agentBody, src.brief), {
   phase: 'Produce',
   schema: PRODUCE_SCHEMA,
   isolation: 'worktree',
+  model: modelTier,
 })
 
 if (!prod || !prod.dossier) {
@@ -202,6 +214,7 @@ const judged = await agent(judgePrompt(src.brief, prod, modelChecks), {
   phase: 'Judge',
   schema: JUDGE_SCHEMA,
   effort: 'high',
+  model: modelTier,
 })
 
 if (!judged || !judged.perCheck) {
@@ -212,6 +225,7 @@ const passed = judged.perCheck.filter((c) => c.pass).length
 log(`Judge graded ${judged.perCheck.length} model-decidable checks: ${passed} passed. The deterministic check is still unresolved by design - run scripts/eval/resolve-dispatch-checks.mjs next.`)
 
 return {
+  modelTier,
   evaluated: 1,
   of: 1,
   // Shaped for resolve-dispatch-checks.mjs, which folds in the deterministic verdict and emits
