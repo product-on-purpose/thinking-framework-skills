@@ -4,6 +4,11 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+
+- **`docs/reference/authoring-contract.md`, one page that says where each authored file's rules live and what enforces them (roadmap C5-4).** It is an index that links to its sources, because the generated-view principle forbids a second copy of the gate list or the generator table. Building it found two unenforced contracts: nothing checks that a shipped skill has `references/TEMPLATE.md`, `references/EXAMPLE.md` or `evidence/dossier.md`. The page says so rather than implying a check. Linked from `AGENTS.md` and `docs/README.md`.
+- **The gate's non-gating warnings go from 90 to 89.** `docs/reference/` is the first page in the Diataxis reference quadrant, which clears one `G10`. The new page and its folder README carry the taxonomy frontmatter and inventory, so they add no `G7` or `G8`. The tracked count, its composition and every prose surface that quotes them moved together.
+
 ### Changed
 
 - **Four roadmap items closed by checking their premise first** (`docs/internal/backlog.md`, "Roadmap close-outs").

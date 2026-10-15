@@ -117,6 +117,8 @@ skills/<name>/
   skill.meta.yml        # rich sidecar (governance, taxonomy, relationships) - draft
 ```
 
+[The authoring contract](docs/reference/authoring-contract.md) maps each of these files, and the other things you author, to the place its rules live and the gate layer that enforces them. Nothing in the gate checks that `references/` and `evidence/` exist, so create all three files for every framework skill.
+
 ## Conventions
 
 - Skill IDs are namespace-dot: `thinking-framework-skills.<method>`. Installable skill names carry the `think-` prefix (`think-<method>`), declared as `prefix` in `library.json`.
