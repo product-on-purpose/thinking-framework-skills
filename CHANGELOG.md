@@ -6,6 +6,12 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Added
 
+- **Agent discovery now sees the subagents (#151).** Until now, `catalog.json`, `llms.txt` and `llms-full.txt` listed none of the three, so an agent reading them could not learn that a component could be delegated.
+  - Every `catalog.json` entry gains a `subagent` field. It is `null` unless the component also ships as a Claude Code subagent. Three do: `think-research-framework`, `think-audit-reasoning` and `think-stress-test-decision`.
+  - For those three, the field carries the subagent type to delegate to, the description, the tool grant and the preloaded skills. Every value is read from `agents/<name>.md`.
+  - `llms.txt` and `llms-full.txt` gain a Subagents section, and their summary sentence counts the subagents.
+  - A subagent annotates the entry it runs and is not a fourth entry type. That is the same reason the ten slash commands are not entries: each one is another way to run a listed component. So `counts.total` stays 76, and no published count moves.
+  - Two generator guards fail the build in two cases: an agent file's `name` disagrees with `library.json`, or a registered subagent has no entry with the same name. A new test fails if a recipe subagent's preloads drift from its recipe's `steps:`. All three were shown RED on the real files.
 - **`manifest.generated.json` is drift-checked at last (roadmap C1-4, SPEC-06) (#152).** It was the one committed generated file that no guard covered. The README and `docs/conformance.md` (G4) both already claimed it was drift-checked, and that claim is now true.
   - **Why it matters beyond tidiness:** the skill-selection eval reads its roster of skills and commands from this file (`scripts/eval/extract-cases.mjs`). A stale description would be measured as if users had it.
   - **The local half** is `check-registry` section 11, backed by the pure lib `scripts/lib/manifest-roster-lib.mjs`. It compares fields, not bytes, and needs no toolkit. It checks every on-disk skill and command for its path, description and `maps-to`, plus `library.json`'s name, version, tier and standard.
@@ -14,6 +20,10 @@ All notable changes to this project are documented here. The format is based on 
   - The toolkit's own U8 check compares only the name and version of the two native manifests, which is why neither check existed before.
   - Both halves were shown RED on real files: an edited `think-woop` description (local and CI halves) and an unregistered command file (local half).
   - The `ci.yml` comment that called the advisor set "the ONE committed generated artifact" now says where each generated file is guarded.
+
+### Fixed
+
+- **`learn/build-with-the-library` listed `catalog.json` fields that do not exist (#151).** It promised thinking modes, problem contexts, use cases, poor-fit cases and "what each skill often follows". Git history shows that the generator has never emitted any of them, and the 2026-06-15 catalog spec never asked for them. The paragraph now names the fields an entry actually carries.
 
 ## [0.17.0] - 2026-09-24
 

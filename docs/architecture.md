@@ -86,7 +86,7 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 | `scripts/gen-registry.mjs` | the registry | the `framework-catalog.md` family tables + the public `about/why-not.md` index |
 | `scripts/gen-recommendable.mjs` | the skills + recipes | the advisor's `recommendable.{json,md}` corpus (names, tiers, anti-triggers, when-not, overlaps); the registry cross-checks this corpus rather than feeding it |
 | `scripts/gen-site.mjs` | the skills + registry + recipes + intros | the Starlight site (frameworks, tools, families, recipes, library, explore lenses, map, chooser, bibliography) |
-| `scripts/gen-catalog.mjs` | the registry + skills + recipes | the machine-readable agent-discovery surface served at the site root: `site/public/{llms.txt, llms-full.txt, catalog.json, evaluated.json}` |
+| `scripts/gen-catalog.mjs` | the registry + skills + recipes + subagents (`agents/*.md`) | the machine-readable agent-discovery surface served at the site root: `site/public/{llms.txt, llms-full.txt, catalog.json, evaluated.json}` |
 | `scripts/gen-engine.mjs` | the shared applicator engine | the byte-identical copy of `engine.md` in `think-random-frameworks` |
 | `scripts/gen-agents.mjs` | the registry + skills + `_workflows/` | the `AGENTS.md` Skills + Recipes tables (the contributor/agent guide) |
 | agent-skills-toolkit `gen-manifest` / `gen-index` | `library.json` | the native plugin manifests + `INDEX.md` |

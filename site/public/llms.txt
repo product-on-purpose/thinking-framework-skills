@@ -1,6 +1,6 @@
 # Thinking Framework Skills
 
-> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 63 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 63 ship as skills.
+> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 63 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact, and 3 of these components also run as Claude Code subagents. 135 methods were evaluated and graded, 63 ship as skills.
 
 Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) (the invokable skills, tools, and recipes) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) (all 135 evaluated methods). Full text: [llms-full.txt](https://thinking-framework-skills.productonpurpose.com/llms-full.txt) inlines every component for one-fetch ingestion.
 
@@ -116,6 +116,14 @@ Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurp
 - [think-pdca-a3](https://thinking-framework-skills.productonpurpose.com/recipes/pdca-a3/): Run the Plan-Do-Check-Act improvement loop as a chain of shipped moves, taking a performance gap through root-cause and countermeasure choice, then a structured review of actual versus expected, then a standardize-or-iterate decision. (steps: think-issue-tree -> think-decision-option-review -> think-after-action-review)
 - [think-reframe-problem](https://thinking-framework-skills.productonpurpose.com/recipes/reframe-problem/): Make sure you are solving the right problem before generating solutions, by restating it, sorting evidence from inference, and reviewing it through separated lenses. (steps: think-problem-restatement -> think-evidence-vs-inference-sort -> think-parallel-perspectives-review)
 - [think-stress-test-decision](https://thinking-framework-skills.productonpurpose.com/recipes/stress-test-decision/): Pressure-test a consequential decision before committing, by comparing options, surfacing the conditions that must hold, imagining failure, and sanity-checking the estimate against base rates. (steps: think-decision-option-review -> think-what-would-have-to-be-true -> think-premortem -> think-reference-class-forecasting)
+
+## Subagents
+
+3 of the components above also ship as Claude Code subagents. A subagent runs its component in a separate context window, so the intermediate working never enters the caller's conversation. Delegate to one by the subagent type shown.
+
+- [thinking-framework-skills:think-research-framework](https://thinking-framework-skills.productonpurpose.com/tools/think-research-framework/): Researches a named thinking method end to end and returns a verdict a human can act on - grades its evidence conservatively on the seven-tier model, proves or disproves distinctness against the shipped catalog, drafts its learning dossier, and emits a schema-valid proposed registry entry. (runs the think-research-framework tool)
+- [thinking-framework-skills:think-audit-reasoning](https://thinking-framework-skills.productonpurpose.com/recipes/audit-reasoning/): Check whether a conclusion is sound before trusting it, by sorting evidence from inference, reconstructing the inferential climb, and reviewing through separated lenses. (runs the think-audit-reasoning recipe)
+- [thinking-framework-skills:think-stress-test-decision](https://thinking-framework-skills.productonpurpose.com/recipes/stress-test-decision/): Pressure-test a consequential decision before committing, by comparing options, surfacing the conditions that must hold, imagining failure, and sanity-checking the estimate against base rates. (runs the think-stress-test-decision recipe)
 
 ## Evaluated, not shipped
 

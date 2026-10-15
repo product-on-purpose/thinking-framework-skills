@@ -1,6 +1,6 @@
 # Thinking Framework Skills - full catalog
 
-> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 63 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact. 135 methods were evaluated and graded, 63 ship as skills.
+> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 63 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact, and 3 of these components also run as Claude Code subagents. 135 methods were evaluated and graded, 63 ship as skills.
 
 This is the expanded llms.txt: every invokable component inlined with its routing metadata, so an agent can ingest the catalog in a single fetch. The compact index is [llms.txt](https://thinking-framework-skills.productonpurpose.com/llms.txt); the structured forms are [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json).
 
@@ -761,6 +761,7 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 - When to use: Researches a thinking framework end to end and produces a schema-valid proposed registry entry plus a learning dossier, grading the evidence on the seven-tier model and assessing overlap against the shipped catalog. Use when you need an honest evidence grade and a build-or-fold verdict for a candidate method before turning it into a skill, when reproducing the evidence-and-overlap vetting on a method the catalog already judged, or when you need a ranked shortlist of new candidate methods in a family.
 - Produces: proposed-registry-entry
 - Pairs with: think-framework-advisor
+- Also runs as a Claude Code subagent: thinking-framework-skills:think-research-framework
 - URL: https://thinking-framework-skills.productonpurpose.com/tools/think-research-framework/
 
 #### think-top3
@@ -777,6 +778,7 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 #### think-audit-reasoning
 - When to use: Check whether a conclusion is sound before trusting it, by sorting evidence from inference, reconstructing the inferential climb, and reviewing through separated lenses.
 - Steps: think-evidence-vs-inference-sort -> think-ladder-of-inference-check -> think-parallel-perspectives-review
+- Also runs as a Claude Code subagent: thinking-framework-skills:think-audit-reasoning
 - URL: https://thinking-framework-skills.productonpurpose.com/recipes/audit-reasoning/
 
 #### think-expand-options
@@ -817,6 +819,31 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 #### think-stress-test-decision
 - When to use: Pressure-test a consequential decision before committing, by comparing options, surfacing the conditions that must hold, imagining failure, and sanity-checking the estimate against base rates.
 - Steps: think-decision-option-review -> think-what-would-have-to-be-true -> think-premortem -> think-reference-class-forecasting
+- Also runs as a Claude Code subagent: thinking-framework-skills:think-stress-test-decision
+- URL: https://thinking-framework-skills.productonpurpose.com/recipes/stress-test-decision/
+
+## Subagents
+
+3 of the components above also ship as Claude Code subagents. A subagent runs its component in a separate context window, so the intermediate working never enters the caller's conversation. Delegate to one by the subagent type shown.
+
+#### thinking-framework-skills:think-research-framework
+- Runs: the think-research-framework tool
+- When to delegate: Researches a named thinking method end to end and returns a verdict a human can act on - grades its evidence conservatively on the seven-tier model, proves or disproves distinctness against the shipped catalog, drafts its learning dossier, and emits a schema-valid proposed registry entry. Returns BUILD or FOLD, and folding is a success. Use when the question is whether a method deserves to ship, when an existing catalog judgment needs reproducing against current evidence, or when a family needs uncovered candidates shortlisted. Do NOT use to author a skill whose verdict is already settled, to run a framework on the user's own problem (use that skill, or think-framework-advisor), or for a product or domain question rather than an evaluation of a thinking method. Never writes the registry; a human admits the entry.
+- Tools granted: Read, Glob, Grep, WebSearch, Write, Bash
+- URL: https://thinking-framework-skills.productonpurpose.com/tools/think-research-framework/
+
+#### thinking-framework-skills:think-audit-reasoning
+- Runs: the think-audit-reasoning recipe
+- When to delegate: Check whether a conclusion is sound before trusting it, by sorting evidence from inference, reconstructing the inferential climb, and reviewing through separated lenses. Runs the 3-skill think-audit-reasoning chain in its own context and returns only the finished reasoning audit, so the intermediate artifacts never enter the caller's conversation. Use when the caller wants the reasoning audit rather than the working. Do NOT use when the user wants to see or steer each step (run the /think-audit-reasoning command inline instead), or for a job one method answers (use that skill).
+- Tools granted: Read, Glob, Grep
+- Preloaded skills: think-evidence-vs-inference-sort, think-ladder-of-inference-check, think-parallel-perspectives-review
+- URL: https://thinking-framework-skills.productonpurpose.com/recipes/audit-reasoning/
+
+#### thinking-framework-skills:think-stress-test-decision
+- Runs: the think-stress-test-decision recipe
+- When to delegate: Pressure-test a consequential decision before committing, by comparing options, surfacing the conditions that must hold, imagining failure, and sanity-checking the estimate against base rates. Runs the 4-skill think-stress-test-decision chain in its own context and returns only the finished decision brief, so the intermediate artifacts never enter the caller's conversation. Use when the caller wants the decision brief rather than the working. Do NOT use when the user wants to see or steer each step (run the /think-stress-test-decision command inline instead), or for a job one method answers (use that skill).
+- Tools granted: Read, Glob, Grep
+- Preloaded skills: think-decision-option-review, think-what-would-have-to-be-true, think-premortem, think-reference-class-forecasting
 - URL: https://thinking-framework-skills.productonpurpose.com/recipes/stress-test-decision/
 
 ## Evaluated, not shipped

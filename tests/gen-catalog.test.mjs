@@ -57,6 +57,27 @@ test("a recipe entry (stress-test-decision) carries ordered steps", () => {
   assert.ok(r.url.endsWith("/recipes/stress-test-decision/"), r.url);
 });
 
+test("each registered subagent annotates its same-named entry and adds none", () => {
+  const registered = lib.components.subagents.map((c) => c.name).sort();
+  const annotated = catalog.entries.filter((e) => e.subagent).map((e) => e.invocation).sort();
+  assert.deepEqual(annotated, registered, "one annotated entry per registered subagent");
+  for (const e of catalog.entries) assert.ok("subagent" in e, `${e.slug}: every entry carries the field`);
+  assert.equal(catalog.counts.total, catalog.counts.skills + catalog.counts.tools + catalog.counts.recipes, "subagents are not an entry type");
+  for (const name of registered) {
+    assert.ok(llmsTxt.includes(`[${lib.name}:${name}](`), `llms.txt lists ${name} under Subagents`);
+  }
+});
+
+test("a subagent annotation is read off its agent file, and a recipe one preloads exactly its steps", () => {
+  const r = catalog.entries.find((e) => e.invocation === "think-stress-test-decision" && e.type === "recipe");
+  assert.equal(r.subagent.subagent_type, "thinking-framework-skills:think-stress-test-decision");
+  assert.deepEqual(r.subagent.tools, ["Read", "Glob", "Grep"], "tool grant parsed from frontmatter");
+  for (const e of catalog.entries.filter((x) => x.subagent)) {
+    for (const p of e.subagent.preloads) assert.ok(allSkillNames.has(p), `${e.invocation}: preload ${p} is not a real skill`);
+    if (e.type === "recipe") assert.deepEqual(e.subagent.preloads, e.steps, `${e.invocation}: preloads drifted from the recipe's steps`);
+  }
+});
+
 test("likely_companions only ever names real shipped skills", () => {
   for (const e of catalog.entries) {
     for (const c of e.likely_companions || []) {
