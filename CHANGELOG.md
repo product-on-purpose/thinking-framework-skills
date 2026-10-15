@@ -6,7 +6,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Added
 
-- **`manifest.generated.json` is drift-checked at last (roadmap C1-4, SPEC-06).** It was the one committed generated file that no guard covered. The README and `docs/conformance.md` (G4) both already claimed it was drift-checked, and that claim is now true.
+- **`manifest.generated.json` is drift-checked at last (roadmap C1-4, SPEC-06) (#152).** It was the one committed generated file that no guard covered. The README and `docs/conformance.md` (G4) both already claimed it was drift-checked, and that claim is now true.
   - **Why it matters beyond tidiness:** the skill-selection eval reads its roster of skills and commands from this file (`scripts/eval/extract-cases.mjs`). A stale description would be measured as if users had it.
   - **The local half** is `check-registry` section 11, backed by the pure lib `scripts/lib/manifest-roster-lib.mjs`. It compares fields, not bytes, and needs no toolkit. It checks every on-disk skill and command for its path, description and `maps-to`, plus `library.json`'s name, version, tier and standard.
   - **The local half only compares a description it can read with certainty**, a plain one-line value. All 77 are of that kind today. A quoted or folded value is skipped, never guessed at, so a valid file cannot fail the gate.
