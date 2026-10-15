@@ -40,7 +40,7 @@ When asked to manage a chronic tension, resolve a recurring fight between two ca
 4. **Fill the four quadrants.** For each pole, write its **upside** (the positive results of focusing there) and its **downside** (what goes wrong when you over-focus there to the neglect of the other pole). The downside of each pole is, by design, what the *upside of the other pole* corrects - that interdependence is the engine of the map.
 5. **Name the early-warning signs.** For each pole, list the observable, measurable signals that you have over-leaned into it and are sliding into its downside (the leading indicators, ideally early enough to act before the downside bites).
 6. **Name the action steps.** For each pole, list the concrete steps that gain or maintain its upside, and that pull back toward the neglected pole when the warnings fire. These are what convert the diagram into a management routine.
-7. **Emit the both/and polarity map** per `references/TEMPLATE.md`: the two poles, the greater purpose and deeper fear, the four upside/downside quadrants, the early-warning signs, and the action steps - built to manage the tension over time, never to resolve it.
+7. **Emit the both/and polarity map** per `references/TEMPLATE.md`: the two poles, the greater purpose and deeper fear, the four upside/downside quadrants, the early-warning signs, and the action steps - built to manage the tension over time, never to resolve it. The template's pre-printed evidence caveat is part of the artifact; carry it through verbatim.
 
 ## Output Format
 

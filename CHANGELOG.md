@@ -11,6 +11,7 @@ All notable changes to this project are documented here. The format is based on 
   - C3-2 (flagship commands) is parked: its selection input, the trigger-eval corpus, is near-uniform per skill (61 of 67 skills carry exactly 6 cases), so it holds no demand signal.
   - C1-5 (status auto-promotion) is retired: the gate already rejects the drift it would prevent.
   - C6-1 (`trust.json`) is parked, pending a decision.
+- **Two tier-C skills' artifacts now carry their evidence tier, and a third names the letter (B-04).** `think-contradiction-tension-mapping` and `think-frame-creation` gain a pre-printed "Evidence caveat" in their `references/TEMPLATE.md`, sourced from each dossier, in the shape `think-three-horizons` already uses. `think-causal-layered-analysis` already had one and now says "tier C". Each procedure now says to carry the caveat through verbatim. `think-speculative-harms-anti-goals` was on the backlog's list in error: it already opens with an explicit tier-A caveat. Unmeasured until the next output run.
 
 ### Fixed
 

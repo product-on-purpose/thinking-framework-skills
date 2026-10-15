@@ -50,3 +50,9 @@ Derived *forward* from the new frame - the needs and moves that become obvious o
 ## Status
 
 **This is a standpoint to develop and test, not a proven answer.** The frame cannot be accepted as definitive until a design built on it has been shown to deliver the value sought. Next step to test it: [the smallest thing that would confirm or break the frame].
+
+## Evidence caveat
+
+<!-- This section is pre-printed: copy it into the artifact verbatim, without this comment. -->
+
+> This proposal is a standpoint to test, not a validated result. The method's evidence is tier C (conceptually plausible but under-tested; transferred from human design practice). No controlled or comparative study shows that the method produces better frames or outcomes.

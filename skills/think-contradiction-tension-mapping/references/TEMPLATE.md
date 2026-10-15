@@ -52,3 +52,9 @@ Fill this in. The deliverable is the polarity map - two interdependent poles, th
 ## How this map will be used over time
 
 [The management routine: who watches the early-warning signs, how often the map is revisited, and how the action steps get triggered. This is what makes the map a living tool rather than a static diagram. State any concrete near-term allocation the map informs - it is an input to real decisions, not an excuse to avoid them.]
+
+## Evidence caveat
+
+<!-- This section is pre-printed: copy it into the artifact verbatim, without this comment. -->
+
+> This map manages a tension rather than deciding it. The method's evidence is tier C (conceptually plausible but under-tested; transferred from human organizational and clinical-training studies). No study measures the mapping procedure itself, so the map is not a measured decision-improver.

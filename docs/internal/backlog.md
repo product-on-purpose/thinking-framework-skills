@@ -252,7 +252,13 @@ SPEC-04 (routing feedback loop) proposed curing eval misses by adding "Should NO
 - **Answer-key widening candidates (the #132 precedent; maintainer's call):**
   - `analysis-of-competing-hypotheses`'s *"Which of these three explanations..."*: the key says `evidence-vs-inference-sort`, the router picked `process-tracing`.
   - The three *"What could go wrong..."* anti cases, under `complexity-domain-sort`, `five-whys` and `swot`: the key says `red-team-light`, the router picked `premortem`.
-- **B-04 (pre-printed tier caveats) closed itself and is now honesty-only, deferred.** The failure that motivated it, `frame-creation`'s "Not overclaim" check, passed 8/8 on 2026-09-12. Four core skills rated tier C or A still have no evidence-tier line in their `references/TEMPLATE.md`: `causal-layered-analysis`, `contradiction-tension-mapping`, `frame-creation` and `speculative-harms-anti-goals`. Each line has to be sourced from that skill's dossier, so this is its own change.
+- **DONE 2026-10-15: B-04, and two of its four skills were already covered.** Checked file by file before editing:
+  - `contradiction-tension-mapping` and `frame-creation` had no tier line. Each `TEMPLATE.md` now ends with a pre-printed "Evidence caveat" section in the `three-horizons` shape, sourced from its dossier.
+  - `causal-layered-analysis` already had that section, but it stated the tier's meaning without the letter. The line now says "tier C".
+  - `speculative-harms-anti-goals` already opened its template with an explicit "anecdotal-tier (A)" caveat, which its dossier mandates. It was listed in error and is unchanged.
+  - Each of the three procedures' emit steps now says to carry the caveat through verbatim, as `three-horizons` does. These are artifact-content changes, unmeasured until the next output run.
+
+  The original entry follows. **B-04 (pre-printed tier caveats) closed itself and is now honesty-only, deferred.** The failure that motivated it, `frame-creation`'s "Not overclaim" check, passed 8/8 on 2026-09-12. Four core skills rated tier C or A still have no evidence-tier line in their `references/TEMPLATE.md`: `causal-layered-analysis`, `contradiction-tension-mapping`, `frame-creation` and `speculative-harms-anti-goals`. Each line has to be sourced from that skill's dossier, so this is its own change.
 - **The five failed output checks from the 2026-09-12 output run have not had the close-the-loop review.** `node scripts/eval/list-misses.mjs docs/internal/eval-results/2026-09-12-output-eval.json` lists them.
 - **`eval:freshness` (C2-1) cannot see a routing-corpus change.** It fingerprints `eval/cases.md`. A write-back through "When NOT to Use", or the `overlaps` fix that shipped with this effort, changes `recommendable.json` without changing any fingerprint. A corpus fingerprint is possible later. Until then, the commit names the skills whose routing changed.
 

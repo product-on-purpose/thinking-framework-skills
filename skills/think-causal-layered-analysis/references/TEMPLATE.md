@@ -37,4 +37,4 @@ Fill this in. The deliverable is the four-layer matrix - litany, system, worldvi
 
 <!-- This section is pre-printed: copy it into the artifact verbatim, without this comment. -->
 
-> This four-layer matrix is a reframing aid. The method's evidence is conceptually plausible but untested (transferred from human futures and facilitation practice), with no measured outcome effect; the reconstructed preferred future is an interpretive reframe, not a forecast.
+> This four-layer matrix is a reframing aid. The method's evidence is tier C, conceptually plausible but untested (transferred from human futures and facilitation practice), with no measured outcome effect; the reconstructed preferred future is an interpretive reframe, not a forecast.
