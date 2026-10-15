@@ -74,6 +74,12 @@ Net on the changed cases: **+8 for the enrichment**, and the aggregate right-alt
 - **The 5 counter-cases are not noise to be dismissed.** They are a consistent pattern (enrichment over-reaches on `expected: none`), and they would need their own run to size properly.
 - **This tests the corpus, not the advisor.** It measures whether a blind router discriminates better with the fields present. It does not measure whether the live advisor's Thinking Plans are better, which is the output eval's question.
 - **Both arms are the same model.** Nothing here says the fields help a smaller or different model equally; they might matter more.
+- *(Corrected 2026-10-14: the experiment has a confound that was not noticed when it ran.)*
+  - **The confound:** `anti_triggers` is not only a description of when not to use a skill. `gen-recommendable.mjs` builds it from the eval's own "Should NOT trigger" bullets, so arm A's catalog contains every anti case's prompt, verbatim. For the 144 anti cases that name an alternative (128 at the time of this run), the bullet also names that alternative.
+  - **What the result cannot separate:** "the fields describe when not to reach for a framework" from "the field contains the test prompt and its answer". Part of the +9 right-alternative gap may be the router reading the answer rather than discriminating neighbours.
+  - **What still holds:** the 0 delta on trigger cases, because trigger prompts are not in the catalog.
+  - **What the result now means:** arm B's 378/379 and 113/128 are a lower bound for the closed-book anti-case figures, not merely a degraded corpus.
+  - **What would settle it:** a third arm stripping `anti_triggers` alone, keeping `not_use` and `overlaps`. That is maintainer spend. See `scripts/eval/README.md` ("The blind / answer-key split") and `docs/internal/backlog.md`.
 
 ## Why this is not a scorecard
 

@@ -233,6 +233,29 @@ Shipped: preamble ratchet 6 to 3, soft-endorsement denylist, citation-shaped evi
 - **No instrument measures the subagents' behaviour.** What was verified is a single headless run of each on Claude Code 2.1.282 (every preload landed, and the return was the composite artifact with no intermediates) - a smoke test, not a measurement. Two questions stay open and are both maintainer-gated spend: whether a host *auto-delegates* to them from their descriptions (no instrument here sees subagent descriptions; `manifest.generated.json` has no `agents` key, the same reason B-03 shipped unmeasured), and whether the delegated artifact is as good as the same chain run inline (the output eval produces skills, not recipes).
 - **Unverified: whether `think-research-framework` dispatches by its bare name under a plugin install (found 2026-10-14).** `skills/think-research-framework/SKILL.md` passes `subagent_type` `think-research-framework`. Claude Code lists a plugin's subagents under the plugin namespace, as it lists `plugin-dev:agent-creator`, so the installed type is `thinking-framework-skills:think-research-framework`, the form `catalog.json` now publishes. Nobody has checked whether the bare name still resolves, or whether the host recovers from it, on a marketplace install. The same install check that would confirm the recipe subagents' namespaced preloads settles this one, so the two should be run together.
 
+## From the routing feedback loop (2026-10-14, roadmap C2-2)
+
+SPEC-04 (routing feedback loop) proposed curing eval misses by adding "Should NOT trigger" cases. Checking the data flow first, as its own step 1 asked, found that this would make the measurement worse. The PR shipped the tooling, the classification and the records below instead. Record: `scripts/eval/README.md`, "The blind / answer-key split" and "Close the loop".
+
+- **DECISION NEEDED: the framework trigger eval's anti-case figures are measured open-book.**
+  - **The mechanism:** `gen-recommendable.mjs` publishes each skill's "Should NOT trigger" bullets to the router's catalog as `anti_triggers`. Those bullets are the eval's anti cases, so every anti prompt sits in the catalog, verbatim, under the skill it must not fire. For all 144 anti cases that name an alternative, the bullet names that alternative too.
+  - **Unaffected:** trigger top-1, and the whole skill-selection eval.
+  - **The bound, from an existing run:** the 2026-09-11 A/B stripped all three enrichment fields and lost at most 1 false fire and 9 right-alternatives.
+  - **The options, in the order I would take them:**
+    1. Run a third A/B arm that strips `anti_triggers` alone, to size the leak.
+    2. Split `cases.md` into published near-miss examples, which feed `anti_triggers`, and held-out eval cases, which are never published. This touches 67 files and changes both corpora, so it needs a full run.
+    3. Source `anti_triggers` from the "When NOT to Use" section instead. This changes the live advisor's corpus.
+    4. Keep things as they are, and qualify the two anti-case figures wherever they are published.
+
+  Every option moves a published figure, so each one is the maintainer's call and spend.
+- **The public trust page needs a qualifier, at the maintainer's discretion.** The "0 false-fires" card in `site/src/content/docs/start/does-this-work.mdx`, and any published right-alternative figure, were measured with the anti prompts visible in the catalog. The "100% top-1" figure was not, and needs no change.
+- **Answer-key widening candidates (the #132 precedent; maintainer's call):**
+  - `analysis-of-competing-hypotheses`'s *"Which of these three explanations..."*: the key says `evidence-vs-inference-sort`, the router picked `process-tracing`.
+  - The three *"What could go wrong..."* anti cases, under `complexity-domain-sort`, `five-whys` and `swot`: the key says `red-team-light`, the router picked `premortem`.
+- **B-04 (pre-printed tier caveats) closed itself and is now honesty-only, deferred.** The failure that motivated it, `frame-creation`'s "Not overclaim" check, passed 8/8 on 2026-09-12. Four core skills rated tier C or A still have no evidence-tier line in their `references/TEMPLATE.md`: `causal-layered-analysis`, `contradiction-tension-mapping`, `frame-creation` and `speculative-harms-anti-goals`. Each line has to be sourced from that skill's dossier, so this is its own change.
+- **The five failed output checks from the 2026-09-12 output run have not had the close-the-loop review.** `node scripts/eval/list-misses.mjs docs/internal/eval-results/2026-09-12-output-eval.json` lists them.
+- **`eval:freshness` (C2-1) cannot see a routing-corpus change.** It fingerprints `eval/cases.md`. A write-back through "When NOT to Use", or the `overlaps` fix that shipped with this effort, changes `recommendable.json` without changing any fingerprint. A corpus fingerprint is possible later. Until then, the commit names the skills whose routing changed.
+
 ## Pre-existing (predates this effort)
 
 - **GA4 content-vs-acquisition decision.** Parked, waiting on the analytics signal (see `docs/internal/MEASUREMENT.md` and the content-plan). Tracked separately.

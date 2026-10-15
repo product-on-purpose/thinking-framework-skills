@@ -38,10 +38,31 @@ All notable changes to this project are documented here. The format is based on 
     - an edited `eval/cases.md`, which `eval:freshness` listed alone;
     - a router agent with its model pin removed, which the stubbed-runtime test caught.
   - **The workflow edits are verified short of a paid run:** compiled as the Workflow tool runs them, executed against a stubbed runtime, and prompt parity re-checked. They have not been run against a live model.
+- **Every eval miss now ends in a decision (roadmap C2-2, SPEC-04) (#154).**
+  - `scripts/eval/list-misses.mjs` prints every miss in a committed scorecard, one row each: false fires, trigger misses, misrouted anti cases and failed output checks.
+  - The harness README gains a "Close the loop" step. Each row ends either in a write-back to the skill's "When NOT to Use" boundary or in a classified known-ambiguities note.
+  - **The first review, on the 2026-09-13 trigger run, found 7 misses and warranted no write-back.**
+    - Three are cases where the router's pick is arguably better than the key. For example, `process-tracing` for "which of three explanations is right", and `premortem` for "what could go wrong if we ship this". These are listed as answer-key widening candidates.
+    - Four are reasonable declines of "just tell me" prompts.
+  - The premortem / authentic-dissent seam SPEC-04 was written for no longer misses.
 
 ### Fixed
 
 - **`learn/build-with-the-library` listed `catalog.json` fields that do not exist (#151).** It promised thinking modes, problem contexts, use cases, poor-fit cases and "what each skill often follows". Git history shows that the generator has never emitted any of them, and the 2026-06-15 catalog spec never asked for them. The paragraph now names the fields an entry actually carries.
+- **The eval README said the router never sees the expected answer. For anti cases, it does (#154).**
+  - **The mechanism:** `gen-recommendable.mjs` publishes each skill's "Should NOT trigger" bullets to the router's catalog as `anti_triggers`. Those bullets are the eval's anti cases. So every anti prompt sits in the catalog, verbatim, under the skill it must not fire, and the 144 that name an alternative name it there too.
+  - **Unaffected:** trigger top-1 and the skill-selection eval.
+  - **Open-book:** the two anti-case figures, no-false-fire and right-alternative.
+  - **The bound, from the existing 2026-09-11 A/B:** the inflation is at most 1 false fire and 9 right-alternatives on that run.
+  - The README, and the A/B record whose conclusion the leak confounds, both carry dated corrections.
+  - **This also changed C2-2 itself.** SPEC-04 proposed curing misses with new "Should NOT trigger" cases, and each of those would have printed its own answer into the catalog it is scored against. The fix options are in `docs/internal/backlog.md` as a maintainer decision, and nothing here changes a published figure.
+- **The routing catalog's `overlaps` missed every sibling named by its bare slug (#154).**
+  - `deriveOverlaps` only matched a full `think-<slug>` name. Most "When NOT to Use" sections point at a neighbour by its slug instead, for example "use premortem" or `red-team-light`.
+  - As a result, 16 deliberate pointers in 11 skills never reached `recommendable.json`. One example: authentic-dissent's section names `red-team-light`, yet its overlaps were `[]`.
+  - A bare slug now counts when it stands alone, never inside a longer hyphenated name or a plural.
+  - The regenerated catalog gains exactly those 16 entries, with nothing removed and no other field changed.
+  - **This changes the live advisor's routing corpus for those 11 skills, and the change is unmeasured.** The 2026-09-13 trigger figures predate it.
+  - **The change is kept because it adds structure, not new information.** Each of the 16 names already appears in the same entry's `not_use` text, which the router reads today; it was checked one by one before merging. `overlaps` now states the pointer as a field instead of leaving it in prose. A routing shift is still possible, and the next measured trigger run is the one that would show it.
 
 ## [0.17.0] - 2026-09-24
 

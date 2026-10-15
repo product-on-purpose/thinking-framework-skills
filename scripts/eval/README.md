@@ -18,6 +18,13 @@ The number measures the **catalog's discriminability** - whether the skill descr
 
 The router agents never see which skill authored a case or what the expected answer is. They only route `prompt -> best-fit framework` against the catalog, exactly as the live advisor would. The deterministic scorer (`score.mjs`) holds the answer key and grades afterward. This removes the failure mode where an agent "defends" the skill under test, and means the score reflects the catalog, not an agent agreeing with itself.
 
+> **Corrected 2026-10-14: that holds for trigger cases, not for anti cases.** The catalog the router reads (`recommendable.json`) publishes each skill's `anti_triggers`, and `gen-recommendable.mjs` builds them from the same "Should NOT trigger" bullets that the eval turns into anti cases. So every anti case's prompt is in the catalog, verbatim, listed as an anti-trigger of the skill it must not fire. For the 144 anti cases that name a correct alternative, the bullet's annotation names that alternative too, as in `(near-miss: this is think-problem-restatement)`. The router is not told the answer key, but it can read most of an anti case's answer in the catalog.
+>
+> - **Closed-book, unaffected:** trigger top-1 and top-3, because "Should trigger" prompts appear nowhere in the catalog. The skill-selection eval is also closed-book, because its roster is name plus description only.
+> - **Open-book:** the framework trigger eval's two anti-case figures. "No false fire" is exposed to the exclusion ("not this skill"). "Right alternative" is exposed to the answer itself.
+> - **How much it inflates them, bounded by a run that already exists:** the 2026-09-11 enrichment A/B stripped `anti_triggers`, `not_use` and `overlaps` together and scored 378/379 and 113/128 against 379/379 and 122/128. The inflation is therefore at most 1 false fire and 9 right-alternatives on that run, and part of those 9 is the legitimate `not_use` / `overlaps` signal. A third arm that strips `anti_triggers` alone would settle it.
+> - **Consequence for closing the loop:** never cure a miss by adding a "Should NOT trigger" case. It would be published into the very catalog it is scored against. The fix options (a hold-out split in `cases.md`, or anti-triggers sourced from somewhere other than the eval cases) are a design decision, recorded in `docs/internal/backlog.md`.
+
 ## The skill-selection eval (a different question, a different corpus)
 
 The trigger eval above routes against `skills/think-framework-advisor/references/recommendable.json` - the **63 shipped frameworks**, enriched with `anti_triggers` / `not_use` / `overlaps`. That corpus is the advisor's list of things to *recommend*. It correctly contains no meta-skills.
@@ -90,6 +97,36 @@ The output eval measures **artifact quality**: run each skill and check whether 
    node scripts/eval/score-output.mjs <results.json>
    ```
    Prints the per-skill + overall check-pass scorecard and every failed check with the judge's reason; writes `output-scorecard.json`. To commit the run, use `finalize.mjs` instead (see below).
+
+## Close the loop: every miss ends in a decision (roadmap C2-2)
+
+The eval found routing seams for months, and nothing turned them into a decision. So the last step of every run is a miss review:
+
+    node scripts/eval/list-misses.mjs docs/internal/eval-results/<date>-trigger-eval.json docs/internal/eval-results/<date>-output-eval.json
+
+Every row it prints ends in exactly one of two places.
+
+1. **A write-back to the skill's documented boundary.** Add a line to the "When NOT to Use" section of the skill that grabbed or missed, naming the right sibling by its slug. That section feeds `not_use` and `overlaps` in `recommendable.json`. Describe the general near-miss shape, never the eval prompt.
+2. **An entry in the known-ambiguities note below**, with the reason.
+
+**Never cure a miss by adding a "Should NOT trigger" case.** That case would be published into the catalog it is scored against (see the correction above). Widening an answer key, as #132 did, is the maintainer's decision, not a loop step.
+
+After a write-back, re-run only the touched skills and their confusion partners, under `--prefix`. `npm run eval:freshness` will not flag a write-back, because it fingerprints `eval/cases.md` and a write-back changes `SKILL.md`. Name the skills whose boundary moved in the commit.
+
+### Known ambiguities (from the 2026-09-13 trigger run)
+
+`list-misses` reports 7 misses, all anti cases that named an alternative. None warranted a write-back. The reasons fall into two groups.
+
+- **The router's pick is arguably better than the key.** These three are answer-key widening candidates, the maintainer's call under the #132 precedent.
+  - *"Which of these three explanations for the churn spike is right?"* (an anti case of `analysis-of-competing-hypotheses`). The key says `evidence-vs-inference-sort`; the router picked `process-tracing`, whose artifact is a rival-explanation evidence ledger.
+  - *"What could go wrong if we ship this?"* and *"What could go wrong with this launch?"* (anti cases of `complexity-domain-sort` and `five-whys`). The key says `red-team-light`; the router picked `premortem` both times. Both readings are defensible: "before launch, what could make this fail" is premortem's own trigger. The skill-selection run repeats it on `swot`'s *"What could go wrong if we expand into the EU?"*.
+- **The router declined a "just tell me" prompt.** These four were judged reasonable declines, not misses to cure.
+  - *"Just tell me if launching the free tier is the right strategic call."* The key says `scenario-planning`.
+  - *"Deploy the hotfix now or wait for the morning window? Pretty obvious..."* The key says `one-way-vs-two-way-door`.
+  - *"Just multiply some made-up odds by some made-up payoffs..."* The key says `reference-class-forecasting`.
+  - *"Just tell me the single best pricing model for us."* The key says `decision-option-review`.
+
+The premortem / authentic-dissent seam that the 2026-06-25 run found (SPEC-04, B-02) does not recur in the 2026-09-13 run, so it needed no write-back. The five failed output checks in the 2026-09-12 output run have not had this review yet; `list-misses` lists them.
 
 ## The dispatch output eval (a dispatcher cannot be measured by the generic runner)
 

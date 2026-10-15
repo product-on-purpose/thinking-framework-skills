@@ -67,10 +67,17 @@ export function deriveNotUse(skillMd) {
 
 // The recommendable skill names that a skill's own "When NOT to Use" section points at - the
 // best-effort nearest-neighbor/overlap signal. Empty when the section names no sibling by name.
+// A sibling counts whether it is written in full (`think-premortem`) or by its bare slug ("use
+// premortem", `red-team-light`), the form most of these sections actually use: until 2026-10-14
+// only the full form matched, and 16 deliberate pointers in 11 skills never reached the catalog.
+// A bare slug must stand alone, so it never matches inside a longer hyphenated name or a plural.
 export function deriveOverlaps(skillMd, knownNames) {
   const body = extractSectionBody(skillMd, "When NOT to Use");
   const names = knownNames instanceof Set ? [...knownNames] : knownNames;
-  return [...new Set(names.filter((n) => body.includes(n)))].sort();
+  const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const named = (n) =>
+    body.includes(n) || new RegExp(`(^|[^a-z0-9-])${esc(n.replace(/^think-/, ""))}($|[^a-z0-9-])`).test(body);
+  return [...new Set(names.filter(named))].sort();
 }
 
 // Static validator: a list of problem strings ([] = well-formed). Enforces the four authored

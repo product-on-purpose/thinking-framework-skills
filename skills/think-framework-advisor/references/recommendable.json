@@ -52,7 +52,10 @@
         "When the categories are already fixed and authoritative (a required taxonomy, a compliance schema). Then you are coding into known buckets, not discovering emergent themes.",
         "As a ritual - grouping into a few buckets and slapping confident names on them with no traceability is cargo-cult synthesis, not insight."
       ],
-      "overlaps": []
+      "overlaps": [
+        "think-brainwriting",
+        "think-issue-tree"
+      ]
     },
     {
       "name": "think-after-action-review",
@@ -76,7 +79,9 @@
         "When it will become blame (it stops working the moment people fear fault).",
         "When there is genuinely no expectation and none can be honestly reconstructed."
       ],
-      "overlaps": []
+      "overlaps": [
+        "think-premortem"
+      ]
     },
     {
       "name": "think-analysis-of-competing-hypotheses",
@@ -169,7 +174,9 @@
         "When genuine dissent already exists and is being heard.",
         "To \"assign a devil's advocate\" and consider the job done (the evidence says that does not deliver the benefit)."
       ],
-      "overlaps": []
+      "overlaps": [
+        "think-red-team-light"
+      ]
     },
     {
       "name": "think-backcasting",
@@ -194,7 +201,9 @@
         "To trace forward consequences of a decision. That is a futures wheel (first/second/third-order effects radiating outward), not a goal-first backward route.",
         "For personal follow-through on an already-chosen goal. That is WOOP (an if-then plan for one actor's intention-action gap), not a route to a future."
       ],
-      "overlaps": []
+      "overlaps": [
+        "think-premortem"
+      ]
     },
     {
       "name": "think-belief-update-routine",
@@ -389,7 +398,12 @@
         "To move a problem down fixed event / pattern / structure / mental-model levels - use iceberg-model. The iceberg has prescribed causal levels; a concept map has none.",
         "If you drop the labeled-link / proposition constraint, you are doing free-association mind-mapping with unlabeled branches (the Buzan method), which this library excludes (X-tier; Farrand 2002). The named-relationship discipline is the skill; without it this collapses into the excluded method."
       ],
-      "overlaps": []
+      "overlaps": [
+        "think-affinity-mapping",
+        "think-argument-mapping",
+        "think-iceberg-model",
+        "think-issue-tree"
+      ]
     },
     {
       "name": "think-consider-the-unknowns",
@@ -878,6 +892,7 @@
         "Do not confuse it with content moves. It never asks what information is missing (that is the `consider-the-unknowns` move) and never generates a second estimate to average (that is `think-dialectical-bootstrapping`). It is content-blind: it only asks whether the stated number means what it claims."
       ],
       "overlaps": [
+        "think-consider-the-unknowns",
         "think-dialectical-bootstrapping",
         "think-fermi-estimation",
         "think-reference-class-forecasting"
@@ -956,7 +971,9 @@
         "High-stakes judgments about individuals (hiring, lending, justice) where mechanical scoring raises fairness/legal/ethical issues - flag these, do not silently automate.",
         "When the point is a single strategic call, not a repeatable rule."
       ],
-      "overlaps": []
+      "overlaps": [
+        "think-decision-option-review"
+      ]
     },
     {
       "name": "think-minimax-regret",
@@ -1068,7 +1085,8 @@
         "For a routine, obviously reversible call with no meaningful reversibility question. Just decide; classifying it is its own small over-process."
       ],
       "overlaps": [
-        "think-decision-option-review"
+        "think-decision-option-review",
+        "think-premortem"
       ]
     },
     {
@@ -1123,7 +1141,9 @@
         "When the six lenses would be performed mechanically with only two or three carrying weight.",
         "As consensus theater rather than genuine separation of modes."
       ],
-      "overlaps": []
+      "overlaps": [
+        "think-premortem"
+      ]
     },
     {
       "name": "think-premortem",
@@ -1297,7 +1317,9 @@
         "When you need failure causes over time (use premortem) or a rounded multi-lens view (use parallel perspectives).",
         "If it would only produce performative contrarianism rather than the strongest objections."
       ],
-      "overlaps": []
+      "overlaps": [
+        "think-premortem"
+      ]
     },
     {
       "name": "think-reference-class-forecasting",
@@ -1488,7 +1510,10 @@
         "A simple direct relationship with no accumulation is all that is at play.",
         "Mapping forward consequences (use futures-wheel) or systemic causes (use iceberg-model); this is specifically about accumulation dynamics."
       ],
-      "overlaps": []
+      "overlaps": [
+        "think-futures-wheel",
+        "think-iceberg-model"
+      ]
     },
     {
       "name": "think-swot",

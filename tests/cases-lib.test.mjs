@@ -100,6 +100,20 @@ test("deriveOverlaps finds known skill names named in the When-NOT-to-Use sectio
   assert.deepEqual(ov, ["think-bar"]);
 });
 
+test("deriveOverlaps also finds a sibling named by its bare slug, but never inside a longer name", () => {
+  // The historical miss: authentic-dissent's When-NOT says "use `red-team-light`" and its
+  // overlaps came out empty, because only the think-prefixed form was matched.
+  const md = [
+    "## When NOT to Use", "",
+    "- Before the event (that is a premortem).",
+    "- For constructed dissent, use `red-team-light`.",
+    "- Not for premortems in general, and not a pre-mortem ritual.", "",
+    "## Instructions", "",
+  ].join("\n");
+  const known = new Set(["think-premortem", "think-red-team-light", "think-team", "think-light"]);
+  assert.deepEqual(deriveOverlaps(md, known), ["think-premortem", "think-red-team-light"]);
+});
+
 test("validateCasesDoc returns no problems for a well-formed doc", () => {
   assert.deepEqual(validateCasesDoc(CASES), []);
 });
