@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+
+- **Four roadmap items closed by checking their premise first** (`docs/internal/backlog.md`, "Roadmap close-outs").
+  - C4-4 (`allowed-tools` contract) is closed: in Claude Code the field pre-approves tools and "does not restrict which tools are available", so `allowed-tools: []` would have enforced nothing.
+  - C3-2 (flagship commands) is parked: its selection input, the trigger-eval corpus, is near-uniform per skill (61 of 67 skills carry exactly 6 cases), so it holds no demand signal.
+  - C1-5 (status auto-promotion) is retired: the gate already rejects the drift it would prevent.
+  - C6-1 (`trust.json`) is parked, pending a decision.
+
 ### Fixed
 
 - **`think-research-framework` dispatched to a subagent name that does not exist under a plugin install.** Its `SKILL.md` passed the bare `subagent_type` `think-research-framework`, but Claude Code registers plugin subagents under the plugin namespace. A headless run on Claude Code 2.1.300 with the plugin loaded confirmed it: the bare name failed with "Agent type not found", and `thinking-framework-skills:think-research-framework` resolved. The skill now names the namespaced type, and keeps the bare name for an agent installed outside the plugin. Found by the backlog's install check.

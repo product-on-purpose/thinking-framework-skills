@@ -256,6 +256,27 @@ SPEC-04 (routing feedback loop) proposed curing eval misses by adding "Should NO
 - **The five failed output checks from the 2026-09-12 output run have not had the close-the-loop review.** `node scripts/eval/list-misses.mjs docs/internal/eval-results/2026-09-12-output-eval.json` lists them.
 - **`eval:freshness` (C2-1) cannot see a routing-corpus change.** It fingerprints `eval/cases.md`. A write-back through "When NOT to Use", or the `overlaps` fix that shipped with this effort, changes `recommendable.json` without changing any fingerprint. A corpus fingerprint is possible later. Until then, the commit names the skills whose routing changed.
 
+## Roadmap close-outs (2026-10-15)
+
+Four items from the 2026-08-14 roadmap, settled by checking each one's premise before building it.
+
+- **C4-4 (`allowed-tools` contract): CLOSED, because its premise was wrong.**
+  - SPEC-05 phase B planned `allowed-tools: []` on all 67 skills, plus a gate rule requiring it, to enforce that the skills are advisory only.
+  - In Claude Code, `allowed-tools` pre-approves the listed tools for the turn that invokes the skill. The [skills documentation](https://code.claude.com/docs/en/skills) says it "does not restrict which tools are available". The [agentskills.io specification](https://agentskills.io/specification) defines it as pre-approved tools and marks it experimental.
+  - So an empty list would enforce nothing, and a gate requiring it would certify a property it does not provide. No compatibility test was run, because the answer does not depend on one.
+  - The restricting field, `disallowed-tools`, is Claude Code only and absent from the open specification. It would also stop a user saving an artifact to disk mid-skill, so it is not adopted.
+  - The advisory-only property stays a property of the skill text. C4-2 (the content-safety scan) is the check that would test that text, if it is ever built.
+- **C3-2 (flagship commands): PARKED, because its selection input carries no demand signal.**
+  - SPEC-09 phase 2 says to pick the commands from the trigger-eval corpus, as "the honest signal for which jobs are most requested".
+  - The corpus is authored per skill. 61 of 67 skills carry exactly 6 "Should trigger" cases, 3 carry 5, and 3 carry 4. That is coverage, not demand.
+  - The only real demand signal is GA4 page views on the docs site (see `MEASUREMENT.md`). Every skill is already a slash command and the nine recipes are generated commands, so C3-2 would add only argument hints and a worked example.
+  - Revisit when GA4 shows which jobs people arrive with.
+- **C1-5 (status auto-promotion): RETIRED.** The maintainer delegated the call.
+  - C1-5 would derive each sidecar's `maturity` from its eval stamps. All 67 sidecars are already correct.
+  - The gate already rejects the drift C1-5 would prevent. `lifecycle-lib.mjs` fails any sidecar whose stamps are both measured while its `maturity` is not.
+  - The stale claims that motivated C1-5 were in this file's prose, which C1-5 would never have touched.
+- **C6-1 (`trust.json`): PARKED, recommended, not yet decided.** It serves outside routers that would weight skills by their trust numbers. No such consumer exists, so it waits with the parked adoption work.
+
 ## Pre-existing (predates this effort)
 
 - **GA4 content-vs-acquisition decision.** Parked, waiting on the analytics signal (see `docs/internal/MEASUREMENT.md` and the content-plan). Tracked separately.
