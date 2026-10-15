@@ -46,6 +46,19 @@ All notable changes to this project are documented here. The format is based on 
     - Four are reasonable declines of "just tell me" prompts.
   - The premortem / authentic-dissent seam SPEC-04 was written for no longer misses.
 
+### Changed
+
+- **The trust page now says its zero-false-fire figure was measured open-book (#155).** `start/does-this-work` carries the #154 finding where readers meet the number.
+  - A caution box beside the "0 false-fires" card explains the mechanism. The catalog's anti-triggers are the eval's own anti-case prompts, so every one was in front of the router.
+  - It gives the bound from the existing 2026-09-11 A/B: removing the hints cost one false fire in 379 and nine right-alternatives in 128 on that single run.
+  - The headline, the frontmatter description and the contested-lens card now separate the 100% top-1 figure, which is closed-book, from the anti-case figure, which is not. The skill-selection section notes that its figures are closed-book.
+  - The limits section no longer calls model recording open work. It says that since 2026-10-14 every new scorecard must record its model and case fingerprint (#153), and that every figure on the page predates the rule.
+- **`AGENTS.md` tells an agent working in the repo the three rules this release added (#155).**
+  - Never fix an eval miss with a new "Should NOT trigger" case.
+  - Every eval run names its model.
+  - The recipe commands and subagents are generated, not hand-edited.
+  - Its discovery-surface sentence also notes the new `subagent` annotation in `catalog.json`.
+
 ### Fixed
 
 - **`learn/build-with-the-library` listed `catalog.json` fields that do not exist (#151).** It promised thinking modes, problem contexts, use cases, poor-fit cases and "what each skill often follows". Git history shows that the generator has never emitted any of them, and the 2026-06-15 catalog spec never asked for them. The paragraph now names the fields an entry actually carries.

@@ -88,7 +88,7 @@ The canonical statement of all four commitments is in [Philosophy](https://think
 
 ## Recipes
 
-Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **advanced (Gold)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`). For machine consumption, the generated agent-discovery surfaces live at the site root: `llms.txt` (index), `llms-full.txt` (full inline catalog), `catalog.json` (invokable components), and `evaluated.json` (all 135 evaluated methods).
+Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **advanced (Gold)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`). For machine consumption, the generated agent-discovery surfaces live at the site root: `llms.txt` (index), `llms-full.txt` (full inline catalog), `catalog.json` (invokable components, each annotated with the Claude Code subagent that runs it, if one does), and `evaluated.json` (all 135 evaluated methods).
 
 <!-- BEGIN GENERATED RECIPES (scripts/gen-agents.mjs from _workflows/) - do not hand-edit below this line -->
 | Recipe | Chain |
@@ -122,4 +122,7 @@ skills/<name>/
 - Skill IDs are namespace-dot: `thinking-framework-skills.<method>`. Installable skill names carry the `think-` prefix (`think-<method>`), declared as `prefix` in `library.json`.
 - Skills target the open Agent Skills (`agentskills.io`) `SKILL.md` format, so they are portable across agents.
 - Plugin and skill standards align to `agent-skills-toolkit` (advanced / Gold tier).
+- `commands/think-<recipe>.md` and `agents/think-<recipe>.md` are generated from `_workflows/` by `npm run gen:recipe-commands`. Do not hand-edit them; the gate fails on a hand edit.
+- A skill's `eval/cases.md` is an answer key, and part of it ships to the router. `gen-recommendable` copies its "Should NOT trigger" bullets verbatim into the advisor catalog as `anti_triggers`. Never fix an eval miss by adding one of those bullets, because the new case would print its own answer into the catalog it is scored against. Follow the close-the-loop step in [`scripts/eval/README.md`](scripts/eval/README.md) instead.
+- Every eval run names its model: `args.model` for the Workflow script, then `--model <resolved model id>` for `finalize.mjs` or `score-selection.mjs`. The gate rejects a scorecard dated 2026-10-14 or later that does not record it.
 - No em-dashes or en-dashes anywhere in this repo's prose.

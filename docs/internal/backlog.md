@@ -248,7 +248,7 @@ SPEC-04 (routing feedback loop) proposed curing eval misses by adding "Should NO
     4. Keep things as they are, and qualify the two anti-case figures wherever they are published.
 
   Every option moves a published figure, so each one is the maintainer's call and spend.
-- **The public trust page needs a qualifier, at the maintainer's discretion.** The "0 false-fires" card in `site/src/content/docs/start/does-this-work.mdx`, and any published right-alternative figure, were measured with the anti prompts visible in the catalog. The "100% top-1" figure was not, and needs no change.
+- **DONE 2026-10-14: the public trust page carries the qualifier.** `site/src/content/docs/start/does-this-work.mdx` now has a caution box beside the "0 false-fires" card, with the mechanism and the A/B bound. The headline, the frontmatter description and the contested-lens card now separate the closed-book top-1 figure from the open-book anti-case figure. The qualifier comes out only when a closed-book anti-case run replaces the figure.
 - **Answer-key widening candidates (the #132 precedent; maintainer's call):**
   - `analysis-of-competing-hypotheses`'s *"Which of these three explanations..."*: the key says `evidence-vs-inference-sort`, the router picked `process-tracing`.
   - The three *"What could go wrong..."* anti cases, under `complexity-domain-sort`, `five-whys` and `swot`: the key says `red-team-light`, the router picked `premortem`.
