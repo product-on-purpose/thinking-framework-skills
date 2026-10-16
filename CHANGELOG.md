@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.18.2] - 2026-10-15
+
+**The library checked its own published numbers, found ten problems, and corrected them (#164).** No new skills and no tier changes; the catalog stays 56 core + 7 contested. An evidence re-grade pilot on 21 skills found two wrong figures, and an audit of every other quantified claim in a `SKILL.md` Evidence section found eight more. Two of the ten change what a user is told about effect size: `think-woop` rests on 21 controlled field studies with a small-to-medium effect, not "25+ RCTs", and natural frequencies lift Bayesian accuracy from 16% to 46% in the original study, not "10% to 50-90%". The rest correct attributions. Five figures could not be checked, because their sources are paywalled or could not be found, and they are listed in the backlog with four verified caveats awaiting a decision.
+
+**Why a patch.** These are factual corrections to existing skills, with no catalog or capability change. They warranted a release of their own because installed copies of the skills read the wrong figures until the marketplace pin moves.
+
+**Standard re-pin review (release-process step 33): both dials held.** Toolkit `main` is still `832c102`, unchanged since v0.18.0, and the pinned run returns advanced / 0 errors / 89 warnings.
+
 ### Fixed
 
 - **Two S-tier skills published a wrong number in their evidence, and both now match their sources (#164).** The 2026-10-15 evidence re-grade pilot found both. Each dossier already said to "confirm the exact figure against the paper before a public quantified claim", and neither figure had been checked. No tier changes.
@@ -632,7 +640,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.1...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.2...HEAD
+[0.18.2]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.1...v0.18.2
 [0.18.1]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.0...v0.18.1
 [0.18.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.16.0...v0.17.0

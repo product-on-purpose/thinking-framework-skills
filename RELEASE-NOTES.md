@@ -2,6 +2,22 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.18.2
+
+**The library checked its own published numbers, found ten problems, and corrected them.** No new frameworks and no evidence-grade changes; the catalog stays 56 evidence-graded core skills plus 7 contested lenses. Honest grading is the point of this library, so this release is about holding it to that.
+
+### For everyone
+
+- **WOOP's evidence is real but modest.** The skill said WOOP (mental contrasting with implementation intentions) rests on "25+ randomized controlled trials". The meta-analysis it cites includes 21 controlled field studies, and finds a small-to-medium effect that publication bias may inflate. The skill now says the evidence that it works is strong, and that the effect itself is modest. Its grade, S, is unchanged.
+- **Natural frequencies help, but less than the skill claimed.** The skill said re-expressing probabilities as counts lifts accuracy "from roughly 10% to 50-90%". The original study found 16% to 46%, and a meta-analysis averages 4% to 24%. Most people still answer wrongly with natural frequencies, and the skill now says so.
+- **After-action reviews: right claim, wrong source.** The often-repeated effect size of 0.79 belongs to a 2021 meta-analysis of after-action reviews. The skill had credited it to a 2013 study, which found 0.67. Both are now cited correctly.
+
+### For builders and contributors
+
+- **Seven more citations now match their sources.** The problems were a wrong year and journal, a wrong author list, a wrong institution, a score credited to the wrong paper, two figures credited to the wrong study, and one overstated study result. `CHANGELOG.md` lists each one with what the source says.
+- **What could not be checked is written down.** Five figures sit behind paywalls or could not be found, so they are unchanged and listed in `docs/internal/backlog.md`. The same section lists four verified caveats that are waiting for a decision, such as a 2026 failed replication of a foundational WOOP study.
+- **The method:** Sonnet agents found the sources, and every discrepancy was re-checked against the source before any edit. Ten dossiers still carry an unresolved "confirm before a public claim" note, down from seventeen.
+
 ## v0.18.1
 
 **A small fix release: one skill could not reach its own subagent after a plugin install, and now it can.** No new frameworks; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
