@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Fixed
+
+- **Four library dossiers corrected in v0.18.3 now carry the dated note that release said every corrected entry had.** They are `inversion`, `estimate-talk-estimate`, `frame-storming` and `riasec-interest-fit`. The registry's `cliftonstrengths` sources now list Schreiner (2006), which the dossier and the registry reasoning already cite. Library pages only; no installed file changed.
+
 ## [0.18.3] - 2026-10-15
 
 **A second audit checked every remaining published figure in the library and corrected 21 errors (#166).** No new skills and no tier changes; the catalog stays 56 core + 7 contested. The v0.18.2 audit covered the figures in `SKILL.md` Evidence sections and the dossiers that already flagged doubt. This one covered the other 199 distinct figures, across 101 skill and library dossiers. Four corrections are in installed skills: `think-analysis-of-competing-hypotheses`, `think-eisenhower-moscow-pareto`, `think-fermi-estimation` and `think-minimax-regret`.

@@ -54,7 +54,7 @@ This is also why it folds into `problem-restatement` and not, say, an ideation s
 
 - Tina Seelig, *inGenius: A Crash Course on Creativity* (HarperOne, 2012). Origin of the "frame-storming" term and the "questions are the frames into which answers fall" mechanism. Practitioner / foundational.
 - Daniel Pink, "Pinkcast 2.5: Why you should 'frame-storm' before you brainstorm" (danpink.com). Popularization of the precursor-to-brainstorming framing. Practitioner.
-- Thomas Wedell-Wedellsborg, *What's Your Problem?* (Harvard Business Review Press, 2020), and "Are You Solving the Right Problems?", *Harvard Business Review* (Jan-Feb 2017). The reframing evidence and the 85% survey figure. Practitioner with cited research.
+- Thomas Wedell-Wedellsborg, *What's Your Problem?* (Harvard Business Review Press, 2020), and "Are You Solving the Right Problems?", *Harvard Business Review* (Jan-Feb 2017). The reframing evidence and the 85% survey figure (85% of 106 C-suite executives; given here as "85% of companies" until 2026-10-15). Practitioner with cited research.
 - Jacob W. Getzels and Mihaly Csikszentmihalyi, *The Creative Vision: A Longitudinal Study of Problem Finding in Art* (Wiley, 1976). Problem-finding research linking longer problem formulation to more original outcomes. Empirical / foundational.
 
 > Excluded on the evidence rule: the apocryphal Einstein "55 minutes defining the problem" quote, and any brand-specific frame-count or productivity multiplier for the ritual - neither traces to a primary source, and neither influences the grade.
