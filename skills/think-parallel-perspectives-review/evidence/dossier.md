@@ -21,7 +21,7 @@ In ordinary review, one mode dominates: a risk-averse voice, or an optimist, col
 ## 3. What the evidence shows, and what it does NOT show
 
 **Mixed / weak (hence the flag):**
-- A Cambridge-led review of thinking-skills frameworks (Moseley et al.) found the evidence base for the branded framework sparse.
+- A review of thinking-skills frameworks led from the University of Newcastle upon Tyne (Moseley et al., 2005, *Frameworks for Thinking*, Cambridge University Press) found the evidence base for the branded framework sparse.
 - Some studies (for example with nursing students and managers) report moderate positive effects on critical thinking and cognitive complexity from deliberately separating modes.
 - **Do not repeat de Bono's often-quoted "493% productivity improvement" claim. It is uncited and unsupported.** Flagging this is part of the point: the mechanism (separating modes) is reasonable; the branded marketing numbers are not credible.
 

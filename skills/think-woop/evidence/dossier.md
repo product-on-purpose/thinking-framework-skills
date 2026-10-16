@@ -6,7 +6,7 @@
 |---|---|
 | **Skill** | `thinking-framework-skills.woop` (installable name `think-woop`) |
 | **Family** | risk-and-resilience |
-| **Evidence tier** | **S** (strong; 25+ RCTs) |
+| **Evidence tier** | **S** (meta-analytic support: 21 controlled field studies, g = 0.336) |
 | **Confidence** | High - among the best-evidenced behavior-change methods |
 | **Status** | draft (authored 2026-05-31 from the discovery corpus) |
 
@@ -31,7 +31,7 @@ No trademark on the mechanism. Named descriptively.
 
 ## 3. What the evidence shows, and what it does NOT show
 
-**Strongly supported (the S):** mental contrasting with implementation intentions improves goal attainment across 25+ randomized controlled trials spanning health, academic, and work domains (meta-analytic support, e.g. Wang et al. 2021). This is one of the most robustly evidenced personal behavior-change techniques.
+**Strongly supported (the S):** mental contrasting with implementation intentions improves goal attainment in controlled field studies spanning health, academic, and work domains. A meta-analysis of 21 such studies (24 effect sizes, 15,907 participants) finds a small-to-medium effect, g = 0.336 (Wang, Wang & Gai, 2021). Its authors add that publication bias may make the true effect smaller. The effect was larger when an experimenter delivered the intervention in person (g = 0.465) than through documents (g = 0.277). The evidence that the effect is real is strong; the effect itself is modest.
 
 **Boundaries (honest):** the evidence is for *human* goal pursuit and personal behavior. It is a commitment/follow-through tool for a single actor, not a project-planning method for a team, and not a way to decide *what* to want. And the obstacle must be an internal, controllable one; WOOP does not move external blockers.
 
@@ -59,6 +59,6 @@ A **WOOP card**: Wish (specific, challenging, feasible), Outcome (the best resul
 
 1. Oettingen, G. - mental contrasting; *Rethinking Positive Thinking* (2014).
 2. Gollwitzer, P. - implementation intentions.
-3. Wang, G. et al. (2021) - meta-analysis of mental contrasting with implementation intentions.
+3. Wang, G., Wang, Y., & Gai, X. (2021). A meta-analysis of the effects of mental contrasting with implementation intentions on goal attainment. *Frontiers in Psychology* 12: 565202, doi:10.3389/fpsyg.2021.565202 - 21 controlled field studies, 24 effect sizes, n = 15,907, g = 0.336.
 
-> **Verification status:** the 25+ RCT / meta-analysis claim and the "positive fantasy alone backfires" finding are well-attested in Oettingen's program; confirm the Wang 2021 specifics against the paper before a public quantified claim.
+> **Verification status (corrected 2026-10-15):** until this date, the dossier, `SKILL.md` and the sidecar said the method rests on "25+ randomized controlled trials", citing Wang et al. (2021). That meta-analysis includes 21 field studies, and it required a control condition, not randomization. The figures in section 3 were checked against the paper on 2026-10-15. The tier is unchanged: S rests on meta-analytic support, which exists, while the effect it measures is small to medium. The "positive fantasy alone backfires" finding is attributed to Oettingen's program and was not re-checked here.

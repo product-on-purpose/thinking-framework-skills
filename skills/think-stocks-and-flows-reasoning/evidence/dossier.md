@@ -53,4 +53,4 @@ A **stock-flow map**: the stock named explicitly; its inflows and outflows liste
 2. Cronin, M., Gonzalez, C., & Sterman, J. (2009). "Why don't well-educated adults understand accumulation?" *Organizational Behavior and Human Decision Processes*.
 3. Meadows, D. (2008). *Thinking in Systems*.
 
-> **Verification status:** the Sterman accumulation-failure finding is well-attested; confirm the Cronin/Gonzalez/Sterman citation specifics before a public quantified claim. The honest scope - "corrects a specific accumulation error," not "teaches systems thinking" - is the core caveat.
+> **Verification status:** the Sterman accumulation-failure finding is well-attested; a 2026-10-15 audit confirmed the Cronin, Gonzalez and Sterman citation: "Why don't well-educated adults understand accumulation?", *Organizational Behavior and Human Decision Processes* 108(1): 116-130 (2009). This dossier quotes no failure-rate figure from it. The honest scope - "corrects a specific accumulation error," not "teaches systems thinking" - is the core caveat.

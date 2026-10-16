@@ -290,6 +290,30 @@ Four items from the 2026-08-14 roadmap, settled by checking each one's premise b
 
 - **No gate layer checks that a shipped skill has its reference and evidence files.** `SKILL.md` names `references/TEMPLATE.md` in a code span, and the toolkit's link check (U6) resolves only markdown links. `gen-site.mjs` reads a missing `EXAMPLE.md` as an empty string. `check-registry.mjs` sections 3 and 4 check `frameworks/<slug>/dossier.md`, not `skills/think-<slug>/evidence/dossier.md`. A shipped skill could lose any of the three files and stay green. The fix is small: extend `check-registry.mjs` section 3 (referential integrity) to require all three for every shipped framework skill. It has not been built. Today all 63 framework skills have all three. `think-research-framework` has none of them, by design, because it is a dispatcher with no artifact, so the rule needs that exemption.
 
+## From the evidence re-grade pilot and figure audit (2026-10-15)
+
+The pilot re-checked the evidence for 21 skills: the 11 S-tier skills, plus 10 whose mechanism has a language-model counterpart. It changed no grade. It found two wrong published figures. An audit of every other quantified claim in a `SKILL.md` Evidence section, and of six dossiers that said "confirm before a public claim", found eight more problems. The fix PR corrects all ten, and the CHANGELOG lists each one. The pilot's raw report is local and gitignored (`_local/ingest/2026-10-15-regrade-pilot/`), so this section is the durable record.
+
+- **Still unconfirmed: the source could not be reached, so nothing was changed.**
+  - `contradiction-resolution`: Spreafico and Russo (2018) and its "~10-15% of problems" figure. CrossRef, Semantic Scholar and a web search do not find the paper, and ResearchGate blocks automated reads. Check it by hand; if it cannot be found, drop the figure.
+  - `dialectical-bootstrapping`: Herzog and Hertwig (2009), "a 4.1 percentage-point gain at d = 0.53". The paper is paywalled.
+  - `morphological-analysis`: "designers explored only about a quarter to a seventh of the space" (Smith, Richardson, Summers and Mocko 2012). Paywalled.
+  - `fermi-estimation`: whether MacGregor and Armstrong (1994) supports "decomposition can reduce error". Paywalled; the citation itself is now correct.
+  - `parallel-perspectives-review` and `six-thinking-hats`: that de Bono's "493%" claim is "often-quoted". No trace of the figure turned up anywhere. The skill already refuses to use it.
+- **Verified caveats awaiting a maintainer decision (none added yet).** Each was checked against its source.
+  - `natural-frequency-bayesian`: the advantage reverses for sequential two-test updating. Schulz, Wegwarth and Giese (2025), *BMC Medical Education* 25:505, preregistered, n = 329.
+  - `woop`: a SCORE replication failed to replicate Kappes, Singmann and Oettingen (2012), a foundational mental-contrasting mechanism study (FORRT replication atlas).
+  - `premortem`: Gandhi, Duke and Schweitzer (SJDM 2021 poster; three pre-registered studies plus a pilot, N = 2,345). The premortem reduced overconfidence but magnified self-serving attribution bias, and did not change the action people took. It is a poster, not a journal article.
+  - `interval-calibration-check`: Martin and Mandel (*Futures & Foresight Science*, 2024, doi:10.1002/ffo2.199; two experiments, N = 1,481). Neither performance nor outcome feedback improved calibration. The task was binary confidence, not intervals, so this is analogue evidence.
+- **Other pilot findings, at medium confidence because they come from searcher summaries:**
+  - About ten dossiers say no language-model study of the method exists, and the searchers found one for each.
+  - 59 of the 69 verified new citations predate the dossiers. The dossiers were thin, not stale.
+  - Searchers recommended adding language-model evidence to 16 skills. None has been added.
+- **Decisions open:**
+  - Add the four verified caveats above, in one PR.
+  - Extend the audit to the figures in the other dossiers, and the pilot to the remaining 45 skills. Agents ignored a search cap stated in the prompt, and the web-search budget is shared across a session, so a wider run needs a hard cap in the script or small batches.
+  - Add a gate rule that fails on an unresolved "confirm ... before a public claim" note, plus a `reviewed:` date per dossier. Ten dossiers still carry such a note after this audit (it was seventeen), so the rule needs a definition of "resolved" first.
+
 ## Pre-existing (predates this effort)
 
 - **GA4 content-vs-acquisition decision.** Parked, waiting on the analytics signal (see `docs/internal/MEASUREMENT.md` and the content-plan). Tracked separately.

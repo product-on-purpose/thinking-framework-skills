@@ -59,4 +59,4 @@ A **scoring model**: the judgment it is for; the few predictive cues (with why e
 3. Grove, W. et al. (2000). Meta-analysis of clinical vs mechanical prediction.
 4. Kahneman, D., Sibony, O., & Sunstein, C. (2021). *Noise* - inconsistency as the mechanism.
 
-> **Verification status:** the Meehl/Dawes/Grove results are well-attested and frequently replicated; confirm the Grove 2000 meta-analytic specifics before a public quantified claim. The "only as good as its cues" and fairness caveats are mandatory honest framing.
+> **Verification status:** the Meehl/Dawes/Grove results are well-attested and frequently replicated; a 2026-10-15 audit checked the Grove 2000 claim against secondary reports of the meta-analysis, because the APA abstract page could not be read: mechanical prediction was substantially better in about 33-47% of studies and clinical prediction in only about 6-16%, which supports "equals or outperforms in the large majority". This dossier states no percentage of its own. The "only as good as its cues" and fairness caveats are mandatory honest framing.

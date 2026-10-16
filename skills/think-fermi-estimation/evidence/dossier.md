@@ -21,13 +21,13 @@ That same formalism names the failure condition: cancellation depends on the fac
 ## 2. Lineage
 
 - Named for Enrico Fermi and the back-of-the-envelope "Fermi problems" tradition (the canonical teaching example being "how many piano tuners in Chicago?"). The technique is a staple of physics pedagogy, quantitative-reasoning courses, and analyst/consulting case interviews.
-- The controlled-research thread is judgmental **decomposition**: MacGregor & Armstrong (2007), "Judgmental Decomposition: When Does It Work?" (*Decision Sciences*); and D. MacGregor (2001), "Decomposition for judgmental forecasting and estimation," in J. S. Armstrong (ed.), *Principles of Forecasting*. These study breaking an estimate into parts that are judged separately and recombined.
+- The controlled-research thread is judgmental **decomposition**: MacGregor & Armstrong (1994), "Judgmental Decomposition: When Does It Work?" (*International Journal of Forecasting*); and D. MacGregor (2001), "Decomposition for judgmental forecasting and estimation," in J. S. Armstrong (ed.), *Principles of Forecasting*. These study breaking an estimate into parts that are judged separately and recombined.
 
 No trademark. Named descriptively after the technique, not licensed.
 
 ## 3. What the evidence shows, and what it does NOT show
 
-**Supported (the M half):** judgmental decomposition - splitting an estimate into components, estimating each, and recombining - has *some* controlled support for reducing estimation error relative to a single holistic guess. MacGregor & Armstrong (2007) and MacGregor (2001) report that decomposition can improve accuracy. That is a real empirical signal for the underlying mechanism this skill uses, and it is why the grade is not pure practitioner-lore.
+**Supported (the M half):** judgmental decomposition - splitting an estimate into components, estimating each, and recombining - has *some* controlled support for reducing estimation error relative to a single holistic guess. MacGregor & Armstrong (1994) and MacGregor (2001) report that decomposition can improve accuracy. That is a real empirical signal for the underlying mechanism this skill uses, and it is why the grade is not pure practitioner-lore.
 
 **Three facts cap it below a clean M and demand honest framing:**
 
@@ -68,7 +68,7 @@ A **Fermi decomposition worksheet**:
 
 ## 7. Sources
 
-1. MacGregor, D. G., & Armstrong, J. S. (2007). "Judgmental Decomposition: When Does It Work?" *Decision Sciences* (study of when decomposing an estimate into parts improves accuracy; benefit concentrated on extreme/uncertain quantities).
+1. MacGregor, D. G., & Armstrong, J. S. (1994). "Judgmental Decomposition: When Does It Work?" *International Journal of Forecasting* 10(4): 495-506, doi:10.1016/0169-2070(94)90018-3. (Year and journal corrected on 2026-10-15; this dossier previously gave 2007, *Decision Sciences*.) (study of when decomposing an estimate into parts improves accuracy; benefit concentrated on extreme/uncertain quantities).
 2. MacGregor, D. G. (2001). "Decomposition for judgmental forecasting and estimation." In J. S. Armstrong (ed.), *Principles of Forecasting*. Kluwer.
 3. Fermi-problem tradition / quantitative-reasoning and case-interview pedagogy (the "within an order of magnitude" field lore) - practitioner, not controlled.
 4. Statistical argument: a product of independent factors is approximately log-normal; the geometric mean of independent over/under estimates cancels (the cross-factor error-cancellation premise).

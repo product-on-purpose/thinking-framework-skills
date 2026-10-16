@@ -61,7 +61,7 @@ quality:
 
 evidence:
   evidence_tier: "S"
-  confidence: high; among the best-evidenced behavior-change methods (25+ RCTs)
+  confidence: high that the effect is real; the effect is small to medium (meta-analysis of 21 controlled field studies, g = 0.336)
   transferred_evidence: true
   lineage:
     derived_from: [Oettingen mental contrasting, Gollwitzer implementation intentions]

@@ -59,7 +59,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **P** (flagged). This implements the parallel-thinking mechanism behind Six Thinking Hats (de Bono, 1985, trademarked; used here descriptively). Deliberately separating modes is modestly supported (some studies show moderate gains in critical thinking), but a Cambridge-led review found the branded framework's evidence base sparse, and de Bono's often-quoted "493%" productivity claim is uncited and is not used. Evidence is transferred from human contexts, not AI-validated. Full grading: `evidence/dossier.md`.
+Tier **P** (flagged). This implements the parallel-thinking mechanism behind Six Thinking Hats (de Bono, 1985, trademarked; used here descriptively). Deliberately separating modes is modestly supported (some studies show moderate gains in critical thinking), but a review of thinking-skills frameworks (Moseley et al., 2005, University of Newcastle upon Tyne) found the branded framework's evidence base sparse, and de Bono's often-quoted "493%" productivity claim is uncited and is not used. Evidence is transferred from human contexts, not AI-validated. Full grading: `evidence/dossier.md`.
 
 ## Examples
 

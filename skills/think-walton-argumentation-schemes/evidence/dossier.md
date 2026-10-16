@@ -105,7 +105,7 @@ match - which corrupts every downstream critical question - is a real failure mo
 keyed-question apparatus is NOT already free in a plain-prompted model: Calvo Figueras and Agerri
 (2025) built a benchmark of about 5,000 manually annotated critical questions and the companion
 CQs-Gen shared task, and the task is genuinely hard for current models (the top shared-task system
-reached only 67.6 accuracy).
+reached only 67.6, as the shared task's overview reports; source 10).
 
 Why not M: the only controlled results are two small studies of sustained classroom instruction in
 writing contexts; moderate-tier would require controlled evidence that applying the method once
@@ -276,6 +276,12 @@ questions defeating the presumption.
    and shared task show the task is genuinely hard for current models (the top shared-task system
    reached only 67.6 accuracy). Not human-reasoning outcome evidence, but directly relevant: the
    keyed-question apparatus is not already free in a plain-prompted model. (LLM benchmark.)
+10. Blanca Calvo Figueras, Jaione Bengoetxea, Maite Heredia, Ekaterina Sviridova, Elena Cabrio,
+   Serena Villata and Rodrigo Agerri (2025), "Overview of the Critical Questions Generation Shared
+   Task," Proceedings of the 12th Argument Mining Workshop (ArgMining 2025): 243-257,
+   doi:10.18653/v1/2025.argmining-1.23. The source of the 67.6 figure: "The highest accuracy achieved
+   was 67.6." Added on 2026-10-15, when an audit found the figure is not in source 9. (Shared-task
+   overview.)
 
 > Excluded on the evidence rule: no single-application argument-evaluation accuracy figure is
 > asserted as fact, because no study measures it; the two positive controlled effects (Song and

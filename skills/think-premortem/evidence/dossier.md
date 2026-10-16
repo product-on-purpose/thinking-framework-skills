@@ -37,7 +37,7 @@ No trademark. "Premortem" is a generic descriptive term in common use; no attrib
 This is the honest core of the dossier. The skill must not overclaim.
 
 **What is reasonably supported (the S part):**
-- Prospective hindsight (assuming an outcome and explaining it) **increases the number and specificity of causes people generate** relative to ordinary forecasting. Mitchell et al. (1989) reported roughly a **30% increase in the number of reasons** correctly identified for a future outcome under the "has happened" framing.
+- Prospective hindsight (assuming an outcome and explaining it) **increases the number and specificity of causes people generate** relative to ordinary forecasting. In Mitchell, Russo & Pennington (1989), what mattered was outcome certainty: explanations of events treated as certain were longer and included more episodic reasons, while past-versus-future framing had little effect. The popular "**30%**" figure is usually attributed to Klein's (2007) account of that study. It does not appear in the paper's abstract, and this library has not found it in the paper (checked 2026-10-15).
 - The technique **reduces overconfidence** in a plan. Veinott et al. (2010) found participants who ran a premortem were better calibrated about their plans than those who did not.
 
 **What is NOT shown (the caveat that keeps the skill honest):**
@@ -71,7 +71,7 @@ The skill must emit a **risk register**, not prose: a ranked table of causes wit
 
 ## 7. Sources
 
-1. Mitchell, Russo & Pennington (1989), *J. Behavioral Decision Making* 2(1):25-38 - prospective hindsight; the ~30%-more-reasons finding.
+1. Mitchell, Russo & Pennington (1989), "Back to the future: Temporal perspective in the explanation of events," *J. Behavioral Decision Making* 2(1):25-38 - prospective hindsight; outcome certainty, not temporal framing, lengthened explanations (abstract checked 2026-10-15). The popular ~30% figure is not in the abstract.
 2. Klein (2007), *Harvard Business Review* 85(9) - "Performing a Project Premortem."
 3. Veinott, Klein & Wiggins (2010), *ISCRAM 2010* - premortem reduces overconfidence / improves plan calibration.
 4. Kahneman (2011), *Thinking, Fast and Slow* - popularization; ties premortem to overcoming optimism bias and groupthink.

@@ -56,7 +56,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **P** (governing; honest read **M/P**, capped at P). Structured contradiction-based ideation has real controlled comparison behind it - quasi-experimental studies report TRIZ-style methods improve the novelty and variety of ideas while reducing their quantity (the M-leaning half) - but three deductions hold the grade at P: the studies measure the broad method, not this specific dissolve-plus-IFR move; the signature contradiction matrix is empirically contested (Spreafico and Russo, 2018, find it covers only ~10-15% of problems); and the one AI-context study (AI EDAM, n=32) found brainstorming higher on fluency and originality, with TRIZ ahead only on elaboration and flexibility. All of it is transferred from human practice, not validated on agents. Full grading, sources, and caveats: `evidence/dossier.md`.
+Tier **P** (governing; honest read **M/P**, capped at P). Structured contradiction-based ideation has real controlled comparison behind it - quasi-experimental studies report TRIZ-style methods improve the novelty and variety of ideas while reducing their quantity (the M-leaning half) - but three deductions hold the grade at P: the studies measure the broad method, not this specific dissolve-plus-IFR move; the signature contradiction matrix is empirically contested (Spreafico and Russo, 2018, find it covers only ~10-15% of problems); and the one AI-context study (Ge et al., AI EDAM 2025, n=32) found brainstorming produced more ideas and TRIZ more elaborated ones, while originality and flexibility depended on whether the partner was a human or an agent. All of it is transferred from human practice, not validated on agents. Full grading, sources, and caveats: `evidence/dossier.md`.
 
 ## Examples
 
