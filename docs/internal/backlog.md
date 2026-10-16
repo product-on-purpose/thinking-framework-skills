@@ -298,11 +298,10 @@ The pilot re-checked the evidence for 21 skills: the 11 S-tier skills, plus 10 w
   - `contradiction-resolution`: Spreafico and Russo (2018) and its "~10-15% of problems" figure. CrossRef, Semantic Scholar and a web search do not find the paper, and ResearchGate blocks automated reads. Check it by hand; if it cannot be found, drop the figure.
   - `dialectical-bootstrapping`: Herzog and Hertwig (2009), "a 4.1 percentage-point gain at d = 0.53". The paper is paywalled.
   - `morphological-analysis`: "designers explored only about a quarter to a seventh of the space" (Smith, Richardson, Summers and Mocko 2012). Paywalled.
-  - `fermi-estimation`: whether MacGregor and Armstrong (1994) supports "decomposition can reduce error". Paywalled; the citation itself is now correct.
   - `parallel-perspectives-review` and `six-thinking-hats`: that de Bono's "493%" claim is "often-quoted". No trace of the figure turned up anywhere. The skill already refuses to use it.
 - **Verified caveats awaiting a maintainer decision (none added yet).** Each was checked against its source.
-  - `natural-frequency-bayesian`: the advantage reverses for sequential two-test updating. Schulz, Wegwarth and Giese (2025), *BMC Medical Education* 25:505, preregistered, n = 329.
-  - `woop`: a SCORE replication failed to replicate Kappes, Singmann and Oettingen (2012), a foundational mental-contrasting mechanism study (FORRT replication atlas).
+  - `natural-frequency-bayesian`: the advantage reverses for sequential two-test updating. Schulz, Wegwarth and Giese (2025), *BMC Medical Education* 25:505, a preregistered randomized crossover trial, n = 329. An Opus recheck of the full text confirmed every figure.
+  - `woop`: a 2026 SCORE replication (FORRT replication atlas) did not replicate the claim it tested from Kappes, Singmann and Oettingen (2012). At low expectations it found no mental-contrasting versus control difference, t(306) = -0.96, p = .339. An Opus recheck confirmed the record, but the atlas does not say which claim of the paper was tested, so avoid calling it the paper's key effect.
   - `premortem`: Gandhi, Duke and Schweitzer (SJDM 2021 poster; three pre-registered studies plus a pilot, N = 2,345). The premortem reduced overconfidence but magnified self-serving attribution bias, and did not change the action people took. It is a poster, not a journal article.
   - `interval-calibration-check`: Martin and Mandel (*Futures & Foresight Science*, 2024, doi:10.1002/ffo2.199; two experiments, N = 1,481). Neither performance nor outcome feedback improved calibration. The task was binary confidence, not intervals, so this is analogue evidence.
 - **The two searches the pilot's budget cut short, re-run on 2026-10-15.** Both keep their grade, and neither result has been added to a dossier.
@@ -314,8 +313,35 @@ The pilot re-checked the evidence for 21 skills: the 11 S-tier skills, plus 10 w
   - Searchers recommended adding language-model evidence to 16 skills. None has been added.
 - **Decisions open:**
   - Add the four verified caveats above, in one PR.
-  - Extend the audit to the figures in the other dossiers, and the pilot to the remaining 45 skills. Agents ignored a search cap stated in the prompt, and the web-search budget is shared across a session, so a wider run needs a hard cap in the script or small batches.
+  - Extend the pilot to the remaining 45 skills. Agents ignored a search cap stated in the prompt, and the web-search budget is shared across a session, so a wider run needs a hard cap in the script or small batches. (The figure audit was extended to every dossier; see the next section.)
   - Add a gate rule that fails on an unresolved "confirm ... before a public claim" note, plus a `reviewed:` date per dossier. Ten dossiers still carry such a note after this audit (it was seventeen), so the rule needs a definition of "resolved" first.
+
+## From the second figure audit: every remaining dossier (2026-10-15)
+
+A second audit checked every quantified claim in the dossiers the first audit had not covered. That was 199 distinct figures from 101 dossiers: 9 batches from skill dossiers and 13 from library dossiers under `frameworks/`. A Sonnet checker read each figure's source. An independent Sonnet refuter re-checked every discrepancy, and Opus decided disagreements and skill-dossier effect sizes. The maintainer then checked every correction against CrossRef, OpenAlex, or the paper's full text. The raw results are local and gitignored (`_local/ingest/2026-10-15-figure-audit-2/`).
+
+- **Result:** 140 figures confirmed, 38 discrepancies, 21 unverifiable. After verification and the maintainer's own checks, 21 distinct errors were corrected: 4 in skill dossiers and 17 in library dossiers. Nine of them were wrong author names, journals, or titles; twelve were numbers or scope. The CHANGELOG lists each one.
+- **Overturned by Opus, so nothing changed:** `dialectical-bootstrapping` "N = 428" for Vul and Pashler (2008) is the immediate (255) plus delayed (173) samples. `framework-advisor` "~136 studies" for Grove et al. (2000) is in that paper's full text.
+- **Corrected differently from the verifiers' proposal:** the verifiers wanted the CliftonStrengths psychometric figures removed or replaced, because Lopez, Hodges and Harter (2005) does not contain them. The maintainer found every one of them in Schreiner (2006), Gallup's technical report on college students. So the figures stay, credited to Schreiner.
+- **For a maintainer decision, most urgent first:**
+  - `pre-commitment-ulysses-contract` (library dossier): Ariely and Wertenbroch (2002, *Psychological Science* 13(3)) was **retracted** on 2026-09-02 (notice doi:10.1177/09567976261488042). The dossier still cites it, unflagged, as "a true experiment". Marking a source retracted was not on the audit's list of edits it could make on its own.
+  - `white-space-adjacent-possible`: "organizationally seductive" is quoted from Sitkin et al. (2011), but the phrase is not in the abstract and the body is paywalled. The abstract says stretch goals are "most seductive for organizations that can least afford the risks associated with them". The clause "erode commitment and increase performance variance" is also unchecked.
+  - `eisenhower-moscow-pareto` (skill dossier): source 7 is now correctly credited to McCarthy and Winer (2019), but line 26 still credits "closer to 60-20 to 70-20" to "the Sharp and Romaniuk (Ehrenberg-Bass) tradition". That sentence now has no listed source of its own.
+  - `moat-defensibility-lens`: the "~14.6% vs ~10.1%" index return pair has no dated source. Morningstar reports 12.68% vs 9.41% from live inception (2007) to the end of 2023.
+- **Unverifiable, unchanged:**
+  - `what-so-what-now-what`: Zhai et al. (2023), 25 studies and g = 0.79. Paywalled; only the journal could be checked.
+  - `morphological-analysis`: Zwicky's "100x" and "philosopher's stone". No primary Zwicky text was found.
+  - `strong-interest-inventory`: "about 70%" item bias, and its sample sizes. Closed access.
+  - `decision-brief-pr-faq`: "situationally supported and valued", quoted from a 2004 *Review of Educational Research* meta-analysis. Closed access.
+  - `kirton-adaption-innovation`: "over 300 scholarly articles and 90 theses". The KAI Foundation's current site gives a different tally.
+  - `jobs-to-be-done`: the claim that the "17% industry average" is stitched from a dozen secondary sources. Strategyn's own pages give two different origins.
+  - `note-and-vote` "~7x" and `kill-criteria-tripwires` (the Google X filter): the origin could not be traced.
+- **Rechecked first-hand by Opus and confirmed:**
+  - concept-mapping: Schroeder et al. (2018), from the abstract.
+  - linear-model-aggregation: Grove et al. (2000), from the abstract.
+  - stocks-and-flows: Cronin, Gonzalez and Sterman (2009), from the full text.
+  - theory-of-constraints: Mabin and Balderstone (2003), whose meta-analysis covered "over 80 successful" applications. The dossier note now says "successful".
+- **Resolved from the first audit's list:** MacGregor and Armstrong (1994) was read in full. It supports a decomposition benefit for extreme, uncertain quantities and reports less accurate estimates otherwise. Its Table 1 also contains the "error factor 99 vs 3" that the Fermi dossier had called untraceable.
 
 ## Pre-existing (predates this effort)
 

@@ -4,6 +4,30 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Fixed
+
+- **A second audit checked every remaining published figure in the dossiers and corrected 21 errors: four in skill dossiers and seventeen in library dossiers.** No tier changes. The audit covered 199 distinct figures from 101 dossiers. Sonnet agents checked each figure's source, an independent refuter re-checked every discrepancy, Opus decided the disputed ones, and the maintainer checked every correction against CrossRef, OpenAlex or the full text. Each corrected entry now says what changed and when.
+  - **Skill dossiers (installed with the plugin):**
+    - `think-analysis-of-competing-hypotheses` credited the 2025 *Applied Cognitive Psychology* study to Otzipka alone. Its authors are Otzipka and Volbert.
+    - `think-eisenhower-moscow-pareto` credited "The Pareto rule in marketing revisited: is it 80/20 or 70/20?" to Sharp and Romaniuk. Its authors are McCarthy and Winer (*Marketing Letters* 30(2), 2019). The library dossier carried the same error.
+    - `think-fermi-estimation` called the "error factor 99 vs 3" figure untraceable to a primary source. It is in the dossier's own source 1 (MacGregor & Armstrong 1994, Table 1), for six extreme, high-uncertainty problems. The skill still cites no effect size, and `SKILL.md` now gives the reason accurately.
+    - `think-minimax-regret` listed Bell (1982) and Loomes and Sugden (1982) as sources of effect sizes. They are theoretical papers; only Zeelenberg's experiments report effect sizes.
+  - **Library dossiers (rendered on the docs site):**
+    - `cognitive-bias-checklist`: the serious-game training cut confirmation bias by 19%, not 29%. A 2020 corrigendum corrected the original article.
+    - `ideological-turing-test`: raters judged 3,600 arguments, not 1,800 (1,200 per topic).
+    - `scaled-participation-formats`: the World Cafe review found 28 studies, 139 events and over 4,600 participants, not 35, 152 and 4,985.
+    - `riasec-interest-fit`: Tsabari, Tziner and Meir (2005) pooled 26 studies (53 samples), not 53 studies.
+    - `pre-commitment-ulysses-contract`: the commitment account raised savings by 81 percentage points, the paper's own unit, not 81%.
+    - `frame-storming`: the 85% figure is from a survey of 106 C-suite executives about their organizations, not "85% of companies".
+    - `estimate-talk-estimate`: Graefe and Armstrong (2011) found that Delphi did beat a simple average of forecasts; only nominal groups and prediction markets added little.
+    - `moat-defensibility-lens`: Crook et al.'s r = 0.29 also requires performance measures unaffected by value appropriation. The index's "2002 inception" is a back-tested start; it went live in 2007.
+    - `inversion`: the popular premortem "~30%" is now credited to Klein's (2007) account, matching the premortem dossier's 2026-10-15 correction.
+    - `cliftonstrengths`: the psychometric figures (alphas, retest stability, cluster analysis, convergent validity) were credited to Lopez, Hodges and Harter (2005). They are all in Schreiner (2006), Gallup's college-student technical report, which is now cited.
+    - Wrong author names, journals or titles were corrected in `counterfactual-reasoning` (Anne Gene Broomhall, *Clinical Psychology Review*; the registry's DOI was also wrong), `dot-voting` (2023, "When Teams Take Unofficial Votes"), `what-so-what-now-what` (*Thinking Skills and Creativity*), `regret-minimization` (Brewer, DeFrank and Gilkey), `enneagram` (Kristin K. Wiggins, Patricia H. Parr) and `system-archetypes` (Caroline Green).
+  - `frameworks/registry.mjs` carried six of the same stale citations and now matches the dossiers.
+  - Two skill-dossier verification notes now record first-hand checks. `think-after-action-review`'s Keiser & Arthur figure was checked against the abstract. `think-theory-of-constraints` now says Mabin and Balderstone analysed "successful" applications, as their abstract does.
+  - Not changed, and listed in `docs/internal/backlog.md` for a maintainer decision: a library dossier cites a paper retracted on 2026-09-02 (Ariely and Wertenbroch 2002), one unverifiable quotation, and the figures the audit could not verify.
+
 ## [0.18.2] - 2026-10-15
 
 **The library checked its own published numbers, found ten problems, and corrected them (#164).** No new skills and no tier changes; the catalog stays 56 core + 7 contested. An evidence re-grade pilot on 21 skills found two wrong figures, and an audit of every other quantified claim in a `SKILL.md` Evidence section found eight more. Two of the ten change what a user is told about effect size: `think-woop` rests on 21 controlled field studies with a small-to-medium effect, not "25+ RCTs", and natural frequencies lift Bayesian accuracy from 16% to 46% in the original study, not "10% to 50-90%". The rest correct attributions. Five figures could not be checked, because their sources are paywalled or could not be found, and they are listed in the backlog with four verified caveats awaiting a decision.

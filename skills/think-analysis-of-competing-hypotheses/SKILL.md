@@ -21,7 +21,7 @@ ACH builds an evidence-by-hypothesis matrix, scores each item of evidence for ho
 
 ACH is tier **X** (tested and found wanting, not merely undertested). On its own home population and stated purpose, the controlled record is null-to-negative:
 
-- Otzipka (2025, *Applied Cognitive Psychology*): applying ACH significantly raised participants' confidence with no accuracy gain (confidence without accuracy).
+- Otzipka and Volbert (2025, *Applied Cognitive Psychology*): applying ACH significantly raised participants' confidence with no accuracy gain (confidence without accuracy).
 - Dhami, Belton and Mandel (2019, *Applied Cognitive Psychology*): 50 intelligence analysts randomized; steps were skipped, bias effects were mixed, and ACH may have increased judgment inconsistency and error.
 - Karvetski and Mandel (2020, *Judgment and Decision Making*, N=227): no gain in additivity, coherence, or consistency, and slightly reduced reliability.
 - Whitesmith (2019); Maegherman et al. (2021); Dhami et al. (2024, the matrix layout specifically failed to reduce bias); Otzipka and Volbert (2026): no debiasing.

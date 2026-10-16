@@ -21,7 +21,7 @@ ACH builds an evidence-by-hypothesis disconfirmation matrix: hypotheses across t
 
 ## 3. What the evidence shows (controlled record is null-to-negative)
 
-- Otzipka (2025, *Applied Cognitive Psychology* 39(5)): 222 participants; ACH significantly raised confidence with no accuracy gain.
+- Otzipka and Volbert (2025, *Applied Cognitive Psychology* 39(5)): 222 participants; ACH significantly raised confidence with no accuracy gain.
 - Dhami, Belton and Mandel (2019, *Applied Cognitive Psychology* 33(6)): 50 analysts randomized; steps skipped, mixed bias effects, possibly increased inconsistency and error.
 - Karvetski and Mandel (2020, *Judgment and Decision Making* 15(6), N=227): no gain in additivity, coherence, or consistency; slightly reduced reliability.
 - Whitesmith (2019); Maegherman et al. (2021); Dhami et al. (2024, the matrix layout specifically failed where a transposed layout helped); Otzipka and Volbert (2026): no debiasing.
@@ -45,7 +45,7 @@ An **honest redirect brief**: the controlled-evidence caveat, the real decision 
 
 ## 7. Sources
 
-1. Otzipka (2025), *Applied Cognitive Psychology* 39(5) e70115 (confidence up, accuracy flat).
+1. Otzipka and Volbert (2025), *Applied Cognitive Psychology* 39(5) e70115 (confidence up, accuracy flat). (Co-author added on 2026-10-15, from the CrossRef record.)
 2. Dhami, Belton and Mandel (2019), *Applied Cognitive Psychology* 33(6).
 3. Karvetski and Mandel (2020), *Judgment and Decision Making* 15(6), N=227.
 4. Heuer (1999), *Psychology of Intelligence Analysis*, ch. 8 (the origin).
