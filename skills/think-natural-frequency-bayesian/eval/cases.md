@@ -31,4 +31,4 @@
 
 ## Value vs unaided baseline
 
-Asked a base-rate question, an unaided model often answers near the hit rate (the same base-rate-neglect error humans make) or, when it lacks the inputs, invents plausible-sounding rates. This skill forces the natural-frequency tree that keeps the base rate in the counts (the format the evidence shows lifts accuracy from ~10% to 50-90%), distinguishes the two conditionals, and refuses to fabricate the input rates - producing an inspectable breakdown instead of a confident wrong number.
+Asked a base-rate question, an unaided model often answers near the hit rate (the same base-rate-neglect error humans make) or, when it lacks the inputs, invents plausible-sounding rates. This skill forces the natural-frequency tree that keeps the base rate in the counts (the format a meta-analysis found lifts average accuracy from about 4% to 24%), distinguishes the two conditionals, and refuses to fabricate the input rates - producing an inspectable breakdown instead of a confident wrong number.

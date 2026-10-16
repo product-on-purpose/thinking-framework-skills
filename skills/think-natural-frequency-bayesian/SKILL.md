@@ -55,7 +55,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **S**. Presenting conditional-probability information as natural frequencies substantially improves Bayesian-inference accuracy - accuracy on these problems rises from roughly 10% to 50-90% with the same facts in frequency format (Gigerenzer & Hoffrage 1995; Sedlmeier & Gigerenzer 2001), replicated across populations including physicians. The format does not supply the inputs; real rates are required. Evidence is from human reasoners, transferred to AI use, not AI-validated. Full grading: `evidence/dossier.md`.
+Tier **S**. Presenting conditional-probability information as natural frequencies substantially improves Bayesian-inference accuracy - in the original study, correct Bayesian answers rose from 16% to 46% with the same facts in frequency format (Gigerenzer & Hoffrage 1995), and a meta-analysis puts the average at about 4% versus 24% (McDowell & Jacobs 2017). Most people still answer wrongly even with natural frequencies, so the format helps without guaranteeing a correct answer. Replicated across populations including physicians. The format does not supply the inputs; real rates are required. Evidence is from human reasoners, transferred to AI use, not AI-validated. Full grading: `evidence/dossier.md`.
 
 ## Examples
 

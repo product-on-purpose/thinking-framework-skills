@@ -4,6 +4,13 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Fixed
+
+- **Two S-tier skills published a wrong number in their evidence, and both now match their sources.** The 2026-10-15 evidence re-grade pilot found both. Each dossier already said to "confirm the exact figure against the paper before a public quantified claim", and neither figure had been checked. No tier changes.
+  - `think-after-action-review` attributed "effect size ~0.79" to Tannenbaum & Cerasoli (2013). That paper reports d = 0.67 (about 25% over controls). The 0.79 is Keiser & Arthur (2021), a later meta-analysis of the after-action review itself. The dossier and `SKILL.md` now give both figures with their own sources.
+  - `think-natural-frequency-bayesian` said accuracy rises "from roughly 10% to 50-90%". The original study reports 16% to 46% (Gigerenzer & Hoffrage 1995, checked against the paper), and a meta-analysis averages 4% to 24% (McDowell & Jacobs 2017, as reported by Weber, Binder & Krauss 2018). The dossier, `SKILL.md` and the "Value vs unaided baseline" line of `eval/cases.md` now say so, and add that most people still answer wrongly with natural frequencies.
+  - The `eval/cases.md` edit is prose only: no script reads that section, and no case, check or anti-trigger changed. It does change the file's fingerprint, so `npm run eval:freshness` will list the skill until its next measured run.
+
 ## [0.18.1] - 2026-10-15
 
 **A patch: one live defect fixed, one dead sidecar field removed, and four roadmap items settled by checking their premise first.** No new skills; the catalog stays 56 core + 7 contested. `think-research-framework` now dispatches to the subagent name a plugin install actually registers (#157). Three tier-C artifacts now print their evidence tier (#160). The 2026-09-12 output misses have had their close-the-loop review (#162). A new reference page says where each authored file's rules live (#161). The conformance gate stays at fifteen layers, its non-gating warnings go from 90 to 89, and the test suite stays at 424.

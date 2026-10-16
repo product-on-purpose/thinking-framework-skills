@@ -55,7 +55,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **S**. A meta-analysis of team and individual debriefs (Tannenbaum & Cerasoli, 2013) found structured debriefs improve performance substantially (effect size ~0.79), and the effect depends on the structure - intent, comparison to expectations, specific takeaways - not on merely holding a meeting (origin: US Army TC 25-20). Unstructured retros do not carry this. Evidence is for human teams, transferred to AI use, not AI-validated. Full grading: `evidence/dossier.md`.
+Tier **S**. Two meta-analyses find that debriefs improve performance substantially: d = 0.67, about 25% over controls, for team and individual debriefs (Tannenbaum & Cerasoli, 2013), and d = 0.79 for the after-action review specifically (Keiser & Arthur, 2021). The effect depends on the structure - intent, comparison to expectations, specific takeaways - not on merely holding a meeting (origin: US Army TC 25-20). Unstructured retros do not carry this. Evidence is for human teams, transferred to AI use, not AI-validated. Full grading: `evidence/dossier.md`.
 
 ## Examples
 

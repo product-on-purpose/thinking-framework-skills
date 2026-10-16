@@ -14,7 +14,7 @@
 
 People - including experts - reason badly about conditional probabilities when they are stated as percentages or probabilities. Given "the test is 90% sensitive, the condition affects 1%, the false-positive rate is 9%," most people (including doctors) wildly overestimate the chance that a positive result means the condition is present, because they neglect the base rate.
 
-Re-expressing the *identical* information as **natural frequencies over a concrete population** makes the correct answer almost visible: "Out of 1,000 people, 10 have the condition; of those, 9 test positive. Of the 990 without it, about 89 also test positive. So of ~98 positives, only 9 truly have it - about 9%." The format does the work: it preserves the base rate in the counts instead of hiding it in a rate. Accuracy on these problems jumps from roughly 10% to 50-90% when the same facts are presented as natural frequencies.
+Re-expressing the *identical* information as **natural frequencies over a concrete population** makes the correct answer almost visible: "Out of 1,000 people, 10 have the condition; of those, 9 test positive. Of the 990 without it, about 89 also test positive. So of ~98 positives, only 9 truly have it - about 9%." The format does the work: it preserves the base rate in the counts instead of hiding it in a rate. In the original study, the share of correct Bayesian answers rose from 16% to 46% when the same facts were presented as natural frequencies (Gigerenzer & Hoffrage, 1995).
 
 ## 2. Lineage
 
@@ -24,7 +24,11 @@ No trademark. Named descriptively.
 
 ## 3. What the evidence shows, and what it does NOT show
 
-**Strongly supported (the S):** presenting conditional-probability information as natural frequencies substantially improves the accuracy of Bayesian inference (the ~10% to ~50-90% jump is well-replicated across studies and populations, including physicians).
+**Strongly supported (the S):** presenting conditional-probability information as natural frequencies substantially improves the accuracy of Bayesian inference, and the effect is replicated across studies and populations, including physicians.
+
+- In the original study, correct Bayesian answers rose from 16% with probabilities to 46% with natural frequencies (Gigerenzer & Hoffrage, 1995, Study 1, standard menu).
+- A meta-analysis puts the average across studies at about 4% with probabilities against 24% with natural frequencies (McDowell & Jacobs, 2017, as reported by Weber, Binder & Krauss, 2018).
+- The gain is large, but most people still answer wrongly even with natural frequencies. The format helps; it does not guarantee a correct answer.
 
 **What it does NOT do:** it does not invent the inputs. The base rate, the true-positive rate, and the false-positive rate must be real; the format makes correct reasoning *from* those numbers tractable, it does not supply them. And it applies only where there is genuine conditional-probability structure - it is not a general forecasting tool (that is reference-class forecasting).
 
@@ -49,7 +53,9 @@ A **natural-frequency breakdown**: the question; the inputs (base rate, true-pos
 
 ## 7. Sources
 
-1. Gigerenzer, G., & Hoffrage, U. (1995) - improving Bayesian reasoning with natural-frequency formats.
+1. Gigerenzer, G., & Hoffrage, U. (1995). How to improve Bayesian reasoning without instruction: Frequency formats. *Psychological Review* 102(4): 684-704 - Study 1: 16% Bayesian answers with probabilities, 46% (standard menu) and 50% (short menu) with natural frequencies.
 2. Sedlmeier, P., & Gigerenzer, G. (2001) - teaching Bayesian reasoning (accuracy gains).
+3. McDowell, M., & Jacobs, P. (2017). Meta-analysis of the effect of natural frequencies on Bayesian reasoning. *Psychological Bulletin* 143: 1273-1312, doi:10.1037/bul0000126 - average accuracy about 24% with natural frequencies against 4% with probabilities.
+4. Weber, P., Binder, K., & Krauss, S. (2018). Why can only 24% solve Bayesian reasoning problems in natural frequencies: Frequency phobia in spite of probability blindness. *Frontiers in Psychology* 9, doi:10.3389/fpsyg.2018.01833 - reports source 3's averages.
 
-> **Verification status:** the natural-frequency format effect and the rough 10%->50-90% accuracy gain are well-attested; confirm exact figures against the papers before a public quantified claim. The "must use real input rates" constraint is the honest core for AI use.
+> **Verification status (corrected 2026-10-15):** until this date, the dossier, `SKILL.md` and `eval/cases.md` said accuracy rises "from roughly 10% to 50-90%". That overstated the effect. On 2026-10-15 the 16% and 46% figures were checked against the original paper. The 4% and 24% averages were checked against Weber, Binder & Krauss (2018), which reports them; the meta-analysis itself was not read. The tier is unchanged, because the direction of the effect is robust. The "must use real input rates" constraint is the honest core for AI use.

@@ -24,7 +24,7 @@ No trademark. Named descriptively.
 
 ## 3. What the evidence shows, and what it does NOT show
 
-**Strongly supported (the S):** a meta-analysis of team and individual debriefs (Tannenbaum & Cerasoli, 2013) found structured debriefs improve performance substantially - on the order of a ~20-25% improvement, effect size around 0.79. The effect depends on structure (intent, comparison to expectations, specific behavioral takeaways), not on simply holding a meeting.
+**Strongly supported (the S):** two meta-analyses find that debriefs improve performance substantially. Tannenbaum & Cerasoli (2013), pooling team and individual debriefs, found an improvement of about 25% over control groups (d = 0.67). Keiser & Arthur (2021), on the after-action review specifically, found an overall d of 0.79 across 61 studies. The effect depends on structure (intent, comparison to expectations, specific behavioral takeaways), not on simply holding a meeting.
 
 **What it does NOT show:** that an unstructured retro helps (it largely does not), or that an AAR fixes anything if its "lessons" are vague and never change behavior. The brand "AAR" is practitioner packaging; the *mechanism* (structured, expectation-anchored, blameless debrief) is what carries the evidence.
 
@@ -50,6 +50,7 @@ An **after-action review**: what was expected, what actually happened, why the g
 ## 7. Sources
 
 1. US Army, TC 25-20 - the original After-Action Review guide.
-2. Tannenbaum, S. I., & Cerasoli, C. P. (2013) - meta-analysis of debriefs and performance (ES ~0.79).
+2. Tannenbaum, S. I., & Cerasoli, C. P. (2013). Do team and individual debriefs enhance performance? A meta-analysis. *Human Factors* (PubMed 23516804) - d = 0.67, about 25% over control groups.
+3. Keiser, N. L., & Arthur, W., Jr. (2021). A meta-analysis of the effectiveness of the after-action review (or debrief) and factors that influence its effectiveness. *Journal of Applied Psychology* 106(7): 1007-1032, doi:10.1037/apl0000821 - d = 0.79 across 61 studies.
 
-> **Verification status:** the Tannenbaum & Cerasoli meta-analysis and its effect-size are well-attested; confirm the exact figure against the paper before a public quantified claim. The "structure is the active ingredient" point is the honest core.
+> **Verification status (corrected 2026-10-15):** until this date, the dossier and `SKILL.md` attributed "effect size ~0.79" to Tannenbaum & Cerasoli (2013). That paper reports d = 0.67. The 0.79 belongs to Keiser & Arthur (2021), a later meta-analysis of the after-action review specifically. Both figures were re-checked on 2026-10-15: Tannenbaum & Cerasoli against its PubMed abstract, Keiser & Arthur against published summaries of its results. The tier is unchanged, because both meta-analyses support it. The "structure is the active ingredient" point is the honest core.
