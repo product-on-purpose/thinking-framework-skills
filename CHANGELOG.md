@@ -4,9 +4,17 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.18.3] - 2026-10-15
+
+**A second audit checked every remaining published figure in the library and corrected 21 errors (#166).** No new skills and no tier changes; the catalog stays 56 core + 7 contested. The v0.18.2 audit covered the figures in `SKILL.md` Evidence sections and the dossiers that already flagged doubt. This one covered the other 199 distinct figures, across 101 skill and library dossiers. Four corrections are in installed skills: `think-analysis-of-competing-hypotheses`, `think-eisenhower-moscow-pareto`, `think-fermi-estimation` and `think-minimax-regret`.
+
+**Why a patch.** These are factual corrections to existing skills and library pages, with no catalog or capability change. Installed copies of the four skills read the old text until the marketplace pin moves.
+
+**Standard re-pin review (release-process step 33): both dials held.** Toolkit `main` is still `832c102`, unchanged since v0.18.0, and the pinned run returns advanced / 0 errors / 89 warnings.
+
 ### Fixed
 
-- **A second audit checked every remaining published figure in the dossiers and corrected 21 errors: four in skill dossiers and seventeen in library dossiers.** No tier changes. The audit covered 199 distinct figures from 101 dossiers. Sonnet agents checked each figure's source, an independent refuter re-checked every discrepancy, Opus decided the disputed ones, and the maintainer checked every correction against CrossRef, OpenAlex or the full text. Each corrected entry now says what changed and when.
+- **A second audit checked every remaining published figure in the dossiers and corrected 21 errors: four in skill dossiers and seventeen in library dossiers (#166).** No tier changes. The audit covered 199 distinct figures from 101 dossiers. Sonnet agents checked each figure's source, an independent refuter re-checked every discrepancy, Opus decided the disputed ones, and the maintainer checked every correction against CrossRef, OpenAlex or the full text. Each corrected entry now says what changed and when.
   - **Skill dossiers (installed with the plugin):**
     - `think-analysis-of-competing-hypotheses` credited the 2025 *Applied Cognitive Psychology* study to Otzipka alone. Its authors are Otzipka and Volbert.
     - `think-eisenhower-moscow-pareto` credited "The Pareto rule in marketing revisited: is it 80/20 or 70/20?" to Sharp and Romaniuk. Its authors are McCarthy and Winer (*Marketing Letters* 30(2), 2019). The library dossier carried the same error.
@@ -665,6 +673,7 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
 [unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.2...HEAD
+[0.18.3]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.2...v0.18.3
 [0.18.2]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.1...v0.18.2
 [0.18.1]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.0...v0.18.1
 [0.18.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.17.0...v0.18.0

@@ -2,6 +2,20 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.18.3
+
+**The library finished checking its own published numbers: a second audit covered every remaining figure and corrected 21 errors.** No new frameworks and no evidence-grade changes; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For everyone
+
+- **Four skills now cite their evidence correctly.** `think-analysis-of-competing-hypotheses` and `think-eisenhower-moscow-pareto` named the wrong authors for a study they rely on. `think-minimax-regret` listed two theory papers as sources of effect sizes. `think-fermi-estimation` called a well-known figure untraceable, though it is in the skill's own main source; the skill still declines to quote it, and now says why accurately.
+- **Library pages now match their sources.** Examples: a debiasing game cut confirmation bias by 19%, not 29% (the paper was corrected in 2020); a World Cafe review covered 28 studies, not 35; and raters in the ideological Turing test study judged 3,600 arguments, not 1,800. The CliftonStrengths page kept its numbers but now credits them to the right Gallup report.
+
+### For builders and contributors
+
+- **How it was checked:** 199 distinct figures from 101 dossiers. An agent checked each source, a second agent tried to refute every discrepancy, and Opus settled disagreements. Then every correction was checked by hand against CrossRef, OpenAlex or the paper itself. That last step mattered: for CliftonStrengths, the agents proposed deleting figures that were right but credited to the wrong report.
+- **What is left for a decision** is in `docs/internal/backlog.md`. The most urgent: one library page cites a 2002 study that its journal retracted in September 2026.
+
 ## v0.18.2
 
 **The library checked its own published numbers, found ten problems, and corrected them.** No new frameworks and no evidence-grade changes; the catalog stays 56 evidence-graded core skills plus 7 contested lenses. Honest grading is the point of this library, so this release is about holding it to that.
