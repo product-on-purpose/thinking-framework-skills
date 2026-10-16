@@ -462,13 +462,13 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ## 📊 Project status
 
-`v0.18.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
+`v0.18.1` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
 
 ### At a glance
 
 |  |  |
 |---|---|
-| **Current version** | [v0.18.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.0) |
+| **Current version** | [v0.18.1](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.1) |
 | **Frameworks** | 63, across 12 cognitive-operation families (56 core + 7 contested lenses) |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 9 (skill chains shipped as workflow components), each runnable as a slash command |
@@ -522,6 +522,7 @@ Full detail in [`CHANGELOG.md`](CHANGELOG.md); curated highlights in [`RELEASE-N
 
 | Version | Highlights |
 |---|---|
+| [**0.18.1**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.1) | Patch. `think-research-framework` now reaches its subagent under a plugin install. Three tier-C artifacts print their evidence tier. A reference page indexes where each authored file's rules live, and four roadmap items close on a checked premise. No new skills; catalog stays 56 core + 7 contested. |
 | [**0.18.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.0) | Eval provenance: every run names its model, and every new scorecard records the model and a fingerprint of its cases. The anti-case routing figures turn out to be open-book, and the trust page says so with the measured bound. `manifest.generated.json` is drift-checked, and `catalog.json` annotates the three subagents. No new skills; catalog stays 56 core + 7 contested. |
 | [**0.17.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.17.0) | Two recipes, `think-stress-test-decision` and `think-audit-reasoning`, also ship as Claude Code subagents that run the whole chain in their own context and return only the finished artifact. No new skills; catalog stays 56 core + 7 contested. |
 | [**0.16.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.16.0) | The instrument got trustworthy: five published tiers corrected to the weaker half of a split grade, run-to-run noise measured and published, and four new guards on answer keys, tiers and scorecards. No new skills; catalog stays 56 core + 7 contested. |

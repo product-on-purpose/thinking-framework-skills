@@ -4,28 +4,36 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.18.1] - 2026-10-15
+
+**A patch: one live defect fixed, one dead sidecar field removed, and four roadmap items settled by checking their premise first.** No new skills; the catalog stays 56 core + 7 contested. `think-research-framework` now dispatches to the subagent name a plugin install actually registers (#157). Three tier-C artifacts now print their evidence tier (#160). The 2026-09-12 output misses have had their close-the-loop review (#162). A new reference page says where each authored file's rules live (#161). The conformance gate stays at fifteen layers, its non-gating warnings go from 90 to 89, and the test suite stays at 424.
+
+**Why a patch and not a minor.** Nothing here adds a skill, a tool or a docs-site page. `docs/reference/` is a repository document, and the site does not publish it. The B-04 template lines change what three existing skills print, not what the catalog contains.
+
+**Standard re-pin review (release-process step 33): both dials held, and nothing has moved since v0.18.0.** The CI pin stays at toolkit `93da438`, and `library.json` keeps `"standard": "0.8"`. Toolkit `main` is still `832c102`, 293 commits ahead and at Standard 0.17, so the v0.18.0 line-for-line comparison still stands. The pinned run now returns advanced / 0 errors / 89 warnings.
+
 ### Added
 
-- **`docs/reference/authoring-contract.md`, one page that says where each authored file's rules live and what enforces them (roadmap C5-4).** It is an index that links to its sources, because the generated-view principle forbids a second copy of the gate list or the generator table. Building it found two unenforced contracts: nothing checks that a shipped skill has `references/TEMPLATE.md`, `references/EXAMPLE.md` or `evidence/dossier.md`. The page says so rather than implying a check. Linked from `AGENTS.md` and `docs/README.md`.
-- **The gate's non-gating warnings go from 90 to 89.** `docs/reference/` is the first page in the Diataxis reference quadrant, which clears one `G10`. The new page and its folder README carry the taxonomy frontmatter and inventory, so they add no `G7` or `G8`. The tracked count, its composition and every prose surface that quotes them moved together.
+- **`docs/reference/authoring-contract.md`, one page that says where each authored file's rules live and what enforces them (roadmap C5-4) (#161).** It is an index that links to its sources, because the generated-view principle forbids a second copy of the gate list or the generator table. Building it found two unenforced contracts: nothing checks that a shipped skill has `references/TEMPLATE.md`, `references/EXAMPLE.md` or `evidence/dossier.md`. The page says so rather than implying a check. Linked from `AGENTS.md` and `docs/README.md`.
+- **The gate's non-gating warnings go from 90 to 89 (#161).** `docs/reference/` is the first page in the Diataxis reference quadrant, which clears one `G10`. The new page and its folder README carry the taxonomy frontmatter and inventory, so they add no `G7` or `G8`. The tracked count, its composition and every prose surface that quotes them moved together.
 
 ### Changed
 
-- **Four roadmap items closed by checking their premise first** (`docs/internal/backlog.md`, "Roadmap close-outs").
+- **Four roadmap items closed by checking their premise first (#159)** (`docs/internal/backlog.md`, "Roadmap close-outs").
   - C4-4 (`allowed-tools` contract) is closed: in Claude Code the field pre-approves tools and "does not restrict which tools are available", so `allowed-tools: []` would have enforced nothing.
   - C3-2 (flagship commands) is parked: its selection input, the trigger-eval corpus, is near-uniform per skill (61 of 67 skills carry exactly 6 cases), so it holds no demand signal.
   - C1-5 (status auto-promotion) is retired: the gate already rejects the drift it would prevent.
   - C6-1 (`trust.json`) is parked, pending a decision.
-- **Two tier-C skills' artifacts now carry their evidence tier, and a third names the letter (B-04).** `think-contradiction-tension-mapping` and `think-frame-creation` gain a pre-printed "Evidence caveat" in their `references/TEMPLATE.md`, sourced from each dossier, in the shape `think-three-horizons` already uses. `think-causal-layered-analysis` already had one and now says "tier C". Each procedure now says to carry the caveat through verbatim. `think-speculative-harms-anti-goals` was on the backlog's list in error: it already opens with an explicit tier-A caveat. Unmeasured until the next output run.
-- **The five failed output checks from the 2026-09-12 run have had their close-the-loop review, and none needed a skill edit.** `scripts/eval/README.md` now gives output misses their own rule: a procedure fix, a check or prompt change, or a recorded result, decided by recurrence. One miss was a real defect, already fixed and re-measured 6/6 (`qualitative-comparative-analysis`, #136). Two checks ask for something the eval prompt cannot supply (`affinity-mapping`, `interval-calibration-check`); their wording is now a maintainer decision in the backlog. Two are recorded as single-run results: all four non-QCA skills passed in every earlier run, and failed only under the stricter verifying judge that run introduced.
+- **Two tier-C skills' artifacts now carry their evidence tier, and a third names the letter (B-04) (#160).** `think-contradiction-tension-mapping` and `think-frame-creation` gain a pre-printed "Evidence caveat" in their `references/TEMPLATE.md`, sourced from each dossier, in the shape `think-three-horizons` already uses. `think-causal-layered-analysis` already had one and now says "tier C". Each procedure now says to carry the caveat through verbatim. `think-speculative-harms-anti-goals` was on the backlog's list in error: it already opens with an explicit tier-A caveat. Unmeasured until the next output run.
+- **The five failed output checks from the 2026-09-12 run have had their close-the-loop review, and none needed a skill edit (#162).** `scripts/eval/README.md` now gives output misses their own rule: a procedure fix, a check or prompt change, or a recorded result, decided by recurrence. One miss was a real defect, already fixed and re-measured 6/6 (`qualitative-comparative-analysis`, #136). Two checks ask for something the eval prompt cannot supply (`affinity-mapping`, `interval-calibration-check`); their wording is now a maintainer decision in the backlog. Two are recorded as single-run results: all four non-QCA skills passed in every earlier run, and failed only under the stricter verifying judge that run introduced.
 
 ### Fixed
 
-- **`think-research-framework` dispatched to a subagent name that does not exist under a plugin install.** Its `SKILL.md` passed the bare `subagent_type` `think-research-framework`, but Claude Code registers plugin subagents under the plugin namespace. A headless run on Claude Code 2.1.300 with the plugin loaded confirmed it: the bare name failed with "Agent type not found", and `thinking-framework-skills:think-research-framework` resolved. The skill now names the namespaced type, and keeps the bare name for an agent installed outside the plugin. Found by the backlog's install check.
+- **`think-research-framework` dispatched to a subagent name that does not exist under a plugin install (#157).** Its `SKILL.md` passed the bare `subagent_type` `think-research-framework`, but Claude Code registers plugin subagents under the plugin namespace. A headless run on Claude Code 2.1.300 with the plugin loaded confirmed it: the bare name failed with "Agent type not found", and `thinking-framework-skills:think-research-framework` resolved. The skill now names the namespaced type, and keeps the bare name for an agent installed outside the plugin. Found by the backlog's install check.
 
 ### Removed
 
-- **`execution.subagent_suitable`, from all 67 sidecars and the skill template.** The field was authored per skill against no written rule, and the 2026-09-15 inventory found it selected nothing. The subagent criterion in `AUTHORING.md` has a recipe as its unit, and recipes have no sidecar. No script, test or toolkit check read the field.
+- **`execution.subagent_suitable`, from all 67 sidecars and the skill template (#158).** The field was authored per skill against no written rule, and the 2026-09-15 inventory found it selected nothing. The subagent criterion in `AUTHORING.md` has a recipe as its unit, and recipes have no sidecar. No script, test or toolkit check read the field.
 
 ## [0.18.0] - 2026-10-14
 
@@ -607,7 +615,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.0...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.1...HEAD
+[0.18.1]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.0...v0.18.1
 [0.18.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.15.0...v0.16.0

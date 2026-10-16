@@ -2,6 +2,22 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.18.1
+
+**A small fix release: one skill could not reach its own subagent after a plugin install, and now it can.** No new frameworks; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For everyone
+
+- **`think-research-framework` now works from a plugin install.** It hands its research to a subagent. A plugin install registers that subagent under the plugin's name, but the skill asked for the short name, so the hand-off failed with "Agent type not found". The skill now asks for the full name, and still falls back to the short one outside a plugin.
+- **Three lower-evidence skills now say so in what they produce.** `think-contradiction-tension-mapping` and `think-frame-creation` end their artifact with an evidence caveat. `think-causal-layered-analysis` already had one, and it now names its tier. All three are tier C: conceptually plausible, without experimental support.
+
+### For builders and contributors
+
+- **One page says where each authored file's rules live.** `docs/reference/authoring-contract.md` links each file in a skill to its rules and to the check that enforces them. Writing it showed that nothing checks a shipped skill has its template, example and dossier files, and the page says so.
+- **`execution.subagent_suitable` is gone from every sidecar.** It selected nothing, and no script, test or toolkit check read it.
+- **Four roadmap items closed without being built, because each premise was checked first.** For example, `allowed-tools: []` would not have made the skills advisory-only, since that field pre-approves tools and restricts none. The record is in `docs/internal/backlog.md`.
+- **Every failed check from the September output eval got a decision.** None needed a skill change. Two check wordings are now open questions for the maintainer.
+
 ## v0.18.0
 
 **One number on the trust page came from an open-book test, and the page now says so.** No new frameworks; the catalog stays 56 evidence-graded core skills plus 7 contested lenses. This release is about the measurements. Every future eval result will say which model produced it and which test cases it ran. One existing result turned out to be easier to earn than it looked.
