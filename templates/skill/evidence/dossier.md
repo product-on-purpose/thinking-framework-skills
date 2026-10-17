@@ -42,4 +42,4 @@ REPLACE: the named, structured artifact this skill must emit (not prose).
 
 1. REPLACE.
 
-> **Verification status:** REPLACE. Note which citations are primary-source-verified vs drawn from secondary synthesis and still need confirmation before any public claim.
+> **Verification status:** REPLACE. Say which citations you checked against a primary source, and when ("checked against the abstract on YYYY-MM-DD"). Check each figure now rather than deferring it to some later public use; the gate counts deferred-check notes (see "Deferred checks in a dossier" in `docs/internal/AUTHORING.md`).
