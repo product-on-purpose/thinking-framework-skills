@@ -2,6 +2,23 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.18.4
+
+**Every evidence decision the last two audits left open is now made.** A retracted study is flagged, four skills say where their evidence stops, and the gate keeps unchecked claims from piling up again. No new frameworks and no evidence-grade changes; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For everyone
+
+- **A retracted study no longer counts.** The pre-commitment library page cited a 2002 deadline experiment that its journal retracted in September 2026, after a failed replication and analyses of the original data. The page now marks it retracted, and it supports nothing there.
+- **Four skills say where their evidence stops.** Natural frequencies help with one test result, but did worse than odds for two tests in a row. A study of how WOOP works failed to replicate, though the main evidence is untouched. A premortem may lead people to blame bad luck for future failures. And feedback alone did not improve confidence calibration in a 2024 study.
+- **The premortem's famous "30%" is gone.** The skill used to say what the figure measures. Nobody has found the figure in the study it is credited to, so the skill now says exactly that and does not use it.
+- **Three more citations match their sources.** The Eisenhower skill credits its "60-20" and "70-20" figures to the two papers that report them, a quoted phrase now uses the paper's own words, and an undated pair of fund returns is gone.
+
+### For builders and contributors
+
+- **An eval answer key can accept two right answers.** Write `also accept think-<slug>` after the primary redirect in a "Should NOT trigger" bullet. Four keys were widened, and they apply from the next trigger run.
+- **The gate ratchets deferred checks.** Eleven "confirm before a public claim" notes remain, in ten dossiers. A new one fails the gate, and a resolved one lowers the baseline in `docs/internal/confirm-note-count.txt`.
+- **Two output checks** now match what a one-shot eval prompt can supply.
+
 ## v0.18.3
 
 **The library finished checking its own published numbers: a second audit covered every remaining figure and corrected 21 errors.** No new frameworks and no evidence-grade changes; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
