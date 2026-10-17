@@ -17,7 +17,7 @@
 - "Map out the possible futures for our market over the next three years." (divergent external futures; route to think-scenario-planning)
 - "Compare these three vendors on cost, risk, and fit and pick one." (option scoring under criteria; route to think-decision-option-review)
 - "Help me think through whether to launch a free tier." (generic strategy; the dominant move is decomposition, route to think-issue-tree)
-- "What could go wrong if we ship this?" (risk surfacing, not problem-type triage; route to think-red-team-light)
+- "What could go wrong if we ship this?" (risk surfacing, not problem-type triage; route to think-red-team-light; also accept think-premortem)
 - "Summarize how complex our different projects are into a table." (summarization, not a sense-making sort)
 
 ## Output checks (a good output must)

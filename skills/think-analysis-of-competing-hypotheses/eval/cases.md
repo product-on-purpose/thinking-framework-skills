@@ -12,7 +12,7 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "Which of these three explanations for the churn spike is right?" (generic rival-explanation work; route to think-evidence-vs-inference-sort, not ACH)
+- "Which of these three explanations for the churn spike is right?" (generic rival-explanation work; route to think-evidence-vs-inference-sort; also accept think-process-tracing; not ACH)
 - "Poke holes in our leading theory of the outage." (route to think-red-team-light)
 - "What would have to be true for the pricing explanation to hold?" (route to think-what-would-have-to-be-true)
 - "List the evidence for and against each option." (a plain pro/con table, no ACH requested)

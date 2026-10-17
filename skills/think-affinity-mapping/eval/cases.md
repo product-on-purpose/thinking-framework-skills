@@ -22,7 +22,7 @@
 
 ## Output checks (a good output must)
 
-- [ ] Cluster the items before naming any theme, so the themes emerge from the items rather than from predefined buckets.
+- [ ] Cluster the items before naming any theme, so the themes emerge from the items rather than from predefined buckets. When the prompt describes items without supplying them, an explicitly labelled illustrative corpus is acceptable; judge the clustering on the items as listed, not on the order an invented corpus was written in.
 - [ ] Give each theme a short name that answers to the items inside it, with a one-line statement of what unifies them.
 - [ ] Keep every item traceable to a theme (representative items shown) and put items that did not cluster in an explicit outliers / parking lot, not dropped.
 - [ ] Weight themes by relative size or strength and flag thin or borderline clusters as Tentative rather than laundering them with a confident label.

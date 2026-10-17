@@ -15,7 +15,7 @@
 
 - "Help me figure out the root cause of our churn." (likely multi-causal; the dominant move is branching decomposition, route to think-issue-tree, not a single chain)
 - "Why might this outage have happened? There could be several reasons." (explicitly multi-cause; route to think-issue-tree)
-- "What could go wrong with this launch?" (risk surfacing, not root-cause tracing; route to think-red-team-light)
+- "What could go wrong with this launch?" (risk surfacing, not root-cause tracing; route to think-red-team-light; also accept think-premortem)
 - "Break this problem into a clean tree of sub-questions." (route to think-issue-tree)
 - "Map the possible reasons our experiment was flat." (branching cause exploration; route to think-issue-tree)
 - "Summarize the causes already listed in this incident doc into a table." (summarization, not analysis)

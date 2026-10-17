@@ -156,3 +156,24 @@ test('scoreOutput omits artifactChars rather than writing null when the run did 
   ]);
   assert.ok(!('artifactChars' in json.perSkill.a), 'absent, not null');
 });
+
+// --- widened answer keys ---------------------------------------------------------------
+
+test('scoreTrigger: a widened key credits any accepted alternative, and only those', () => {
+  // The maintainer widens a key with "also accept think-x" (resolveAccepted). The scorer must
+  // credit the also-accepted pick, still miss an unlisted one, and leave unwidened keys exact.
+  const cases = [
+    { id: 'w1', prompt: 'p1', expected: 'red-team-light', accept: ['red-team-light', 'premortem'], type: 'anti', source: 'five-whys' },
+    { id: 'w2', prompt: 'p2', expected: 'red-team-light', accept: ['red-team-light', 'premortem'], type: 'anti', source: 'swot' },
+    { id: 'w3', prompt: 'p3', expected: 'red-team-light', type: 'anti', source: 'complexity-domain-sort' },
+  ];
+  const routed = { routes: [
+    { id: 'w1', top1: 'premortem', top3: [] },
+    { id: 'w2', top1: 'scenario-planning', top3: [] },
+    { id: 'w3', top1: 'premortem', top3: [] },
+  ] };
+  const { json } = scoreTrigger(cases, routed);
+  assert.equal(json.totals.antiNamed, 3);
+  assert.equal(json.totals.antiRightAlt, 1, 'only the widened case with an accepted pick is credited');
+  assert.equal(json.perSkill.swot.miss[0].want, 'red-team-light or premortem');
+});

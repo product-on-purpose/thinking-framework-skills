@@ -92,7 +92,7 @@
       "caveat_first": true,
       "description": "Handles a by-name request for ACH (Analysis of Competing Hypotheses), the evidence-by-hypothesis disconfirmation matrix, honestly. Controlled trials found ACH raises confidence with no accuracy gain and does not reduce confirmation bias, so this skill does NOT build the matrix as if valid. It leads with that evidence, then routes to the evidence-based move the job actually needs (think-red-team-light, think-evidence-vs-inference-sort, or think-what-would-have-to-be-true). Use only when someone asks for ACH or a competing-hypotheses matrix by name.",
       "anti_triggers": [
-        "\"Which of these three explanations for the churn spike is right?\" (generic rival-explanation work; route to think-evidence-vs-inference-sort, not ACH)",
+        "\"Which of these three explanations for the churn spike is right?\" (generic rival-explanation work; route to think-evidence-vs-inference-sort; also accept think-process-tracing; not ACH)",
         "\"Poke holes in our leading theory of the outage.\" (route to think-red-team-light)",
         "\"What would have to be true for the pricing explanation to hold?\" (route to think-what-would-have-to-be-true)",
         "\"List the evidence for and against each option.\" (a plain pro/con table, no ACH requested)",
@@ -360,7 +360,7 @@
         "\"Map out the possible futures for our market over the next three years.\" (divergent external futures; route to think-scenario-planning)",
         "\"Compare these three vendors on cost, risk, and fit and pick one.\" (option scoring under criteria; route to think-decision-option-review)",
         "\"Help me think through whether to launch a free tier.\" (generic strategy; the dominant move is decomposition, route to think-issue-tree)",
-        "\"What could go wrong if we ship this?\" (risk surfacing, not problem-type triage; route to think-red-team-light)",
+        "\"What could go wrong if we ship this?\" (risk surfacing, not problem-type triage; route to think-red-team-light; also accept think-premortem)",
         "\"Summarize how complex our different projects are into a table.\" (summarization, not a sense-making sort)"
       ],
       "not_use": [
@@ -749,7 +749,7 @@
       "anti_triggers": [
         "\"Help me figure out the root cause of our churn.\" (likely multi-causal; the dominant move is branching decomposition, route to think-issue-tree, not a single chain)",
         "\"Why might this outage have happened? There could be several reasons.\" (explicitly multi-cause; route to think-issue-tree)",
-        "\"What could go wrong with this launch?\" (risk surfacing, not root-cause tracing; route to think-red-team-light)",
+        "\"What could go wrong with this launch?\" (risk surfacing, not root-cause tracing; route to think-red-team-light; also accept think-premortem)",
         "\"Break this problem into a clean tree of sub-questions.\" (route to think-issue-tree)",
         "\"Map the possible reasons our experiment was flat.\" (branching cause exploration; route to think-issue-tree)",
         "\"Summarize the causes already listed in this incident doc into a table.\" (summarization, not analysis)"
@@ -1525,7 +1525,7 @@
       "description": "Runs a SWOT analysis (strengths, weaknesses, opportunities, threats) caveat-first. It leads with the weak evidence (Hill and Westbrook 1997 found real SWOT grids did not amount to analysis), then forces the discipline a bare grid lacks, namely evidence-tagged and prioritized factors plus a TOWS matching step that turns the four lists into strategic options. Use only when a SWOT or TOWS is asked for by name; for genuine situation decomposition prefer think-issue-tree.",
       "anti_triggers": [
         "\"Help me think through whether to launch a free tier.\" (generic strategy; the dominant move is decomposition, route to think-issue-tree, not a SWOT)",
-        "\"What could go wrong if we expand into the EU?\" (risk surfacing; route to think-red-team-light)",
+        "\"What could go wrong if we expand into the EU?\" (risk surfacing; route to think-red-team-light; also accept think-premortem)",
         "\"Map out the possible futures for our market over the next three years.\" (divergent external futures; route to think-scenario-planning)",
         "\"Decompose our situation into a clean tree of sub-questions.\" (route to think-issue-tree)",
         "\"Compare these three vendors on cost, risk, and fit.\" (option scoring; route to think-decision-option-review)",

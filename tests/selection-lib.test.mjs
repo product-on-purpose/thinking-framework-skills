@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   buildRoster,
   resolveExpected,
+  resolveAccepted,
   normalizeRouted,
   tallyCommandPicks,
 } from '../scripts/lib/selection-lib.mjs';
@@ -176,4 +177,31 @@ test('tallyCommandPicks: no command picks yields an explicit zero, not an empty 
   const routes = [{ id: 'c1', top1: 'premortem', top3: [] }];
   const t = tallyCommandPicks(CASES, routes, new Set());
   assert.deepEqual(t, { onTrigger: 0, onAnti: 0, total: 0, normalized: 0, examples: [] });
+});
+
+// --- resolveAccepted ------------------------------------------------------------------
+
+test('resolveAccepted: a bare "think-a or think-b" does NOT widen the key', () => {
+  // The defect this catches: two authored bullets already read "think-a or think-b" and were
+  // always scored against the first slug alone. Reading "or" as a second answer would move
+  // published figures that no maintainer decided to move.
+  const after = ' (generate options; route to `think-brainwriting` or `think-far-analogy-ideation`)';
+  const corpus = new Set(['brainwriting', 'far-analogy-ideation']);
+  assert.equal(resolveAccepted(after, 'brainwriting', 'contradiction-resolution', corpus), null);
+});
+
+test('resolveAccepted: "also accept think-x" widens the key, primary first', () => {
+  const after = ' (risk surfacing; route to think-red-team-light; also accept think-premortem)';
+  const corpus = new Set(['red-team-light', 'premortem']);
+  assert.deepEqual(resolveAccepted(after, 'red-team-light', 'five-whys', corpus), ['red-team-light', 'premortem']);
+});
+
+test('resolveAccepted: an also-accepted slug outside the corpus, or the source itself, is dropped', () => {
+  const corpus = new Set(['red-team-light']);
+  assert.equal(resolveAccepted(' (route to think-red-team-light; also accept think-premortem)', 'red-team-light', 'swot', corpus), null);
+  assert.equal(resolveAccepted(' (route to think-red-team-light; also accept think-swot)', 'red-team-light', 'swot', new Set(['red-team-light', 'swot'])), null);
+});
+
+test('resolveAccepted: a decline ("none") is never widened', () => {
+  assert.equal(resolveAccepted(' (trivial; also accept think-premortem)', 'none', 'swot', new Set(['premortem'])), null);
 });

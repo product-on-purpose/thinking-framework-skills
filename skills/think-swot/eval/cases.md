@@ -14,7 +14,7 @@
 ## Should NOT trigger (wrong tool / near-miss)
 
 - "Help me think through whether to launch a free tier." (generic strategy; the dominant move is decomposition, route to think-issue-tree, not a SWOT)
-- "What could go wrong if we expand into the EU?" (risk surfacing; route to think-red-team-light)
+- "What could go wrong if we expand into the EU?" (risk surfacing; route to think-red-team-light; also accept think-premortem)
 - "Map out the possible futures for our market over the next three years." (divergent external futures; route to think-scenario-planning)
 - "Decompose our situation into a clean tree of sub-questions." (route to think-issue-tree)
 - "Compare these three vendors on cost, risk, and fit." (option scoring; route to think-decision-option-review)

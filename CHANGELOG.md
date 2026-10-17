@@ -12,6 +12,11 @@ All notable changes to this project are documented here. The format is based on 
   - `think-premortem`: a 2021 conference poster (three pre-registered studies and a pilot, N = 2,345; not peer-reviewed) found the premortem reduced overconfidence but magnified self-serving attribution of failure.
   - `think-interval-calibration-check`: neither outcome nor performance feedback improved calibration in two experiments (N = 610 and 871; Martin and Mandel 2024). The task was two-alternative confidence, so this is analogue evidence.
 - **`think-belief-update-routine`'s dossier now cites adjacent language-model evidence.** Three 2025 preprints find that models under-respond to new forecasting evidence, that larger models are more Bayes-coherent, and that models shift toward what a user appears to want. None tests the routine itself.
+- **An anti case can now accept more than one right answer.** A maintainer widens a key by writing `also accept think-<slug>` after the primary redirect; the extractor emits an `accept` list and the scorer credits any pick on it. A bare "think-a or think-b" still scores against the first slug, so no existing key moved. Four keys were widened: the three "What could go wrong..." cases under `complexity-domain-sort`, `five-whys` and `swot` also accept `think-premortem`, and `analysis-of-competing-hypotheses`'s "Which of these three explanations..." also accepts `think-process-tracing`. The four annotations reach the router's catalog as `anti_triggers`, so `recommendable.json` changed for those skills. The widened keys apply from the next trigger run; no stored run was re-scored.
+
+### Changed
+
+- **Two output checks now match what a one-shot eval prompt can supply.** `think-affinity-mapping` check 1 accepts an explicitly labelled illustrative corpus when the prompt describes notes without supplying them. `think-interval-calibration-check` check 3 passes a bet marked pending when no human answers it in the turn, as check 4 already allowed for missing data. Both apply from the next output run.
 
 ### Fixed
 

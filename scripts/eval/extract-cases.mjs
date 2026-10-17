@@ -50,7 +50,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildRoster, resolveExpected } from '../lib/selection-lib.mjs';
+import { buildRoster, resolveExpected, resolveAccepted } from '../lib/selection-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..', '..');
@@ -123,7 +123,8 @@ for (const slug of slugs) {
     // strip the prompt span before looking for the named tool, so a think- inside the prompt is not mistaken for the answer
     const after = b.slice(b.indexOf(`"${prompt}"`) + prompt.length + 2);
     const expected = resolveExpected(namedSkill(after), slug, corpus);
-    cases.push({ id: `c${++id}`, prompt, expected, type: 'anti', source: slug });
+    const accept = resolveAccepted(after, expected, slug, corpus);
+    cases.push({ id: `c${++id}`, prompt, expected, type: 'anti', source: slug, ...(accept ? { accept } : {}) });
     perSkill[slug].anti++;
   }
 }

@@ -101,6 +101,25 @@ export function resolveExpected(named, source, corpus) {
   return has ? named : 'none';
 }
 
+// The further right answers an anti-case accepts, beyond its first-named alternative.
+//
+// A maintainer widens an answer key by writing `also accept think-<slug>` in the bullet's
+// parenthetical, after the primary redirect. Only that explicit phrase widens: a bare
+// "think-a or think-b" already appears in authored bullets (contradiction-resolution,
+// process-tracing) and was always scored against the first slug alone, so reading "or" as
+// a second answer would silently move published figures nobody decided to move.
+//
+// Returns the full accepted list (primary first) when the key was widened, else null, so a
+// case object only grows an `accept` field when it genuinely has more than one right answer.
+export function resolveAccepted(after, primary, source, corpus) {
+  if (primary === 'none') return null;
+  const extra = [...String(after).matchAll(/also accept\s+`?think-([a-z0-9-]+)`?/gi)]
+    .map((m) => resolveExpected(m[1], source, corpus))
+    .filter((s) => s !== 'none' && s !== primary);
+  const accept = [...new Set([primary, ...extra])];
+  return accept.length > 1 ? accept : null;
+}
+
 // Collapse a routed pick onto the skill it is indistinguishable from.
 // ONLY applies to a genuine skill/command name collision - normalizing every command
 // would erase the exact signal guardrail 6 asks about.

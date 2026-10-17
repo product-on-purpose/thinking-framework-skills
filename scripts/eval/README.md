@@ -24,6 +24,16 @@ The router agents never see which skill authored a case or what the expected ans
 > - **Open-book:** the framework trigger eval's two anti-case figures. "No false fire" is exposed to the exclusion ("not this skill"). "Right alternative" is exposed to the answer itself.
 > - **How much it inflates them, bounded by a run that already exists:** the 2026-09-11 enrichment A/B stripped `anti_triggers`, `not_use` and `overlaps` together and scored 378/379 and 113/128 against 379/379 and 122/128. The inflation is therefore at most 1 false fire and 9 right-alternatives on that run, and part of those 9 is the legitimate `not_use` / `overlaps` signal. A third arm that strips `anti_triggers` alone would settle it.
 > - **Consequence for closing the loop:** never cure a miss by adding a "Should NOT trigger" case. It would be published into the very catalog it is scored against. The fix options (a hold-out split in `cases.md`, or anti-triggers sourced from somewhere other than the eval cases) are a design decision, recorded in `docs/internal/backlog.md`.
+>
+> **Decided 2026-10-17:** the maintainer kept the qualifier (option 4) and chose to run the `anti_triggers`-only A/B arm (option 1) the next time a trigger eval runs anyway, rather than as a run of its own.
+
+### Widening an answer key
+
+An anti case scores against the first `think-<slug>` named after its prompt. When the maintainer decides that a second answer is also right, the bullet says so explicitly, after the primary redirect:
+
+    - "What could go wrong with this launch?" (risk surfacing, not root-cause tracing; route to think-red-team-light; also accept think-premortem)
+
+`extract-cases.mjs` then emits `accept: ["red-team-light", "premortem"]`, and `score-lib.mjs` credits either pick as the right alternative. Only the phrase `also accept think-<slug>` widens a key (`resolveAccepted` in `scripts/lib/selection-lib.mjs`). A bare "think-a or think-b" already appears in authored bullets and still scores against the first slug alone, so no existing key moved when this rule arrived. Widening is the maintainer's decision, never a loop step. The phrase is part of the bullet, so it is also published to the catalog as an `anti_trigger`, like the rest of the annotation.
 
 ## The skill-selection eval (a different question, a different corpus)
 
@@ -117,7 +127,7 @@ After a write-back, re-run only the touched skills and their confusion partners,
 
 `list-misses` reports 7 misses, all anti cases that named an alternative. None warranted a write-back. The reasons fall into two groups.
 
-- **The router's pick is arguably better than the key.** These three are answer-key widening candidates, the maintainer's call under the #132 precedent.
+- **The router's pick is arguably better than the key.** These three were answer-key widening candidates, the maintainer's call under the #132 precedent. **Widened 2026-10-17** with `also accept`, together with `swot`'s matching case. The widened keys first apply at the next trigger run; the 2026-09-13 scorecard stays as measured.
   - *"Which of these three explanations for the churn spike is right?"* (an anti case of `analysis-of-competing-hypotheses`). The key says `evidence-vs-inference-sort`; the router picked `process-tracing`, whose artifact is a rival-explanation evidence ledger.
   - *"What could go wrong if we ship this?"* and *"What could go wrong with this launch?"* (anti cases of `complexity-domain-sort` and `five-whys`). The key says `red-team-light`; the router picked `premortem` both times. Both readings are defensible: "before launch, what could make this fail" is premortem's own trigger. The skill-selection run repeats it on `swot`'s *"What could go wrong if we expand into the EU?"*.
 - **The router declined a "just tell me" prompt.** These four were judged reasonable declines, not misses to cure.
@@ -143,7 +153,7 @@ The discriminator is recurrence: list the skill's result in every earlier output
 `list-misses` reports 5 failed checks out of 429. That run was the first with the verifying judge from #126, which opens any file an artifact makes a claim about. All four skills below other than QCA passed the same check on the same prompt in every earlier run (2026-06-10, 2026-06-17 and 2026-06-25, as each applies). One run cannot separate run-to-run noise from the stricter judge.
 
 - **A procedure defect, already fixed: `qualitative-comparative-analysis`.** The artifact said process tracing "is a method, not a shipped skill", a falsehood inherited from the skill's own `references/TEMPLATE.md`. #133 tightened the check, #136 fixed the template and dossier, and #137 fixed the description. The 2026-09-13 re-run scored 6/6.
-- **The check asks for something the prompt cannot supply.** Both are check-wording decisions for the maintainer, recorded in `docs/internal/backlog.md`.
+- **The check asks for something the prompt cannot supply.** Both were check-wording decisions for the maintainer. **Decided 2026-10-17:** `affinity-mapping` check 1 now accepts an explicitly labelled illustrative corpus, and `interval-calibration-check` check 3 now passes a bet marked pending when no human answers it. Both apply from the next output run.
   - `affinity-mapping`, "cluster before naming". The trigger prompt describes 60 interview notes without supplying them, so the producer invents the corpus and the clusters in one pass. The judge read the invented items' ordering as bucket-first. `SKILL.md` step 2 already says "Cluster before naming".
   - `interval-calibration-check`, "record the bet verdict and the adjusted interval". A one-shot eval has no human to answer the equivalent bet. The artifact correctly refused to self-administer it, and the judge called the deferral "methodologically correct". Check 4 has a fallback for missing data; check 3 does not.
 - **Recorded only: the procedure instructs it twice.**

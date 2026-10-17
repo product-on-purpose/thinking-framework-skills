@@ -74,8 +74,11 @@ export function scoreTrigger(cases, routedRaw, opts = {}) {
       if (noFire) p.antiNoFire++; else p.fire.push({ id: c.id, got: top1, prompt: c.prompt.slice(0, 72) });
       if (c.expected !== 'none') {
         p.antiNamed++;
-        if (top1 === c.expected) p.antiNamedHit++;
-        else p.miss.push({ kind: noFire ? 'anti-soft' : 'anti-fire', id: c.id, want: c.expected, got: top1 ?? '(unrouted)', prompt: c.prompt.slice(0, 72) });
+        // `accept` exists only on a key the maintainer widened ("also accept think-x" in the
+        // bullet; see resolveAccepted in selection-lib.mjs); otherwise the single expected slug.
+        const accept = Array.isArray(c.accept) && c.accept.length ? c.accept : [c.expected];
+        if (accept.includes(top1)) p.antiNamedHit++;
+        else p.miss.push({ kind: noFire ? 'anti-soft' : 'anti-fire', id: c.id, want: accept.join(' or '), got: top1 ?? '(unrouted)', prompt: c.prompt.slice(0, 72) });
       }
     }
   }

@@ -24,7 +24,7 @@
 
 - [ ] State the focal claim, its stated interval and nominal confidence, and confirm there is genuine (non-lookupable) uncertainty whose worry is WIDTH, not a wrong central estimate.
 - [ ] Confirm the judge is a **human** and never present the agent's own confidence as a calibrated reading.
-- [ ] Run the **equivalent-bet test** on each interval and record the original interval, the bet verdict (wheel-preferred / interval-preferred / indifferent), the direction (widen / narrow / hold), and the **adjusted interval at indifference**.
+- [ ] Run the **equivalent-bet test** on each interval and record the original interval, the bet verdict (wheel-preferred / interval-preferred / indifferent), the direction (widen / narrow / hold), and the **adjusted interval at indifference**. When no human answers the bet in the turn, pose the test, mark the bet verdict and the adjusted interval as **pending**, and say so; that deferral passes.
 - [ ] Where resolvable items exist, **score the hit rate** against the nominal confidence with an explicit **over- or underprecision diagnosis**; where they do not, mark the scorecard **one-legged**.
 - [ ] Adjust only the **WIDTH** of the uncertainty; leave the **location** of the central estimate unchanged (a wrong number, well calibrated, is still wrong).
 - [ ] Deliver the **calibration scorecard** artifact, not prose.
