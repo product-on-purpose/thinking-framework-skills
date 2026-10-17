@@ -7,6 +7,7 @@ All notable changes to this project are documented here. The format is based on 
 ### Fixed
 
 - **Four library dossiers corrected in v0.18.3 now carry the dated note that release said every corrected entry had.** They are `inversion`, `estimate-talk-estimate`, `frame-storming` and `riasec-interest-fit`. The registry's `cliftonstrengths` sources now list Schreiner (2006), which the dossier and the registry reasoning already cite. Library pages only; no installed file changed.
+- **The pre-commitment library page no longer counts a retracted paper as evidence.** *Psychological Science* retracted Ariely and Wertenbroch (2002) on 2026-09-02, citing a failed replication and analyses that questioned the underlying data. The page cited it as "a true experiment". It is now listed once, marked retracted with the notice DOI, and its findings are gone from the evidence prose. The registry entry is marked the same way. The grade does not change: the P cap stands, and the field RCT and review still carry the "M for the human intervention" read. The page's two leftover "81%" mentions now use the paper's own unit, percentage points, matching the v0.18.3 correction. Library page only; no installed file changed.
 
 ## [0.18.3] - 2026-10-15
 
