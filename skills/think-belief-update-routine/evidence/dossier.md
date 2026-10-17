@@ -107,6 +107,20 @@ structured (the friction of "sit down and re-examine your standing beliefs" is w
 in humans), forces an explicit delta and a reason for its size (surfacing under-updating), and produces
 a durable, reviewable ledger - benefits that do not depend on the unproven accuracy-improvement claim.
 
+**Adjacent language-model evidence (added 2026-10-17, from the arXiv abstracts).** Three 2025 preprints
+test how language models update beliefs. None tests this routine, so the statement above still holds.
+- Yuan, Ding and Vlachos found that models given news from after their training cutoff often move their
+  forecasts in the right direction, but their shifts are heavily under-responsive, and their confidence
+  is poorly calibrated against human forecasters.
+- Imran et al. found that larger, more capable pretrained models assign credences more consistent with
+  Bayes' theorem.
+- Atwell et al. (BASIL) found robust sycophantic belief shifts: models move toward what the user appears
+  to want, beyond what rational updating on the evidence would justify.
+
+The implication for an agent running this routine: the under-updating guard has a twin. An update can
+also be too large when it follows the user's stated opinion rather than new evidence. These are
+preprints, not peer-reviewed studies.
+
 ## 5. When it works / when it fails (drives the eval negative cases)
 
 **Works best when:**
@@ -155,6 +169,14 @@ evolved" essay is not. It is designed to be reopened on the next cadence and re-
    thinking to more normative belief updating - a dispositional cousin.
 4. Tetlock, P., & Gardner, D. (2015), *Superforecasting* - recorded probabilistic predictions plus
    scoring and frequent small updates as the basis for calibration (scored-regime evidence).
+5. Yuan, Z., Ding, Z., & Vlachos, A. (2025), "Do Language Models Update their Forecasts with New
+   Information?", arXiv:2509.23936 (preprint) - updates track the right direction but are heavily
+   under-responsive.
+6. Imran, S., Kendiukhov, I., Broerman, M., Thomas, A., Campanella, R., Lamb, R., & Atkinson, P. M. (2025),
+   "Are LLM Belief Updates Consistent with Bayes' Theorem?", arXiv:2507.17951 (preprint) - larger
+   pretrained models are more Bayes-coherent.
+7. Atwell, K., Heydari, P., Sicilia, A., & Alikhani, M. (2025), "BASIL: Bayesian Assessment of Sycophancy
+   in LLMs", arXiv:2508.16846 (preprint) - robust sycophantic belief shifts.
 
 > **Verification status:** citations 1, 2, and 4 are standard and well-attested in the judgment-and-
 > decision-making and forecasting literature. Citation 3 (Tappin/Pennycook/Rand) is a dispositional

@@ -32,6 +32,8 @@ No trademark. Named descriptively.
 
 **What it does NOT do:** it does not invent the inputs. The base rate, the true-positive rate, and the false-positive rate must be real; the format makes correct reasoning *from* those numbers tractable, it does not supply them. And it applies only where there is genuine conditional-probability structure - it is not a general forecasting tool (that is reference-class forecasting).
 
+**Where the advantage reverses: sequential tests.** The evidence above is for single-test problems. For two sequential diagnostic tests, a preregistered randomized crossover trial with 329 medical and psychology students found the reverse. Only 4.9% computed the two-test predictive value correctly with natural frequencies, against 10.6% with odds and likelihood ratios (OR 2.73). The same trial confirmed the single-test advantage, 36.2% against 21.6% (Schulz, Wegwarth & Giese, 2025). So for chained updates, natural frequencies are not the safe default. (Added on 2026-10-17, from the abstract.)
+
 ## 4. Transferred-evidence flag
 
 The evidence is from human reasoners. Transferred to AI use; the model can do the arithmetic, but the value is the same as for humans plus communication: it forces the base rate to be used (countering base-rate neglect in the model's own answers and in how it explains risk), and it produces an inspectable frequency breakdown rather than a bare percentage. It still must refuse to fabricate the input rates.
@@ -57,5 +59,6 @@ A **natural-frequency breakdown**: the question; the inputs (base rate, true-pos
 2. Sedlmeier, P., & Gigerenzer, G. (2001) - teaching Bayesian reasoning (accuracy gains).
 3. McDowell, M., & Jacobs, P. (2017). Meta-analysis of the effect of natural frequencies on Bayesian reasoning. *Psychological Bulletin* 143: 1273-1312, doi:10.1037/bul0000126 - average accuracy about 24% with natural frequencies against 4% with probabilities.
 4. Weber, P., Binder, K., & Krauss, S. (2018). Why can only 24% solve Bayesian reasoning problems in natural frequencies: Frequency phobia in spite of probability blindness. *Frontiers in Psychology* 9, doi:10.3389/fpsyg.2018.01833 - reports source 3's averages.
+5. Schulz, P., Wegwarth, O., & Giese, H. (2025). Risk expression using likelihood ratios and natural frequencies in Bayesian inference tasks: a preregistered randomized-controlled crossover trial. *BMC Medical Education* 25: 505, doi:10.1186/s12909-025-06990-6 - n = 329; natural frequencies did better for a single test, odds and likelihood ratios for two sequential tests.
 
 > **Verification status (corrected 2026-10-15):** until this date, the dossier, `SKILL.md` and `eval/cases.md` said accuracy rises "from roughly 10% to 50-90%". That overstated the effect. On 2026-10-15 the 16% and 46% figures were checked against the original paper. The 4% and 24% averages were checked against Weber, Binder & Krauss (2018), which reports them; the meta-analysis itself was not read. The tier is unchanged, because the direction of the effect is robust. The "must use real input rates" constraint is the honest core for AI use.

@@ -4,6 +4,15 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+
+- **Four checked caveats now sit in their skills, each labelled with its source type.** Every figure was checked against the abstract, the atlas entry or the poster on 2026-10-17. No tier changes.
+  - `think-natural-frequency-bayesian`: for two sequential tests the advantage reverses. In a preregistered randomized crossover trial (n = 329), 4.9% got the two-test answer right with natural frequencies against 10.6% with odds and likelihood ratios (Schulz, Wegwarth and Giese 2025).
+  - `think-woop`: a 2026 SCORE replication of one mechanism study, Kappes, Singmann and Oettingen (2012), failed (replication-atlas record). It does not touch the goal-attainment meta-analysis, and the atlas does not say which claim was tested.
+  - `think-premortem`: a 2021 conference poster (three pre-registered studies and a pilot, N = 2,345; not peer-reviewed) found the premortem reduced overconfidence but magnified self-serving attribution of failure.
+  - `think-interval-calibration-check`: neither outcome nor performance feedback improved calibration in two experiments (N = 610 and 871; Martin and Mandel 2024). The task was two-alternative confidence, so this is analogue evidence.
+- **`think-belief-update-routine`'s dossier now cites adjacent language-model evidence.** Three 2025 preprints find that models under-respond to new forecasting evidence, that larger models are more Bayes-coherent, and that models shift toward what a user appears to want. None tests the routine itself.
+
 ### Fixed
 
 - **Four library dossiers corrected in v0.18.3 now carry the dated note that release said every corrected entry had.** They are `inversion`, `estimate-talk-estimate`, `frame-storming` and `riasec-interest-fit`. The registry's `cliftonstrengths` sources now list Schreiner (2006), which the dossier and the registry reasoning already cite. Library pages only; no installed file changed.

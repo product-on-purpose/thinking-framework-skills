@@ -53,7 +53,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **S**. Mental contrasting with implementation intentions improves goal attainment in controlled field studies in health, academic, and work domains (Oettingen; Gollwitzer). A meta-analysis of 21 such studies finds a small-to-medium effect, g = 0.336, which publication bias may inflate (Wang, Wang & Gai 2021). The evidence that the effect is real is strong; the effect itself is modest. Note the honest inversion: positive outcome fantasy *without* the obstacle reduces follow-through, so the obstacle and if-then plan are mandatory. The evidence is for humans doing WOOP on their own goals, transferred to AI use, not AI-validated. Full grading: `evidence/dossier.md`.
+Tier **S**. Mental contrasting with implementation intentions improves goal attainment in controlled field studies in health, academic, and work domains (Oettingen; Gollwitzer). A meta-analysis of 21 such studies finds a small-to-medium effect, g = 0.336, which publication bias may inflate (Wang, Wang & Gai 2021). The evidence that the effect is real is strong; the effect itself is modest. A 2026 replication of one mechanism study (Kappes, Singmann & Oettingen 2012) failed; it does not touch the goal-attainment meta-analysis. Note the honest inversion: positive outcome fantasy *without* the obstacle reduces follow-through, so the obstacle and if-then plan are mandatory. The evidence is for humans doing WOOP on their own goals, transferred to AI use, not AI-validated. Full grading: `evidence/dossier.md`.
 
 ## Examples
 
