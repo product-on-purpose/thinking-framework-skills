@@ -314,7 +314,7 @@ The pilot re-checked the evidence for 21 skills: the 11 S-tier skills, plus 10 w
 - **Decisions open:**
   - **DONE 2026-10-17:** add the four verified caveats above, in one PR.
   - Extend the pilot to the remaining 45 skills. Agents ignored a search cap stated in the prompt, and the web-search budget is shared across a session, so a wider run needs a hard cap in the script or small batches. (The figure audit was extended to every dossier; see the next section.)
-  - Add a gate rule that fails on an unresolved "confirm ... before a public claim" note, plus a `reviewed:` date per dossier. Ten dossiers still carry such a note after this audit (it was seventeen), so the rule needs a definition of "resolved" first.
+  - **DONE 2026-10-17 (maintainer chose: a warning-level ratchet):** add a gate rule that fails on an unresolved "confirm ... before a public claim" note, plus a `reviewed:` date per dossier. `check-registry.mjs` section 12 counts the notes (11, in ten skill dossiers) against `docs/internal/confirm-note-count.txt`; a rise fails, and so does a fall that was not written down. "Resolved" means rewritten as a dated check, with a `| **Reviewed** | YYYY-MM-DD |` row added to the dossier's metadata table in the same edit (rule in `docs/internal/AUTHORING.md`). Original entry: Ten dossiers still carry such a note after this audit (it was seventeen), so the rule needs a definition of "resolved" first.
 
 ## From the second figure audit: every remaining dossier (2026-10-15)
 

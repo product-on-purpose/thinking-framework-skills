@@ -19,6 +19,8 @@ The discipline: **ship one complete skill at a time, validated, before starting 
 3. **Artifact, not prose** - every skill emits a named, structured, reusable artifact (risk register, option matrix, assumption ledger, perspective review).
 4. **Explicit "When NOT to Use"** - every skill states where it misleads, to guard against cargo-cult execution.
 
+**Deferred checks in a dossier.** Do not write a note that defers a check until "before any public claim". Check the figure now, against a fetched source, and say so with a date ("checked against the abstract on 2026-10-17"). The gate counts the notes that remain (`check-registry.mjs` section 12; the rule is in `scripts/lib/confirm-notes-lib.mjs`) and fails if the count rises above `docs/internal/confirm-note-count.txt`. When you resolve one, rewrite it as a dated check, add or update a `| **Reviewed** | YYYY-MM-DD |` row in the dossier's metadata table, and lower the baseline by one in the same edit.
+
 **Evidence tiers:** S strong, M moderate, P practitioner, V vendor, A anecdotal, C conceptually plausible, X poor/contradictory. Grade honestly; "P, useful anyway, here is when not to use it" is more trustworthy than a dressed-up "S".
 
 **Skill anatomy** (mirror `skills/think-premortem/`):

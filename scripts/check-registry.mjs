@@ -49,6 +49,11 @@
 //                  skill and command with its current path, description and maps-to, and carries
 //                  library.json's name / version / tier / standard. Field equality, no toolkit
 //                  needed; CI's regenerate-and-diff step is the byte-exact half.
+//  12. Confirm-note ratchet (2026-10-17) - the count of unresolved "confirm ... before a public
+//                  claim" notes across skill and library dossiers equals the committed baseline
+//                  in docs/internal/confirm-note-count.txt (a rise fails; so does an unrecorded
+//                  fall), and any `| **Reviewed** | YYYY-MM-DD |` row holds a real, past date.
+//                  Rules live in scripts/lib/confirm-notes-lib.mjs.
 //
 // Zero-dependency; reuses scripts/lib/cases-lib.mjs (the SP1 source) for eval coupling and
 // scripts/lib/lifecycle-lib.mjs (unit-tested separately) for section 9.
@@ -66,6 +71,7 @@ import { checkTierConsistency } from './lib/tier-lib.mjs';
 import { checkWorkflowMirror, checkWorkflowEntryShape, isWorkflowFile, workflowName } from './lib/workflow-mirror-lib.mjs';
 import { checkManifestRoster, plainScalar } from './lib/manifest-roster-lib.mjs';
 import { frontmatterBlock } from './lib/recipe-command-lib.mjs';
+import { findConfirmNotes, checkReviewedRow, compareToBaseline } from './lib/confirm-notes-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..'); // cwd-independent; the script and registry share a checkout
@@ -338,6 +344,27 @@ for (const dir of readdirSync(resolve(ROOT, 'skills'))) {
   }
 }
 
+// --- 12. Confirm-note ratchet (2026-10-17) ----------------------------------
+// A dossier note that defers a check "until before any public claim" is resolved by rewriting
+// it as a dated check and adding a Reviewed row. The baseline only ever moves down.
+{
+  const today = new Date().toISOString().slice(0, 10);
+  const dossiers = [
+    ...readdirSync(resolve(ROOT, 'skills')).map((d) => `skills/${d}/evidence/dossier.md`),
+    ...readdirSync(resolve(ROOT, 'frameworks')).map((d) => `frameworks/${d}/dossier.md`),
+  ].filter((rel) => existsSync(resolve(ROOT, rel)));
+  let notes = 0;
+  for (const rel of dossiers) {
+    const md = readFileSync(resolve(ROOT, rel), 'utf8');
+    notes += findConfirmNotes(md).length;
+    const bad = checkReviewedRow(md, today);
+    if (bad) fail(`${rel}: ${bad}.`);
+  }
+  const baselineRel = 'docs/internal/confirm-note-count.txt';
+  const baseline = existsSync(resolve(ROOT, baselineRel)) ? Number(readFileSync(resolve(ROOT, baselineRel), 'utf8').trim()) : NaN;
+  for (const p of compareToBaseline(notes, baseline, baselineRel)) fail(p);
+}
+
 // --- report -----------------------------------------------------------------
 if (problems.length) {
   console.error(`Registry conformance: ${problems.length} problem(s):\n`);
@@ -345,5 +372,5 @@ if (problems.length) {
   console.error('\nFix frameworks/registry.mjs (or regenerate views) and re-run.');
   process.exit(1);
 }
-console.log(`Registry conformance: OK (${fw.length} frameworks, ${shipped.size} shipped, schema + drift + referential + IP + eval + tier + recommendable + lifecycle + workflows + manifest).`);
+console.log(`Registry conformance: OK (${fw.length} frameworks, ${shipped.size} shipped, schema + drift + referential + IP + eval + tier + recommendable + lifecycle + workflows + manifest + confirm-notes).`);
 process.exit(0);
