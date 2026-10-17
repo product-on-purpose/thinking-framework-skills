@@ -134,7 +134,7 @@ The field of "thinking methods" has three uneven layers: a small **empirical cor
 This one does the opposite, and that honesty is the product:
 
 - **Grade evidence transparently.** Every skill carries a tier, and its dossier states what the research does and does *not* show. A practitioner-tier method labeled honestly is more trustworthy than one dressed up as science.
-- **Do not launder statistics.** The often-cited "premortems surface ~30% more reasons" measures the *number of reasons*, not a 30% gain in decision quality. Claims are scoped to what the studies actually measured.
+- **Do not launder statistics.** The often-cited premortem "30%" is usually credited to Klein's (2007) account, is not found in the study it describes, and was never a 30% gain in decision quality, so the library does not use it. Claims are scoped to what the studies actually measured.
 - **Mechanism over ritual.** The skill implements the durable move and names the branded ritual as lineage, never the reverse. (So the library ships *Parallel Perspectives Review*, not the trademarked Six Thinking Hats.)
 - **Flag transferred evidence.** Almost no studies test an *AI agent* running these methods. Where evidence comes from human-subject research, the page says so.
 

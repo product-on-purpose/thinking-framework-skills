@@ -45,7 +45,7 @@ That is the whole prompt. Casual, one situation, the two worries on his mind. Th
 
 **Watch list.** Digest cannibalizes ordinary app opens (people read the summary instead of opening Brainshelf) - monitor, likely minor at this scale. Saved-article licensing/preview edge cases in the digest - low likelihood, standard handling. Brand read ("another app pinging me") - tied to risk 1, covered by the quiet default.
 
-*Evidence note: a premortem reliably surfaces more and more specific risks and reduces overconfidence in a plan; it does not promise a better launch outcome. The often-quoted "30%" figure is about the number of reasons generated, not decision quality, and the evidence is transferred from human studies, not validated for AI-augmented use. See the [dossier](../../frameworks/think-premortem/).*
+*Evidence note: a premortem reliably surfaces more and more specific risks and reduces overconfidence in a plan; it does not promise a better launch outcome. The often-quoted "30%" figure is not found in the study it is credited to and is not evidence of better decisions, and the evidence is transferred from human studies, not validated for AI-augmented use. See the [dossier](../../frameworks/think-premortem/).*
 
 ## Why this prompt worked
 
