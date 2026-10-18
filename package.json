@@ -17,6 +17,8 @@
     "gen:recommendable": "node scripts/gen-recommendable.mjs",
     "gen:registry": "node scripts/gen-registry.mjs",
     "gen:catalog": "node scripts/gen-catalog.mjs",
-    "gen:recipe-commands": "node scripts/gen-recipe-commands.mjs"
+    "gen:recipe-commands": "node scripts/gen-recipe-commands.mjs",
+    "research:appendix": "node scripts/research-appendix.mjs",
+    "research:doi-sweep": "node scripts/sweep-crossref.mjs"
   }
 }

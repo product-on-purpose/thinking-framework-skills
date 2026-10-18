@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+
+- **Two maintainer tools prepare an external research wave (#179).** `npm run research:doi-sweep` (`scripts/sweep-crossref.mjs`) asks CrossRef about every DOI the dossiers and the registry cite. It reports retractions, corrections and broken DOI references, and it lists a publisher page key that only looks like a DOI on its own, which is the false alarm the first sweep raised. `npm run research:appendix` (`scripts/research-appendix.mjs`) lists every evaluated method with its aliases and its disposition, so external tools do not re-propose a method under another name. Neither is a gate layer: the sweep needs the network, and both write only to the gitignored `_local/`. Their rules live in two pure libs with 14 unit tests. The wave-4 brief is committed too (`docs/internal/research/2026-10-17-wave4-research-brief.md`), because the wave-3 brief existed only locally and was lost. The procedure is in `docs/internal/research/README.md`, and `AGENTS.md` and `docs/architecture.md` point to it.
+
 ### Changed
 
 - **Every cited DOI was checked against CrossRef for retractions and corrections (#176).** The record is in `docs/internal/backlog.md`, under "From the CrossRef retraction sweep". The sweep covered 175 distinct DOIs across the dossiers and the registry. It found no new retraction: the only one is Ariely and Wertenbroch (2002), already marked in v0.18.4. One of the two corrections is already applied, and the other affects no cited figure. It also flagged three registry links whose DOIs have no record. Two were broken and are fixed below, and the third was a false alarm. No dossier changed.
