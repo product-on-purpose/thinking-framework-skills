@@ -11,6 +11,7 @@ All notable changes to this project are documented here. The format is based on 
 ### Changed
 
 - **Every cited DOI was checked against CrossRef for retractions and corrections (#176).** The record is in `docs/internal/backlog.md`, under "From the CrossRef retraction sweep". The sweep covered 175 distinct DOIs across the dossiers and the registry. It found no new retraction: the only one is Ariely and Wertenbroch (2002), already marked in v0.18.4. One of the two corrections is already applied, and the other affects no cited figure. It also flagged three registry links whose DOIs have no record. Two were broken and are fixed below, and the third was a false alarm. No dossier changed.
+- **The confirm-note checks that need a maintainer decision are recorded (#187).** The record is in `docs/internal/backlog.md`, under "From the confirm-note checks". Nine of the eleven notes were resolved in #180 to #186. The issue-tree dossier says decomposition reduces omission errors, but the one fault-tree study found points the other way. The pyramid-principle dossier calls its comprehension findings "well-established", but the advance-organizer record was contested, and an advance organizer is not a thesis statement. Those two notes stay until the maintainer decides. A third item asks whether the premortem's S-leaning grade on overconfidence still holds, now that its one study is known to measure confidence only.
 
 ### Fixed
 
