@@ -9,6 +9,7 @@
 | **Evidence tier** | **P** (systems-thinking practitioner; conceptual model, limited controlled evidence) |
 | **Confidence** | Moderate that reacting to events alone misses systemic causes; the four levels are a useful lens, not a validated instrument |
 | **Status** | draft (authored 2026-05-31 from the discovery corpus) |
+| **Reviewed** | 2026-10-18 |
 
 ## 1. The mechanism (what actually does the work)
 
@@ -74,4 +75,4 @@ The skill must emit an **iceberg**, not prose: the problem placed at the event l
 2. Meadows, D. (1999). *Leverage Points: Places to Intervene in a System*; and Meadows, D. (2008). *Thinking in Systems: A Primer* - structures, feedback loops, and where intervention has the most leverage.
 3. Waters Center for Systems Thinking (and related systems-education materials) - the iceberg as a teaching tool for moving from events to patterns to structures to mental models.
 
-> **Verification status:** the Senge and Meadows attributions are standard and well-attested; the specific framing of the four-level iceberg as a teaching diagram is drawn from systems-education practice and a secondary research synthesis and should be confirmed against primary curricula before any public-facing claim. Do not attach outcome-improvement or measured-leverage claims; the method's validation is qualitative and pedagogical.
+> **Verification status:** the Senge and Meadows attributions are standard and well-attested; the specific framing of the four-level iceberg as a teaching diagram is drawn from systems-education practice and a secondary research synthesis. It was checked on 2026-10-18 against the Waters Center for Systems Thinking's 2020 handout "Iceberg: Seeing What's Below the Surface", which teaches the same four levels: events, patterns of behavior, structure of the system and mental models. Do not attach outcome-improvement or measured-leverage claims; the method's validation is qualitative and pedagogical.
