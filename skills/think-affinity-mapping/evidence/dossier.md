@@ -11,6 +11,7 @@
 | **Evidence tier** | **P** (practitioner; limited controlled evidence) |
 | **Confidence** | Moderate that the mechanism organizes a scattered pile usefully; low that any specific quality or speed gain is established by controlled study |
 | **Status** | draft (first authored 2026-05-31, against discovery corpus) |
+| **Reviewed** | 2026-10-18 |
 
 ---
 
@@ -28,7 +29,7 @@ The mechanism is what we implement. The branded "KJ method" / "affinity diagram"
 
 ## 2. Lineage
 
-- **The KJ method**, the original formulation, named for its creator: Kawakita, Jiro (1967). *Hassoso* (Abduction / The Idea-Generation Method). Tokyo: Chuokoron-sha. Developed for synthesizing field-research data in cultural anthropology.
+- **The KJ method**, the original formulation, named for its creator: Kawakita, Jiro (1967). *Hassōhō* (Abduction / The Idea-Generation Method). Tokyo: Chuokoron-sha. Developed for synthesizing field-research data in cultural anthropology.
 - **Affinity diagram** as one of the "Seven Management and Planning Tools" in Japanese quality management, from which it entered Western quality and design practice (Mizuno, Shigeru, ed., *Management for Quality Improvement: The Seven New QC Tools*, 1988).
 - **Adoption in UX / design / product practice** as the standard way to synthesize user-research notes and workshop output into themes (widely documented by IDEO, the Nielsen Norman Group, and the design-sprint literature).
 
@@ -75,9 +76,9 @@ The skill must emit a **clustered theme map**, not prose: a small set of named t
 
 ## 7. Sources
 
-1. Kawakita, Jiro (1967). *Hassoso* - the original KJ method for synthesizing field data bottom-up.
+1. Kawakita, Jiro (1967). *Hassōhō* - the original KJ method for synthesizing field data bottom-up.
 2. Mizuno, Shigeru, ed. (1988). *Management for Quality Improvement: The Seven New QC Tools* - affinity diagram in quality management.
 3. Nielsen Norman Group, "Affinity Diagramming: Collaboratively Sort UX Findings & Design Ideas" - the standard UX-practice description of the technique.
 4. Scupin, R. (1997). "The KJ Method: A Technique for Analyzing Data Derived from Japanese Ethnology." *Human Organization* 56(2):233-237 - documents the method's anthropological origin and use.
 
-> **Verification status:** citations 1-2 are the standard historical attributions and well-attested in the discovery corpus; the exact NN/g phrasing (citation 3) and the Scupin page reference (citation 4) were drawn from a secondary research synthesis and should be confirmed against the primary sources before they appear in any public-facing README. They are safe to use *inside this dossier* because the dossier's job is to be honest about exactly this uncertainty. The "limited controlled evidence" claim in section 3 is a deliberate statement of absence: it should stay phrased as "no strong controlled evidence found," not as a positive finding.
+> **Verification status:** citations 1-2 are the standard historical attributions and well-attested in the discovery corpus; the exact NN/g phrasing (citation 3) and the Scupin page reference (citation 4) were drawn from a secondary research synthesis. Both were checked on 2026-10-18. The Scupin reference matches CrossRef (*Human Organization* 56(2):233-237). The NN/g title matches the article as archived in 2019; NN/g revised the article in 2024 under a new title. The same check corrected the romanized title of citation 1 against the National Diet Library's record of the 1967 Chuokoron-sha edition. They are safe to use *inside this dossier* because the dossier's job is to be honest about exactly this uncertainty. The "limited controlled evidence" claim in section 3 is a deliberate statement of absence: it should stay phrased as "no strong controlled evidence found," not as a positive finding.
