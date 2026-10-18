@@ -11,6 +11,7 @@
 | **Evidence tier** | **P** (practitioner; useful, limited controlled evidence - see "What the evidence shows") |
 | **Confidence** | Moderate that the move helps locate the working altitude; low that any specific effect size is established |
 | **Status** | draft (first authored 2026-05-31, against discovery corpus) |
+| **Reviewed** | 2026-10-18 |
 
 ---
 
@@ -78,4 +79,4 @@ The skill must emit an **abstraction ladder**, not prose: an ordered, top-to-bot
 4. Wedell-Wedellsborg, T. (2017). "Are You Solving the Right Problems?" *Harvard Business Review* - reframing practice; framing precedes good solutions.
 5. Interaction Design Foundation and design-facilitation toolkits - "abstraction laddering" as the why-up / how-down exercise to find the right altitude for a problem statement.
 
-> **Verification status:** Hayakawa (1) and Wedell-Wedellsborg (4) are well-attested. The problem-finding and decision-failure citations (2, 3) support framing *in general* and are drawn from secondary synthesis; they should be confirmed against the primary works before any public-facing claim, and they must not be presented as validating the ladder technique specifically. Citation 5 is practitioner literature, not peer-reviewed evidence. These are safe to use inside this dossier because the dossier's job is to be honest about exactly this gap.
+> **Verification status:** Hayakawa (1) and Wedell-Wedellsborg (4) are well-attested. The problem-finding and decision-failure citations (2, 3) support framing *in general* and are drawn from secondary synthesis. The books are not online, so on 2026-10-18 they were checked against the authors' journal reports. Getzels and Csikszentmihalyi's 1971 report found that problem-formulation behavior went with the originality, "but not the craftsmanship", of art students' drawings. Nutt's 1999 report on 358 decisions traces failures to managers who "impose solutions, limit the search for alternatives", which this dossier glosses as poor problem definition. They must not be presented as validating the ladder technique specifically. Citation 5 is practitioner literature, not peer-reviewed evidence. These are safe to use inside this dossier because the dossier's job is to be honest about exactly this gap.

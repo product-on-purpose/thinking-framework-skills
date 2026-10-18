@@ -11,6 +11,7 @@
 | **Evidence tier** | **M/P** (moderate for the general principle; practitioner for the specific technique) |
 | **Confidence** | High that framing affects outcomes; moderate that "restate it N ways" is the best operationalization |
 | **Status** | draft (authored 2026-05-31 from the discovery corpus) |
+| **Reviewed** | 2026-10-18 |
 
 ---
 
@@ -30,7 +31,7 @@ The work is done by *escaping the initial frame before committing*, and by *sele
 ## 2. Lineage
 
 - **Design thinking / define mode:** Stanford d.school design-thinking guidance treats "define" as producing the point of view that sets the right challenge, and notes a tightly framed problem statement yields more and better ideas downstream. (Practitioner; design-research lineage.)
-- **Reframing in practice:** Thomas Wedell-Wedellsborg, "Are You Solving the Right Problem?" (Harvard Business Review, 2017) - reframing as a repeatable executive practice; reports that most organizations routinely work on mis-stated problems.
+- **Reframing in practice:** Thomas Wedell-Wedellsborg, "Are You Solving the Right Problems?" (Harvard Business Review, 2017) - reframing as a repeatable executive practice; reports a survey in which 85% of 106 C-suite executives agreed that their organizations were bad at problem diagnosis.
 - **Problem finding / problem construction:** Getzels & Csikszentmihalyi (1976) and the problem-finding research that followed (Runco; Mumford et al.) link how a problem is constructed to the originality and quality of what is produced. (This is the moderate-evidence anchor.)
 - **Decision failure from poor definition:** Paul Nutt's research on decision-making ("Why Decisions Fail", 2002) attributes a large share of failures to premature, narrow problem definition and limited search.
 
@@ -74,8 +75,8 @@ A **problem frame set**: the original statement; a table of restatements, each t
 ## 7. Sources
 
 1. Stanford d.school, design-thinking process guide (define mode; framing improves ideation quantity and quality). Practitioner/design-research.
-2. Wedell-Wedellsborg, T. (2017). "Are You Solving the Right Problem?" *Harvard Business Review*.
+2. Wedell-Wedellsborg, T. (2017). "Are You Solving the Right Problems?" *Harvard Business Review*.
 3. Getzels, J. W., & Csikszentmihalyi, M. (1976). *The Creative Vision* - problem finding and creative performance. Plus later problem-construction work (Runco; Mumford et al.).
 4. Nutt, P. C. (2002). *Why Decisions Fail* - premature/narrow problem definition as a failure driver.
 
-> **Verification status:** citations 1-2 are well-attested and safe to cite. Citations 3-4 are correctly attributed in substance (problem-finding research; Nutt's decision-failure work) but the exact page-level claims should be confirmed against the primary sources before any public-facing quantified claim. The Einstein quote is explicitly excluded as apocryphal.
+> **Verification status:** citations 1-2 are well-attested and safe to cite. Citations 3-4 are correctly attributed in substance (problem-finding research; Nutt's decision-failure work). The books are not online, so on 2026-10-18 their claims were checked against the authors' journal reports. Getzels and Csikszentmihalyi's 1971 report of the same study found that problem-formulation behavior went with the originality, "but not the craftsmanship", of art students' drawings. The quality link comes from the later problem-construction work: Reiter-Palmon, Mumford, O'Connor Boes and Runco (1997) found problem construction ability "related to higher quality solutions as well as solutions rated as more original". Nutt's 1999 report on 358 decisions traces failures to managers who "impose solutions, limit the search for alternatives, and use power to implement their plans". It finds success more likely when managers "make the need for action clear at the outset, set objectives". This dossier glosses those findings as premature, narrow problem definition. Neither source gives a figure that this dossier uses. Citation 2's title was corrected in the same check. The Einstein quote is explicitly excluded as apocryphal.
