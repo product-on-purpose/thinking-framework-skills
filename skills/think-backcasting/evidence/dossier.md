@@ -11,6 +11,7 @@
 | **Evidence tier** | **P** (practitioner method; useful, limited controlled evidence) |
 | **Confidence** | Moderate that the mechanism helps planning; low that any outcome improvement has been measured |
 | **Status** | draft (first authored 2026-05-31, against discovery corpus) |
+| **Reviewed** | 2026-10-18 |
 
 ---
 
@@ -28,7 +29,7 @@ The mechanism is what we implement: fix a vivid endpoint, derive the milestone c
 
 ## 2. Lineage
 
-- Originates in **energy and sustainability scenario planning**. Coined as "backwards-looking analysis" by Amory Lovins (1976) in soft-energy-path work, and named **backcasting** and developed methodologically by John B. Robinson (1982, 1990) as a normative alternative to predictive forecasting.
+- Originates in **energy and sustainability scenario planning**. Amory Lovins's (1976) soft-energy-path analysis "works backward from a strategic goal", and John B. Robinson (1982, 1990) developed **backcasting** methodologically as a normative alternative to predictive forecasting.
 - Operationalized for organizations and sustainability transitions via **The Natural Step** framework (Holmberg & Robert, 2000), which formalized "backcasting from principles."
 - Widely used in **futures studies, transition management, and strategic foresight**; appears in foresight primers and corporate strategy practice as a standard normative-planning method.
 
@@ -76,9 +77,9 @@ The skill must emit a **backcast path**, not prose: a vivid statement of the des
 ## 7. Sources
 
 1. Lovins, A. B. (1976). "Energy Strategy: The Road Not Taken?" *Foreign Affairs*, 55(1) - early backwards-looking energy-path analysis.
-2. Robinson, J. B. (1982). "Energy backcasting: A proposed method of policy analysis." *Energy Policy*, 10(4):337-344 - names and defines backcasting.
+2. Robinson, J. B. (1982). "Energy backcasting: A proposed method of policy analysis." *Energy Policy*, 10(4):337-344 - proposes a specific backcasting method.
 3. Robinson, J. B. (1990). "Futures under glass: A recipe for people who hate to predict." *Futures*, 22(8):820-842 - backcasting as normative alternative to forecasting.
 4. Dreborg, K. H. (1996). "Essence of backcasting." *Futures*, 28(9):813-828 - when backcasting is appropriate vs forecasting.
-5. Holmberg, J., & Robert, K-H. (2000). "Backcasting from non-overlapping sustainability principles." *International Journal of Sustainable Development & World Ecology*, 7(4) - The Natural Step operationalization.
+5. Holmberg, J., & Robert, K-H. (2000). "Backcasting - a framework for strategic planning." *International Journal of Sustainable Development & World Ecology*, 7(4):291-308 - backcasting from non-overlapping sustainability principles; The Natural Step operationalization.
 
-> **Verification status:** citations 1-5 are standard and well-attested references for backcasting's lineage, drawn from the discovery-corpus synthesis. The exact page numbers and the framing of each finding should be confirmed against the primary papers before they appear in any public-facing README. They are safe to use *inside this dossier* because the dossier's job is to be honest about exactly this uncertainty, and the evidence tier (P) is deliberately conservative.
+> **Verification status:** citations 1-5 are standard and well-attested references for backcasting's lineage, drawn from the discovery-corpus synthesis. On 2026-10-18 their volume, issue and page numbers were checked against CrossRef. The framing of each was checked against the source: Lovins (1976) in the full text as Friends of the Earth reprinted it in 1977, and the other four against their abstracts. That check made three corrections. Lovins describes working backward from a strategic goal but does not use the phrase "backwards-looking analysis". Robinson's 1982 abstract proposes a backcasting method but does not say he coined the term. Holmberg and Robert's (2000) title is "Backcasting - a framework for strategic planning". They are safe to use *inside this dossier* because the dossier's job is to be honest about exactly this uncertainty, and the evidence tier (P) is deliberately conservative.
