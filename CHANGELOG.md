@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+
+- **Every cited DOI was checked against CrossRef for retractions and corrections** (`docs/internal/backlog.md`, "From the CrossRef retraction sweep"). The sweep covered 175 distinct DOIs across the dossiers and the registry. It found no new retraction: the only one is Ariely and Wertenbroch (2002), already marked in v0.18.4. One of the two corrections is already applied, and the other affects no cited figure. It also found three wrong DOIs in `frameworks/registry.mjs`, each with a verified replacement, which wait on a maintainer decision. No dossier or registry entry changed.
+
 ## [0.18.4] - 2026-10-17
 
 **The evidence decisions the two figure audits left open are made (#169-#174).** A retracted source is flagged, four checked caveats are added, the premortem "30%" wording matches its own dossier, three source problems are fixed, four eval answer keys are widened, and the gate now ratchets deferred "confirm before a public claim" notes. No new skills and no tier changes; the catalog stays 56 core + 7 contested.

@@ -344,6 +344,26 @@ A second audit checked every quantified claim in the dossiers the first audit ha
   - theory-of-constraints: Mabin and Balderstone (2003), whose meta-analysis covered "over 80 successful" applications. The dossier note now says "successful".
 - **Resolved from the first audit's list:** MacGregor and Armstrong (1994) was read in full. It supports a decomposition benefit for extreme, uncertain quantities and reports less accurate estimates otherwise. Its Table 1 also contains the "error factor 99 vs 3" that the Fermi dossier had called untraceable.
 
+## From the CrossRef retraction sweep (2026-10-17)
+
+A script asked CrossRef about every DOI cited in the skill dossiers, the library dossiers and `frameworks/registry.mjs`. It reported each retraction, correction or expression of concern that CrossRef records against a cited paper. It read 143 files and found 186 DOI mentions, which are 175 distinct DOIs. CrossRef has a record for 173 of them. The sweep ran before wave 4 admits new sources, so the existing sources are known to be sound first. The script and its raw output are local and gitignored (`_local/ingest/2026-10-17-crossref-sweep/`), so this section is the durable record.
+
+- **Result:** one retraction, two corrections, no expression of concern, and three wrong DOIs. No dossier or registry entry was changed.
+- **Already handled; recorded so the next sweep does not raise them again:**
+  - Ariely and Wertenbroch (2002) is the only retraction, and #169 already marked it. It also served as a positive control: the script found the retraction from the paper's own CrossRef record, and found the notice as a record that points back to the paper.
+  - Sellier, Scopelliti and Morewedge (2019) has a 2020 corrigendum (doi:10.1177/0956797620930211). The `cognitive-bias-checklist` library dossier already gives the corrected figure (about 19%) and says so; it was fixed on 2026-10-15.
+- **Noted, no action proposed:** Trope and Liberman (2010), the construal-level theory paper, has a one-page correction in *Psychological Review* 117(3): 1024 (doi:10.1037/a0020319). Its text was not read, because PsycNet renders only with JavaScript and the PMC copy says only that the article was corrected. The registry cites the paper for its theory (the `role-storming` entry) and takes no figure from it, so no claim depends on the correction.
+- **For a maintainer decision: three wrong DOIs in `frameworks/registry.mjs`.** Each replacement below resolves at the doi.org handle resolver. Its CrossRef record matches the citation's authors, journal, volume and pages. Each fix changes one `url` field, and no dossier carries these DOIs.
+  - `fmea-lite`: Anjalee, Rutter and Samaranayake (2021) links to `10.1136/postgradmedj-2019-137312`, which is a letter about diabetes support in schools. The review is `10.1136/postgradmedj-2019-137484` (97(1145): 168-174; online in 2020).
+  - `decision-option-review`: MacLean, Young, Bellotti and Moran (1991), the QOC paper, links to `10.1080/07370024.1991.9667168`. The resolver has no such DOI. The paper's DOI is `10.1207/s15327051hci0603&4_2`.
+  - `issue-position-argument-mapping`: Conklin and Yakemovic (1991) links to a tandfonline page under `10.1080/07370024.1991.9667172`. The resolver has no such DOI either. The page refuses automated requests (HTTP 403), so it was not checked in a browser. The paper's DOI is `10.1207/s15327051hci0603&4_6`.
+  - The two 1991 DOIs contain an ampersand, which should be written as `%26` inside a URL.
+- **Checked and not errors:** the registry cites Baumgartner and Thiem as 2020, while CrossRef gives 2017; 2017 is the online-first date, and volume 49 is the 2020 print volume. A title-overlap check flagged eight citing lines. One was the FMEA error above. The other seven cite a paper by author and year without its title, and their CrossRef titles match the cited topic, journal and year.
+- **Coverage limits (medium confidence):**
+  - The sweep sees only sources cited with a DOI. In the registry, 161 of 405 source URLs carry one. The other 244 point to publisher pages, JSTOR, PubMed or other sites, and were not checked. Dossier sources without a DOI were not counted.
+  - It sees only what CrossRef records against a paper. That covers publisher notices and, by CrossRef's account, Retraction Watch records. A retraction that neither source has registered would be missed.
+- **Unverified lead, not a proposal:** a web search surfaced a registered report of four tests of construal-level theory. Its search snippet reported a temporal-distance effect of d = 0.08 against d = 0.92 in the original study. The `role-storming` dossier cites the theory for distance raising abstraction. The report was not read.
+
 ## Pre-existing (predates this effort)
 
 - **GA4 content-vs-acquisition decision.** Parked, waiting on the analytics signal (see `docs/internal/MEASUREMENT.md` and the content-plan). Tracked separately.
