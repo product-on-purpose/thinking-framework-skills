@@ -11,6 +11,7 @@
 | **Evidence tier** | **P** (practitioner; limited controlled evidence - see "What the evidence shows" below) |
 | **Confidence** | Moderate that the triage move prevents real waste; low that the specific two-bucket framing is the optimal taxonomy or that it improves outcomes in controlled study |
 | **Status** | draft (first authored 2026-05-31, against discovery corpus) |
+| **Reviewed** | 2026-10-18 |
 
 ---
 
@@ -27,7 +28,7 @@ The classification is deliberately coarse (two buckets, with a "lean" verdict fo
 
 ## 2. Lineage
 
-- **Bezos shareholder letters.** The "Type 1 / Type 2 decision" and "one-way door / two-way door" framing was popularized by Jeff Bezos in Amazon's 1997 and especially the 2015 and 2016 Amazon shareholder letters, arguing that as organizations grow they tend to apply heavyweight Type 1 (irreversible) process to Type 2 (reversible) decisions, producing slowness and risk-aversion.
+- **Bezos shareholder letters.** The "Type 1 / Type 2 decision" and "one-way door / two-way door" framing was popularized by Jeff Bezos in Amazon's 2015 shareholder letter and restated in the 2016 letter, arguing that as organizations grow they tend to apply heavyweight Type 1 (irreversible) process to Type 2 (reversible) decisions, producing slowness and risk-aversion.
 - **Related decision-theory roots.** The value of preserving reversibility connects to the economics of irreversibility and option value (the cost of foreclosing future choices), but Bezos's framing is a practitioner heuristic, not a formalization of that literature.
 
 No trademark. "One-way door / two-way door" and "Type 1 / Type 2 decision" are descriptive phrases in common business use; no attribution is required and none is claimed. We name the skill descriptively by its mechanism (reversibility-based triage) and cite the lineage here rather than branding it.
@@ -72,7 +73,7 @@ The skill must emit a **reversibility classification plus a matched deliberation
 
 ## 7. Sources
 
-1. Bezos, J. - Amazon.com 1997 Letter to Shareholders (the original "Type 1 / Type 2" framing of decision reversibility).
-2. Bezos, J. - Amazon.com 2015 and 2016 Letters to Shareholders ("one-way door / two-way door"; the argument that growing orgs over-apply Type 1 process to Type 2 decisions).
+1. Bezos, J. - Amazon.com 2015 Letter to Shareholders (the original "Type 1 / Type 2" and "one-way door / two-way door" framing of decision reversibility; the argument that growing orgs over-apply Type 1 process to Type 2 decisions).
+2. Bezos, J. - Amazon.com 2016 Letter to Shareholders (restates "two-way doors" as the first rule of high-velocity decision making and points back to the 2015 letter).
 
-> **Verification status:** the Bezos shareholder-letter attribution (citations 1-2) is well-attested and the framing is widely reproduced, but the exact letter-by-letter wording was drawn from secondary synthesis in the discovery corpus and should be confirmed against the primary letters before any public-facing claim quotes them directly. There is, by design, no outcome-effectiveness citation: section 3 states plainly that none exists, which is the honest position for a P-tier practitioner method.
+> **Verification status:** the Bezos shareholder-letter attribution (citations 1-2) is well-attested and the framing is widely reproduced. The letter-by-letter wording was drawn from secondary synthesis in the discovery corpus, and it was checked against the 2015 and 2016 letters (Amazon's investor-relations copies) on 2026-10-18. That check moved the framing's origin from the 1997 letter, which has no Type 1, Type 2 or door language, to the 2015 letter. There is, by design, no outcome-effectiveness citation: section 3 states plainly that none exists, which is the honest position for a P-tier practitioner method.
