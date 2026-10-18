@@ -6,11 +6,12 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Changed
 
-- **Every cited DOI was checked against CrossRef for retractions and corrections (#176).** The record is in `docs/internal/backlog.md`, under "From the CrossRef retraction sweep". The sweep covered 175 distinct DOIs across the dossiers and the registry. It found no new retraction: the only one is Ariely and Wertenbroch (2002), already marked in v0.18.4. One of the two corrections is already applied, and the other affects no cited figure. It also found three wrong DOIs in `frameworks/registry.mjs`, each with a verified replacement, which wait on a maintainer decision. No dossier or registry entry changed.
+- **Every cited DOI was checked against CrossRef for retractions and corrections (#176).** The record is in `docs/internal/backlog.md`, under "From the CrossRef retraction sweep". The sweep covered 175 distinct DOIs across the dossiers and the registry. It found no new retraction: the only one is Ariely and Wertenbroch (2002), already marked in v0.18.4. One of the two corrections is already applied, and the other affects no cited figure. It also flagged three registry links whose DOIs have no record. Two were broken and are fixed below, and the third was a false alarm. No dossier changed.
 
 ### Fixed
 
 - **Two hand-written count statements still said 47 skills (#177).** The framework catalog (`docs/internal/research/framework-catalog.md`) now gives the build-out at v0.18.4: 63 shipped skills (56 core and 7 contested lenses) and 9 recipes. Its `[shipped]` legend no longer quotes a count, or the stale "0/0" gate result. The registry's header comment no longer gives a shipped count either; it points to each entry's `status` field. It also says the two family taxonomies stay separate by decision, which replaces a "noted follow-up" that was resolved long ago. The gate cannot catch this drift, because it checks generated tables and the schema, not prose or comments.
+- **Two registry source links were broken (#178).** `fmea-lite` linked its FMEA systematic review (Anjalee, Rutter and Samaranayake 2021) to an unrelated letter. `decision-option-review` linked the QOC paper (MacLean et al. 1991) to a DOI that does not exist. Both now open the cited paper, and each was checked in a browser against its authors, volume and pages. The CrossRef sweep (#176) found both. It also flagged a link for Conklin and Yakemovic (1991), which already worked and is unchanged.
 
 ## [0.18.4] - 2026-10-17
 

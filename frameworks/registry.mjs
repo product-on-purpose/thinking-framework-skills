@@ -777,7 +777,7 @@ export default {
         { title: 'AIAG and VDA, FMEA Handbook (1st ed., 2019) - replaced RPN multiplication with the Action Priority lookup table', url: 'https://www.aiag.org/quality/automotive-core-tools/fmea', kind: 'practitioner-reference' },
         { title: 'Shebl, Franklin and Barber (2012) - Failure mode and effects analysis outputs: are they valid?, BMC Health Services Research 12:150', url: 'https://doi.org/10.1186/1472-6963-12-150', kind: 'critical-literature' },
         { title: 'Asgari Dastjerdi et al. (2017) - Evaluating the application of FMEA in hospital wards: a systematic review, J Injury and Violence Research 9(1): 51-60', url: 'https://pubmed.ncbi.nlm.nih.gov/27771922/', kind: 'systematic-review' },
-        { title: 'Anjalee, Rutter and Samaranayake (2021) - Application of FMEA to improve medication safety: a systematic review, Postgraduate Medical Journal 97(1145): 168-174', url: 'https://doi.org/10.1136/postgradmedj-2019-137312', kind: 'systematic-review' },
+        { title: 'Anjalee, Rutter and Samaranayake (2021) - Application of FMEA to improve medication safety: a systematic review, Postgraduate Medical Journal 97(1145): 168-174', url: 'https://doi.org/10.1136/postgradmedj-2019-137484', kind: 'systematic-review' },
       ],
     },
     {
@@ -1018,7 +1018,7 @@ export default {
       oneLine: 'compare options against weighted criteria',
       reasoning: "Built and validated. Absorbs Multi-Criteria Decision Analysis. Enrichment (v0.7.0): the options-by-criteria structure is the design-rationale move formalized as QOC (MacLean, Young, Bellotti and Moran 1991), whose distinctive contribution - recording the rationale on each option-criterion link, not only a score - reinforces this skill's false-precision caveat (show why a cell scores as it does, not just a total); a lineage citation, no change to the P grade.",
       sources: [
-        { title: "Allan MacLean, Richard M. Young, Victoria M. E. Bellotti and Thomas P. Moran (1991) - Questions, Options, and Criteria: Elements of Design Space Analysis, Human-Computer Interaction 6(3-4): 201-250", url: "https://doi.org/10.1080/07370024.1991.9667168", kind: "foundational" },
+        { title: "Allan MacLean, Richard M. Young, Victoria M. E. Bellotti and Thomas P. Moran (1991) - Questions, Options, and Criteria: Elements of Design Space Analysis, Human-Computer Interaction 6(3-4): 201-250", url: "https://www.tandfonline.com/doi/abs/10.1080/07370024.1991.9667168", kind: "foundational" },
       ],
       evalCases: 'skills/think-decision-option-review/eval/cases.md',
       aliases: ['Weighted decision matrix'],
