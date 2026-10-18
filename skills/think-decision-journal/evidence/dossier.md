@@ -11,6 +11,7 @@
 | **Evidence tier** | **P** (practitioner - useful method, limited controlled evidence; see "What the evidence shows") |
 | **Confidence** | Moderate that recording-at-decision-time defeats hindsight distortion; low that journaling alone improves decision outcomes |
 | **Status** | draft (first authored 2026-05-31, against discovery corpus) |
+| **Reviewed** | 2026-10-18 |
 
 ---
 
@@ -27,7 +28,7 @@ The mechanism is what we implement. "Decision journal" is the descriptive packag
 ## 2. Lineage
 
 - **Decision journaling as a calibration practice** is most associated with poker player and decision researcher Annie Duke, *Thinking in Bets* (2018), and with investor/practitioner writing (e.g. Shane Parrish / Farnam Street's "decision journal" templates, drawing on Daniel Kahneman's advice to record reasoning at decision time).
-- **The cognitive bias it counters - hindsight bias** ("I knew it all along") is well-established in the psychology literature: Fischhoff, B. (1975), "Hindsight is not equal to foresight," *Journal of Experimental Psychology: Human Perception and Performance*, 1(3), 288-299; Roese, N. J., & Vihari, K. (2012), "Hindsight bias," *Perspectives on Psychological Science*, 7(5), 411-426.
+- **The cognitive bias it counters - hindsight bias** ("I knew it all along") is well-established in the psychology literature: Fischhoff, B. (1975), "Hindsight is not equal to foresight," *Journal of Experimental Psychology: Human Perception and Performance*, 1(3), 288-299; Roese, N. J., & Vohs, K. D. (2012), "Hindsight bias," *Perspectives on Psychological Science*, 7(5), 411-426.
 - **Calibration of subjective probability** through recorded prediction and feedback draws on the forecasting and calibration literature: Lichtenstein, Fischhoff & Phillips (1982); and the practice of scored forecasting (Tetlock & Gardner, *Superforecasting*, 2015), where writing down a probability and later scoring it is what makes calibration possible.
 
 No trademark. "Decision journal" is a generic, descriptive term in common practitioner use; no attribution is required and none is claimed. We name the skill descriptively and cite the lineage here.
@@ -72,9 +73,9 @@ The skill must emit a **decision journal entry**, not prose: a dated, structured
 ## 7. Sources
 
 1. Fischhoff, B. (1975), "Hindsight is not equal to foresight," *J. Experimental Psychology: Human Perception and Performance* 1(3):288-299 - establishes hindsight bias.
-2. Roese, N. J., & Vihari, K. (2012), "Hindsight bias," *Perspectives on Psychological Science* 7(5):411-426 - review of the robustness of the effect.
+2. Roese, N. J., & Vohs, K. D. (2012), "Hindsight bias," *Perspectives on Psychological Science* 7(5):411-426 - review of the robustness of the effect.
 3. Duke, A. (2018), *Thinking in Bets* - decision journaling, separating decision quality from outcome quality, practitioner source.
 4. Tetlock, P., & Gardner, D. (2015), *Superforecasting* - recorded probabilistic predictions plus scoring as the basis for calibration.
 5. Lichtenstein, S., Fischhoff, B., & Phillips, L. D. (1982), "Calibration of probabilities," in Kahneman, Slovic & Tversky (eds.), *Judgment under Uncertainty* - calibration literature.
 
-> **Verification status:** citations 1-2 and 4-5 are standard and well-attested. Citation 3 (Duke) and the Parrish/Farnam Street decision-journal templates are practitioner sources, credible but experience-based; they are cited as lineage and as the origin of the practice, not as controlled evidence of outcome improvement. The "no strong controlled evidence that journaling improves outcomes" statement in section 3 reflects the absence of such a study in the discovery corpus as of authoring; it should be re-checked before any public-facing claim, but the honest default is to not claim outcome improvement.
+> **Verification status:** citations 1-2 and 4-5 are standard and well-attested. Citation 3 (Duke) and the Parrish/Farnam Street decision-journal templates are practitioner sources, credible but experience-based; they are cited as lineage and as the origin of the practice, not as controlled evidence of outcome improvement. The "no strong controlled evidence that journaling improves outcomes" statement in section 3 reflects the absence of such a study in the discovery corpus as of authoring. It was checked again on 2026-10-18 with searches of CrossRef and OpenAlex, and a partial search of Semantic Scholar, which found no controlled study of keeping a decision journal. The honest default stands: do not claim outcome improvement.
