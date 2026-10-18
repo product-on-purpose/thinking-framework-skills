@@ -5,7 +5,7 @@ A single, simplified, complete, and prioritized list of every thinking framework
 - **Taxonomy:** the 11 cognitive-operation families (Claude Opus's landscape, the recommended foundation), extended 2026-06-10 with a 12th candidate-only family, self and team awareness, for psychometric / disposition methods, and 2026-06-11 with a 13th candidate-only family, ethics and values deliberation, for moral and values trade-off methods (the structural gap all three wave-3 external research runs agreed on).
 - **Evidence tiers (7-tier model):** **S** strong research · **M** moderate · **P** practitioner · **V** vendor/commercial · **A** anecdotal · **C** conceptually plausible, under-tested · **X** poor/contradictory.
 - **Status legend:**
-  - `[shipped]` - built and validated (47 skills, Tier advanced 0/0).
+  - `[shipped]` - built and validated (the gate passes at the advanced tier with 0 errors).
   - `[next]` - strongest unbuilt candidates (build these first; S/M evidence or cross-LLM consensus, and distinct).
   - `[recipe]` - ships as a workflow chaining existing skills, not a standalone skill (no separable mechanism).
   - `[cand]` - candidate (clears the bar but lower priority / P-tier coverage).
@@ -20,7 +20,7 @@ The honest core (from the meta-analyses): the field is a small **empirical core*
 
 ## Priority summary (what to build next, in order)
 
-The skill build-out is at 47 skills + 8 recipes. The generated family tables below are regenerated from the registry and are current; this priority summary records the **2026-06-03 truth-up** (multi-agent vetting + v0.2.0 reconciliation), with later SP6 and v0.5.0 catalog growth recorded in the [`CHANGELOG`](../../../CHANGELOG.md). The truth-up resolved the old `[next]` list:
+At v0.18.4 the build-out is 63 shipped skills (56 core and 7 contested lenses) and 9 recipes. The generated family tables below are regenerated from the registry and are current; this priority summary records the **2026-06-03 truth-up** (multi-agent vetting + v0.2.0 reconciliation), with later SP6 and v0.5.0 catalog growth recorded in the [`CHANGELOG`](../../../CHANGELOG.md). The truth-up resolved the old `[next]` list:
 
 1. **Shipped since (v0.2.0):** `concept-mapping`, `causal-loop-diagrams`, `fermi-estimation` are built; `first-principles` shipped as a **recipe**. The two S-tier empirical-core stragglers (stocks-and-flows, linear-model-aggregation) are shipped - the empirical core is complete (11/11).
 2. **Vetted-closed:** `key-assumptions-check` and `double-crux` were **rejected** (both reduce to `what-would-have-to-be-true`); `idea-quality-audit` is a **`[recipe]`** (decision-option-review + red-team-light over a shortlist); `leverage-points` re-vetted `[cand]` -> **`[fold]`** (owned by `iceberg-model`, which already cites its Meadows source).

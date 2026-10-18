@@ -16,9 +16,9 @@
 //
 // FAMILY NOTE: `family` uses the 13-family CATALOG (universe) taxonomy, which differs
 // by design from the live skill metadata.family slugs (a separate, coarser grouping the
-// 47 shipped skills + the Astro families/ pages use). The registry must cover all 135
-// methods, most of which are unbuilt and have no skill metadata; harmonizing the two
-// taxonomies is a noted follow-up, out of scope for SP3.
+// shipped skills + the Astro families/ pages use). The registry must cover all 135
+// methods, most of which are unbuilt and have no skill metadata. The two taxonomies stay
+// separate by decision; docs/architecture.md ("Two family taxonomies") maps them.
 //
 // SEED: migrated 2026-06-03 from the truthed-up framework-catalog.md (113 table rows ->
 // 102 distinct methods: 10 expansion re-listings deduped into their families,
@@ -26,7 +26,8 @@
 // to 121 methods (a self-and-team-awareness candidate cluster + 4 domain candidates
 // added 2026-06-10, re-opening the queue after the phase-1/2 drain), then to 135 methods
 // and a 13th family (ethics-values-deliberation) via the wave-3 external deep-research
-// admissions of 2026-06-11; 47 are shipped skills.
+// admissions of 2026-06-11. Each entry's `status` field, not this comment, says which
+// are shipped.
 // =============================================================================
 
 export default {
