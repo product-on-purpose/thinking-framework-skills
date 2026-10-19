@@ -2,6 +2,22 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.18.5
+
+**Nine deferred source checks are done, and one changed what the premortem's evidence is said to show.** No new frameworks and no evidence-grade changes; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For everyone
+
+- **The premortem study measured confidence, not accuracy.** The evidence pages said people who ran a premortem became better calibrated. The 2010 study asked how confident people were in a deliberately flawed plan. A premortem lowered that confidence more than three other review methods did. Its authors write that they "did not directly examine overconfidence", so the pages no longer claim better calibration.
+- **Citations now match their sources.** The one-way door framing comes from Amazon's 2015 shareholder letter, not the 1997 one. A misquote of Lovins is gone from the backcasting page. Three titles are corrected: Holmberg and Robert's backcasting paper, Kawakita's *Hassōhō* and Wedell-Wedellsborg's "Are You Solving the Right Problems?". The decision-journal page now names Vohs as a co-author, where it had "Vihari".
+- **Two claims are narrower.** The backcasting page no longer says Robinson named the method. The problem-restatement page reports an executive survey as a survey, not as a fact about most organizations.
+
+### For builders and contributors
+
+- **Two tools prepare a research wave.** `npm run research:doi-sweep` checks every cited DOI against CrossRef for retractions and corrections. `npm run research:appendix` lists every evaluated method with its aliases, so outside research does not propose one again under another name. Both write only to the gitignored `_local/`.
+- **The confirm-note baseline is 2.** Nine of the eleven "confirm before a public claim" notes are now dated checks. The two left, in the issue-tree and pyramid-principle dossiers, wait on a maintainer decision recorded in `docs/internal/backlog.md`.
+- **Two registry source links open the cited paper again,** and two hand-written counts no longer say 47 skills.
+
 ## v0.18.4
 
 **Every evidence decision the last two audits left open is now made.** A retracted study is flagged, four skills say where their evidence stops, and the gate keeps unchecked claims from piling up again. No new frameworks and no evidence-grade changes; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.

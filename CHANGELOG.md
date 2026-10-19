@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.18.5] - 2026-10-18
+
+**Nine of the eleven deferred "confirm before a public claim" notes were checked against their sources (#180-#186).** The checks found that the premortem study measured confidence, not calibration. They also corrected a shareholder-letter year, a misquote, three titles, a co-author's name and two overstated claims. The confirm-note baseline drops from 11 to 2. The other two notes need a maintainer decision, which the backlog records (#187). Two maintainer tools now prepare an external research wave (#179). Every cited DOI was checked for retractions (#176), and two registry links and two count statements are fixed (#177, #178). No new skills and no tier changes; the catalog stays 56 core + 7 contested.
+
+**Why a patch.** These are evidence corrections in existing dossiers, two maintainer tools and backlog records, with no catalog or capability change. Installed files changed in eight skills, and only in `evidence/dossier.md`: `think-abstraction-laddering`, `think-affinity-mapping`, `think-backcasting`, `think-decision-journal`, `think-iceberg-model`, `think-one-way-vs-two-way-door`, `think-premortem` and `think-problem-restatement`. No `SKILL.md`, `eval/cases.md` or router file changed. The premortem library page (`frameworks/premortem/dossier.md`) and two registry links changed as well, and the docs site already shows them. Installed copies read the old dossier text until the marketplace pin moves.
+
+**Standard re-pin review (release-process step 33): both dials held.** Toolkit `main` is still `f35f9f9`, unchanged since the v0.18.4 cut, at Standard 0.17. The pinned run returns advanced / 0 errors / 89 warnings.
+
 ### Added
 
 - **Two maintainer tools prepare an external research wave (#179).** `npm run research:doi-sweep` (`scripts/sweep-crossref.mjs`) asks CrossRef about every DOI the dossiers and the registry cite. It reports retractions, corrections and broken DOI references, and it lists a publisher page key that only looks like a DOI on its own, which is the false alarm the first sweep raised. `npm run research:appendix` (`scripts/research-appendix.mjs`) lists every evaluated method with its aliases and its disposition, so external tools do not re-propose a method under another name. Neither is a gate layer: the sweep needs the network, and both write only to the gitignored `_local/`. Their rules live in two pure libs with 14 unit tests. The wave-4 brief is committed too (`docs/internal/research/2026-10-17-wave4-research-brief.md`), because the wave-3 brief existed only locally and was lost. The procedure is in `docs/internal/research/README.md`, and `AGENTS.md` and `docs/architecture.md` point to it.
@@ -726,7 +734,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.4...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.5...HEAD
+[0.18.5]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.4...v0.18.5
 [0.18.4]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.3...v0.18.4
 [0.18.3]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.2...v0.18.3
 [0.18.2]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.1...v0.18.2
