@@ -7,6 +7,7 @@ All notable changes to this project are documented here. The format is based on 
 ### Fixed
 
 - **The issue-tree dossier no longer says decomposition reduces omission errors (#189).** The claim had no source, and the research found on omission points the other way: people judging a fault tree were "quite insensitive to what had been left out of a fault tree" (Fischhoff, Slovic and Lichtenstein 1978). The claim is gone, the finding is a new caveat, and the dossier's confirm note is now a dated check. The confirm-note baseline drops from 2 to 1. The tier stays P.
+- **The pyramid-principle dossier no longer calls its comprehension evidence well-established (#190).** The advance-organizer research it leaned on was contested before two meta-analyses found a benefit, and an advance organizer introduces general concepts rather than stating a passage's main point. The dossier now cites Lorch and Lorch (1985) for the topic-first move. It also cites two business-writing studies: a high-impact style cut reading time by 17 to 23 percent and improved comprehension, but it did not improve decisions. The confirm-note baseline drops from 1 to 0. The tier stays P.
 
 ## [0.18.5] - 2026-10-18
 
