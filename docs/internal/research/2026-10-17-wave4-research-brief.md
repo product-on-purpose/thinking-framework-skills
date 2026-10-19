@@ -1,6 +1,6 @@
 # Deep research brief: new thinking methods for an evidence-graded skill library (wave 4)
 
-Paste this brief first, then the appendix file (`2026-10-17_wave4_dedup-appendix.md`) directly after it. The appendix is part of the brief.
+The appendix at the end of this document lists every method the library has already evaluated. It is part of this brief, so read all of it before you start.
 
 ---
 
