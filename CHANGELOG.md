@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Fixed
+
+- **The issue-tree dossier no longer says decomposition reduces omission errors (#189).** The claim had no source, and the research found on omission points the other way: people judging a fault tree were "quite insensitive to what had been left out of a fault tree" (Fischhoff, Slovic and Lichtenstein 1978). The claim is gone, the finding is a new caveat, and the dossier's confirm note is now a dated check. The confirm-note baseline drops from 2 to 1. The tier stays P.
+
 ## [0.18.5] - 2026-10-18
 
 **Nine of the eleven deferred "confirm before a public claim" notes were checked against their sources (#180-#186).** The checks found that the premortem study measured confidence, not calibration. They also corrected a shareholder-letter year, a misquote, three titles, a co-author's name and two overstated claims. The confirm-note baseline drops from 11 to 2. The other two notes need a maintainer decision, which the backlog records (#187). Two maintainer tools now prepare an external research wave (#179). Every cited DOI was checked for retractions (#176), and two registry links and two count statements are fixed (#177, #178). No new skills and no tier changes; the catalog stays 56 core + 7 contested.

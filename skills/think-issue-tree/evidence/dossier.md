@@ -11,6 +11,7 @@
 | **Evidence tier** | **P** (practitioner; limited controlled evidence) |
 | **Confidence** | Moderate that the mechanism makes a big question tractable; low that any published number proves it improves answers |
 | **Status** | draft (first authored 2026-05-31, against discovery corpus) |
+| **Reviewed** | 2026-10-19 |
 
 ---
 
@@ -38,11 +39,12 @@ This is the honest core of the dossier. The skill must not overclaim.
 
 **What is reasonably supported:**
 - Issue trees are a **widely taught, widely used practitioner method** with decades of adoption in management consulting, analytics, and engineering problem-solving. Their staying power across firms and curricula is real signal that practitioners find the decomposition tractable and communicable.
-- **Decomposition as a general cognitive aid is plausible and partly supported** in adjacent literatures: breaking a complex judgment into components and reasoning about the parts (decision analysis, work-breakdown structures, divide-and-conquer estimation) tends to reduce omission errors and make reasoning auditable. This supports the *direction* of the mechanism.
+- **Decomposition as a general cognitive aid is plausible and partly supported** in adjacent literatures: breaking a complex judgment into components and reasoning about the parts (decision analysis, work-breakdown structures, divide-and-conquer estimation) makes the reasoning auditable. This supports the *direction* of the mechanism.
 
 **What is NOT shown (the caveats that keep the skill honest):**
 - There is **no body of controlled studies** establishing that drawing an issue tree produces measurably better answers, faster, than not drawing one. The support is practitioner adoption plus general decomposition reasoning, not head-to-head experiments on issue trees specifically. This is why the tier is **P**, not S or M.
 - **MECE is a discipline, not a guarantee.** A tree can be perfectly mutually-exclusive and collectively-exhaustive and still be **decomposed along the wrong axis** (splitting by geography when the real structure is by product), producing a tidy, exhaustive, and useless tree. Exhaustiveness is checkable; *relevance of the chosen split* is a judgment the method does not supply.
+- **A tidy tree can hide what it leaves out.** The research this library found on omission points away from the idea that decomposition prevents it. People judging a fault tree were "quite insensitive to what had been left out of a fault tree" (Fischhoff, Slovic and Lichtenstein 1978). A tree that looks complete can still be missing a branch.
 - A tree does **not answer the question.** It restructures the question into answerable parts. Confusing "I have a clean MECE tree" with "I have an answer" is the central misuse.
 
 **Net grade: P.** A useful, durable practitioner method whose value is structuring and coverage, not a proven lift in answer quality. The skill claims tractability, coverage, and inspectability, and explicitly disclaims any proven improvement in the final answer.
@@ -75,5 +77,6 @@ The skill must emit an **issue tree**, not prose: the root question, then a top-
 2. Rasiel, E. (1999), *The McKinsey Way*; Rasiel & Friga (2001), *The McKinsey Mind* - issue trees / logic trees as the standard structured-problem-solving device.
 3. Hammond, Keeney & Raiffa (1999), *Smart Choices* - structuring a problem into its parts before solving.
 4. Adjacent decomposition support: decision-analysis and divide-and-conquer estimation literatures (cited as plausibility, not as direct issue-tree evidence).
+5. Fischhoff, Slovic and Lichtenstein (1978), "Fault trees: Sensitivity of estimated failure probabilities to problem representation", *Journal of Experimental Psychology: Human Perception and Performance* 4(2):330-344 - people were "quite insensitive to what had been left out of a fault tree" (checked against the abstract, 2026-10-19).
 
-> **Verification status:** citations 1-3 are standard and well-attested attributions for issue trees and MECE. The phrasing of the adjacent decomposition support in section 3 (citation 4) is drawn from secondary synthesis and should be confirmed against primary sources before any public-facing claim. The dossier states the tier as **P** precisely because the issue-tree-specific controlled evidence is thin; that honesty is the point.
+> **Verification status:** citations 1-3 are standard and well-attested attributions for issue trees and MECE. The adjacent decomposition support in section 3 (citation 4) was checked on 2026-10-19. Its claim that decomposition "tends to reduce omission errors" was removed, because the research this library found on omission points the other way (citation 5). The remaining claim, that decomposition makes the reasoning auditable, describes what an explicit tree lets a reader do; it is not an outcome claim. The dossier states the tier as **P** precisely because the issue-tree-specific controlled evidence is thin; that honesty is the point.
