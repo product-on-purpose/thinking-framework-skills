@@ -11,7 +11,7 @@
 | **Evidence tier** | **S/M** (contested - see "What the evidence shows" below) |
 | **Confidence** | Moderate-high that the mechanism helps; low that the published effect sizes mean what they are usually quoted to mean |
 | **Status** | draft (first authored 2026-05-31, against discovery corpus) |
-| **Reviewed** | 2026-10-18 |
+| **Reviewed** | 2026-10-19 |
 
 ---
 
@@ -37,9 +37,9 @@ No trademark. "Premortem" is a generic descriptive term in common use; no attrib
 
 This is the honest core of the dossier. The skill must not overclaim.
 
-**What is reasonably supported (the S part):**
+**What is reasonably supported (reason generation is the S part; the confidence effect is M):**
 - Prospective hindsight (assuming an outcome and explaining it) **increases the number and specificity of causes people generate** relative to ordinary forecasting. In Mitchell, Russo & Pennington (1989), what mattered was outcome certainty: explanations of events treated as certain were longer and included more episodic reasons, while past-versus-future framing had little effect. The popular "**30%**" figure is usually attributed to Klein's (2007) account of that study. It does not appear in the paper's abstract, and this library has not found it in the paper (checked 2026-10-15).
-- The technique **reduces overconfidence** in a plan. In Veinott et al. (2010), 178 participants rated a plan written with deliberate flaws, and the premortem lowered their confidence in it more than critique, pro/con or cons-only review did. The authors call it "a useful tool for combating overconfidence", but they did not measure calibration: "We did not directly examine overconfidence".
+- The technique **lowers confidence in a flawed plan**. In Veinott et al. (2010), 178 participants rated a plan written with deliberate flaws, and the premortem lowered their confidence in it more than critique, pro/con or cons-only review did. The authors call it "a useful tool for combating overconfidence", but they did not measure calibration: "We did not directly examine overconfidence". The effect rests on this one peer-reviewed study, so it is graded M, not S (maintainer decision, 2026-10-19).
 
 **What is NOT shown (the caveat that keeps the skill honest):**
 - The widely-quoted "**premortems make decisions ~30% better**" claim **has no support**. The 30% figure is usually credited to Klein's (2007) account of Mitchell, Russo and Pennington (1989), and this library has not found it in that paper (see above). No source located here ties it to decision quality, outcome, or accuracy. Generating more reasons is not the same as deciding better. (Reworded on 2026-10-17. This line previously said the figure measures the number of reasons identified, which this library has not verified.)
@@ -47,7 +47,7 @@ This is the honest core of the dossier. The skill must not overclaim.
 - There is **no strong evidence** that premortems improve final outcomes (project success rates, ROI, fewer failures). The mechanism is plausible and the confidence effect is real, but the chain from "more reasons surfaced" to "better real-world result" is not established by controlled study.
 - General "thinking tools improve thinking" claims are weak: a 2024 meta-analysis of problem-solving pedagogy (Zhan, He and Zhong; 19 studies) found that the pedagogy enhanced creativity overall, but it "did not reveal any significant benefits for creativity enhancement" in the thinking-tools-assisted condition. (Checked against the abstract on 2026-10-18; cited here as a humility prompt, not a settled fact.)
 
-**Net grade: S/M.** The reason-generation and overconfidence-reduction effects are well-supported (S-leaning); the decision-quality improvement that the technique is usually sold on is not (M/contested). The skill should claim the former and explicitly disclaim the latter.
+**Net grade: S/M.** The reason-generation effect is well-supported (S-leaning). The confidence effect rests on one peer-reviewed study and a poster (M). The decision-quality improvement that the technique is usually sold on is not well-supported (M/contested). The skill should claim the first, state the second as a single-study finding, and explicitly disclaim the third.
 
 ## 4. Transferred-evidence flag (required honesty for this library)
 

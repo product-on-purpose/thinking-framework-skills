@@ -76,7 +76,7 @@ You are about to commit to one specific, hard-to-reverse move (a public free tie
 
 - **The job it does here:** Stress-test for failure. With the frame chosen and the key assumption examined, imagine it is 6 months post-launch and the free tier failed; surface causes and convert each to a tripwire, mitigation, owner, and kill criterion - while you can still change course.
 - **Why this one:** It is the right last gate before a one-way-door commit, and it is where the sales tension (S2) will surface as a concrete, ownable risk rather than a vague unease.
-- **Evidence tier:** **S/M** (contested) - prospective hindsight reliably surfaces more and more-specific risks and reduces overconfidence; it is *not* proven to improve final outcomes, and the often-quoted "30%" figure is not found in its source study and is not evidence of better decisions. See `think-premortem`'s dossier.
+- **Evidence tier:** **S/M** (contested) - prospective hindsight reliably surfaces more and more-specific risks, and one study found it lowers confidence in a flawed plan; it is *not* proven to improve final outcomes, and the often-quoted "30%" figure is not found in its source study and is not evidence of better decisions. See `think-premortem`'s dossier.
 - **Expected artifact:** A ranked risk register with tripwires and kill criteria. (See `think-premortem`'s worked example - it runs this exact scenario.)
 - **Run it with:**
   > "Run a premortem on launching our self-serve free tier in 6 weeks. It is 6 months later and it failed badly - surface the likely causes (include the sales-team dynamics and the free-to-paid conversion assumption), and give each a tripwire, mitigation, owner, and kill criterion."
