@@ -117,7 +117,7 @@ Every source that a recommended admission's grade rests on was checked against C
 
 ## Admitted (5 candidates and 9 folds, no new family)
 
-Every row below is in `frameworks/registry.mjs`, in the block headed "WAVE-4 CANDIDATES, ADMITTED 2026-10-19". Each row's reasoning ends with "Preliminary; pending deep-research vetting", and each carries the sources that were checked first-hand as its bibliography seed.
+Every row below is in `frameworks/registry.mjs`, in the block headed "WAVE-4 CANDIDATES, ADMITTED 2026-10-19". Each row's reasoning ends with "Preliminary; pending deep-research vetting". Where a row's grade rests on a source that was checked first-hand, that source is in the row's `sources` list as a seed for its dossier. Three fold rows (`necessary-condition-analysis`, `cross-impact-analysis` and `tetralemma`) carry no sources, because their grades come from run A and were not checked. The Immunity to Change row carries only the vendor page.
 
 **Build candidates (`cand`, verdict `build`).** The `think-research-framework` engine vets each one before anything is built.
 
