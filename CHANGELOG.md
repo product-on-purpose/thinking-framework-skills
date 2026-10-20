@@ -4,6 +4,18 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+
+- **Wave-4 external research is synthesized and decided, and the registry grows from 135 to 149 methods (#195).** Three deep-research runs (Claude, ChatGPT and Gemini) were compared, deduped against the registry and checked against their sources: 28 sources were read first-hand through CrossRef, OpenAlex, Semantic Scholar and arXiv full text, and no retraction was found. The maintainer delegated decisions D1 to D8, and the record is `docs/internal/research/2026-10-19-wave4-external-research.md`. Nothing ships, and there is no new family.
+  - Three build candidates, each preliminary until the `think-research-framework` engine vets it: `causal-dag-adjustment-check` (P), `objectives-first-alternative-generation` (Value-Focused Thinking, M) and `draft-blind-verification` (C, the first candidate whose main evidence comes from studies of language models).
+  - Two documentation candidates: `lookahead-search-with-backtracking` (Tree of Thoughts, C) and `hidden-competing-commitments-map` (Immunity to Change, A, branded on the TM mark that Minds at Work displays).
+  - Nine folds, each its own `fold` row pointing at a shipped skill, so the research appendix tells a later wave not to propose them again. No shipped skill's entry changed. The draft decision had put these names on the shipped entries as aliases, but aliases publish as "Also known as" in `catalog.json` and `llms-full.txt`, which would have listed false synonyms.
+  - The backlog queues the fold-enrichment edits, one PR each, and holds the single-source leads for wave 5.
+
+### Changed
+
+- **Every hand-written count of evaluated methods says 149 (#195).** No gate layer checks these counts, so they were updated by hand in `AGENTS.md`, `README.md`, `docs/architecture.md` (three places), `site/README.md`, the *Build with the library* page and the registry's header comment. The generated surfaces (`llms.txt`, `llms-full.txt`, `evaluated.json`, `framework-catalog.md` and `why-not.md`) were regenerated. Historical entries keep their counts.
+
 ## [0.18.6] - 2026-10-19
 
 **The last two deferred "confirm before a public claim" notes are resolved, and the premortem's confidence effect is graded M (#189-#191).** The issue-tree dossier drops an unsourced claim that decomposition reduces omission errors, and adds a fault-tree finding that points the other way. The pyramid-principle dossier reports its comprehension evidence as a mixed record. The premortem lowered confidence in a deliberately flawed plan in one study, so that effect is graded M, not S-leaning, in all six places that stated it. The confirm-note baseline drops from 2 to 0. The committed wave-4 brief now carries the sentence that was sent (#192), and the backlog records that the wave-4 research ran (#193). No new skills and no governing-tier changes; the catalog stays 56 core + 7 contested.

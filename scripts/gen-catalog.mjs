@@ -261,7 +261,7 @@ export const catalog = {
   entries,
 };
 
-// --- build evaluated.json (the complete 135-method projection) --------------
+// --- build evaluated.json (the complete registry projection) ---------------
 const methods = registry.frameworks.map((e) => ({
   slug: e.slug,
   name: e.name,

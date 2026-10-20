@@ -16,7 +16,7 @@
 //
 // FAMILY NOTE: `family` uses the 13-family CATALOG (universe) taxonomy, which differs
 // by design from the live skill metadata.family slugs (a separate, coarser grouping the
-// shipped skills + the Astro families/ pages use). The registry must cover all 135
+// shipped skills + the Astro families/ pages use). The registry must cover all 149
 // methods, most of which are unbuilt and have no skill metadata. The two taxonomies stay
 // separate by decision; docs/architecture.md ("Two family taxonomies") maps them.
 //
@@ -26,8 +26,9 @@
 // to 121 methods (a self-and-team-awareness candidate cluster + 4 domain candidates
 // added 2026-06-10, re-opening the queue after the phase-1/2 drain), then to 135 methods
 // and a 13th family (ethics-values-deliberation) via the wave-3 external deep-research
-// admissions of 2026-06-11. Each entry's `status` field, not this comment, says which
-// are shipped.
+// admissions of 2026-06-11, then to 149 methods via the wave-4 admissions of 2026-10-19
+// (three build candidates, two documentation candidates and nine folds; no new family).
+// Each entry's `status` field, not this comment, says which are shipped.
 // =============================================================================
 
 export default {
@@ -2539,6 +2540,270 @@ export default {
         { title: "Coffield, Moseley, Hall and Ecclestone (2004) - Learning Styles and Pedagogy in Post-16 Learning: A Systematic and Critical Review (LSRC / LSDA)", url: "https://www.voced.edu.au/content/ngv:13692", kind: "systematic-review" },
         { title: "Dekker, Lee, Howard-Jones and Jolles (2012) - Neuromyths in Education: Prevalence and Predictors of Misconceptions among Teachers, Frontiers in Psychology 3: 429", url: "https://doi.org/10.3389/fpsyg.2012.00429", kind: "survey" },
         { title: "Newton (2015) - The Learning Styles Myth is Thriving in Higher Education, Frontiers in Psychology 6: 1908", url: "https://doi.org/10.3389/fpsyg.2015.01908", kind: "bibliometric-review" },
+      ],
+    },
+
+    // =========================================================================
+    // WAVE-4 CANDIDATES, ADMITTED 2026-10-19.
+    // A three-platform external deep-research pass (Claude, ChatGPT, Gemini) run
+    // against the 135-method dedup appendix. The admission rule is wave 3's: two or
+    // more runs propose the method, the dedup against the registry is clean, and the
+    // maintainer decides each admission. Three build candidates, two documentation
+    // candidates (verdict reject means document only) and nine folds; no new family.
+    // Each fold is its own row with foldInto set, the registry's form for a named
+    // method judged to be covered by a shipped skill, so the research appendix lists
+    // it and a later wave does not propose it again. No shipped entry changed: an
+    // alias there would publish as "Also known as" on the agent-discovery surfaces.
+    // The rejected leads are listed in the record only. Every row is preliminary
+    // until think-research-framework vets it. Record, dedup and grade adjudications:
+    // docs/internal/research/2026-10-19-wave4-external-research.md.
+    // -------------------------------------------------------------------------
+    // BUILD (3): two or more runs proposed each one, and the dedup is clean.
+    // -------------------------------------------------------------------------
+    {
+      slug: "causal-dag-adjustment-check",
+      name: "Causal DAG adjustment check",
+      family: "systems-and-consequences",
+      tier: "P",
+      status: "cand",
+      verdict: "build",
+      evalDate: "2026-10-19",
+      oneLine: "draw the causal graph behind an observational claim, then decide which variables the comparison must adjust for and which (colliders, mediators) it must not",
+      reasoning: "Wave-4 admission (2026-10-19). All three research runs proposed it, and all three said build. The move reads a directed acyclic graph's structure to decide what an observational comparison must adjust for before its causal claim can be trusted. It also decides what must not be adjusted for, because conditioning on a collider or a mediator creates or hides an association. It needs no structural equations, no numbers and no computation. That keeps it distinct from the counterfactual-reasoning fold, whose exclusion covers the formal Pearl counterfactual: the third rung, which needs a fully specified model. The candidate stays distinct only if the skill never computes a counterfactual. No shipped method carries the collider rule: causal-loop-diagrams map feedback, and process-tracing tests rival explanations of one case. Graded P. DAGs are widely used (Tennant et al. 2021 reviewed 234 applied health articles), and the graphical rules are proven. But no controlled study shows that DAG reasoning improves a person's causal judgment, and novices often get it wrong: in Ellison (2021), 50 of 66 models built from medical students' DAGs (76.8%) would have produced biased estimates. Run C's S rests on pedigree, and run B's C is stricter than the library's P; wave 3 governed QCA and process-tracing at P on the same reasoning. A separate agent line cannot raise the human grade: on the CLadder benchmark, prompting GPT-4 to build the graph and the estimand first raised accuracy from 62.03% to 70.40%, against 49.27% for random guessing (Jin et al. 2023). All figures were checked first-hand on 2026-10-19, against the abstracts and the CLadder results table. Generic academic term, not branded. Preliminary; pending deep-research vetting.",
+      attribution: "Judea Pearl (causal diagrams and the back-door criterion)",
+      aliases: ["causal DAG", "directed acyclic graph", "DAG causal mapping", "back-door criterion check", "confounder selection", "collider check"],
+      sources: [
+        { title: "Tennant et al. (2021) - Use of directed acyclic graphs (DAGs) to identify confounders in applied health research: review and recommendations, International Journal of Epidemiology 50(2): 620-632", url: "https://doi.org/10.1093/ije/dyaa213", kind: "review" },
+        { title: "Ellison (2021) - Might Temporal Logic Improve the Specification of Directed Acyclic Graphs (DAGs)?, Journal of Statistics and Data Science Education 29(2): 202-213", url: "https://doi.org/10.1080/26939169.2021.1936311", kind: "study" },
+        { title: "Jin et al. (2023) - CLadder: Assessing Causal Reasoning in Language Models, NeurIPS 2023 (arXiv 2312.04350)", url: "https://arxiv.org/abs/2312.04350", kind: "study" },
+      ],
+    },
+    {
+      slug: "objectives-first-alternative-generation",
+      name: "Objectives-first alternative generation",
+      family: "decision-and-option-evaluation",
+      tier: "M",
+      status: "cand",
+      verdict: "build",
+      evalDate: "2026-10-19",
+      oneLine: "before listing options, elicit the decision's fundamental objectives and separate them from means objectives, then generate alternatives from each objective",
+      reasoning: "Wave-4 admission (2026-10-19) of the held-over wave-3 lead Value-Focused Thinking (Keeney 1992). Runs A and C said build, and run B said fold into decision-option-review. It is admitted as its own row because decision-option-review's When NOT to use excludes generating options ('use an ideation skill'), so a fold would change that skill's scope. The multi-criteria-decision-analysis fold covers weighting criteria, not eliciting objectives before options exist. It is the only held-over lead with replicated controlled evidence on its own move. People 'consistently omitted nearly half of the objectives' they later recognized as relevant, and the omitted ones were 'almost as important' (Bond, Carlson and Keeney 2008). Decision makers generated 'less than half' of the available alternatives, and objectives raised their 'number and quality' (Siebert and Keeney 2015). An independent experiment with 71 stakeholders found a master list of objectives the only intervention that substantially helped (Haag, Zürcher and Lienert 2019). Graded M, narrow: the outcomes are proximal (counts and rated importance of objectives and alternatives), and no study shows better final decisions. Run C's S does not hold. Agent caution: model-generated objective sets are 'highly flawed' as sets and include means objectives 'even when explicitly instructed not to' (Simon and Siebert 2025), so the skill needs a pass that strips means objectives. All quotations were checked first-hand against the abstracts on 2026-10-19. Value-Focused Thinking is Keeney's academic term; the descriptive name is used, and no trademark is asserted. Preliminary; pending deep-research vetting.",
+      attribution: "Ralph L. Keeney (Value-Focused Thinking, 1992)",
+      aliases: ["Value-Focused Thinking", "VFT", "objectives-first thinking", "fundamental objectives hierarchy", "objective elicitation"],
+      sources: [
+        { title: "Bond, Carlson and Keeney (2008) - Generating Objectives: Can Decision Makers Articulate What They Want?, Management Science 54(1): 56-70", url: "https://doi.org/10.1287/mnsc.1070.0754", kind: "experimental-study" },
+        { title: "Bond, Carlson and Keeney (2010) - Improving the Generation of Decision Objectives, Decision Analysis 7(3): 238-255", url: "https://doi.org/10.1287/deca.1100.0172", kind: "experimental-study" },
+        { title: "Siebert and Keeney (2015) - Creating More and Better Alternatives for Decisions Using Objectives, Operations Research 63(5): 1144-1158", url: "https://doi.org/10.1287/opre.2015.1411", kind: "experimental-study" },
+        { title: "Haag, Zürcher and Lienert (2019) - Enhancing the elicitation of diverse decision objectives for public planning, European Journal of Operational Research 279(3): 912-928", url: "https://doi.org/10.1016/j.ejor.2019.06.002", kind: "experimental-study" },
+        { title: "Simon and Siebert (2025) - ChatGPT vs. Experts: Can GenAI Develop High-Quality Organizational and Policy Objectives?, Decision Analysis", url: "https://doi.org/10.1287/deca.2025.0387", kind: "study" },
+      ],
+    },
+    {
+      slug: "draft-blind-verification",
+      name: "Draft-blind verification",
+      family: "assumption-and-belief-challenge",
+      tier: "C",
+      status: "cand",
+      verdict: "build",
+      evalDate: "2026-10-19",
+      oneLine: "check a draft's claims in a fresh pass that cannot see the draft: list the claims, answer a verification question for each independently, then reconcile",
+      reasoning: "Wave-4 admission (2026-10-19), agent-first. Runs A and B both said build (run A's blind re-derivation check, run B's independent factored verification); run C did not propose it. It would be the library's first skill whose main evidence comes from studies of language models. The active ingredient is structural: the verifying pass must not see the draft. A check that can see the draft is the Structured Self-Critique fold into red-team-light, which wave 3 judged but never recorded. Three ablations from two research groups isolate the ingredient. In Chain-of-Verification, the two variants whose answering step never sees the draft beat the joint variant that does: Llama 65B Wikidata precision was 0.36 (two-step) and 0.32 (factored) against 0.29 (joint), and biographies scored 63.7 (factored) against 60.8 (joint), or 71.4 with factor-and-revise (Dhuliawala et al. 2024). In System 2 Attention, a separate rewrite pass raised accuracy from 62.8% to 80.3%, while an instruction to ignore the distracting text reached 71.7% (Weston and Sukhbaatar 2023, preprint). In SimToM, a separate perspective pass raised GPT-3.5 from 67.25 to 81.0 on ToMI, while a single combined prompt reached 58.75 (Wilf et al. 2024). Self-correction without new information can hurt: GPT-3.5 fell from 75.8 to 41.8 on CommonSenseQA (Huang et al. 2024). Graded C for people, because no human study tests a reasoner checking claims blind to their own draft. Run A reports that the nearest human evidence, independent double checking in medication safety, is null or negative; that was not checked. For people, instructions to disregard evidence do not remove its influence (Steblay et al. 2006, a meta-analysis of 48 studies). The agent line is M for narrow factual tasks, and it cannot raise the human grade. The skill's When NOT to use must say that blinding adds no knowledge the model lacks. All figures were checked first-hand on 2026-10-19 against the papers' tables. Generic descriptive name; Chain-of-Verification, System 2 Attention and SimToM are paper names, not trademarks. Preliminary; pending deep-research vetting.",
+      aliases: ["blind re-derivation check", "independent factored verification", "factored verification", "Chain-of-Verification", "CoVe"],
+      sources: [
+        { title: "Dhuliawala et al. (2024) - Chain-of-Verification Reduces Hallucination in Large Language Models, Findings of ACL 2024", url: "https://doi.org/10.18653/v1/2024.findings-acl.212", kind: "experimental-study" },
+        { title: "Weston and Sukhbaatar (2023) - System 2 Attention (is something you might need too), arXiv preprint 2311.11829", url: "https://arxiv.org/abs/2311.11829", kind: "experimental-study" },
+        { title: "Wilf et al. (2024) - Think Twice: Perspective-Taking Improves Large Language Models' Theory-of-Mind Capabilities, ACL 2024 (arXiv 2311.10227)", url: "https://arxiv.org/abs/2311.10227", kind: "experimental-study" },
+        { title: "Huang et al. (2024) - Large Language Models Cannot Self-Correct Reasoning Yet, ICLR 2024 (arXiv 2310.01798)", url: "https://arxiv.org/abs/2310.01798", kind: "experimental-study" },
+        { title: "Steblay, Hosch, Culhane and McWethy (2006) - The Impact on Juror Verdicts of Judicial Instruction to Disregard Inadmissible Evidence: A Meta-Analysis, Law and Human Behavior 30(4): 469-492", url: "https://doi.org/10.1007/s10979-006-9039-7", kind: "meta-analysis" },
+      ],
+    },
+    // -------------------------------------------------------------------------
+    // DOCUMENT ONLY (2): verdict reject, the wave-3 pattern; the dossier is the product.
+    // -------------------------------------------------------------------------
+    {
+      slug: "lookahead-search-with-backtracking",
+      name: "Lookahead search with backtracking (Tree of Thoughts)",
+      family: "synthesis-and-reasoning-clarity",
+      tier: "C",
+      status: "cand",
+      verdict: "reject",
+      evalDate: "2026-10-19",
+      oneLine: "explore several partial lines of reasoning, score each one, and back up from dead ends instead of committing to the first chain",
+      reasoning: "Wave-4 documentation candidate (2026-10-19). All three runs proposed it: runs A and B said document only, and run C said build. Yao et al. (2023) report 74% against 4% for chain of thought on the Game of 24. An independent test found that tree search beats simple re-ranking only when its discriminator is at least 90% accurate, and that current models fall short of that (Chen et al. 2024). Graded C for people, whose evidence for deliberate search was not searched, and M, narrow, for agents. Run C's S for agents ignores the independent test. Verdict reject means document only, the wave-3 pattern for a documentation candidate: the dossier is the product, and no skill is planned. The closest shipped neighbors are morphological-analysis and issue-tree. Graph of Thoughts and Cumulative Reasoning fold into the same page. Both figures were checked first-hand against the abstracts on 2026-10-19. The name comes from the paper and is not branded. Preliminary; pending deep-research vetting.",
+      attribution: "Yao et al., Tree of Thoughts (NeurIPS 2023)",
+      aliases: ["Tree of Thoughts", "ToT", "deliberate search over thoughts", "Graph of Thoughts", "Cumulative Reasoning"],
+      sources: [
+        { title: "Yao et al. (2023) - Tree of Thoughts: Deliberate Problem Solving with Large Language Models, NeurIPS 2023 (arXiv 2305.10601)", url: "https://arxiv.org/abs/2305.10601", kind: "experimental-study" },
+        { title: "Chen et al. (2024) - When is Tree Search Useful for LLM Planning? It Depends on the Discriminator, ACL 2024", url: "https://doi.org/10.18653/v1/2024.acl-long.738", kind: "experimental-study" },
+      ],
+    },
+    {
+      slug: "hidden-competing-commitments-map",
+      name: "Hidden competing-commitments map (Immunity to Change)",
+      family: "self-and-team-awareness",
+      tier: "A",
+      status: "cand",
+      verdict: "reject",
+      evalDate: "2026-10-19",
+      branded: true,
+      oneLine: "map an improvement goal, the behaviors that work against it, the hidden commitments those behaviors serve and the big assumption behind them, then design a small, safe test of that assumption",
+      reasoning: "Wave-4 documentation candidate (2026-10-19). Runs A and C proposed it: run A said document only, at A, and run C said build, at M. Graded A. Per run A, the only comparison-group study (Markus 2016, Journal of Applied Behavioral Science 52(2)) compared 45 coached supervisors with 25 others, with assignment not stated as random, on self-reported progress. It tests a coached package, not the solo map. Run A also reports a field account in which 30% to 40% of people did not reach a useful big assumption (Reams 2009), and finds the vendor's one-in-seven heart-patient figure untraceable. None of these was checked first-hand. The competing-commitment move is new to the library: WOOP names an internal obstacle and plans around it, but never asks what the obstacle protects (run A estimates the overlap at a quarter to a third). It is not added to WOOP, because that would attach A-grade content to an S-graded skill. Verdict reject means document only, the wave-3 pattern for a documentation candidate. It is documented under the descriptive name. Preliminary; pending deep-research vetting.",
+      attribution: "Robert Kegan and Lisa Laskow Lahey, Immunity to Change (Harvard Business Press, 2009)",
+      trademark: "Immunity to Change carries a TM mark on the Minds at Work site (checked 2026-10-19); the owner and the registration status were not verified",
+      aliases: ["Immunity to Change", "ITC map", "four-column map", "competing commitments mapping", "big assumption test"],
+      sources: [
+        { title: "Minds at Work - Immunity to Change (the four-column map)", url: "https://mindsatwork.com/our-thinking/immunity-to-change", kind: "vendor" },
+      ],
+    },
+    // -------------------------------------------------------------------------
+    // FOLD (9): judged to be covered by a shipped skill. Where a fold names a candidate
+    // enrichment, no step of that skill has changed; each enrichment is a dated item in
+    // docs/internal/backlog.md, done one PR at a time after a first-hand check.
+    // -------------------------------------------------------------------------
+    {
+      slug: "linear-sequential-unmasking",
+      name: "Linear Sequential Unmasking (sequential evaluation)",
+      family: "assumption-and-belief-challenge",
+      tier: "C",
+      status: "fold",
+      verdict: "fold",
+      foldInto: "belief-update-routine",
+      evalDate: "2026-10-19",
+      oneLine: "record a judgment from the task-relevant evidence before any biasing context is revealed, then reveal the context in a fixed order and allow a change only for a named reason",
+      reasoning: "Wave-4 fold (2026-10-19) of the held-over wave-3 lead Sequential Evaluation (segmented testimony). All three runs engaged with it: run A said fold into belief-update-routine at C, run B said document only at C, and run C said build at M. Run A found that the method-like reading of the lead is Linear Sequential Unmasking, and that the term segmented testimony does not appear in the literature. Graded C. Dror and Kukucka (2021) is a protocol article: its abstract describes an approach and reports no outcome test. Run C's M is therefore evidence that the bias exists, not that the protocol fixes it. It folds into belief-update-routine as a candidate commit-first guard: seal an answer and its confidence before seeing advice, a counter-view or new context, then allow a change only for a named new reason. Peer Instruction was rejected as a group teaching method, and its solo form (commit to an answer, then recommit) is the same guard. Preliminary; pending deep-research vetting.",
+      attribution: "Itiel Dror and Jeff Kukucka (LSU-E, 2021)",
+      aliases: ["LSU-E", "Linear Sequential Unmasking-Expanded", "sequential unmasking", "Sequential Evaluation", "segmented testimony", "blind-first review"],
+      sources: [
+        { title: "Dror and Kukucka (2021) - Linear Sequential Unmasking-Expanded (LSU-E): A general approach for improving decision making as well as minimizing noise and bias, Forensic Science International: Synergy 3: 100161", url: "https://doi.org/10.1016/j.fsisyn.2021.100161", kind: "foundational" },
+      ],
+    },
+    {
+      slug: "moral-foundations-deliberation",
+      name: "Moral Foundations deliberation",
+      family: "ethics-values-deliberation",
+      tier: "C",
+      status: "fold",
+      verdict: "fold",
+      foldInto: "ethical-matrix",
+      evalDate: "2026-10-19",
+      oneLine: "add moral-foundations columns to a values analysis, so that each party's moral concerns are named rather than assumed",
+      reasoning: "Wave-4 fold (2026-10-19) of a held-over wave-3 lead. All three runs engaged with it: runs A and B said fold the lens into ethical-matrix, and run C said build at S. Run A also split off moral reframing, a persuasion technique, as document only; that is held as a single-source lead. Run C's S is borrowed from persuasion research. The moral-appeals meta-analysis it cites is real: Xu, Mulder, Leliveld and Bijmolt (Academy of Management Proceedings 2025) pooled 62 papers and 368 effect sizes and found 'a small-sized, positive effect on changing behavioral intentions and behaviors (d = .22)'. That measures persuasion, not the quality of moral deliberation, so the lens is graded C. It folds into ethical-matrix as a candidate optional column set (MFQ-2), with the measurement caveats run A gives. The abstract was checked first-hand on 2026-10-19. Preliminary; pending deep-research vetting.",
+      attribution: "Jonathan Haidt, Jesse Graham and colleagues (Moral Foundations Theory)",
+      aliases: ["moral foundations lens", "Moral Foundations Theory lens", "MFQ-2 lens"],
+      sources: [
+        { title: "Xu, Mulder, Leliveld and Bijmolt (2025) - The Impact of Moral Appeals on Behavioral Changes and Behavioral Intentions: A Meta-Analysis, Academy of Management Proceedings", url: "https://doi.org/10.5465/amproc.2025.18939abstract", kind: "adjacent-meta-analysis" },
+      ],
+    },
+    {
+      slug: "robust-decision-making",
+      name: "Robust Decision Making",
+      family: "strategy-and-opportunity",
+      tier: "C",
+      status: "fold",
+      verdict: "fold",
+      foldInto: "scenario-planning",
+      evalDate: "2026-10-19",
+      oneLine: "start from a candidate strategy, search the space of futures for the conditions under which it fails, then adapt the strategy to those conditions",
+      reasoning: "Wave-4 fold (2026-10-19) of a held-over wave-3 lead. All three runs engaged with it: runs A and C said fold into scenario-planning, and run B said document only. Graded C for the single-reasoner move, per run A, which allows P at most for computational RDM as practised: no study compares decisions made with and without it on an independent quality measure. Gong et al. (2017, Environmental Modelling and Software 91:135-155), co-authored by Lempert, compared scenarios with forecasts as decision support. Its record was confirmed on 2026-10-19, but no abstract was available. It folds into scenario-planning as a candidate optional strategy-first vulnerability scan after the scenario set is built, with Gong et al. as a candidate second controlled study for that skill. Preliminary; pending deep-research vetting.",
+      attribution: "Robert Lempert and colleagues (RAND)",
+      aliases: ["RDM", "decision making under deep uncertainty", "DMDU", "scenario discovery", "vulnerability analysis"],
+      sources: [
+        { title: "Gong, Lempert, Parker, Mayer et al. (2017) - Testing the scenario hypothesis: An experimental comparison of scenarios and forecasts for decision support in a complex decision environment, Environmental Modelling and Software 91: 135-155", url: "https://doi.org/10.1016/j.envsoft.2017.02.002", kind: "experimental-study" },
+      ],
+    },
+    {
+      slug: "necessary-condition-analysis",
+      name: "Necessary Condition Analysis",
+      family: "systems-and-consequences",
+      tier: "C",
+      status: "fold",
+      verdict: "fold",
+      foldInto: "qualitative-comparative-analysis",
+      evalDate: "2026-10-19",
+      oneLine: "test whether a condition is necessary for an outcome, and at what level, by looking for an empty ceiling zone in the data",
+      reasoning: "Wave-4 fold (2026-10-19) of a held-over wave-3 lead. All three runs engaged with it: run A said fold into qualitative-comparative-analysis at C, and runs B and C said document only. Graded C: per run A, no study tests whether it improves anyone's judgment, and its standing is methodological and contested, because Thiem (2021) argues that QCA outperforms it. It asks whether a condition is necessary for an outcome, which QCA already analyzes in set terms, so it folds into that contested lens instead of adding a skill. Neither source was checked first-hand. Preliminary; pending deep-research vetting.",
+      attribution: "Jan Dul",
+      aliases: ["NCA", "necessity in degree", "ceiling-line analysis"],
+    },
+    {
+      slug: "cross-impact-analysis",
+      name: "Cross-Impact Analysis",
+      family: "systems-and-consequences",
+      tier: "P",
+      status: "fold",
+      verdict: "fold",
+      foldInto: "morphological-analysis",
+      evalDate: "2026-10-19",
+      oneLine: "rate how each possible development raises or lowers the likelihood of each other one, then read which combinations hang together",
+      reasoning: "Wave-4 fold (2026-10-19) of a lower-priority wave-3 lead. All three runs engaged with it: run A said fold into morphological-analysis at P (low end), run B said document only for the Cross-Impact Balance variant, and run C said build at P. Graded P: per run A, it is widely used in foresight with no accuracy evidence; that was not checked. Its pairwise judgment of how one development changes the likelihood of another is close to the cross-consistency assessment that morphological-analysis already runs. It folds there as a candidate optional variant that scores the direction and strength of each pairwise influence, with a warning not to treat revised probabilities as forecasts. Preliminary; pending deep-research vetting.",
+      attribution: "Theodore Gordon and Olaf Helmer (1960s)",
+      aliases: ["cross-impact matrix", "Cross-Impact Balance analysis", "CIB", "SMIC"],
+    },
+    {
+      slug: "targeted-experience-narratives",
+      name: "Targeted Experience Narratives",
+      family: "risk-failure-and-resilience",
+      tier: "M",
+      status: "fold",
+      verdict: "fold",
+      foldInto: "reference-class-forecasting",
+      evalDate: "2026-10-19",
+      oneLine: "before forecasting how an outcome will feel, read accounts from people who experienced it, chosen to target the specific forecasting error rather than to be representative",
+      reasoning: "Wave-4 fold (2026-10-19) of a lower-priority wave-3 lead. All three runs engaged with it: run B said fold into reference-class-forecasting at M for a narrow risk-judgment task, run C said document only, and run A called it untraceable. Run A was wrong. Shaffer, Focella, Scherer and Zikmund-Fisher (2016, Patient Education and Counseling 99(10):1611-1619) define the term, and their title states the finding: targeted, but not representative, experience narratives debiased affective forecasting errors. Graded M, narrow, per run B. The scope is narrow: patients predicting their own discomfort from a medical procedure, using narratives the researchers wrote. The record was confirmed on 2026-10-19, but no abstract was available, so the study design and run B's sample of 196 were not checked. It folds into reference-class-forecasting, because a targeted narrative is an outside view drawn from people who experienced the outcome. Preliminary; pending deep-research vetting.",
+      attribution: "Shaffer, Focella, Scherer and Zikmund-Fisher (2016)",
+      aliases: ["targeted narratives for debiasing"],
+      sources: [
+        { title: "Shaffer, Focella, Scherer and Zikmund-Fisher (2016) - Debiasing affective forecasting errors with targeted, but not representative, experience narratives, Patient Education and Counseling 99(10): 1611-1619", url: "https://doi.org/10.1016/j.pec.2016.04.004", kind: "experimental-study" },
+      ],
+    },
+    {
+      slug: "tetralemma",
+      name: "Tetralemma",
+      family: "problem-framing-and-reframing",
+      tier: "A",
+      status: "fold",
+      verdict: "fold",
+      foldInto: "contradiction-tension-mapping",
+      evalDate: "2026-10-19",
+      oneLine: "before treating a choice as either-or, place it among four positions (this, that, both, neither) and ask whether none of the framings fits",
+      reasoning: "Wave-4 fold (2026-10-19) of a lower-priority wave-3 lead. Two runs engaged with it: run A said fold into contradiction-tension-mapping at A, and run C said build at P; run B did not grade it. Graded A: per run A, only German-language coaching case essays and the originators' books were found. Its both-poles position is the core move of contradiction-tension-mapping, as wave 3 had already noted. It folds there as a candidate pre-step that asks 'neither?' and 'none of these framings?' before a choice is treated as a polarity. Run A names assumption-reversal as a defensible alternative target. Preliminary; pending deep-research vetting.",
+      attribution: "Buddhist logic (catuskoti); the constellation form by Insa Sparrer and Matthias Varga von Kibéd",
+      aliases: ["catuskoti", "four-cornered logic", "Tetralemma constellation", "Tetralemmaarbeit"],
+    },
+    {
+      slug: "e-prime-translation",
+      name: "E-Prime translation",
+      family: "assumption-and-belief-challenge",
+      tier: "A",
+      status: "fold",
+      verdict: "fold",
+      foldInto: "evidence-vs-inference-sort",
+      evalDate: "2026-10-19",
+      oneLine: "restate each 'X is Y' conclusion without any form of the verb to be, so that it says who observed what",
+      reasoning: "Wave-4 fold (2026-10-19) of a lower-priority wave-3 lead. Two runs engaged with it: run A said fold into evidence-vs-inference-sort at A, and run C said build at C with an agent line of M; run B did not grade it. Graded A: per run A, the only quantitative human study is correlational and does not test the rewrite. Run C's agent claim fails on mechanism. An active-control replication across six models (Jehu-Appiah 2026, preprint) found E-Prime 3.7 points above control, the weakest of four constraints, while a ban on filler words such as very and just did best (+6.7). Its abstract reports that 'every prediction from the cognitive restructuring hypothesis was disconfirmed'. It folds into evidence-vs-inference-sort as a candidate optional prompt to restate each 'X is Y' conclusion as who observed what. The abstract was checked first-hand on 2026-10-19. Preliminary; pending deep-research vetting.",
+      attribution: "D. David Bourland Jr. (E-Prime), from Alfred Korzybski's general semantics",
+      aliases: ["E-Prime", "English Prime", "copula avoidance"],
+      sources: [
+        { title: "Jehu-Appiah (2026) - Trivial Vocabulary Bans Improve LLM Reasoning More Than Deep Linguistic Constraints, arXiv preprint 2604.02699", url: "https://arxiv.org/abs/2604.02699", kind: "experimental-study" },
+      ],
+    },
+    {
+      slug: "distanced-self-reflection",
+      name: "Distanced self-reflection",
+      family: "self-and-team-awareness",
+      tier: "M",
+      status: "fold",
+      verdict: "fold",
+      foldInto: "parallel-perspectives-review",
+      evalDate: "2026-10-19",
+      oneLine: "reason about a problem that involves you as an outside observer would, describing your own situation in the third person",
+      reasoning: "Wave-4 fold (2026-10-19). Two runs engaged with it and split: run A said build (M, at the low end), and run B said fold into parallel-perspectives-review (M); run C did not propose it. Decision D4 of 2026-10-19 folds it there as an observer lens for problems that involve the reasoner personally. The split decided it, not the evidence: each method admitted as a build in this wave had three runs engaged and two or more saying build. Graded M. In Grossmann and Kross (2014, three experiments, N = 693), instructions to self-distance eliminated the self-other asymmetry in wise reasoning about personal conflicts. In Grossmann et al. (2021, N = 555), third-person diary reflection raised wise reasoning about interpersonal challenges, and a second experiment replicated the effect. A meta-analysis of 25 experiments pooled g = 0.19 for reflections on stressful events, an emotional outcome rather than reasoning (Murdoch et al. 2023). The abstracts were checked first-hand on 2026-10-19. The evidence covers people reasoning about their own interpersonal problems, and no agent analog has been tested. Preliminary; pending deep-research vetting.",
+      attribution: "Igor Grossmann and Ethan Kross (2014)",
+      aliases: ["self-distancing", "third-person self-reflection", "distanced-self-reflection diary"],
+      sources: [
+        { title: "Grossmann and Kross (2014) - Exploring Solomon's Paradox: Self-Distancing Eliminates the Self-Other Asymmetry in Wise Reasoning About Close Relationships in Younger and Older Adults, Psychological Science 25(8): 1571-1580", url: "https://doi.org/10.1177/0956797614535400", kind: "experimental-study" },
+        { title: "Grossmann, Dorfman, Oakes, Santos, Vohs and Scholer (2021) - Training for Wisdom: The Distanced-Self-Reflection Diary Method, Psychological Science 32(3): 381-394", url: "https://doi.org/10.1177/0956797620969170", kind: "experimental-study" },
+        { title: "Murdoch, Chapman, Crane and Gucciardi (2023) - The effectiveness of self-distanced versus self-immersed reflections among adults: Systematic review and meta-analysis of experimental studies, Stress and Health 39(2): 255-271", url: "https://doi.org/10.1002/smi.3199", kind: "adjacent-meta-analysis" },
       ],
     },
   ],

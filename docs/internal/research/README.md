@@ -26,6 +26,7 @@ Move the specific files you want to publish into this folder deliberately (after
 
 - [`framework-catalog.md`](framework-catalog.md) - the generated master catalog (tables regenerated from `frameworks/registry.mjs`; hand-authored preamble).
 - [`2026-06-11-wave3-external-research.md`](2026-06-11-wave3-external-research.md) - wave-3 external deep-research provenance, dedup against the registry, the 14 admissions + 13th family, and the non-admitted leads. Raw platform outputs stay gitignored at `_local/ingest/`.
+- [`2026-10-19-wave4-external-research.md`](2026-10-19-wave4-external-research.md) - the wave-4 synthesis: the three runs compared, the dedup against the registry, the first-hand source checks, and the decisions (3 build candidates, 2 documentation candidates and 9 folds). Raw platform outputs stay gitignored at `_local/research/2026-10-19_2.35-wave4/`.
 - [`2026-10-17-wave4-research-brief.md`](2026-10-17-wave4-research-brief.md) - the brief pasted into each deep-research tool for wave 4. It is committed because the wave-3 brief lived only in `_local/` and was lost; it had to be rebuilt from the wave-3 synthesis.
 - [`documentation-and-site-plan.md`](documentation-and-site-plan.md) - the original docs/site planning record.
 
