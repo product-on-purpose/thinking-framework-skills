@@ -2,6 +2,21 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.18.6
+
+**Every deferred source check is now done, and the premortem claims less about confidence.** No new frameworks and no changes to any skill's overall evidence grade; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For everyone
+
+- **The premortem claims less.** The installed skill said a premortem "reduces overconfidence in a plan". Its one peer-reviewed study measured confidence in a deliberately flawed plan, not overconfidence. The skill now says that, in one study, the premortem lowered confidence in a flawed plan, and that finding is graded M (moderate). The finding that it surfaces more, and more specific, causes of failure keeps its stronger grade.
+- **Issue trees do not catch what is missing.** The issue-tree evidence page said decomposition tends to reduce omission errors, with no source. A 1978 study found that people judging a fault tree were "quite insensitive to what had been left out", so the page now says that instead.
+- **The pyramid principle's evidence is mixed.** The page called its comprehension findings well-established. It now reports a mixed record. Readers recalled more of a text's topics when the introduction stated them. A business-writing style sped reading and improved comprehension, but it did not improve the decisions readers made.
+
+### For builders and contributors
+
+- **The confirm-note baseline is 0.** Every "confirm before a public claim" note is now a dated check, so any new one fails the gate.
+- **Wave-4 research records are current.** The committed brief carries the text that was actually sent to the research tools, and the backlog records that the research ran.
+
 ## v0.18.5
 
 **Nine deferred source checks are done, and one changed what the premortem's evidence is said to show.** No new frameworks and no evidence-grade changes; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.

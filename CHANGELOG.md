@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.18.6] - 2026-10-19
+
+**The last two deferred "confirm before a public claim" notes are resolved, and the premortem's confidence effect is graded M (#189-#191).** The issue-tree dossier drops an unsourced claim that decomposition reduces omission errors, and adds a fault-tree finding that points the other way. The pyramid-principle dossier reports its comprehension evidence as a mixed record. The premortem lowered confidence in a deliberately flawed plan in one study, so that effect is graded M, not S-leaning, in all six places that stated it. The confirm-note baseline drops from 2 to 0. The committed wave-4 brief now carries the sentence that was sent (#192), and the backlog records that the wave-4 research ran (#193). No new skills and no governing-tier changes; the catalog stays 56 core + 7 contested.
+
+**Why a patch.** These are evidence corrections in existing skills and internal records, with no catalog or capability change. Installed files changed in four skills: `think-premortem` (its `SKILL.md` Evidence section and `evidence/dossier.md`), `think-issue-tree` and `think-pyramid-principle` (`evidence/dossier.md` only), and `think-framework-advisor` (`references/EXAMPLE.md`). No `eval/cases.md` or `recommendable.json` changed. The premortem library page (`frameworks/premortem/dossier.md`) and the Brainshelf showcase changed as well, and the docs site already shows them. Installed copies read the old text, including the premortem's "reduces overconfidence in a plan", until the marketplace pin moves.
+
+**Standard re-pin review (release-process step 33): both dials held.** Toolkit `main` is still `f35f9f9`, unchanged since the v0.18.4 cut, at Standard 0.17. The pinned run returns advanced / 0 errors / 89 warnings.
+
 ### Changed
 
 - **The backlog records that the wave-4 research ran (#193).** The maintainer ran the brief through Claude, ChatGPT and Gemini on 2026-10-19. The outputs are saved in `_local/research/2026-10-19_2.35-wave4/`, not in `_local/ingest/`, where the research procedure says they go. The wave-4 "State" bullet in `docs/internal/backlog.md` now says both. Internal record only; no installed file changed.
@@ -745,7 +753,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.5...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.6...HEAD
+[0.18.6]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.5...v0.18.6
 [0.18.5]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.4...v0.18.5
 [0.18.4]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.3...v0.18.4
 [0.18.3]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.2...v0.18.3
