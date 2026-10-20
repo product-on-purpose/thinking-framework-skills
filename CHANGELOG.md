@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+
+- **The backlog records that the wave-4 research ran (#193).** The maintainer ran the brief through Claude, ChatGPT and Gemini on 2026-10-19. The outputs are saved in `_local/research/2026-10-19_2.35-wave4/`, not in `_local/ingest/`, where the research procedure says they go. The wave-4 "State" bullet in `docs/internal/backlog.md` now says both. Internal record only; no installed file changed.
+
 ### Fixed
 
 - **The issue-tree dossier no longer says decomposition reduces omission errors (#189).** The claim had no source, and the research found on omission points the other way: people judging a fault tree were "quite insensitive to what had been left out of a fault tree" (Fischhoff, Slovic and Lichtenstein 1978). The claim is gone, the finding is a new caveat, and the dossier's confirm note is now a dated check. The confirm-note baseline drops from 2 to 1. The tier stays P.
