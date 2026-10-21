@@ -64,8 +64,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-09-13
-  output_eval_status: measured-2026-09-12
+  trigger_eval_status: measured-2026-10-20
+  output_eval_status: measured-2026-10-20
   known_failure_modes:
     - manufacturing integrative options on a genuinely single-issue distributive haggle
     - assuming good faith and coaching exploitable interest disclosure against a bad-faith counterparty

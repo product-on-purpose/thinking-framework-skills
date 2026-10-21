@@ -63,8 +63,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-09-13
-  output_eval_status: measured-2026-09-12
+  trigger_eval_status: measured-2026-10-20
+  output_eval_status: measured-2026-10-20
   known_failure_modes:
     - treating the four worlds as probabilities and acting on the most likely quadrant
     - collapsing a rich driving-force field to two axes for neatness, discarding the interactions that matter

@@ -52,8 +52,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-09-13
-  output_eval_status: measured-2026-09-12
+  trigger_eval_status: measured-2026-10-20
+  output_eval_status: measured-2026-10-20
   known_failure_modes:
     - reversing trivial assumptions rather than the load-bearing ones
     - ideas not genuinely tied to the reversal

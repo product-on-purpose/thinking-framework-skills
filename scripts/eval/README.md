@@ -26,6 +26,8 @@ The router agents never see which skill authored a case or what the expected ans
 > - **Consequence for closing the loop:** never cure a miss by adding a "Should NOT trigger" case. It would be published into the very catalog it is scored against. The fix options (a hold-out split in `cases.md`, or anti-triggers sourced from somewhere other than the eval cases) are a design decision, recorded in `docs/internal/backlog.md`.
 >
 > **Decided 2026-10-17:** the maintainer kept the qualifier (option 4) and chose to run the `anti_triggers`-only A/B arm (option 1) the next time a trigger eval runs anyway, rather than as a run of its own.
+>
+> **Ran 2026-10-20:** with `anti_triggers` removed, the anti cases still drew **0 false fires on 379 of 379**, so the zero-false-fire figure is not an artifact of the leak. Right-alternatives fell from 141/144 to 137/144. Scored on the same answer key, two runs of the shipped corpus differ by one case (140/144 on 2026-09-13, 141/144 on 2026-10-20), so the leak probably supplies about three right-alternative answers, and 137/144 is the closed-book figure. The record is [`docs/internal/experiments/2026-10-20-anti-triggers-closed-book.md`](../../docs/internal/experiments/2026-10-20-anti-triggers-closed-book.md).
 
 ### Widening an answer key
 
@@ -137,6 +139,23 @@ After a write-back, re-run only the touched skills and their confusion partners,
   - *"Just tell me the single best pricing model for us."* The key says `decision-option-review`.
 
 The premortem / authentic-dissent seam that the 2026-06-25 run found (SPEC-04, B-02) does not recur in the 2026-09-13 run, so it needed no write-back.
+
+### Known ambiguities (from the 2026-10-20 trigger run)
+
+`list-misses` reports 3 misses, and all three recur from the 2026-09-13 list above. None warranted a write-back.
+
+- **The three widened keys now pass.** The router picked `process-tracing`, `red-team-light` and `premortem` for the three cases, and each answer is in the key widened on 2026-10-17.
+- **Three of the four "just tell me" declines recur.** These are the `scenario-planning`, `one-way-vs-two-way-door` and `decision-option-review` prompts listed above, and each answered "none" again. The fourth, *"Just multiply some made-up odds..."*, routed to `reference-class-forecasting` this time, so that case moves between runs.
+
+### Output misses (from the 2026-10-20 output run)
+
+`list-misses` reports 3 failed checks out of 429. The run is the first on `claude-opus-5-5`, for both the producer and the judge. Each failed check passed in every earlier output run of its skill, and each `SKILL.md` instructs the checked behaviour, so all three are recorded here. No `SKILL.md` edit came out of this review.
+
+- **`five-whys`, "name no countermeasure when the chain branched".** The artifact flagged branches and redirected to `think-issue-tree`, then still offered a hedged countermeasure twice. `SKILL.md` step 6 says to name one "only if the chain held as `[single cause]` throughout". Passed 3 of 3 earlier runs. The judge noted that the skill's own quality checklist is softer: it says no countermeasure is "forced", where the eval check says "name no countermeasure". Aligning the two wordings is a maintainer edit, not a loop step.
+- **`one-way-vs-two-way-door`, "for borderline cases name which way it leans".** The artifact named the deciding dimension but declined to lean. `SKILL.md` step 3 instructs both, in those words. Passed 4 of 4 earlier runs.
+- **`pairwise-comparison`, "apply the question identically to every pair".** The artifact stated the question once, then judged two pairs for one reader and a third for another. `SKILL.md` step 1 and its quality checklist both instruct one question for every pair. Passed this check in 4 of 4 earlier runs; a different check failed on 2026-06-17.
+
+**No output check has failed twice.** Across every output scorecard from 2026-06-10 to 2026-10-20, 16 distinct checks failed, and none failed in a second run. Every 2026-09-12 failure passed on 2026-10-20, including the two whose check wording changed on 2026-10-17. The failures scatter across skills from run to run, which is what run-to-run variation looks like. The match is on each check's wording, so a reworded check could hide a repeat.
 
 ### Output misses: the same rule, with a different write-back
 
