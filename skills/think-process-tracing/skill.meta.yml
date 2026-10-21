@@ -63,8 +63,8 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-09-13
-  output_eval_status: measured-2026-09-12
+  trigger_eval_status: measured-2026-10-20
+  output_eval_status: measured-2026-10-20
   known_failure_modes:
     - picking the explanation with the most supporting items instead of weighing each item by diagnosticity
     - assigning a test type (e.g. "smoking gun") after seeing the evidence, inflating its diagnosticity

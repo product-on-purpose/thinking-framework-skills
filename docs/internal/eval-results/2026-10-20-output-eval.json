@@ -1,0 +1,472 @@
+{
+  "generated": "OUTPUT eval",
+  "skills": 63,
+  "totals": {
+    "checks": 429,
+    "passed": 426,
+    "passPct": 99.3,
+    "perfectSkills": 60,
+    "failedChecks": 3
+  },
+  "perSkill": {
+    "abstraction-laddering": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 4702,
+      "fails": []
+    },
+    "affinity-mapping": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 17610,
+      "fails": []
+    },
+    "after-action-review": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 8997,
+      "fails": []
+    },
+    "analysis-of-competing-hypotheses": {
+      "passed": 5,
+      "total": 5,
+      "artifactChars": 5916,
+      "fails": []
+    },
+    "argument-mapping": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 7972,
+      "fails": []
+    },
+    "assumption-reversal": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 6455,
+      "fails": []
+    },
+    "authentic-dissent": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 8293,
+      "fails": []
+    },
+    "backcasting": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 11829,
+      "fails": []
+    },
+    "belief-update-routine": {
+      "passed": 7,
+      "total": 7,
+      "artifactChars": 10939,
+      "fails": []
+    },
+    "boundary-critique": {
+      "passed": 7,
+      "total": 7,
+      "artifactChars": 8536,
+      "fails": []
+    },
+    "brainwriting": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 8578,
+      "fails": []
+    },
+    "causal-layered-analysis": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 11090,
+      "fails": []
+    },
+    "causal-loop-diagrams": {
+      "passed": 7,
+      "total": 7,
+      "artifactChars": 9839,
+      "fails": []
+    },
+    "complexity-domain-sort": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 6893,
+      "fails": []
+    },
+    "concept-mapping": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 9835,
+      "fails": []
+    },
+    "consider-the-unknowns": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 9429,
+      "fails": []
+    },
+    "contradiction-resolution": {
+      "passed": 7,
+      "total": 7,
+      "artifactChars": 9145,
+      "fails": []
+    },
+    "contradiction-tension-mapping": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 12383,
+      "fails": []
+    },
+    "decision-journal": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 9777,
+      "fails": []
+    },
+    "decision-option-review": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 8430,
+      "fails": []
+    },
+    "dialectical-bootstrapping": {
+      "passed": 9,
+      "total": 9,
+      "artifactChars": 10072,
+      "fails": []
+    },
+    "eisenhower-moscow-pareto": {
+      "passed": 5,
+      "total": 5,
+      "artifactChars": 7757,
+      "fails": []
+    },
+    "ethical-matrix": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 14092,
+      "fails": []
+    },
+    "evidence-vs-inference-sort": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 6950,
+      "fails": []
+    },
+    "expected-value-decision-tree": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 13849,
+      "fails": []
+    },
+    "far-analogy-ideation": {
+      "passed": 5,
+      "total": 5,
+      "artifactChars": 5972,
+      "fails": []
+    },
+    "fermi-estimation": {
+      "passed": 7,
+      "total": 7,
+      "artifactChars": 9325,
+      "fails": []
+    },
+    "five-whys": {
+      "passed": 5,
+      "total": 6,
+      "artifactChars": 7609,
+      "fails": [
+        "Aim one countermeasure at the terminal node when the chain is single-cause; when it branched, name no countermeasure and hand the problem to think-issue-tree instead."
+      ]
+    },
+    "frame-creation": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 12479,
+      "fails": []
+    },
+    "futures-wheel": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 7686,
+      "fails": []
+    },
+    "iceberg-model": {
+      "passed": 7,
+      "total": 7,
+      "artifactChars": 7809,
+      "fails": []
+    },
+    "interest-based-negotiation": {
+      "passed": 9,
+      "total": 9,
+      "artifactChars": 16391,
+      "fails": []
+    },
+    "interval-calibration-check": {
+      "passed": 7,
+      "total": 7,
+      "artifactChars": 10308,
+      "fails": []
+    },
+    "issue-tree": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 17065,
+      "fails": []
+    },
+    "ladder-of-inference-check": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 4763,
+      "fails": []
+    },
+    "linear-model-aggregation": {
+      "passed": 7,
+      "total": 7,
+      "artifactChars": 7079,
+      "fails": []
+    },
+    "minimax-regret": {
+      "passed": 10,
+      "total": 10,
+      "artifactChars": 10184,
+      "fails": []
+    },
+    "morphological-analysis": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 17366,
+      "fails": []
+    },
+    "natural-frequency-bayesian": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 6009,
+      "fails": []
+    },
+    "one-way-vs-two-way-door": {
+      "passed": 5,
+      "total": 6,
+      "artifactChars": 7942,
+      "fails": [
+        "Render a verdict (one-way / two-way door) that follows from those dimensions, and for borderline cases name which way it leans and the single dimension that decides it."
+      ]
+    },
+    "pairwise-comparison": {
+      "passed": 7,
+      "total": 8,
+      "artifactChars": 7109,
+      "fails": [
+        "State the single comparative question once and apply it identically to every pair."
+      ]
+    },
+    "parallel-perspectives-review": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 4803,
+      "fails": []
+    },
+    "premortem": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 13112,
+      "fails": []
+    },
+    "problem-restatement": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 5125,
+      "fails": []
+    },
+    "process-tracing": {
+      "passed": 9,
+      "total": 9,
+      "artifactChars": 16712,
+      "fails": []
+    },
+    "pyramid-principle": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 11391,
+      "fails": []
+    },
+    "qualitative-comparative-analysis": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 6414,
+      "fails": []
+    },
+    "question-burst": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 3517,
+      "fails": []
+    },
+    "red-team-light": {
+      "passed": 7,
+      "total": 7,
+      "artifactChars": 7417,
+      "fails": []
+    },
+    "reference-class-forecasting": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 10253,
+      "fails": []
+    },
+    "reflective-equilibrium": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 14341,
+      "fails": []
+    },
+    "role-storming": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 8591,
+      "fails": []
+    },
+    "scamper": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 8014,
+      "fails": []
+    },
+    "scenario-planning": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 17443,
+      "fails": []
+    },
+    "speculative-harms-anti-goals": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 16299,
+      "fails": []
+    },
+    "stocks-and-flows-reasoning": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 5461,
+      "fails": []
+    },
+    "swot": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 7625,
+      "fails": []
+    },
+    "theory-of-constraints": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 12193,
+      "fails": []
+    },
+    "three-horizons": {
+      "passed": 10,
+      "total": 10,
+      "artifactChars": 10737,
+      "fails": []
+    },
+    "veil-of-ignorance-reasoning": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 16063,
+      "fails": []
+    },
+    "walton-argumentation-schemes": {
+      "passed": 8,
+      "total": 8,
+      "artifactChars": 10321,
+      "fails": []
+    },
+    "what-would-have-to-be-true": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 7344,
+      "fails": []
+    },
+    "woop": {
+      "passed": 6,
+      "total": 6,
+      "artifactChars": 2257,
+      "fails": []
+    }
+  },
+  "provenance": {
+    "corpus": "all 63 shipped skills, 429 checks, extracted by scripts/eval/extract-output.mjs at 6017c7e",
+    "run_window": "launched and completed 2026-10-20 (1h 32m wall clock, 126 agents, 0 agent errors, 0 empty results, 9.57M subagent tokens)",
+    "judge": "verifying judge - scripts/eval/output.workflow.mjs, whose judge prompt is unchanged since PR #126; producer and judge both ran on args.model opus",
+    "comparability": "A new baseline on a new model, NOT a reproduction of the 2026-09-12 run. THREE variables moved: (1) the model, claude-opus-5 to claude-opus-5-5, for both producer and judge; (2) more than 30 SKILL.md and references/TEMPLATE.md files changed between the two runs; (3) two check wordings changed on 2026-10-17 (affinity-mapping check 1, interval-calibration-check check 3). The movement from 424/429 to 426/429 cannot be attributed to any one of them.",
+    "misses": "3 failed checks (five-whys, one-way-vs-two-way-door, pairwise-comparison). Each skill passed the same check in every earlier output run, and across every output scorecard since 2026-06-10 no check has failed twice (16 distinct failures, matched on check wording). The decisions are in scripts/eval/README.md, 'Output misses (from the 2026-10-20 output run)'.",
+    "model": "claude-opus-5-5",
+    "modelTier": "opus",
+    "casesSha": "52ac650e7bdd",
+    "skillCasesSha": {
+      "abstraction-laddering": "c3d09d6f4717",
+      "affinity-mapping": "7e97d57fce59",
+      "after-action-review": "91726fb87171",
+      "analysis-of-competing-hypotheses": "67312e445103",
+      "argument-mapping": "455566bf79bc",
+      "assumption-reversal": "d4ea341faa7d",
+      "authentic-dissent": "b6eb50e2966f",
+      "backcasting": "1125e6b1157a",
+      "belief-update-routine": "086f36132df9",
+      "boundary-critique": "f60f9bb2eb20",
+      "brainwriting": "0e92c67d14f3",
+      "causal-layered-analysis": "72cb8119197a",
+      "causal-loop-diagrams": "0acfe0ac8f92",
+      "complexity-domain-sort": "cd4b7066a65c",
+      "concept-mapping": "882942825429",
+      "consider-the-unknowns": "529d38157e6a",
+      "contradiction-resolution": "06689d13edf2",
+      "contradiction-tension-mapping": "17c730840a76",
+      "decision-journal": "bcad4dc61764",
+      "decision-option-review": "1cf13ecda4fe",
+      "dialectical-bootstrapping": "d8fb55ffba24",
+      "eisenhower-moscow-pareto": "dae6e72199ae",
+      "ethical-matrix": "0754ce0dfd4c",
+      "evidence-vs-inference-sort": "0a4413d0cece",
+      "expected-value-decision-tree": "4c2545bf76ec",
+      "far-analogy-ideation": "e8687ec4b583",
+      "fermi-estimation": "c6f01bfb70af",
+      "five-whys": "3faf75e49aff",
+      "frame-creation": "6f3e705a633f",
+      "futures-wheel": "7ff4d11654cc",
+      "iceberg-model": "4150dac3be5b",
+      "interest-based-negotiation": "c94a1ca1c2d3",
+      "interval-calibration-check": "0c616d2eca9e",
+      "issue-tree": "91427c3601f0",
+      "ladder-of-inference-check": "be51444c3444",
+      "linear-model-aggregation": "a3e5c4ad8c41",
+      "minimax-regret": "8c96d49a78d6",
+      "morphological-analysis": "fbdab97437dd",
+      "natural-frequency-bayesian": "31373ea57240",
+      "one-way-vs-two-way-door": "5d62aff9a35d",
+      "pairwise-comparison": "112200444698",
+      "parallel-perspectives-review": "38dea9123d9b",
+      "premortem": "1c7339f8faf8",
+      "problem-restatement": "d17c5927b6bb",
+      "process-tracing": "f40761f48dfa",
+      "pyramid-principle": "19794f364079",
+      "qualitative-comparative-analysis": "66e45a01066a",
+      "question-burst": "4d77b022ed7a",
+      "red-team-light": "510620d8b806",
+      "reference-class-forecasting": "06cee80e2b3e",
+      "reflective-equilibrium": "9272a5c17095",
+      "role-storming": "b80c5e4b0bf1",
+      "scamper": "3b95d18ca857",
+      "scenario-planning": "4374ac7a5637",
+      "speculative-harms-anti-goals": "152cf49d9550",
+      "stocks-and-flows-reasoning": "c13bd4cd87ad",
+      "swot": "d8aa5f20880c",
+      "theory-of-constraints": "21211bde7218",
+      "three-horizons": "c05967479f44",
+      "veil-of-ignorance-reasoning": "8dd8878657ec",
+      "walton-argumentation-schemes": "ad1ae3212897",
+      "what-would-have-to-be-true": "879ba757b96b",
+      "woop": "d238a58c538b"
+    }
+  }
+}

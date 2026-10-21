@@ -52,8 +52,8 @@ relationships:
     - "named protocol: WOOP (Wish-Outcome-Obstacle-Plan)"
 
 quality:
-  trigger_eval_status: measured-2026-09-13
-  output_eval_status: measured-2026-09-12
+  trigger_eval_status: measured-2026-10-20
+  output_eval_status: measured-2026-10-20
   known_failure_modes:
     - skipping the obstacle (outcome-only positive fantasy, which backfires)
     - naming an external blocker instead of the internal obstacle
