@@ -55,10 +55,11 @@ const escapePipes = (s) => String(s).replace(/\|/g, '\\|');
 // --- view 1: framework-catalog.md family tables -----------------------------
 function statusCell(e) {
   const tag = `\`[${e.status}]\``;
-  if (e.status === 'fold' && e.foldInto) return `${tag} -> ${escapePipes(displayName(e.foldInto))}`;
+  const pre = e.preliminary ? ' (preliminary)' : '';
+  if (e.status === 'fold' && e.foldInto) return `${tag} -> ${escapePipes(displayName(e.foldInto))}${pre}`;
   if (e.status === 'recipe') return `${tag} (ships as a workflow)`;
-  if (e.branded) return `${tag} (branded)`;
-  return tag;
+  if (e.branded) return `${tag} (branded)${pre}`;
+  return `${tag}${pre}`;
 }
 
 function renderCatalogRegion() {
@@ -113,6 +114,9 @@ function whyNotEntryLine(e) {
   }
   if (e.branded && e.trademark) {
     line += ` (Branded: ${e.trademark}.)`;
+  }
+  if (e.preliminary) {
+    line += ' *Preliminary: admitted from a research wave and not yet vetted by the research engine.*';
   }
   return line;
 }

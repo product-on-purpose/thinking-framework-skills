@@ -80,7 +80,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Is / Is Not analysis | sharpen scope by what the problem is and is not | P | `[fold]` -> Problem Restatement |
 | Frame storming | brainstorm the framing, not the solution | P | `[fold]` -> Problem Restatement |
 | Five Whys | iterative why to trace a cause | X | `[shipped]` |
-| Tetralemma | before treating a choice as either-or, place it among four positions (this, that, both, neither) and ask whether none of the framings fits | A | `[fold]` -> Contradiction / Tension Mapping (Polarity Mapping) |
+| Tetralemma | before treating a choice as either-or, place it among four positions (this, that, both, neither) and ask whether none of the framings fits | A | `[fold]` -> Contradiction / Tension Mapping (Polarity Mapping) (preliminary) |
 
 ## 4. Assumption and belief challenge
 
@@ -101,10 +101,10 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Consider the unknowns | before committing to a judgment, explicitly list the relevant variables you cannot observe and weigh the gap they leave | M | `[shipped]` |
 | Ideological Turing Test | state an opposing view well enough that its holders cannot tell you are not one of them | C | `[fold]` -> Red Team / Blue Team |
 | Analysis of Competing Hypotheses (ACH) | score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence | X | `[shipped]` |
-| Draft-blind verification | check a draft's claims in a fresh pass that cannot see the draft: list the claims, answer a verification question for each independently, then reconcile | C | `[cand]` |
-| Linear Sequential Unmasking (sequential evaluation) | record a judgment from the task-relevant evidence before any biasing context is revealed, then reveal the context in a fixed order and allow a change only for a named reason | C | `[fold]` -> Belief-update routine |
-| E-Prime translation | restate each 'X is Y' conclusion without any form of the verb to be, so that it says who observed what | A | `[fold]` -> Evidence vs Inference Sort |
-| Structured Self-Critique | have the team that produced an analysis critique it against a fixed set of questions about its sources, assumptions and alternative outcomes before it is finalized | P | `[fold]` -> Red Team / Blue Team |
+| Draft-blind verification | check a draft's claims in a fresh pass that cannot see the draft: list the claims, answer a verification question for each independently, then reconcile | C | `[cand]` (preliminary) |
+| Linear Sequential Unmasking (sequential evaluation) | record a judgment from the task-relevant evidence before any biasing context is revealed, then reveal the context in a fixed order and allow a change only for a named reason | C | `[fold]` -> Belief-update routine (preliminary) |
+| E-Prime translation | restate each 'X is Y' conclusion without any form of the verb to be, so that it says who observed what | A | `[fold]` -> Evidence vs Inference Sort (preliminary) |
+| Structured Self-Critique | have the team that produced an analysis critique it against a fixed set of questions about its sources, assumptions and alternative outcomes before it is finalized | P | `[fold]` -> Red Team / Blue Team (preliminary) |
 
 ## 5. Risk, failure, and resilience
 
@@ -118,7 +118,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Kill criteria / Tripwires | pre-decided stop signals and conditions | P | `[fold]` -> Premortem |
 | Regret minimization | choose the least-future-regret option (project to age 80, pick what you would most regret not trying) | P | `[fold]` -> One-way vs Two-way Door |
 | Pre-commitment / Ulysses contract | bind future behavior in advance against known weakness | P | `[fold]` -> WOOP / MCII |
-| Targeted Experience Narratives | before forecasting how an outcome will feel, read accounts from people who experienced it, chosen to target the specific forecasting error rather than to be representative | M | `[fold]` -> Reference Class Forecasting |
+| Targeted Experience Narratives | before forecasting how an outcome will feel, read accounts from people who experienced it, chosen to target the specific forecasting error rather than to be representative | M | `[fold]` -> Reference Class Forecasting (preliminary) |
 
 ## 6. Systems and consequences
 
@@ -137,9 +137,9 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Process tracing | test rival causal explanations of a single case by each piece of evidence's diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests) | P | `[shipped]` |
 | System archetypes | match a recurring dynamic to a named feedback-structure template (fixes that fail, shifting the burden, tragedy of the commons) and import its canonical leverage prescription | C | `[fold]` -> Causal Loop Diagrams |
 | Qualitative Comparative Analysis (QCA) | code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome | P | `[shipped]` |
-| Causal DAG adjustment check | draw the causal graph behind an observational claim, then decide which variables the comparison must adjust for and which (colliders, mediators) it must not | P | `[cand]` |
-| Necessary Condition Analysis | test whether a condition is necessary for an outcome, and at what level, by looking for an empty ceiling zone in the data | C | `[fold]` -> Qualitative Comparative Analysis (QCA) |
-| Cross-Impact Analysis | rate how each possible development raises or lowers the likelihood of each other one, then read which combinations hang together | P | `[fold]` -> Morphological analysis |
+| Causal DAG adjustment check | draw the causal graph behind an observational claim, then decide which variables the comparison must adjust for and which (colliders, mediators) it must not | P | `[cand]` (preliminary) |
+| Necessary Condition Analysis | test whether a condition is necessary for an outcome, and at what level, by looking for an empty ceiling zone in the data | C | `[fold]` -> Qualitative Comparative Analysis (QCA) (preliminary) |
+| Cross-Impact Analysis | rate how each possible development raises or lowers the likelihood of each other one, then read which combinations hang together | P | `[fold]` -> Morphological analysis (preliminary) |
 
 ## 7. Decision and option evaluation
 
@@ -162,7 +162,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Mechanical / linear-model aggregation | combine cues with a simple fixed formula instead of holistic judgment | S | `[shipped]` |
 | Dialectical bootstrapping | estimate, assume the estimate is wrong and list why, estimate again from those changed assumptions, then average the two numbers | M | `[shipped]` |
 | Interest-based negotiation (BATNA / principled negotiation) | separate both sides' interests from their positions, decide against your BATNA inside the mapped ZOPA, and invent options for mutual gain across differently-valued issues before dividing value | P | `[shipped]` |
-| Objectives-first alternative generation | before listing options, elicit the decision's fundamental objectives and separate them from means objectives, then generate alternatives from each objective | M | `[cand]` |
+| Objectives-first alternative generation | before listing options, elicit the decision's fundamental objectives and separate them from means objectives, then generate alternatives from each objective | M | `[cand]` (preliminary) |
 
 ## 8. Strategy and opportunity
 
@@ -179,7 +179,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Blue Ocean tools | strategy canvas / four actions | V | `[flag]` (branded) |
 | Porter's Five Forces | competitive-structure scan | V | `[flag]` (branded) |
 | SWOT | strengths / weaknesses / opportunities / threats | X | `[shipped]` |
-| Robust Decision Making | start from a candidate strategy, search the space of futures for the conditions under which it fails, then adapt the strategy to those conditions | C | `[fold]` -> Scenario planning |
+| Robust Decision Making | start from a candidate strategy, search the space of futures for the conditions under which it fails, then adapt the strategy to those conditions | C | `[fold]` -> Scenario planning (preliminary) |
 
 ## 9. Synthesis and reasoning clarity
 
@@ -197,7 +197,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Argumentation schemes with critical questions | identify which stereotyped argument pattern is in play, then test it with that scheme's standard critical questions | P | `[shipped]` |
 | Toulmin argument model | lay out a claim as data, warrant, and backing, with qualifier and rebuttal, to test whether it holds | C | `[fold]` -> Argument Mapping |
 | Issue-Position-Argument mapping (IBIS) | capture a deliberation as a typed graph where positions may only answer issues and arguments may only support or attack positions | P | `[recipe]` (ships as a workflow) |
-| Lookahead search with backtracking (Tree of Thoughts) | explore several partial lines of reasoning, score each one, and back up from dead ends instead of committing to the first chain | C | `[cand]` |
+| Lookahead search with backtracking (Tree of Thoughts) | explore several partial lines of reasoning, score each one, and back up from dead ends instead of committing to the first chain | C | `[cand]` (preliminary) |
 
 ## 10. Facilitation and group structures
 
@@ -238,8 +238,8 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | DISC profile | classify behavioral style across dominance, influence, steadiness, conscientiousness | V | `[excl]` (branded) |
 | Enneagram of Personality | map a person to one of nine interconnected types with wings and stress / growth arrows | C | `[excl]` |
 | Learning-styles inventories | match instruction to a learner's preferred modality (visual, auditory, kinesthetic, and so on) | X | `[excl]` (branded) |
-| Hidden competing-commitments map (Immunity to Change) | map an improvement goal, the behaviors that work against it, the hidden commitments those behaviors serve and the big assumption behind them, then design a small, safe test of that assumption | A | `[cand]` (branded) |
-| Distanced self-reflection | reason about a problem that involves you as an outside observer would, describing your own situation in the third person | M | `[fold]` -> Parallel Perspectives Review |
+| Hidden competing-commitments map (Immunity to Change) | map an improvement goal, the behaviors that work against it, the hidden commitments those behaviors serve and the big assumption behind them, then design a small, safe test of that assumption | A | `[cand]` (branded) (preliminary) |
+| Distanced self-reflection | reason about a problem that involves you as an outside observer would, describing your own situation in the third person | M | `[fold]` -> Parallel Perspectives Review (preliminary) |
 
 ## 13. Ethics and values deliberation
 
@@ -249,7 +249,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Ethical Matrix | grid affected parties (rows, including voiceless ones) against prima facie principles (wellbeing, autonomy, fairness) and read the cell-level pattern of trade-offs | P | `[shipped]` |
 | Speculative harms and anti-goals | assume the design succeeds at scale, narrate the dystopian near-future in which it harms third parties and is exploited in bad faith, then convert each harm into an explicit anti-goal constraining the design | A | `[shipped]` |
 | Reflective equilibrium | iterate between case judgments and general principles, revising whichever fits worse, until they cohere | C | `[shipped]` |
-| Moral Foundations deliberation | add moral-foundations columns to a values analysis, so that each party's moral concerns are named rather than assumed | C | `[fold]` -> Ethical Matrix |
+| Moral Foundations deliberation | add moral-foundations columns to a values analysis, so that each party's moral concerns are named rather than assumed | C | `[fold]` -> Ethical Matrix (preliminary) |
 
 <!-- END GENERATED FRAMEWORK TABLES -->
 
