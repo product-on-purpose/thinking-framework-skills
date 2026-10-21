@@ -121,6 +121,25 @@ The implication for an agent running this routine: the under-updating guard has 
 also be too large when it follows the user's stated opinion rather than new evidence. These are
 preprints, not peer-reviewed studies.
 
+**Commit-first guard evidence (added 2026-10-20, verified first-hand).** The routine now seals a
+belief's confidence before new evidence or advice arrives, and allows a change only for a named new
+reason. Two sources ground that guard, one agent evidence and one human evidence.
+- **Agent evidence.** Laban, Murakhovs'ka, Xiong and Wu's FlipFlop experiment (arXiv:2311.08596,
+  preprint) tested ten language models on seven classification tasks. A bare "are you sure?" challenge,
+  with no new information, made models change their answer about 46% of the time, and every model's
+  accuracy fell, by 17% on average. This is the failure mode the named-reason rule targets: a model
+  moving its answer for social pressure alone.
+- **Human evidence.** Dror and Kukucka (2021), already cited above for Linear Sequential Unmasking, is
+  a protocol proposal, not an outcome test. Its article has no outcome data: it proposes an
+  information-sequencing approach for forensic experts and cites existing bias research to support it,
+  but it reports no trial of the protocol itself. It is evidence that the bias LSU targets is real, not
+  that the protocol fixes it.
+
+Reuse, not new evidence: the sycophantic-shift finding already recorded above (Atwell et al., BASIL,
+arXiv:2508.16846) is the other half of the guard's rationale - an update can be too large when it
+follows a stated opinion, not too small from social pressure to flip. Both Laban et al. and BASIL are
+preprints, and no study tests this routine's own commit-first guard directly.
+
 ## 5. When it works / when it fails (drives the eval negative cases)
 
 **Works best when:**
@@ -177,6 +196,14 @@ evolved" essay is not. It is designed to be reopened on the next cadence and re-
    pretrained models are more Bayes-coherent.
 7. Atwell, K., Heydari, P., Sicilia, A., & Alikhani, M. (2025), "BASIL: Bayesian Assessment of Sycophancy
    in LLMs", arXiv:2508.16846 (preprint) - robust sycophantic belief shifts.
+8. Laban, P., Murakhovs'ka, L., Xiong, C., & Wu, C.-S. (2023), "Are You Sure? Challenging LLMs Leads to
+   Performance Drops in The FlipFlop Experiment", arXiv:2311.08596 (preprint) - across ten language
+   models and seven classification tasks, a bare "are you sure?" challenge made models change their
+   answer about 46% of the time, and accuracy fell for every model, by 17% on average.
+9. Dror, I. E., & Kukucka, J. (2021), "Linear Sequential Unmasking-Expanded (LSU-E): A general approach
+   for improving decision making as well as minimizing noise and bias", *Forensic Science International:
+   Synergy* 3:100161 - a protocol proposal with no outcome test; it draws on existing cognitive research
+   to argue for the approach but reports no trial of it.
 
 > **Verification status:** citations 1, 2, and 4 are standard and well-attested in the judgment-and-
 > decision-making and forecasting literature. Citation 3 (Tappin/Pennycook/Rand) is a dispositional
