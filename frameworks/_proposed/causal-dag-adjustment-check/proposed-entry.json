@@ -1,0 +1,79 @@
+{
+  "slug": "causal-dag-adjustment-check",
+  "name": "Causal DAG adjustment check",
+  "family": "systems-and-consequences",
+  "tier": "P",
+  "status": "cand",
+  "verdict": "build",
+  "evalDate": "2026-10-20",
+  "oneLine": "draw the causal graph behind an observational claim, then decide which variables the comparison must adjust for and which (colliders, mediators) it must not",
+  "reasoning": "Vetted 2026-10-20 (think-research-framework, NAME mode): confirms cand / build / P. The durable move: draw the assumed acyclic causal graph behind an observational comparison, give each variable its structural role, and derive both what the comparison must adjust for (confounders) and what it must not (mediators, colliders, and a sample selected on a collider), stopping at the adjustment set and the assumptions it rests on. Not a fold. causal-loop-diagrams shares only the arrow-drawing step (roughly a tenth to a fifth of the mechanism): it must close and sign loops, reads dynamics, and its own When NOT excludes linear chains. walton-argumentation-schemes names argument from cause to effect; Walton's published critical question on whether another factor is at work (not re-checked here) is the confounder half only, and the skill routes statistical results out. process-tracing is one case and excludes cross-case claims, and evidence-vs-inference-sort labels claim type, not variable role. No shipped skill carries the collider or mediator rule, so no recipe produces it. The counterfactual-reasoning fold excludes the formal third-rung counterfactual; this is second-rung reasoning about structure, and the skill must never compute an effect, a probability or a counterfactual. pm-skills owns randomized experiments, so an experiment is the handoff, not a home. Graded P on the library's precedent (process-tracing, QCA and causal-loop-diagrams): widely used, formally correct, no controlled outcome study. Pearl (1995), Schisterman, Cole and Platt (2009) on overadjustment, and Elwert and Winship (2014) on collider bias establish validity and real harms, not better judgment; run C's S rests on that pedigree. Tennant et al. (2021) reviewed 234 applied health articles that used DAGs. C was considered and rejected: the move is tested in use and error-prone in one identifiable half. In Ellison (2021), 85 medical students rarely misclassified confounders but often misclassified mediators and competing exposures, and 50 of 66 DAG-informed models would have been biased (the abstract prints 76.8%, but 50 of 66 is 75.8%). People also deviate from explaining away and screening off, more so for verbally described scenarios (Rehder and Waldmann 2017). The agent line is mixed and cannot raise the grade. Graph-first prompting raised GPT-4 on CLadder to 70.40%, 8.37 points above plain GPT-4 (an earlier version reports 66.64%, a 2.36-point gain), on a numeric task that includes counterfactuals (Jin et al. 2023). Models were close to random on Corr2Cause (Jin et al. 2024) and mediocre at naming confounders against an expert key (Huntington-Klein and Murray 2024, preprint). Artifact: a causal adjustment audit. Hard wall: the arrows come from the user's stated knowledge or are flagged assumptions; the skill never invents an arrow, never certifies a claim, and reports any plausible alternative graph that changes the adjustment set. Transferred from human health research, not agent-validated, which caps the grade at P. Generic academic term, not branded.",
+  "attribution": "Judea Pearl (causal diagrams and the back-door criterion)",
+  "aliases": [
+    "causal DAG",
+    "directed acyclic graph",
+    "DAG causal mapping",
+    "back-door criterion check",
+    "confounder selection",
+    "collider check",
+    "overadjustment check",
+    "causal adjustment audit"
+  ],
+  "sources": [
+    {
+      "title": "Pearl (1995) - Causal diagrams for empirical research, Biometrika 82(4): 669-688",
+      "url": "https://doi.org/10.1093/biomet/82.4.669",
+      "kind": "foundational"
+    },
+    {
+      "title": "Schisterman, Cole and Platt (2009) - Overadjustment bias and unnecessary adjustment in epidemiologic studies, Epidemiology 20(4): 488-495",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2744485/",
+      "kind": "methodological"
+    },
+    {
+      "title": "Elwert and Winship (2014) - Endogenous selection bias: the problem of conditioning on a collider variable, Annual Review of Sociology 40: 31-53",
+      "url": "https://doi.org/10.1146/annurev-soc-071913-043455",
+      "kind": "review"
+    },
+    {
+      "title": "Tennant et al. (2021) - Use of directed acyclic graphs (DAGs) to identify confounders in applied health research: review and recommendations, International Journal of Epidemiology 50(2): 620-632",
+      "url": "https://doi.org/10.1093/ije/dyaa213",
+      "kind": "review"
+    },
+    {
+      "title": "Ellison (2021) - Might Temporal Logic Improve the Specification of Directed Acyclic Graphs (DAGs)?, Journal of Statistics and Data Science Education 29(2): 202-213",
+      "url": "https://doi.org/10.1080/26939169.2021.1936311",
+      "kind": "study"
+    },
+    {
+      "title": "Rehder and Waldmann (2017) - Failures of explaining away and screening off in described versus experienced causal learning scenarios, Memory & Cognition 45(2): 245-260",
+      "url": "https://www.psych.uni-goettingen.de/de/cognition/publikationen-dateien-waldmann/2017_rehderwaldmann_failures-of-explaining-away-and-screening-off-in-described-versus-experienced-causal-learning-scenarios-2.pdf",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Jin et al. (2023) - CLadder: Assessing Causal Reasoning in Language Models, NeurIPS 2023 (arXiv 2312.04350)",
+      "url": "https://arxiv.org/abs/2312.04350",
+      "kind": "benchmark"
+    },
+    {
+      "title": "Jin et al. (2024) - Can Large Language Models Infer Causation from Correlation?, ICLR 2024 (arXiv 2306.05836)",
+      "url": "https://arxiv.org/abs/2306.05836",
+      "kind": "benchmark"
+    },
+    {
+      "title": "Huntington-Klein and Murray (2024) - Do LLMs Act as Repositories of Causal Knowledge?, arXiv preprint 2412.10635",
+      "url": "https://arxiv.org/abs/2412.10635",
+      "kind": "study"
+    },
+    {
+      "title": "Aziz and Brookhart (2025) - Can Contemporary Large Language Models Provide the Domain Knowledge Needed for Causal Inference? An ASCVD case study, Clinical Epidemiology 17: 863-873",
+      "url": "https://scholars.duke.edu/publication/1691891",
+      "kind": "study"
+    },
+    {
+      "title": "Digitale, Martin and Glymour (2022) - Tutorial on directed acyclic graphs, Journal of Clinical Epidemiology 142: 264-267",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34371103/",
+      "kind": "practitioner-reference"
+    }
+  ]
+}

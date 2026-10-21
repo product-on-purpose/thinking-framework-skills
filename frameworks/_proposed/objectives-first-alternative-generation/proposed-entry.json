@@ -1,0 +1,73 @@
+{
+  "slug": "objectives-first-alternative-generation",
+  "name": "Objectives-first alternative generation",
+  "family": "decision-and-option-evaluation",
+  "tier": "M",
+  "status": "cand",
+  "verdict": "build",
+  "evalDate": "2026-10-20",
+  "oneLine": "before listing options, list the decision's objectives, challenge the list for completeness, keep the fundamental objectives apart from the means, then generate alternatives from each fundamental objective in turn",
+  "reasoning": "Re-vetted 2026-10-20 (think-research-framework). The wave-4 build verdict and the M grade hold, on a replaced distinctness argument and a fuller evidence split. The added move is a completeness challenge on the decision's objectives before any option exists (a warning that objectives get missed, then a recognition check against categories or a master list), followed by using each fundamental objective, alone, as a generator of alternatives. No shipped skill has either half. The prior row's reason against a fold, that a fold 'would change that skill's scope', is scope-drawing and is replaced by a mechanism argument. Decision-option-review lists options at step 1 and has no step that elicits objectives or generates options, so a fold would graft a generation stage onto an evaluation skill, the bundle shape the library made a recipe for Kepner-Tregoe. No chain of shipped skills produces the move: abstraction-laddering then decision-option-review gives one purpose chain from one entry rung, and criteria for options that already exist. The largest overlap is abstraction-laddering's 'why' question inside the means-ends sort, about a fifth. The skill stays under the ceiling only if that sort remains one 'why does this matter?' test per objective, with altitude questions routed to abstraction-laddering. Walls: it never scores or chooses (decision-option-review runs afterwards), and it never combines alternatives into configurations (morphological-analysis; Keeney's strategy tables are a Zwicky box). Graded M, narrow, with the honest read split by step. Objective completeness is M and independently replicated. People 'consistently omitted nearly half of the objectives' they later recognized, and the omitted ones were 'almost as important' (Bond, Carlson and Keeney 2008, three studies and a field case). A direct challenge with a warning, and category names, helped most (Bond, Carlson and Keeney 2010). Haag, Zürcher and Lienert (2019) replicated the need with stakeholders in real planning decisions, where a master list helped, and León (1999) found value-focused thinking more inclusive, seen only through a secondary summary. Objective-cued generation is M, leaning lower. People found fewer than half of their alternatives, and objectives raised their number and quality (Siebert and Keeney 2015, five studies). Presenting objectives one at a time gave more, and more effective, solutions (Butler, Scherer and Reiter-Palmon 2003). But the value-focused condition produced fewer, more creative ideas in Selart and Johansen (2011), so the quantity effect is not uniform. The means-ends sort on its own is C, and better final decisions are not shown: Arvai, Gregory and McDaniels (2001) compared eight value-focused groups with six conventional ones. It is M rather than P because the counts and rated quality of the lists are the move's own claimed effect, the footing on which consider-the-unknowns ships at M. Run C's S does not hold. Demotion trigger: if Siebert and Keeney's quality ratings were participants' self-ratings and no judge-rated gain exists, the governing grade becomes P; the abstract does not say who rated. The evidence is transferred from human studies, and the agent failure differs from the human one. Model objective sets are individually viable but 'highly flawed' as sets, and they include means objectives 'even when explicitly instructed not to' (Simon and Siebert 2025). So the skill needs a separate critique pass that strips means objectives, and the decision maker's own list comes before any model suggestion. The agent line neither raises nor lowers the human grade. Decision analysis is cross-domain (personal, corporate and public-planning decisions), so this is not a pm-skills method. IP: 'Value-Focused Thinking' is Keeney's term. A Justia record of USPTO data shows a Class 41 service mark (Reg. No. 1748989, correspondent Ralph L. Keeney), registered in 1993 and cancelled in 1999 under Section 8; the USPTO's own record was not read. No live mark is known, so the method is documented under the descriptive name and is not branded. Every quotation and finding here was checked on 2026-10-20 against abstract or publisher-release text returned by web search, without opening the pages directly, except the 'highly flawed' quotation, which rests on the 2026-10-19 abstract check. The dossier is staged at frameworks/_proposed/objectives-first-alternative-generation/dossier.md.",
+  "attribution": "Ralph L. Keeney (Value-Focused Thinking: A Path to Creative Decisionmaking, Harvard University Press, 1992)",
+  "aliases": [
+    "Value-Focused Thinking",
+    "VFT",
+    "objectives-first thinking",
+    "fundamental objectives hierarchy",
+    "objective elicitation",
+    "means-ends objectives network",
+    "objective-stimulated alternative generation"
+  ],
+  "sources": [
+    {
+      "title": "Bond, Carlson and Keeney (2008) - Generating Objectives: Can Decision Makers Articulate What They Want?, Management Science 54(1): 56-70",
+      "url": "https://doi.org/10.1287/mnsc.1070.0754",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Bond, Carlson and Keeney (2010) - Improving the Generation of Decision Objectives, Decision Analysis 7(3): 238-255",
+      "url": "https://doi.org/10.1287/deca.1100.0172",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "León (1999) - Value-Focused Thinking versus Alternative-Focused Thinking: Effects on Generation of Objectives, Organizational Behavior and Human Decision Processes 80(3): 213-227",
+      "url": "https://ideas.repec.org/a/eee/jobhdp/v80y1999i3p213-227.html",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Haag, Zürcher and Lienert (2019) - Enhancing the elicitation of diverse decision objectives for public planning, European Journal of Operational Research 279(3): 912-928",
+      "url": "https://doi.org/10.1016/j.ejor.2019.06.002",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Siebert and Keeney (2015) - Creating More and Better Alternatives for Decisions Using Objectives, Operations Research 63(5): 1144-1158",
+      "url": "https://doi.org/10.1287/opre.2015.1411",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Butler, Scherer and Reiter-Palmon (2003) - Effects of Solution Elicitation Aids and Need for Cognition on the Generation of Solutions to Ill-Structured Problems, Creativity Research Journal 15(2-3): 235-244",
+      "url": "https://doi.org/10.1080/10400419.2003.9651415",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Selart and Johansen (2011) - Understanding the role of value-focused thinking in idea management, Creativity and Innovation Management 20(3): 196-206",
+      "url": "https://doi.org/10.1111/j.1467-8691.2011.00602.x",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Arvai, Gregory and McDaniels (2001) - Testing a Structured Decision Approach: Value-Focused Thinking for Deliberative Risk Communication, Risk Analysis 21(6): 1065-1076",
+      "url": "https://ideas.repec.org/a/wly/riskan/v21y2001i6p1065-1076.html",
+      "kind": "group-comparison-study"
+    },
+    {
+      "title": "Simon and Siebert (2025) - ChatGPT vs. Experts: Can GenAI Develop High-Quality Organizational and Policy Objectives?, Decision Analysis",
+      "url": "https://doi.org/10.1287/deca.2025.0387",
+      "kind": "study"
+    },
+    {
+      "title": "Keeney (1996) - Value-focused thinking: Identifying decision opportunities and creating alternatives, European Journal of Operational Research 92(3): 537-549",
+      "url": "https://doi.org/10.1016/0377-2217(96)00004-5",
+      "kind": "foundational"
+    }
+  ]
+}

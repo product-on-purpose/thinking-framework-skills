@@ -1,0 +1,72 @@
+{
+  "slug": "draft-blind-verification",
+  "name": "Draft-blind verification",
+  "family": "assumption-and-belief-challenge",
+  "tier": "C",
+  "status": "cand",
+  "verdict": "build",
+  "evalDate": "2026-10-20",
+  "oneLine": "check a draft's claims in a fresh pass that cannot see the draft: list the claims, answer a verification question for each independently, then reconcile",
+  "reasoning": "Engine-vetted 2026-10-20 (think-research-framework). The wave-4 admission of 2026-10-19, decision D3 (admit draft-blind verification as a candidate), is kept as build at C, with three corrections. First, only one study tests the move itself. In Chain-of-Verification on Llama 65B, Wikidata precision was 0.36 (two-step) and 0.32 (factored), whose answering steps never see the draft, against 0.29 (joint), which does, and 0.17 (baseline). Biographies scored 63.7 (factored) against 60.8 (joint) and 55.9 (baseline), or 71.4 with factor-and-revise (Dhuliawala et al. 2024). No independent replication of that ablation was found. System 2 Attention (Weston and Sukhbaatar 2023, preprint; Weston also co-authored Chain-of-Verification) and SimToM (Wilf et al. 2024) verify no draft. Each removes input context in a separate pass and beats an in-context instruction (80.3% against 71.7%; 81.0 against 58.75). They are the direct evidence for the library-wide fresh-context rule (backlog decision D7), and they transfer here. Second, the two tasks split. The draft-visible joint variant took most of the Wikidata gain (0.17 to 0.29, of 0.17 to 0.36), but only about a third of the biography gain (55.9 to 60.8, of 55.9 to 71.4), where the blind and revise steps delivered the rest. Claim-level verification questions and blindness both carry part of the effect. A draft-visible claim check is therefore not red-team-light's move either, so distinctness does not rest on blindness alone. Third, D7 cannot deliver this move. D7 moves existing set-aside steps into a fresh context, and no shipped skill verifies claims. The closest skill, evidence-vs-inference-sort, shares the claim-listing step (about a fifth of the mechanism) and excludes fact-checking in its own When NOT to use. A fold there would change its scope, the wall that kept objectives-first-alternative-generation out of decision-option-review. Red-team-light attacks a thesis it must see and writes no verification questions; draft-visible Structured Self-Critique remains its fold. Dialectical-bootstrapping averages two numeric estimates and builds the second from the first by design. An independent group converges on detection: comparing a draft's sentences with independently sampled answers flags hallucinated ones (Manakul, Liusie and Gales 2023). Three more groups set the bounds. Intrinsic self-correction can hurt: GPT-3.5 fell from 75.8 to 41.8 on CommonSenseQA (Huang et al. 2024). GPT-4 self-critique sharply lowered performance on Game of 24, graph coloring and planning, while a sound external verifier raised it (Stechly, Valmeekam and Kambhampati 2025). A survey found prompted self-correction shown only 'in tasks that are exceptionally suited for self-correction' (Kamoi et al. 2024). Governing tier C, and it describes people: no study tests a person checking claims blind to their own draft. The nearest human evidence is null, not negative. A review of medication double checking found insufficient evidence that double beats single checking (Koyama et al. 2020), and observed checks were rarely independent (Westbrook et al. 2021). An instruction to disregard evidence did not fully remove its effect on verdicts (Steblay et al. 2006, 48 studies), so a person needs a second reader or a delay. The agent line is M, narrow (closed-book factual recall on 2023-era models), and it rests on one direct ablation; under the split rule it cannot raise the governing grade. The skill's When NOT to use must say that blinding adds no knowledge the model lacks, that the move is shown only for factual claims, and that without a fresh context it degrades to the joint variant. The Dhuliawala, Weston, Wilf and Huang figures were checked first-hand against the papers' tables on 2026-10-19 and were not re-seen in this run, except the 0.17 and 0.36 Wikidata figures, which were re-seen quoted from the paper's text. The other sources were seen at abstract level on 2026-10-20. Generic descriptive name; Chain-of-Verification, System 2 Attention, SimToM and SelfCheckGPT are paper names, not trademarks.",
+  "attribution": "Dhuliawala et al., Chain-of-Verification (Findings of ACL 2024)",
+  "aliases": [
+    "draft-blind claim verification",
+    "blind re-derivation check",
+    "independent factored verification",
+    "factored verification",
+    "Chain-of-Verification",
+    "CoVe"
+  ],
+  "sources": [
+    {
+      "title": "Dhuliawala et al. (2024) - Chain-of-Verification Reduces Hallucination in Large Language Models, Findings of ACL 2024",
+      "url": "https://doi.org/10.18653/v1/2024.findings-acl.212",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Manakul, Liusie and Gales (2023) - SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models, EMNLP 2023 (arXiv 2303.08896)",
+      "url": "https://arxiv.org/abs/2303.08896",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Weston and Sukhbaatar (2023) - System 2 Attention (is something you might need too), arXiv preprint 2311.11829",
+      "url": "https://arxiv.org/abs/2311.11829",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Wilf, Lee, Liang and Morency (2024) - Think Twice: Perspective-Taking Improves Large Language Models' Theory-of-Mind Capabilities, ACL 2024 (arXiv 2311.10227)",
+      "url": "https://aclanthology.org/2024.acl-long.451",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Huang et al. (2024) - Large Language Models Cannot Self-Correct Reasoning Yet, ICLR 2024 (arXiv 2310.01798)",
+      "url": "https://arxiv.org/abs/2310.01798",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Stechly, Valmeekam and Kambhampati (2025) - On the Self-Verification Limitations of Large Language Models on Reasoning and Planning Tasks, ICLR 2025 (arXiv 2402.08115)",
+      "url": "https://arxiv.org/abs/2402.08115",
+      "kind": "experimental-study"
+    },
+    {
+      "title": "Kamoi et al. (2024) - When Can LLMs Actually Correct Their Own Mistakes? A Critical Survey of Self-Correction of LLMs, Transactions of the ACL 12: 1417-1440",
+      "url": "https://aclanthology.org/2024.tacl-1.78",
+      "kind": "review"
+    },
+    {
+      "title": "Koyama et al. (2020) - Effectiveness of double checking to reduce medication administration errors: a systematic review, BMJ Quality and Safety 29(7): 595-603",
+      "url": "https://doi.org/10.1136/bmjqs-2019-009552",
+      "kind": "systematic-review"
+    },
+    {
+      "title": "Westbrook et al. (2021) - Associations between double-checking and medication administration errors: a direct observational study of paediatric inpatients, BMJ Quality and Safety 30(4): 320-330",
+      "url": "https://doi.org/10.1136/bmjqs-2020-011473",
+      "kind": "observational-study"
+    },
+    {
+      "title": "Steblay, Hosch, Culhane and McWethy (2006) - The Impact on Juror Verdicts of Judicial Instruction to Disregard Inadmissible Evidence: A Meta-Analysis, Law and Human Behavior 30(4): 469-492",
+      "url": "https://doi.org/10.1007/s10979-006-9039-7",
+      "kind": "meta-analysis"
+    }
+  ]
+}
