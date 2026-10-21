@@ -31,7 +31,7 @@ Most retrospectives are an unstructured "how did it go?" that produces venting a
 
 When asked to run an after-action review, follow these steps:
 
-1. **State what was expected.** The goal, the plan, and the predicted outcome going in. If it was not recorded, reconstruct it honestly and say you are doing so - do not back-fit it to the result.
+1. **State what was expected.** The goal, the plan, and the predicted outcome going in. If it was not recorded, reconstruct it. Where a fresh subagent is available, give it only the plan and the pre-event materials, never the actual outcome, and let it do the reconstruction there, since a subagent that never saw the result beats this context merely told not to back-fit to it; without one, reconstruct it here honestly, say you are doing so, and do not back-fit it to the result.
 2. **State what actually happened.** The real outcome, concretely, including what went better than expected, not only what went worse.
 3. **Diagnose the gaps.** For each meaningful difference (both directions), ask why - the actual cause, not the convenient one. Keep it blameless.
 4. **Capture what to sustain.** The things that worked and should be repeated. Do not skip this for the failures.

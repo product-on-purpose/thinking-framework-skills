@@ -34,7 +34,7 @@ When asked to forecast with the outside view, follow these steps:
 1. **State what is being forecast** (cost, duration, success odds) and the inside-view estimate if one exists.
 2. **Define the reference class.** Identify the set of genuinely comparable past cases, and say why they are comparable. Resist a class that is too narrow or too flattering.
 3. **Get the base rates.** State the distribution of outcomes for that class - typical and worst-case - with the data source. If real data is unavailable, say so explicitly and stop or downgrade to a clearly-flagged rough estimate; do not fabricate numbers.
-4. **Anchor on the outside view.** Set the estimate from the base-rate distribution, not the plan's details.
+4. **Anchor on the outside view.** Where a fresh subagent is available, give it the reference class and the base rates but never the plan's details, and let it set the anchor there, since a subagent that never saw the plan beats this context merely told to set it aside; without one, set the estimate here from the base-rate distribution, not the plan's details.
 5. **Adjust conservatively.** Only then adjust for genuine specifics, in small amounts, and resist sliding back to the optimistic inside view.
 6. **Emit the reference-class estimate** per `references/TEMPLATE.md`.
 

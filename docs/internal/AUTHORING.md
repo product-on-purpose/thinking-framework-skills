@@ -127,6 +127,20 @@ Sidecars once carried a per-skill `execution.subagent_suitable` field. It predat
 
 ---
 
+## Set-aside material: hand it to a fresh context (2026-10-20)
+
+A skill's procedure sometimes tells the agent to set material aside for a later judgment: an anchor, a prior estimate, an opinion, its own draft, a first framing, a favoured option. That later judgment must be free of the set-aside material. Where the host allows it, hand that judgment to a fresh context, a subagent or a separate pass, that never saw the material. An instruction to the same context to ignore it is weaker than genuine separation. Where no fresh context is available, keep the instruction to ignore, and say so in the skill's own voice.
+
+Three results support this, checked first-hand on 2026-10-19. See [`research/2026-10-19-wave4-external-research.md`](research/2026-10-19-wave4-external-research.md), "First-hand checks."
+
+- **System 2 Attention** (Weston and Sukhbaatar, 2023, arXiv 2311.11829). An instruction to ignore distracting text reached 71.7 percent accuracy. A separate rewrite pass that never saw the distracting text reached 80.3 percent.
+- **SimToM** (Wilf et al., 2024, ACL, arXiv 2311.10227). A single combined prompt reached 58.75 on ToMI with GPT-3.5. A separate perspective-taking pass reached 81.0.
+- **People**, not agents, show the same gap. Instructions to disregard evidence do not remove its influence (Steblay, Hosch, Culhane and McWethy, 2006, *Law and Human Behavior* 30(4):469-492, a meta-analysis of 48 studies).
+
+Applied 2026-10-20 to four skills: `think-brainwriting`, `think-veil-of-ignorance-reasoning`, `think-after-action-review`, and `think-reference-class-forecasting`. Two more skills need the same edit, `think-red-team-light` and `think-parallel-perspectives-review`. Another agent was editing both in parallel at the time, so the edit is recorded as a follow-up in `docs/internal/backlog.md`.
+
+---
+
 ## Guardrails (do not reproduce the stall)
 
 - A working session is not "done" unless it changed a file under `skills/` or committed product. Design-only sessions end by naming the single next build action, not a new decision.

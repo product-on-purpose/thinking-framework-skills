@@ -31,7 +31,7 @@ Verbal group brainstorming reliably underperforms: only one person talks at a ti
 When asked to brainwrite, follow these steps:
 
 1. **State the prompt** for ideation in one line.
-2. **Generate independent streams.** Produce 3 to 4 separate idea streams, each from a distinct angle, persona, or constraint, generated as if blind to the others. Keep them visibly separate. Aim for a quota per stream.
+2. **Generate independent streams.** Produce 3 to 4 separate idea streams, each from a distinct angle, persona, or constraint. Where a fresh subagent is available, generate each stream there, since a subagent that never saw the others beats this context merely told to act blind to them; without one, generate them here as if blind to the others. Keep them visibly separate. Aim for a quota per stream.
 3. **Build on, across streams.** Now combine and extend: take ideas from one stream and push them with another's logic. This is where brainwriting beats parallel lists.
 4. **Consolidate and de-duplicate.** Merge near-duplicates; keep the distinct ideas.
 5. **Shortlist.** Select the strongest ideas to carry forward, noting why.
