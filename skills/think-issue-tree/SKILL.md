@@ -34,10 +34,10 @@ When asked to build an issue tree, follow these steps:
 
 1. **State the root question precisely.** One clear question at the top. If it is already simple or one-step, say so and stop - a tree is not warranted.
 2. **Choose the top-level split axis, and justify it.** Decide the single dimension to break the root on (for example: by component, by cause type, by stage of the funnel, by lever). Name the axis and say in one line why this split is the material one. The wrong axis produces a tidy, useless tree.
-3. **Split into MECE children.** Make the children mutually exclusive (no two overlap) and collectively exhaustive (together they cover the whole parent). If exhaustiveness is hard, add an explicit "other / remainder" branch rather than silently dropping coverage.
+3. **Split into MECE children.** Make the children mutually exclusive (no two overlap) and collectively exhaustive (together they cover the whole parent). If exhaustiveness is hard, add an explicit "other / remainder" branch rather than silently dropping coverage. Treat that branch as a real leaf: name what could sit in it, and how much it could matter.
 4. **Recurse until leaves are answerable.** Break each child the same way, stopping a branch when its leaf is small enough to answer directly with data or judgment. Keep depth proportional to the stakes; do not over-split.
 5. **Make each leaf actionable.** For every leaf, state what would answer it: the data, metric, owner, or judgment call required. A leaf nobody can answer is not yet a leaf.
-6. **Prune and prioritize.** Cut branches that are exhaustive but not material. Mark the two or three leaves most likely to carry the answer, so the tree drives effort, not just coverage.
+6. **Prune and prioritize.** Cut branches that are exhaustive but not material. Mark the two or three leaves most likely to carry the answer, so the tree drives effort, not just coverage. Splitting a branch into finer pieces makes it look more important than it is. Do not let the most finely divided branch dominate this call because it has more sub-branches.
 7. **Emit the issue tree and a short summary.** Produce the artifact in `references/TEMPLATE.md`: a one-paragraph summary (root question, top-level split and why, which leaves matter most) above the tree.
 
 ## Output Format
@@ -58,7 +58,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **P** (practitioner). The issue tree is a widely taught, widely adopted structured-problem-solving method (Minto's *Pyramid Principle*; the McKinsey logic-tree tradition), and decomposition as a cognitive aid is plausible and partly supported in adjacent decision-analysis work. There is **no body of controlled studies** showing that drawing an issue tree produces measurably better or faster answers than not drawing one, and a MECE-clean tree split on the wrong axis can be tidy and useless. The value is coverage, tractability, and inspectability, not a proven lift in answer quality. Evidence is transferred from human practice, not AI-validated. Full grading, sources, and caveats: `evidence/dossier.md`.
+Tier **P** (practitioner). The issue tree is a widely taught, widely adopted structured-problem-solving method (Minto's *Pyramid Principle*; the McKinsey logic-tree tradition), and decomposition as a cognitive aid is plausible and partly supported in adjacent decision-analysis work. There is **no body of controlled studies** showing that drawing an issue tree produces measurably better or faster answers than not drawing one, and a MECE-clean tree split on the wrong axis can be tidy and useless. Splitting a branch into pieces also inflates its perceived importance, even though coverage has not changed (Fischhoff, Slovic and Lichtenstein 1978). Judgments also drift toward an even split across whatever partition is offered (Fox and Clemen 2005). The value is coverage, tractability, and inspectability, not a proven lift in answer quality. Evidence is transferred from human practice, not AI-validated. Full grading, sources, and caveats: `evidence/dossier.md`.
 
 ## Examples
 
