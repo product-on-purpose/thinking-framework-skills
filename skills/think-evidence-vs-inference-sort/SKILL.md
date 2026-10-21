@@ -34,7 +34,7 @@ When asked to sort evidence from inference, follow these steps:
 
 1. **Collect the claims.** Break the prompt, document, or proposed conclusion into discrete claims. Keep each to one assertion.
 2. **Label each claim.** Mark it **Evidence** (observed or verifiable, with a source), **Inference** (deduced from other claims), or **Assumption** (an unstated premise it depends on).
-3. **Record the basis.** For evidence, name the source or observation. For inference, name what it is inferred from. For assumption, state the premise plainly.
+3. **Record the basis.** For evidence, name the source or observation. For inference, name what it is inferred from. For assumption, state the premise plainly. Optional: for a claim stated as "X is Y," restate it as who observed what (for example, "the report says X," not "X is true"). Frame it as a wording aid, not a debiasing technique: a 2026 model replication found this exact rewrite the weakest of several wording constraints tested.
 4. **Rate inference confidence.** For each inference, assign high / medium / low and say why. Do not treat plausibility as verification.
 5. **Flag the gaps.** Mark anything presented as fact but uncited, and any load-bearing assumption that is unexamined.
 6. **Surface the load-bearing unknowns.** List the few unsupported claims that most need verification before the conclusion is trusted.
@@ -57,7 +57,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **P**. The evidence/inference distinction is a foundational critical-thinking competence (Facione, Delphi Report 1990), and explicit critical-thinking instruction shows moderate gains broadly (strongest for argument mapping, an adjacent technique). This specific "sort into a ledger" method is practitioner-grade, evidence is transferred from human contexts, and the skill verifies claim type, not truth. Full grading: `evidence/dossier.md`.
+Tier **P**. The evidence/inference distinction is a foundational critical-thinking competence (Facione, Delphi Report 1990), and explicit critical-thinking instruction shows moderate gains broadly (strongest for argument mapping, an adjacent technique). This specific "sort into a ledger" method is practitioner-grade, evidence is transferred from human contexts, and the skill verifies claim type, not truth. An optional "who observed what" rewrite, folded in from E-Prime translation (wave-4 decision D7), is graded A. A 2026 model replication found it the weakest of four wording constraints, not a debiasing technique. Full grading: `evidence/dossier.md`.
 
 ## Examples
 

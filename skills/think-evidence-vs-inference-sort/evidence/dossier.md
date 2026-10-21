@@ -52,5 +52,6 @@ An **evidence / inference ledger**: a table where each claim is tagged Evidence 
 1. Facione, P. A. (1990). *Critical Thinking: A Statement of Expert Consensus* (the Delphi Report) - evaluation vs inference as distinct skills.
 2. Structured analytic techniques literature (intelligence analysis) - separating evidence from judgment; key-assumptions checks.
 3. (Adjacent) van Gelder and others on argument mapping effect sizes - supports the broader critical-thinking competence, not this exact technique.
+4. Jehu-Appiah (2026), arXiv preprint 2604.02699, an active-control replication across six models: E-Prime beat a no-op control by only 3.7 points, the weakest of four wording constraints tested, while a filler-word ban did best (+6.7 points). Folded in on 2026-10-20 (wave-4 decision D7) as an optional "who observed what" rewrite prompt, framed as a wording aid, not a debiasing technique. Checked first-hand against the arXiv abstract on 2026-10-20.
 
-> **Verification status:** the Facione/Delphi distinction is well-attested. The argument-mapping effect sizes are adjacent evidence and should not be presented as evidence *for this technique* in any public claim; they support the family, not the sort.
+> **Verification status:** the Facione/Delphi distinction is well-attested. The argument-mapping effect sizes are adjacent evidence and should not be presented as evidence *for this technique* in any public claim; they support the family, not the sort. The Jehu-Appiah figures are from the arXiv abstract itself.
