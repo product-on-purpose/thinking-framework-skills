@@ -110,3 +110,34 @@ test("an empty or non-string alias is rejected", () => {
   assert.ok(validateEntry({ ...OK, aliases: [""] }, schema).some((p) => /empty or non-string alias/.test(p)));
   assert.ok(validateEntry({ ...OK, aliases: [42] }, schema).some((p) => /empty or non-string alias/.test(p)));
 });
+
+// preliminary: the generated views read only the field, so it must agree with the reasoning's
+// "Preliminary; pending deep-research vetting." sentence (the why-not page published nine
+// unvetted wave-4 folds as settled because no field existed).
+const PRELIM = { ...OK, reasoning: "Wave admission. Preliminary; pending deep-research vetting.", preliminary: true };
+
+test("a preliminary candidate whose reasoning says so is schema-valid", () => {
+  assert.deepEqual(validateEntry(PRELIM, schema), []);
+});
+
+test("a reasoning that says pending vetting without preliminary: true is rejected", () => {
+  const e = { ...PRELIM };
+  delete e.preliminary;
+  const problems = validateEntry(e, schema);
+  assert.ok(problems.some((p) => /lacks preliminary: true/.test(p)), problems.join("; "));
+});
+
+test("preliminary: true on a shipped entry is rejected", () => {
+  const problems = validateEntry({ ...PRELIM, status: "shipped", verdict: "shipped", evalCases: "skills/think-test-method/eval/cases.md" }, schema);
+  assert.ok(problems.some((p) => /shipped but marked preliminary/.test(p)), problems.join("; "));
+});
+
+test("preliminary: true with a reasoning that never says preliminary is rejected", () => {
+  const problems = validateEntry({ ...OK, preliminary: true }, schema);
+  assert.ok(problems.some((p) => /reasoning does not say so/.test(p)), problems.join("; "));
+});
+
+test("a reasoning that records the vetting as discharged needs no preliminary field", () => {
+  const e = { ...OK, reasoning: "Preliminary; pending deep-research vetting now discharged (vetted 2026-06-11)." };
+  assert.deepEqual(validateEntry(e, schema), []);
+});

@@ -95,6 +95,18 @@ export function validateEntry(e, schema) {
     if (!e.attribution) fail(`schema/IP: ${at} is branded but has no attribution.`);
     if (!e.trademark) fail(`schema/IP: ${at} is branded but has no trademark.`);
   }
+  // preliminary: the structured twin of the reasoning's "Preliminary; pending deep-research
+  // vetting." sentence. The generated views read only the field, so the two must agree, or a row
+  // the prose calls unvetted is published as settled (the why-not page did this from #195 on).
+  if (e.preliminary === true) {
+    if (e.status === 'shipped') fail(`schema: ${at} is shipped but marked preliminary; a built skill has been vetted.`);
+    if (typeof e.reasoning === 'string' && !/preliminary/i.test(e.reasoning)) {
+      fail(`schema: ${at} is marked preliminary but its reasoning does not say so.`);
+    }
+  }
+  if (typeof e.reasoning === 'string' && /Preliminary; pending deep-research vetting\.\s*$/.test(e.reasoning) && e.preliminary !== true) {
+    fail(`schema: ${at} reasoning says it is pending vetting, but it lacks preliminary: true, so the generated views would publish it as settled.`);
+  }
   if (e.caveatFirst === true) {
     if (!e.posture) fail(`schema: ${at} is caveatFirst but has no posture.`);
     if (!e.recommendationPolicy) fail(`schema: ${at} is caveatFirst but has no recommendationPolicy.`);

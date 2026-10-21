@@ -69,6 +69,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "move up (why) and down (how) to the right altitude",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-abstraction-laddering/"
     },
@@ -80,6 +81,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "cluster many notes into emergent themes (bottom-up)",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-affinity-mapping/"
     },
@@ -91,6 +93,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "expected vs actual -> why -> sustain/change",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-after-action-review/"
     },
@@ -102,6 +105,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "assumption-reversal",
+      "preliminary": false,
       "mechanism": "loosen functional fixedness; add/strip a constraint",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/alternate-uses-constraint-insertion-removal/"
     },
@@ -113,6 +117,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "score every piece of evidence against every hypothesis for its power to disprove, and favor the hypothesis with the least inconsistent evidence",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-analysis-of-competing-hypotheses/"
     },
@@ -124,6 +129,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "diagram claim, reasons, co-premises, objections",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-argument-mapping/"
     },
@@ -135,6 +141,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "negate foundational premises to generate options",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-assumption-reversal/"
     },
@@ -146,6 +153,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "engineer for genuine minority dissent (not role-played)",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-authentic-dissent/"
     },
@@ -157,6 +165,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "from a desired future, work back to the path",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-backcasting/"
     },
@@ -168,6 +177,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "map a team against nine complementary contribution roles to surface gaps and overlaps",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/belbin-team-roles/"
     },
@@ -179,6 +189,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "periodically revisit and update key beliefs vs new evidence",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-belief-update-routine/"
     },
@@ -190,6 +201,7 @@
       "status": "flag",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "strategy canvas / four actions",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/blue-ocean-tools/"
     },
@@ -201,6 +213,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "audit the boundary judgments that define a frame (who benefits / decides / has expertise / has standing), contrasting the 'is' boundary against the 'ought' boundary and naming the affected-but-excluded",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-boundary-critique/"
     },
@@ -212,6 +225,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "silent parallel written generation + build-on",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-brainwriting/"
     },
@@ -223,6 +237,7 @@
       "status": "cand",
       "verdict": "build",
       "fold_into": null,
+      "preliminary": true,
       "mechanism": "draw the causal graph behind an observational claim, then decide which variables the comparison must adjust for and which (colliders, mediators) it must not",
       "url": null
     },
@@ -234,6 +249,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "read an issue at four depths (litany / system / worldview / myth-metaphor), then reconstruct each layer into alternative futures anchored by a rewritten guiding metaphor",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-causal-layered-analysis/"
     },
@@ -245,6 +261,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "diagram reinforcing/balancing feedback loops",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-causal-loop-diagrams/"
     },
@@ -256,6 +273,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "rank a person across 34 talent themes from a proprietary forced-choice assessment",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/cliftonstrengths/"
     },
@@ -267,6 +285,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "run a decision against relevant biases",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/cognitive-bias-checklist/"
     },
@@ -278,6 +297,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "sort clear / complicated / complex / chaotic",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-complexity-domain-sort/"
     },
@@ -289,6 +309,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "partition design work into a concept space of undecidable propositions and a knowledge space, and iterate the four operators (C-C, C-K, K-C, K-K) between them",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/concept-knowledge-theory/"
     },
@@ -300,6 +321,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "diagram concepts and labeled relationships",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-concept-mapping/"
     },
@@ -311,6 +333,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "before committing to a judgment, explicitly list the relevant variables you cannot observe and weigh the gap they leave",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-consider-the-unknowns/"
     },
@@ -322,6 +345,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "reframe a trade-off as a contradiction to dissolve (separation in time/space/scale/condition), anchored to an implementation-free Ideal Final Result",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-contradiction-resolution/"
     },
@@ -333,6 +357,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "map an unsolvable polarity as both/and rather than smoothing it - name the two interdependent poles, the upside and downside of each, the greater purpose that makes managing both worthwhile, plus early-warning signs and action steps for staying in the productive zone",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-contradiction-tension-mapping/"
     },
@@ -344,6 +369,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "after-action-review",
+      "preliminary": false,
       "mechanism": "examine 'what if X had been different'",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/counterfactual-reasoning/"
     },
@@ -355,6 +381,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "brainwriting",
+      "preliminary": false,
       "mechanism": "eight sketches in eight minutes",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/crazy-8s/"
     },
@@ -366,6 +393,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "morphological-analysis",
+      "preliminary": true,
       "mechanism": "rate how each possible development raises or lowers the likelihood of each other one, then read which combinations hang together",
       "url": null
     },
@@ -377,6 +405,7 @@
       "status": "pm",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "force a decision into a short structured memo",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/decision-brief-pr-faq/"
     },
@@ -388,6 +417,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "record decision + expectation + confidence for calibration",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-decision-journal/"
     },
@@ -399,6 +429,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "compare options against weighted criteria",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-decision-option-review/"
     },
@@ -410,6 +441,7 @@
       "status": "flag",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "assign someone to argue against",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/devils-advocacy/"
     },
@@ -421,6 +453,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "estimate, assume the estimate is wrong and list why, estimate again from those changed assumptions, then average the two numbers",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-dialectical-bootstrapping/"
     },
@@ -432,6 +465,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "red-team-light",
+      "preliminary": false,
       "mechanism": "hold thesis/antithesis to a stronger synthesis",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/dialectical-synthesis/"
     },
@@ -443,6 +477,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "classify behavioral style across dominance, influence, steadiness, conscientiousness",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/disc-profile/"
     },
@@ -454,6 +489,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "dreamer/realist/critic cycle",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/disney-creative-strategy/"
     },
@@ -465,6 +501,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
+      "preliminary": true,
       "mechanism": "reason about a problem that involves you as an outside observer would, describing your own situation in the third person",
       "url": null
     },
@@ -476,6 +513,7 @@
       "status": "flag",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "allocate limited votes",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/dot-voting/"
     },
@@ -487,6 +525,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "find the single belief whose change would flip each side of a disagreement",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/double-crux/"
     },
@@ -498,6 +537,7 @@
       "status": "cand",
       "verdict": "build",
       "fold_into": null,
+      "preliminary": true,
       "mechanism": "check a draft's claims in a fresh pass that cannot see the draft: list the claims, answer a verification question for each independently, then reconcile",
       "url": null
     },
@@ -509,6 +549,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "evidence-vs-inference-sort",
+      "preliminary": true,
       "mechanism": "restate each 'X is Y' conclusion without any form of the verb to be, so that it says who observed what",
       "url": null
     },
@@ -520,6 +561,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "urgent-important triage; vital-few focus",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-eisenhower-moscow-pareto/"
     },
@@ -531,6 +573,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "map a person to one of nine interconnected types with wings and stress / growth arrows",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/enneagram/"
     },
@@ -542,6 +585,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "collect independent estimates, share only the anonymized spread and rationales, discuss the variance, then re-estimate independently",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/estimate-talk-estimate/"
     },
@@ -553,6 +597,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "grid affected parties (rows, including voiceless ones) against prima facie principles (wellbeing, autonomy, fairness) and read the cell-level pattern of trade-offs",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-ethical-matrix/"
     },
@@ -564,6 +609,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "label claims evidence / inference / assumption",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-evidence-vs-inference-sort/"
     },
@@ -575,6 +621,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "price the uncertainty: a tree of choice and chance nodes, rolled back to an expected value per option, with a what-flips-it sensitivity note",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-expected-value-decision-tree/"
     },
@@ -586,6 +633,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "transfer deep structure from distant domains",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-far-analogy-ideation/"
     },
@@ -597,6 +645,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "structured order-of-magnitude estimate from decomposition",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-fermi-estimation/"
     },
@@ -608,6 +657,7 @@
       "status": "recipe",
       "verdict": "recipe",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "decompose to fundamental truths, reason up",
       "url": null
     },
@@ -619,6 +669,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "issue-tree",
+      "preliminary": false,
       "mechanism": "decompose one observed effect into candidate causes grouped under a fixed category checklist (6M/8P)",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/fishbone-ishikawa/"
     },
@@ -630,6 +681,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "iterative why to trace a cause",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-five-whys/"
     },
@@ -641,6 +693,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "premortem",
+      "preliminary": false,
       "mechanism": "list failure modes by likelihood x severity x detection",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/fmea-lite/"
     },
@@ -652,6 +705,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "far-analogy-ideation",
+      "preliminary": false,
       "mechanism": "pair the problem with an unrelated stimulus",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/forced-connections/"
     },
@@ -663,6 +717,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "reframe the problem by distilling themes and the core paradox, then abduce a new standpoint (often an 'approach it as if it were Y' analogy) and reason forward to solutions",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-frame-creation/"
     },
@@ -674,6 +729,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "problem-restatement",
+      "preliminary": false,
       "mechanism": "brainstorm the framing, not the solution",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/frame-storming/"
     },
@@ -685,6 +741,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "map first/second/third-order consequences outward",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-futures-wheel/"
     },
@@ -696,6 +753,7 @@
       "status": "cand",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": true,
       "mechanism": "map an improvement goal, the behaviors that work against it, the hidden commitments those behaviors serve and the big assumption behind them, then design a small, safe test of that assumption",
       "url": null
     },
@@ -707,6 +765,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "problem-restatement",
+      "preliminary": false,
       "mechanism": "turn an insight into an opportunity question",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/how-might-we/"
     },
@@ -718,6 +777,7 @@
       "status": "flag",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "prioritization scores",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/ice-rice-wsjf/"
     },
@@ -729,6 +789,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "events -> patterns -> structures -> mental models",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-iceberg-model/"
     },
@@ -740,6 +801,7 @@
       "status": "recipe",
       "verdict": "recipe",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "score and pressure-test a batch of ideas (solo + AI)",
       "url": null
     },
@@ -751,6 +813,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "red-team-light",
+      "preliminary": false,
       "mechanism": "state an opposing view well enough that its holders cannot tell you are not one of them",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/ideological-turing-test/"
     },
@@ -762,6 +825,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "turn observations into sharp, transferable insight statements (the why behind a finding)",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/insight-statement-generation/"
     },
@@ -773,6 +837,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "separate both sides' interests from their positions, decide against your BATNA inside the mapped ZOPA, and invent options for mutual gain across differently-valued issues before dividing value",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-interest-based-negotiation/"
     },
@@ -784,6 +849,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "test a stated confidence interval against an equivalent bet, widen until indifferent, then score stated confidence against the actual hit rate wherever outcomes resolve",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-interval-calibration-check/"
     },
@@ -795,6 +861,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "premortem",
+      "preliminary": false,
       "mechanism": "ask how to guarantee failure, then avoid it",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/inversion/"
     },
@@ -806,6 +873,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "problem-restatement",
+      "preliminary": false,
       "mechanism": "sharpen scope by what the problem is and is not",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/is-is-not-analysis/"
     },
@@ -817,6 +885,7 @@
       "status": "recipe",
       "verdict": "recipe",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "capture a deliberation as a typed graph where positions may only answer issues and arguments may only support or attack positions",
       "url": null
     },
@@ -828,6 +897,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "decompose a question into a MECE tree",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-issue-tree/"
     },
@@ -839,6 +909,7 @@
       "status": "flag",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "frame demand as progress sought",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/jobs-to-be-done/"
     },
@@ -850,6 +921,7 @@
       "status": "recipe",
       "verdict": "recipe",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "the rational-process bundle - situation appraisal routes to problem analysis (cause), decision analysis (MUST/WANT choice), and potential problem analysis (forward risk)",
       "url": null
     },
@@ -861,6 +933,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "inventory and rank a plan's assumptions",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/key-assumptions-check/"
     },
@@ -872,6 +945,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "premortem",
+      "preliminary": false,
       "mechanism": "pre-decided stop signals and conditions",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/kill-criteria-tripwires/"
     },
@@ -883,6 +957,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
+      "preliminary": false,
       "mechanism": "read a problem, plan, or team through the adaptor (do it better) and innovator (do it differently) style poles",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/kirton-adaption-innovation/"
     },
@@ -894,6 +969,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "reconstruct the climb from data to conclusion",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-ladder-of-inference-check/"
     },
@@ -905,6 +981,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "match instruction to a learner's preferred modality (visual, auditory, kinesthetic, and so on)",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/learning-styles-inventory/"
     },
@@ -916,6 +993,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "iceberg-model",
+      "preliminary": false,
       "mechanism": "sketch elements/relationships; find intervention points",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/leverage-points/"
     },
@@ -927,6 +1005,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "combine cues with a simple fixed formula instead of holistic judgment",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-linear-model-aggregation/"
     },
@@ -938,6 +1017,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "belief-update-routine",
+      "preliminary": true,
       "mechanism": "record a judgment from the task-relevant evidence before any biasing context is revealed, then reveal the context in a fixed order and allow a change only for a named reason",
       "url": null
     },
@@ -949,6 +1029,7 @@
       "status": "cand",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": true,
       "mechanism": "explore several partial lines of reasoning, score each one, and back up from dead ends instead of committing to the first chain",
       "url": null
     },
@@ -960,6 +1041,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "issue-tree",
+      "preliminary": false,
       "mechanism": "fan a center into eight sub-themes, re-center each, and expand again into a recursive idea grid",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/lotus-blossom/"
     },
@@ -971,6 +1053,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "sort a person into one of sixteen types across four dichotomies",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/mbti/"
     },
@@ -982,6 +1065,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "issue-tree",
+      "preliminary": false,
       "mechanism": "mutually-exclusive, collectively-exhaustive split",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/mece-decomposition/"
     },
@@ -993,6 +1077,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "minimize worst-case regret: build a regret (opportunity-loss) matrix over un-probabilized states and choose the option whose maximum regret is smallest",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-minimax-regret/"
     },
@@ -1004,6 +1089,7 @@
       "status": "pm",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "test what stops a competitor copying you",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/moat-defensibility-lens/"
     },
@@ -1015,6 +1101,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "ethical-matrix",
+      "preliminary": true,
       "mechanism": "add moral-foundations columns to a values analysis, so that each party's moral concerns are named rather than assumed",
       "url": null
     },
@@ -1026,6 +1113,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "enumerate the solution space by parameter combination, then prune to the internally consistent configurations (cross-consistency assessment)",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-morphological-analysis/"
     },
@@ -1037,6 +1125,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "decision-option-review",
+      "preliminary": false,
       "mechanism": "weighted scoring across criteria",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/multi-criteria-decision-analysis/"
     },
@@ -1048,6 +1137,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "re-express conditional probabilities as frequencies",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-natural-frequency-bayesian/"
     },
@@ -1059,6 +1149,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "qualitative-comparative-analysis",
+      "preliminary": true,
       "mechanism": "test whether a condition is necessary for an outcome, and at what level, by looking for an empty ceiling zone in the data",
       "url": null
     },
@@ -1070,6 +1161,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "individual notes, then a group vote, then a single Decider's weighted supervote",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/note-and-vote/"
     },
@@ -1081,6 +1173,7 @@
       "status": "cand",
       "verdict": "build",
       "fold_into": null,
+      "preliminary": true,
       "mechanism": "before listing options, elicit the decision's fundamental objectives and separate them from means objectives, then generate alternatives from each objective",
       "url": null
     },
@@ -1092,6 +1185,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "classify by reversibility, match deliberation",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-one-way-vs-two-way-door/"
     },
@@ -1103,6 +1197,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "observe-orient-decide-act",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/ooda-loop/"
     },
@@ -1114,6 +1209,7 @@
       "status": "pm",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "outcome -> opportunities -> solutions",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/opportunity-solution-tree/"
     },
@@ -1125,6 +1221,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
+      "preliminary": false,
       "mechanism": "alternate a market/external view and a capability/internal view, then reconcile",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/outside-in-inside-out-framing/"
     },
@@ -1136,6 +1233,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "rank when you cannot score: judge items two at a time, tally the binary wins into a comparison matrix, and derive an order without an absolute scale",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-pairwise-comparison/"
     },
@@ -1147,6 +1245,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "examine a decision through separated lenses (facts/upside/risk/intuition/alternatives/process)",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-parallel-perspectives-review/"
     },
@@ -1158,6 +1257,7 @@
       "status": "recipe",
       "verdict": "recipe",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "plan-do-check-act iterative improvement loop (A3 = the one-page storyboard of one turn)",
       "url": null
     },
@@ -1169,6 +1269,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "issue-tree",
+      "preliminary": false,
       "mechanism": "scan the macro-environment against a fixed category checklist (political/economic/social/technological/legal/environmental)",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/pestle/"
     },
@@ -1180,6 +1281,7 @@
       "status": "flag",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "competitive-structure scan",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/porters-five-forces/"
     },
@@ -1191,6 +1293,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "woop",
+      "preliminary": false,
       "mechanism": "bind future behavior in advance against known weakness",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/pre-commitment-ulysses-contract/"
     },
@@ -1202,6 +1305,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "imagine the plan failed, work back to causes",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-premortem/"
     },
@@ -1213,6 +1317,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "rewrite the problem several ways, pick a better frame",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-problem-restatement/"
     },
@@ -1224,6 +1329,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "test rival causal explanations of a single case by each piece of evidence's diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests)",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-process-tracing/"
     },
@@ -1235,6 +1341,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "answer-first governing thought + grouped support",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-pyramid-principle/"
     },
@@ -1246,6 +1353,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "code several comparable cases as combinations of conditions in a truth table and derive which configurations are necessary or sufficient for the outcome",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-qualitative-comparative-analysis/"
     },
@@ -1257,6 +1365,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "rapid questions-only burst, then rank + pick",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-question-burst/"
     },
@@ -1268,6 +1377,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "construct the strongest adversarial case against a thesis",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-red-team-light/"
     },
@@ -1279,6 +1389,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "anchor an estimate on the base rate of comparable cases",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-reference-class-forecasting/"
     },
@@ -1290,6 +1401,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "iterate between case judgments and general principles, revising whichever fits worse, until they cohere",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-reflective-equilibrium/"
     },
@@ -1301,6 +1413,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "one-way-vs-two-way-door",
+      "preliminary": false,
       "mechanism": "choose the least-future-regret option (project to age 80, pick what you would most regret not trying)",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/regret-minimization/"
     },
@@ -1312,6 +1425,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "after-action-review",
+      "preliminary": false,
       "mechanism": "fast retro formats",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/retro-formats/"
     },
@@ -1323,6 +1437,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "decision-option-review",
+      "preliminary": false,
       "mechanism": "score a role, option, or person against the six fixed interest types (realistic, investigative, artistic, social, enterprising, conventional) and read the fit",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/riasec-interest-fit/"
     },
@@ -1334,6 +1449,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "scenario-planning",
+      "preliminary": true,
       "mechanism": "start from a candidate strategy, search the space of futures for the conditions under which it fails, then adapt the strategy to those conditions",
       "url": null
     },
@@ -1345,6 +1461,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "generate divergent ideas while inhabiting a chosen non-self persona, using the identity as an inhibition-lowering and distancing lens",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-role-storming/"
     },
@@ -1356,6 +1473,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "scaled-participation group formats",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/scaled-participation-formats/"
     },
@@ -1367,6 +1485,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "seven transformation prompts on a seed idea",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-scamper/"
     },
@@ -1378,6 +1497,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "construct a set of divergent, internally consistent external futures (2x2 critical-uncertainty axes), then robustness-test strategy across them",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-scenario-planning/"
     },
@@ -1389,6 +1509,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "futures-wheel",
+      "preliminary": false,
       "mechanism": "lightweight 'and then what?' prompt",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/second-order-effects/"
     },
@@ -1400,6 +1521,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "organize conflicting signals for interpretation",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/sensemaking-matrix/"
     },
@@ -1411,6 +1533,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "brainwriting",
+      "preliminary": false,
       "mechanism": "write independently first to prevent anchoring",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/silent-writing-before-discussion/"
     },
@@ -1422,6 +1545,7 @@
       "status": "flag",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "branded parallel-thinking ritual",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/six-thinking-hats/"
     },
@@ -1433,6 +1557,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "ladder-of-inference-check",
+      "preliminary": false,
       "mechanism": "disciplined self-interrogation of a belief via a fixed set of probing question-types",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/socratic-self-questioning/"
     },
@@ -1444,6 +1569,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "assume the design succeeds at scale, narrate the dystopian near-future in which it harms third parties and is exploited in bad faith, then convert each harm into an explicit anti-goal constraining the design",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-speculative-harms-anti-goals/"
     },
@@ -1455,6 +1581,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
+      "preliminary": false,
       "mechanism": "walk a proposal through each affected party's eyes",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/stakeholder-lens-review/"
     },
@@ -1466,6 +1593,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "red-team-light",
+      "preliminary": false,
       "mechanism": "state the strongest version of an opposing view before responding",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/steelmanning/"
     },
@@ -1477,6 +1605,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "reason about accumulations and rates",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-stocks-and-flows-reasoning/"
     },
@@ -1488,6 +1617,7 @@
       "status": "flag",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "profile vocational interests against occupational reference groups",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/strong-interest-inventory/"
     },
@@ -1499,6 +1629,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "red-team-light",
+      "preliminary": true,
       "mechanism": "have the team that produced an analysis critique it against a fixed set of questions about its sources, assumptions and alternative outcomes before it is finalized",
       "url": null
     },
@@ -1510,6 +1641,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "strengths / weaknesses / opportunities / threats",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-swot/"
     },
@@ -1521,6 +1653,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "causal-loop-diagrams",
+      "preliminary": false,
       "mechanism": "match a recurring dynamic to a named feedback-structure template (fixes that fail, shifting the burden, tragedy of the commons) and import its canonical leverage prescription",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/system-archetypes/"
     },
@@ -1532,6 +1665,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "reference-class-forecasting",
+      "preliminary": true,
       "mechanism": "before forecasting how an outcome will feel, read accounts from people who experienced it, chosen to target the specific forecasting error rather than to be representative",
       "url": null
     },
@@ -1543,6 +1677,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "contradiction-tension-mapping",
+      "preliminary": true,
       "mechanism": "before treating a choice as either-or, place it among four positions (this, that, both, neither) and ask whether none of the framings fits",
       "url": null
     },
@@ -1554,6 +1689,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "find the single binding constraint capping throughput and attach its exploit / subordinate / elevate decisions (the five focusing steps)",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-theory-of-constraints/"
     },
@@ -1565,6 +1701,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "hold three overlapping change curves (declining present H1, contested transition H2, emerging desired future H3) on one time canvas, locate the actor, and read the transition dynamics",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-three-horizons/"
     },
@@ -1576,6 +1713,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "argument-mapping",
+      "preliminary": false,
       "mechanism": "lay out a claim as data, warrant, and backing, with qualifier and rebuttal, to test whether it holds",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/toulmin-argument-model/"
     },
@@ -1587,6 +1725,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
+      "preliminary": false,
       "mechanism": "view a decision through contrasting personality-trait viewpoints (high vs low openness, conscientiousness, and so on)",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/trait-lens-perspective/"
     },
@@ -1598,6 +1737,7 @@
       "status": "excl",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "diagnose a team's stage on the forming-storming-norming-performing arc to pick the fitting intervention",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/tuckman-group-development/"
     },
@@ -1609,6 +1749,7 @@
       "status": "pm",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "sharpen vs the next-best alternative",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/value-proposition-contrast/"
     },
@@ -1620,6 +1761,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "decide a values trade-off as if you had an equal chance of being any affected party, then return to the actual decision and confront the gap",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-veil-of-ignorance-reasoning/"
     },
@@ -1631,6 +1773,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "parallel-perspectives-review",
+      "preliminary": false,
       "mechanism": "frame a problem or role through signature strengths drawn from the 24-strength classification",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/via-character-strengths/"
     },
@@ -1642,6 +1785,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "identify which stereotyped argument pattern is in play, then test it with that scheme's standard critical questions",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-walton-argumentation-schemes/"
     },
@@ -1653,6 +1797,7 @@
       "status": "flag",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "value chain vs evolution",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/wardley-mapping/"
     },
@@ -1664,6 +1809,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "after-action-review",
+      "preliminary": false,
       "mechanism": "observation -> meaning -> action",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/what-so-what-now-what/"
     },
@@ -1675,6 +1821,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "turn a claim into testable conditions",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-what-would-have-to-be-true/"
     },
@@ -1686,6 +1833,7 @@
       "status": "pm",
       "verdict": "reject",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "locate uncontested or reachable opportunity (white space / adjacent possible / 10x vs incremental)",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/white-space-adjacent-possible/"
     },
@@ -1697,6 +1845,7 @@
       "status": "shipped",
       "verdict": "shipped",
       "fold_into": null,
+      "preliminary": false,
       "mechanism": "wish-outcome-obstacle-plan with an if-then",
       "url": "https://thinking-framework-skills.productonpurpose.com/frameworks/think-woop/"
     },
@@ -1708,6 +1857,7 @@
       "status": "fold",
       "verdict": "fold",
       "fold_into": "assumption-reversal",
+      "preliminary": false,
       "mechanism": "generate the worst/most-absurd ideas, then flip their bad-making attributes into candidate solutions",
       "url": "https://thinking-framework-skills.productonpurpose.com/library/worst-possible-idea/"
     }
