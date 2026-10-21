@@ -2,7 +2,7 @@
 
 **Status: pre-registered on 2026-10-20, not run.** This file fixes the design, the cohorts and the thresholds before any compressed description is written or measured, so the decision cannot move to fit the data. It implements SPEC-07 (the tiered-discovery experiment, in the 2026-07-10 audit plan) with three corrections, given below.
 
-**Next step, and why it waits:** the maintainer reviews the compressed tail descriptions for honesty before the eval runs. SPEC-07 names that review as the experiment's main cost. A compressed description that claims less scope than its skill has is the one failure the eval cannot see.
+**Next step, and why it waits:** the maintainer settles the open design question below, because the tail rule as registered conflicts with a Standard requirement. Then agents write the 47 tail descriptions on the experiment branch, and the maintainer reviews them for honesty before the eval runs. SPEC-07 names that review as the experiment's main cost. A compressed description that claims less scope than its skill has is the one failure the eval cannot see.
 
 ## Why run it
 
@@ -20,6 +20,17 @@ Every session that has the plugin installed loads every skill description, wheth
 - **Contested lenses, 7 skills, descriptions unchanged.** `five-whys`, `eisenhower-moscow-pareto`, `complexity-domain-sort`, `swot`, `reflective-equilibrium`, `qualitative-comparative-analysis` and `analysis-of-competing-hypotheses`. Their caveat-first descriptions route requests away, and the contested-lens contract governs their wording. They are scored as their own cohort.
 - **Tail, the other 47 skills, compressed.** Each tail description becomes one honest sentence: the artifact first, then the scope, with no trigger clauses. An example is "Builds an abstraction ladder to find the right altitude for a problem." A compressed description must never claim less scope than the skill has, and the skill stays invocable by its exact name.
 - **The 10 commands are unchanged.** Nine are the recipe commands generated from `_workflows/`, and the tenth is `think-research-framework`. The experiment is about skill descriptions.
+
+## Open design question (found 2026-10-20, before any description was written)
+
+The tail rule above says "no trigger clauses". That conflicts with Standard requirement U5, which the gate checks with the toolkit's `scripts/checks/description-score.mjs`. U5 scores a description out of 1.00 against a 0.70 bar: 0.35 for a concrete action verb, 0.35 for a use-when clause, 0.20 for length and 0.10 for avoiding the first person. A description with no use-when clause therefore scores at most 0.65 and cannot pass. All 47 compressed descriptions would raise a U5 warning. The gate's warning count would rise from 89 to 136, so the recorded baseline in `docs/internal/gate-warning-count.txt` would have to move on the branch.
+
+The maintainer chooses one of two ways:
+
+- **A. Keep the rule as registered.** The branch carries 47 new U5 warnings. If the experiment ships, the library either keeps them or records an exception to U5.
+- **B. Amend the rule before step 1:** one sentence for the artifact and the scope, then a short use-when clause, such as "Builds an abstraction ladder to find the right altitude for a problem. Use when a problem seems stated too broadly or too narrowly." That passes U5. It also fits the budget: a 40 percent cut leaves the tail 10,333 characters, about 219 per skill, against about 503 now. The cost is that B tests a milder compression, so a positive result claims less.
+
+**Recommendation: B**, because it keeps the library inside its own Standard while the footprint threshold stays reachable. The cohorts, the thresholds and the run order stay the same under either choice. The U5 weights were read from the scorer source (confidence high). That each skill fits a two-clause description in about 219 characters is an estimate from one worked example (confidence medium).
 
 ## Thresholds (the decision gate)
 
