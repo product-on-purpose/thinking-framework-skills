@@ -104,6 +104,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Draft-blind verification | check a draft's claims in a fresh pass that cannot see the draft: list the claims, answer a verification question for each independently, then reconcile | C | `[cand]` |
 | Linear Sequential Unmasking (sequential evaluation) | record a judgment from the task-relevant evidence before any biasing context is revealed, then reveal the context in a fixed order and allow a change only for a named reason | C | `[fold]` -> Belief-update routine |
 | E-Prime translation | restate each 'X is Y' conclusion without any form of the verb to be, so that it says who observed what | A | `[fold]` -> Evidence vs Inference Sort |
+| Structured Self-Critique | have the team that produced an analysis critique it against a fixed set of questions about its sources, assumptions and alternative outcomes before it is finalized | P | `[fold]` -> Red Team / Blue Team |
 
 ## 5. Risk, failure, and resilience
 

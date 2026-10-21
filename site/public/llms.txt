@@ -1,8 +1,8 @@
 # Thinking Framework Skills
 
-> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 63 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact, and 3 of these components also run as Claude Code subagents. 149 methods were evaluated and graded, 63 ship as skills.
+> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 63 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact, and 3 of these components also run as Claude Code subagents. 150 methods were evaluated and graded, 63 ship as skills.
 
-Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) (the invokable skills, tools, and recipes) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) (all 149 evaluated methods). Full text: [llms-full.txt](https://thinking-framework-skills.productonpurpose.com/llms-full.txt) inlines every component for one-fetch ingestion.
+Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) (the invokable skills, tools, and recipes) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) (all 150 evaluated methods). Full text: [llms-full.txt](https://thinking-framework-skills.productonpurpose.com/llms-full.txt) inlines every component for one-fetch ingestion.
 
 ## Start here
 - [Getting started](https://thinking-framework-skills.productonpurpose.com/start/getting-started/): install and first run
@@ -127,4 +127,4 @@ Machine-readable: [catalog.json](https://thinking-framework-skills.productonpurp
 
 ## Evaluated, not shipped
 
-We evaluated 149 methods; 63 ship as skills. The other 86 are documented with the reasoning in the Framework Library. See [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) and the [Framework Library](https://thinking-framework-skills.productonpurpose.com/library/).
+We evaluated 150 methods; 63 ship as skills. The other 87 are documented with the reasoning in the Framework Library. See [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json) and the [Framework Library](https://thinking-framework-skills.productonpurpose.com/library/).

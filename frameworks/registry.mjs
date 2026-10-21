@@ -16,7 +16,7 @@
 //
 // FAMILY NOTE: `family` uses the 13-family CATALOG (universe) taxonomy, which differs
 // by design from the live skill metadata.family slugs (a separate, coarser grouping the
-// shipped skills + the Astro families/ pages use). The registry must cover all 149
+// shipped skills + the Astro families/ pages use). The registry must cover all 150
 // methods, most of which are unbuilt and have no skill metadata. The two taxonomies stay
 // separate by decision; docs/architecture.md ("Two family taxonomies") maps them.
 //
@@ -27,7 +27,8 @@
 // added 2026-06-10, re-opening the queue after the phase-1/2 drain), then to 135 methods
 // and a 13th family (ethics-values-deliberation) via the wave-3 external deep-research
 // admissions of 2026-06-11, then to 149 methods via the wave-4 admissions of 2026-10-19
-// (three build candidates, two documentation candidates and nine folds; no new family).
+// (three build candidates, two documentation candidates and nine folds; no new family),
+// then to 150 when wave-4 decision D7 recorded the Structured Self-Critique fold (2026-10-20).
 // Each entry's `status` field, not this comment, says which are shipped.
 // =============================================================================
 
@@ -2804,6 +2805,29 @@ export default {
         { title: "Grossmann and Kross (2014) - Exploring Solomon's Paradox: Self-Distancing Eliminates the Self-Other Asymmetry in Wise Reasoning About Close Relationships in Younger and Older Adults, Psychological Science 25(8): 1571-1580", url: "https://doi.org/10.1177/0956797614535400", kind: "experimental-study" },
         { title: "Grossmann, Dorfman, Oakes, Santos, Vohs and Scholer (2021) - Training for Wisdom: The Distanced-Self-Reflection Diary Method, Psychological Science 32(3): 381-394", url: "https://doi.org/10.1177/0956797620969170", kind: "experimental-study" },
         { title: "Murdoch, Chapman, Crane and Gucciardi (2023) - The effectiveness of self-distanced versus self-immersed reflections among adults: Systematic review and meta-analysis of experimental studies, Stress and Health 39(2): 255-271", url: "https://doi.org/10.1002/smi.3199", kind: "adjacent-meta-analysis" },
+      ],
+    },
+    // -------------------------------------------------------------------------
+    // RECORDED UNDER WAVE-4 DECISION D7 (2026-10-20): a wave-3 fold that was judged on
+    // 2026-06-11 but never recorded. A fold row, not an alias, because an alias on a shipped
+    // entry publishes as "Also known as" in catalog.json and llms-full.txt.
+    // -------------------------------------------------------------------------
+    {
+      slug: "structured-self-critique",
+      name: "Structured Self-Critique",
+      family: "assumption-and-belief-challenge",
+      tier: "P",
+      status: "fold",
+      verdict: "fold",
+      foldInto: "red-team-light",
+      evalDate: "2026-10-20",
+      oneLine: "have the team that produced an analysis critique it against a fixed set of questions about its sources, assumptions and alternative outcomes before it is finalized",
+      reasoning: "Wave-3 fold (judged 2026-06-11, recorded 2026-10-20 under wave-4 decision D7). Wave 3's run A proposed it, and the wave-3 synthesis folded it into red-team-light, but no registry row recorded it. Wave-4 runs A and B both kept the fold and drew the same boundary: a critique that can see the draft is this fold, and a check that structurally cannot see the draft is the separate draft-blind-verification candidate. Graded P: a practitioner tradecraft technique, codified as section 9.2 of Heuer and Pherson's Structured Analytic Techniques for Intelligence Analysis, and no run cited a controlled study of it. The agent line points the other way. Huang et al. (2024) found that language models 'struggle to self-correct their responses' on reasoning tasks without external feedback; GPT-3.5 fell from 75.8 to 41.8 on CommonSenseQA after self-correction (checked 2026-10-19 in the paper). So red-team-light's adversarial case, built from the strongest opposing view, is the vehicle, and self-critique alone is not a separate skill. The book's table of contents was checked against the publisher's page on 2026-10-20, and Huang et al.'s abstract on arXiv on the same day. Generic descriptive name, not branded. Preliminary; pending deep-research vetting.",
+      attribution: "Richards J. Heuer Jr. and Randolph H. Pherson (Structured Analytic Techniques for Intelligence Analysis)",
+      aliases: ["self-critique checklist", "structured self-review"],
+      sources: [
+        { title: "Heuer and Pherson - Structured Analytic Techniques for Intelligence Analysis, 2nd edition, CQ Press: section 9.2, Structured Self-Critique (Chapter 9, Challenge Analysis)", url: "https://collegepublishing.sagepub.com/products/structured-analytic-techniques-for-intelligence-analysis-2-239065", kind: "practitioner-reference" },
+        { title: "Huang et al. (2024) - Large Language Models Cannot Self-Correct Reasoning Yet, ICLR 2024 (arXiv 2310.01798)", url: "https://arxiv.org/abs/2310.01798", kind: "experimental-study" },
       ],
     },
   ],

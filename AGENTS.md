@@ -88,7 +88,7 @@ The canonical statement of all four commitments is in [Philosophy](https://think
 
 ## Recipes
 
-Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **advanced (Gold)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`). For machine consumption, the generated agent-discovery surfaces live at the site root: `llms.txt` (index), `llms-full.txt` (full inline catalog), `catalog.json` (invokable components, each annotated with the Claude Code subagent that runs it, if one does), and `evaluated.json` (all 149 evaluated methods).
+Composable chains that solve a recurring job end to end. Each ships as a **workflow component** in [`_workflows/`](_workflows/) (a `steps:` list of skills) with human-readable prose in [`recipes/`](recipes/README.md). The plugin validates at **advanced (Gold)** tier, targeting Claude Code and Codex; native manifests are generated from `library.json` (do not hand-edit `.claude-plugin/` or `.codex-plugin/`). For machine consumption, the generated agent-discovery surfaces live at the site root: `llms.txt` (index), `llms-full.txt` (full inline catalog), `catalog.json` (invokable components, each annotated with the Claude Code subagent that runs it, if one does), and `evaluated.json` (all 150 evaluated methods).
 
 <!-- BEGIN GENERATED RECIPES (scripts/gen-agents.mjs from _workflows/) - do not hand-edit below this line -->
 | Recipe | Chain |

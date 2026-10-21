@@ -4,7 +4,7 @@ How this repo is built. The short version: there are two coordinated sources of 
 
 ## The two sources of truth
 
-**1. The registry: every method we have judged.** `frameworks/registry.mjs` is the single source of truth for the *catalog* - all 149 thinking methods the library has evaluated, shipped or not. Each entry carries `slug`, `name`, `family`, evidence `tier`, `status`, `verdict`, `reasoning`, an optional `foldInto` target, an optional `dossierPath`, and - for branded methods - `attribution` + `trademark`. It is a zero-dependency ES data module (the repo's scripts are zero-dep and Node ships no YAML parser), validated against a committed JSON Schema, `frameworks/registry.schema.json`. The registry is where "we considered X and folded it into Y" lives, so a rejected method is a recorded decision, not an oversight.
+**1. The registry: every method we have judged.** `frameworks/registry.mjs` is the single source of truth for the *catalog* - all 150 thinking methods the library has evaluated, shipped or not. Each entry carries `slug`, `name`, `family`, evidence `tier`, `status`, `verdict`, `reasoning`, an optional `foldInto` target, an optional `dossierPath`, and - for branded methods - `attribution` + `trademark`. It is a zero-dependency ES data module (the repo's scripts are zero-dep and Node ships no YAML parser), validated against a committed JSON Schema, `frameworks/registry.schema.json`. The registry is where "we considered X and folded it into Y" lives, so a rejected method is a recorded decision, not an oversight.
 
 **2. The skills: the methods that shipped.** Each shipped framework lives in `skills/think-<method>/` and is self-contained:
 
@@ -41,7 +41,7 @@ The advisor's `recommendable.{json,md}` and the site framework pages derive each
 
 There are two family taxonomies, cut for different jobs, and they are deliberately **not** 1:1:
 
-- The registry's **13-family catalog universe** (`frameworks/registry.mjs` `family`): the research/evaluation taxonomy over all 149 methods, shipped or not. Two of the 13 (`facilitation-and-group-structures`, `self-and-team-awareness`) have no shipped skills - they exist to classify documented-only methods (group facilitation, person/team instruments).
+- The registry's **13-family catalog universe** (`frameworks/registry.mjs` `family`): the research/evaluation taxonomy over all 150 methods, shipped or not. Two of the 13 (`facilitation-and-group-structures`, `self-and-team-awareness`) have no shipped skills - they exist to classify documented-only methods (group facilitation, person/team instruments).
 - The coarser **12-slug skill taxonomy** (`SKILL.md` `metadata.family`): the user-facing grouping the README catalog sections and the Astro `families/` pages use.
 
 They crisscross (they are not just a coarsening): the catalog merges synthesis and reasoning-clarity into one family while the skill taxonomy splits them, and `reasoning-clarity` (skill) draws from two catalog families. `scripts/check-counts.mjs` validates that every skill's `metadata.family` is one of the 12 canonical slugs (a typo guard) but deliberately enforces no registry-to-skill family match, because unifying them would reshuffle user-facing groupings for no correctness gain. The mapping (dominant target per catalog family; cross-family cases noted):
@@ -94,7 +94,7 @@ Nothing about a method is hand-duplicated. Every downstream surface is regenerat
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2ff','primaryBorderColor':'#c7d2fe','lineColor':'#6366f1'}}}%%
 graph LR
-  reg["frameworks/registry.mjs<br/>(the catalog: 149 methods)"]:::source
+  reg["frameworks/registry.mjs<br/>(the catalog: 150 methods)"]:::source
   skl["skills/ + library.json + _workflows/<br/>(the 63 shipped + 4 tools + 9 recipes)"]:::source
   gen["gen-registry · gen-recommendable · gen-site · gen-catalog<br/>gen-engine · gen-agents · gen-manifest"]:::build
   views["catalog · why-not · advisor corpus<br/>Starlight site · plugin manifests · INDEX"]:::site

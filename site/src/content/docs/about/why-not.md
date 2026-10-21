@@ -57,6 +57,7 @@ The durable cognitive move already ships inside another skill, named descriptive
 - **Tetralemma** - before treating a choice as either-or, place it among four positions (this, that, both, neither) and ask whether none of the framings fits. Folds into [Contradiction / Tension Mapping (Polarity Mapping)](../../frameworks/think-contradiction-tension-mapping/).
 - **E-Prime translation** - restate each 'X is Y' conclusion without any form of the verb to be, so that it says who observed what. Folds into [Evidence vs Inference Sort](../../frameworks/think-evidence-vs-inference-sort/).
 - **Distanced self-reflection** - reason about a problem that involves you as an outside observer would, describing your own situation in the third person. Folds into [Parallel Perspectives Review](../../frameworks/think-parallel-perspectives-review/).
+- **Structured Self-Critique** - have the team that produced an analysis critique it against a fixed set of questions about its sources, assumptions and alternative outcomes before it is finalized. Folds into [Red Team / Blue Team](../../frameworks/think-red-team-light/).
 
 ## Documented, not shipped
 

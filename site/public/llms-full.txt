@@ -1,6 +1,6 @@
 # Thinking Framework Skills - full catalog
 
-> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 63 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact, and 3 of these components also run as Claude Code subagents. 149 methods were evaluated and graded, 63 ship as skills.
+> An evidence-graded library of agent-executable thinking-method skills for Claude Code, Codex, and other AI agents. 63 skills, 4 tools, and 9 recipes; every skill produces a concrete, named artifact, and 3 of these components also run as Claude Code subagents. 150 methods were evaluated and graded, 63 ship as skills.
 
 This is the expanded llms.txt: every invokable component inlined with its routing metadata, so an agent can ingest the catalog in a single fetch. The compact index is [llms.txt](https://thinking-framework-skills.productonpurpose.com/llms.txt); the structured forms are [catalog.json](https://thinking-framework-skills.productonpurpose.com/catalog.json) and [evaluated.json](https://thinking-framework-skills.productonpurpose.com/evaluated.json).
 
@@ -848,7 +848,7 @@ This is the expanded llms.txt: every invokable component inlined with its routin
 
 ## Evaluated, not shipped
 
-The 86 methods that were evaluated and graded but do not ship as skills, with the verdict and where each folds. Full reasoning is in the Framework Library.
+The 87 methods that were evaluated and graded but do not ship as skills, with the verdict and where each folds. Full reasoning is in the Framework Library.
 
 - alternate-uses-constraint-insertion-removal (divergent-ideation-and-idea-expansion; tier P; fold/fold, folds into assumption-reversal): loosen functional fixedness; add/strip a constraint https://thinking-framework-skills.productonpurpose.com/library/alternate-uses-constraint-insertion-removal/
 - belbin-team-roles (self-and-team-awareness; tier C; excl/reject): map a team against nine complementary contribution roles to surface gaps and overlaps https://thinking-framework-skills.productonpurpose.com/library/belbin-team-roles/
@@ -924,6 +924,7 @@ The 86 methods that were evaluated and graded but do not ship as skills, with th
 - stakeholder-lens-review (perspective-shifting-and-multi-lens; tier P; fold/fold, folds into parallel-perspectives-review): walk a proposal through each affected party's eyes https://thinking-framework-skills.productonpurpose.com/library/stakeholder-lens-review/
 - steelmanning (perspective-shifting-and-multi-lens; tier P; fold/fold, folds into red-team-light): state the strongest version of an opposing view before responding https://thinking-framework-skills.productonpurpose.com/library/steelmanning/
 - strong-interest-inventory (self-and-team-awareness; tier M; flag/reject): profile vocational interests against occupational reference groups https://thinking-framework-skills.productonpurpose.com/library/strong-interest-inventory/
+- structured-self-critique (assumption-and-belief-challenge; tier P; fold/fold, folds into red-team-light): have the team that produced an analysis critique it against a fixed set of questions about its sources, assumptions and alternative outcomes before it is finalized
 - system-archetypes (systems-and-consequences; tier C; fold/fold, folds into causal-loop-diagrams): match a recurring dynamic to a named feedback-structure template (fixes that fail, shifting the burden, tragedy of the commons) and import its canonical leverage prescription https://thinking-framework-skills.productonpurpose.com/library/system-archetypes/
 - targeted-experience-narratives (risk-failure-and-resilience; tier M; fold/fold, folds into reference-class-forecasting): before forecasting how an outcome will feel, read accounts from people who experienced it, chosen to target the specific forecasting error rather than to be representative
 - tetralemma (problem-framing-and-reframing; tier A; fold/fold, folds into contradiction-tension-mapping): before treating a choice as either-or, place it among four positions (this, that, both, neither) and ask whether none of the framings fits
