@@ -11,6 +11,7 @@ All notable changes to this project are documented here. The format is based on 
   - Two documentation candidates: `lookahead-search-with-backtracking` (Tree of Thoughts, C) and `hidden-competing-commitments-map` (Immunity to Change, A, branded on the TM mark that Minds at Work displays).
   - Nine folds, each its own `fold` row pointing at a shipped skill, so the research appendix tells a later wave not to propose them again. No shipped skill's entry changed. The draft decision had put these names on the shipped entries as aliases, but aliases publish as "Also known as" in `catalog.json` and `llms-full.txt`, which would have listed false synonyms.
   - The backlog queues the fold-enrichment edits, one PR each, and holds the single-source leads for wave 5.
+- **The gate checks the words of the conformance claim, not only its numbers.** `scripts/check-counts.mjs` now checks the eleven present-tense sentences that name the conformance tier, its medal or the declared Standard, in `README.md`, `docs/conformance.md` and `docs/architecture.md`, against `library.json`. The numbers half (the warning total, its breakdown, the post-0.8 subtotal and the 0.13 counterfactual) was already asserted. The evaluator's `Tier:` line is not compared, because the evaluator grades at the declared tier and prints it back, so a passing run with 0 errors is what certifies the tier. This closes the backlog's highest-value truth item from the 2026-08-15 conformance-claim correction.
 
 ### Changed
 

@@ -8,8 +8,9 @@
 //               docs/getting-started.md and docs/README.md against the registry (shipped
 //               count + per-family), _workflows/ (recipes), and the META_SKILLS set (tools);
 //               validates every shipped skill's metadata.family against the 12 canonical
-//               skill-family slugs; and checks the gate's own published warning count against
-//               docs/internal/gate-warning-count.txt.
+//               skill-family slugs; checks the gate's own published warning count against
+//               docs/internal/gate-warning-count.txt; and checks every published conformance
+//               tier, medal and declared-Standard claim against library.json.
 // why:          the README is the last hand-authored denormalization of data that otherwise
 //               lives in the registry, so without this check catalog-count drift slips through
 //               to a human/Codex catch three steps later instead of failing the gate outright.
@@ -39,6 +40,7 @@ import {
   POST_08_SURFACES, ERRORS_AT_013_SURFACES, COMPOSITION_FILE, postStandard08,
 } from './lib/warning-count-lib.mjs';
 import { isWorkflowFile } from './lib/workflow-mirror-lib.mjs';
+import { CLAIM_SURFACES, checkClaimSurface } from './lib/tier-claim-lib.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -214,6 +216,24 @@ if (!existsSync(compositionPath)) {
         problems.push(...checkCountSurface({ text, label: s.label, pattern: s.pattern, want: errs013, where: s.where }));
       }
     }
+  }
+}
+
+// ---- the published tier, medal and declared Standard -------------------------
+// The words half of the conformance claim. The numbers half is asserted above; this asserts that
+// every sentence naming the tier, its medal or the Standard version agrees with library.json. The
+// evaluator grades at library.json's tier, so the gate's 0-error exit certifies that tier
+// (tier-claim-lib.mjs explains why the run's `Tier:` line is not compared).
+let declared = null;
+try {
+  declared = JSON.parse(readFileSync(join(ROOT, 'library.json'), 'utf8'));
+} catch (err) {
+  problems.push(`library.json is not readable JSON (${err.message}); the tier-claim check did not run`);
+}
+if (declared) {
+  for (const s of CLAIM_SURFACES) {
+    const text = readFileSync(join(ROOT, ...s.where.split('/')), 'utf8');
+    problems.push(...checkClaimSurface({ text, surface: s, declared }));
   }
 }
 
