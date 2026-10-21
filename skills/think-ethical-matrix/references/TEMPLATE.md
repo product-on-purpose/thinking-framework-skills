@@ -34,6 +34,8 @@ State the column set explicitly. Default prima facie set below; justify any adap
 
 (Do not swap the columns silently. Cotton, 2009 documents how top-down columns can crowd out the values participants actually hold - state any adaptation and why.)
 
+(One available adaptation is MFQ-2's six moral foundations: care, equality, proportionality, loyalty, authority, and purity. Use it as a naming aid when parties' concerns differ in kind; see `SKILL.md` step 3 for the purity caveat.)
+
 ## The grid
 
 Every cell is a concrete impact specification: how the option affects THIS party on THIS principle. Not a perspective voicing ("what they would say"). Tag each cell **[factual]** (a checkable empirical claim) or **[contested]** (an encoded value judgment reasonable people dispute). Do not leave cells blank - "no material effect" is itself a claim.
