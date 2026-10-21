@@ -31,7 +31,7 @@ In ordinary review one mode dominates: a cautious voice or an optimist colors ev
 
 When asked for a parallel perspectives review, follow these steps:
 
-1. **State what is being reviewed** in one sentence.
+1. **State what is being reviewed** in one sentence. Optional observer pre-pass: when the reviewer is personally involved, restate the situation in the third person before passing through the lenses. This third-person framing is the distancing move studied for personal and interpersonal problems, not for impersonal business choices.
 2. **Pass through each lens separately.** For each, write only what that lens surfaces, not a blended take:
    - **Facts** - what is known and what information is missing.
    - **Upside** - the value and best case.
@@ -59,7 +59,7 @@ Before finalizing, verify:
 
 ## Evidence
 
-Tier **P** (flagged). This implements the parallel-thinking mechanism behind Six Thinking Hats (de Bono, 1985, trademarked; used here descriptively). Deliberately separating modes is modestly supported (some studies show moderate gains in critical thinking), but a review of thinking-skills frameworks (Moseley et al., 2005, University of Newcastle upon Tyne) found the branded framework's evidence base sparse, and de Bono's often-quoted "493%" productivity claim is uncited and is not used. Evidence is transferred from human contexts, not AI-validated. Full grading: `evidence/dossier.md`.
+Tier **P** (flagged). This implements the parallel-thinking mechanism behind Six Thinking Hats (de Bono, 1985, trademarked; used here descriptively). Deliberately separating modes is modestly supported (some studies show moderate gains in critical thinking), but a review of thinking-skills frameworks (Moseley et al., 2005, University of Newcastle upon Tyne) found the branded framework's evidence base sparse, and de Bono's often-quoted "493%" productivity claim is uncited and is not used. Evidence is transferred from human contexts, not AI-validated. An optional third-person observer pre-pass, folded in from distanced self-reflection (wave-4 decision D4), is graded M, narrow. It is tested only for people reasoning about their own interpersonal conflicts, with no agent evidence. Full grading: `evidence/dossier.md`.
 
 ## Examples
 
