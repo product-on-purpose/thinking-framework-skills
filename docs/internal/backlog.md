@@ -407,7 +407,7 @@ The synthesis is committed as [`research/2026-10-19-wave4-external-research.md`]
 
 ## From the 2026-10-20 roadmap refresh
 
-- **Waiting on the maintainer: the tiered-description experiment (roadmap C2-4).** The design is pre-registered in [`experiments/2026-10-20-tiered-descriptions-preregistration.md`](experiments/2026-10-20-tiered-descriptions-preregistration.md), with its cohorts, thresholds and instruments fixed before any data. It corrects SPEC-07 in three ways: the closed-book skill-selection eval is the instrument, its `falseFires` count carries the false-fire bar, and the comparison is against a same-day control. The next step is the maintainer's honesty review of the 47 compressed tail descriptions, once they are written on the experiment branch. No eval runs before that review.
+- **Waiting on the maintainer: the tiered-description experiment (roadmap C2-4).** The design is pre-registered in [`experiments/2026-10-20-tiered-descriptions-preregistration.md`](experiments/2026-10-20-tiered-descriptions-preregistration.md), with its cohorts, thresholds and instruments fixed before any data. It corrects SPEC-07 in three ways: the closed-book skill-selection eval is the instrument, its `falseFires` count carries the false-fire bar, and the comparison is against a same-day control. The next step is the maintainer's choice on its open design question, found 2026-10-20: the registered "no trigger clauses" rule fails Standard requirement U5 on all 47 tail descriptions, and the record recommends amending it to one artifact sentence plus a short use-when clause. Then agents write the descriptions on the experiment branch, and the maintainer reviews them for honesty. No eval runs before that review.
 
 ## Pre-existing (predates this effort)
 
