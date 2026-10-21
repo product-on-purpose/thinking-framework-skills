@@ -126,10 +126,10 @@ belief's confidence before new evidence or advice arrives, and allows a change o
 reason. Two sources ground that guard, one agent evidence and one human evidence.
 - **Agent evidence.** Laban, Murakhovs'ka, Xiong and Wu's FlipFlop experiment (arXiv:2311.08596,
   preprint) tested ten language models on seven classification tasks. A bare "are you sure?" challenge,
-  with no new information, made models change their answer about 46% of the time, and every model's
-  accuracy fell, by 17% on average. This is the failure mode the named-reason rule targets: a model
+  with no new information, made models flip their answer about 46% of the time on average, and accuracy dropped
+  by 17% on average (both figures from the abstract). This is the failure mode the named-reason rule targets: a model
   moving its answer for social pressure alone.
-- **Human evidence.** Dror and Kukucka (2021), already cited above for Linear Sequential Unmasking, is
+- **Human evidence.** Dror and Kukucka (2021), the source on the registry's Linear Sequential Unmasking fold row, is
   a protocol proposal, not an outcome test. Its article has no outcome data: it proposes an
   information-sequencing approach for forensic experts and cites existing bias research to support it,
   but it reports no trial of the protocol itself. It is evidence that the bias LSU targets is real, not
@@ -199,7 +199,7 @@ evolved" essay is not. It is designed to be reopened on the next cadence and re-
 8. Laban, P., Murakhovs'ka, L., Xiong, C., & Wu, C.-S. (2023), "Are You Sure? Challenging LLMs Leads to
    Performance Drops in The FlipFlop Experiment", arXiv:2311.08596 (preprint) - across ten language
    models and seven classification tasks, a bare "are you sure?" challenge made models change their
-   answer about 46% of the time, and accuracy fell for every model, by 17% on average.
+   answer about 46% of the time on average, with an average accuracy drop of 17%.
 9. Dror, I. E., & Kukucka, J. (2021), "Linear Sequential Unmasking-Expanded (LSU-E): A general approach
    for improving decision making as well as minimizing noise and bias", *Forensic Science International:
    Synergy* 3:100161 - a protocol proposal with no outcome test; it draws on existing cognitive research
