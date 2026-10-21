@@ -60,6 +60,10 @@ All notable changes to this project are documented here. The format is based on 
 - **The backlog's wave-4 fold-enrichment bullet is marked done (wave-4 decision D7, #208-#211).** All four smaller enrichments landed, one branch each: `d7/morphological-cross-impact`, `d7/tension-mapping-neither-step`, `d7/evidence-sort-e-prime-prompt` and `d7/perspectives-observer-lens`.
 - **The README title links to the repository (#197).** This is the maintainer's one-line edit from 2026-08-04, which never had a pull request. It helps wherever the README is shown outside GitHub.
 
+### Fixed
+
+- **The 12 unvetted rows are marked preliminary wherever they are published.** They are 11 wave-4 rows (two documentation candidates and nine folds) and the Structured Self-Critique fold. Each row's reasoning said "Preliminary; pending deep-research vetting", but the generated views never print the reasoning. So the *What we leave out* page listed the ten new folds as settled, and `evaluated.json`, `llms-full.txt` and `framework-catalog.md` showed all 12 rows without the caveat. A new registry field, `preliminary: true`, now carries the status, and each view prints it. The gate's schema check requires the field and the reasoning sentence to agree, and rejects the field on a shipped entry. `evaluated.json` gains a boolean `preliminary` on every method.
+
 ## [0.18.6] - 2026-10-19
 
 **The last two deferred "confirm before a public claim" notes are resolved, and the premortem's confidence effect is graded M (#189-#191).** The issue-tree dossier drops an unsourced claim that decomposition reduces omission errors, and adds a fault-tree finding that points the other way. The pyramid-principle dossier reports its comprehension evidence as a mixed record. The premortem lowered confidence in a deliberately flawed plan in one study, so that effect is graded M, not S-leaning, in all six places that stated it. The confirm-note baseline drops from 2 to 0. The committed wave-4 brief now carries the sentence that was sent (#192), and the backlog records that the wave-4 research ran (#193). No new skills and no governing-tier changes; the catalog stays 56 core + 7 contested.

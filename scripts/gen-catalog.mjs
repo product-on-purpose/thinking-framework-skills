@@ -270,6 +270,8 @@ const methods = registry.frameworks.map((e) => ({
   status: e.status,
   verdict: e.verdict,
   fold_into: e.foldInto || null,
+  // true while a research-wave admission waits for the research engine to vet it
+  preliminary: e.preliminary === true,
   mechanism: e.oneLine,
   // shipped methods link to their live skill page; everything else to its Framework Library
   // dossier (or null if neither route exists).
@@ -416,8 +418,9 @@ function renderLlmsFullTxt(cat, ev) {
   F.push('');
   for (const m of ev.methods.filter((x) => x.status !== 'shipped')) {
     const where = m.fold_into ? `, folds into ${m.fold_into}` : '';
+    const pre = m.preliminary ? '; preliminary, not yet vetted' : '';
     const u = m.url ? ` ${m.url}` : '';
-    F.push(`- ${m.slug} (${m.family}; tier ${m.tier}; ${m.status}/${m.verdict}${where}): ${m.mechanism}${u}`);
+    F.push(`- ${m.slug} (${m.family}; tier ${m.tier}; ${m.status}/${m.verdict}${where}${pre}): ${m.mechanism}${u}`);
   }
   F.push('');
   return F.join('\n');
