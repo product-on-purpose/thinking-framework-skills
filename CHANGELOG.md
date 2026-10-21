@@ -15,6 +15,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Changed
 
+- **The process-tracing skill no longer says QCA was rejected (wave-4 decision D7).** Its "When NOT to Use" note and its dossier said cross-case work is "QCA's territory, rejected" in the library. QCA has shipped as a contested lens since v0.11.0. Both now say so, and the dossier points to `think-qualitative-comparative-analysis`. The note also reaches the advisor's routing catalog as a `not_use` line, which was regenerated. The skill text names the lens in words rather than by slug, as the same section already does for Analysis of Competing Hypotheses, so the explicit-request-only lens is not added to the skill's `overlaps`.
 - **Every hand-written count of evaluated methods says 149 (#195).** No gate layer checks these counts, so they were updated by hand in `AGENTS.md`, `README.md`, `docs/architecture.md` (three places), `site/README.md`, the *Build with the library* page and the registry's header comment. The generated surfaces (`llms.txt`, `llms-full.txt`, `evaluated.json`, `framework-catalog.md` and `why-not.md`) were regenerated. Historical entries keep their counts.
 
 ## [0.18.6] - 2026-10-19
