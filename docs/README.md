@@ -1,3 +1,10 @@
+---
+title: "Docs folder"
+description: "Maps what lives in the repo-facing docs folder, for a contributor browsing or extending the source"
+audience: engineer
+level: intermediate
+---
+
 # docs/
 
 This folder is for people working **with the repo**: anyone browsing the source and anyone contributing to it. It covers install, architecture, contributing, the core concepts, and the per-file sidecars that sit next to code and config.

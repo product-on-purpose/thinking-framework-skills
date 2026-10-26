@@ -434,7 +434,7 @@ This plugin is built to the [agent-skills-toolkit](https://github.com/product-on
 | 🥈 | **Convergent (Silver)** | The plugin declares its agent targets and emits each higher-order component (commands, workflows, chain contracts) correctly for both Claude Code and Codex, with a manifest that matches what is on disk. |
 | 🥉 | **Universal (Bronze)** | The skills are portable - valid frontmatter, an `AGENTS.md`, a manifest, references one level deep - so the identical files run on any agentskills.io-compatible agent. |
 
-`thinking-framework-skills` validates at **advanced (Gold) with 0 errors against Standard 0.8**, the version it declares (`library.json` sets `"standard": "0.8"`). [`.github/workflows/ci.yml`](.github/workflows/ci.yml) pins the exact toolkit commit CI grades with, and that commit is deliberately **newer** than the declared Standard.
+`thinking-framework-skills` validates at **advanced (Gold) with 0 errors against Standard 0.17**, the version it declares (`library.json` sets `"standard": "0.17"`). [`.github/workflows/ci.yml`](.github/workflows/ci.yml) pins the exact toolkit commit CI grades with, and that commit is deliberately **newer** than the declared Standard.
 
 **Two dials, and the difference matters.** The *pinned toolkit* is which validator runs. The *declared Standard* is which version of the rules the library holds itself to. Running a newer validator against an older declared Standard is supported by design: findings from rules introduced after 0.8 are held at `warn` rather than counted as failures. That is why the run reports **0 errors and 89 warnings**, not 90 failures.
 
@@ -474,7 +474,7 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 | **Recipes** | 9 (skill chains shipped as workflow components), each runnable as a slash command |
 | **Commands** | 10 (one per recipe, plus `/think-research-framework`) |
 | **Subagents** | 3 for Claude Code (the research engine and two recipes: `think-stress-test-decision`, `think-audit-reasoning`) |
-| **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) at Standard 0.8 - **0 errors**, 89 non-gating warnings (82 post-0.8 docs rules held at warn, 7 caveat-first lenses), self-hosting CI |
+| **Conformance** | [advanced (Gold)](#-conformance-what-advanced-gold-tier-means) at Standard 0.17 - **0 errors**, 89 non-gating warnings (82 post-0.8 docs rules held at warn, 7 caveat-first lenses), self-hosting CI |
 | **Evidence** | 11 skills at `S` / `S-M` tier; every skill graded and sourced |
 | **Spec** | [agentskills.io](https://agentskills.io/specification) |
 | **License** | [Apache-2.0](LICENSE) |

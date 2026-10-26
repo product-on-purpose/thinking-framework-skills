@@ -1,3 +1,10 @@
+---
+title: "Core concepts"
+description: "Summarizes the four ideas that hold the library together, for a first read of how the repo thinks about evidence and skills"
+audience: both
+level: beginner
+---
+
 # Core concepts
 
 Orientation for a reader of this repo. Four ideas hold the library together. This page summarizes each and links the canonical, fuller version on the docs site. Read the site pages when you want the full argument; read this when you want the shape.

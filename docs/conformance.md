@@ -1,13 +1,20 @@
+---
+title: "Conformance"
+description: "Breaks down the gate check by check, for anyone verifying or re-measuring the Gold claim"
+audience: engineer
+level: advanced
+---
+
 # Conformance: how this plugin reaches advanced (Gold) tier
 
-`thinking-framework-skills` is built to the [agent-skills-toolkit](https://github.com/product-on-purpose/agent-skills-toolkit) **Advanced Skill Library Standard** ([`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)). This page is the check-by-check breakdown behind the one-line claim in the README: *validates at advanced (Gold), 0 errors, against Standard 0.8.*
+`thinking-framework-skills` is built to the [agent-skills-toolkit](https://github.com/product-on-purpose/agent-skills-toolkit) **Advanced Skill Library Standard** ([`STANDARD.md`](https://github.com/product-on-purpose/agent-skills-toolkit/blob/main/STANDARD.md)). This page is the check-by-check breakdown behind the one-line claim in the README: *validates at advanced (Gold), 0 errors, against Standard 0.17.*
 
 **Two dials, and confusing them is the easiest mistake to make here.**
 
 | Dial | Where | What it controls |
 |---|---|---|
 | **Pinned toolkit** | `.github/workflows/ci.yml` `ref:` | *Which validator runs.* Deliberately newer than the declared Standard |
-| **Declared Standard** | `library.json` `"standard"` | *Which version of the rules the library holds itself to.* Currently `0.8` |
+| **Declared Standard** | `library.json` `"standard"` | *Which version of the rules the library holds itself to.* Currently `0.17` |
 
 Running a newer validator against an older declared Standard is supported by design. Findings from rules introduced after the declared version are held at `warn` by a version ceiling instead of counted as failures, so a consumer can take validator bug-fixes without being forced to adopt every new requirement in the same step. That is exactly what this repo does.
 
