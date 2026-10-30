@@ -1,3 +1,10 @@
+---
+title: "Contributing a framework"
+description: "States the selection bar a new framework must clear before it ships, for anyone proposing a framework to add"
+audience: engineer
+level: intermediate
+---
+
 # Contributing a framework
 
 This library grows by addition, not accretion. A new framework earns its place by clearing a deliberate selection bar, carrying an honest evidence grade, producing a concrete artifact, and stating where it misleads. This page is the gate. The canonical step-by-step build process lives in [the authoring loop](./internal/AUTHORING.md); read it before you write any files.

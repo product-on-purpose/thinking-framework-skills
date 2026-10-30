@@ -1,3 +1,10 @@
+---
+title: "Troubleshooting"
+description: "Matches actual error text to its fix, for anyone stuck on install, invocation, or the conformance gate"
+audience: both
+level: intermediate
+---
+
 # Troubleshooting
 
 Every entry starts with the **actual text you will see**, so you can match on the error rather than guess which section applies. Search this page for a fragment of your output.

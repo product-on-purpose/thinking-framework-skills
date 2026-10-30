@@ -1,11 +1,9 @@
 {
   "_comment": "Canonical composition of the conformance gate's non-gating warnings, plus the Standard-0.13 counterfactual. The headline warning TOTAL lives in gate-warning-count.txt (one number, one place); this file holds the breakdown that prose quotes alongside it. scripts/check.mjs asserts byRequirement against a live evaluator run and asserts that it sums to that total, so the breakdown cannot drift from reality. scripts/check-counts.mjs asserts the published prose against this file. See scripts/lib/warning-count-lib.mjs for why these are asserted rather than re-typed.",
   "byRequirement": {
-    "G7": 7,
-    "G8": 71,
-    "G10": 4,
     "U5": 7
   },
-  "_errorsAtStandard013_comment": "MEASURED BY HAND, not asserted against a live run: it is a counterfactual that requires temporarily declaring 0.13 in library.json, which CI must not do. Re-measure it at each release cut (release-process.md, Standard re-pin review) rather than arithmetic-ing it from the warning count. Last measured 2026-09-11 at toolkit 93da438: convergent, 84 errors, 7 warnings.",
+  "_standard017_comment": "Measured 2026-10-25 after re-pinning library.json to Standard 0.17 (toolkit 93da438 via agent-skills-toolkit@1.21.0): G4 (index drift) and G7/G10 (docs frontmatter / Diataxis presence) were fixed and dropped to 0; G8 (folder READMEs, 71 -> 74 once docs/tutorials, docs/how-to and docs/explanation were added) moved from a warn held by the pre-0.17 version ceiling to a gating ERROR, so it no longer belongs in this warning breakdown at all. Only U5 (the seven caveat-first lens descriptions, a deliberate house-provenance warning, see docs/conformance.md) remains a warning. The prose in README.md and docs/conformance.md that still quotes the pre-0.17 89/82-post-0.8 figures was deliberately left for the follow-on stage that lands the 74 G8 folder READMEs, so the 'current run' narrative can be corrected once, to its final true number, instead of twice.",
+  "_errorsAtStandard013_comment": "MEASURED BY HAND, not asserted against a live run: it is a counterfactual that requires temporarily declaring 0.13 in library.json, which CI must not do. Re-measure it at each release cut (release-process.md, Standard re-pin review) rather than arithmetic-ing it from the warning count. Last measured 2026-09-11 at toolkit 93da438: convergent, 84 errors, 7 warnings. Not re-measured at this pin change (now moot: the repo declares 0.17, well past 0.13, so this counterfactual is a historical data point about an even-older hypothetical pin, not a live comparison).",
   "errorsAtStandard013": 84
 }

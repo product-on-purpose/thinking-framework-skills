@@ -1,3 +1,10 @@
+---
+title: "Getting started"
+description: "Walks through installing the plugin and running one skill, for a first-time user of the library"
+audience: both
+level: beginner
+---
+
 # Getting started
 
 This is a library of **63 thinking frameworks rebuilt as skills** an AI agent can run, and that humans can follow by hand. Each one takes a messy situation and produces a concrete artifact: a ranked risk register, a weighted option matrix, an argument map, an honest base-rate estimate.

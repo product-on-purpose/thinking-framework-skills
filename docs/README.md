@@ -1,3 +1,10 @@
+---
+title: "Docs folder"
+description: "Maps what lives in the repo-facing docs folder, for a contributor browsing or extending the source"
+audience: engineer
+level: intermediate
+---
+
 # docs/
 
 This folder is for people working **with the repo**: anyone browsing the source and anyone contributing to it. It covers install, architecture, contributing, the core concepts, and the per-file sidecars that sit next to code and config.
@@ -10,9 +17,12 @@ It is not the learning experience. The rendered guide for end users (quick-facts
 - [architecture.md](./architecture.md) - how a skill is laid out, how `library.json` and the `_workflows` recipes feed `scripts/gen-site.mjs`, and why the skills (not the site) are canonical.
 - [contributing.md](./contributing.md) - how to propose or change a skill, plus the evals and checks a change has to pass.
 - [concepts.md](./concepts.md) - the vocabulary: cognitive-operation families, recipes, IDs (`thinking-framework-skills.<method>`), the evidence tiers (S/M/P/V/A/C/X) including compound grades, plus the tool/meta-skill and contested-lens definitions.
-- [conformance.md](./conformance.md) - what advanced (Gold) tier means, the G1-G7 checks, and how this plugin meets (or vacuously passes) each.
+- [conformance.md](./conformance.md) - what advanced (Gold) tier means, the G1-G10 checks, and how this plugin meets (or vacuously passes) each.
 - [troubleshooting.md](./troubleshooting.md) - what to do when a skill does not fire, the output is prose instead of an artifact, or a gate layer fails. Keyed to the actual error text so you can search for what you saw.
 - [reference/authoring-contract.md](./reference/authoring-contract.md) - for each thing you author, where its contract lives and which gate layer enforces it. An index that links to the sources rather than copying them.
+- [tutorials/](./tutorials/) - hands-on walkthroughs, learning by doing one concrete run start to finish (currently: running a recipe end to end).
+- [how-to/](./how-to/) - goal-oriented recipes for a contributor who already knows the basics (currently: running the conformance gate locally).
+- [explanation/](./explanation/) - understanding-oriented pages, including [architecture-internals.md](./explanation/architecture-internals.md), the detailed companion to [architecture.md](./architecture.md).
 - [internal/](./internal/) - **internal** specs, plans, research, the [authoring loop](./internal/AUTHORING.md), and the [release process](./internal/release-process.md). Working notes, not polished docs; expect churn.
 
 ## Self-documenting code
