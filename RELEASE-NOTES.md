@@ -2,6 +2,26 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.19.0
+
+**Fourteen skills changed under the fourth research wave, and the library is now graded against Standard 0.17.** No new frameworks and no changes to any skill's overall evidence grade; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For everyone
+
+- **Six skills gain an optional step.** Scenario planning can search a strategy for the conditions that break it. The ethical matrix can use six moral foundations as its columns. Morphological analysis can rate how strongly one option makes another more or less likely. Tension mapping can ask whether neither pole is the real issue. The evidence sort can restate a claim as who observed what. The perspectives review can restate a personal situation in the third person first.
+- **The belief-update routine asks you to commit first.** It now has you write down each belief's confidence before new evidence arrives, and change it only for a named reason.
+- **Issue trees and Fermi estimates keep a remainder.** Both now call for an explicit "other" branch or term, and warn against letting the most finely split part dominate.
+- **Four skills hand set-aside material to a fresh context.** Brainwriting, the veil of ignorance, the after-action review and reference-class forecasting no longer just tell the same context to ignore what it has seen.
+- **New eval figures on Opus 5.5.** All three evals re-ran on 2026-10-20. Routing picked the right framework in 376 of 376 cases, with no false fires on 379 cases where no framework should fire. The trust page says why these figures start a new baseline rather than extend a trend.
+
+### For builders and contributors
+
+- **Standard 0.17, graded in CI.** `library.json` declares Standard 0.17, and CI now grades with agent-skills-toolkit v1.22.0: Gold, 0 errors, 7 warnings.
+- **74 folder READMEs** say what each folder holds.
+- **The registry holds 150 evaluated methods**, up from 135. The three wave-4 build candidates are vetted and staged in `frameworks/_proposed/`, waiting for the maintainer's admission decision.
+- **The gate checks the words of the conformance claim**, not only its numbers.
+- **The tiered-description experiment is pre-registered**, with one conflict against the `U5` score recorded for the maintainer to decide.
+
 ## v0.18.6
 
 **Every deferred source check is now done, and the premortem claims less about confidence.** No new frameworks and no changes to any skill's overall evidence grade; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
