@@ -462,13 +462,13 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ## 📊 Project status
 
-`v0.18.6` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
+`v0.19.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
 
 ### At a glance
 
 |  |  |
 |---|---|
-| **Current version** | [v0.18.6](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.6) |
+| **Current version** | [v0.19.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.19.0) |
 | **Frameworks** | 63, across 12 cognitive-operation families (56 core + 7 contested lenses) |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 9 (skill chains shipped as workflow components), each runnable as a slash command |
@@ -522,6 +522,7 @@ Full detail in [`CHANGELOG.md`](CHANGELOG.md); curated highlights in [`RELEASE-N
 
 | Version | Highlights |
 |---|---|
+| [**0.19.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.19.0) | Minor. Standard 0.17, graded in CI with agent-skills-toolkit v1.22.0. Fourteen skills change under the wave-4 decisions, six of them gaining an optional step. New Opus 5.5 eval baseline; registry at 150 methods. No governing-tier changes; catalog stays 56 core + 7 contested. |
 | [**0.18.6**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.6) | Patch. The last two deferred source checks resolved: the issue-tree page drops an unsourced omission claim and the pyramid-principle page reports mixed comprehension evidence. The premortem's confidence effect is graded M in all six places that stated it, including the installed skill. Confirm-note baseline 2 to 0. No governing-tier changes; catalog stays 56 core + 7 contested. |
 | [**0.18.5**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.5) | Patch. Nine deferred source checks done against the sources: the premortem study measured confidence, not calibration, and a letter year, a misquote, three titles and a co-author's name are corrected. Also two research tools, a CrossRef retraction sweep and two registry links fixed. Confirm-note baseline 11 to 2. No tier changes; catalog stays 56 core + 7 contested. |
 | [**0.18.4**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.4) | Patch. The evidence decisions the two audits left open: a retracted 2002 study flagged on the pre-commitment page, four checked caveats (natural frequencies, WOOP, premortem, calibration feedback), the premortem "30%" wording corrected, three citations fixed, four eval answer keys widened, and a gate ratchet on deferred "confirm before a public claim" notes. No tier changes; catalog stays 56 core + 7 contested. |
