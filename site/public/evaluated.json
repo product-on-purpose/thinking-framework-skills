@@ -1077,11 +1077,11 @@
       "slug": "objectives-first-alternative-generation",
       "name": "Objectives-first alternative generation",
       "family": "decision-and-option-evaluation",
-      "tier": "M",
+      "tier": "P",
       "status": "cand",
       "verdict": "build",
       "fold_into": null,
-      "mechanism": "before listing options, elicit the decision's fundamental objectives and separate them from means objectives, then generate alternatives from each objective",
+      "mechanism": "before listing options, list the decision's objectives, challenge the list for completeness, keep the fundamental objectives apart from the means, then generate alternatives from each fundamental objective in turn",
       "url": null
     },
     {

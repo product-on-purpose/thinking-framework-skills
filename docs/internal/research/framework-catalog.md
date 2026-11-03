@@ -162,7 +162,7 @@ The empirical core (the evidence anchor): premortem, brainwriting/NGT, reference
 | Mechanical / linear-model aggregation | combine cues with a simple fixed formula instead of holistic judgment | S | `[shipped]` |
 | Dialectical bootstrapping | estimate, assume the estimate is wrong and list why, estimate again from those changed assumptions, then average the two numbers | M | `[shipped]` |
 | Interest-based negotiation (BATNA / principled negotiation) | separate both sides' interests from their positions, decide against your BATNA inside the mapped ZOPA, and invent options for mutual gain across differently-valued issues before dividing value | P | `[shipped]` |
-| Objectives-first alternative generation | before listing options, elicit the decision's fundamental objectives and separate them from means objectives, then generate alternatives from each objective | M | `[cand]` |
+| Objectives-first alternative generation | before listing options, list the decision's objectives, challenge the list for completeness, keep the fundamental objectives apart from the means, then generate alternatives from each fundamental objective in turn | P | `[cand]` |
 
 ## 8. Strategy and opportunity
 

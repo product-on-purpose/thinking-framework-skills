@@ -1,6 +1,6 @@
 # Wave-4 vetting: the three build candidates (2026-10-20)
 
-> **Status: vetted, not admitted.** The three build candidates that wave 4 admitted on 2026-10-19 were each vetted with the `think-research-framework` engine and then adversarially verified. Every verdict below is a proposal. Nothing here was written to `frameworks/registry.mjs`, and each candidate's registry row still ends "Preliminary; pending deep-research vetting." Admission and tiers are the maintainer's decisions. The wave-4 synthesis these candidates came from is [`2026-10-19-wave4-external-research.md`](2026-10-19-wave4-external-research.md).
+> **Status: vetted on 2026-10-20, admitted on 2026-11-03.** The three build candidates that wave 4 admitted on 2026-10-19 were each vetted with the `think-research-framework` engine and then adversarially verified. On 2026-11-03 the maintainer approved all three, and their vetted entries replaced the preliminary rows in `frameworks/registry.mjs`. The status of each row stays `cand` until a skill is built. The sections below describe the state on 2026-10-20, and "Decisions" records what the maintainer chose. The wave-4 synthesis these candidates came from is [`2026-10-19-wave4-external-research.md`](2026-10-19-wave4-external-research.md).
 
 ## Outcome at a glance
 
@@ -12,7 +12,7 @@
 | `objectives-first-alternative-generation` | cand, build, M | Build, M (narrow) | Agrees | **Disagrees: recommends P (narrow)** |
 | `draft-blind-verification` | cand, build, C | Build, C (the agent line is M, narrow) | Agrees | Agrees, under the rule as written |
 
-Each candidate is staged at `frameworks/_proposed/<slug>/`, the engine's own staging path, which `check-registry.mjs` exempts from the orphan-dossier check. Each folder holds three files:
+On 2026-10-20 each candidate was staged at `frameworks/_proposed/<slug>/`, the engine's own staging path, which `check-registry.mjs` exempts from the orphan-dossier check. Each folder held three files. Admission moved them on 2026-11-03: each dossier is now at `frameworks/<slug>/dossier.md`, each verifier report is at [`2026-10-20-wave4-verify/<slug>.md`](2026-10-20-wave4-verify/), and each proposed entry became the registry row.
 
 - `dossier.md`, the engine's dossier with the verifier's factual corrections applied;
 - `proposed-entry.json`, the replacement registry row, which passes `check-proposed-entry.mjs`;
@@ -51,12 +51,12 @@ The move is to write verification questions about a draft's claims and answer th
 - **Correction applied (a misquote).** The dossier quoted "consistently outperforming the joint approach", which is not the paper's wording. It now paraphrases without quotation marks.
 - **For the backlog (the verifier's Major 2).** This is the library's first candidate whose stronger evidence is native to agents. The split rule was written for the usual direction, where human evidence is capped for lack of AI validation. Here a controlled agent ablation at M is capped by a human form at C. The result is correct under the current rule, but it sets a precedent for future agent-native methods.
 
-## Decisions for the maintainer
+## Decisions (made by the maintainer on 2026-11-03)
 
-1. **Replace each preliminary registry row with its vetted entry, or keep the preliminary row.** A replacement pastes `proposed-entry.json` into `frameworks/registry.mjs`, moves `dossier.md` to `frameworks/<slug>/dossier.md` and adds `dossierPath`. The replacement also clears the row's "Preliminary" sentence, which is the marker that PR #196 (marking preliminary rows) formalizes.
-2. **Choose the tier for `objectives-first-alternative-generation`: M as the engine proposes, or P as the verifier proposes.** The recommendation is P, narrow, as above.
-3. **Decide whether the split rule needs a clause for agent-native methods.** The recommendation is no change now. Ship `draft-blind-verification` at C with the agent line stated, and revisit the rule if a second agent-native candidate arrives.
-4. **Building a skill is a separate decision from admission.** The 2026-10-20 roadmap's build order is `causal-dag-adjustment-check` first, because its verdict and tier are both uncontested, then `objectives-first-alternative-generation`, then `draft-blind-verification`.
+1. **Replace each preliminary registry row with its vetted entry: yes, for all three.** Each replacement added `dossierPath` and cleared the row's "Preliminary" sentence, which is the marker that PR #196 (marking preliminary rows) formalizes.
+2. **The tier for `objectives-first-alternative-generation`: P, narrow.** The engine proposed M and the verifier proposed P. The row can return to M if the methods section of Siebert and Keeney (2015) shows that independent judges rated quality.
+3. **The split rule: no change now.** `draft-blind-verification` stands at C with the agent line stated. The rule is revisited if a second agent-native candidate arrives.
+4. **Building: the causal DAG check first, after the C2-4 (tiered descriptions) experiment resolves.** Waiting means the new description is written under whichever rule that experiment settles. The order after that is `objectives-first-alternative-generation`, then `draft-blind-verification`. No skill has been built.
 
 ## What this vetting does not establish
 
