@@ -1,6 +1,6 @@
 ---
 name: think-boundary-critique
-description: Audits the boundary judgments that silently define a problem frame. For each of four sources, who benefits, who decides, whose knowledge counts, who has standing, it contrasts the descriptive is boundary against the normative ought boundary, names the gaps, and lists the affected-but-excluded parties who have no voice in the frame, producing a boundary-judgment audit rather than a stakeholder round-up. Use when a plan, metric, or proposal already encodes who matters and who does not and the risk is solving a tidy problem for the people inside the line while pushing harm onto people outside it, when an improvement claim rests on an unexamined judgment about whose improvement, or on contested, value-laden, multi-party situations.
+description: Audits the boundary judgments in a problem frame (who benefits, decides, counts as expert and has standing) and names who is excluded. Use when a plan, metric or improvement claim silently decides whose interests count.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.boundary-critique
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "C/P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Audits the boundary judgments that silently define a problem frame. For each of four sources, who benefits, who decides, whose knowledge counts, who has standing, it contrasts the descriptive is boundary against the normative ought boundary, names the gaps, and lists the affected-but-excluded parties who have no voice in the frame, producing a boundary-judgment audit rather than a stakeholder round-up. Use when a plan, metric, or proposal already encodes who matters and who does not and the risk is solving a tidy problem for the people inside the line while pushing harm onto people outside it, when an improvement claim rests on an unexamined judgment about whose improvement, or on contested, value-laden, multi-party situations.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Boundary Critique

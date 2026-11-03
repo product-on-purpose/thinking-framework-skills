@@ -1,6 +1,6 @@
 ---
 name: think-theory-of-constraints
-description: Produces a constraint-intervention plan that names the single binding constraint capping a system's throughput and attaches its exploit, subordinate, and elevate decisions, after testing capacity versus demand at each step to confirm that step is genuinely the rate-limiter rather than the loudest one. Use when a system has a clear flow (a pipeline, a funnel, a queue, an approval chain, a production line) whose output is capped by one step and improvement effort is being spread evenly across all steps instead of aimed at the bottleneck. Not for coverage questions (route to think-issue-tree), recurring deep-cause questions (route to think-iceberg-model), or accumulation-trajectory questions (route to think-stocks-and-flows-reasoning).
+description: Produces a constraint-intervention plan that confirms the one step capping a system's throughput by capacity against demand, then sets its exploit, subordinate and elevate decisions. Use when a flow's output is capped by one step.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.theory-of-constraints
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a constraint-intervention plan that names the single binding constraint capping a system's throughput and attaches its exploit, subordinate, and elevate decisions, after testing capacity versus demand at each step to confirm that step is genuinely the rate-limiter rather than the loudest one. Use when a system has a clear flow (a pipeline, a funnel, a queue, an approval chain, a production line) whose output is capped by one step and improvement effort is being spread evenly across all steps instead of aimed at the bottleneck. Not for coverage questions (route to think-issue-tree), recurring deep-cause questions (route to think-iceberg-model), or accumulation-trajectory questions (route to think-stocks-and-flows-reasoning).
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Theory of Constraints

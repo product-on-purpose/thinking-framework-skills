@@ -1,6 +1,6 @@
 ---
 name: think-three-horizons
-description: Produces a three-curve transition map (a declining present H1, a contested middle H2 read in two directions, an emerging future H3) with the actor located in it. Use when a group is stuck in a present-versus-future binary and needs to govern the managed decline of the old system and the cultivation of the new one at once. Not a single backward path from one fixed future, and not a set of ranked external futures.
+description: Produces a three horizons map (declining present, contested middle, emerging future) that locates the actor in it. Use when a group stuck in a present-versus-future binary must manage decline and grow the new at once.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.three-horizons
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "C"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a three-curve transition map (a declining present H1, a contested middle H2 read in two directions, an emerging future H3) with the actor located in it. Use when a group is stuck in a present-versus-future binary and needs to govern the managed decline of the old system and the cultivation of the new one at once. Not a single backward path from one fixed future, and not a set of ranked external futures.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Three Horizons

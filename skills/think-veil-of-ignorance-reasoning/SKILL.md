@@ -1,6 +1,6 @@
 ---
 name: think-veil-of-ignorance-reasoning
-description: Produces a veiled-decision comparison that decides a values trade-off as if the decider had an equal chance of being any affected party, under an explicit decision rule, then returns to the positioned decision and names the gap that self-interest was silently driving. Use when a decision distributes benefit and burden across parties, the decider is one of those parties, and the risk is a self-serving call dressed as fairness. Not a neutral verdict, not forecasting, and not for cases where desert, promises, or compensatory claims make identity morally load-bearing.
+description: Produces a veiled-decision comparison that decides a values trade-off as if the decider could be any affected party, naming the gap self-interest drove. Use when a decision splits benefit and burden and the decider is one party.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.veil-of-ignorance-reasoning
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "M"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a veiled-decision comparison that decides a values trade-off as if the decider had an equal chance of being any affected party, under an explicit decision rule, then returns to the positioned decision and names the gap that self-interest was silently driving. Use when a decision distributes benefit and burden across parties, the decider is one of those parties, and the risk is a self-serving call dressed as fairness. Not a neutral verdict, not forecasting, and not for cases where desert, promises, or compensatory claims make identity morally load-bearing.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Veil-of-Ignorance Reasoning

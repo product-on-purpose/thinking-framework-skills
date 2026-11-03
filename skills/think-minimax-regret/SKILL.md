@@ -1,6 +1,6 @@
 ---
 name: think-minimax-regret
-description: Produces a regret (opportunity-loss) matrix with the minimax pick and the binding worst-case state, choosing among options over un-probabilized states of nature. Use when a few discrete options face a few discrete uncontrollable states and no defensible probabilities exist. Not an expected-value tree (which needs probabilities) and not an attribute scorecard.
+description: Produces a regret matrix with the minimax pick and the binding worst-case state. Use when a few discrete options face a few uncontrollable states and no defensible probabilities exist.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.minimax-regret
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a regret (opportunity-loss) matrix with the minimax pick and the binding worst-case state, choosing among options over un-probabilized states of nature. Use when a few discrete options face a few discrete uncontrollable states and no defensible probabilities exist. Not an expected-value tree (which needs probabilities) and not an attribute scorecard.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Minimax Regret

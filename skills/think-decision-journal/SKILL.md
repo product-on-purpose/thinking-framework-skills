@@ -1,6 +1,6 @@
 ---
 name: think-decision-journal
-description: Produces a decision journal entry that records a consequential decision at the moment it is made - the decision, the rationale, the predicted outcome, an explicit confidence level, and the assumptions it rests on - so it can be honestly reviewed later against what actually happened. Use when committing to a consequential, uncertain decision (a launch, hire, investment, bet, or strategic choice) and you want to lock in the prediction now to defeat hindsight bias and build calibration, or when pairing a record-now step with a later review.
+description: Produces a decision journal entry that records a decision, its rationale, predicted outcome, confidence and assumptions when it is made, for honest later review. Use when committing to a consequential, uncertain decision.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.decision-journal
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a decision journal entry that records a consequential decision at the moment it is made - the decision, the rationale, the predicted outcome, an explicit confidence level, and the assumptions it rests on - so it can be honestly reviewed later against what actually happened. Use when committing to a consequential, uncertain decision (a launch, hire, investment, bet, or strategic choice) and you want to lock in the prediction now to defeat hindsight bias and build calibration, or when pairing a record-now step with a later review.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Decision Journal

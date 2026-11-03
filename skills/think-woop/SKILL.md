@@ -1,6 +1,6 @@
 ---
 name: think-woop
-description: Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and binding an if-then response to it. Use when a goal is already chosen but follow-through keeps failing, or to close the gap between intention and action.
+description: Produces a WOOP card (Wish, Outcome, Obstacle, Plan) that contrasts the outcome with the main internal obstacle and binds an if-then plan to it. Use when a goal is already chosen but follow-through keeps failing.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.woop
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "S"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and binding an if-then response to it. Use when a goal is already chosen but follow-through keeps failing, or to close the gap between intention and action.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # WOOP (Mental Contrasting with Implementation Intentions)

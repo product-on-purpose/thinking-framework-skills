@@ -1,6 +1,6 @@
 ---
 name: think-abstraction-laddering
-description: Builds an abstraction ladder that moves a problem up ("why / to what end?") and down ("how / what specifically?") to locate the right altitude to work at, then marks one rung as the working level. Use when a problem is stated as a bare solution with an unstated purpose, as a vague aspiration with no concrete handle, when people are arguing past each other at different levels, or before committing effort at an altitude nobody chose on purpose.
+description: Builds an abstraction ladder that moves a problem up (why) and down (how) and marks the rung to work at. Use when a problem arrives as a bare solution or vague aspiration, or people argue at different levels.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.abstraction-laddering
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Builds an abstraction ladder that moves a problem up ("why / to what end?") and down ("how / what specifically?") to locate the right altitude to work at, then marks one rung as the working level. Use when a problem is stated as a bare solution with an unstated purpose, as a vague aspiration with no concrete handle, when people are arguing past each other at different levels, or before committing effort at an altitude nobody chose on purpose.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Abstraction Laddering

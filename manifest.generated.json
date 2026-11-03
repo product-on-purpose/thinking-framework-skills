@@ -7,17 +7,17 @@
     {
       "name": "think-abstraction-laddering",
       "path": "skills/think-abstraction-laddering/SKILL.md",
-      "description": "Builds an abstraction ladder that moves a problem up (\"why / to what end?\") and down (\"how / what specifically?\") to locate the right altitude to work at, then marks one rung as the working level. Use when a problem is stated as a bare solution with an unstated purpose, as a vague aspiration with no concrete handle, when people are arguing past each other at different levels, or before committing effort at an altitude nobody chose on purpose."
+      "description": "Builds an abstraction ladder that moves a problem up (why) and down (how) and marks the rung to work at. Use when a problem arrives as a bare solution or vague aspiration, or people argue at different levels."
     },
     {
       "name": "think-affinity-mapping",
       "path": "skills/think-affinity-mapping/SKILL.md",
-      "description": "Produces a clustered theme map that groups many raw notes, observations, quotes, or data points bottom-up into a small set of named, traceable themes (the KJ method). Use when a scattered pile of dozens to hundreds of existing items needs to become a few emergent themes, such as synthesizing user-research notes, support tickets, survey free-text, or retro stickies, and the right structure should emerge from the data rather than be imposed."
+      "description": "Produces a clustered theme map that groups many raw notes, quotes or data points bottom-up into named, traceable themes. Use when dozens to hundreds of items, such as research notes or tickets, need emergent structure."
     },
     {
       "name": "think-after-action-review",
       "path": "skills/think-after-action-review/SKILL.md",
-      "description": "Produces a structured after-action review by comparing what was expected against what actually happened, diagnosing why the gaps occurred, and converting them into specific owned sustain-and-change actions. Use when a project, launch, sprint, or incident has finished and you want to turn the outcome into learning, not a status update."
+      "description": "Produces an after-action review that compares what was expected with what happened, diagnoses the gaps, and assigns owned sustain-and-change actions. Use when a project, launch, sprint or incident has finished."
     },
     {
       "name": "think-analysis-of-competing-hypotheses",
@@ -27,47 +27,47 @@
     {
       "name": "think-argument-mapping",
       "path": "skills/think-argument-mapping/SKILL.md",
-      "description": "Produces an argument map by laying out a claim's supporting reasons, the co-premises each silently depends on, and the objections against it as an explicit structure, then flags the weakest links and unsupported premises. Use when an argument or recommendation must be evaluated for soundness, or when a fluent case may be hiding a broken inference."
+      "description": "Produces an argument map of a claim's reasons, hidden co-premises and objections, flagging the weakest links. Use when an argument must be checked for soundness, or a fluent case may hide a broken inference."
     },
     {
       "name": "think-assumption-reversal",
       "path": "skills/think-assumption-reversal/SKILL.md",
-      "description": "Generates non-obvious ideas by surfacing the foundational assumptions a problem or solution rests on, negating each, and reframing from the reversed assumptions, then shortlisting, producing an assumptions-and-reversals sheet. Use when an option space feels stuck inside default constraints, or when you need to expose premises that are taken for granted."
+      "description": "Generates non-obvious ideas by negating the assumptions a problem or solution rests on and reframing from each reversal. Use when options feel stuck in default constraints or premises go unquestioned."
     },
     {
       "name": "think-authentic-dissent",
       "path": "skills/think-authentic-dissent/SKILL.md",
-      "description": "Checks whether a decision has genuine minority dissent or only smooth surface consensus, identifies who actually holds a contrary view, and plans how to elicit and protect real dissent, flagging clearly where a view is constructed rather than authentically held. Use when consensus feels too easy, or to set up genuine challenge before a high-stakes call."
+      "description": "Checks whether a decision has genuine dissent or only surface consensus, and plans how to elicit and protect real dissent, flagging constructed views. Use when consensus feels too easy or a high-stakes call needs real challenge."
     },
     {
       "name": "think-backcasting",
       "path": "skills/think-backcasting/SKILL.md",
-      "description": "Produces a backcast path by fixing a vivid desired future state and reasoning backward through the milestones and preconditions required to reach it, ending at the next concrete step available now. Use when planning toward a transformative or long-horizon goal that forward planning anchors too low, when a chosen future needs a route mapped back to today, or when milestones and dependencies between now and the goal must be made explicit."
+      "description": "Produces a backcast path that fixes a desired future and reasons backward through milestones to the next step available now. Use when a long-horizon or transformative goal is anchored too low by forward planning."
     },
     {
       "name": "think-belief-update-routine",
       "path": "skills/think-belief-update-routine/SKILL.md",
-      "description": "Produces a belief-update ledger that re-scores a standing inventory of open beliefs against newly arrived evidence on a cadence - each belief carrying a prior confidence, the evidence accrued since the last review, a revised confidence with an explicit delta and direction, a reason for the size of the move (a guard against under-updating), and a next-review trigger. Use when you hold consequential open beliefs, forecasts, or standing assumptions that should track new evidence over time and you want a disciplined, recurring re-score - not a one-time decision record, a finished-event retro, or a single claim's conditions."
+      "description": "Produces a belief-update ledger that re-scores standing beliefs against new evidence on a cadence, sizing and justifying each change. Use when open beliefs, forecasts or assumptions should keep tracking evidence."
     },
     {
       "name": "think-boundary-critique",
       "path": "skills/think-boundary-critique/SKILL.md",
-      "description": "Audits the boundary judgments that silently define a problem frame. For each of four sources, who benefits, who decides, whose knowledge counts, who has standing, it contrasts the descriptive is boundary against the normative ought boundary, names the gaps, and lists the affected-but-excluded parties who have no voice in the frame, producing a boundary-judgment audit rather than a stakeholder round-up. Use when a plan, metric, or proposal already encodes who matters and who does not and the risk is solving a tidy problem for the people inside the line while pushing harm onto people outside it, when an improvement claim rests on an unexamined judgment about whose improvement, or on contested, value-laden, multi-party situations."
+      "description": "Audits the boundary judgments in a problem frame (who benefits, decides, counts as expert and has standing) and names who is excluded. Use when a plan, metric or improvement claim silently decides whose interests count."
     },
     {
       "name": "think-brainwriting",
       "path": "skills/think-brainwriting/SKILL.md",
-      "description": "Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first voice, then consolidates them into a shortlisted idea pool. Use when you need breadth of options and want to avoid the anchoring and conformity that make ordinary brainstorming underperform."
+      "description": "Generates ideas as silent brainwriting does, in independent streams that build on each other without anchoring on the first voice, consolidated into an idea pool. Use when breadth matters and anchoring is a risk."
     },
     {
       "name": "think-causal-layered-analysis",
       "path": "skills/think-causal-layered-analysis/SKILL.md",
-      "description": "Produces a four-layer matrix (litany, system, worldview, myth) of the current 'used future' beside a reconstructed preferred future per layer, anchored by a deliberately changed deep metaphor. Use when an issue is stuck because the framing is stuck, the official account and the system explanation have been argued to exhaustion, and the real disagreement is about clashing worldviews and the unexamined story underneath. Not a single-cause diagnosis (that is think-iceberg-model) and not a forecast."
+      "description": "Produces a four-layer matrix (litany, system, worldview, myth) of the current future beside a preferred one, anchored by a new deep metaphor. Use when an issue is stuck because its framing and worldviews are stuck."
     },
     {
       "name": "think-causal-loop-diagrams",
       "path": "skills/think-causal-loop-diagrams/SKILL.md",
-      "description": "Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities, and reading likely dynamics (spiral, goal-seeking, or oscillation) off which loop dominates. Use when a situation feeds back on itself - growth that funds more growth, a fix that recreates its own problem, capacity that relieves then re-attracts demand - and you need to see why it keeps accelerating, stalling, or overshooting. Not for a single accumulation, a one-directional consequence tree, or a genuinely linear chain."
+      "description": "Builds a signed causal loop diagram, labels each loop reinforcing or balancing, and reads the dynamics from the dominant loop. Use when a situation feeds back on itself and keeps accelerating, stalling or overshooting."
     },
     {
       "name": "think-complexity-domain-sort",
@@ -77,27 +77,27 @@
     {
       "name": "think-concept-mapping",
       "path": "skills/think-concept-mapping/SKILL.md",
-      "description": "Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit proposition, with cross-links across clusters - then surfaces gaps, missing links, and questionable propositions. Use when a domain has many interrelated concepts and the goal is to externalize and inspect how they relate, forcing every relationship to be named rather than left as a vague association."
+      "description": "Builds a concept map of nodes joined by labeled links that read as propositions, with cross-links, then surfaces gaps and doubtful propositions. Use when many interrelated concepts need every relationship named."
     },
     {
       "name": "think-consider-the-unknowns",
       "path": "skills/think-consider-the-unknowns/SKILL.md",
-      "description": "Produces a known-unknowns ledger by enumerating the relevant evidence not in hand, the variables that bear on a judgment but are unknown or unobservable, rating each unknown by its bearing and its obtainability, then re-rating confidence against the mapped gap. Use when a consequential one-off judgment rests on thin or partial evidence, no usable base rate exists, and the confidence on the table may be inflated by what was never looked at. Not for cases with a real reference class, for widening a numeric interval, or for unknowns cheap enough to just go resolve."
+      "description": "Produces a known-unknowns ledger of the missing evidence and unknown variables behind a judgment, rated by bearing and obtainability, then re-rates confidence. Use when a one-off judgment rests on thin evidence."
     },
     {
       "name": "think-contradiction-resolution",
       "path": "skills/think-contradiction-resolution/SKILL.md",
-      "description": "Converts a stuck trade-off into a contradiction to dissolve rather than a compromise to settle for. Names the two conflicting requirements, states an implementation-free Ideal Final Result, and applies the four separation principles (separate the requirements in time, space, scale, or condition) to satisfy both at once, then produces either a concrete resolution or an honest flag that the trade-off is genuine. Use when a decision has hardened into an either/or like speed versus quality, thorough versus fast, or generous versus profitable, when splitting the difference feels wrong and a win-win would be worth far more than the best compromise, or when a recurring design or product trade-off keeps forcing the same painful balance."
+      "description": "Converts a stuck trade-off into a contradiction to dissolve by separating the requirements in time, space, scale or condition, or flags it as genuine. Use when a decision has hardened into an either/or like speed versus quality."
     },
     {
       "name": "think-contradiction-tension-mapping",
       "path": "skills/think-contradiction-tension-mapping/SKILL.md",
-      "description": "Produces a both/and polarity map - two interdependent poles, the upside and downside quadrant of each, a greater purpose and a deeper fear, early-warning signs, and action steps - for a chronic tension that should be managed rather than resolved. Use when an organization keeps oscillating destructively between two opposites that are both true and interdependent (centralize versus decentralize, stability versus change, candor versus diplomacy), and treating each swing as a problem to solve is the actual mistake. Not for a dissolvable trade-off and not for a real either/or choice."
+      "description": "Produces a both/and polarity map of two interdependent poles, with each pole's upsides and downsides, warning signs and actions. Use when a group keeps swinging between two true opposites that must be managed, not solved."
     },
     {
       "name": "think-decision-journal",
       "path": "skills/think-decision-journal/SKILL.md",
-      "description": "Produces a decision journal entry that records a consequential decision at the moment it is made - the decision, the rationale, the predicted outcome, an explicit confidence level, and the assumptions it rests on - so it can be honestly reviewed later against what actually happened. Use when committing to a consequential, uncertain decision (a launch, hire, investment, bet, or strategic choice) and you want to lock in the prediction now to defeat hindsight bias and build calibration, or when pairing a record-now step with a later review."
+      "description": "Produces a decision journal entry that records a decision, its rationale, predicted outcome, confidence and assumptions when it is made, for honest later review. Use when committing to a consequential, uncertain decision."
     },
     {
       "name": "think-decision-option-review",
@@ -107,7 +107,7 @@
     {
       "name": "think-dialectical-bootstrapping",
       "path": "skills/think-dialectical-bootstrapping/SKILL.md",
-      "description": "Produces a dialectical estimate that improves a single committed number by polling the inner crowd, make a first estimate, assume it is wrong and list why, read whether that pushes the answer too high or too low, make a second estimate from those changed assumptions, then mechanically average the two. Use when a hard, one-off, bounded-scale numeric estimate (a year, a percentage, a count, a forecast) is about to be committed and no second judge, no real reference class, and no better data are available. Not for easy questions, not for unbounded order-of-magnitude unknowns, and never a cherry-picked single number in place of the average."
+      "description": "Produces a dialectical estimate by making a first estimate, assuming it is wrong, making a second, and averaging the two. Use when a hard one-off numeric estimate must be committed with no second judge, base rate or better data."
     },
     {
       "name": "think-eisenhower-moscow-pareto",
@@ -117,27 +117,27 @@
     {
       "name": "think-ethical-matrix",
       "path": "skills/think-ethical-matrix/SKILL.md",
-      "description": "Produces an ethical matrix, a grid that cross-references affected parties (rows, deliberately including voiceless ones such as future generations and the environment) against prima facie principles (columns of wellbeing, autonomy, fairness), specifying the option's impact in every cell and reading the result as a trade-off pattern rather than a score. Use when a concrete proposal affects multiple parties with a genuine moral trade-off among them, some affected parties have no voice, and an ethics debate keeps sliding between groups and principles. Not a decision calculator and not an option-versus-criteria scorer; the matrix maps the terrain and leaves the weighing to deliberation."
+      "description": "Produces an ethical matrix crossing affected parties, voiceless ones included, against principles such as wellbeing, autonomy and fairness, read as a trade-off pattern. Use when a proposal poses a moral trade-off among several parties."
     },
     {
       "name": "think-evidence-vs-inference-sort",
       "path": "skills/think-evidence-vs-inference-sort/SKILL.md",
-      "description": "Produces an evidence/inference ledger by sorting the claims in a prompt, document, or proposed conclusion into evidence, inference, and assumption, attaching a confidence level to each inference and flagging anything uncited. Use when a recommendation must be trusted, or when you need to audit the reasoning behind a conclusion in a high-stakes context."
+      "description": "Produces an evidence/inference ledger that sorts the claims in a document or conclusion into evidence, inference and assumption, rates each inference and flags uncited claims. Use when a conclusion must be trusted or audited."
     },
     {
       "name": "think-expected-value-decision-tree",
       "path": "skills/think-expected-value-decision-tree/SKILL.md",
-      "description": "Evaluates competing actions under uncertainty by building a decision tree of choice and chance nodes, placing explicit probabilities on outcomes the decider does not control, rolling the tree back to an expected value per option, recommending the best-EV branch, and adding a what-flips-it note naming the probability or value that would reverse the choice. Use when a decision turns on uncertain outcomes you can put rough probabilities on, when the structure is sequential (a choice opens chance events that open later choices), and when the stakes justify making the probability assumptions explicit and inspectable instead of buried in a gut feel."
+      "description": "Evaluates actions under uncertainty with a decision tree of choice and chance nodes, explicit probabilities, an expected value per option and what would flip it. Use when uncertain outcomes can be given rough probabilities."
     },
     {
       "name": "think-far-analogy-ideation",
       "path": "skills/think-far-analogy-ideation/SKILL.md",
-      "description": "Generates novel solution candidates by stating a problem's deep relational structure, mapping it to distant source domains (nature, other industries, games), and transferring the mechanism rather than surface features, then adapting. Use when near, obvious solutions are exhausted and you need genuinely original approaches."
+      "description": "Generates novel solutions by stating a problem's deep structure, mapping it to distant domains such as nature or other industries, and transferring the mechanism, not the surface. Use when near, obvious solutions are exhausted."
     },
     {
       "name": "think-fermi-estimation",
       "path": "skills/think-fermi-estimation/SKILL.md",
-      "description": "Produces a Fermi decomposition worksheet that estimates an unknown numeric quantity by factoring it into a chain of order-of-magnitude sub-estimates, guessing each to within a band, then multiplying back to a point estimate plus a compounded low/high range, with an independence check and a dominant-uncertainty flag. Use when you need a number and no lookup-able data or genuine reference class exists, so the magnitude has to be built from factors (for example sizing a market, a load, a cost, or a conversion you cannot look up). Not for forecasting from real base rates (use reference-class-forecasting) or decomposing a question for coverage with no number (use issue-tree)."
+      "description": "Produces a Fermi worksheet that builds an unknown quantity from order-of-magnitude factors into a point estimate and a compounded range. Use when a number is needed and no lookup data or reference class exists, as in market sizing."
     },
     {
       "name": "think-five-whys",
@@ -147,7 +147,7 @@
     {
       "name": "think-frame-creation",
       "path": "skills/think-frame-creation/SKILL.md",
-      "description": "Generates a new problem frame from theme analysis of the broader context, an abductive standpoint stated as approach it as if it were Y that redefines what the problem is and reasons forward to native solution directions. Use when an open paradoxical problem keeps resisting solutions inside the frame it arrived in, when conventional problem solving has only produced more of the symptom, or when the way a problem is framed is itself the obstacle and a fresh standpoint would be worth more than another solution attempt."
+      "description": "Generates a new problem frame from theme analysis of the wider context, treating the problem as if it were something else, and the solutions that opens. Use when a paradoxical problem resists solutions in its original frame."
     },
     {
       "name": "think-framework-advisor",
@@ -162,17 +162,17 @@
     {
       "name": "think-iceberg-model",
       "path": "skills/think-iceberg-model/SKILL.md",
-      "description": "Produces an iceberg that moves a problem down four levels of causation - from the visible event, to the pattern over time, to the underlying structures, to the mental models that hold them in place - pairing each level with the intervention it implies to find systemic causes and higher-leverage fixes. Use when a problem keeps recurring despite event-level fixes, when a symptom is being treated as a one-off, or when the question is why this keeps happening and where to actually intervene."
+      "description": "Produces an iceberg that traces a problem down from the visible event to patterns, structures and mental models, with the intervention each level implies. Use when a problem keeps recurring despite event-level fixes."
     },
     {
       "name": "think-interest-based-negotiation",
       "path": "skills/think-interest-based-negotiation/SKILL.md",
-      "description": "Produces a negotiation preparation map that separates both sides' positions from their underlying interests, anchors the accept-or-walk decision on a named, valued best alternative inside the mapped zone of possible agreement, and invents options for mutual gain across differently-valued issues before dividing value against objective criteria. Use when agreement is required from a party not under your control and more than one issue is in play (salary, vendor, partnership, resource, or multi-party disputes), and a position fight has hardened before anyone checked whether the interests actually conflict. Preparation deskwork only, not live-table tactics, and not for a single-issue distributive haggle or a choice with no counterparty."
+      "description": "Produces a negotiation preparation map that separates positions from interests, values the best alternative and agreement zone, and invents options for mutual gain. Use when another party must agree on more than one issue."
     },
     {
       "name": "think-interval-calibration-check",
       "path": "skills/think-interval-calibration-check/SKILL.md",
-      "description": "Audits whether a stated confidence interval means what it claims by running an equivalent-bet indifference test on its width and scoring nominal confidence against the actual hit rate, emitting corrected intervals and a calibration scorecard. Use when a human-stated interval or confidence number drives a consequential plan, forecast, or commitment and has never been audited, and the worry is overprecision rather than a wrong central estimate. Calibrates human-stated uncertainty only, never the agent's own confidence, and resizes width without relocating the number. Not for lookupable facts and not a promise of full debiasing."
+      "description": "Audits whether a human-stated confidence interval means what it claims, with an equivalent-bet test and a hit-rate score, producing corrected intervals and a scorecard. Use when an unaudited interval drives a consequential plan."
     },
     {
       "name": "think-issue-tree",
@@ -182,37 +182,37 @@
     {
       "name": "think-ladder-of-inference-check",
       "path": "skills/think-ladder-of-inference-check/SKILL.md",
-      "description": "Produces an annotated reasoning trace that reconstructs how a conclusion was reached, from the observable data, to the data actually selected, to the meaning and assumptions added, then flags the riskiest leap and tests an alternative interpretation. Use when a conclusion feels certain but rests on interpretation, or to audit a contested inference."
+      "description": "Produces a reasoning trace of how a conclusion climbed from observable data through selected data and added meaning, flagging the riskiest leap. Use when a conclusion feels certain but rests on interpretation, or is contested."
     },
     {
       "name": "think-linear-model-aggregation",
       "path": "skills/think-linear-model-aggregation/SKILL.md",
-      "description": "Builds a simple mechanical scoring model - a few weighted predictive cues combined by a fixed formula and applied consistently - for a repeated predictive judgment, because consistent simple rules reliably match or beat holistic expert intuition. Use when the same kind of evaluative judgment recurs (screening candidates, scoring leads, triaging) and gut calls are inconsistent or overconfident."
+      "description": "Builds a simple mechanical scoring model, a few weighted cues combined by a fixed formula, for a repeated predictive judgment. Use when the same judgment recurs, such as screening or triage, and gut calls are inconsistent."
     },
     {
       "name": "think-minimax-regret",
       "path": "skills/think-minimax-regret/SKILL.md",
-      "description": "Produces a regret (opportunity-loss) matrix with the minimax pick and the binding worst-case state, choosing among options over un-probabilized states of nature. Use when a few discrete options face a few discrete uncontrollable states and no defensible probabilities exist. Not an expected-value tree (which needs probabilities) and not an attribute scorecard."
+      "description": "Produces a regret matrix with the minimax pick and the binding worst-case state. Use when a few discrete options face a few uncontrollable states and no defensible probabilities exist."
     },
     {
       "name": "think-morphological-analysis",
       "path": "skills/think-morphological-analysis/SKILL.md",
-      "description": "Produces a morphological field (a Zwicky box of independent parameters by their possible values) plus a cross-consistency-pruned set of internally consistent configurations. Use when a solution is genuinely a configuration - a choice on each of several semi-independent dimensions (product architecture, service bundle, policy package) - and the risk is defaulting to one familiar combination and never seeing the rest of the space. Not a top-down MECE tree and not a provoked option list."
+      "description": "Produces a morphological field of parameters and their values, pruned by cross-consistency into coherent configurations. Use when a solution is a configuration across several dimensions and one default combination would win."
     },
     {
       "name": "think-natural-frequency-bayesian",
       "path": "skills/think-natural-frequency-bayesian/SKILL.md",
-      "description": "Converts a conditional-probability or base-rate question into natural frequencies over a concrete population (for example 9 of 1000) to compute the correct posterior and expose base-rate neglect, and refuses to proceed without real input rates. Use when interpreting a test result, screening signal, or any \"given a positive, what is the real probability\" question."
+      "description": "Converts a conditional-probability or base-rate question into natural frequencies over a concrete population to compute the real posterior, given real input rates. Use when interpreting a test result or other positive signal."
     },
     {
       "name": "think-one-way-vs-two-way-door",
       "path": "skills/think-one-way-vs-two-way-door/SKILL.md",
-      "description": "Produces a reversibility classification that triages a decision before any analysis - labeling it a reversible two-way door or a hard-to-reverse one-way door - and matches the deliberation and sign-off level to that verdict, so reversible calls are made fast and irreversible ones get real rigor. Use when it is unclear how much process a decision deserves, when a team is about to rubber-stamp something irreversible or convene a committee over something trivially reversible, or when a chronically slow org needs a defensible reason to move fast or slow down."
+      "description": "Produces a reversibility classification that labels a decision a two-way or one-way door before any analysis, and matches deliberation and sign-off to it. Use when it is unclear how much process a decision deserves."
     },
     {
       "name": "think-pairwise-comparison",
       "path": "skills/think-pairwise-comparison/SKILL.md",
-      "description": "Produces a binary-vote comparison matrix (every pair judged A-beats-B), a derived ranking, and a consistency check, ordering options without any criteria axis or absolute scoring. Use when items must be ranked but no defensible scale or articulable criteria exist. Not a criteria-weighted option matrix and not a base-rate forecast."
+      "description": "Produces a pairwise comparison matrix of binary votes, a derived ranking and a consistency check, with no criteria or absolute scores. Use when items must be ranked but no defensible scale or articulable criteria exist."
     },
     {
       "name": "think-parallel-perspectives-review",
@@ -232,12 +232,12 @@
     {
       "name": "think-process-tracing",
       "path": "skills/think-process-tracing/SKILL.md",
-      "description": "Evaluates rival causal explanations of a single case by typing each piece of within-case evidence by its diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests) against each rival's mechanism chain, then eliminating or confirming rivals item by item rather than by tallying. Use when one outcome has happened, several genuine rival explanations compete to explain it, and mechanism-level evidence (logs, timestamps, documents, who knew what when) is available to discriminate them - an incident postmortem, a churn spike, a lost deal, a metric anomaly. Not for cross-case generalization, not a consistency-matrix scoring tally, and not for cases with no rivals on the table."
+      "description": "Evaluates rival explanations of one case by typing each piece of evidence by diagnosticity (hoop, smoking-gun and other tests) and eliminating rivals. Use when one outcome has rival explanations and mechanism-level evidence."
     },
     {
       "name": "think-pyramid-principle",
       "path": "skills/think-pyramid-principle/SKILL.md",
-      "description": "Produces a pyramid that structures a recommendation answer-first - a single governing thought on top, a small set of MECE, deliberately ordered key arguments beneath it, and supporting evidence under each (Minto), with an optional SCQA intro framing. Use when a conclusion or recommendation already exists and must be communicated clearly to a busy or senior reader, when findings need to be ordered into a tight top-down case, or when a write-up buries its point under context."
+      "description": "Produces a pyramid that structures a recommendation answer-first, with one governing thought over ordered MECE arguments and evidence, and an optional SCQA intro. Use when an existing conclusion must reach a busy reader."
     },
     {
       "name": "think-qualitative-comparative-analysis",
@@ -247,7 +247,7 @@
     {
       "name": "think-question-burst",
       "path": "skills/think-question-burst/SKILL.md",
-      "description": "Generates a rapid burst of questions about a problem (questions only, no answers), then ranks them for which would most change the approach and selects the single most catalytic one to pursue, producing a ranked question set. Use when you are stuck, too attached to one framing, or need a better question before answering."
+      "description": "Generates a rapid burst of questions about a problem, with no answers, then ranks them and picks the most catalytic one. Use when stuck, too attached to one framing, or in need of a better question."
     },
     {
       "name": "think-random-frameworks",
@@ -277,12 +277,12 @@
     {
       "name": "think-role-storming",
       "path": "skills/think-role-storming/SKILL.md",
-      "description": "Produces a persona-tagged divergent idea list, ideas generated while inhabiting a chosen non-self identity to lower self-censorship and shift associations. Use when idea flow is throttled by self-consciousness or a fixated frame rather than missing knowledge, and you want more and stranger candidates before converging. Not evaluation through fixed lenses (that is parallel-perspectives) and not genuine challenge (that is authentic-dissent)."
+      "description": "Produces a persona-tagged idea list, generated while inhabiting a chosen non-self identity to lower self-censorship. Use when idea flow is throttled by self-consciousness or a fixated frame and stranger candidates are wanted."
     },
     {
       "name": "think-scamper",
       "path": "skills/think-scamper/SKILL.md",
-      "description": "Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adapt, modify, put to other use, eliminate, reverse), then shortlists the most promising, producing an expansion sheet. Use when you have a seed idea and need to break past the obvious options; not for blank-page ideation."
+      "description": "Generates variations on an existing idea, product or process through seven prompts (substitute, combine, adapt, modify, put to other use, eliminate, reverse), then shortlists. Use when a seed idea needs to get past the obvious."
     },
     {
       "name": "think-scenario-planning",
@@ -292,12 +292,12 @@
     {
       "name": "think-speculative-harms-anti-goals",
       "path": "skills/think-speculative-harms-anti-goals/SKILL.md",
-      "description": "Produces an anti-goals register by assuming a design succeeds at scale, narrating the near-future in which that success harms third parties (including non-users) and is exploited in bad faith by named bad actors, then converting each speculated harm into a standing design constraint bound into the requirements. Use when a feature's success case could externalize harm onto people outside the customer relationship (location, ranking, inference, targeting, automation) and the team's risk review is entirely project-centric. Not a premortem (route plan-survival risk there), not for present documented harms (route to incident analysis), and not a security threat model."
+      "description": "Produces an anti-goals register by imagining a design's success at scale harming third parties or exploited by bad actors, then binding each harm into requirements. Use when a feature's success could harm people beyond its customers."
     },
     {
       "name": "think-stocks-and-flows-reasoning",
       "path": "skills/think-stocks-and-flows-reasoning/SKILL.md",
-      "description": "Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory from the net flow rather than the direction of any single flow. Use when a problem involves an accumulation (cash, debt, backlog, headcount, customer base, technical debt, emissions) and intuition about whether it is rising or falling may be wrong."
+      "description": "Produces a stock-flow map that separates an accumulating quantity from the inflows and outflows that change it, reasoning from the net flow. Use when an accumulation such as cash, backlog or debt may be moving against intuition."
     },
     {
       "name": "think-swot",
@@ -307,12 +307,12 @@
     {
       "name": "think-theory-of-constraints",
       "path": "skills/think-theory-of-constraints/SKILL.md",
-      "description": "Produces a constraint-intervention plan that names the single binding constraint capping a system's throughput and attaches its exploit, subordinate, and elevate decisions, after testing capacity versus demand at each step to confirm that step is genuinely the rate-limiter rather than the loudest one. Use when a system has a clear flow (a pipeline, a funnel, a queue, an approval chain, a production line) whose output is capped by one step and improvement effort is being spread evenly across all steps instead of aimed at the bottleneck. Not for coverage questions (route to think-issue-tree), recurring deep-cause questions (route to think-iceberg-model), or accumulation-trajectory questions (route to think-stocks-and-flows-reasoning)."
+      "description": "Produces a constraint-intervention plan that confirms the one step capping a system's throughput by capacity against demand, then sets its exploit, subordinate and elevate decisions. Use when a flow's output is capped by one step."
     },
     {
       "name": "think-three-horizons",
       "path": "skills/think-three-horizons/SKILL.md",
-      "description": "Produces a three-curve transition map (a declining present H1, a contested middle H2 read in two directions, an emerging future H3) with the actor located in it. Use when a group is stuck in a present-versus-future binary and needs to govern the managed decline of the old system and the cultivation of the new one at once. Not a single backward path from one fixed future, and not a set of ranked external futures."
+      "description": "Produces a three horizons map (declining present, contested middle, emerging future) that locates the actor in it. Use when a group stuck in a present-versus-future binary must manage decline and grow the new at once."
     },
     {
       "name": "think-top3",
@@ -322,22 +322,22 @@
     {
       "name": "think-veil-of-ignorance-reasoning",
       "path": "skills/think-veil-of-ignorance-reasoning/SKILL.md",
-      "description": "Produces a veiled-decision comparison that decides a values trade-off as if the decider had an equal chance of being any affected party, under an explicit decision rule, then returns to the positioned decision and names the gap that self-interest was silently driving. Use when a decision distributes benefit and burden across parties, the decider is one of those parties, and the risk is a self-serving call dressed as fairness. Not a neutral verdict, not forecasting, and not for cases where desert, promises, or compensatory claims make identity morally load-bearing."
+      "description": "Produces a veiled-decision comparison that decides a values trade-off as if the decider could be any affected party, naming the gap self-interest drove. Use when a decision splits benefit and burden and the decider is one party."
     },
     {
       "name": "think-walton-argumentation-schemes",
       "path": "skills/think-walton-argumentation-schemes/SKILL.md",
-      "description": "Evaluates one short defeasible argument by classifying it as a stereotyped reasoning scheme (appeal to expert opinion, analogy, sign, cause to effect, consequences, popular practice, slippery slope, practical reasoning), instantiating the scheme's premise slots to expose its implicit premises, then putting that scheme's keyed critical questions to it and rendering a presumption verdict that stands or falls by burden of proof. Produces a scheme critique sheet. Use when a single presumptive argument rests on an authority's say-so, a load-bearing analogy, a slippery-slope objection, or a consequence-based case, and the question is whether its presumption survives the standard defeaters for that pattern. Not for structurally complex multi-premise arguments (use argument-mapping) and not for deductive or statistical proof."
+      "description": "Evaluates one presumptive argument by naming its scheme, such as expert opinion, analogy or slippery slope, exposing implicit premises and asking that scheme's critical questions. Use when one argument's presumption needs testing."
     },
     {
       "name": "think-what-would-have-to-be-true",
       "path": "skills/think-what-would-have-to-be-true/SKILL.md",
-      "description": "Converts a strategy, option, or contested claim into the specific conditions that would have to be true for it to be the best choice, rates each condition's confidence, and identifies which load-bearing assumptions to test first, producing an assumption ledger. Use when evaluating a strategic bet, or when a disagreement has become a clash of opinions rather than evidence."
+      "description": "Converts a strategy, option or contested claim into the conditions that would have to be true for it to be best, rates each, and picks which to test first. Use when evaluating a strategic bet or a clash of opinions."
     },
     {
       "name": "think-woop",
       "path": "skills/think-woop/SKILL.md",
-      "description": "Produces a WOOP commitment card by working through Wish, Outcome, Obstacle, and Plan - contrasting the desired outcome against the main internal obstacle and binding an if-then response to it. Use when a goal is already chosen but follow-through keeps failing, or to close the gap between intention and action."
+      "description": "Produces a WOOP card (Wish, Outcome, Obstacle, Plan) that contrasts the outcome with the main internal obstacle and binds an if-then plan to it. Use when a goal is already chosen but follow-through keeps failing."
     }
   ],
   "commands": [

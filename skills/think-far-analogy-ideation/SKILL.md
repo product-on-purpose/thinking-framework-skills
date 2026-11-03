@@ -1,6 +1,6 @@
 ---
 name: think-far-analogy-ideation
-description: Generates novel solution candidates by stating a problem's deep relational structure, mapping it to distant source domains (nature, other industries, games), and transferring the mechanism rather than surface features, then adapting. Use when near, obvious solutions are exhausted and you need genuinely original approaches.
+description: Generates novel solutions by stating a problem's deep structure, mapping it to distant domains such as nature or other industries, and transferring the mechanism, not the surface. Use when near, obvious solutions are exhausted.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.far-analogy-ideation
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "S"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Generates novel solution candidates by stating a problem's deep relational structure, mapping it to distant source domains (nature, other industries, games), and transferring the mechanism rather than surface features, then adapting. Use when near, obvious solutions are exhausted and you need genuinely original approaches.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Far-Analogy Ideation

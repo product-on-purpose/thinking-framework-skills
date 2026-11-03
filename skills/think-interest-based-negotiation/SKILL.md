@@ -1,6 +1,6 @@
 ---
 name: think-interest-based-negotiation
-description: Produces a negotiation preparation map that separates both sides' positions from their underlying interests, anchors the accept-or-walk decision on a named, valued best alternative inside the mapped zone of possible agreement, and invents options for mutual gain across differently-valued issues before dividing value against objective criteria. Use when agreement is required from a party not under your control and more than one issue is in play (salary, vendor, partnership, resource, or multi-party disputes), and a position fight has hardened before anyone checked whether the interests actually conflict. Preparation deskwork only, not live-table tactics, and not for a single-issue distributive haggle or a choice with no counterparty.
+description: Produces a negotiation preparation map that separates positions from interests, values the best alternative and agreement zone, and invents options for mutual gain. Use when another party must agree on more than one issue.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.interest-based-negotiation
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a negotiation preparation map that separates both sides' positions from their underlying interests, anchors the accept-or-walk decision on a named, valued best alternative inside the mapped zone of possible agreement, and invents options for mutual gain across differently-valued issues before dividing value against objective criteria. Use when agreement is required from a party not under your control and more than one issue is in play (salary, vendor, partnership, resource, or multi-party disputes), and a position fight has hardened before anyone checked whether the interests actually conflict. Preparation deskwork only, not live-table tactics, and not for a single-issue distributive haggle or a choice with no counterparty.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Interest-Based Negotiation

@@ -1,6 +1,6 @@
 ---
 name: think-consider-the-unknowns
-description: Produces a known-unknowns ledger by enumerating the relevant evidence not in hand, the variables that bear on a judgment but are unknown or unobservable, rating each unknown by its bearing and its obtainability, then re-rating confidence against the mapped gap. Use when a consequential one-off judgment rests on thin or partial evidence, no usable base rate exists, and the confidence on the table may be inflated by what was never looked at. Not for cases with a real reference class, for widening a numeric interval, or for unknowns cheap enough to just go resolve.
+description: Produces a known-unknowns ledger of the missing evidence and unknown variables behind a judgment, rated by bearing and obtainability, then re-rates confidence. Use when a one-off judgment rests on thin evidence.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.consider-the-unknowns
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "M"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a known-unknowns ledger by enumerating the relevant evidence not in hand, the variables that bear on a judgment but are unknown or unobservable, rating each unknown by its bearing and its obtainability, then re-rating confidence against the mapped gap. Use when a consequential one-off judgment rests on thin or partial evidence, no usable base rate exists, and the confidence on the table may be inflated by what was never looked at. Not for cases with a real reference class, for widening a numeric interval, or for unknowns cheap enough to just go resolve.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Consider the Unknowns

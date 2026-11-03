@@ -1,6 +1,6 @@
 ---
 name: think-argument-mapping
-description: Produces an argument map by laying out a claim's supporting reasons, the co-premises each silently depends on, and the objections against it as an explicit structure, then flags the weakest links and unsupported premises. Use when an argument or recommendation must be evaluated for soundness, or when a fluent case may be hiding a broken inference.
+description: Produces an argument map of a claim's reasons, hidden co-premises and objections, flagging the weakest links. Use when an argument must be checked for soundness, or a fluent case may hide a broken inference.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.argument-mapping
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "S"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces an argument map by laying out a claim's supporting reasons, the co-premises each silently depends on, and the objections against it as an explicit structure, then flags the weakest links and unsupported premises. Use when an argument or recommendation must be evaluated for soundness, or when a fluent case may be hiding a broken inference.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Argument Mapping

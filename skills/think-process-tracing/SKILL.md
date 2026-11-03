@@ -1,6 +1,6 @@
 ---
 name: think-process-tracing
-description: Evaluates rival causal explanations of a single case by typing each piece of within-case evidence by its diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests) against each rival's mechanism chain, then eliminating or confirming rivals item by item rather than by tallying. Use when one outcome has happened, several genuine rival explanations compete to explain it, and mechanism-level evidence (logs, timestamps, documents, who knew what when) is available to discriminate them - an incident postmortem, a churn spike, a lost deal, a metric anomaly. Not for cross-case generalization, not a consistency-matrix scoring tally, and not for cases with no rivals on the table.
+description: Evaluates rival explanations of one case by typing each piece of evidence by diagnosticity (hoop, smoking-gun and other tests) and eliminating rivals. Use when one outcome has rival explanations and mechanism-level evidence.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.process-tracing
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Evaluates rival causal explanations of a single case by typing each piece of within-case evidence by its diagnosticity (hoop, smoking-gun, straw-in-the-wind, doubly-decisive tests) against each rival's mechanism chain, then eliminating or confirming rivals item by item rather than by tallying. Use when one outcome has happened, several genuine rival explanations compete to explain it, and mechanism-level evidence (logs, timestamps, documents, who knew what when) is available to discriminate them - an incident postmortem, a churn spike, a lost deal, a metric anomaly. Not for cross-case generalization, not a consistency-matrix scoring tally, and not for cases with no rivals on the table.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Process Tracing (rival-explanation adjudication)

@@ -1,6 +1,6 @@
 ---
 name: think-pairwise-comparison
-description: Produces a binary-vote comparison matrix (every pair judged A-beats-B), a derived ranking, and a consistency check, ordering options without any criteria axis or absolute scoring. Use when items must be ranked but no defensible scale or articulable criteria exist. Not a criteria-weighted option matrix and not a base-rate forecast.
+description: Produces a pairwise comparison matrix of binary votes, a derived ranking and a consistency check, with no criteria or absolute scores. Use when items must be ranked but no defensible scale or articulable criteria exist.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.pairwise-comparison
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a binary-vote comparison matrix (every pair judged A-beats-B), a derived ranking, and a consistency check, ordering options without any criteria axis or absolute scoring. Use when items must be ranked but no defensible scale or articulable criteria exist. Not a criteria-weighted option matrix and not a base-rate forecast.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Pairwise Comparison

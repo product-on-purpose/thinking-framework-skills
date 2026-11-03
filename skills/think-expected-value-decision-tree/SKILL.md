@@ -1,6 +1,6 @@
 ---
 name: think-expected-value-decision-tree
-description: Evaluates competing actions under uncertainty by building a decision tree of choice and chance nodes, placing explicit probabilities on outcomes the decider does not control, rolling the tree back to an expected value per option, recommending the best-EV branch, and adding a what-flips-it note naming the probability or value that would reverse the choice. Use when a decision turns on uncertain outcomes you can put rough probabilities on, when the structure is sequential (a choice opens chance events that open later choices), and when the stakes justify making the probability assumptions explicit and inspectable instead of buried in a gut feel.
+description: Evaluates actions under uncertainty with a decision tree of choice and chance nodes, explicit probabilities, an expected value per option and what would flip it. Use when uncertain outcomes can be given rough probabilities.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.expected-value-decision-tree
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Evaluates competing actions under uncertainty by building a decision tree of choice and chance nodes, placing explicit probabilities on outcomes the decider does not control, rolling the tree back to an expected value per option, recommending the best-EV branch, and adding a what-flips-it note naming the probability or value that would reverse the choice. Use when a decision turns on uncertain outcomes you can put rough probabilities on, when the structure is sequential (a choice opens chance events that open later choices), and when the stakes justify making the probability assumptions explicit and inspectable instead of buried in a gut feel.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Expected Value Decision Tree

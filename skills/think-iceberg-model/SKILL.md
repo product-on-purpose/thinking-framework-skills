@@ -1,6 +1,6 @@
 ---
 name: think-iceberg-model
-description: Produces an iceberg that moves a problem down four levels of causation - from the visible event, to the pattern over time, to the underlying structures, to the mental models that hold them in place - pairing each level with the intervention it implies to find systemic causes and higher-leverage fixes. Use when a problem keeps recurring despite event-level fixes, when a symptom is being treated as a one-off, or when the question is why this keeps happening and where to actually intervene.
+description: Produces an iceberg that traces a problem down from the visible event to patterns, structures and mental models, with the intervention each level implies. Use when a problem keeps recurring despite event-level fixes.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.iceberg-model
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces an iceberg that moves a problem down four levels of causation - from the visible event, to the pattern over time, to the underlying structures, to the mental models that hold them in place - pairing each level with the intervention it implies to find systemic causes and higher-leverage fixes. Use when a problem keeps recurring despite event-level fixes, when a symptom is being treated as a one-off, or when the question is why this keeps happening and where to actually intervene.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Iceberg Model

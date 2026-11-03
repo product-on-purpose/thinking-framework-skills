@@ -1,6 +1,6 @@
 ---
 name: think-ladder-of-inference-check
-description: Produces an annotated reasoning trace that reconstructs how a conclusion was reached, from the observable data, to the data actually selected, to the meaning and assumptions added, then flags the riskiest leap and tests an alternative interpretation. Use when a conclusion feels certain but rests on interpretation, or to audit a contested inference.
+description: Produces a reasoning trace of how a conclusion climbed from observable data through selected data and added meaning, flagging the riskiest leap. Use when a conclusion feels certain but rests on interpretation, or is contested.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.ladder-of-inference-check
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces an annotated reasoning trace that reconstructs how a conclusion was reached, from the observable data, to the data actually selected, to the meaning and assumptions added, then flags the riskiest leap and tests an alternative interpretation. Use when a conclusion feels certain but rests on interpretation, or to audit a contested inference.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Ladder of Inference Check

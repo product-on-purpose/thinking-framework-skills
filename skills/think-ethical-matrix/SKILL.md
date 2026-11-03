@@ -1,6 +1,6 @@
 ---
 name: think-ethical-matrix
-description: Produces an ethical matrix, a grid that cross-references affected parties (rows, deliberately including voiceless ones such as future generations and the environment) against prima facie principles (columns of wellbeing, autonomy, fairness), specifying the option's impact in every cell and reading the result as a trade-off pattern rather than a score. Use when a concrete proposal affects multiple parties with a genuine moral trade-off among them, some affected parties have no voice, and an ethics debate keeps sliding between groups and principles. Not a decision calculator and not an option-versus-criteria scorer; the matrix maps the terrain and leaves the weighing to deliberation.
+description: Produces an ethical matrix crossing affected parties, voiceless ones included, against principles such as wellbeing, autonomy and fairness, read as a trade-off pattern. Use when a proposal poses a moral trade-off among several parties.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.ethical-matrix
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces an ethical matrix, a grid that cross-references affected parties (rows, deliberately including voiceless ones such as future generations and the environment) against prima facie principles (columns of wellbeing, autonomy, fairness), specifying the option's impact in every cell and reading the result as a trade-off pattern rather than a score. Use when a concrete proposal affects multiple parties with a genuine moral trade-off among them, some affected parties have no voice, and an ethics debate keeps sliding between groups and principles. Not a decision calculator and not an option-versus-criteria scorer; the matrix maps the terrain and leaves the weighing to deliberation.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Ethical Matrix

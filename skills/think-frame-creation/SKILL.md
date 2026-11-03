@@ -1,6 +1,6 @@
 ---
 name: think-frame-creation
-description: Generates a new problem frame from theme analysis of the broader context, an abductive standpoint stated as approach it as if it were Y that redefines what the problem is and reasons forward to native solution directions. Use when an open paradoxical problem keeps resisting solutions inside the frame it arrived in, when conventional problem solving has only produced more of the symptom, or when the way a problem is framed is itself the obstacle and a fresh standpoint would be worth more than another solution attempt.
+description: Generates a new problem frame from theme analysis of the wider context, treating the problem as if it were something else, and the solutions that opens. Use when a paradoxical problem resists solutions in its original frame.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.frame-creation
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "C/P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Generates a new problem frame from theme analysis of the broader context, an abductive standpoint stated as approach it as if it were Y that redefines what the problem is and reasons forward to native solution directions. Use when an open paradoxical problem keeps resisting solutions inside the frame it arrived in, when conventional problem solving has only produced more of the symptom, or when the way a problem is framed is itself the obstacle and a fresh standpoint would be worth more than another solution attempt.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Frame Creation

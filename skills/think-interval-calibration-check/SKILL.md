@@ -1,6 +1,6 @@
 ---
 name: think-interval-calibration-check
-description: Audits whether a stated confidence interval means what it claims by running an equivalent-bet indifference test on its width and scoring nominal confidence against the actual hit rate, emitting corrected intervals and a calibration scorecard. Use when a human-stated interval or confidence number drives a consequential plan, forecast, or commitment and has never been audited, and the worry is overprecision rather than a wrong central estimate. Calibrates human-stated uncertainty only, never the agent's own confidence, and resizes width without relocating the number. Not for lookupable facts and not a promise of full debiasing.
+description: Audits whether a human-stated confidence interval means what it claims, with an equivalent-bet test and a hit-rate score, producing corrected intervals and a scorecard. Use when an unaudited interval drives a consequential plan.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.interval-calibration-check
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Audits whether a stated confidence interval means what it claims by running an equivalent-bet indifference test on its width and scoring nominal confidence against the actual hit rate, emitting corrected intervals and a calibration scorecard. Use when a human-stated interval or confidence number drives a consequential plan, forecast, or commitment and has never been audited, and the worry is overprecision rather than a wrong central estimate. Calibrates human-stated uncertainty only, never the agent's own confidence, and resizes width without relocating the number. Not for lookupable facts and not a promise of full debiasing.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Interval Calibration Check

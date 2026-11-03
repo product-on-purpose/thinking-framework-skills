@@ -1,6 +1,6 @@
 ---
 name: think-role-storming
-description: Produces a persona-tagged divergent idea list, ideas generated while inhabiting a chosen non-self identity to lower self-censorship and shift associations. Use when idea flow is throttled by self-consciousness or a fixated frame rather than missing knowledge, and you want more and stranger candidates before converging. Not evaluation through fixed lenses (that is parallel-perspectives) and not genuine challenge (that is authentic-dissent).
+description: Produces a persona-tagged idea list, generated while inhabiting a chosen non-self identity to lower self-censorship. Use when idea flow is throttled by self-consciousness or a fixated frame and stranger candidates are wanted.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.role-storming
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a persona-tagged divergent idea list, ideas generated while inhabiting a chosen non-self identity to lower self-censorship and shift associations. Use when idea flow is throttled by self-consciousness or a fixated frame rather than missing knowledge, and you want more and stranger candidates before converging. Not evaluation through fixed lenses (that is parallel-perspectives) and not genuine challenge (that is authentic-dissent).
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Role-Storming

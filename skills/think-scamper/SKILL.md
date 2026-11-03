@@ -1,6 +1,6 @@
 ---
 name: think-scamper
-description: Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adapt, modify, put to other use, eliminate, reverse), then shortlists the most promising, producing an expansion sheet. Use when you have a seed idea and need to break past the obvious options; not for blank-page ideation.
+description: Generates variations on an existing idea, product or process through seven prompts (substitute, combine, adapt, modify, put to other use, eliminate, reverse), then shortlists. Use when a seed idea needs to get past the obvious.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.scamper
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Generates a structured set of variations on an existing idea, product, or process by running it through seven transformation prompts (substitute, combine, adapt, modify, put to other use, eliminate, reverse), then shortlists the most promising, producing an expansion sheet. Use when you have a seed idea and need to break past the obvious options; not for blank-page ideation.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # SCAMPER

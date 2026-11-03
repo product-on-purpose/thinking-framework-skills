@@ -1,6 +1,6 @@
 ---
 name: think-pyramid-principle
-description: Produces a pyramid that structures a recommendation answer-first - a single governing thought on top, a small set of MECE, deliberately ordered key arguments beneath it, and supporting evidence under each (Minto), with an optional SCQA intro framing. Use when a conclusion or recommendation already exists and must be communicated clearly to a busy or senior reader, when findings need to be ordered into a tight top-down case, or when a write-up buries its point under context.
+description: Produces a pyramid that structures a recommendation answer-first, with one governing thought over ordered MECE arguments and evidence, and an optional SCQA intro. Use when an existing conclusion must reach a busy reader.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.pyramid-principle
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a pyramid that structures a recommendation answer-first - a single governing thought on top, a small set of MECE, deliberately ordered key arguments beneath it, and supporting evidence under each (Minto), with an optional SCQA intro framing. Use when a conclusion or recommendation already exists and must be communicated clearly to a busy or senior reader, when findings need to be ordered into a tight top-down case, or when a write-up buries its point under context.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Pyramid Principle

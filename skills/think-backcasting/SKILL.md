@@ -1,6 +1,6 @@
 ---
 name: think-backcasting
-description: Produces a backcast path by fixing a vivid desired future state and reasoning backward through the milestones and preconditions required to reach it, ending at the next concrete step available now. Use when planning toward a transformative or long-horizon goal that forward planning anchors too low, when a chosen future needs a route mapped back to today, or when milestones and dependencies between now and the goal must be made explicit.
+description: Produces a backcast path that fixes a desired future and reasons backward through milestones to the next step available now. Use when a long-horizon or transformative goal is anchored too low by forward planning.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.backcasting
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a backcast path by fixing a vivid desired future state and reasoning backward through the milestones and preconditions required to reach it, ending at the next concrete step available now. Use when planning toward a transformative or long-horizon goal that forward planning anchors too low, when a chosen future needs a route mapped back to today, or when milestones and dependencies between now and the goal must be made explicit.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Backcasting

@@ -1,6 +1,6 @@
 ---
 name: think-contradiction-tension-mapping
-description: Produces a both/and polarity map - two interdependent poles, the upside and downside quadrant of each, a greater purpose and a deeper fear, early-warning signs, and action steps - for a chronic tension that should be managed rather than resolved. Use when an organization keeps oscillating destructively between two opposites that are both true and interdependent (centralize versus decentralize, stability versus change, candor versus diplomacy), and treating each swing as a problem to solve is the actual mistake. Not for a dissolvable trade-off and not for a real either/or choice.
+description: Produces a both/and polarity map of two interdependent poles, with each pole's upsides and downsides, warning signs and actions. Use when a group keeps swinging between two true opposites that must be managed, not solved.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.contradiction-tension-mapping
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "C"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a both/and polarity map - two interdependent poles, the upside and downside quadrant of each, a greater purpose and a deeper fear, early-warning signs, and action steps - for a chronic tension that should be managed rather than resolved. Use when an organization keeps oscillating destructively between two opposites that are both true and interdependent (centralize versus decentralize, stability versus change, candor versus diplomacy), and treating each swing as a problem to solve is the actual mistake. Not for a dissolvable trade-off and not for a real either/or choice.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Contradiction / Tension Mapping

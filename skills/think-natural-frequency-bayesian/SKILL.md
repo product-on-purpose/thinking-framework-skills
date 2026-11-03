@@ -1,6 +1,6 @@
 ---
 name: think-natural-frequency-bayesian
-description: Converts a conditional-probability or base-rate question into natural frequencies over a concrete population (for example 9 of 1000) to compute the correct posterior and expose base-rate neglect, and refuses to proceed without real input rates. Use when interpreting a test result, screening signal, or any "given a positive, what is the real probability" question.
+description: Converts a conditional-probability or base-rate question into natural frequencies over a concrete population to compute the real posterior, given real input rates. Use when interpreting a test result or other positive signal.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.natural-frequency-bayesian
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "S"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Converts a conditional-probability or base-rate question into natural frequencies over a concrete population (for example 9 of 1000) to compute the correct posterior and expose base-rate neglect, and refuses to proceed without real input rates. Use when interpreting a test result, screening signal, or any "given a positive, what is the real probability" question.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Natural-Frequency Bayesian Framing

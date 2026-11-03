@@ -1,6 +1,6 @@
 ---
 name: think-fermi-estimation
-description: Produces a Fermi decomposition worksheet that estimates an unknown numeric quantity by factoring it into a chain of order-of-magnitude sub-estimates, guessing each to within a band, then multiplying back to a point estimate plus a compounded low/high range, with an independence check and a dominant-uncertainty flag. Use when you need a number and no lookup-able data or genuine reference class exists, so the magnitude has to be built from factors (for example sizing a market, a load, a cost, or a conversion you cannot look up). Not for forecasting from real base rates (use reference-class-forecasting) or decomposing a question for coverage with no number (use issue-tree).
+description: Produces a Fermi worksheet that builds an unknown quantity from order-of-magnitude factors into a point estimate and a compounded range. Use when a number is needed and no lookup data or reference class exists, as in market sizing.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.fermi-estimation
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "M/P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a Fermi decomposition worksheet that estimates an unknown numeric quantity by factoring it into a chain of order-of-magnitude sub-estimates, guessing each to within a band, then multiplying back to a point estimate plus a compounded low/high range, with an independence check and a dominant-uncertainty flag. Use when you need a number and no lookup-able data or genuine reference class exists, so the magnitude has to be built from factors (for example sizing a market, a load, a cost, or a conversion you cannot look up). Not for forecasting from real base rates (use reference-class-forecasting) or decomposing a question for coverage with no number (use issue-tree).
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Fermi Estimation

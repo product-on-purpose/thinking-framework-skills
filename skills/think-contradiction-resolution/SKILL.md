@@ -1,6 +1,6 @@
 ---
 name: think-contradiction-resolution
-description: Converts a stuck trade-off into a contradiction to dissolve rather than a compromise to settle for. Names the two conflicting requirements, states an implementation-free Ideal Final Result, and applies the four separation principles (separate the requirements in time, space, scale, or condition) to satisfy both at once, then produces either a concrete resolution or an honest flag that the trade-off is genuine. Use when a decision has hardened into an either/or like speed versus quality, thorough versus fast, or generous versus profitable, when splitting the difference feels wrong and a win-win would be worth far more than the best compromise, or when a recurring design or product trade-off keeps forcing the same painful balance.
+description: Converts a stuck trade-off into a contradiction to dissolve by separating the requirements in time, space, scale or condition, or flags it as genuine. Use when a decision has hardened into an either/or like speed versus quality.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.contradiction-resolution
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "M/P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Converts a stuck trade-off into a contradiction to dissolve rather than a compromise to settle for. Names the two conflicting requirements, states an implementation-free Ideal Final Result, and applies the four separation principles (separate the requirements in time, space, scale, or condition) to satisfy both at once, then produces either a concrete resolution or an honest flag that the trade-off is genuine. Use when a decision has hardened into an either/or like speed versus quality, thorough versus fast, or generous versus profitable, when splitting the difference feels wrong and a win-win would be worth far more than the best compromise, or when a recurring design or product trade-off keeps forcing the same painful balance.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Contradiction Resolution (Ideal Final Result)

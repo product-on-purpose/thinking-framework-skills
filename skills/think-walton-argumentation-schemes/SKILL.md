@@ -1,6 +1,6 @@
 ---
 name: think-walton-argumentation-schemes
-description: Evaluates one short defeasible argument by classifying it as a stereotyped reasoning scheme (appeal to expert opinion, analogy, sign, cause to effect, consequences, popular practice, slippery slope, practical reasoning), instantiating the scheme's premise slots to expose its implicit premises, then putting that scheme's keyed critical questions to it and rendering a presumption verdict that stands or falls by burden of proof. Produces a scheme critique sheet. Use when a single presumptive argument rests on an authority's say-so, a load-bearing analogy, a slippery-slope objection, or a consequence-based case, and the question is whether its presumption survives the standard defeaters for that pattern. Not for structurally complex multi-premise arguments (use argument-mapping) and not for deductive or statistical proof.
+description: Evaluates one presumptive argument by naming its scheme, such as expert opinion, analogy or slippery slope, exposing implicit premises and asking that scheme's critical questions. Use when one argument's presumption needs testing.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.walton-argumentation-schemes
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Evaluates one short defeasible argument by classifying it as a stereotyped reasoning scheme (appeal to expert opinion, analogy, sign, cause to effect, consequences, popular practice, slippery slope, practical reasoning), instantiating the scheme's premise slots to expose its implicit premises, then putting that scheme's keyed critical questions to it and rendering a presumption verdict that stands or falls by burden of proof. Produces a scheme critique sheet. Use when a single presumptive argument rests on an authority's say-so, a load-bearing analogy, a slippery-slope objection, or a consequence-based case, and the question is whether its presumption survives the standard defeaters for that pattern. Not for structurally complex multi-premise arguments (use argument-mapping) and not for deductive or statistical proof.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Argumentation Schemes with Critical Questions

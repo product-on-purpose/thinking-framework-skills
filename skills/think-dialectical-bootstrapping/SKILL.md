@@ -1,6 +1,6 @@
 ---
 name: think-dialectical-bootstrapping
-description: Produces a dialectical estimate that improves a single committed number by polling the inner crowd, make a first estimate, assume it is wrong and list why, read whether that pushes the answer too high or too low, make a second estimate from those changed assumptions, then mechanically average the two. Use when a hard, one-off, bounded-scale numeric estimate (a year, a percentage, a count, a forecast) is about to be committed and no second judge, no real reference class, and no better data are available. Not for easy questions, not for unbounded order-of-magnitude unknowns, and never a cherry-picked single number in place of the average.
+description: Produces a dialectical estimate by making a first estimate, assuming it is wrong, making a second, and averaging the two. Use when a hard one-off numeric estimate must be committed with no second judge, base rate or better data.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.dialectical-bootstrapping
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "M"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a dialectical estimate that improves a single committed number by polling the inner crowd, make a first estimate, assume it is wrong and list why, read whether that pushes the answer too high or too low, make a second estimate from those changed assumptions, then mechanically average the two. Use when a hard, one-off, bounded-scale numeric estimate (a year, a percentage, a count, a forecast) is about to be committed and no second judge, no real reference class, and no better data are available. Not for easy questions, not for unbounded order-of-magnitude unknowns, and never a cherry-picked single number in place of the average.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Dialectical Bootstrapping

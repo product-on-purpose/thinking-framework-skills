@@ -1,6 +1,6 @@
 ---
 name: think-morphological-analysis
-description: Produces a morphological field (a Zwicky box of independent parameters by their possible values) plus a cross-consistency-pruned set of internally consistent configurations. Use when a solution is genuinely a configuration - a choice on each of several semi-independent dimensions (product architecture, service bundle, policy package) - and the risk is defaulting to one familiar combination and never seeing the rest of the space. Not a top-down MECE tree and not a provoked option list.
+description: Produces a morphological field of parameters and their values, pruned by cross-consistency into coherent configurations. Use when a solution is a configuration across several dimensions and one default combination would win.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.morphological-analysis
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a morphological field (a Zwicky box of independent parameters by their possible values) plus a cross-consistency-pruned set of internally consistent configurations. Use when a solution is genuinely a configuration - a choice on each of several semi-independent dimensions (product architecture, service bundle, policy package) - and the risk is defaulting to one familiar combination and never seeing the rest of the space. Not a top-down MECE tree and not a provoked option list.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Morphological Analysis

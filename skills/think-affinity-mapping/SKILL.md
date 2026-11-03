@@ -1,6 +1,6 @@
 ---
 name: think-affinity-mapping
-description: Produces a clustered theme map that groups many raw notes, observations, quotes, or data points bottom-up into a small set of named, traceable themes (the KJ method). Use when a scattered pile of dozens to hundreds of existing items needs to become a few emergent themes, such as synthesizing user-research notes, support tickets, survey free-text, or retro stickies, and the right structure should emerge from the data rather than be imposed.
+description: Produces a clustered theme map that groups many raw notes, quotes or data points bottom-up into named, traceable themes. Use when dozens to hundreds of items, such as research notes or tickets, need emergent structure.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.affinity-mapping
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a clustered theme map that groups many raw notes, observations, quotes, or data points bottom-up into a small set of named, traceable themes (the KJ method). Use when a scattered pile of dozens to hundreds of existing items needs to become a few emergent themes, such as synthesizing user-research notes, support tickets, survey free-text, or retro stickies, and the right structure should emerge from the data rather than be imposed.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Affinity Mapping

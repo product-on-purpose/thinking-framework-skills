@@ -1,6 +1,6 @@
 ---
 name: think-one-way-vs-two-way-door
-description: Produces a reversibility classification that triages a decision before any analysis - labeling it a reversible two-way door or a hard-to-reverse one-way door - and matches the deliberation and sign-off level to that verdict, so reversible calls are made fast and irreversible ones get real rigor. Use when it is unclear how much process a decision deserves, when a team is about to rubber-stamp something irreversible or convene a committee over something trivially reversible, or when a chronically slow org needs a defensible reason to move fast or slow down.
+description: Produces a reversibility classification that labels a decision a two-way or one-way door before any analysis, and matches deliberation and sign-off to it. Use when it is unclear how much process a decision deserves.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.one-way-vs-two-way-door
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a reversibility classification that triages a decision before any analysis - labeling it a reversible two-way door or a hard-to-reverse one-way door - and matches the deliberation and sign-off level to that verdict, so reversible calls are made fast and irreversible ones get real rigor. Use when it is unclear how much process a decision deserves, when a team is about to rubber-stamp something irreversible or convene a committee over something trivially reversible, or when a chronically slow org needs a defensible reason to move fast or slow down.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # One-Way vs Two-Way Door

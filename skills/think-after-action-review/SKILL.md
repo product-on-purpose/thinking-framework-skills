@@ -1,6 +1,6 @@
 ---
 name: think-after-action-review
-description: Produces a structured after-action review by comparing what was expected against what actually happened, diagnosing why the gaps occurred, and converting them into specific owned sustain-and-change actions. Use when a project, launch, sprint, or incident has finished and you want to turn the outcome into learning, not a status update.
+description: Produces an after-action review that compares what was expected with what happened, diagnoses the gaps, and assigns owned sustain-and-change actions. Use when a project, launch, sprint or incident has finished.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.after-action-review
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "S"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a structured after-action review by comparing what was expected against what actually happened, diagnosing why the gaps occurred, and converting them into specific owned sustain-and-change actions. Use when a project, launch, sprint, or incident has finished and you want to turn the outcome into learning, not a status update.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # After Action Review

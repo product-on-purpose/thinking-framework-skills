@@ -1,6 +1,6 @@
 ---
 name: think-question-burst
-description: Generates a rapid burst of questions about a problem (questions only, no answers), then ranks them for which would most change the approach and selects the single most catalytic one to pursue, producing a ranked question set. Use when you are stuck, too attached to one framing, or need a better question before answering.
+description: Generates a rapid burst of questions about a problem, with no answers, then ranks them and picks the most catalytic one. Use when stuck, too attached to one framing, or in need of a better question.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.question-burst
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Generates a rapid burst of questions about a problem (questions only, no answers), then ranks them for which would most change the approach and selects the single most catalytic one to pursue, producing a ranked question set. Use when you are stuck, too attached to one framing, or need a better question before answering.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Question Burst

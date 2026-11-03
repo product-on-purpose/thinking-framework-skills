@@ -1,6 +1,6 @@
 ---
 name: think-concept-mapping
-description: Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit proposition, with cross-links across clusters - then surfaces gaps, missing links, and questionable propositions. Use when a domain has many interrelated concepts and the goal is to externalize and inspect how they relate, forcing every relationship to be named rather than left as a vague association.
+description: Builds a concept map of nodes joined by labeled links that read as propositions, with cross-links, then surfaces gaps and doubtful propositions. Use when many interrelated concepts need every relationship named.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.concept-mapping
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "M/P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit proposition, with cross-links across clusters - then surfaces gaps, missing links, and questionable propositions. Use when a domain has many interrelated concepts and the goal is to externalize and inspect how they relate, forcing every relationship to be named rather than left as a vague association.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Concept Mapping

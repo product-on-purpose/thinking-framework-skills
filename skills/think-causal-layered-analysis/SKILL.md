@@ -1,6 +1,6 @@
 ---
 name: think-causal-layered-analysis
-description: Produces a four-layer matrix (litany, system, worldview, myth) of the current 'used future' beside a reconstructed preferred future per layer, anchored by a deliberately changed deep metaphor. Use when an issue is stuck because the framing is stuck, the official account and the system explanation have been argued to exhaustion, and the real disagreement is about clashing worldviews and the unexamined story underneath. Not a single-cause diagnosis (that is think-iceberg-model) and not a forecast.
+description: Produces a four-layer matrix (litany, system, worldview, myth) of the current future beside a preferred one, anchored by a new deep metaphor. Use when an issue is stuck because its framing and worldviews are stuck.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.causal-layered-analysis
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "C"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a four-layer matrix (litany, system, worldview, myth) of the current 'used future' beside a reconstructed preferred future per layer, anchored by a deliberately changed deep metaphor. Use when an issue is stuck because the framing is stuck, the official account and the system explanation have been argued to exhaustion, and the real disagreement is about clashing worldviews and the unexamined story underneath. Not a single-cause diagnosis (that is think-iceberg-model) and not a forecast.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Causal Layered Analysis

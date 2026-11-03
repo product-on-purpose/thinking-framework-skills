@@ -1,6 +1,6 @@
 ---
 name: think-what-would-have-to-be-true
-description: Converts a strategy, option, or contested claim into the specific conditions that would have to be true for it to be the best choice, rates each condition's confidence, and identifies which load-bearing assumptions to test first, producing an assumption ledger. Use when evaluating a strategic bet, or when a disagreement has become a clash of opinions rather than evidence.
+description: Converts a strategy, option or contested claim into the conditions that would have to be true for it to be best, rates each, and picks which to test first. Use when evaluating a strategic bet or a clash of opinions.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.what-would-have-to-be-true
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Converts a strategy, option, or contested claim into the specific conditions that would have to be true for it to be the best choice, rates each condition's confidence, and identifies which load-bearing assumptions to test first, producing an assumption ledger. Use when evaluating a strategic bet, or when a disagreement has become a clash of opinions rather than evidence.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # What Would Have to Be True

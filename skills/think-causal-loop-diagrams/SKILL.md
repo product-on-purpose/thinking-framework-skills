@@ -1,6 +1,6 @@
 ---
 name: think-causal-loop-diagrams
-description: Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities, and reading likely dynamics (spiral, goal-seeking, or oscillation) off which loop dominates. Use when a situation feeds back on itself - growth that funds more growth, a fix that recreates its own problem, capacity that relieves then re-attracts demand - and you need to see why it keeps accelerating, stalling, or overshooting. Not for a single accumulation, a one-directional consequence tree, or a genuinely linear chain.
+description: Builds a signed causal loop diagram, labels each loop reinforcing or balancing, and reads the dynamics from the dominant loop. Use when a situation feeds back on itself and keeps accelerating, stalling or overshooting.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.causal-loop-diagrams
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "M/P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities, and reading likely dynamics (spiral, goal-seeking, or oscillation) off which loop dominates. Use when a situation feeds back on itself - growth that funds more growth, a fix that recreates its own problem, capacity that relieves then re-attracts demand - and you need to see why it keeps accelerating, stalling, or overshooting. Not for a single accumulation, a one-directional consequence tree, or a genuinely linear chain.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Causal Loop Diagrams

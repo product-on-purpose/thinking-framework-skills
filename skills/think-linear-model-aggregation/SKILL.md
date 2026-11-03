@@ -1,6 +1,6 @@
 ---
 name: think-linear-model-aggregation
-description: Builds a simple mechanical scoring model - a few weighted predictive cues combined by a fixed formula and applied consistently - for a repeated predictive judgment, because consistent simple rules reliably match or beat holistic expert intuition. Use when the same kind of evaluative judgment recurs (screening candidates, scoring leads, triaging) and gut calls are inconsistent or overconfident.
+description: Builds a simple mechanical scoring model, a few weighted cues combined by a fixed formula, for a repeated predictive judgment. Use when the same judgment recurs, such as screening or triage, and gut calls are inconsistent.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.linear-model-aggregation
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "S"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Builds a simple mechanical scoring model - a few weighted predictive cues combined by a fixed formula and applied consistently - for a repeated predictive judgment, because consistent simple rules reliably match or beat holistic expert intuition. Use when the same kind of evaluative judgment recurs (screening candidates, scoring leads, triaging) and gut calls are inconsistent or overconfident.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Linear-Model Aggregation

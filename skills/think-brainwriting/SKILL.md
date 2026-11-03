@@ -1,6 +1,6 @@
 ---
 name: think-brainwriting
-description: Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first voice, then consolidates them into a shortlisted idea pool. Use when you need breadth of options and want to avoid the anchoring and conformity that make ordinary brainstorming underperform.
+description: Generates ideas as silent brainwriting does, in independent streams that build on each other without anchoring on the first voice, consolidated into an idea pool. Use when breadth matters and anchoring is a risk.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.brainwriting
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "S"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Generates ideas the way silent parallel brainwriting does, producing several independent idea streams that build on each other without anchoring on the first voice, then consolidates them into a shortlisted idea pool. Use when you need breadth of options and want to avoid the anchoring and conformity that make ordinary brainstorming underperform.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Brainwriting

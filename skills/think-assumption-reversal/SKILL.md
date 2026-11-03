@@ -1,6 +1,6 @@
 ---
 name: think-assumption-reversal
-description: Generates non-obvious ideas by surfacing the foundational assumptions a problem or solution rests on, negating each, and reframing from the reversed assumptions, then shortlisting, producing an assumptions-and-reversals sheet. Use when an option space feels stuck inside default constraints, or when you need to expose premises that are taken for granted.
+description: Generates non-obvious ideas by negating the assumptions a problem or solution rests on and reframing from each reversal. Use when options feel stuck in default constraints or premises go unquestioned.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.assumption-reversal
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Generates non-obvious ideas by surfacing the foundational assumptions a problem or solution rests on, negating each, and reframing from the reversed assumptions, then shortlisting, producing an assumptions-and-reversals sheet. Use when an option space feels stuck inside default constraints, or when you need to expose premises that are taken for granted.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Assumption Reversal

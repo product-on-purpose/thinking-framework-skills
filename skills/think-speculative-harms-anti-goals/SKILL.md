@@ -1,6 +1,6 @@
 ---
 name: think-speculative-harms-anti-goals
-description: Produces an anti-goals register by assuming a design succeeds at scale, narrating the near-future in which that success harms third parties (including non-users) and is exploited in bad faith by named bad actors, then converting each speculated harm into a standing design constraint bound into the requirements. Use when a feature's success case could externalize harm onto people outside the customer relationship (location, ranking, inference, targeting, automation) and the team's risk review is entirely project-centric. Not a premortem (route plan-survival risk there), not for present documented harms (route to incident analysis), and not a security threat model.
+description: Produces an anti-goals register by imagining a design's success at scale harming third parties or exploited by bad actors, then binding each harm into requirements. Use when a feature's success could harm people beyond its customers.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.speculative-harms-anti-goals
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "A"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces an anti-goals register by assuming a design succeeds at scale, narrating the near-future in which that success harms third parties (including non-users) and is exploited in bad faith by named bad actors, then converting each speculated harm into a standing design constraint bound into the requirements. Use when a feature's success case could externalize harm onto people outside the customer relationship (location, ranking, inference, targeting, automation) and the team's risk review is entirely project-centric. Not a premortem (route plan-survival risk there), not for present documented harms (route to incident analysis), and not a security threat model.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Speculative Harms and Anti-Goals

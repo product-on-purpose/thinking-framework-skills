@@ -1,6 +1,6 @@
 ---
 name: think-evidence-vs-inference-sort
-description: Produces an evidence/inference ledger by sorting the claims in a prompt, document, or proposed conclusion into evidence, inference, and assumption, attaching a confidence level to each inference and flagging anything uncited. Use when a recommendation must be trusted, or when you need to audit the reasoning behind a conclusion in a high-stakes context.
+description: Produces an evidence/inference ledger that sorts the claims in a document or conclusion into evidence, inference and assumption, rates each inference and flags uncited claims. Use when a conclusion must be trusted or audited.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.evidence-vs-inference-sort
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces an evidence/inference ledger by sorting the claims in a prompt, document, or proposed conclusion into evidence, inference, and assumption, attaching a confidence level to each inference and flagging anything uncited. Use when a recommendation must be trusted, or when you need to audit the reasoning behind a conclusion in a high-stakes context.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Evidence vs Inference Sort

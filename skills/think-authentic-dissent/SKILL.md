@@ -1,6 +1,6 @@
 ---
 name: think-authentic-dissent
-description: Checks whether a decision has genuine minority dissent or only smooth surface consensus, identifies who actually holds a contrary view, and plans how to elicit and protect real dissent, flagging clearly where a view is constructed rather than authentically held. Use when consensus feels too easy, or to set up genuine challenge before a high-stakes call.
+description: Checks whether a decision has genuine dissent or only surface consensus, and plans how to elicit and protect real dissent, flagging constructed views. Use when consensus feels too easy or a high-stakes call needs real challenge.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.authentic-dissent
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "S"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Checks whether a decision has genuine minority dissent or only smooth surface consensus, identifies who actually holds a contrary view, and plans how to elicit and protect real dissent, flagging clearly where a view is constructed rather than authentically held. Use when consensus feels too easy, or to set up genuine challenge before a high-stakes call.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Authentic Dissent

@@ -64,6 +64,13 @@ function readFrontmatter(text) {
       out[key][k] = strip(v);
     }
   }
+  // C2-4 (tiered descriptions): a SKILL.md may carry its full routing text in
+  // metadata.routing-description while `description` holds the compressed, always-loaded
+  // text. Generated views keep the full text. See
+  // docs/internal/experiments/2026-10-20-tiered-descriptions-preregistration.md (amendment).
+  if (out.metadata && typeof out.metadata === 'object' && out.metadata['routing-description']) {
+    out.description = out.metadata['routing-description'];
+  }
   return out;
 }
 const strip = (s) => s.replace(/^["']/, '').replace(/["']$/, '').trim();

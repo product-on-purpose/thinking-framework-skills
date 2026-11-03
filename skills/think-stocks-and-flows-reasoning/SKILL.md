@@ -1,6 +1,6 @@
 ---
 name: think-stocks-and-flows-reasoning
-description: Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory from the net flow rather than the direction of any single flow. Use when a problem involves an accumulation (cash, debt, backlog, headcount, customer base, technical debt, emissions) and intuition about whether it is rising or falling may be wrong.
+description: Produces a stock-flow map that separates an accumulating quantity from the inflows and outflows that change it, reasoning from the net flow. Use when an accumulation such as cash, backlog or debt may be moving against intuition.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.stocks-and-flows-reasoning
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "S"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory from the net flow rather than the direction of any single flow. Use when a problem involves an accumulation (cash, debt, backlog, headcount, customer base, technical debt, emissions) and intuition about whether it is rising or falling may be wrong.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Stocks and Flows Reasoning

@@ -1,6 +1,6 @@
 ---
 name: think-belief-update-routine
-description: Produces a belief-update ledger that re-scores a standing inventory of open beliefs against newly arrived evidence on a cadence - each belief carrying a prior confidence, the evidence accrued since the last review, a revised confidence with an explicit delta and direction, a reason for the size of the move (a guard against under-updating), and a next-review trigger. Use when you hold consequential open beliefs, forecasts, or standing assumptions that should track new evidence over time and you want a disciplined, recurring re-score - not a one-time decision record, a finished-event retro, or a single claim's conditions.
+description: Produces a belief-update ledger that re-scores standing beliefs against new evidence on a cadence, sizing and justifying each change. Use when open beliefs, forecasts or assumptions should keep tracking evidence.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.belief-update-routine
@@ -8,6 +8,7 @@ metadata:
   evidence-tier: "P"
   version: 0.1.0
   standard: "0.8"
+  routing-description: Produces a belief-update ledger that re-scores a standing inventory of open beliefs against newly arrived evidence on a cadence - each belief carrying a prior confidence, the evidence accrued since the last review, a revised confidence with an explicit delta and direction, a reason for the size of the move (a guard against under-updating), and a next-review trigger. Use when you hold consequential open beliefs, forecasts, or standing assumptions that should track new evidence over time and you want a disciplined, recurring re-score - not a one-time decision record, a finished-event retro, or a single claim's conditions.
 ---
 <!-- thinking-framework-skills | https://github.com/product-on-purpose/thinking-framework-skills | Apache-2.0 -->
 # Belief-Update Routine
