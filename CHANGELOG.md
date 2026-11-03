@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Security
+
+- **`site/` dependency advisories: 12 down to 3 low (#PRNUM).** A non-forced `npm audit fix` moved `devalue` 5.9.2 -> 5.9.4 (CVE-2026-92708, GHSA-j22f-vq7h-c4qm), `dompurify` 3.4.15 -> 3.4.17 (the one critical), `sharp` 0.35.4 -> 0.35.5, `astro` 7.3.2 -> 7.3.8, `vite` 8.3.0 -> 8.3.5, `undici` 8.10.2 -> 8.12.3 and `zod` 4.6.1 -> 4.6.7, with smaller moves in `postcss-selector-parser`, `smol-toml` and `source-map-js`. The `devalue` override floor rises to `^5.9.3`, so a lockfile rebuild cannot fall back below the fix. The 3 that remain are one low KaTeX advisory reached through `mermaid` and `astro-mermaid`. Fixing it needs `mermaid` 12, a major version that the `^11.15.0` override and `astro-mermaid` 2.1 do not allow, so it is left for a separate change. These packages build the docs site and run in its pages. None of them ships in the installed plugin.
+
 ### Changed
 
 - **`think-red-team-light` and `think-parallel-perspectives-review` now hand set-aside material to a fresh context, completing the library-wide rule from 0.19.0.** Red team step 2 gives a subagent only the thesis and its evidence, never the reasoning that produced it. Perspectives review step 3 runs each lens in its own subagent. Both keep the old instruction as the fallback when no subagent is available. The rule and its evidence are in `docs/internal/AUTHORING.md` (#220).
