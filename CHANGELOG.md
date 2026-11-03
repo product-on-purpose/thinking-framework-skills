@@ -6,7 +6,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Changed
 
-- **`think-red-team-light` and `think-parallel-perspectives-review` now hand set-aside material to a fresh context, completing the library-wide rule from 0.19.0.** Red team step 2 gives a subagent only the thesis and its evidence, never the reasoning that produced it. Perspectives review step 3 runs each lens in its own subagent. Both keep the old instruction as the fallback when no subagent is available. The rule and its evidence are in `docs/internal/AUTHORING.md`.
+- **`think-red-team-light` and `think-parallel-perspectives-review` now hand set-aside material to a fresh context, completing the library-wide rule from 0.19.0.** Red team step 2 gives a subagent only the thesis and its evidence, never the reasoning that produced it. Perspectives review step 3 runs each lens in its own subagent. Both keep the old instruction as the fallback when no subagent is available. The rule and its evidence are in `docs/internal/AUTHORING.md` (#220).
 
 ## [0.19.0] - 2026-10-30
 
