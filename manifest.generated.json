@@ -52,7 +52,7 @@
     {
       "name": "think-boundary-critique",
       "path": "skills/think-boundary-critique/SKILL.md",
-      "description": "Audits the boundary judgments in a problem frame (who benefits, decides, counts as expert and has standing) and names who is excluded. Use when a plan, metric or improvement claim silently decides whose interests count."
+      "description": "Audits boundary judgments in a frame (who benefits, decides, counts as expert and has standing) and names who is excluded. Use when a plan, metric or improvement claim decides whose interests count, or in contested multi-party cases."
     },
     {
       "name": "think-brainwriting",
@@ -237,7 +237,7 @@
     {
       "name": "think-pyramid-principle",
       "path": "skills/think-pyramid-principle/SKILL.md",
-      "description": "Produces a pyramid that structures a recommendation answer-first, with one governing thought over ordered MECE arguments and evidence, and an optional SCQA intro. Use when an existing conclusion must reach a busy reader."
+      "description": "Produces a pyramid that structures a recommendation answer-first, with one governing thought over ordered MECE arguments and evidence. Use when an existing conclusion must reach a busy reader, or a write-up buries its point."
     },
     {
       "name": "think-qualitative-comparative-analysis",

@@ -1,6 +1,6 @@
 ---
 name: think-boundary-critique
-description: Audits the boundary judgments in a problem frame (who benefits, decides, counts as expert and has standing) and names who is excluded. Use when a plan, metric or improvement claim silently decides whose interests count.
+description: Audits boundary judgments in a frame (who benefits, decides, counts as expert and has standing) and names who is excluded. Use when a plan, metric or improvement claim decides whose interests count, or in contested multi-party cases.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.boundary-critique

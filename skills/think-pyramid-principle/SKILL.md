@@ -1,6 +1,6 @@
 ---
 name: think-pyramid-principle
-description: Produces a pyramid that structures a recommendation answer-first, with one governing thought over ordered MECE arguments and evidence, and an optional SCQA intro. Use when an existing conclusion must reach a busy reader.
+description: Produces a pyramid that structures a recommendation answer-first, with one governing thought over ordered MECE arguments and evidence. Use when an existing conclusion must reach a busy reader, or a write-up buries its point.
 license: Apache-2.0
 metadata:
   id: thinking-framework-skills.pyramid-principle
