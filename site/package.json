@@ -23,6 +23,6 @@
   },
   "overrides": {
     "mermaid": "^11.15.0",
-    "devalue": "^5.8.1"
+    "devalue": "^5.9.3"
   }
 }
