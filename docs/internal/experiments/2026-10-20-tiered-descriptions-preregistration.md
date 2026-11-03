@@ -1,8 +1,8 @@
 # Tiered descriptions: pre-registration (roadmap C2-4)
 
-**Status: pre-registered on 2026-10-20, not run.** This file fixes the design, the cohorts and the thresholds before any compressed description is written or measured, so the decision cannot move to fit the data. It implements SPEC-07 (the tiered-discovery experiment, in the 2026-07-10 audit plan) with three corrections, given below.
+**Status: pre-registered on 2026-10-20, amended on 2026-11-03 before any description was written, not run.** This file fixes the design, the cohorts and the thresholds before any compressed description is written or measured, so the decision cannot move to fit the data. It implements SPEC-07 (the tiered-discovery experiment, in the 2026-07-10 audit plan) with three corrections, given below. The one amendment, option B for the tail rule, is recorded under "Open design question", and the original text is kept beside it.
 
-**Next step, and why it waits:** the maintainer settles the open design question below, because the tail rule as registered conflicts with a Standard requirement. Then agents write the 47 tail descriptions on the experiment branch, and the maintainer reviews them for honesty before the eval runs. SPEC-07 names that review as the experiment's main cost. A compressed description that claims less scope than its skill has is the one failure the eval cannot see.
+**Next step, and why it waits:** agents write the 47 tail descriptions on the experiment branch under the amended rule. Then the maintainer reviews them for honesty before the eval runs. SPEC-07 names that review as the experiment's main cost. A compressed description that claims less scope than its skill has is the one failure the eval cannot see.
 
 ## Why run it
 
@@ -18,7 +18,7 @@ Every session that has the plugin installed loads every skill description, wheth
 
 - **Head, 13 skills, descriptions unchanged.** The four tools: `think-framework-advisor`, `think-top3`, `think-random-frameworks` and `think-research-framework`. Plus the nine skills that the framework trigger corpus names as the right alternative in five or more anti cases, counted from `extract-cases.mjs` on `main` at `004c484`: `decision-option-review` (21), `premortem` (16), `issue-tree` (15), `reference-class-forecasting` (10), `scenario-planning` (7), `red-team-light` (6), `futures-wheel` (6), `parallel-perspectives-review` (5) and `problem-restatement` (5).
 - **Contested lenses, 7 skills, descriptions unchanged.** `five-whys`, `eisenhower-moscow-pareto`, `complexity-domain-sort`, `swot`, `reflective-equilibrium`, `qualitative-comparative-analysis` and `analysis-of-competing-hypotheses`. Their caveat-first descriptions route requests away, and the contested-lens contract governs their wording. They are scored as their own cohort.
-- **Tail, the other 47 skills, compressed.** Each tail description becomes one honest sentence: the artifact first, then the scope, with no trigger clauses. An example is "Builds an abstraction ladder to find the right altitude for a problem." A compressed description must never claim less scope than the skill has, and the skill stays invocable by its exact name.
+- **Tail, the other 47 skills, compressed.** Each tail description becomes one honest sentence: the artifact first, then the scope, with no trigger clauses. An example is "Builds an abstraction ladder to find the right altitude for a problem." A compressed description must never claim less scope than the skill has, and the skill stays invocable by its exact name. **Amended 2026-11-03 (option B, below):** after that sentence comes one short use-when clause, so the description still passes U5.
 - **The 10 commands are unchanged.** Nine are the recipe commands generated from `_workflows/`, and the tenth is `think-research-framework`. The experiment is about skill descriptions.
 
 ## Open design question (found 2026-10-20, before any description was written)
@@ -31,6 +31,16 @@ The maintainer chooses one of two ways:
 - **B. Amend the rule before step 1:** one sentence for the artifact and the scope, then a short use-when clause, such as "Builds an abstraction ladder to find the right altitude for a problem. Use when a problem seems stated too broadly or too narrowly." That passes U5. It also fits the budget: a 40 percent cut leaves the tail 10,333 characters, about 219 per skill, against about 503 now. The cost is that B tests a milder compression, so a positive result claims less.
 
 **Recommendation: B**, because it keeps the library inside its own Standard while the footprint threshold stays reachable. The cohorts, the thresholds and the run order stay the same under either choice. The U5 weights were read from the scorer source (confidence high). That each skill fits a two-clause description in about 219 characters is an estimate from one worked example (confidence medium).
+
+### Amendment, 2026-11-03: the maintainer chose B
+
+The maintainer chose B on 2026-11-03, before any tail description was written. The tail rule is now one sentence for the artifact and the scope, then one short use-when clause. The cohorts, the thresholds and the run order do not change. Three facts were re-measured on 2026-11-03 rather than carried forward:
+
+- **The U5 weights are unchanged at the toolkit commit CI now grades against** (`49a03e0`, set in `.github/workflows/ci.yml`): 0.35, 0.35, 0.20 and 0.10, read from `scripts/checks/description-score.mjs`.
+- **The footprint is still 33,235 characters** across the 67 descriptions: 5,801 for the head, 3,807 for the contested lenses and 23,627 for the tail. A 40 percent cut therefore leaves the tail 10,333 characters, about 220 per skill.
+- **The gate on `main` reports 7 warnings, all U5, all on the contested lenses.** The gate on the experiment branch should report the same 7.
+
+The amendment also settles where the full descriptions live, which run-order step 1 left open. Each tail `SKILL.md` keeps its full text in a frontmatter field, `metadata.routing-description`, and its `description` field carries the compressed text. `gen-recommendable.mjs`, `gen-catalog.mjs` and `gen-site.mjs` all read `fm.description` today, and each one reads `routing-description` first when it is present. So `recommendable.json` keeps its full `description` text and gains no new field, which meets threshold 5 strictly: the file must be byte-identical to the control. The `routing_description` output field that SPEC-07 and threshold 5 anticipate is therefore not needed. The site and the agent-discovery files (`llms.txt`, `llms-full.txt`, `catalog.json`) also keep the full text, because none of them is always loaded. Only the installed roster, which `manifest.generated.json` and the skill-selection eval read, carries the compressed text.
 
 ## Thresholds (the decision gate)
 
