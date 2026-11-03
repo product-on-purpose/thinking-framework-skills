@@ -10,6 +10,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Changed
 
+- **The three vetted wave-4 candidates are admitted, and their registry rows are no longer preliminary (#PRNUM).** The vetted entries replace the preliminary rows for `causal-dag-adjustment-check` (P), `objectives-first-alternative-generation` (P, narrow) and `draft-blind-verification` (C). Their dossiers move to `frameworks/<slug>/dossier.md`, so each gains a library dossier page. `objectives-first-alternative-generation` drops from M to P because the rating method in Siebert and Keeney (2015) is unresolved, and the row can return to M if independent judges rated quality. The verifier reports move to `docs/internal/research/2026-10-20-wave4-verify/`. All three stay `cand`: no skill was built, and the catalog count does not change.
 - **`think-red-team-light` and `think-parallel-perspectives-review` now hand set-aside material to a fresh context, completing the library-wide rule from 0.19.0.** Red team step 2 gives a subagent only the thesis and its evidence, never the reasoning that produced it. Perspectives review step 3 runs each lens in its own subagent. Both keep the old instruction as the fallback when no subagent is available. The rule and its evidence are in `docs/internal/AUTHORING.md` (#220).
 
 ## [0.19.0] - 2026-10-30
