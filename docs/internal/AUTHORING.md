@@ -137,7 +137,7 @@ Three results support this, checked first-hand on 2026-10-19. See [`research/202
 - **SimToM** (Wilf et al., 2024, ACL, arXiv 2311.10227). A single combined prompt reached 58.75 on ToMI with GPT-3.5. A separate perspective-taking pass reached 81.0.
 - **People**, not agents, show the same gap. Instructions to disregard evidence do not remove its influence (Steblay, Hosch, Culhane and McWethy, 2006, *Law and Human Behavior* 30(4):469-492, a meta-analysis of 48 studies).
 
-Applied 2026-10-20 to four skills: `think-brainwriting`, `think-veil-of-ignorance-reasoning`, `think-after-action-review`, and `think-reference-class-forecasting`. Two more skills need the same edit, `think-red-team-light` and `think-parallel-perspectives-review`. Another agent was editing both in parallel at the time, so the edit is recorded as a follow-up in `docs/internal/backlog.md`.
+Applied 2026-10-20 to four skills: `think-brainwriting`, `think-veil-of-ignorance-reasoning`, `think-after-action-review`, and `think-reference-class-forecasting`. Applied 2026-11-03 to the two skills left as a follow-up, because another agent was editing both on 2026-10-20: `think-red-team-light` (step 2, where the critic would otherwise attack a thesis it argued for) and `think-parallel-perspectives-review` (step 3, one subagent per lens).
 
 ---
 

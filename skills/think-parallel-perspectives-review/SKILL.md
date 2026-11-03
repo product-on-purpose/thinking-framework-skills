@@ -39,7 +39,7 @@ When asked for a parallel perspectives review, follow these steps:
    - **Intuition** - the gut read and feelings, named as such.
    - **Alternatives** - other options and creative angles.
    - **Process** - the big picture and what to do next.
-3. **Keep the lenses clean.** Do not let one lens leak into another; that blur is what the method prevents. Drop a lens that genuinely does not apply and say so.
+3. **Keep the lenses clean.** Where a fresh subagent is available, run each lens pass from step 2 in its own subagent, given only the step 1 statement (the third-person restatement, if the observer pre-pass ran) and that one lens, never another lens's output, since a subagent that never saw the other lenses beats this context merely told not to let them leak; without one, run them here and do not let one lens leak into another, because that blur is what the method prevents. Drop a lens that genuinely does not apply and say so.
 4. **Synthesize.** Integrate the lenses into a balanced read and name the central tension to resolve.
 5. **Emit the multi-lens review** per `references/TEMPLATE.md`.
 

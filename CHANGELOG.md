@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+
+- **`think-red-team-light` and `think-parallel-perspectives-review` now hand set-aside material to a fresh context, completing the library-wide rule from 0.19.0.** Red team step 2 gives a subagent only the thesis and its evidence, never the reasoning that produced it. Perspectives review step 3 runs each lens in its own subagent. Both keep the old instruction as the fallback when no subagent is available. The rule and its evidence are in `docs/internal/AUTHORING.md` (#220).
+
 ## [0.19.0] - 2026-10-30
 
 **The library now declares Standard 0.17 and CI grades it there, fourteen installed skills change under the wave-4 research decisions, and the evals have a new Opus 5.5 baseline (#195-#218).** No new skills and no governing-tier changes; the catalog stays 56 core + 7 contested. The registry grows from 135 to 150 evaluated methods, and the three wave-4 build candidates are vetted and staged but not admitted.

@@ -31,7 +31,7 @@ Plans that reach easy consensus go untested. This skill suspends the cooperative
 When asked to red team, follow these steps:
 
 1. **State the thesis fairly** in one or two sentences - the proposal being attacked, in its strongest honest form.
-2. **Build the strongest objections.** Adopt a genuinely adversarial stance and construct the best case against it: where it is weakest, what an informed critic or competitor would attack, what evidence cuts against it. Steelman, do not strawman.
+2. **Build the strongest objections.** Where a fresh subagent is available, give it only the thesis as stated in step 1 and the evidence the thesis rests on, never the reasoning or drafts that produced it, and let it build the objections there, since a subagent that never argued for the thesis beats this context merely told to suspend its cooperative stance; without one, build them here. Adopt a genuinely adversarial stance and construct the best case against it: where it is weakest, what an informed critic or competitor would attack, what evidence cuts against it. Steelman, do not strawman.
 3. **Rank by force.** Order the objections by how much damage they do if true, not by how easy they are to raise.
 4. **Test each.** For the top objections, state how the thesis would have to answer them, and whether it plausibly can.
 5. **Verdict.** Say which objections are decisive (would sink or substantially change the plan) and which are survivable. For high stakes, note whether a real, independent dissenting view should be sought, given this is constructed dissent.
