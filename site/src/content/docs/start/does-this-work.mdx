@@ -127,6 +127,14 @@ What does **not** move across all four runs, on two models: **399 of 400** on th
 
 **What it does not prove.** Seventeen trigger cases is a small N, and they are self-authored. It is a first baseline for a question that had no instrument at all until 2026-09-10, not a settled property. It has now held identically across four runs on two models (Opus 5 and Opus 5.5), which rules out *this instrument's* day-to-day variance as the explanation but says nothing about a wider case set.
 
+## An experiment that failed its gate
+
+Every installed session loads every skill description, so shorter descriptions would save tokens. On 2026-11-04 we ran two same-day pairs of skill-selection runs, each comparing the shipped descriptions with shorter ones for 47 skills.
+
+We measured description compression. It failed our pre-registered gate because a same-day control moved more than the gate allows. Trigger accuracy did not fall, and one new false fire repeated across both pairs. We keep paying the tokens.
+
+The [experiment record](https://github.com/product-on-purpose/thinking-framework-skills/blob/main/docs/internal/experiments/2026-11-04-tiered-descriptions-result.md) has the design, the thresholds and every case that repeated.
+
 ## The 7 contested lenses are folded into these numbers
 
 The catalog is **63 skills total: 56 evidence-graded core skills + 7 contested lenses**. The contested lenses are famous frameworks with weak or mixed empirical evidence (SWOT, Five Whys, and similar), added in v0.11.0 and shipped caveat-first as explicit-request-only skills. Earlier runs scored them as a separate cohort; every run since 2026-06-25, including the 2026-10-20 one above, pools all 63 skills into one answer key, so the numbers above already include them.
