@@ -14,7 +14,7 @@
 //
 // Run via the Workflow tool:
 //   Workflow({ scriptPath: "scripts/eval/skill-selection.workflow.mjs",
-//              args: { model, blindPath, rosterPath, count, batchSize } })
+//              args: { model, blindPath, rosterPath, count, batchSize, agentType } })
 //
 //   model      : REQUIRED. The tier every eval agent runs on (haiku | sonnet | opus | fable),
 //                returned as modelTier so finalize.mjs records what actually ran.
@@ -24,6 +24,15 @@
 //                [{id, kind, description}] for every installed skill and command.
 //   count      : N (the number of situations).
 //   batchSize  : situations per router agent (default 25).
+//   agentType  : optional subagent type for the routers, returned in the result. Leave it out to
+//                use the default Workflow subagent. See "WHAT THE ROUTERS SEE" below.
+//
+// WHAT THE ROUTERS SEE (measured 2026-11-04, roadmap C2-4): the roster shows name + description
+// only, but the default Workflow subagent also receives the project's AGENTS.md, whose skill
+// table lists each skill's family, tier and artifact, and the auto-memory index. An installed
+// user's agent gets neither, so "name + description only" holds for the roster file and not for
+// a default router's whole context. Pass agentType to run routers without that context, and
+// confirm from the transcripts that it worked.
 //
 // HOW THIS DIFFERS FROM route.workflow.mjs, and why both exist:
 //
@@ -66,7 +75,8 @@ const blindPath = A.blindPath
 const rosterPath = A.rosterPath
 const count = A.count
 const batchSize = A.batchSize || 25
-if (!blindPath || !rosterPath || !count) throw new Error('skill-selection.workflow.mjs requires args { model, blindPath, rosterPath, count, batchSize? }')
+const agentType = A.agentType
+if (!blindPath || !rosterPath || !count) throw new Error('skill-selection.workflow.mjs requires args { model, blindPath, rosterPath, count, batchSize?, agentType? }')
 
 // The model every eval agent below runs on (roadmap C2-1). Required, so a run's model is a
 // deliberate choice rather than whatever the session inherits, and returned as modelTier so
@@ -129,7 +139,7 @@ log(`Selecting for ${count} blind situations in ${ranges.length} batches (<=${ba
 const parts = []
 for (let g = 0; g < groups.length; g++) {
   const got = await parallel(groups[g].map(([a, b]) => () =>
-    agent(selectPrompt(a, b), { label: `select:c${a}-c${b}`, phase: 'Select', schema: SELECT_SCHEMA, model: modelTier })
+    agent(selectPrompt(a, b), { label: `select:c${a}-c${b}`, phase: 'Select', schema: SELECT_SCHEMA, model: modelTier, ...(agentType ? { agentType } : {}) })
       .then((r) => (r && r.routes) || [])
       .catch(() => [])
   ))
@@ -139,4 +149,4 @@ for (let g = 0; g < groups.length; g++) {
 
 const routes = parts.flat()
 log(`Selection complete: ${routes.length}/${count} situations selected.`)
-return { modelTier, count, routed: routes.length, routes }
+return { modelTier, ...(agentType ? { agentType } : {}), count, routed: routes.length, routes }

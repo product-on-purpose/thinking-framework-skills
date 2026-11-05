@@ -77,3 +77,23 @@ for (const [file, baseArgs] of Object.entries(WORKFLOWS)) {
     assert.equal(result.modelTier, 'sonnet');
   });
 }
+
+// Roadmap C2-4. The default Workflow subagent receives AGENTS.md and the memory index, so a router
+// that must see only the roster needs another agent type. The default path has to stay unchanged.
+test('skill-selection.workflow.mjs passes agentType to every router only when it is given', async () => {
+  const baseArgs = { ...WORKFLOWS['skill-selection.workflow.mjs'], model: 'sonnet' };
+  const run = async (args) => {
+    const rt = runtime();
+    const result = await load('skill-selection.workflow.mjs')(args, rt.agent, rt.parallel, rt.pipeline, rt.phase, rt.log);
+    assert.ok(rt.calls.length > 0, 'the stub saw at least one agent call');
+    return { calls: rt.calls, result };
+  };
+
+  const plain = await run(baseArgs);
+  for (const opts of plain.calls) assert.equal('agentType' in opts, false, `${opts.label} carried an agentType`);
+  assert.equal('agentType' in plain.result, false);
+
+  const typed = await run({ ...baseArgs, agentType: 'Explore' });
+  for (const opts of typed.calls) assert.equal(opts.agentType, 'Explore', `${opts.label} ran as ${opts.agentType}`);
+  assert.equal(typed.result.agentType, 'Explore');
+});
