@@ -117,6 +117,10 @@
           "type": "boolean",
           "description": "True for IP / trademarked / proprietary frameworks. Opening the IP gate (SP9) does not lower the evidence gate."
         },
+        "preliminary": {
+          "type": "boolean",
+          "description": "True while a research-wave admission waits for the think-research-framework engine to vet it. The generated views (why-not, framework-catalog, evaluated.json, llms-full.txt) mark the row as preliminary. Never true on a shipped entry. A reasoning that ends with the sentence 'Preliminary; pending deep-research vetting.' requires it, and it requires a reasoning that says 'preliminary'."
+        },
         "aliases": {
           "type": "array",
           "items": { "type": "string", "minLength": 1 },

@@ -112,3 +112,14 @@ test("llms.txt has the convention shape and links the data files", () => {
   assert.ok(llmsTxt.includes("## Recipes"), "Recipes section");
   assert.ok(llmsTxt.includes("think-premortem"), "lists a known skill");
 });
+
+test("evaluated.json carries the preliminary flag, so an unvetted admission is not published as settled", () => {
+  const fold = evaluated.methods.find((m) => m.slug === "tetralemma");
+  assert.ok(fold, "tetralemma present");
+  assert.equal(fold.preliminary, true);
+  const vetted = evaluated.methods.find((m) => m.slug === "causal-dag-adjustment-check");
+  assert.equal(vetted.preliminary, false, "a vetted candidate is no longer preliminary");
+  const p =evaluated.methods.find((m) => m.slug === "premortem");
+  assert.equal(p.preliminary, false, "a shipped method is never preliminary");
+  for (const m of evaluated.methods) assert.equal(typeof m.preliminary, "boolean", `${m.slug} has a boolean preliminary`);
+});
