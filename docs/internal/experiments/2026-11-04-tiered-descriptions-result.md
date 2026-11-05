@@ -1,7 +1,7 @@
 # Tiered descriptions: result of the pre-registered runs (roadmap C2-4)
 
 **Date:** 2026-11-04
-**Status:** negative under the pre-registered rule. Both pairs are recorded. Publishing the result, and any later experiment, wait for the maintainer.
+**Status:** negative under the pre-registered rule, and published on the trust page on 2026-11-05. Any later experiment waits for the maintainer.
 **Design:** [the pre-registration](2026-10-20-tiered-descriptions-preregistration.md), including its amendment that chose option B.
 
 **The result is negative as written, because the deciding pair fails threshold 3. The failure is not evidence that compression hurt the head cohort.** The head cohort's descriptions are identical in both arms, and its score rose under compression. One router batch in the control arm caused most of the change. The rule fixed before this pair ran says a failure is a negative result, so this memo does not treat the figure as a pass.
@@ -49,6 +49,8 @@ This replaces the first measurement's reading of `c115` as noise, because it rep
 **Hold to the rule: record the negative result, keep the branch and do not ship.** The saving is about 3,300 tokens per session, which does not justify rewriting a gate after seeing the data.
 
 The pre-registration's public sentence, "it cost X", would misstate this result, because the failing threshold moved in compression's favour. Suggested wording for the trust page: "We measured description compression. It failed our pre-registered gate because a same-day control moved more than the gate allows. Trigger accuracy did not fall, and one new false fire repeated across both pairs. We keep paying the tokens."
+
+**Decision (2026-11-05):** the maintainer accepted this recommendation and the wording above. The compressed descriptions did not ship. They remain on the `experiment/tiered-descriptions` branch and at the tag `evidence/c2-4-tiered-descriptions`, both at `8767b36`.
 
 A later experiment is optional and would be a new pre-registration, not a rerun of this one. It should shuffle prompts across routers, so that one router cannot move a whole skill's cases. It should also replicate each arm, and gate the "none" picks that this scorer cannot see. A pair costs about 3.4M tokens.
 
