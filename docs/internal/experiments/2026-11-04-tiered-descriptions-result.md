@@ -8,7 +8,7 @@
 
 ## The deciding pair: routers without the `AGENTS.md` table
 
-Both arms ran on 2026-11-04 on `claude-opus-5-5` with the Explore agent type. They used the same rosters, prompts and answer key as the first pair, and the router prompt did not change.
+Both arms ran on 2026-11-04 on `claude-opus-5-5` with the Explore agent type, a built-in read-only subagent that omits project instructions. They used the same rosters, prompts and answer key as the first pair, and the router prompt did not change.
 
 | # | Measure | Threshold | Control | Compressed | Result |
 |---|---|---|---|---|---|
@@ -56,11 +56,11 @@ A later experiment is optional and would be a new pre-registration, not a rerun 
 
 The pair used 65 agents and 3.35M subagent tokens, including one smoke-test agent, against an estimate of up to 5.2M. The working files are in `_local/eval-rerun/2026-11-04-clean/`, which is gitignored. No scorecard was written and no sidecar was stamped.
 
-# First measurement
+## First measurement
 
-This pair ran first, with routers that received the `AGENTS.md` table. It is recorded here and does not decide the experiment.
+This pair ran first, with routers that received the `AGENTS.md` table. All five thresholds held in this pair. It is recorded here and does not decide the experiment.
 
-## The five thresholds
+### The five thresholds
 
 Both arms ran on 2026-11-04 on `claude-opus-5-5`, with the same 794 prompts and the same answer key. The control arm used `main` at `13a2fe7`. The compressed arm used `experiment/tiered-descriptions` at `8767b36`, which differs from `main` only in the 47 tail descriptions, three generators and two generated files.
 
@@ -74,13 +74,13 @@ Both arms ran on 2026-11-04 on `claude-opus-5-5`, with the same 794 prompts and 
 
 The contested lenses, which the thresholds do not gate, scored 41/41 in both arms. Overall, the anti right-alternative figure was 147/157 in both arms, and the same three trigger cases missed in both. The cut saves 13,298 characters, about 3,300 tokens per session at four characters per token.
 
-## What the figures can and cannot support
+### What the figures can and cannot support
 
 - **The two arms disagree less than the noise band (high confidence, measured).** Top-1 picks differ on 10 of 793 scored cases. The [2026-09-13 null run](2026-09-13-skill-selection-noise-band.md) disagreed on 15 of 794 with nothing changed. Only two of the 10 flips change a score.
 - **One lost case is probably a real cost of compression (medium confidence; the flip is measured and the cause is inferred).** In `c499`, a user wants to weight decision criteria by comparing them in pairs, and then score options with those weights. The compressed arm picked `think-pairwise-comparison` instead of `think-decision-option-review`. The compressed description dropped "Not a criteria-weighted option matrix", which is the boundary this prompt tests. The null run found false fires stable, so a new false fire with this explanation looks like signal rather than noise. It also answers an open question from the drafting session: dropping about 20 "Not for X" clauses stays inside threshold 4, with no margin left. The compressed arm also gained one case, `c115`, which looks like noise because the description change gives no reason for it.
 - **The instrument is near its ceiling (high confidence, measured).** Both arms score 390/393 on trigger cases. Skill names are preserved and descriptive, so many cases may be decided by the name alone. A pass therefore shows no detectable harm, not proven absence of harm.
 
-## The instrument limit found while checking the runs
+### The instrument limit found while checking the runs
 
 The pre-registration says that an agent sees "a name and a description and nothing else". That was not true of these runs (high confidence, measured). All 64 router transcripts, 32 in each arm, contain the injected `AGENTS.md`, which lists each skill's family, evidence tier and artifact, and also lists the recipe chains. All 64 also contain the auto-memory index.
 
@@ -88,17 +88,17 @@ An installed user's agent does not get this table. It could rescue a compressed 
 
 The same harness produced earlier skill-selection scorecards, so their "name + description only" wording probably overstates the isolation too. This memo did not check those transcripts.
 
-## Known limit from the pre-registration
+### Known limit from the pre-registration
 
 The eval prompts are authored per skill, not drawn from real traffic. A compressed description could pass the eval and still miss phrasings that real users write. The eval also cannot see a description that claims less scope than its skill has. The honesty review compared each draft with its original description, not with its full `SKILL.md`.
 
-## Other facts for the record
+### Other facts for the record
 
 - **Reference, not baseline:** the recorded 2026-10-20 run scored 392/393 and 1 false fire on unchanged `eval/cases.md` files. Today's control scored 390/393 and 2. That is one case beyond the measured band of plus or minus one, so the band may be slightly wider than recorded.
 - **Cost:** the runs used 65 agents and 5.24M subagent tokens, including one smoke-test agent, against an estimate of 64 agents and 6.8M.
 - **No scorecard was written.** Neither arm was finalized, so no sidecar was stamped. The working files are in `_local/eval-rerun/2026-11-04/`, which is gitignored.
 
-## Recommendation made before the deciding pair
+### Recommendation made before the deciding pair
 
 The maintainer has two legitimate options, and this memo leans toward the first.
 
