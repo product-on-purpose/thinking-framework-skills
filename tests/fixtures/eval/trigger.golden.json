@@ -13,7 +13,10 @@
     "triggerTop1Pct": 100,
     "antiNoFirePct": 100,
     "antiRightAltPct": 100,
-    "falseFires": 0
+    "falseFires": 0,
+    "antiNone": 1,
+    "antiNoneDeclined": 1,
+    "antiNoneOtherPick": 0
   },
   "perSkill": {
     "premortem": {
@@ -24,8 +27,11 @@
       "antiNoFire": 2,
       "antiNamed": 1,
       "antiNamedHit": 1,
+      "antiNone": 1,
+      "antiNoneDeclined": 1,
       "miss": [],
-      "fire": []
+      "fire": [],
+      "noneOther": []
     }
   }
 }

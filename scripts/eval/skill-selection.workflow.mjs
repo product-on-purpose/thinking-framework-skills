@@ -14,7 +14,7 @@
 //
 // Run via the Workflow tool:
 //   Workflow({ scriptPath: "scripts/eval/skill-selection.workflow.mjs",
-//              args: { model, blindPath, rosterPath, count, batchSize, agentType } })
+//              args: { model, blindPath, rosterPath, count, batchSize, agentType, interleave } })
 //
 //   model      : REQUIRED. The tier every eval agent runs on (haiku | sonnet | opus | fable),
 //                returned as modelTier so finalize.mjs records what actually ran.
@@ -26,6 +26,9 @@
 //   batchSize  : situations per router agent (default 25).
 //   agentType  : optional subagent type for the routers, returned in the result. Leave it out to
 //                use the default Workflow subagent. See "WHAT THE ROUTERS SEE" below.
+//   interleave : optional. true deals prompts across routers instead of cutting contiguous batches,
+//                and is returned in the result. This changes the router prompt's wording, so a run
+//                with it is a different instrument from one without, and the two do not compare.
 //
 // WHAT THE ROUTERS SEE (measured 2026-11-04, roadmap C2-4): the roster shows name + description
 // only, but the default Workflow subagent also receives the project's AGENTS.md, whose skill
@@ -76,7 +79,8 @@ const rosterPath = A.rosterPath
 const count = A.count
 const batchSize = A.batchSize || 25
 const agentType = A.agentType
-if (!blindPath || !rosterPath || !count) throw new Error('skill-selection.workflow.mjs requires args { model, blindPath, rosterPath, count, batchSize?, agentType? }')
+const interleave = A.interleave === true
+if (!blindPath || !rosterPath || !count) throw new Error('skill-selection.workflow.mjs requires args { model, blindPath, rosterPath, count, batchSize?, agentType?, interleave? }')
 
 // The model every eval agent below runs on (roadmap C2-1). Required, so a run's model is a
 // deliberate choice rather than whatever the session inherits, and returned as modelTier so
@@ -104,7 +108,9 @@ const SELECT_SCHEMA = {
   },
 }
 
-function selectPrompt(startN, endN) {
+function selectPrompt(startN, endN, ids) {
+  const scope = ids ? `one of ${ids.map((n) => `c${n}`).join(', ')}` : `c${startN} through c${endN} inclusive`
+  const cover = ids ? 'listed above' : `in c${startN}..c${endN}`
   return `You are an AI agent with a library of thinking-framework tools installed. For each user prompt below, decide which SINGLE installed tool you would invoke to handle it - or decline when none of them is the right response.
 
 Read these two files (use the Read tool):
@@ -116,11 +122,11 @@ The roster contains two kinds of tool:
 - kind "command" (id is prefixed, like \`command:stress-test-decision\`) - runs a CHAIN of several methods end to end as a single pre-built sequence.
 A command is the right pick only when the situation genuinely calls for the whole chain; a skill is the right pick when one method does the job. Return the id EXACTLY as it appears in the roster, including the \`command:\` prefix when you pick a command.
 
-Process ONLY the situations whose id is c${startN} through c${endN} inclusive. For each, judge purely on the match between the user's prompt and each tool's description:
+Process ONLY the situations whose id is ${scope}. For each, judge purely on the match between the user's prompt and each tool's description:
 - top1: the id of the single tool you would invoke, OR the literal "none" if the situation is trivial, unrelated to structured thinking, already-decided, a plain factual or coding request, or genuinely better handled with no tool at all. Do NOT force a fit - many of these situations are deliberately wrong-tool or no-tool, and "none" is often the right answer.
 - top3: up to three ids in rank order, best first; [] if nothing fits.
 
-You do NOT know which tool (if any) authored a situation, and you must not assume one did. Judge fit only. Return {routes: [{id, top1, top3}]} covering every id in c${startN}..c${endN}.`
+You do NOT know which tool (if any) authored a situation, and you must not assume one did. Judge fit only. Return {routes: [{id, top1, top3}]} covering every id ${cover}.`
 }
 
 function chunkRanges(total, size) {
@@ -128,18 +134,30 @@ function chunkRanges(total, size) {
   for (let s = 1; s <= total; s += size) out.push([s, Math.min(s + size - 1, total)])
   return out
 }
+// Deals the ids out one at a time, so prompts that sit next to each other never share a router. The
+// prompts for one skill are adjacent in the blind file, so a contiguous batch lets one router move
+// a whole skill's cases (2026-11-04, c529 c531 c533). No randomness, so a run's batches reproduce.
+function interleavedBatches(total, size) {
+  const n = Math.ceil(total / size)
+  const out = Array.from({ length: n }, () => [])
+  for (let i = 1; i <= total; i++) out[(i - 1) % n].push(i)
+  return out
+}
 function groupz(arr, n) { const o = []; for (let i = 0; i < arr.length; i += n) o.push(arr.slice(i, i + n)); return o }
 
 phase('Select')
 const ranges = chunkRanges(count, batchSize)
 const GROUP = 5
-const groups = groupz(ranges, GROUP)
-log(`Selecting for ${count} blind situations in ${ranges.length} batches (<=${batchSize} each), ${groups.length} serial groups of <=${GROUP} (throttle-safe), against the installed roster.`)
+const batches = interleave
+  ? interleavedBatches(count, batchSize).map((ids, i) => ({ label: `select:batch-${i + 1}`, prompt: selectPrompt(0, 0, ids) }))
+  : ranges.map(([a, b]) => ({ label: `select:c${a}-c${b}`, prompt: selectPrompt(a, b) }))
+const groups = groupz(batches, GROUP)
+log(`Selecting for ${count} blind situations in ${batches.length} ${interleave ? 'interleaved ' : ''}batches (<=${batchSize} each), ${groups.length} serial groups of <=${GROUP} (throttle-safe), against the installed roster.`)
 
 const parts = []
 for (let g = 0; g < groups.length; g++) {
-  const got = await parallel(groups[g].map(([a, b]) => () =>
-    agent(selectPrompt(a, b), { label: `select:c${a}-c${b}`, phase: 'Select', schema: SELECT_SCHEMA, model: modelTier, ...(agentType ? { agentType } : {}) })
+  const got = await parallel(groups[g].map(({ label, prompt }) => () =>
+    agent(prompt, { label, phase: 'Select', schema: SELECT_SCHEMA, model: modelTier, ...(agentType ? { agentType } : {}) })
       .then((r) => (r && r.routes) || [])
       .catch(() => [])
   ))
@@ -149,4 +167,4 @@ for (let g = 0; g < groups.length; g++) {
 
 const routes = parts.flat()
 log(`Selection complete: ${routes.length}/${count} situations selected.`)
-return { modelTier, ...(agentType ? { agentType } : {}), count, routed: routes.length, routes }
+return { modelTier, ...(agentType ? { agentType } : {}), ...(interleave ? { interleave } : {}), count, routed: routes.length, routes }

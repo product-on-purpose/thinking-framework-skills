@@ -44,6 +44,8 @@ Five flips repeated with the same picks in both pairs, out of 10 flips in the fi
 
 This replaces the first measurement's reading of `c115` as noise, because it repeated. The thresholds count only `c499`. The scorer accepts any pick except the authoring skill when the key expects `none`, so `c476`, `c440` and `c697` do not lower any score.
 
+> **Correction (2026-11-06).** The table above and the recommendation below read `none` in the key as "no tool is right". It means that the bullet names no tool with a `think-` slug. The bullet for `c697` reads "(iceberg-model)", so the control's pick was the tool the bullet names. The bullets for `c440` and `c476` say that the authoring skill "must refuse to fabricate", which says nothing about other tools. So "both picks are wrong" is not supported for `c440` and `c697`, and the "none" picks cannot be gated until the key separates its two meanings. The flips themselves are measured and stand, and no threshold or figure changes. The scorer now lists these picks without calling them wrong, as `scripts/eval/README.md` explains.
+
 ## Recommendation
 
 **Hold to the rule: record the negative result, keep the branch and do not ship.** The saving is about 3,300 tokens per session, which does not justify rewriting a gate after seeing the data.

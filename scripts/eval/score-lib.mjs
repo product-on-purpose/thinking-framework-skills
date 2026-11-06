@@ -55,7 +55,7 @@ export function scoreTrigger(cases, routedRaw, opts = {}) {
   const routes = routedRaw.routes || routedRaw;
   const byId = new Map(routes.map((r) => [r.id, r]));
   const per = {};
-  const ensure = (s) => (per[s] ||= { trig: 0, trigHit: 0, trigSoft: 0, anti: 0, antiNoFire: 0, antiNamed: 0, antiNamedHit: 0, miss: [], fire: [] });
+  const ensure = (s) => (per[s] ||= { trig: 0, trigHit: 0, trigSoft: 0, anti: 0, antiNoFire: 0, antiNamed: 0, antiNamedHit: 0, antiNone: 0, antiNoneDeclined: 0, miss: [], fire: [], noneOther: [] });
   let unrouted = 0;
   for (const c of scored) {
     const r = byId.get(c.id);
@@ -72,6 +72,16 @@ export function scoreTrigger(cases, routedRaw, opts = {}) {
       p.anti++;
       const noFire = top1 !== c.source;
       if (noFire) p.antiNoFire++; else p.fire.push({ id: c.id, got: top1, prompt: c.prompt.slice(0, 72) });
+      // `none` here means the bullet names no tool with a think- slug. It does NOT mean that no tool
+      // should fire: bullets read "(decision)" or "(iceberg-model)", and on the 2026-11-04 control a
+      // router picked another tool on 99 of 243 such cases, many of them correct redirects. So these
+      // picks are neither right nor wrong, and no figure counts them. They are listed because a list
+      // compared between runs shows where a router's choice moved when no figure did (c476, C2-4).
+      if (c.expected === 'none') {
+        p.antiNone++;
+        if (top1 === 'none') p.antiNoneDeclined++;
+        else if (r && noFire) p.noneOther.push({ id: c.id, got: top1, prompt: c.prompt.slice(0, 72) });
+      }
       if (c.expected !== 'none') {
         p.antiNamed++;
         // `accept` exists only on a key the maintainer widened ("also accept think-x" in the
@@ -86,13 +96,16 @@ export function scoreTrigger(cases, routedRaw, opts = {}) {
   const sum = (k) => skills.reduce((a, s) => a + per[s][k], 0);
   const tTrig = sum('trig'), tTrigHit = sum('trigHit'), tTrigSoft = sum('trigSoft');
   const tAnti = sum('anti'), tNoFire = sum('antiNoFire'), tNamed = sum('antiNamed'), tNamedHit = sum('antiNamedHit');
+  const tNone = sum('antiNone'), tNoneDeclined = sum('antiNoneDeclined');
+  const tNoneOther = skills.reduce((a, s) => a + per[s].noneOther.length, 0);
   const pct = formatPct;
 
   let md = `# ${opts.title || 'Trigger eval'} scorecard\n\n`;
   md += `Cases: ${scored.length} (${tTrig} trigger, ${tAnti} anti; ${tNamed} of the anti cases name a specific alternative) across ${skills.length} skills. Unrouted: ${unrouted}.\n\n`;
   md += `- **Trigger accuracy (top1): ${pct(tTrigHit, tTrig)}** (${tTrigHit}/${tTrig}); soft (in top3): ${pct(tTrigSoft, tTrig)}.\n`;
   md += `- **Anti no-false-fire: ${pct(tNoFire, tAnti)}** (${tNoFire}/${tAnti}) - the skill did NOT grab a wrong-tool / no-tool situation. This is the metric that matters.\n`;
-  md += `- Anti right-alternative: ${pct(tNamedHit, tNamed)} (${tNamedHit}/${tNamed}) - of the anti cases naming a specific alternative, how many routed there (the rest mostly answered "none" on a genuinely trivial prompt, still not a false-fire).\n\n`;
+  md += `- Anti right-alternative: ${pct(tNamedHit, tNamed)} (${tNamedHit}/${tNamed}) - of the anti cases naming a specific alternative, how many routed there (the rest mostly answered "none" on a genuinely trivial prompt, still not a false-fire).\n`;
+  md += `- Anti cases with no named alternative: ${tNone}. The router declined ${tNoneDeclined} and picked another tool on ${tNoneOther}. The key names no right answer for these, so neither outcome is scored.\n\n`;
   md += `| Skill | trigger top1 | top3 | anti no-fire | anti right-alt |\n|---|---|---|---|---|\n`;
   for (const s of skills) {
     const p = per[s];
@@ -102,6 +115,11 @@ export function scoreTrigger(cases, routedRaw, opts = {}) {
   md += `\n## False-fires (a skill grabbed a wrong-tool situation - the real failure mode): ${fires.length}\n\n`;
   for (const f of fires) md += `- **${f.s}** grabbed \`${f.id}\` (got \`${f.got}\`) - "${f.prompt}"\n`;
   if (!fires.length) md += `_None. No skill triggered on a situation meant for another tool or no tool._\n`;
+  const noneOther = skills.flatMap((s) => per[s].noneOther.map((w) => ({ s, ...w })));
+  md += `\n## Other-tool picks on anti cases with no named alternative: ${tNoneOther}\n\n`;
+  md += `These are not misses. \`none\` in the key means the case names no tool with a \`think-\` slug, not that no tool should fire, so many of these picks are correct redirects. No figure above counts them. Compare this list between runs to see where a router's choice moved.\n\n`;
+  for (const w of noneOther) md += `- \`${w.id}\` (authored by **${w.s}**) got \`${w.got}\` - "${w.prompt}"\n`;
+  if (!noneOther.length) md += `_None. Every such case was declined, left unrouted or taken by its authoring skill._\n`;
   md += `\n## Other misses (trigger top1 wrong, or anti routed to "none"/another instead of the named alternative)\n\n`;
   for (const s of skills) {
     const ms = per[s].miss.filter((m) => m.kind !== 'anti-fire');
@@ -118,7 +136,8 @@ export function scoreTrigger(cases, routedRaw, opts = {}) {
       triggerTop1Pct: tTrig ? +(100 * tTrigHit / tTrig).toFixed(1) : null,
       antiNoFirePct: tAnti ? +(100 * tNoFire / tAnti).toFixed(1) : null,
       antiRightAltPct: tNamed ? +(100 * tNamedHit / tNamed).toFixed(1) : null,
-      falseFires: fires.length },
+      falseFires: fires.length,
+      antiNone: tNone, antiNoneDeclined: tNoneDeclined, antiNoneOtherPick: tNoneOther },
     perSkill: Object.fromEntries(skills.map((s) => [s, per[s]])),
   };
   if (opts.provenance) json.provenance = opts.provenance;

@@ -66,6 +66,32 @@ test('scoreTrigger: a command pick is a miss, and the miss list names the comman
   assert.equal(json.perSkill['framework-advisor'].miss[0].got, 'command:stress-test-decision');
 });
 
+test('scoreTrigger: another tool on a no-named-alternative case is listed, and moves no figure', () => {
+  // `none` in the key means the bullet names no think- slug, not that no tool should fire, so this
+  // pick is neither right nor wrong. It is listed so that two runs can be compared.
+  const cases = [
+    { id: 'c1', prompt: 'other', expected: 'none', type: 'anti', source: 'premortem' },
+    { id: 'c2', prompt: 'declined', expected: 'none', type: 'anti', source: 'premortem' },
+    { id: 'c3', prompt: 'fired', expected: 'none', type: 'anti', source: 'premortem' },
+    { id: 'c4', prompt: 'unrouted', expected: 'none', type: 'anti', source: 'premortem' },
+  ];
+  const { json, md } = scoreTrigger(cases, { routes: [
+    { id: 'c1', top1: 'woop', top3: [] },
+    { id: 'c2', top1: 'none', top3: [] },
+    { id: 'c3', top1: 'premortem', top3: [] },
+  ] });
+  assert.equal(json.totals.antiNone, 4);
+  assert.equal(json.totals.antiNoneDeclined, 1);
+  assert.equal(json.totals.antiNoneOtherPick, 1, 'a false fire and an unrouted case are not other-tool picks');
+  assert.deepEqual(json.perSkill.premortem.noneOther, [{ id: 'c1', got: 'woop', prompt: 'other' }]);
+  assert.equal(json.totals.antiNoFire, 3, 'the other-tool pick still counts as no false fire');
+  assert.equal(json.totals.falseFires, 1);
+  assert.equal(json.perSkill.premortem.miss.length, 0, 'it is not reported as a miss');
+  assert.match(md, /declined 1 and picked another tool on 1\./);
+  assert.match(md, /`c1` \(authored by \*\*premortem\*\*\) got `woop`/);
+  assert.doesNotMatch(md, /wrong pick/i, 'the scorecard must not call these wrong');
+});
+
 test('scoreTrigger: provenance is recorded when supplied, and absent when not', () => {
   // The 2026-06-25 baseline did not record its model, which is why the re-run could only
   // be called a reproduction of the measurement rather than a controlled comparison.

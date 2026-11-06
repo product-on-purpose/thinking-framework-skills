@@ -44,6 +44,7 @@ skills/think-<method>/
 3. **Scaffold** from the template: copy `templates/skill/` to `skills/think-<method>/`.
 4. **Write `evidence/dossier.md` FIRST** (the source of truth). Everything else derives from it.
 5. **Write `SKILL.md`** from the dossier: `think-<method>` name (must match the directory), a description that leads with an action verb + a "Use when ..." trigger clause (under 1024 chars, no first person - it is the activation trigger), the four commitments, a bounded procedure, and a quality checklist drawn from the dossier's failure modes.
+   - **Keep a "Not for X" clause where X is a neighbouring skill's territory,** including when you shorten a description. In the 2026-11-04 tiered-description runs, dropping "Not a criteria-weighted option matrix" from `think-pairwise-comparison` produced the same new false fire on `c499` in both pairs (medium confidence: the flip repeated, and the cause is inferred). The clause costs always-loaded characters, so write it for a real boundary between two skills. Do not write one to match a particular eval prompt, for the same reason [`AGENTS.md`](../../AGENTS.md) gives about "Should NOT trigger" bullets.
 6. **Write `references/TEMPLATE.md` and `references/EXAMPLE.md`** (the artifact structure, and a worked example on the Northwind scenario).
 7. **Fill `skill.meta.yml`** (id, family, relationships, failure modes) from the dossier.
 

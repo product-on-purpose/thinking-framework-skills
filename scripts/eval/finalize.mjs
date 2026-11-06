@@ -32,7 +32,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scoreTrigger, scoreOutput } from './score-lib.mjs';
 import { stampMeta, missingStampTargets } from './stamp-meta.mjs';
-import { resolveRunModel, runProvenance, withRunLine } from '../lib/fingerprint-lib.mjs';
+import { resolveRunModel, routerProvenance, runProvenance, withRunLine } from '../lib/fingerprint-lib.mjs';
 
 const OUT_DIR = 'docs/internal/eval-results';
 const USAGE = 'Usage: node scripts/eval/finalize.mjs <YYYY-MM-DD> --model <id> [--model-tier <tier>] [--prefix <name>] [--trigger <routed> <cases>] [--output <results>]';
@@ -40,9 +40,9 @@ const USAGE = 'Usage: node scripts/eval/finalize.mjs <YYYY-MM-DD> --model <id> [
 // With `run` (roadmap C2-1), a scorecard also records which model and which case set produced it:
 // in the .json under `provenance`, and as a `Run:` line under the .md title. Without `run` the
 // output is byte-identical to what it was before, which keeps the golden tests meaningful.
-function withRun(scored, run, date) {
+function withRun(scored, run, date, router) {
   if (!run) return scored;
-  const prov = runProvenance(run, Object.keys(scored.json.perSkill || {}));
+  const prov = { ...runProvenance(run, Object.keys(scored.json.perSkill || {})), ...(router || {}) };
   return {
     md: withRunLine(scored.md, date, prov),
     json: { ...scored.json, provenance: { ...(scored.json.provenance || {}), ...prov } },
@@ -75,7 +75,7 @@ export function buildArtifacts({ date, prefix, trigger, output, run }) {
   const arts = [];
   if (trigger) {
     const { md, json } = withRun(scoreTrigger(trigger.cases, trigger.routedRaw,
-      { generated: trigger.generated, title: trigger.title, provenance: trigger.provenance }), run, date);
+      { generated: trigger.generated, title: trigger.title, provenance: trigger.provenance }), run, date, routerProvenance(trigger.routedRaw));
     arts.push({ path: `${base('trigger')}.md`, content: md });
     arts.push({ path: `${base('trigger')}.json`, content: JSON.stringify(json, null, 2) + '\n' });
   }

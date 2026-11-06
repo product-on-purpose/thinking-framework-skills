@@ -4,9 +4,15 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+
+- **The routing evals can run on a named agent type and with interleaved batches, and each scorecard records both (#232).** `route.workflow.mjs` and the Route half of `eval.workflow.mjs` gain the `agentType` option that `skill-selection.workflow.mjs` already had. All three gain `interleave`, which deals prompts across routers so that one router cannot move a whole skill's cases. `finalize.mjs` and `score-selection.mjs` write both to `provenance` and the `Run:` line, because figures compare only within one setup. A default run's prompts, options and result were checked byte-identical to `main`.
+- **Scorecards list other-tool picks on anti cases with no named alternative (#232).** The backlog asked for "wrong picks", but `none` in the key only means that the bullet names no `think-` slug, and many of these picks are correct redirects. So they are listed without being called wrong, and no figure moves. Comparing the list between runs shows where a router's choice moved. The C2-4 memo carries a dated correction for reading `none` as "no tool is right".
+- **`AUTHORING.md` says to keep a "Not for X" clause at a real boundary between two skills (#232),** after the repeated false fire on `c499`.
+
 ### Changed
 
-- **The internal docs say where the private discovery corpus really is.** `docs/internal/research/README.md` said its backup was a branch "on the private origin", but that branch left `origin` on 2026-05-31, before the repo went public. `docs/internal/AUTHORING.md` told authors to read the same branch. The maintainer approved deleting the local branch on 2026-11-06, because a verified git bundle and a plain copy hold all 22 files outside the repo. Both docs now point there and say not to commit the corpus.
+- **The internal docs say where the private discovery corpus really is (#231).** `docs/internal/research/README.md` said its backup was a branch "on the private origin", but that branch left `origin` on 2026-05-31, before the repo went public. `docs/internal/AUTHORING.md` told authors to read the same branch. The maintainer approved deleting the local branch on 2026-11-06, because a verified git bundle and a plain copy hold all 22 files outside the repo. Both docs now point there and say not to commit the corpus.
 
 ## [0.20.0] - 2026-11-06
 
