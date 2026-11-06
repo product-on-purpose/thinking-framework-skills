@@ -2,6 +2,24 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.20.0
+
+**The trust page now says what the evals can and cannot show, and an experiment to shorten skill descriptions ended without shipping.** No new frameworks and no changes to any skill's overall evidence grade; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For everyone
+
+- **The trust page corrects three claims.** The agents in the skill-selection eval saw more than names and descriptions, although none of that extra context held a test prompt. The eval moves by two cases on identical inputs, not about one. The false-fire count moved too, and the cause is unknown. The front-door figure held at 16 of 17 in all six runs, so the page now points readers to that figure.
+- **Shorter descriptions did not ship.** Shortening 47 skill descriptions would have saved about 3,300 tokens per session, but a second pair of runs failed a threshold set in advance. The page reports that result.
+- **Two more skills hand set-aside material to a fresh context.** The red team gives a subagent only the thesis and its evidence, and the perspectives review runs each lens in its own subagent. Each keeps the old instruction as a fallback for when no subagent is available.
+- **Three more dossier pages.** The three vetted wave-4 candidates are admitted to the registry, and each gains a library page. None of them is a skill yet.
+- **Unvetted methods are labeled.** The 12 registry rows that still await vetting now say "preliminary" wherever they are published.
+
+### For builders and contributors
+
+- **Eval agents' context is now on the record.** An audit of the saved transcripts lists what each run received, and `AGENTS.md` says to compare figures only on the same answer key and agent type.
+- **The skill-selection eval takes an `agentType`**, so its routers can run without this repo's `AGENTS.md` table.
+- **Site dependency advisories fell from 12 to 3 low.** None of those packages ships in the installed plugin.
+
 ## v0.19.0
 
 **Fourteen skills changed under the fourth research wave, and the library is now graded against Standard 0.17.** No new frameworks and no changes to any skill's overall evidence grade; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.

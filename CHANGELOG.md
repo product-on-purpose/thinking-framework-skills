@@ -4,6 +4,18 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+## [0.20.0] - 2026-11-06
+
+**The trust page corrects what it said about the skill-selection eval, the tiered-description experiment ended negative, and the three vetted wave-4 candidates are admitted to the registry (#196-#229).** No new skills and no governing-tier changes; the catalog stays 56 core + 7 contested. The registry stays at 150 evaluated methods.
+
+**Why a minor.** The release process makes "a user-visible site change" a minor, and v0.19.0 treated new procedure content in an installed `SKILL.md` the same way. Two installed skills change their procedure (#220), the trust page changes its public claims (#228, #229), and three new dossier pages publish (#225).
+
+**Standard re-pin review: both dials held.** `library.json` stays at Standard 0.17, and CI stays on agent-skills-toolkit `49a03e0` (v1.22.0). Toolkit `main` is 14 commits ahead at `a108fbb` (v1.23.0), and its `STANDARD.md` did not change in that gap. Graded against that `main` on 2026-11-06, this library returned the same warning and tier lines as the pinned run. This repo needs nothing in that gap, so the pin holds.
+
+### Added
+
+- **The skill-selection eval can run its routers on a named agent type (#227).** `skill-selection.workflow.mjs` takes an optional `agentType`. The default path is unchanged, and a test covers both paths. A default Workflow subagent receives this repo's `AGENTS.md` table, and an `Explore` subagent does not, so this lets a run measure without the table. `route.workflow.mjs` has no such option yet, as the backlog records.
+
 ### Security
 
 - **`site/` dependency advisories: 12 down to 3 low (#224).** A non-forced `npm audit fix` moved `devalue` 5.9.2 -> 5.9.4 (CVE-2026-92708, GHSA-j22f-vq7h-c4qm), `dompurify` 3.4.15 -> 3.4.17 (the one critical), `sharp` 0.35.4 -> 0.35.5, `astro` 7.3.2 -> 7.3.8, `vite` 8.3.0 -> 8.3.5, `undici` 8.10.2 -> 8.12.3 and `zod` 4.6.1 -> 4.6.7, with smaller moves in `postcss-selector-parser`, `smol-toml` and `source-map-js`. The `devalue` override floor rises to `^5.9.3`, so a lockfile rebuild cannot fall back below the fix. The 3 that remain are one low KaTeX advisory reached through `mermaid` and `astro-mermaid`. Fixing it needs `mermaid` 12, a major version that the `^11.15.0` override and `astro-mermaid` 2.1 do not allow, so it is left for a separate change. These packages build the docs site and run in its pages. None of them ships in the installed plugin.
@@ -11,9 +23,13 @@ All notable changes to this project are documented here. The format is based on 
 ### Changed
 
 - **The trust page corrects three claims about the skill-selection eval (#229).** Its routers never saw only names and descriptions: an audit of the saved transcripts found they also received global instructions and a memory index, plus the `AGENTS.md` table from 2026-10-20 on, and none of that held an eval prompt. The eval moves by two cases rather than about one (392/393 and 390/393 on the same inputs). The false-fire count moved too: both 2026-11-04 controls drew a second false fire, and the cause is unknown. The front-door figure held at 16 of 17 in all six runs. The framework-routing and artifact evals received the same context, and the page now says so. No figure was re-scored and no eval ran. The record is `docs/internal/experiments/2026-11-05-eval-router-context-audit.md`.
-- **The tiered-description experiment (roadmap C2-4) ended negative, and the trust page says so (#228).** Shortening 47 skill descriptions would have saved about 3,300 tokens per session. A second pair of runs, without the `AGENTS.md` table that the first pair's routers received, failed the pre-registered head-cohort threshold, so the descriptions did not ship. The failure came from one control-arm router batch, not from harm to that cohort. The record is `docs/internal/experiments/2026-11-04-tiered-descriptions-result.md`.
+- **The tiered-description experiment (roadmap C2-4) ended negative, and the trust page says so (#228).** Shortening 47 skill descriptions would have saved about 3,300 tokens per session. A second pair of runs, without the `AGENTS.md` table that the first pair's routers received, failed the pre-registered head-cohort threshold, so the descriptions did not ship. The failure came from one control-arm router batch, not from harm to that cohort. The record is `docs/internal/experiments/2026-11-04-tiered-descriptions-result.md`. The maintainer's choice for the tail rule and the step 1 and honesty-review records are #221, #223 and #226.
 - **The three vetted wave-4 candidates are admitted, and their registry rows are no longer preliminary (#225).** The vetted entries replace the preliminary rows for `causal-dag-adjustment-check` (P), `objectives-first-alternative-generation` (P, narrow) and `draft-blind-verification` (C). Their dossiers move to `frameworks/<slug>/dossier.md`, so each gains a library dossier page. `objectives-first-alternative-generation` drops from M to P because the rating method in Siebert and Keeney (2015) is unresolved, and the row can return to M if independent judges rated quality. The verifier reports move to `docs/internal/research/2026-10-20-wave4-verify/`. All three stay `cand`: no skill was built, and the catalog count does not change.
 - **`think-red-team-light` and `think-parallel-perspectives-review` now hand set-aside material to a fresh context, completing the library-wide rule from 0.19.0.** Red team step 2 gives a subagent only the thesis and its evidence, never the reasoning that produced it. Perspectives review step 3 runs each lens in its own subagent. Both keep the old instruction as the fallback when no subagent is available. The rule and its evidence are in `docs/internal/AUTHORING.md` (#220).
+
+### Fixed
+
+- **The 12 unvetted rows are marked preliminary wherever they are published (#196).** They are 11 wave-4 rows (two documentation candidates and nine folds) and the Structured Self-Critique fold. Each row's reasoning said "Preliminary; pending deep-research vetting", but the generated views never print the reasoning. So the *What we leave out* page listed the ten new folds as settled, and `evaluated.json`, `llms-full.txt` and `framework-catalog.md` showed all 12 rows without the caveat. A new registry field, `preliminary: true`, now carries the status, and each view prints it. The gate's schema check requires the field and the reasoning sentence to agree, and rejects the field on a shipped entry. `evaluated.json` gains a boolean `preliminary` on every method.
 
 ## [0.19.0] - 2026-10-30
 
@@ -61,10 +77,6 @@ All notable changes to this project are documented here. The format is based on 
 - **`think-parallel-perspectives-review` gains an optional third-person observer pre-pass (wave-4 decision D4, #211).** When the reviewer is personally involved, the agent may restate the situation in the third person before passing through the lenses. Folded in from distanced self-reflection; graded M, narrow, since Grossmann and Kross (2014, N = 693) test it only on people reasoning about their own close-relationship conflicts, Murdoch et al. (2023) only on people reflecting on a past stressor, and no study tests an agent. Both abstracts were checked first-hand against OpenAlex on 2026-10-20.
 - **The backlog's wave-4 fold-enrichment bullet is marked done (wave-4 decision D7, #208-#211).** All four smaller enrichments landed, one branch each: `d7/morphological-cross-impact`, `d7/tension-mapping-neither-step`, `d7/evidence-sort-e-prime-prompt` and `d7/perspectives-observer-lens`.
 - **The README title links to the repository (#197).** This is the maintainer's one-line edit from 2026-08-04, which never had a pull request. It helps wherever the README is shown outside GitHub.
-
-### Fixed
-
-- **The 12 unvetted rows are marked preliminary wherever they are published.** They are 11 wave-4 rows (two documentation candidates and nine folds) and the Structured Self-Critique fold. Each row's reasoning said "Preliminary; pending deep-research vetting", but the generated views never print the reasoning. So the *What we leave out* page listed the ten new folds as settled, and `evaluated.json`, `llms-full.txt` and `framework-catalog.md` showed all 12 rows without the caveat. A new registry field, `preliminary: true`, now carries the status, and each view prints it. The gate's schema check requires the field and the reasoning sentence to agree, and rejects the field on a shipped entry. `evaluated.json` gains a boolean `preliminary` on every method.
 
 ## [0.18.6] - 2026-10-19
 
@@ -815,7 +827,8 @@ The advisor-credibility milestone: the authored behavioral eval cases become an 
 - An Astro Starlight docs site (per-framework pages with 4-layer progressive disclosure, learning tracks, exploration lenses, an interactive chooser, an aggregated graded bibliography), deployed to GitHub Pages.
 - Listed in the Product on Purpose marketplace. Apache-2.0.
 
-[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.19.0...HEAD
+[unreleased]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.20.0...HEAD
+[0.20.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.19.0...v0.20.0
 [0.19.0]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.6...v0.19.0
 [0.18.6]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.5...v0.18.6
 [0.18.5]: https://github.com/product-on-purpose/thinking-framework-skills/compare/v0.18.4...v0.18.5
