@@ -108,7 +108,7 @@ const arts = buildArtifacts({
 const blocks = [
   note ? `> **Corrected scorecard.** ${note}` : null,
   '## What this scorecard measures (and what it does not)',
-  `Corpus: the **installed roster** - ${roster.counts.skills} skills + ${roster.counts.commands} commands (\`manifest.generated.json\`), each presented to the router as name + description only, which is all an agent actually sees.`,
+  `Corpus: the **installed roster** - ${roster.counts.skills} skills + ${roster.counts.commands} commands (\`manifest.generated.json\`), each listed in the roster file as name + description only, which is what an installed agent weighs. A default Workflow router also receives this repo's \`AGENTS.md\` and the memory index, so this is the roster's content and not the router's whole context.`,
   'This is NOT the framework-routing eval. That one routes against `recommendable.json` (the 63 shipped frameworks) and answers "which framework fits this situation?". This one answers "which installed skill would an agent invoke?" - the question the meta-skills\' trigger contracts actually make, and the only one that can see command interference.',
   `Sampling: ${provenance.sampling}. Cases supplied: ${cases.length}. (The model and the case fingerprint are on the \`Run:\` line under the title.)`,
   `### Command interference (guardrail 6): ${picks.total} command pick(s)`,

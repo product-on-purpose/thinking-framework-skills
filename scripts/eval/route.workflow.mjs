@@ -33,6 +33,11 @@
 //                must never be finalized as a scorecard: it would stamp 63 sidecars off a
 //                catalog that does not ship.
 //
+// WHAT THE ROUTERS SEE (measured 2026-11-05, docs/internal/experiments/2026-11-05-eval-router-context-audit.md):
+// these routers run as the default Workflow subagent, so they also receive the project's AGENTS.md
+// and the auto-memory index, which an installed user's agent does not get. Neither holds an eval
+// prompt. This script has no agentType option yet, so a run cannot remove that context.
+//
 // THE ROUTER PROMPT IS DELIBERATELY CORPUS-AGNOSTIC. It says each entry has a name and
 // description and that SOME entries also carry anti_triggers / not_use / overlaps, rather than
 // asserting all five fields are present. That phrasing is true of the enriched shipped catalog and

@@ -27,7 +27,7 @@ These are thinking *aids*, not magic. The evidence that any given method improve
 
 ## Trigger eval: the catalog routes cleanly
 
-Every trigger and anti-case from all **63 skills'** own `eval/cases.md` was pooled into one blind answer key. Blind router agents - which never see which skill authored a case - routed each situation against the public advisor catalog, exactly as the live advisor does. A deterministic scorer graded routed-versus-expected. For the 376 should-fire cases the routers never see the expected answer either. For the 379 anti-cases they effectively do in the shipped catalog, so on 2026-10-20 the anti-cases were also routed against a catalog with those lines removed. The caution under the cards gives the result.
+Every trigger and anti-case from all **63 skills'** own `eval/cases.md` was pooled into one blind answer key. Blind router agents - which never see which skill authored a case - routed each situation against the public advisor catalog, the same file the live advisor reads. A deterministic scorer graded routed-versus-expected. For the 376 should-fire cases the routers never see the expected answer either. For the 379 anti-cases they effectively do in the shipped catalog, so on 2026-10-20 the anti-cases were also routed against a catalog with those lines removed. The caution under the cards gives the result.
 
 <CardGrid>
   <Card title="0 false-fires" icon="approve-check">
@@ -41,7 +41,7 @@ Every trigger and anti-case from all **63 skills'** own `eval/cases.md` was pool
 <Aside type="caution" title="The anti-case figures were open-book; a closed-book run kept zero false-fires (2026-10-20)">
 The catalog the routers read is built partly from the eval's own test cases. Each skill's `eval/cases.md` lists situations where it should **not** fire, and the build copies those lines, word for word, into the catalog as that skill's anti-triggers. So every anti-case prompt was in front of the router, filed under the skill it must not pick. For the 144 anti-cases that name a better tool, the line names that tool too.
 
-- **Not affected:** the 100% top-1 figure. Should-fire cases never appear in the catalog. The skill-selection eval further down is not affected either, because its routers see only names and descriptions.
+- **Not affected:** the 100% top-1 figure. Should-fire cases never appear in the catalog. The skill-selection eval further down is not affected either, because its roster carries only names and descriptions, so the copied lines are never in front of its routers.
 - **Affected:** the zero-false-fire figure, and the right-alternative count (whether an anti-case went to the better tool it names).
 - **The closed-book run (2026-10-20):** the same 755 cases were routed twice on the same day and model, once against the shipped catalog and once with the copied anti-trigger lines removed and nothing else changed. False fires: **0 of 379 in both**. Right-alternatives: **141 of 144** with the lines and **137 of 144** without. Two runs of the shipped catalog, scored on the same answer key, differ by only one case, so the copied lines probably supply about three of those answers. The closed-book right-alternative figure is **137 of 144 (95.1%)**.
 - **The earlier bound:** on 2026-09-11 a run removed all three hint fields together, including hints that were never leaked, and scored **378 of 379** on false fires. That was an upper estimate. The 2026-10-20 run removed only the leaked lines.
@@ -69,7 +69,7 @@ sequenceDiagram
   participant Scorer as Deterministic scorer
   participant Producer as Producer agent
   participant Judge as Judge agent (separate)
-  Note over Router: sees the prompt only,<br/>not the skill identity
+  Note over Router: gets the prompt,<br/>never the skill identity
   Cases->>Router: situation prompt
   Router->>Scorer: ranked framework picks
   Cases->>Scorer: intended answer key
@@ -101,31 +101,43 @@ The two evals above both assume you have already arrived. They ask *which framew
 That took a different instrument, because the first one was structurally blind to it: the framework catalog contains no meta-skills (correctly - it is the advisor's list of things to *recommend*), so a router reading it can never return `think-framework-advisor` as a pick. The four entry-point tools were not failing that eval. They were invisible to it.
 
 <Aside type="caution" title="Read this number separately from the two above">
-This eval routes against the **installed roster** - 67 skills plus 10 commands, each reduced to the name and description an agent actually sees - not against the enriched 63-framework catalog. Different corpus, different question, different case count. The figures are **not comparable** with the trigger eval's and are deliberately not combined into a single headline.
+This eval routes against the **installed roster** - 67 skills plus 10 commands, each reduced to the name and description an installed agent gets - not against the enriched 63-framework catalog. Different corpus, different question, different case count. The figures are **not comparable** with the trigger eval's and are deliberately not combined into a single headline. The roster is not everything these routers had in front of them, as [the note on router context](#what-else-the-routers-received) below explains.
 </Aside>
 
 <CardGrid>
   <Card title="16 of 17 for the front door" icon="approve-check">
     Across the four entry-point tools' own trigger cases, **16 of 17** routed to the intended tool on the first pick (**94.1%**), with **zero false fires** among them. The single miss is one advisor case - *"Should we launch a free tier? I'm nervous we're committing because it's the obvious move"* - which reads to a router as a decision to pressure-test rather than a request for routing. On 2026-10-20 a router sent it to the stress-test-decision recipe command, which is exactly that reading. A defensible miss, and still a miss.
   </Card>
-  <Card title="One false fire across the whole roster" icon="warning">
-    Over all **794 cases**: **392 of 393** top-1 (99.7%), and **399 of 400** anti-cases drew no false fire - which is **not** a clean sweep. `think-pairwise-comparison` grabbed *"I have twenty candidates to rank by forced pairwise comparison"*, an anti-case whose own prompt names the tool. Debatable on the merits; counted anyway.
+  <Card title="One false fire on the scorecard, two in later controls" icon="warning">
+    Over all **794 cases** on the 2026-10-20 scorecard: **392 of 393** top-1 (99.7%), and **399 of 400** anti-cases drew no false fire - which is **not** a clean sweep. `think-pairwise-comparison` grabbed *"I have twenty candidates to rank by forced pairwise comparison"*, an anti-case whose own prompt names the tool. Debatable on the merits; counted anyway. Two control runs on 2026-11-04 drew a second false fire, described below.
   </Card>
 </CardGrid>
 
-**Why that second card exists.** The trigger eval's zero-false-fire result holds at 379 of 379, open-book and, since 2026-10-20, closed-book (see the caution above). This one is a different corpus: a router here sees only names and descriptions, never the test prompts. It would be easy to let the friendlier number stand for the whole library and leave this one out. But the two evals ask different questions of different corpora, and on *this* corpus the answer is 399 of 400, not 400 of 400. Quoting only the friendlier figure is the exact move a page like this exists not to make.
+**Why that second card exists.** The trigger eval's zero-false-fire result holds at 379 of 379, open-book and, since 2026-10-20, closed-book (see the caution above). This one is a different corpus: its roster holds names and descriptions, never the test prompts. It would be easy to let the friendlier number stand for the whole library and leave this one out. But the two evals ask different questions of different corpora, and on *this* corpus the answer has never been 400 of 400. Quoting only the friendlier figure is the exact move a page like this exists not to make.
 
-**Read the last digit as noise, because we measured how much noise there is.** This exact measurement - same 794 prompts, same roster, same model - was run three times on Opus 5: once on 2026-09-10 and twice on 2026-09-13. Top-1 came back **391, 392, 392**. On the two runs where *nothing whatsoever changed between them*, **15 of the 794 picks still disagreed**, one of them flipping from wrong to right. A fourth run on 2026-10-20, on Opus 5.5, returned **392** again.
+**Read the last digit as noise, because we measured how much noise there is.** This measurement ran three times on Opus 5, with the same 794 prompts. The 2026-09-10 run and a null re-run two days later returned **391** and **392**. *Nothing whatsoever changed between those two*, and **15 of the 794 picks still disagreed**, one of them flipping from wrong to right. A third run on 2026-09-13, after one skill's description was corrected, returned **392**.
 
-So this instrument reproduces to within about one case, and the final digit of that percentage is not a fact about the library. Earlier versions of this page published a single run's figure with no indication of that, which invited exactly the kind of trend-reading the number cannot support.
+On Opus 5.5, the 2026-10-20 scorecard returned **392**. A control run on 2026-11-04 returned **390**, with a byte-identical roster and the same prompts and answer key. So on one model and one setup, this instrument has moved by two cases. An earlier version of this page said "about one case", and that was too narrow. Prompts written for one skill sit next to each other, so one router can move several of them together. The final digit of that percentage is not a fact about the library, and neither is a difference of two cases.
 
-What does **not** move across all four runs, on two models: **399 of 400** on the anti-cases, **one** false fire, and the *same* false fire each time. The front-door figure does not move either - **16 of 17** with zero false fires, four times identically. Those are the figures to hold this library to. A one-case difference in the top-1 count is not evidence of anything.
+**What held in every run.** The front-door figure is **16 of 17** with zero false fires and the same miss, in all six runs on the shipped descriptions. Those are the four runs above and two controls on 2026-11-04, one of which used a [different agent setup](#what-else-the-routers-received). The `think-pairwise-comparison` false fire also appeared in all six. Hold this library to the front-door figure.
+
+**What moved: the false-fire count.** This page used to say that **399 of 400** does not move, and it told you to hold the library to that figure. It moved. Both 2026-11-04 controls also drew a second false fire, scoring **398 of 400**: `think-interest-based-negotiation` grabbed *"I'm about to negotiate but I have no other options at all - they know it and I know it. Just get me the best terms I can."* The second false fire appeared with and without the wider context described next, and in none of the earlier runs. The roster, prompts, answer key and model ID match the 2026-10-20 run, so we do not know why it appeared. Control runs write no scorecard, so the 2026-11-04 figures trace to [the audit record](https://github.com/product-on-purpose/thinking-framework-skills/blob/main/docs/internal/experiments/2026-11-05-eval-router-context-audit.md).
+
+### What else the routers received
+
+The roster file holds only names and descriptions, but it was not all a router had in front of it. We audited the saved router transcripts on 2026-11-05. The routers run as subagents inside this library's own repo, so they inherit context that an installed user's agent does not get.
+
+- **The three Opus 5 runs in September** also received the maintainer's global instructions and the agent's memory index.
+- **The 2026-10-20 run and the first 2026-11-04 control** received those too, plus this repo's `AGENTS.md`. Its table lists each skill's family, evidence tier and artifact, and it also lists the recipe chains.
+- **The second 2026-11-04 control** received none of these, because it used an agent type that omits them. It scored 387 of 393. That figure is not comparable with the others, because this agent type also has a different system prompt.
+
+We searched that wider context for the eval prompts and found none, so no router had the test in front of it. An earlier version of this page said routers "see only names and descriptions", and that overstated the isolation. We have not measured how much the wider context moves these figures. The 2026-11-04 controls differ in agent type as well as context, and one router batch caused most of the gap between them, so they do not settle it.
 
 **The added commands did not steal selections.** v0.14.0 shipped nine always-loaded recipe commands, which raised a fair worry that more description surface would degrade routing. In this corpus they compete directly against all 67 skills. On 2026-09-13, across 794 cases, commands took the top pick **twice** (0.25%). On 2026-10-20 they took it **once**, on the front-door miss above, and appeared somewhere in the top 3 on 156 cases. Visible to a router, and almost never winning.
 
 **All four entry-point tools now have both halves measured.** Their artifacts were graded too: the three that a generic produce-then-judge harness can measure scored **20 of 20** checks (2026-09-11), and the fourth - the research engine, which dispatches to a subagent and whose own instructions forbid running research inline - needed a purpose-built dispatch harness and scored **6 of 6**, one of those decided by running a schema validator rather than by a model judge.
 
-**What it does not prove.** Seventeen trigger cases is a small N, and they are self-authored. It is a first baseline for a question that had no instrument at all until 2026-09-10, not a settled property. It has now held identically across four runs on two models (Opus 5 and Opus 5.5), which rules out *this instrument's* day-to-day variance as the explanation but says nothing about a wider case set.
+**What it does not prove.** Seventeen trigger cases is a small N, and they are self-authored. It is a first baseline for a question that had no instrument at all until 2026-09-10, not a settled property. It has now held identically across six runs on two models (Opus 5 and Opus 5.5), which makes *this instrument's* day-to-day variance an unlikely explanation but says nothing about a wider case set.
 
 ## An experiment that failed its gate
 
@@ -157,6 +169,7 @@ A behavioral score is not an evidence claim. A contested lens can route correctl
 - They are **model-executed and non-deterministic** - a snapshot, not a fixed property. One skill failed a check in a pilot and passed it in the full run. They are a measurement, not a gate.
 - **The evals carry their own corpora and are not blended.** On **2026-10-20**, framework routing (755 cases, plus the closed-book arm), skill selection (794 cases, a different corpus) and all 63 skills' artifacts (429 checks) were each re-run on Opus 5.5. The meta-skills' artifacts were last graded **2026-09-11**. Each is reported under its own corpus above, and none is combined with another into a single headline. These superseded the earlier split cohorts (56 core skills 2026-06-17, 7 contested lenses 2026-06-19).
 - **The output figure is not comparable with the runs before it, and we say so rather than charting a trend.** 428/429 (2026-06-25), 424/429 (2026-09-12) and 426/429 (2026-10-20) each differ from the run before in more than one way. Between the first two, the grader and the skills changed. Between the last two, the model, the skills and two check wordings changed. With two or more variables moving, no difference is attributable, in either direction. Anyone drawing a line through those points is reading noise and instrument changes as a trend.
+- **The framework-routing and artifact evals ran in the same wider context, and have not been re-run without it.** Their agents received the global instructions and the memory index in September, and on 2026-10-20 they also received the `AGENTS.md` table. The advisor catalog already carries family and tier, so the table adds the artifact and the recipe chains for a framework router. No framework router had an eval prompt in that context. We have not measured the effect on any of these figures, and the [audit record](https://github.com/product-on-purpose/thinking-framework-skills/blob/main/docs/internal/experiments/2026-11-05-eval-router-context-audit.md) lists what each run received.
 - **Only the 2026-10-20 runs record both their model and the cases they measured.** Before them, the framework-routing scorecards recorded no model, and no scorecard fingerprinted its cases, so the 2026-09-10 trigger figures are a reproduction of the *measurement*, not a controlled comparison against a known baseline model. Since 2026-10-14 every new scorecard must record both, and the library's conformance gate rejects one that does not. The 2026-10-20 runs are the first to do so, which makes them the first baseline a later run can be compared against for a known model and a known case set.
 </Aside>
 
@@ -167,7 +180,7 @@ A behavioral score is not an evidence claim. A contested lens can route correctl
     How the blind routers, answer keys, and scorers work is documented in the harness ([`scripts/eval/`](https://github.com/product-on-purpose/thinking-framework-skills/tree/main/scripts/eval)). It runs without an API key and is reproducible.
   </Card>
   <Card title="The raw results" icon="document">
-    The full per-skill scorecards and machine records live in the repo ([`docs/internal/eval-results/`](https://github.com/product-on-purpose/thinking-framework-skills/tree/main/docs/internal/eval-results)) - every number above traces to a scorecard file you can audit.
+    The full per-skill scorecards and machine records live in the repo ([`docs/internal/eval-results/`](https://github.com/product-on-purpose/thinking-framework-skills/tree/main/docs/internal/eval-results)) - every number above traces to a scorecard file you can audit, except the 2026-11-04 runs, which wrote no scorecard and trace to their experiment records.
   </Card>
   <Card title="The evidence behind each method" icon="approve-check">
     Separately from behavior, every framework carries a graded dossier. Trace any claim to its source in [the bibliography](../../evidence/bibliography/).

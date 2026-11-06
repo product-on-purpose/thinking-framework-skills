@@ -32,6 +32,8 @@ It does not reproduce exactly:
 
 **So the published 99.5% carries a ±1-case day-over-day noise band.** Without this run, the post-change comparison below would have been read against 2026-09-10, and a one-case delta credited to the description.
 
+> **Correction (2026-11-05).** One case proved too narrow. A control run on 2026-11-04 scored 390/393 against 392/393 on 2026-10-20, with the same model, roster, prompts and answer key. See [the audit record](2026-11-05-eval-router-context-audit.md).
+
 The 14 non-flipping disagreements are all **anti** cases, and all are about *which alternative* got named, never whether the source skill wrongly fired - which is exactly why `antiNoFire` and `falseFires` are rock-stable while `antiRightAlt` is the soft metric.
 
 ## The decision rule, fixed before the results landed
