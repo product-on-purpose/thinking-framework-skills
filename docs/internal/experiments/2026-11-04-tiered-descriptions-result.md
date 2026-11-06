@@ -88,7 +88,7 @@ The pre-registration says that an agent sees "a name and a description and nothi
 
 An installed user's agent does not get this table. It could rescue a compressed description, so the result may flatter compression. The size of that effect is unknown. The file audit itself is clean: the routers opened only the roster and the blind prompts, and no router opened a `SKILL.md` or an `eval/cases.md`.
 
-The same harness produced earlier skill-selection scorecards, so their "name + description only" wording probably overstates the isolation too. This memo did not check those transcripts.
+The same harness produced earlier skill-selection scorecards, so their "name + description only" wording overstates the isolation too. [The audit on 2026-11-05](2026-11-05-eval-router-context-audit.md) checked those transcripts. The September routers received the global instructions and the memory index but not `AGENTS.md`. The 2026-10-20 routers received all three.
 
 ### Known limit from the pre-registration
 

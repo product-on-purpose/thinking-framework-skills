@@ -8,6 +8,8 @@ Cases: 793 (393 trigger, 400 anti; 157 of the anti cases name a specific alterna
 
 Corpus: the **installed roster** - 67 skills + 10 commands (`manifest.generated.json`), each presented to the router as name + description only, which is all an agent actually sees.
 
+> **Correction (2026-11-05).** The roster file is name + description only, but it was not all the routers received. These routers also received the maintainer's global instructions and the agent's memory index, and they did not receive `AGENTS.md`. No eval prompt was in that context, and no figure here changed. See [the audit record](../experiments/2026-11-05-eval-router-context-audit.md).
+
 This is NOT the framework-routing eval. That one routes against `recommendable.json` (the 63 shipped frameworks) and answers "which framework fits this situation?". This one answers "which installed skill would an agent invoke?" - the question the meta-skills' trigger contracts actually make, and the only one that can see command interference.
 
 Model: `claude-opus-5`. Sampling: complete corpus - every case from all 67 skills, no sampling. Cases supplied: 794.
