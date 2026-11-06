@@ -4,17 +4,19 @@ This is where the library's evidentiary foundation is referenced. The raw discov
 
 ## Where the discovery corpus lives
 
-The original discovery research (three LLMs across five dimensions: validation, landscape, architecture, portfolio, naming, plus the Claude-Opus meta-analyses, ~106k words) lives in two private places:
+The original discovery research (three LLMs across five dimensions: validation, landscape, architecture, portfolio, naming, plus the Claude-Opus meta-analyses, ~106k words) lives only on the maintainer's machine, in two private places:
 
 - **Working tree:** gitignored at `_local/initial-discovery/`.
-- **Backup (offsite, with history):** branch `backup/discovery-corpus-2026-05-31` on the private origin.
+- **Backup:** a plain copy and a verified git bundle (`discovery-corpus-2026-05-31.bundle`) in `E:/Projects/product-on-purpose/backup/thinking-framework-skills_discovery-corpus/`, outside this repo.
+
+Do not commit the corpus or push it to `origin`. The local branch that once held it, `backup/discovery-corpus-2026-05-31`, was deleted on 2026-11-06. The bundle restores it. Its copy on `origin` was removed on 2026-05-31, before the repo went public.
 
 ## Why it is not committed to `main`
 
 The earlier plan (fork 4 of the 2026-05-28 decision sheet) was to relocate the corpus into this committed folder, on the reasoning that the repo was permanently private and "gitignored means no backup." Both premises have since changed:
 
-1. **The repo is heading public** (the marketplace listing requires it). Committing the corpus to `main` would publish ~106k words of candid competitive and strategic analysis into public git history, which is hard to reverse.
-2. **The "no backup" problem is already solved** by the `backup/discovery-corpus-2026-05-31` branch.
+1. **The repo is public** (the marketplace listing requires it). Committing the corpus to `main` would publish ~106k words of candid competitive and strategic analysis into public git history, which is hard to reverse.
+2. **The "no backup" problem is solved** by the copies outside the repo.
 
 So the corpus stays private. Per-skill evidence is carried forward where it belongs: each skill's `evidence/dossier.md` cites its sources and grades them honestly. The raw multi-LLM research is internal scaffolding, not something the public catalog needs.
 

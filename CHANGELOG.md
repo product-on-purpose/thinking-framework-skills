@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Changed
+
+- **The internal docs say where the private discovery corpus really is.** `docs/internal/research/README.md` said its backup was a branch "on the private origin", but that branch left `origin` on 2026-05-31, before the repo went public. `docs/internal/AUTHORING.md` told authors to read the same branch. The maintainer approved deleting the local branch on 2026-11-06, because a verified git bundle and a plain copy hold all 22 files outside the repo. Both docs now point there and say not to commit the corpus.
+
 ## [0.20.0] - 2026-11-06
 
 **The trust page corrects what it said about the skill-selection eval, the tiered-description experiment ended negative, and the three vetted wave-4 candidates are admitted to the registry (#196-#229).** No new skills and no governing-tier changes; the catalog stays 56 core + 7 contested. The registry stays at 150 evaluated methods.
