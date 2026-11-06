@@ -40,7 +40,7 @@ skills/think-<method>/
 ## The per-skill loop
 
 1. **Pick the "Now" skill** from the [BACKLOG](release-plans/plan_v0.1.0/BACKLOG.md). One at a time.
-2. **Gather evidence** for that method from the discovery corpus (committed under `docs/internal/research/` once relocated, or on the `backup/discovery-corpus-2026-05-31` branch): lineage, evidence tier, what the evidence does/does-not show, failure modes, citations. Be honest; flag transferred evidence.
+2. **Gather evidence** for that method from the discovery corpus (private, at `_local/initial-discovery/`; [the research README](research/README.md) says where its backup is and why it stays uncommitted): lineage, evidence tier, what the evidence does/does-not show, failure modes, citations. Be honest; flag transferred evidence.
 3. **Scaffold** from the template: copy `templates/skill/` to `skills/think-<method>/`.
 4. **Write `evidence/dossier.md` FIRST** (the source of truth). Everything else derives from it.
 5. **Write `SKILL.md`** from the dossier: `think-<method>` name (must match the directory), a description that leads with an action verb + a "Use when ..." trigger clause (under 1024 chars, no first person - it is the activation trigger), the four commitments, a bounded procedure, and a quality checklist drawn from the dossier's failure modes.
