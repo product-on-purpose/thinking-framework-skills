@@ -19,7 +19,7 @@
 //               scripts/eval/finalize.mjs; documented in scripts/eval/README.md
 // =============================================================================
 //
-// Run via the Workflow tool: Workflow({ scriptPath: "scripts/eval/route.workflow.mjs", args: { model, blindPath, count, batchSize, corpusPath } }).
+// Run via the Workflow tool: Workflow({ scriptPath: "scripts/eval/route.workflow.mjs", args: { model, blindPath, count, batchSize, corpusPath, agentType, interleave } }).
 //
 //   model      : REQUIRED. The tier every eval agent runs on (haiku | sonnet | opus | fable),
 //                returned as modelTier so finalize.mjs records what actually ran.
@@ -32,11 +32,18 @@
 //                everything else fixed - see the note below. A run against a non-default corpus
 //                must never be finalized as a scorecard: it would stamp 63 sidecars off a
 //                catalog that does not ship.
+//   agentType  : optional subagent type for the routers, returned in the result. Leave it out to
+//                use the default Workflow subagent. See "WHAT THE ROUTERS SEE" below.
+//   interleave : optional. true deals prompts across routers instead of cutting contiguous batches,
+//                and is returned in the result. This changes the router prompt's wording, so a run
+//                with it is a different instrument from one without, and the two do not compare.
 //
 // WHAT THE ROUTERS SEE (measured 2026-11-05, docs/internal/experiments/2026-11-05-eval-router-context-audit.md):
 // these routers run as the default Workflow subagent, so they also receive the project's AGENTS.md
 // and the auto-memory index, which an installed user's agent does not get. Neither holds an eval
-// prompt. This script has no agentType option yet, so a run cannot remove that context.
+// prompt. Pass agentType to run routers without that context, and confirm from the transcripts
+// that it worked. Figures from different agent types do not compare, because their system prompts
+// differ too.
 //
 // THE ROUTER PROMPT IS DELIBERATELY CORPUS-AGNOSTIC. It says each entry has a name and
 // description and that SOME entries also carry anti_triggers / not_use / overlaps, rather than
@@ -56,7 +63,9 @@ const blindPath = A.blindPath
 const count = A.count
 const batchSize = A.batchSize || 25
 const corpusPath = A.corpusPath || 'skills/think-framework-advisor/references/recommendable.json'
-if (!blindPath || !count) throw new Error('route.workflow.mjs requires args { model, blindPath, count, batchSize?, corpusPath? }')
+const agentType = A.agentType
+const interleave = A.interleave === true
+if (!blindPath || !count) throw new Error('route.workflow.mjs requires args { model, blindPath, count, batchSize?, corpusPath?, agentType?, interleave? }')
 
 // The model every eval agent below runs on (roadmap C2-1). Required, so a run's model is a
 // deliberate choice rather than whatever the session inherits, and returned as modelTier so
@@ -84,18 +93,20 @@ const ROUTE_SCHEMA = {
   },
 }
 
-function routePrompt(startN, endN) {
+function routePrompt(startN, endN, ids) {
+  const scope = ids ? `one of ${ids.map((n) => `c${n}`).join(', ')}` : `c${startN} through c${endN} inclusive`
+  const cover = ids ? 'listed above' : `in c${startN}..c${endN}`
   return `You are the routing core of a thinking-framework advisor: given a user's situation, you name the SINGLE framework whose mechanism most directly addresses it - or decline when none fits.
 
 Read these two files (use the Read tool):
 - ${blindPath} - a JSON array of {id, prompt} situations.
 - ${corpusPath} - the catalog of frameworks. Each entry has a \`name\` and a \`description\`; some entries also carry \`anti_triggers\`, \`not_use\` and \`overlaps\`. Judge on whatever fields are present and do not assume a field exists. The framework SLUG is its \`name\` with the \`think-\` prefix removed (e.g. name "think-premortem" -> slug "premortem").
 
-Process ONLY the situations whose id is c${startN} through c${endN} inclusive. For each, judge fit purely on the match between the situation and each framework's mechanism + its when-NOT / anti-trigger notes:
+Process ONLY the situations whose id is ${scope}. For each, judge fit purely on the match between the situation and each framework's mechanism + its when-NOT / anti-trigger notes:
 - top1: the single best-fit framework slug, OR the literal "none" if the situation is trivial, unrelated, already-decided, after-the-fact when the tool is for before (or vice versa), or genuinely better handled without any thinking framework. Do NOT force a fit - many situations are deliberately wrong-tool or no-tool, and "none" is often the right answer.
 - top3: up to three framework slugs in rank order, best first; [] if nothing fits.
 
-You do NOT know which framework (if any) authored a situation, and you must not assume one does. Judge fit only. Return {routes: [{id, top1, top3}]} covering every id in c${startN}..c${endN}.`
+You do NOT know which framework (if any) authored a situation, and you must not assume one does. Judge fit only. Return {routes: [{id, top1, top3}]} covering every id ${cover}.`
 }
 
 function chunkRanges(total, size) {
@@ -103,18 +114,30 @@ function chunkRanges(total, size) {
   for (let s = 1; s <= total; s += size) out.push([s, Math.min(s + size - 1, total)])
   return out
 }
+// Deals the ids out one at a time, so prompts that sit next to each other never share a router. The
+// prompts for one skill are adjacent in the blind file, so a contiguous batch lets one router move
+// a whole skill's cases (2026-11-04, c529 c531 c533). No randomness, so a run's batches reproduce.
+function interleavedBatches(total, size) {
+  const n = Math.ceil(total / size)
+  const out = Array.from({ length: n }, () => [])
+  for (let i = 1; i <= total; i++) out[(i - 1) % n].push(i)
+  return out
+}
 function groupz(arr, n) { const o = []; for (let i = 0; i < arr.length; i += n) o.push(arr.slice(i, i + n)); return o }
 
 phase('Route')
 const ranges = chunkRanges(count, batchSize)
 const GROUP = 5
-const groups = groupz(ranges, GROUP)
-log(`Routing ${count} blind eval situations in ${ranges.length} batches (<=${batchSize} each), ${groups.length} serial groups of <=${GROUP} (throttle-safe), against ${corpusPath}.`)
+const batches = interleave
+  ? interleavedBatches(count, batchSize).map((ids, i) => ({ label: `route:batch-${i + 1}`, prompt: routePrompt(0, 0, ids) }))
+  : ranges.map(([a, b]) => ({ label: `route:c${a}-c${b}`, prompt: routePrompt(a, b) }))
+const groups = groupz(batches, GROUP)
+log(`Routing ${count} blind eval situations in ${batches.length} ${interleave ? 'interleaved ' : ''}batches (<=${batchSize} each), ${groups.length} serial groups of <=${GROUP} (throttle-safe), against ${corpusPath}.`)
 
 const parts = []
 for (let g = 0; g < groups.length; g++) {
-  const got = await parallel(groups[g].map(([a, b]) => () =>
-    agent(routePrompt(a, b), { label: `route:c${a}-c${b}`, phase: 'Route', schema: ROUTE_SCHEMA, model: modelTier })
+  const got = await parallel(groups[g].map(({ label, prompt }) => () =>
+    agent(prompt, { label, phase: 'Route', schema: ROUTE_SCHEMA, model: modelTier, ...(agentType ? { agentType } : {}) })
       .then((r) => (r && r.routes) || [])
       .catch(() => [])
   ))
@@ -124,4 +147,4 @@ for (let g = 0; g < groups.length; g++) {
 
 const routes = parts.flat()
 log(`Routing complete: ${routes.length}/${count} situations routed.`)
-return { modelTier, count, routed: routes.length, corpusPath, routes }
+return { modelTier, ...(agentType ? { agentType } : {}), ...(interleave ? { interleave } : {}), count, routed: routes.length, corpusPath, routes }

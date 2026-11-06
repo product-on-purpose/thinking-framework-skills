@@ -24,7 +24,7 @@ function load(file) {
 function runtime() {
   const calls = [];
   const agent = async (prompt, opts = {}) => {
-    calls.push(opts);
+    calls.push({ ...opts, prompt });
     const label = opts.label || '';
     if (label.startsWith('route:') || label.startsWith('select:')) return { routes: [] };
     if (label.startsWith('read:')) return { agentBody: 'body', brief: 'brief', checks: ['a check'] };
@@ -78,22 +78,64 @@ for (const [file, baseArgs] of Object.entries(WORKFLOWS)) {
   });
 }
 
-// Roadmap C2-4. The default Workflow subagent receives AGENTS.md and the memory index, so a router
-// that must see only the roster needs another agent type. The default path has to stay unchanged.
-test('skill-selection.workflow.mjs passes agentType to every router only when it is given', async () => {
-  const baseArgs = { ...WORKFLOWS['skill-selection.workflow.mjs'], model: 'sonnet' };
-  const run = async (args) => {
-    const rt = runtime();
-    const result = await load('skill-selection.workflow.mjs')(args, rt.agent, rt.parallel, rt.pipeline, rt.phase, rt.log);
-    assert.ok(rt.calls.length > 0, 'the stub saw at least one agent call');
-    return { calls: rt.calls, result };
-  };
+// The three workflows that route. eval.workflow.mjs also runs producers and judges, and those keep
+// the default subagent because they need its full tools.
+const ROUTING = {
+  'route.workflow.mjs': 'route:',
+  'skill-selection.workflow.mjs': 'select:',
+  'eval.workflow.mjs': 'route:',
+};
 
-  const plain = await run(baseArgs);
-  for (const opts of plain.calls) assert.equal('agentType' in opts, false, `${opts.label} carried an agentType`);
-  assert.equal('agentType' in plain.result, false);
+async function runWorkflow(file, extra = {}) {
+  const rt = runtime();
+  const result = await load(file)({ ...WORKFLOWS[file], model: 'sonnet', ...extra }, rt.agent, rt.parallel, rt.pipeline, rt.phase, rt.log);
+  assert.ok(rt.calls.length > 0, 'the stub saw at least one agent call');
+  return { calls: rt.calls, result };
+}
 
-  const typed = await run({ ...baseArgs, agentType: 'Explore' });
-  for (const opts of typed.calls) assert.equal(opts.agentType, 'Explore', `${opts.label} ran as ${opts.agentType}`);
-  assert.equal(typed.result.agentType, 'Explore');
-});
+for (const [file, prefix] of Object.entries(ROUTING)) {
+  const routers = (calls) => calls.filter((c) => c.label.startsWith(prefix));
+
+  // Roadmap C2-4. The default Workflow subagent receives AGENTS.md and the memory index, so a router
+  // that must run without them needs another agent type. The default path has to stay unchanged.
+  test(`${file} passes agentType to every router only when it is given`, async () => {
+    const plain = await runWorkflow(file);
+    for (const opts of plain.calls) assert.equal('agentType' in opts, false, `${opts.label} carried an agentType`);
+    assert.equal('agentType' in plain.result, false);
+
+    const typed = await runWorkflow(file, { agentType: 'Explore' });
+    assert.ok(routers(typed.calls).length > 0);
+    for (const opts of typed.calls) {
+      const want = opts.label.startsWith(prefix) ? 'Explore' : undefined;
+      assert.equal(opts.agentType, want, `${opts.label} ran as ${opts.agentType}`);
+    }
+    assert.equal(typed.result.agentType, 'Explore');
+  });
+
+  test(`${file} keeps its contiguous ranges and prompt wording unless interleave is given`, async () => {
+    const { calls, result } = await runWorkflow(file, { count: 5, batchSize: 2 });
+    assert.deepEqual(routers(calls).map((c) => c.label), [`${prefix}c1-c2`, `${prefix}c3-c4`, `${prefix}c5-c5`]);
+    assert.match(routers(calls)[0].prompt, /whose id is c1 through c2 inclusive\. For each/);
+    assert.match(routers(calls)[0].prompt, /covering every id in c1\.\.c2\.$/);
+    assert.equal('interleave' in result, false);
+  });
+
+  test(`${file} interleave covers every id exactly once and never batches neighbours`, async () => {
+    const count = 794;
+    const batchSize = 25;
+    const { calls, result } = await runWorkflow(file, { count, batchSize, interleave: true });
+    const batches = routers(calls).map((c) => {
+      const m = c.prompt.match(/whose id is one of ([c0-9, ]+)\. For each/);
+      assert.ok(m, `${c.label} does not list its ids`);
+      assert.match(c.prompt, /covering every id listed above\.$/);
+      return m[1].split(', ').map((id) => Number(id.slice(1)));
+    });
+    assert.equal(result.interleave, true);
+    assert.equal(batches.length, Math.ceil(count / batchSize));
+    assert.deepEqual(batches.flat().sort((a, b) => a - b), Array.from({ length: count }, (_, i) => i + 1));
+    for (const ids of batches) {
+      assert.ok(ids.length <= batchSize, `a batch holds ${ids.length}`);
+      for (let i = 1; i < ids.length; i++) assert.ok(ids[i] - ids[i - 1] > 1, 'two neighbouring prompts shared a router');
+    }
+  });
+}

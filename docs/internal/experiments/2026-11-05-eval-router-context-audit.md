@@ -55,7 +55,7 @@ The trust page used to say that all three September runs had the same roster. Th
 The roster file on 2026-10-20 and both 2026-11-04 controls has the same SHA-256 hash. The prompts and the answer key are byte-identical too. The router prompt did not change, because the only commit to the workflow in that period added the optional agent type.
 
 - **The band is wider than one case (high confidence, measured).** On one model and one agent setup, 392 and 390 differ by two cases. The Explore figure stays out of this comparison, because its system prompt differs.
-- **The second false fire is unexplained (high confidence that it happened, low confidence on any cause).** `c393` (*"I'm about to negotiate but I have no other options at all"*) fired in all four 2026-11-04 arms, with and without `AGENTS.md`, and in none of the earlier runs. The audit found no difference in the inputs it could check. It cannot see what else changed in the harness or the served model.
+- **The second false fire is unexplained (high confidence that it happened, low confidence on any cause).** `c393` (*"I'm about to negotiate but I have no other options at all"*) fired in all four 2026-11-04 arms, with and without `AGENTS.md`, and in none of the earlier runs. The audit found no difference in the inputs it could check. It cannot see what else changed in the harness or the served model. **Added 2026-11-06:** the case was already close. The tool appeared in the top 3 in two of the four earlier runs (2026-09-10 and 2026-10-20) while the top pick stayed `none`, and 2026-10-20 is the only earlier run on the same model. So a near-tie that tipped over fits the record better than a new cause does (medium confidence, inferred). The cause still cannot be settled from the inputs, because repeating the batch is the only test that would show how often it fires.
 - **The front door held (high confidence, measured).** The figure is 16 of 17 with zero false fires in all six runs, and the one trigger miss is `c351` each time.
 
 ## Limits of this audit
@@ -69,4 +69,4 @@ The roster file on 2026-10-20 and both 2026-11-04 controls has the same SHA-256 
 
 The trust page now states all of this, and the page's "every number traces to a scorecard" line names the exception. The three skill-selection scorecards carry a dated correction, with their figures unchanged. `score-selection.mjs` no longer writes the old sentence into new scorecards.
 
-`route.workflow.mjs` still has no `agentType` option, and no framework-routing run has been made without the wider context. Both are open in [the backlog](../backlog.md).
+`route.workflow.mjs` gained an `agentType` option on 2026-11-06, and each scorecard now records its agent type. No framework-routing run has been made without the wider context. That run is open in [the backlog](../backlog.md).

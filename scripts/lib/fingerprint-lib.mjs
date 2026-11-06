@@ -76,11 +76,24 @@ export function runProvenance({ model, modelTier, readCases }, slugs) {
   return { model, modelTier, casesSha: combinedFingerprint(skillCasesSha), skillCasesSha };
 }
 
+/**
+ * How a routing run's agents were set up, from what the workflow returned. Figures compare only on
+ * the same agent type (2026-11-04: Explore and the default subagent have different system prompts),
+ * and an interleaved run words its router prompt differently, so a scorecard has to say which it was.
+ */
+export function routerProvenance(routedRaw) {
+  return {
+    agentType: routedRaw?.agentType || 'default',
+    batching: routedRaw?.interleave ? 'interleaved' : 'contiguous',
+  };
+}
+
 /** Insert the one-line provenance header directly under a scorecard's H1 title. */
 export function withRunLine(md, date, prov) {
   const n = Object.keys(prov.skillCasesSha || {}).length;
   const whose = n === 1 ? "1 skill's" : `${n} skills'`;
-  const line = `Run: ${date} | model: \`${prov.model}\` (tier \`${prov.modelTier}\`) | cases: \`${prov.casesSha}\` (fingerprint of ${whose} eval/cases.md)`;
+  const routers = prov.agentType ? ` | routers: \`${prov.agentType}\` agent, ${prov.batching} batches` : '';
+  const line = `Run: ${date} | model: \`${prov.model}\` (tier \`${prov.modelTier}\`) | cases: \`${prov.casesSha}\` (fingerprint of ${whose} eval/cases.md)${routers}`;
   const i = md.indexOf('\n\n');
   return i === -1 ? `${md}\n\n${line}\n` : `${md.slice(0, i)}\n\n${line}${md.slice(i)}`;
 }

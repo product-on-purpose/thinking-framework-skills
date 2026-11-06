@@ -117,7 +117,7 @@ const blocks = [
     ? '_No command took the top pick on any scored case. The added command surface did not steal a selection._'
     : [
         `- On trigger cases (a skill was the right answer): **${picks.onTrigger}**`,
-        `- On anti cases: **${picks.onAnti}**`,
+        `- On anti cases: **${picks.onAnti}** (one on a case with no named alternative also appears under "Other-tool picks" below)`,
         '',
         ...picks.examples.map((e) => `- \`${e.id}\` (${e.type}) wanted \`${e.want}\`, got \`${e.got}\``),
       ].join('\n'),

@@ -10,9 +10,16 @@ For each skill, `eval/cases.md` carries "Should trigger" prompts (the right answ
 
 - **trigger case** (expected = the authoring skill): pass if the router's top1 pick is that skill (soft variant: it appears in top3).
 - **anti case naming an alternative**: pass if top1 is that named alternative (routed to the right other skill).
-- **anti case with no named alternative** (expected `none`): pass if top1 is *not* the authoring skill (it correctly did not over-grab a wrong-tool situation).
+- **anti case with no named alternative** (expected `none`): pass if top1 is *not* the authoring skill (it correctly did not over-grab a wrong-tool situation). `none` records that the bullet names no tool with a `think-` slug. It does not mean that no tool should fire. Bullets read "(decision)" or "(iceberg-model)", so a pick of another tool is neither right nor wrong. The scorecard lists those picks, because comparing the list between two runs shows where a router's choice moved when no figure did.
 
 The number measures the **catalog's discriminability** - whether the skill descriptions + anti-triggers route correctly - which is exactly what the advisor depends on.
+
+**The router setup is part of the instrument.** All three routing workflows (`route`, `skill-selection` and the Route half of `eval`) take two optional args, and each scorecard records both on its `Run:` line and under `provenance`:
+
+- `agentType` runs the routers on a named subagent type, such as `Explore`, which omits this repo's `AGENTS.md`. Confirm from the transcripts that it worked.
+- `interleave: true` deals prompts across routers instead of cutting contiguous batches. Prompts for one skill sit next to each other in the blind file, so a contiguous batch lets one router move a whole skill's cases, as `c529`, `c531` and `c533` moved on 2026-11-04. Interleaving guarantees that neighbouring prompts never share a router.
+
+Both change what is being measured, so compare figures only between runs that match on both, and on the answer key. An interleaved run lists its ids in the router prompt, which changes the prompt's wording, so it starts a new baseline. Leaving both out keeps every prompt and option byte-identical to earlier runs.
 
 ## The blind / answer-key split (why it is trustworthy)
 
@@ -54,7 +61,7 @@ The second is the question the meta-skills' trigger contracts actually make, and
 
 Three properties make it the right instrument rather than a second copy of the first:
 
-- **The roster is the installed surface.** It comes from `manifest.generated.json` (what an installer loads), not `SKILL.md` frontmatter (what authors write), and each entry is reduced to `name` + `description`, which is all the roster file gives a router about a skill. Passing the enriched fields would quietly turn it back into the framework eval. The default Workflow subagent also receives this repo's `AGENTS.md`, whose skill table an installed user's agent never gets (measured 2026-11-04). Pass `agentType` to run routers without it, and confirm from the transcripts that it worked. Do not compare figures across agent types, because their system prompts differ too. `route.workflow.mjs` has no such option yet, so framework routers always receive it. [The audit record](../../docs/internal/experiments/2026-11-05-eval-router-context-audit.md) lists what each run received.
+- **The roster is the installed surface.** It comes from `manifest.generated.json` (what an installer loads), not `SKILL.md` frontmatter (what authors write), and each entry is reduced to `name` + `description`, which is all the roster file gives a router about a skill. Passing the enriched fields would quietly turn it back into the framework eval. The default Workflow subagent also receives this repo's `AGENTS.md`, whose skill table an installed user's agent never gets (measured 2026-11-04). Pass `agentType` to run routers without it, and confirm from the transcripts that it worked. Do not compare figures across agent types, because their system prompts differ too. `route.workflow.mjs` takes the same option. [The audit record](../../docs/internal/experiments/2026-11-05-eval-router-context-audit.md) lists what each run received.
 - **The persona is an agent choosing a tool**, not "the routing core of an advisor". An advisor persona structurally never selects itself, which would bake in the exact blindness being removed.
 - **Commands are kind-qualified** (`command:<slug>`), so a command pick is a distinct string from a skill pick and strict-equality scoring surfaces interference for free. The one genuine collision - `think-research-framework` ships as both a skill and a command - is normalized, because there the two ids are the same capability.
 

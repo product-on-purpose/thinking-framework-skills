@@ -48,6 +48,34 @@ test('with a run, both scorecards record model, tier and case fingerprints (road
   }
 });
 
+test('a routing scorecard records its router setup, and an output scorecard does not claim one', () => {
+  // AGENTS.md says figures compare only on the same agent type, so a scorecard has to say which ran.
+  const run = { model: 'claude-opus-5-5', modelTier: 'opus', readCases: (slug) => `cases for ${slug}` };
+  const build = (extra) => buildArtifacts({
+    date: '2026-11-06',
+    trigger: { cases: readJson('trigger.cases.json').cases, routedRaw: { ...readJson('trigger.routed.json'), ...extra } },
+    output: { rawResults: readJson('output.results.json') },
+    run,
+  });
+  const part = (arts, suffix) => arts.find((a) => a.path.endsWith(suffix)).content;
+
+  const plain = build({});
+  const plainProv = JSON.parse(part(plain, 'trigger-eval.json')).provenance;
+  assert.equal(plainProv.agentType, 'default');
+  assert.equal(plainProv.batching, 'contiguous');
+  assert.match(part(plain, 'trigger-eval.md').split('\n')[2], / \| routers: `default` agent, contiguous batches$/);
+
+  const typed = build({ agentType: 'Explore', interleave: true });
+  const typedProv = JSON.parse(part(typed, 'trigger-eval.json')).provenance;
+  assert.equal(typedProv.agentType, 'Explore');
+  assert.equal(typedProv.batching, 'interleaved');
+  assert.match(part(typed, 'trigger-eval.md').split('\n')[2], / \| routers: `Explore` agent, interleaved batches$/);
+
+  const output = JSON.parse(part(typed, 'output-eval.json')).provenance;
+  assert.ok(!('agentType' in output), 'the output half ran no routers');
+  assert.ok(!part(typed, 'output-eval.md').includes('routers:'));
+});
+
 test('without a run, the scorecards are byte-identical to before (the goldens stay meaningful)', () => {
   const opts = { date: '2026-06-24', output: { rawResults: readJson('output.results.json') } };
   const json = JSON.parse(buildArtifacts(opts).find((a) => a.path.endsWith('.json')).content);

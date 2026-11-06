@@ -40,6 +40,7 @@ function block(source, opener) {
 const SHARED = [
   ['routePrompt', 'function routePrompt(', () => ROUTE, 'route.workflow.mjs'],
   ['ROUTE_SCHEMA', 'const ROUTE_SCHEMA = {', () => ROUTE, 'route.workflow.mjs'],
+  ['interleavedBatches', 'function interleavedBatches(', () => ROUTE, 'route.workflow.mjs'],
   ['producePrompt', 'function producePrompt(', () => OUTPUT, 'output.workflow.mjs'],
   ['judgePrompt', 'function judgePrompt(', () => OUTPUT, 'output.workflow.mjs'],
   ['PRODUCE_SCHEMA', 'const PRODUCE_SCHEMA = {', () => OUTPUT, 'output.workflow.mjs'],
@@ -57,6 +58,14 @@ for (const [name, opener, origin, originName] of SHARED) {
     );
   });
 }
+
+test('skill-selection.workflow.mjs interleavedBatches is byte-identical to route.workflow.mjs', () => {
+  assert.equal(
+    block(read('skill-selection.workflow.mjs'), 'function interleavedBatches('),
+    block(ROUTE, 'function interleavedBatches('),
+    'the two evals would batch differently under the same option name',
+  );
+});
 
 test('the extractor actually discriminates - a changed word fails', () => {
   // Guards the guard. A comparison that always passes is worse than no comparison, because it
