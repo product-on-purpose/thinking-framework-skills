@@ -3,6 +3,8 @@
 **Date:** 2026-10-20 · **Model:** `claude-opus-5-5` (tier `opus`) · **Instrument:** `scripts/eval/route.workflow.mjs`
 **Status:** answered. The false-fire figure is not an artifact of the leak. The right-alternative figure is partly open-book: the leak probably supplies about three of its answers. This is recorded here rather than under `docs/internal/eval-results/` on purpose, for the same reason as [the 2026-09-11 enrichment A/B](2026-09-11-catalog-enrichment-ab.md): the control arm routes against a corpus the library does not ship, so it must never be read as a scorecard.
 
+**Note added 2026-11-06.** The "with the lines" arm was less exposed to those lines than this record assumes. Only 5 of its 31 routers saw every line, and the median router saw 36%. The conclusion survives, for reasons given in [the clean run record](2026-11-06-clean-router-run.md), but the two arms were less different than the design intended.
+
 ## The question
 
 On 2026-10-14 the trigger eval's anti-case figures were found to be open-book. `gen-recommendable.mjs` copies each skill's "Should NOT trigger" lines from `eval/cases.md`, word for word, into the advisor catalog as that skill's `anti_triggers`. So every anti-case prompt sat in front of the router, filed under the skill it must not pick. The correction is in `scripts/eval/README.md`.
