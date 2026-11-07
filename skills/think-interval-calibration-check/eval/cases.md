@@ -17,7 +17,7 @@
 - "I think our 3 to 5 percent conversion estimate is just wrong - it's anchored on the wrong comparable companies. Fix the number." (the problem is the LOCATION of the estimate, not the width of the uncertainty; relocating an estimate onto the right base rate is `think-reference-class-forecasting`, and building it bottom-up from factors is `think-fermi-estimation`. This method resizes width and never moves the central number.)
 - "What's the population of Portugal, give or take, with a confidence interval?" (lookupable fact with no genuine uncertainty; calibrating an interval around a number you could simply check is theater.)
 - "Generate a second, contrarian estimate of the conversion rate and average it with the first to get a better point estimate." (improving the accuracy of a POINT estimate by self-averaging is `think-dialectical-bootstrapping`; this method never generates a second estimate and never touches the point value.)
-- "List everything we don't know about this market before we commit." (enumerating absent information is the content move `consider-the-unknowns`; this method is content-blind and only asks whether a stated confidence number means what it claims.)
+- "List everything we don't know about this market before we commit." (enumerating absent information is the content move `think-consider-the-unknowns`; this method is content-blind and only asks whether a stated confidence number means what it claims.)
 - "Summarize the free-tier business case for the board." (unrelated.)
 
 ## Output checks (a good output must)

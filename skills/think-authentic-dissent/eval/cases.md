@@ -13,9 +13,9 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "Argue the strongest case against our plan." (near-miss: that is red-team-light, constructed critique - this skill is about getting *authentic* dissent)
+- "Argue the strongest case against our plan." (near-miss: that is think-red-team-light, constructed critique - this skill is about getting *authentic* dissent)
 - "Just play devil's advocate on my idea." (the skill exists partly to say this does not deliver the benefit; it would not perform it as if it did)
-- "I'm working alone with no team - poke holes in my reasoning." (solo, no access to real dissent; route to red-team-light)
+- "I'm working alone with no team - poke holes in my reasoning." (solo, no access to real dissent; route to think-red-team-light)
 - "Run a premortem on the reorg." (risk over time)
 - "Summarize the objections raised in the meeting." (summarization)
 - "Give a balanced multi-lens review of this decision." (parallel-perspectives)

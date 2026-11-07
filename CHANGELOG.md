@@ -14,6 +14,10 @@ All notable changes to this project are documented here. The format is based on 
 
 - **The internal docs say where the private discovery corpus really is (#231).** `docs/internal/research/README.md` said its backup was a branch "on the private origin", but that branch left `origin` on 2026-05-31, before the repo went public. `docs/internal/AUTHORING.md` told authors to read the same branch. The maintainer approved deleting the local branch on 2026-11-06, because a verified git bundle and a plain copy hold all 22 files outside the repo. Both docs now point there and say not to commit the corpus.
 
+### Fixed
+
+- **The answer key lost 25 more correct answers to redirects written without their slug, and the guard meant to catch them is fixed (#233).** `findProseNamedRedirects` searched for a tool's name with spaces, so it passed "(iceberg-model)" with a hyphen. Those cases scored as naming no tool, although the router had picked the named tool on all 25 in every saved run. The guard now matches hyphens, and 26 bullets gained their `think-` slug. On the same routes, framework right-alternatives go from 141/144 to 166/169 and skill-selection from 146/157 to 171/182. Top-1 and false fires do not move, and no router ran. The names were already in the catalog, so this adds nothing open-book. The record is `docs/internal/experiments/2026-11-06-answer-key-redirects.md`, and the trust page says so.
+
 ## [0.20.0] - 2026-11-06
 
 **The trust page corrects what it said about the skill-selection eval, the tiered-description experiment ended negative, and the three vetted wave-4 candidates are admitted to the registry (#196-#229).** No new skills and no governing-tier changes; the catalog stays 56 core + 7 contested. The registry stays at 150 evaluated methods.

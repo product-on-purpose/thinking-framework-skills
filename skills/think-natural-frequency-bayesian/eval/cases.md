@@ -13,7 +13,7 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "How long will the platform rewrite take, given our past projects?" (near-miss: reference-class forecasting / outside view, not a conditional-probability test result)
+- "How long will the platform rewrite take, given our past projects?" (near-miss: think-reference-class-forecasting / outside view, not a conditional-probability test result)
 - "What's our churn rate this quarter?" (a single statistic, no conditional structure)
 - "We don't know the base rate or the model's false-positive rate - just estimate the chance." (no real inputs; the skill must refuse to fabricate)
 - "Forecast next quarter's revenue with a range." (forecasting)

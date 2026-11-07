@@ -73,7 +73,7 @@ export function scoreTrigger(cases, routedRaw, opts = {}) {
       const noFire = top1 !== c.source;
       if (noFire) p.antiNoFire++; else p.fire.push({ id: c.id, got: top1, prompt: c.prompt.slice(0, 72) });
       // `none` here means the bullet names no tool with a think- slug. It does NOT mean that no tool
-      // should fire: bullets read "(decision)" or "(iceberg-model)", and on the 2026-11-04 control a
+      // should fire: bullets read "(decision)" or "(risk over time)", and on the 2026-11-04 control a
       // router picked another tool on 99 of 243 such cases, many of them correct redirects. So these
       // picks are neither right nor wrong, and no figure counts them. They are listed because a list
       // compared between runs shows where a router's choice moved when no figure did (c476, C2-4).

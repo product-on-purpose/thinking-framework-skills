@@ -15,7 +15,7 @@
 
 - "We're about to launch the free tier. Imagine it's six months out and it failed badly - why did it fail and what do we watch for?" (near-miss: think-premortem - works back from *failure* to causes, not from *success* to the path)
 - "If we launch this free tier, what are the second- and third-order knock-on effects over time?" (think-futures-wheel - forward consequences radiating outward, not a goal-first backward route)
-- "I've decided to ship daily code reviews but I keep skipping them. Help me actually follow through." (WOOP - personal intention-action gap, not a route to a future)
+- "I've decided to ship daily code reviews but I keep skipping them. Help me actually follow through." (think-woop - personal intention-action gap, not a route to a future)
 - "Should we even build a self-serve free tier, or double down on sales-led? Help me decide." (the goal is unsettled - decision/option evaluation first; backcasting assumes the endpoint)
 - "I need to rename a staging environment - just a quick config change. What's the next step?" (near-term, trivial plan; forward planning is sufficient)
 - "Write a status update on what the team shipped this sprint." (unrelated)

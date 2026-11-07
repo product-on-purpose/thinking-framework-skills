@@ -149,7 +149,10 @@ export function findProseNamedRedirects(casesMd, sourceSkillName, knownNames) {
       if (name === source) continue;                  // self-mention cannot mislead the key
       const prose = name.replace(/^think-/, '').replace(/-/g, ' ');
       if (prose.length < 7) continue;                 // too short to match as prose without noise
-      if (new RegExp(`\\b${prose.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(why)) {
+      // Match the slug's hyphens as well as spaces: "(iceberg-model)" and "(iceberg model)" are the
+      // same redirect. Searching only the spaced form let 27 bullets through until 2026-11-06.
+      const words = prose.split(' ').map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[- ]');
+      if (new RegExp(`\\b${words}\\b`, 'i').test(why)) {
         out.push({ bullet, named: name, prose });
         break;
       }

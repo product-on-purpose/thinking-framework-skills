@@ -14,8 +14,8 @@
 ## Should NOT trigger (wrong tool / near-miss)
 
 - "We cut churn in half - is our customer base actually growing?" (near-miss: stocks-and-flows - one accumulation, net flow, no loop or polarity)
-- "What are the second- and third-order effects of launching a free tier?" (futures-wheel - acyclic, one-directional consequence tree)
-- "What are the events, patterns, structures, and mental models behind our churn?" (iceberg-model - names feedback as one layer but does not close or sign loops)
+- "What are the second- and third-order effects of launching a free tier?" (think-futures-wheel - acyclic, one-directional consequence tree)
+- "What are the events, patterns, structures, and mental models behind our churn?" (think-iceberg-model - names feedback as one layer but does not close or sign loops)
 - "Walk me through the steps from signing the contract to going live." (a linear/open chain - no feedback; forcing a loop would manufacture false feedback)
 - "Where is the highest-leverage place to intervene in this system?" (leverage points - separate catalog row, out of scope)
 - "Summarize our systems-thinking training for the team." (summarization)

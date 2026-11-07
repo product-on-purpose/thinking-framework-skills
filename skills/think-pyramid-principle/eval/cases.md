@@ -17,7 +17,7 @@
 - "Here's a vendor's case for switching to their platform. Pull it apart and tell me whether the reasoning actually holds and where the weak links are." (near-miss vs think-argument-mapping: analyze an argument for soundness, do not compose one)
 - "Break the question 'why is activation dropping?' into MECE sub-questions so I know what to investigate." (near-miss vs think-issue-tree: decompose the QUESTION for analysis, not structure an ANSWER for a reader)
 - "Run a premortem on the free-tier launch before we commit." (risk tool, not communication)
-- "Compare these three onboarding redesigns on the criteria that matter and recommend one." (decision-option-review: choose among options; the conclusion does not exist yet)
+- "Compare these three onboarding redesigns on the criteria that matter and recommend one." (think-decision-option-review: choose among options; the conclusion does not exist yet)
 - "Proofread this paragraph and fix the grammar." (copyedit, not restructuring around a conclusion)
 
 ## Output checks (a good output must)

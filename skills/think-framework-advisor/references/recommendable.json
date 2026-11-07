@@ -38,7 +38,7 @@
       "caveat_first": false,
       "description": "Produces a clustered theme map that groups many raw notes, observations, quotes, or data points bottom-up into a small set of named, traceable themes (the KJ method). Use when a scattered pile of dozens to hundreds of existing items needs to become a few emergent themes, such as synthesizing user-research notes, support tickets, survey free-text, or retro stickies, and the right structure should emerge from the data rather than be imposed.",
       "anti_triggers": [
-        "\"Break down 'why is free-tier activation low?' into a structured tree of sub-questions to investigate.\" (near-miss: top-down decomposition from a question - that is an issue-tree, not bottom-up clustering of existing items)",
+        "\"Break down 'why is free-tier activation low?' into a structured tree of sub-questions to investigate.\" (near-miss: top-down decomposition from a question - that is an think-issue-tree, not bottom-up clustering of existing items)",
         "\"I need fresh feature ideas for next quarter. Generate a bunch of options for me.\" (near-miss: idea generation - affinity mapping organizes items that already exist, it does not create them; use think-brainwriting first)",
         "\"I have three customer quotes. What do they tell me?\" (too few items - reason about them directly; the clustering ceremony adds overhead without insight)",
         "\"Sort each of these tickets into our fixed severity taxonomy: P0, P1, P2, P3.\" (coding into authoritative predefined buckets, not discovering emergent themes)",
@@ -114,9 +114,9 @@
       "description": "Produces an argument map by laying out a claim's supporting reasons, the co-premises each silently depends on, and the objections against it as an explicit structure, then flags the weakest links and unsupported premises. Use when an argument or recommendation must be evaluated for soundness, or when a fluent case may be hiding a broken inference.",
       "anti_triggers": [
         "\"Is this pitch persuasive enough to win the deal? Make it more convincing.\" (rhetoric/persuasion, not logical structure)",
-        "\"Sort the claims in this memo into evidence vs inference.\" (near-miss: evidence-vs-inference-sort classifies claim type; this maps inferential structure)",
+        "\"Sort the claims in this memo into evidence vs inference.\" (near-miss: think-evidence-vs-inference-sort classifies claim type; this maps inferential structure)",
         "\"Give me three arguments for adopting Postgres.\" (generating arguments, not analyzing one)",
-        "\"Reframe this problem for me before we solve it.\" (problem-restatement)",
+        "\"Reframe this problem for me before we solve it.\" (think-problem-restatement)",
         "\"The claim is just that 2+2=4 - confirm it.\" (no argumentative structure)",
         "\"Summarize this debate into three bullets.\" (summarization)"
       ],
@@ -161,9 +161,9 @@
       "caveat_first": false,
       "description": "Checks whether a decision has genuine minority dissent or only smooth surface consensus, identifies who actually holds a contrary view, and plans how to elicit and protect real dissent, flagging clearly where a view is constructed rather than authentically held. Use when consensus feels too easy, or to set up genuine challenge before a high-stakes call.",
       "anti_triggers": [
-        "\"Argue the strongest case against our plan.\" (near-miss: that is red-team-light, constructed critique - this skill is about getting *authentic* dissent)",
+        "\"Argue the strongest case against our plan.\" (near-miss: that is think-red-team-light, constructed critique - this skill is about getting *authentic* dissent)",
         "\"Just play devil's advocate on my idea.\" (the skill exists partly to say this does not deliver the benefit; it would not perform it as if it did)",
-        "\"I'm working alone with no team - poke holes in my reasoning.\" (solo, no access to real dissent; route to red-team-light)",
+        "\"I'm working alone with no team - poke holes in my reasoning.\" (solo, no access to real dissent; route to think-red-team-light)",
         "\"Run a premortem on the reorg.\" (risk over time)",
         "\"Summarize the objections raised in the meeting.\" (summarization)",
         "\"Give a balanced multi-lens review of this decision.\" (parallel-perspectives)"
@@ -189,7 +189,7 @@
       "anti_triggers": [
         "\"We're about to launch the free tier. Imagine it's six months out and it failed badly - why did it fail and what do we watch for?\" (near-miss: think-premortem - works back from *failure* to causes, not from *success* to the path)",
         "\"If we launch this free tier, what are the second- and third-order knock-on effects over time?\" (think-futures-wheel - forward consequences radiating outward, not a goal-first backward route)",
-        "\"I've decided to ship daily code reviews but I keep skipping them. Help me actually follow through.\" (WOOP - personal intention-action gap, not a route to a future)",
+        "\"I've decided to ship daily code reviews but I keep skipping them. Help me actually follow through.\" (think-woop - personal intention-action gap, not a route to a future)",
         "\"Should we even build a self-serve free tier, or double down on sales-led? Help me decide.\" (the goal is unsettled - decision/option evaluation first; backcasting assumes the endpoint)",
         "\"I need to rename a staging environment - just a quick config change. What's the next step?\" (near-term, trivial plan; forward planning is sufficient)",
         "\"Write a status update on what the team shipped this sprint.\" (unrelated)"
@@ -328,8 +328,8 @@
       "description": "Builds a signed causal loop diagram by closing the feedback loops in a situation, labeling each loop reinforcing (R) or balancing (B) with its link polarities, and reading likely dynamics (spiral, goal-seeking, or oscillation) off which loop dominates. Use when a situation feeds back on itself - growth that funds more growth, a fix that recreates its own problem, capacity that relieves then re-attracts demand - and you need to see why it keeps accelerating, stalling, or overshooting. Not for a single accumulation, a one-directional consequence tree, or a genuinely linear chain.",
       "anti_triggers": [
         "\"We cut churn in half - is our customer base actually growing?\" (near-miss: stocks-and-flows - one accumulation, net flow, no loop or polarity)",
-        "\"What are the second- and third-order effects of launching a free tier?\" (futures-wheel - acyclic, one-directional consequence tree)",
-        "\"What are the events, patterns, structures, and mental models behind our churn?\" (iceberg-model - names feedback as one layer but does not close or sign loops)",
+        "\"What are the second- and third-order effects of launching a free tier?\" (think-futures-wheel - acyclic, one-directional consequence tree)",
+        "\"What are the events, patterns, structures, and mental models behind our churn?\" (think-iceberg-model - names feedback as one layer but does not close or sign loops)",
         "\"Walk me through the steps from signing the contract to going live.\" (a linear/open chain - no feedback; forcing a loop would manufacture false feedback)",
         "\"Where is the highest-leverage place to intervene in this system?\" (leverage points - separate catalog row, out of scope)",
         "\"Summarize our systems-thinking training for the team.\" (summarization)"
@@ -384,10 +384,10 @@
       "caveat_first": false,
       "description": "Builds a concept map - a non-hierarchical network of concept nodes joined by directed, labeled linking phrases so each node-link-node reads as an explicit proposition, with cross-links across clusters - then surfaces gaps, missing links, and questionable propositions. Use when a domain has many interrelated concepts and the goal is to externalize and inspect how they relate, forcing every relationship to be named rather than left as a vague association.",
       "anti_triggers": [
-        "\"Is the argument for launching the free tier sound? Find the weak inference.\" (near-miss: argument-mapping - judging soundness of one claim, which a concept map cannot do)",
-        "\"Break 'why is churn rising?' into a MECE set of sub-questions.\" (issue-tree - top-down decomposition)",
-        "\"Cluster these 200 user-research notes into themes.\" (affinity-mapping - bottom-up clustering, no named relationships)",
-        "\"Why does this problem keep recurring - take it down to root structures and mental models.\" (iceberg-model - fixed causal levels)",
+        "\"Is the argument for launching the free tier sound? Find the weak inference.\" (near-miss: think-argument-mapping - judging soundness of one claim, which a concept map cannot do)",
+        "\"Break 'why is churn rising?' into a MECE set of sub-questions.\" (think-issue-tree - top-down decomposition)",
+        "\"Cluster these 200 user-research notes into themes.\" (think-affinity-mapping - bottom-up clustering, no named relationships)",
+        "\"Why does this problem keep recurring - take it down to root structures and mental models.\" (think-iceberg-model - fixed causal levels)",
         "\"Make me a quick mind map to brainstorm free-tier ideas.\" (excluded Buzan mind-mapping - unlabeled branches; not in this library)",
         "\"Summarize how our product works for the board.\" (summarization)"
       ],
@@ -698,7 +698,7 @@
         "\"Generate a broad set of ideas from several independent angles.\" (think-brainwriting; not specifically distant-analogy)",
         "\"Pick the best of these five growth options.\" (decision)",
         "\"There's a standard, obvious fix for this - just apply it.\" (near solution exists; far analogy is overkill)",
-        "\"Reframe what problem we're actually solving.\" (problem-restatement)",
+        "\"Reframe what problem we're actually solving.\" (think-problem-restatement)",
         "\"Summarize these analogies into a paragraph.\" (summarization)"
       ],
       "not_use": [
@@ -823,8 +823,8 @@
       "caveat_first": false,
       "description": "Produces an iceberg that moves a problem down four levels of causation - from the visible event, to the pattern over time, to the underlying structures, to the mental models that hold them in place - pairing each level with the intervention it implies to find systemic causes and higher-leverage fixes. Use when a problem keeps recurring despite event-level fixes, when a symptom is being treated as a one-off, or when the question is why this keeps happening and where to actually intervene.",
       "anti_triggers": [
-        "\"We're about to launch a self-serve free tier. Map the knock-on effects over time - if we ship it, then what happens next across the business?\" (near-miss vs futures-wheel: maps forward/outward to consequences, not downward to causes)",
-        "\"My PM concluded the feature failed because users hate it. Walk back how she got from the data to that conclusion and test an alternative reading.\" (near-miss vs ladder-of-inference-check: one person's data-to-conclusion reasoning, not systemic levels of causation)",
+        "\"We're about to launch a self-serve free tier. Map the knock-on effects over time - if we ship it, then what happens next across the business?\" (near-miss vs think-futures-wheel: maps forward/outward to consequences, not downward to causes)",
+        "\"My PM concluded the feature failed because users hate it. Walk back how she got from the data to that conclusion and test an alternative reading.\" (near-miss vs think-ladder-of-inference-check: one person's data-to-conclusion reasoning, not systemic levels of causation)",
         "\"The deploy failed because the cert expired at midnight. Renew it and we're done.\" (simple, linear, single cause - no iceberg needed)",
         "\"Brainstorm names for our new free tier.\" (ideation, not causal analysis)",
         "\"Summarize this 10-page incident report into a paragraph.\" (summarization)",
@@ -880,7 +880,7 @@
         "\"I think our 3 to 5 percent conversion estimate is just wrong - it's anchored on the wrong comparable companies. Fix the number.\" (the problem is the LOCATION of the estimate, not the width of the uncertainty; relocating an estimate onto the right base rate is `think-reference-class-forecasting`, and building it bottom-up from factors is `think-fermi-estimation`. This method resizes width and never moves the central number.)",
         "\"What's the population of Portugal, give or take, with a confidence interval?\" (lookupable fact with no genuine uncertainty; calibrating an interval around a number you could simply check is theater.)",
         "\"Generate a second, contrarian estimate of the conversion rate and average it with the first to get a better point estimate.\" (improving the accuracy of a POINT estimate by self-averaging is `think-dialectical-bootstrapping`; this method never generates a second estimate and never touches the point value.)",
-        "\"List everything we don't know about this market before we commit.\" (enumerating absent information is the content move `consider-the-unknowns`; this method is content-blind and only asks whether a stated confidence number means what it claims.)",
+        "\"List everything we don't know about this market before we commit.\" (enumerating absent information is the content move `think-consider-the-unknowns`; this method is content-blind and only asks whether a stated confidence number means what it claims.)",
         "\"Summarize the free-tier business case for the board.\" (unrelated.)"
       ],
       "not_use": [
@@ -907,8 +907,8 @@
       "caveat_first": false,
       "description": "Produces an issue tree that decomposes one big, ambiguous question top-down into a mutually-exclusive, collectively-exhaustive (MECE) set of smaller sub-questions, branch by branch, until the leaves are small enough to answer with data or judgment. Use when a question is too broad or multi-cause to answer as posed (for example \"why is churn rising?\", \"where is margin leaking?\", \"should we launch a free tier?\"), when analysis work must be split into non-overlapping parts, or when coverage matters and missing a whole category would be costly. Not for evaluating a given argument's soundness (use argument-mapping) or clustering existing notes (use affinity-mapping).",
       "anti_triggers": [
-        "\"Here's the team's recommendation to build the integration in-house. Walk through whether the argument actually holds up.\" (near-miss: evaluating a given argument's soundness, not decomposing a question - use argument-mapping)",
-        "\"We ran 40 user interviews and have a pile of sticky notes. Help me group them into themes.\" (bottom-up clustering of existing notes - use affinity-mapping)",
+        "\"Here's the team's recommendation to build the integration in-house. Walk through whether the argument actually holds up.\" (near-miss: evaluating a given argument's soundness, not decomposing a question - use think-argument-mapping)",
+        "\"We ran 40 user interviews and have a pile of sticky notes. Help me group them into themes.\" (bottom-up clustering of existing notes - use think-affinity-mapping)",
         "\"Should I merge this branch now or wait an hour? Quick gut check.\" (simple, one-step question; a tree is false rigor)",
         "\"Rename the 'why churn is rising' doc to something punchier.\" (trivial wording task, no decomposition)",
         "\"The free-tier launch shipped and went badly. Help me run a postmortem on what happened.\" (after-the-fact analysis of a known outcome, not decomposing an open question)",
@@ -958,12 +958,12 @@
       "caveat_first": false,
       "description": "Builds a simple mechanical scoring model - a few weighted predictive cues combined by a fixed formula and applied consistently - for a repeated predictive judgment, because consistent simple rules reliably match or beat holistic expert intuition. Use when the same kind of evaluative judgment recurs (screening candidates, scoring leads, triaging) and gut calls are inconsistent or overconfident.",
       "anti_triggers": [
-        "\"We have three vendors and need to pick one this week.\" (near-miss: a one-off choice -> decision-option-review, not a repeated-judgment scoring model)",
+        "\"We have three vendors and need to pick one this week.\" (near-miss: a one-off choice -> think-decision-option-review, not a repeated-judgment scoring model)",
         "\"Should we enter the European market?\" (a unique strategic decision)",
         "\"We have no data on what predicts a good lead - just estimate the odds.\" (no real cues; the skill must refuse to fabricate)",
         "\"Score this one candidate for me.\" (a single instance, not a recurring rule)",
         "\"Brainstorm what makes a good lead.\" (ideation)",
-        "\"Given a positive lead-score flag, what's the real chance it converts?\" (natural-frequency-bayesian)"
+        "\"Given a positive lead-score flag, what's the real chance it converts?\" (think-natural-frequency-bayesian)"
       ],
       "not_use": [
         "A genuinely one-off decision among a few options (use `decision-option-review`).",
@@ -1046,7 +1046,7 @@
       "caveat_first": false,
       "description": "Converts a conditional-probability or base-rate question into natural frequencies over a concrete population (for example 9 of 1000) to compute the correct posterior and expose base-rate neglect, and refuses to proceed without real input rates. Use when interpreting a test result, screening signal, or any \"given a positive, what is the real probability\" question.",
       "anti_triggers": [
-        "\"How long will the platform rewrite take, given our past projects?\" (near-miss: reference-class forecasting / outside view, not a conditional-probability test result)",
+        "\"How long will the platform rewrite take, given our past projects?\" (near-miss: think-reference-class-forecasting / outside view, not a conditional-probability test result)",
         "\"What's our churn rate this quarter?\" (a single statistic, no conditional structure)",
         "\"We don't know the base rate or the model's false-positive rate - just estimate the chance.\" (no real inputs; the skill must refuse to fabricate)",
         "\"Forecast next quarter's revenue with a range.\" (forecasting)",
@@ -1234,7 +1234,7 @@
         "\"Here's a vendor's case for switching to their platform. Pull it apart and tell me whether the reasoning actually holds and where the weak links are.\" (near-miss vs think-argument-mapping: analyze an argument for soundness, do not compose one)",
         "\"Break the question 'why is activation dropping?' into MECE sub-questions so I know what to investigate.\" (near-miss vs think-issue-tree: decompose the QUESTION for analysis, not structure an ANSWER for a reader)",
         "\"Run a premortem on the free-tier launch before we commit.\" (risk tool, not communication)",
-        "\"Compare these three onboarding redesigns on the criteria that matter and recommend one.\" (decision-option-review: choose among options; the conclusion does not exist yet)",
+        "\"Compare these three onboarding redesigns on the criteria that matter and recommend one.\" (think-decision-option-review: choose among options; the conclusion does not exist yet)",
         "\"Proofread this paragraph and fix the grammar.\" (copyedit, not restructuring around a conclusion)"
       ],
       "not_use": [
@@ -1498,11 +1498,11 @@
       "caveat_first": false,
       "description": "Produces a stock-flow map by separating a quantity that accumulates from the inflows and outflows that change it, then reasoning about the stock's trajectory from the net flow rather than the direction of any single flow. Use when a problem involves an accumulation (cash, debt, backlog, headcount, customer base, technical debt, emissions) and intuition about whether it is rising or falling may be wrong.",
       "anti_triggers": [
-        "\"What are the second- and third-order effects of launching a free tier?\" (near-miss: futures-wheel, forward consequences, not accumulation dynamics)",
-        "\"Why does our conversion keep dropping? Map the systemic causes.\" (iceberg-model)",
+        "\"What are the second- and third-order effects of launching a free tier?\" (near-miss: think-futures-wheel, forward consequences, not accumulation dynamics)",
+        "\"Why does our conversion keep dropping? Map the systemic causes.\" (think-iceberg-model)",
         "\"What's our gross margin this quarter?\" (a ratio/snapshot, no accumulation)",
         "\"Should we launch the free tier or fix the funnel?\" (decision)",
-        "\"Forecast next year's revenue with a range.\" (reference-class-forecasting)",
+        "\"Forecast next year's revenue with a range.\" (think-reference-class-forecasting)",
         "\"Summarize our financials for the board.\" (summarization)"
       ],
       "not_use": [

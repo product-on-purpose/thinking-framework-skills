@@ -13,10 +13,10 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "Is the argument for launching the free tier sound? Find the weak inference." (near-miss: argument-mapping - judging soundness of one claim, which a concept map cannot do)
-- "Break 'why is churn rising?' into a MECE set of sub-questions." (issue-tree - top-down decomposition)
-- "Cluster these 200 user-research notes into themes." (affinity-mapping - bottom-up clustering, no named relationships)
-- "Why does this problem keep recurring - take it down to root structures and mental models." (iceberg-model - fixed causal levels)
+- "Is the argument for launching the free tier sound? Find the weak inference." (near-miss: think-argument-mapping - judging soundness of one claim, which a concept map cannot do)
+- "Break 'why is churn rising?' into a MECE set of sub-questions." (think-issue-tree - top-down decomposition)
+- "Cluster these 200 user-research notes into themes." (think-affinity-mapping - bottom-up clustering, no named relationships)
+- "Why does this problem keep recurring - take it down to root structures and mental models." (think-iceberg-model - fixed causal levels)
 - "Make me a quick mind map to brainstorm free-tier ideas." (excluded Buzan mind-mapping - unlabeled branches; not in this library)
 - "Summarize how our product works for the board." (summarization)
 
