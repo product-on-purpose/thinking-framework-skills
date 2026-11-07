@@ -17,7 +17,7 @@
 - "Generate a broad set of ideas from several independent angles." (think-brainwriting; not specifically distant-analogy)
 - "Pick the best of these five growth options." (decision)
 - "There's a standard, obvious fix for this - just apply it." (near solution exists; far analogy is overkill)
-- "Reframe what problem we're actually solving." (problem-restatement)
+- "Reframe what problem we're actually solving." (think-problem-restatement)
 - "Summarize these analogies into a paragraph." (summarization)
 
 ## Output checks (a good output must)

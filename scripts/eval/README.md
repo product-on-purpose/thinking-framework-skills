@@ -10,7 +10,7 @@ For each skill, `eval/cases.md` carries "Should trigger" prompts (the right answ
 
 - **trigger case** (expected = the authoring skill): pass if the router's top1 pick is that skill (soft variant: it appears in top3).
 - **anti case naming an alternative**: pass if top1 is that named alternative (routed to the right other skill).
-- **anti case with no named alternative** (expected `none`): pass if top1 is *not* the authoring skill (it correctly did not over-grab a wrong-tool situation). `none` records that the bullet names no tool with a `think-` slug. It does not mean that no tool should fire. Bullets read "(decision)" or "(iceberg-model)", so a pick of another tool is neither right nor wrong. The scorecard lists those picks, because comparing the list between two runs shows where a router's choice moved when no figure did.
+- **anti case with no named alternative** (expected `none`): pass if top1 is *not* the authoring skill (it correctly did not over-grab a wrong-tool situation). `none` records that the bullet names no tool with a `think-` slug. It does not mean that no tool should fire. Bullets read "(decision)" or "(risk over time)", so a pick of another tool is neither right nor wrong. The scorecard lists those picks, because comparing the list between two runs shows where a router's choice moved when no figure did.
 
 The number measures the **catalog's discriminability** - whether the skill descriptions + anti-triggers route correctly - which is exactly what the advisor depends on.
 

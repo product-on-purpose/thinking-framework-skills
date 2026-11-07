@@ -13,8 +13,8 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "Here's the team's recommendation to build the integration in-house. Walk through whether the argument actually holds up." (near-miss: evaluating a given argument's soundness, not decomposing a question - use argument-mapping)
-- "We ran 40 user interviews and have a pile of sticky notes. Help me group them into themes." (bottom-up clustering of existing notes - use affinity-mapping)
+- "Here's the team's recommendation to build the integration in-house. Walk through whether the argument actually holds up." (near-miss: evaluating a given argument's soundness, not decomposing a question - use think-argument-mapping)
+- "We ran 40 user interviews and have a pile of sticky notes. Help me group them into themes." (bottom-up clustering of existing notes - use think-affinity-mapping)
 - "Should I merge this branch now or wait an hour? Quick gut check." (simple, one-step question; a tree is false rigor)
 - "Rename the 'why churn is rising' doc to something punchier." (trivial wording task, no decomposition)
 - "The free-tier launch shipped and went badly. Help me run a postmortem on what happened." (after-the-fact analysis of a known outcome, not decomposing an open question)

@@ -194,6 +194,18 @@ test("findProseNamedRedirects: a multi-word method name in prose is caught too",
   assert.deepEqual(hits.map((h) => h.named), ["think-process-tracing"]);
 });
 
+test("findProseNamedRedirects: a hyphenated name without think- is caught too", () => {
+  // 27 bullets passed the guard this way, because it only searched the spaced form. On the
+  // 2026-11-04 control the router picked the named tool on 26 of them.
+  const hits = findProseNamedRedirects(
+    casesDoc(['- "Break this question into sub-questions." (issue-tree - top-down decomposition)']),
+    "think-concept-mapping",
+    KNOWN,
+  );
+  assert.equal(hits.length, 1);
+  assert.equal(hits[0].named, "think-issue-tree");
+});
+
 test("findProseNamedRedirects: writing the slug clears it - that is the fix", () => {
   assert.deepEqual(
     findProseNamedRedirects(

@@ -13,8 +13,8 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "We're about to launch a self-serve free tier. Map the knock-on effects over time - if we ship it, then what happens next across the business?" (near-miss vs futures-wheel: maps forward/outward to consequences, not downward to causes)
-- "My PM concluded the feature failed because users hate it. Walk back how she got from the data to that conclusion and test an alternative reading." (near-miss vs ladder-of-inference-check: one person's data-to-conclusion reasoning, not systemic levels of causation)
+- "We're about to launch a self-serve free tier. Map the knock-on effects over time - if we ship it, then what happens next across the business?" (near-miss vs think-futures-wheel: maps forward/outward to consequences, not downward to causes)
+- "My PM concluded the feature failed because users hate it. Walk back how she got from the data to that conclusion and test an alternative reading." (near-miss vs think-ladder-of-inference-check: one person's data-to-conclusion reasoning, not systemic levels of causation)
 - "The deploy failed because the cert expired at midnight. Renew it and we're done." (simple, linear, single cause - no iceberg needed)
 - "Brainstorm names for our new free tier." (ideation, not causal analysis)
 - "Summarize this 10-page incident report into a paragraph." (summarization)

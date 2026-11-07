@@ -13,11 +13,11 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "What are the second- and third-order effects of launching a free tier?" (near-miss: futures-wheel, forward consequences, not accumulation dynamics)
-- "Why does our conversion keep dropping? Map the systemic causes." (iceberg-model)
+- "What are the second- and third-order effects of launching a free tier?" (near-miss: think-futures-wheel, forward consequences, not accumulation dynamics)
+- "Why does our conversion keep dropping? Map the systemic causes." (think-iceberg-model)
 - "What's our gross margin this quarter?" (a ratio/snapshot, no accumulation)
 - "Should we launch the free tier or fix the funnel?" (decision)
-- "Forecast next year's revenue with a range." (reference-class-forecasting)
+- "Forecast next year's revenue with a range." (think-reference-class-forecasting)
 - "Summarize our financials for the board." (summarization)
 
 ## Output checks (a good output must)

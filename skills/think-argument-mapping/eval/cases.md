@@ -14,9 +14,9 @@
 ## Should NOT trigger (wrong tool / near-miss)
 
 - "Is this pitch persuasive enough to win the deal? Make it more convincing." (rhetoric/persuasion, not logical structure)
-- "Sort the claims in this memo into evidence vs inference." (near-miss: evidence-vs-inference-sort classifies claim type; this maps inferential structure)
+- "Sort the claims in this memo into evidence vs inference." (near-miss: think-evidence-vs-inference-sort classifies claim type; this maps inferential structure)
 - "Give me three arguments for adopting Postgres." (generating arguments, not analyzing one)
-- "Reframe this problem for me before we solve it." (problem-restatement)
+- "Reframe this problem for me before we solve it." (think-problem-restatement)
 - "The claim is just that 2+2=4 - confirm it." (no argumentative structure)
 - "Summarize this debate into three bullets." (summarization)
 

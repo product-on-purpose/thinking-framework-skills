@@ -2,6 +2,8 @@
 
 Run: 2026-10-20 | model: `claude-opus-5-5` (tier `opus`) | cases: `a6ae837f1b50` (fingerprint of 67 skills' eval/cases.md)
 
+> **Correction (2026-11-06).** This scorecard's figures are on the answer key in force that day. A later correction found 25 anti cases that named a tool without its `think-` slug. On the corrected key, these same routes score 171/182 on right-alternatives instead of 146/157, and no other figure moves. See `docs/internal/experiments/2026-11-06-answer-key-redirects.md`.
+
 Cases: 793 (393 trigger, 400 anti; 157 of the anti cases name a specific alternative) across 67 skills. Unrouted: 0.
 
 ## What this scorecard measures (and what it does not)

@@ -13,12 +13,12 @@
 
 ## Should NOT trigger (wrong tool / near-miss)
 
-- "We have three vendors and need to pick one this week." (near-miss: a one-off choice -> decision-option-review, not a repeated-judgment scoring model)
+- "We have three vendors and need to pick one this week." (near-miss: a one-off choice -> think-decision-option-review, not a repeated-judgment scoring model)
 - "Should we enter the European market?" (a unique strategic decision)
 - "We have no data on what predicts a good lead - just estimate the odds." (no real cues; the skill must refuse to fabricate)
 - "Score this one candidate for me." (a single instance, not a recurring rule)
 - "Brainstorm what makes a good lead." (ideation)
-- "Given a positive lead-score flag, what's the real chance it converts?" (natural-frequency-bayesian)
+- "Given a positive lead-score flag, what's the real chance it converts?" (think-natural-frequency-bayesian)
 
 ## Output checks (a good output must)
 
