@@ -29,6 +29,12 @@
 //   interleave : optional. true deals prompts across routers instead of cutting contiguous batches,
 //                and is returned in the result. This changes the router prompt's wording, so a run
 //                with it is a different instrument from one without, and the two do not compare.
+//   wholeRead  : optional, default true. The router prompt tells routers to read both files whole,
+//                because a default Read returns 25,000 tokens and the blind file is larger. The
+//                framework catalog was the file most routers cut short (2026-11-06,
+//                docs/internal/experiments/2026-11-06-clean-router-run.md).
+//                The result carries reading: "whole-file". Pass false only to reproduce a run from
+//                before 2026-11-07; it restores the old wording and omits the field.
 //
 // WHAT THE ROUTERS SEE (measured 2026-11-04, roadmap C2-4): the roster shows name + description
 // only, but the default Workflow subagent also receives the project's AGENTS.md, whose skill
@@ -80,7 +86,8 @@ const count = A.count
 const batchSize = A.batchSize || 25
 const agentType = A.agentType
 const interleave = A.interleave === true
-if (!blindPath || !rosterPath || !count) throw new Error('skill-selection.workflow.mjs requires args { model, blindPath, rosterPath, count, batchSize?, agentType?, interleave? }')
+const wholeRead = A.wholeRead !== false
+if (!blindPath || !rosterPath || !count) throw new Error('skill-selection.workflow.mjs requires args { model, blindPath, rosterPath, count, batchSize?, agentType?, interleave?, wholeRead? }')
 
 // The model every eval agent below runs on (roadmap C2-1). Required, so a run's model is a
 // deliberate choice rather than whatever the session inherits, and returned as modelTier so
@@ -111,9 +118,12 @@ const SELECT_SCHEMA = {
 function selectPrompt(startN, endN, ids) {
   const scope = ids ? `one of ${ids.map((n) => `c${n}`).join(', ')}` : `c${startN} through c${endN} inclusive`
   const cover = ids ? 'listed above' : `in c${startN}..c${endN}`
+  const readLine = wholeRead
+    ? 'Read these two files whole, using the Read tool. Either may be larger than one default Read returns, so pass `allow_large: true`, and if a result says it stopped early, keep reading with `offset` until you reach the end. Do not use a search such as Grep, Glob or a shell command in place of reading a file. Route nothing until you have read both files in full:'
+    : 'Read these two files (use the Read tool):'
   return `You are an AI agent with a library of thinking-framework tools installed. For each user prompt below, decide which SINGLE installed tool you would invoke to handle it - or decline when none of them is the right response.
 
-Read these two files (use the Read tool):
+${readLine}
 - ${rosterPath} - the tools installed, as a JSON array of {id, kind, description}. This is the whole of what you know about each tool: its id and its description.
 - ${blindPath} - a JSON array of {id, prompt} user situations.
 
@@ -167,4 +177,4 @@ for (let g = 0; g < groups.length; g++) {
 
 const routes = parts.flat()
 log(`Selection complete: ${routes.length}/${count} situations selected.`)
-return { modelTier, ...(agentType ? { agentType } : {}), ...(interleave ? { interleave } : {}), count, routed: routes.length, routes }
+return { modelTier, ...(agentType ? { agentType } : {}), ...(interleave ? { interleave } : {}), ...(wholeRead ? { reading: 'whole-file' } : {}), count, routed: routes.length, routes }

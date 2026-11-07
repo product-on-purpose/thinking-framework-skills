@@ -28,6 +28,7 @@
 //   agentType  : optional subagent type for the ROUTERS only, as in route.workflow.mjs. The producers
 //                and judges keep the default subagent, because they need its full tools.
 //   interleave : optional, routers only, as in route.workflow.mjs.
+//   wholeRead  : optional, default true, routers only, as in route.workflow.mjs.
 //
 // THE PROMPTS BELOW ARE COPIES, AND THAT IS A HAZARD THIS FILE OWNS.
 //
@@ -63,8 +64,9 @@ const casesPath = A.casesPath
 const skills = A.skills || []
 const agentType = A.agentType
 const interleave = A.interleave === true
+const wholeRead = A.wholeRead !== false
 if (!blindPath || !count || !casesPath || !skills.length) {
-  throw new Error('eval.workflow.mjs requires args { model, blindPath, count, casesPath, skills:[...], batchSize?, corpusPath?, agentType?, interleave? }')
+  throw new Error('eval.workflow.mjs requires args { model, blindPath, count, casesPath, skills:[...], batchSize?, corpusPath?, agentType?, interleave?, wholeRead? }')
 }
 
 // The model every eval agent below runs on (roadmap C2-1). Required, so a run's model is a
@@ -109,9 +111,12 @@ const JUDGE_SCHEMA = {
 function routePrompt(startN, endN, ids) {
   const scope = ids ? `one of ${ids.map((n) => `c${n}`).join(', ')}` : `c${startN} through c${endN} inclusive`
   const cover = ids ? 'listed above' : `in c${startN}..c${endN}`
+  const readLine = wholeRead
+    ? 'Read these two files whole, using the Read tool. Either may be larger than one default Read returns, so pass `allow_large: true`, and if a result says it stopped early, keep reading with `offset` until you reach the end. Do not use a search such as Grep, Glob or a shell command in place of reading a file. Route nothing until you have read both files in full:'
+    : 'Read these two files (use the Read tool):'
   return `You are the routing core of a thinking-framework advisor: given a user's situation, you name the SINGLE framework whose mechanism most directly addresses it - or decline when none fits.
 
-Read these two files (use the Read tool):
+${readLine}
 - ${blindPath} - a JSON array of {id, prompt} situations.
 - ${corpusPath} - the catalog of frameworks. Each entry has a \`name\` and a \`description\`; some entries also carry \`anti_triggers\`, \`not_use\` and \`overlaps\`. Judge on whatever fields are present and do not assume a field exists. The framework SLUG is its \`name\` with the \`think-\` prefix removed (e.g. name "think-premortem" -> slug "premortem").
 
@@ -220,6 +225,7 @@ return {
   modelTier,
   ...(agentType ? { agentType } : {}),
   ...(interleave ? { interleave } : {}),
+  ...(wholeRead ? { reading: 'whole-file' } : {}),
   count,
   routed: routes.length,
   corpusPath,

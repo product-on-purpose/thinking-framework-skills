@@ -37,6 +37,11 @@
 //   interleave : optional. true deals prompts across routers instead of cutting contiguous batches,
 //                and is returned in the result. This changes the router prompt's wording, so a run
 //                with it is a different instrument from one without, and the two do not compare.
+//   wholeRead  : optional, default true. The router prompt tells routers to read both files whole,
+//                because a default Read returns 25,000 tokens and the catalog and blind file are
+//                both larger (2026-11-06, docs/internal/experiments/2026-11-06-clean-router-run.md).
+//                The result carries reading: "whole-file". Pass false only to reproduce a run from
+//                before 2026-11-07; it restores the old wording and omits the field.
 //
 // WHAT THE ROUTERS SEE (measured 2026-11-05, docs/internal/experiments/2026-11-05-eval-router-context-audit.md):
 // these routers run as the default Workflow subagent, so they also receive the project's AGENTS.md
@@ -65,7 +70,8 @@ const batchSize = A.batchSize || 25
 const corpusPath = A.corpusPath || 'skills/think-framework-advisor/references/recommendable.json'
 const agentType = A.agentType
 const interleave = A.interleave === true
-if (!blindPath || !count) throw new Error('route.workflow.mjs requires args { model, blindPath, count, batchSize?, corpusPath?, agentType?, interleave? }')
+const wholeRead = A.wholeRead !== false
+if (!blindPath || !count) throw new Error('route.workflow.mjs requires args { model, blindPath, count, batchSize?, corpusPath?, agentType?, interleave?, wholeRead? }')
 
 // The model every eval agent below runs on (roadmap C2-1). Required, so a run's model is a
 // deliberate choice rather than whatever the session inherits, and returned as modelTier so
@@ -96,9 +102,12 @@ const ROUTE_SCHEMA = {
 function routePrompt(startN, endN, ids) {
   const scope = ids ? `one of ${ids.map((n) => `c${n}`).join(', ')}` : `c${startN} through c${endN} inclusive`
   const cover = ids ? 'listed above' : `in c${startN}..c${endN}`
+  const readLine = wholeRead
+    ? 'Read these two files whole, using the Read tool. Either may be larger than one default Read returns, so pass `allow_large: true`, and if a result says it stopped early, keep reading with `offset` until you reach the end. Do not use a search such as Grep, Glob or a shell command in place of reading a file. Route nothing until you have read both files in full:'
+    : 'Read these two files (use the Read tool):'
   return `You are the routing core of a thinking-framework advisor: given a user's situation, you name the SINGLE framework whose mechanism most directly addresses it - or decline when none fits.
 
-Read these two files (use the Read tool):
+${readLine}
 - ${blindPath} - a JSON array of {id, prompt} situations.
 - ${corpusPath} - the catalog of frameworks. Each entry has a \`name\` and a \`description\`; some entries also carry \`anti_triggers\`, \`not_use\` and \`overlaps\`. Judge on whatever fields are present and do not assume a field exists. The framework SLUG is its \`name\` with the \`think-\` prefix removed (e.g. name "think-premortem" -> slug "premortem").
 
@@ -147,4 +156,4 @@ for (let g = 0; g < groups.length; g++) {
 
 const routes = parts.flat()
 log(`Routing complete: ${routes.length}/${count} situations routed.`)
-return { modelTier, ...(agentType ? { agentType } : {}), ...(interleave ? { interleave } : {}), count, routed: routes.length, corpusPath, routes }
+return { modelTier, ...(agentType ? { agentType } : {}), ...(interleave ? { interleave } : {}), ...(wholeRead ? { reading: 'whole-file' } : {}), count, routed: routes.length, corpusPath, routes }
