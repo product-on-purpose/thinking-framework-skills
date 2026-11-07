@@ -80,11 +80,15 @@ export function runProvenance({ model, modelTier, readCases }, slugs) {
  * How a routing run's agents were set up, from what the workflow returned. Figures compare only on
  * the same agent type (2026-11-04: Explore and the default subagent have different system prompts),
  * and an interleaved run words its router prompt differently, so a scorecard has to say which it was.
+ * From 2026-11-07 the router prompt tells routers to read both files whole, and the workflow returns
+ * reading: "whole-file". A run without the field used the older prompt, so the field is recorded
+ * only when present, and older scorecards and goldens stay byte-identical.
  */
 export function routerProvenance(routedRaw) {
   return {
     agentType: routedRaw?.agentType || 'default',
     batching: routedRaw?.interleave ? 'interleaved' : 'contiguous',
+    ...(routedRaw?.reading ? { reading: routedRaw.reading } : {}),
   };
 }
 
@@ -92,7 +96,8 @@ export function routerProvenance(routedRaw) {
 export function withRunLine(md, date, prov) {
   const n = Object.keys(prov.skillCasesSha || {}).length;
   const whose = n === 1 ? "1 skill's" : `${n} skills'`;
-  const routers = prov.agentType ? ` | routers: \`${prov.agentType}\` agent, ${prov.batching} batches` : '';
+  const reads = prov.reading ? `, ${prov.reading} reads` : '';
+  const routers = prov.agentType ? ` | routers: \`${prov.agentType}\` agent, ${prov.batching} batches${reads}` : '';
   const line = `Run: ${date} | model: \`${prov.model}\` (tier \`${prov.modelTier}\`) | cases: \`${prov.casesSha}\` (fingerprint of ${whose} eval/cases.md)${routers}`;
   const i = md.indexOf('\n\n');
   return i === -1 ? `${md}\n\n${line}\n` : `${md.slice(0, i)}\n\n${line}${md.slice(i)}`;

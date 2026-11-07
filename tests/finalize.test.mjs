@@ -70,6 +70,11 @@ test('a routing scorecard records its router setup, and an output scorecard does
   assert.equal(typedProv.agentType, 'Explore');
   assert.equal(typedProv.batching, 'interleaved');
   assert.match(part(typed, 'trigger-eval.md').split('\n')[2], / \| routers: `Explore` agent, interleaved batches$/);
+  assert.ok(!('reading' in typedProv), 'a run from before the whole-read prompt records no reading');
+
+  const whole = build({ agentType: 'Explore', interleave: true, reading: 'whole-file' });
+  assert.equal(JSON.parse(part(whole, 'trigger-eval.json')).provenance.reading, 'whole-file');
+  assert.match(part(whole, 'trigger-eval.md').split('\n')[2], / \| routers: `Explore` agent, interleaved batches, whole-file reads$/);
 
   const output = JSON.parse(part(typed, 'output-eval.json')).provenance;
   assert.ok(!('agentType' in output), 'the output half ran no routers');

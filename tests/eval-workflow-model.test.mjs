@@ -120,6 +120,26 @@ for (const [file, prefix] of Object.entries(ROUTING)) {
     assert.equal('interleave' in result, false);
   });
 
+  // 2026-11-06: a default Read returns 25,000 tokens, so most routers saw part of the catalog.
+  // The prompt now asks for whole reads, and wholeRead: false restores the older instrument.
+  test(`${file} tells routers to read both files whole, and records it, unless wholeRead is false`, async () => {
+    const whole = await runWorkflow(file);
+    for (const c of routers(whole.calls)) {
+      assert.match(c.prompt, /Read these two files whole, using the Read tool\./);
+      assert.match(c.prompt, /pass `allow_large: true`/);
+      assert.match(c.prompt, /keep reading with `offset` until you reach the end/);
+      assert.match(c.prompt, /Do not use a search such as Grep, Glob or a shell command in place of reading a file\./);
+    }
+    assert.equal(whole.result.reading, 'whole-file');
+
+    const old = await runWorkflow(file, { wholeRead: false });
+    for (const c of routers(old.calls)) {
+      assert.match(c.prompt, /\n\nRead these two files \(use the Read tool\):\n- /);
+      assert.doesNotMatch(c.prompt, /allow_large/);
+    }
+    assert.equal('reading' in old.result, false);
+  });
+
   test(`${file} interleave covers every id exactly once and never batches neighbours`, async () => {
     const count = 794;
     const batchSize = 25;
