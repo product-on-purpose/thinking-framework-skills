@@ -21,6 +21,8 @@ The number measures the **catalog's discriminability** - whether the skill descr
 
 Both change what is being measured, so compare figures only between runs that match on both, and on the answer key. An interleaved run lists its ids in the router prompt, which changes the prompt's wording, so it starts a new baseline. Leaving both out keeps every prompt and option byte-identical to earlier runs.
 
+**What a router read is part of the instrument too.** The catalog is 67,121 tokens and `Read` returns 25,000 by default, so a router must choose to read the rest, and many do not. Before trusting a run, check what reached its routers rather than what they were asked to read. Probe text unique to the source: an anti-trigger line's opening is its prompt, which is also in the blind file, so only its parenthetical tail proves that the catalog was read. [The 2026-11-06 record](../../docs/internal/experiments/2026-11-06-clean-router-run.md) has the method and the figures.
+
 ## The blind / answer-key split (why it is trustworthy)
 
 The router agents never see which skill authored a case or what the expected answer is. They only route `prompt -> best-fit framework` against the catalog, exactly as the live advisor would. The deterministic scorer (`score.mjs`) holds the answer key and grades afterward. This removes the failure mode where an agent "defends" the skill under test, and means the score reflects the catalog, not an agent agreeing with itself.

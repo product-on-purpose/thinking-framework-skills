@@ -12,6 +12,7 @@ All notable changes to this project are documented here. The format is based on 
 
 ### Changed
 
+- **The trust page corrects what it implied about the routers' exposure to the copied test lines.** It said every anti-case prompt was in front of the router. Each was in the file the router was given, but only 5 of 31 routers on the 2026-10-20 run saw every line, and the median router saw 36%. The closed-book figures do not depend on this. A clean run with a Sonnet arm found it, and [its record](docs/internal/experiments/2026-11-06-clean-router-run.md) has the method. No scorecard came from that run.
 - **The internal docs say where the private discovery corpus really is (#231).** `docs/internal/research/README.md` said its backup was a branch "on the private origin", but that branch left `origin` on 2026-05-31, before the repo went public. `docs/internal/AUTHORING.md` told authors to read the same branch. The maintainer approved deleting the local branch on 2026-11-06, because a verified git bundle and a plain copy hold all 22 files outside the repo. Both docs now point there and say not to commit the corpus.
 
 ### Fixed
