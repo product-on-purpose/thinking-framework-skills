@@ -462,13 +462,13 @@ Two Gold checks are **not applicable** here, and the library says so rather than
 
 ## 📊 Project status
 
-`v0.20.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
+`v0.21.0` - **public and growing.** The library grows additively, and evidence grades are refreshed as the research does. User-facing highlights live in [`RELEASE-NOTES.md`](RELEASE-NOTES.md); the full technical history is in [`CHANGELOG.md`](CHANGELOG.md).
 
 ### At a glance
 
 |  |  |
 |---|---|
-| **Current version** | [v0.20.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.20.0) |
+| **Current version** | [v0.21.0](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.21.0) |
 | **Frameworks** | 63, across 12 cognitive-operation families (56 core + 7 contested lenses) |
 | **Tools** | 4 meta-skills (a router, two applicators, the research engine) |
 | **Recipes** | 9 (skill chains shipped as workflow components), each runnable as a slash command |
@@ -522,6 +522,7 @@ Full detail in [`CHANGELOG.md`](CHANGELOG.md); curated highlights in [`RELEASE-N
 
 | Version | Highlights |
 |---|---|
+| [**0.21.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.21.0) | Minor. Eval routers are told to read the whole catalog, and framework routing has a new baseline on that prompt: 376/376, 0 false fires, 165/169. A same-day Sonnet arm also had 0 false fires. The answer key gains 26 slugs, and the trust page is more precise. No governing-tier changes; catalog stays 56 core + 7 contested. |
 | [**0.20.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.20.0) | Minor. The trust page corrects three claims about the skill-selection eval after a router context audit. The tiered-description experiment ended negative. Two more skills hand set-aside material to a fresh context, and three vetted wave-4 candidates are admitted to the registry with dossier pages. Registry stays at 150 methods. No governing-tier changes; catalog stays 56 core + 7 contested. |
 | [**0.19.0**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.19.0) | Minor. Standard 0.17, graded in CI with agent-skills-toolkit v1.22.0. Fourteen skills change under the wave-4 decisions, six of them gaining an optional step. New Opus 5.5 eval baseline; registry at 150 methods. No governing-tier changes; catalog stays 56 core + 7 contested. |
 | [**0.18.6**](https://github.com/product-on-purpose/thinking-framework-skills/releases/tag/v0.18.6) | Patch. The last two deferred source checks resolved: the issue-tree page drops an unsourced omission claim and the pyramid-principle page reports mixed comprehension evidence. The premortem's confidence effect is graded M in all six places that stated it, including the installed skill. Confirm-note baseline 2 to 0. No governing-tier changes; catalog stays 56 core + 7 contested. |
