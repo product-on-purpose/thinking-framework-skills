@@ -49,7 +49,7 @@ relationships:
   variants: []
 
 quality:
-  trigger_eval_status: measured-2026-10-20
+  trigger_eval_status: measured-2026-11-07
   output_eval_status: measured-2026-10-20
   known_failure_modes:
     - using it for a genuine one-off decision

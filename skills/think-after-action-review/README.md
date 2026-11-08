@@ -9,7 +9,7 @@ The think-after-action-review skill (family: meta-thinking-and-reflection, evide
 ## Inventory
 
 - `SKILL.md` - the skill definition: frontmatter (name, description, evidence-tier, family) plus the review procedure.
-- `eval/` - `cases.md`, the "should trigger" / "should not trigger" eval cases the behavioral trigger eval and the advisor's anti-triggers are built from; trigger eval: `measured-2026-10-20`, output eval: `measured-2026-10-20` (skill.meta.yml `quality`).
+- `eval/` - `cases.md`, the "should trigger" / "should not trigger" eval cases the behavioral trigger eval and the advisor's anti-triggers are built from; trigger eval: `measured-2026-11-07`, output eval: `measured-2026-10-20` (skill.meta.yml `quality`).
 - `evidence/` - `dossier.md`, the evidence dossier this skill's frontmatter `evidence-tier` and description are a hand-authored summary of.
 - `references/` - `TEMPLATE.md` (the after-action-review artifact shape) and `EXAMPLE.md` (a worked example of this skill's output).
 - `skill.meta.yml` - the rich lifecycle sidecar: classification, interface, relationships to sibling skills, and measured eval status.

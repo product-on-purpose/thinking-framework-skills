@@ -9,7 +9,7 @@ The think-consider-the-unknowns skill (family: assumption-and-belief-challenge, 
 ## Inventory
 
 - `SKILL.md` - the skill definition: frontmatter (name, description, evidence-tier, family) plus the known-unknowns-ledger procedure.
-- `eval/` - `cases.md`, the "should trigger" / "should not trigger" eval cases the behavioral trigger eval and the advisor's anti-triggers are built from; trigger eval: `measured-2026-10-20`, output eval: `measured-2026-10-20` (skill.meta.yml `quality`).
+- `eval/` - `cases.md`, the "should trigger" / "should not trigger" eval cases the behavioral trigger eval and the advisor's anti-triggers are built from; trigger eval: `measured-2026-11-07`, output eval: `measured-2026-10-20` (skill.meta.yml `quality`).
 - `evidence/` - `dossier.md`, the evidence dossier this skill's frontmatter `evidence-tier` and description are a hand-authored summary of.
 - `references/` - `TEMPLATE.md` (the known-unknowns-ledger artifact shape) and `EXAMPLE.md` (a worked example of this skill's output).
 - `skill.meta.yml` - the rich lifecycle sidecar: classification, interface, relationships to sibling skills, and measured eval status.
