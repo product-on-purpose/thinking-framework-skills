@@ -2,6 +2,22 @@
 
 Curated, user-facing highlights per release. For the full technical history, see [`CHANGELOG.md`](CHANGELOG.md). For everything in the library, browse the [live docs site](https://thinking-framework-skills.productonpurpose.com/).
 
+## v0.21.0
+
+**The routing eval now makes sure its agents read the whole catalog, and its figures held when they did.** No new frameworks and no changes to any skill's overall evidence grade; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
+
+### For everyone
+
+- **A new routing baseline.** The catalog is larger than one default file read, and most eval agents used to read only part of it. They are now told to read it all, and in the 2026-11-07 run every one did. Routing scored 376 of 376 with no false fires on 379 cases where no framework should fire. The trust page explains why this starts a new baseline rather than extends the old one.
+- **A cheaper model holds up once it reads everything.** A same-day run on Sonnet also had no false fires. On the day before, when most of its agents read part of the catalog, it had six.
+- **The trust page is more precise.** Its paragraph on a moved false-fire count now gives the likely cause, a near-tie, and labels it as an inference. It also says how much of each file the eval agents really read.
+- **The installed catalog fixes 26 answer-key entries.** Some "use this instead" notes named a tool without its exact id, so the eval scored correct answers as wrong. Routing for users does not change.
+
+### For builders and contributors
+
+- **The routing workflows take `agentType` and `interleave`, and require whole-file reads by default.** Each new scorecard records all three on its `Run:` line. `wholeRead: false` reproduces an older run byte for byte.
+- **Scorecards list other-tool picks** on anti cases that name no alternative, without calling them wrong.
+
 ## v0.20.0
 
 **The trust page now says what the evals can and cannot show, and an experiment to shorten skill descriptions ended without shipping.** No new frameworks and no changes to any skill's overall evidence grade; the catalog stays 56 evidence-graded core skills plus 7 contested lenses.
