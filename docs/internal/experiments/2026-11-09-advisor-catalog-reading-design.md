@@ -1,6 +1,6 @@
 # How the live advisor reads its catalog: measurement design (D3)
 
-**Status: design, written 2026-11-09, amended after the smoke test the same day (see "Amendment after the smoke test"). The main run had not started when the amendment was committed.** This file fixes the question, the sample, the measures and the decision rule before any run, so the decision cannot move to fit the data. The maintainer approves the design, the spend and the two setup choices under "What the maintainer decides" before step 1 of the run order.
+**Status: design, written 2026-11-09, amended after the smoke test the same day (see "Amendment after the smoke test"). The main run had not started when the amendment was committed. Run the same day: see [the result](2026-11-09-advisor-catalog-reading-result.md).** This file fixes the question, the sample, the measures and the decision rule before any run, so the decision cannot move to fit the data. The maintainer approves the design, the spend and the two setup choices under "What the maintainer decides" before step 1 of the run order.
 
 **Prompted by:** decision 3 in [the clean router run](2026-11-06-clean-router-run.md), which the maintainer decided on 2026-11-07: measure how the live `think-framework-advisor` reads `references/recommendable.json` before changing anything. The backlog entry dated 2026-11-07 holds the same item.
 
