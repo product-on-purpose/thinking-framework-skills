@@ -80,11 +80,14 @@ The full prompts are in `_local/advisor-read-probe/2026-11-09/sample.json`, and 
 **The run uses the real skill-loading path, not a Workflow subagent told to read `SKILL.md`.** Each prompt runs as one headless Claude Code session:
 
 ```
-claude -p "<invocation> <prompt>" --plugin-dir <v0.21.0 export> --model claude-opus-5-5 \
-  --setting-sources project,local --output-format stream-json --verbose --max-budget-usd 5
+claude -p "<invocation> <prompt>" --plugin-dir <v0.21.0 export> --add-dir <v0.21.0 export> \
+  --allowedTools "Read Grep Glob Bash" --model claude-opus-5-5 \
+  --setting-sources project,local --output-format stream-json --verbose --max-budget-usd 8
 ```
 
 - **The plugin is an export of tag `v0.21.0`** (`git archive`), loaded with `--plugin-dir` for that session only. The marketplace pins the same commit, and nothing is installed into the maintainer's configuration.
+- **Every reading route a live user would approve stays open, so the agent's own choice of route is what gets measured.** A headless session has no one to approve a tool call, and the export sits outside the session's working folder. Without `--add-dir` and the allowlist, the run could deny `Read` on the catalog or deny the shell, and force a route the live advisor does not have. Both September agents reached the catalog through the shell, so the shell must stay available. `Write` and `Edit` are not granted, because the advisor's deliverable is its reply.
+- **The allowlist replaces `bypassPermissions` on purpose.** Leaving out user settings also leaves out the maintainer's guard hook against destructive commands, so the session gets only the four read and shell tools it needs.
 - **Each session starts in an empty folder outside any repository**, `E:/tmp/tfs-d3/run/`. So no `AGENTS.md` loads. The repository's `AGENTS.md` lists all 63 skills, so a session that received it would see every name without reading the catalog, and that would hide exactly what this run measures.
 - **`--setting-sources project,local` leaves out the maintainer's user settings,** so user hooks, the output style and other plugins do not load. Whether `~/.claude/CLAUDE.md` still loads is checked in the smoke test. If it does, the run records that as a known difference from a fresh user. Those instructions name no skill, so they cannot leak a name.
 - **`--bare` is not used.** It would remove the user instructions too, but it authenticates only through `ANTHROPIC_API_KEY`, not the subscription login.
@@ -103,11 +106,12 @@ claude -p "<invocation> <prompt>" --plugin-dir <v0.21.0 export> --model claude-o
 
 **Outcome, per session.** A script reads the Thinking Plan and classifies the expected skill. A name in "what NOT to use" does not count as a recommendation.
 
-- **Recommended:** the expected skill is named in a plan step. The run also records whether it is Step 1.
+- **Recommended:** the expected skill is named in a plan step. The run also records whether it is Step 1. A direct handoff that names the skill also counts, because the skill tells the advisor to route a user who already names the move straight to that skill. The five named contested prompts will often produce a handoff.
 - **Neighbor:** the plan names other skills but not the expected one.
 - **Plain language:** the plan describes a step without naming any skill for it.
 - **Zero or asked:** the plan recommends no framework, or the session asked a clarifying question.
 - **Invented name:** any recommended name that is not in `recommendable.json`. This is a name-safety failure, counted on its own.
+- **Capped:** the budget cap ended the session before it produced a plan. Such a session counts toward reading coverage up to the cut and is excluded from the outcome figures. The record reports every capped session, because the cap could bias the result: reading the whole catalog costs more, so a cap that cuts off thorough readers would flatter partial reading. The $8 cap is about 3.5 times the highest September session.
 
 The expected skill is the case's own skill, because these are its trigger cases. A neighbor pick is not automatically wrong, and the record reports each neighbor pick with its name. **The finding is the cross-tabulation of the two:** whether the expected skill was missed more often when its entry never reached the agent.
 
@@ -118,7 +122,7 @@ A "miss while unseen" is a catalog-only session where the expected skill's descr
 | Result | What it means | What follows |
 |---|---|---|
 | 3 or more misses while unseen, across the 26 catalog-only sessions | Partial reading costs recommendations | A fix is warranted. The record names the mechanism behind each miss: the cap, the shortlist, or both |
-| Every session saw all 63 names, the expected description reached at least 24 of 26 catalog-only sessions, and there was at most 1 miss while unseen | The advisor reads enough as written | No change. The record says so, and the backlog item closes |
+| The expected description reached at least 24 of 26 catalog-only sessions, and there was at most 1 miss while unseen | The advisor reads enough as written | No change. The record says so, and the backlog item closes. Name coverage is reported but does not decide, because an agent can find the right entry without listing all 63 names |
 | Anything between those two | A weak signal | The record reports it, and the maintainer decides |
 | Any invented name, in any stratum | Name safety failed | Reported separately, whatever the reading result |
 | A control misses its expected skill in 2 or more of 5 sessions | Something other than reading is wrong | The reading result is not interpreted until that is understood |
@@ -135,12 +139,12 @@ A "miss while unseen" is a catalog-only session where the expected skill's descr
 | Main run, Opus 5.5 | 31 | 50 to 85 million, mostly cache reads | about $50 to $70 |
 | Optional Sonnet 5.5 arm, same 31 prompts | 31 | similar | about $30 to $45 |
 
-These are estimates from two transcripts (medium confidence). The `--max-budget-usd 5` flag caps each session, so the main run cannot exceed $155 even if every session runs long.
+These are estimates from two transcripts (medium confidence). The `--max-budget-usd 8` flag caps each session, so the main run cannot exceed $248 even if every session runs long.
 
 ## Run order
 
 1. **The maintainer approves this design, the spend and the two choices below.** Nothing runs before this.
-2. **Smoke test, 2 sessions:** one late prompt and one control. It must confirm that the `--plugin-dir` skill is invocable, that transcripts hold full `tool_result` bodies, what context loaded on the first turn, and that the probe scripts read the new transcript format. A smoke-test failure stops the run and comes back to the maintainer.
+2. **Smoke test, 2 sessions:** one late prompt and one control. It must confirm that the `--plugin-dir` skill is invocable, that transcripts hold full `tool_result` bodies, what context loaded on the first turn, that no read or shell call on the catalog was denied, and that the probe scripts read the new transcript format. A smoke-test failure stops the run and comes back to the maintainer.
 3. **Main run:** the 31 sessions, at most 4 at a time, from a runner script under `_local/advisor-read-probe/`.
 4. **Probe and score** with the scripts above, then check by hand every session the scripts classify as a miss while unseen.
 5. **Write the result** as `docs/internal/experiments/<date>-advisor-catalog-reading-result.md`, apply the decision rule as written, and update the backlog entry.
