@@ -1,6 +1,6 @@
 # How the live advisor reads its catalog: measurement design (D3)
 
-**Status: design, written 2026-11-09. Nothing has run.** This file fixes the question, the sample, the measures and the decision rule before any run, so the decision cannot move to fit the data. The maintainer approves the design, the spend and the two setup choices under "What the maintainer decides" before step 1 of the run order.
+**Status: design, written 2026-11-09, amended after the smoke test the same day (see "Amendment after the smoke test"). The main run had not started when the amendment was committed.** This file fixes the question, the sample, the measures and the decision rule before any run, so the decision cannot move to fit the data. The maintainer approves the design, the spend and the two setup choices under "What the maintainer decides" before step 1 of the run order.
 
 **Prompted by:** decision 3 in [the clean router run](2026-11-06-clean-router-run.md), which the maintainer decided on 2026-11-07: measure how the live `think-framework-advisor` reads `references/recommendable.json` before changing anything. The backlog entry dated 2026-11-07 holds the same item.
 
@@ -26,6 +26,18 @@ Two advisor runs from September are still on disk. They are the `framework-advis
 The second agent chose its shortlist before it had seen the catalog. Every name on that list appears in the Engine 1 table in `SKILL.md`, so 31 skills could never have been recommended in that run. On that prompt the omission cost nothing, because the right answers were all in the table.
 
 **So the risk has two mechanisms, not one (medium confidence, inferred from two runs).** The first is the `Read` cap that the 2026-11-06 record found. The second is shortlisting from the `SKILL.md` table and never looking past it. Both runs are prior evidence of the mechanism. They are not a measurement of the live advisor, because the eval's produce prompt, the agent type and the model all differ from live use.
+
+## Amendment after the smoke test, 2026-11-09, before the main run
+
+The maintainer approved the design and the run on 2026-11-09. The smoke test ran two sessions, `theory-of-constraints` and `premortem`, and passed its four checks: the skill loaded through the plugin, transcripts held full tool results, no catalog read was denied, and no user or project instructions loaded. It also showed that the design missed a channel. This amendment was committed before the first main-run session started.
+
+**An installed plugin lists every skill name in the session from the first turn (high confidence).** Claude Code puts its list of available skills in the session's context, and that list includes all 67 of this library's skills. The `theory-of-constraints` session searched the catalog for `theory-of-constraints` in its first search, before any catalog text had reached it. The September transcripts above had no installed plugin, so the shortlist mechanism they showed was partly an artifact of the eval setup. A live advisor cannot be unaware of a name.
+
+**The list is capped, so many skills appear by name only (medium confidence).** A Haiku session with the same flags reported that 56 of the 91 listed entries carry a description and 35 show the name only. The name-only entries start at `think-interest-based-negotiation` and run alphabetically to the end. That count came from the model reading its own context, not from a file. Within the sample, 15 of the 21 late skills, none of the 5 early skills and 3 of the 5 controls are name-only. `interval-calibration-check` is counted as name-only because it falls inside that alphabetical run, though the Haiku session did not list it.
+
+**The one change: a description counts as seen when it reached the agent through either channel,** the skill list or a tool result. A "miss while unseen" is therefore a catalog-only session where the expected skill's description reached the agent through neither channel and the plan did not recommend that skill. The thresholds, the strata and the sample do not change. The record also reports, for every miss, which channel carried the expected skill's name and description.
+
+**The measured cost is far lower than the estimate.** Each smoke session cost about $0.40 and took under 90 seconds, because the real skill loading delivers `SKILL.md` and both agents searched the catalog instead of reading it whole. The 31 sessions should cost about $13, not $50 to $70.
 
 ## Why the sample is built this way
 
