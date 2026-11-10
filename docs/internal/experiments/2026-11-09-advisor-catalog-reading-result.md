@@ -14,7 +14,7 @@
 | Model | `claude-opus-5-5`, Claude Code 2.1.321 |
 | Plugin | `git archive` of tag `v0.21.0`, loaded with `--plugin-dir` |
 | Setup | Empty working folder, user settings left out, `Read Grep Glob Bash` allowlist, $8 cap per session |
-| Cost | $11.61 in total, $0.24 to $0.60 per session |
+| Cost | $11.61 in total, $0.24 to $0.60 per session, from Claude Code's own `total_cost_usd` figure rather than the list-price method the design used for its estimate |
 
 A Haiku session with the same flags reported no user instructions, no project instructions and no `AGENTS.md`. Every session's first record lists the library plugin at version 0.21.0. No tool call was denied.
 
@@ -73,6 +73,7 @@ The scorer classifies by finding names in the plan text, so every session was ch
 
 - **Each prompt ran once.** A different run could move a case or two.
 - **The prompts are each skill's own trigger cases,** written to point at that skill. Real situations are messier, so the 30 of 31 is likely an upper bound on live accuracy.
+- **Recommending from a name alone works only when the model already knows the method.** The three sessions that did so carry familiar method names: theory of constraints, scenario planning and morphological analysis. A skill with an unfamiliar name would not get that help (medium confidence, inferred).
 - **The session had only this plugin installed.** The skill list is capped, and a user with many plugins could see fewer descriptions for this library. Whether names are ever dropped from the list was not tested.
 - **The count of described and name-only entries came from a Haiku session reading its own context,** not from a file. `interval-calibration-check` was classified by the alphabetical cutoff.
 - **Coverage shows what reached the agent, not what it weighed.**
