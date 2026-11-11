@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-09, local time. The session records stamp 2026-11-10 in UTC.
 **Design:** [the D3 design](2026-11-09-advisor-catalog-reading-design.md), including its amendment after the smoke test, committed as `3a1479a` before the main run started.
-**Status:** measured. The pre-registered rule places the result in the middle band, so the maintainer decides. The recommendation below is no change.
+**Status:** closed. The pre-registered rule placed the result in the middle band, so the maintainer decided. **Decided 2026-11-11 by the maintainer: no change, and the D3 item is closed.**
 
 **The live advisor recommended the expected skill in 30 of 31 sessions, including 25 of the 26 whose skill only the catalog names.** No session invented a name, no session hit its budget cap, and no miss happened while the expected skill's description was unseen. The one miss was a judgment call made with the description in view. The 31 sessions cost $11.61.
 
@@ -61,6 +61,8 @@ No control missed its expected skill. All 5 made it Step 1, so the reading resul
 ## Recommendation for the maintainer
 
 **Make no change to `SKILL.md` or the catalog, and close the D3 item (medium confidence).** The outcome that matters for users held in 30 of 31 sessions, and the one miss was a reasoned tier preference. A reading instruction would add text to a skill that already works. If the maintainer wants insurance anyway, the cheapest option is still one sentence pointing the advisor at `references/recommendable.md`, re-measured on these same 31 prompts for about $12.
+
+**Decided 2026-11-11 by the maintainer:** no change, and no pointer. The backlog keeps one watch item: a run with several plugins installed, which is the limit below most likely to matter in live use.
 
 ## Scoring corrections made by hand
 
