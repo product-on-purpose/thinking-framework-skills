@@ -25,6 +25,15 @@ Both change what is being measured, so compare figures only between runs that ma
 
 Asking is still not reading. Before trusting a run, check what reached its routers rather than what they were asked to read. Probe text unique to the source: an anti-trigger line's opening is its prompt, which is also in the blind file, so only its parenthetical tail proves that the catalog was read. [The 2026-11-06 record](../../docs/internal/experiments/2026-11-06-clean-router-run.md) has the method and the figures.
 
+`coverage-probe.mjs` applies that method to any run's transcripts. It is a maintainer tool, not a gate layer:
+
+    npm run eval:coverage -- --blind <blind.json> <workflow transcript folder>
+    npm run eval:coverage -- --catalog <the run's recommendable.json> <transcript.jsonl> [...]
+
+For each agent it counts the catalog names, description openings and anti-trigger tails that reached it through tool results, and, given the blind file, the assigned prompts that reached it with their ids. It prints how many agents saw everything, the lowest and median shares, the tool calls by kind and the models. `--json <out.json>` writes the per-agent rows. With a blind file, an agent assigned no ids is left out, because it is not a router. Pass `--catalog` with the catalog the run used: the default is today's file, and an older run may have read a different one.
+
+It counts tool results only. An installed plugin's skill list reaches an agent in its session context instead, so a headless advisor session can know every skill name that this tool reports as unseen. [The D3 record](../../docs/internal/experiments/2026-11-09-advisor-catalog-reading-result.md) found exactly that. It reproduces the 2026-11-06 and 2026-11-07 coverage figures, and on 2026-11-06 it flags router `a6332e08`'s 12 prompts, which that record checked by hand and found seen.
+
 ## The blind / answer-key split (why it is trustworthy)
 
 The router agents never see which skill authored a case or what the expected answer is. They only route `prompt -> best-fit framework` against the catalog, exactly as the live advisor would. The deterministic scorer (`score.mjs`) holds the answer key and grades afterward. This removes the failure mode where an agent "defends" the skill under test, and means the score reflects the catalog, not an agent agreeing with itself.

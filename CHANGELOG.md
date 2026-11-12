@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format is based on 
 
 ## [Unreleased]
 
+### Added
+
+- **A tool that shows what catalog text reached each eval agent.** `scripts/eval/coverage-probe.mjs`, run as `npm run eval:coverage`, reads a run's transcripts and counts, per agent, the catalog names, description openings and anti-trigger tails that reached it through tool results, plus its assigned prompts when given the blind file. It implements the method of the 2026-11-06 clean router run record, and it reproduces the coverage figures of the 2026-11-06 and 2026-11-07 runs. It is a maintainer tool, not a gate layer. Tests: `tests/coverage-probe.test.mjs`, whose first two cases are the probe's two first-pass errors from 2026-11-06.
+
 ## [0.21.0] - 2026-11-07
 
 **Eval routers now read the whole catalog, and framework routing has a new baseline on that prompt (#231-#237).** No new skills and no governing-tier changes; the catalog stays 56 core + 7 contested. The registry stays at 150 evaluated methods.

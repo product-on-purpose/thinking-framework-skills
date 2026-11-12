@@ -102,7 +102,7 @@ The comparison flatters Sonnet, because its routers mostly read less. Its router
 
 ## Method and limits
 
-The probes are maintainer scripts in `_local/eval-rerun/2026-11-06/`, which is gitignored, so the method is written out here.
+The probes were maintainer scripts in `_local/eval-rerun/2026-11-06/`, which is gitignored, so the method is written out here. Since 2026-11-11, `scripts/eval/coverage-probe.mjs` implements it as a tested tool, and it reproduces this record's coverage table for both arms.
 
 - **What counts as seen.** A router saw something when that thing's own text reached it in a `tool_result`, in any format. Only `user` and `assistant` records count, because `api-request-blob` records replay the same content.
 - **Descriptions.** The probe is each entry's first 40 characters.
