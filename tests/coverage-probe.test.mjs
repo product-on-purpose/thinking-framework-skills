@@ -56,7 +56,11 @@ test('text the agent wrote itself, such as a Grep pattern, is not seen', () => {
 
 test('records other than user and assistant are ignored, so a replayed request does not count', () => {
   const blob = JSON.stringify({ type: 'api-request-blob', message: { content: [{ type: 'tool_result', content: 'Imagine the project has already failed, then work backwards' }] } });
-  assert.equal(coverage(readTranscript(blob).seen, probes).descriptions.seen, 0);
+  const t = readTranscript(blob);
+  assert.equal(coverage(t.seen, probes).descriptions.seen, 0);
+  // A file holding only such records, like a runner's log, reports zero records and is not a transcript.
+  assert.equal(t.records, 0);
+  assert.equal(readTranscript(toolResult('x')).records, 1);
 });
 
 test('a description matches in its JSON-escaped form as well as raw', () => {

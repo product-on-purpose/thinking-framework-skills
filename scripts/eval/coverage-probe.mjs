@@ -89,6 +89,7 @@ export function readTranscript(raw) {
   let seen = '';
   let userText = '';
   let firstTimestamp = null;
+  let records = 0;
   const tools = {};
   const models = new Set();
   for (const line of String(raw).split('\n')) {
@@ -96,6 +97,7 @@ export function readTranscript(raw) {
     let rec;
     try { rec = JSON.parse(line); } catch { continue; }
     if (rec.type !== 'user' && rec.type !== 'assistant') continue;
+    records += 1;
     firstTimestamp ??= rec.timestamp ?? null;
     const m = rec.message;
     if (rec.type === 'assistant' && m?.model && !m.model.startsWith('<')) models.add(m.model);
@@ -113,7 +115,7 @@ export function readTranscript(raw) {
       if (p.type === 'tool_result') seen += `\n${textOf(p.content)}`;
     }
   }
-  return { seen, tools, models: [...models], userText, firstTimestamp };
+  return { records, seen, tools, models: [...models], userText, firstTimestamp };
 }
 
 /** The ids a router prompt assigns: "one of c1, c5, c9" or "c1 through c9". Null when the prompt names none. */
@@ -203,10 +205,13 @@ if (process.argv[1] && samePath(resolve(process.argv[1]), fileURLToPath(import.m
   const blindRows = blindPath ? JSON.parse(readFileSync(resolve(blindPath), 'utf8')) : null;
   const promptById = blindRows ? new Map((Array.isArray(blindRows) ? blindRows : blindRows.cases || []).map((r) => [r.id, r.prompt])) : null;
   // With a blind file, an agent whose messages assign no ids is not a router, so it is left out.
+  // A file with no user or assistant records, such as a runner's own log, is not a transcript.
   const rows = [];
   const skipped = [];
+  const notTranscripts = [];
   for (const file of transcriptFiles(argv)) {
     const t = readTranscript(readFileSync(file, 'utf8'));
+    if (!t.records) { notTranscripts.push(basename(file)); continue; }
     const ids = promptById ? assignedIds(t.userText) : null;
     if (promptById && !ids) { skipped.push(basename(file)); continue; }
     rows.push({ file: basename(file), date: t.firstTimestamp?.slice(0, 10) ?? null, models: t.models, tools: t.tools, coverage: coverage(t.seen, probes, { ids, promptById }) });
@@ -221,7 +226,8 @@ if (process.argv[1] && samePath(resolve(process.argv[1]), fileURLToPath(import.m
   const tools = {};
   for (const r of rows) for (const [k, n] of Object.entries(r.tools)) tools[k] = (tools[k] || 0) + n;
   console.log(`  tool calls: ${JSON.stringify(tools)}`);
+  if (notTranscripts.length) console.log(`  left out ${notTranscripts.length} file(s) with no user or assistant records, which are not transcripts: ${notTranscripts.join(', ')}`);
   if (skipped.length) console.log(`  left out ${skipped.length} agent(s) whose messages assign no ids:${skipped.join(', ')}`);
   for (const r of rows.filter((x) => x.coverage.prompts?.missing.length)) console.log(`  ${r.file}: ${r.coverage.prompts.missing.length} assigned prompt(s) not seen with their ids: ${r.coverage.prompts.missing.join(', ')}`);
-  if (jsonOut) writeFileSync(resolve(jsonOut), JSON.stringify({ catalog: catalogPath, summary: s, skipped, rows }, null, 1));
+  if (jsonOut) writeFileSync(resolve(jsonOut), JSON.stringify({ catalog: catalogPath, summary: s, skipped, notTranscripts, rows }, null, 1));
 }
